@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-	<title>Trimps 4.41</title>
+	<title>脆皮 4.41</title>
 	<meta name="description" content="Trimps">
 	<meta name="author" content="Brownprobe">
 	<link rel="stylesheet" href="css/bootstrap.css">
@@ -189,7 +189,7 @@
 				<div class="row resourceRow">
 					<div class="col-xs-6 maxH">
 						<div id="food" class="playerGather">
-							<span class="title">Food</span>
+							<span class="title">食物</span>
 							<br/>
 							<span class="ownedArea bdHover" onclick="getMaxResources('Food')"><span id="foodOwned">0</span> / <span id="foodMax"></span></span>
 							<br/>
@@ -200,7 +200,7 @@
 							</div>
 							<div class="row collectRow">
 								<div class="col-xs-6">
-									<div id="foodCollectBtn" class="workBtn workColorOff pointer noselect" onclick="setGather('food')">Gather</div>
+									<div id="foodCollectBtn" class="workBtn workColorOff pointer noselect" onclick="setGather('food')">采集</div>
 								</div>
 								<div class="col-xs-6">
 									<span class="psText sizeSecRegular pointer noselect" id="foodPs" onclick="getPsString('food')">+0/sec</span>
@@ -211,7 +211,7 @@
 
 					<div class="col-xs-6 maxH">
 						<div id="wood" class="playerGather" style="visibility: hidden;">
-							<span class="title">Wood</span>
+							<span class="title">木头</span>
 							<br/>
 							<span class="ownedArea bdHover" onclick="getMaxResources('Wood')"><span id="woodOwned">0</span> / <span id="woodMax"></span></span>
 							<br/>
@@ -235,7 +235,7 @@
 				<div class="row resourceRow">
 					<div class="col-xs-6 maxH">
 						<div id="metal" class="playerGather" style="visibility: hidden;">
-							<span class="title">Metal</span>
+							<span class="title">金属</span>
 							<br/>
 							<span class="ownedArea bdHover" onclick="getMaxResources('Metal')"><span id="metalOwned">0</span> / <span id="metalMax"></span></span>
 							<br/>
@@ -256,7 +256,7 @@
 					</div>
 					<div class="col-xs-6 maxH">
 						<div id="science" class="playerGather" style="visibility: hidden;">
-							<span class="title">Science</span>
+							<span class="title">科学</span>
 							<br/>
 							<span class="ownedArea"><span id="scienceOwned">0</span></span>
 							<br/>
@@ -274,21 +274,21 @@
 			</div>
 			<div class="col-xs-1" id="miscColumn">
 				<div id="fragments" class="playerGather playerGatherSm" style="visibility: hidden;">
-					<span class="title">Fragments</span>
+					<span class="title">碎片</span>
 					<br/>
 					<span class="ownedArea"><span id="fragmentsOwned">0</span></span>
 					<br/>
 					<span class="psText sizeSecRegular pointer noselect" id="fragmentsPs" style="display: none" onclick="getPsString('fragments')">+0/sec</span>
 				</div>
 				<div id="gems" class="playerGather playerGatherSm" style="visibility: hidden;">
-					<span class="title">Gems</span>
+					<span class="title">宝石</span>
 					<br/>
 					<span class="ownedArea"><span id="gemsOwned">0</span></span>
 					<br/>
 					<span class="psText sizeSecRegular pointer noselect" id="gemsPs" style="display: none" onclick="getPsString('gems')">+0/sec</span>
 				</div>
 				<div id="helium" class="playerGather playerGatherSm" style="display: none">
-					<span class="title">Helium</span>
+					<span class="title">氦</span>
 					<br/>
 					<span class="ownedArea"><span id="heliumOwned">0</span></span>
 					<br/>
@@ -337,23 +337,23 @@
 				<div id="logContainer">
 					<div class="btn-group btn-group-justified" id="logBtnGroup" role="group">
 						<div class="btn-group" role="group">
-							<button id="StoryFilter" onclick="filterMessage('Story')" type="button" class="btn btn-success logFlt">Story</button>
+							<button id="StoryFilter" onclick="filterMessage('Story')" type="button" class="btn btn-success logFlt">故事</button>
 						</div>
 						<div class="btn-group" role="group">
-							<button id="LootFilter" onclick="filterMessage('Loot')" type="button" class="btn btn-success logFlt">Loot</button>
+							<button id="LootFilter" onclick="filterMessage('Loot')" type="button" class="btn btn-success logFlt">战利品</button>
 						</div>
 						<div class="btn-group" role="group">
-							<button id="UnlocksFilter" onclick="filterMessage('Unlocks')" type="button" class="btn btn-success logFlt">Unlocks</button>
+							<button id="UnlocksFilter" onclick="filterMessage('Unlocks')" type="button" class="btn btn-success logFlt">解锁</button>
 						</div>
 						<div class="btn-group" role="group">
-							<button id="CombatFilter" type="button" onclick="filterMessage('Combat')" class="btn btn-success logFlt">Combat</button>
+							<button id="CombatFilter" type="button" onclick="filterMessage('Combat')" class="btn btn-success logFlt">战斗</button>
 						</div>
 						<div id="logConfigHolder" class="btn-group" role="group">
 							<button id="logConfigBtn" type="button" onclick="tooltip('Message Config', null, 'update')" class="btn btn-default logFlt"><span class='glyphicon glyphicon-cog'></span></button>
 						</div>						
 					</div>
 					<div id="log" class="niceScroll">
-						<span class="storyMessage message"><span class='glyphicon glyphicon-star'></span>A green shimmer erupts then disappears, and you hit the ground. You look pretty hungry...</span>
+						<span class="storyMessage message"><span class='glyphicon glyphicon-star'></span>一道绿色光芒闪现后消失，你坠落到了地面，你看起来是如此的饥饿...</span>
 					</div>
 				</div>
 			</div>
@@ -369,21 +369,21 @@
 							<span id="buildSpeed"></span>
 						</div>
 						<div class="col-xs-3 lowPad">
-							<div id="autoTrapBtn" style="display: none" onclick="toggleAutoTrap()" class="pointer noselect colorDanger autoUpgradeBtn">AutoTraps Off</div>
+							<div id="autoTrapBtn" style="display: none" onclick="toggleAutoTrap()" class="pointer noselect colorDanger autoUpgradeBtn">关闭自动陷阱</div>
 						</div>
 						<div class="col-xs-3">
-							<div id="buildingsCollectBtn" onclick="setGather('buildings')" class="workBtn workColorOff pointer noselect">Build</div>
+							<div id="buildingsCollectBtn" onclick="setGather('buildings')" class="workBtn workColorOff pointer noselect">建造</div>
 						</div>
 					</div>
 					<div class="queue niceScroll" id="buildingsQueue">
-						<span id='noQueue'>Nothing in queue...</span><div id="queueItemsHere"></div>
+						<span id='noQueue'>队列空闲中...</span><div id="queueItemsHere"></div>
 					</div>
 				</div>
 				<div id="outerBuyContainer">	
 					<div id="buyTabs">
 				<ul id="buyTabsUl" class="nav nav-tabs nav-justified">
-					<li role="presentation" id="allTab" onclick="filterTabs('all')" class="tabNotSelected buyTab"><a id="allA">All</a></li>
-					<li role="presentation" id="buildingsTab" onclick="filterTabs('buildings')" class="tabNotSelected buyTab"><a id="buildingsA"><span id="buildingsAlert" class="alert badge"></span>Buildings</a></li>
+					<li role="presentation" id="allTab" onclick="filterTabs('all')" class="tabNotSelected buyTab"><a id="allA">全部</a></li>
+					<li role="presentation" id="buildingsTab" onclick="filterTabs('buildings')" class="tabNotSelected buyTab"><a id="buildingsA"><span id="buildingsAlert" class="alert badge"></span>建筑</a></li>
 					<li role="presentation" id="jobsTab" style="visibility: hidden" onclick="filterTabs('jobs')" class="tabNotSelected buyTab"><a id="jobsA"><span id="jobsAlert" class="alert badge"></span>Jobs</a></li>
 					<li role="presentation" id="upgradesTab" style="visibility: hidden" onclick="filterTabs('upgrades')" class="tabNotSelected buyTab"><a id="upgradesA"><span id="upgradesAlert" class="alert badge"></span>Upgrades</a></li>
 					<li role="presentation" id="equipmentTab" style="visibility: hidden" onclick="filterTabs('equipment')" class="tabNotSelected buyTab"><a id="equipmentA"><span id="equipmentAlert" class="alert badge"></span>Equipment</a></li>		
@@ -424,17 +424,17 @@
 								<div id="buildingsTitleDiv" class="titleDiv">
 									<div class="row">
 										<div class="col-xs-3" style="padding-right: 5px">
-											<span id="buildingsTitleSpan" class="titleSpan">Buildings</span>
+											<span id="buildingsTitleSpan" class="titleSpan">建筑</span>
 										</div>
 										<div class="col-xs-3 lowPad">&nbsp;</div>
 										<div class="col-xs-3 lowPad">
 											<div id="autoStructureBtn" onmouseover='tooltip("AutoStructure", null, event)' onmouseout='tooltip("hide")' class="pointer noselect colorDanger autoUpgradeBtn">
-												<div id='autoStructureText' onclick="toggleAutoStructure()">AutoStructure</div><div onclick="tooltip('Configure AutoStructure', null, 'update')">
+												<div id='autoStructureText' onclick="toggleAutoStructure()">自动建造</div><div onclick="tooltip('Configure AutoStructure', null, 'update')">
 													<span class='glyphicon glyphicon-cog'></span></div>
 											</div>
 										</div>
 										<div class="col-xs-3" style="padding-left: 5px">
-											<div id="autoStorageBtn" class="pointer noselect colorDanger autoUpgradeBtn" onmouseover="tooltip('AutoStorage', 'customText', event, 'Enabling this will cause your Trimps to automatically add a storage building to the queue if you reach max capacity. This will work on and offline if enabled.')" onmouseout="tooltip('hide')" onclick="toggleAutoStorage()">AutoStorage</div>
+											<div id="autoStorageBtn" class="pointer noselect colorDanger autoUpgradeBtn" onmouseover="tooltip('AutoStorage', 'customText', event, 'Enabling this will cause your Trimps to automatically add a storage building to the queue if you reach max capacity. This will work on and offline if enabled.')" onmouseout="tooltip('hide')" onclick="toggleAutoStorage()">自动存储</div>
 										</div>
 									</div>
 								</div>
@@ -445,13 +445,13 @@
 								<div id="jobsTitleDiv" class="titleDiv" style="display: none">
 									<div class="row">
 										<div class="col-xs-3" style="padding-right: 5px">
-											<span id="jobsTitleSpan" class="titleSpan">Jobs</span>
+											<span id="jobsTitleSpan" class="titleSpan">工作</span>
 										</div>
 										<div class="col-xs-6 lowPad">
 											<span id="jobsTitleUnemployed" class="titleSpan"></span>
 										</div>
 										<div class="col-xs-3" style="padding-left: 5px">
-											<div id="fireBtn" class="pointer noselect fireBtnNotFiring" onclick="fireMode()" onmouseover="tooltip('Fire Trimps',null,event)" onmouseout="tooltip('hide')">Fire</div>
+											<div id="fireBtn" class="pointer noselect fireBtnNotFiring" onclick="fireMode()" onmouseover="tooltip('Fire Trimps',null,event)" onmouseout="tooltip('hide')">火</div>
 										</div>
 									</div>
 									<div class="row">
@@ -874,28 +874,28 @@
 			<table id="settingsTable">
 				<tr>
 					<td class="btn btn-info" onclick="save(false, true)">
-						Save <span id="saveIndicator"></span><span id="playFabIndicator"></span>
+						保存 <span id="saveIndicator"></span><span id="playFabIndicator"></span>
 					</td>
 					<td class="btn btn-info" onclick="tooltip('Export', null, 'update')">
-						<div>Export</div>
+						<div>导出</div>
 					</td>
 					<td class="btn btn-info" onclick="tooltip('Import', null, 'update')">
-						<div>Import</div>
+						<div>导入</div>
 					</td>
 					<td class="btn btn-success" onclick="toggleStats()">
-						<div>Stats</div>
+						<div>统计</div>
 					</td>
 					<td class="btn tealColor" onclick="toggleAchievementWindow()">
 						<div>Achieves</div>
 					</td>
 					<td class="btn btn-default" onclick="toggleSettingsMenu()">
-						<div id='settingsText'>Settings</div>
+						<div id='settingsText'>设置</div>
 					</td>
 					<td class="btn" id="pastUpgradesBtn" onclick="viewPortalUpgrades()">
 						
 					</td>
 					<td class="btn btn-new" onclick="window.open('updates.html', '_blank')">
-							V <span id="versionNumber"></span> | What's New 
+							版本号 <span id="versionNumber"></span> | 更新日志
 					</td>
 					<td id="portalTimer" class="timerNotPaused" onclick="toggleSetting('pauseGame')" onmouseover="tooltip('Pause the game', 'customText', event, game.options.menu['pauseGame'].description)" onmouseout="tooltip('hide')">
 						<span id="portalTime">&nbsp;</span>&nbsp;&nbsp;<span style='font-size: 0.85em; line-height: 0.85em;' class='icomoon icon-pause3'></span>&nbsp;
@@ -1078,15 +1078,15 @@
 		<div id="achievementsHere" class="niceScroll"></div>
 	</div>
 	<div id="statsWrapper" style="display: none">
-		<span id="statsTitle">Statistics!</span><br/>
+		<span id="statsTitle">统计!</span><br/>
 		<div class="row" id="statsBtnRow">
 			<div class="col-xs-3">
 			</div>
 			<div class="col-xs-3 btn btn-info statToggleBtn" id='totalSelectBtn' onclick='toggleStats("total")'>
-				Total
+				累计
 			</div>
 			<div class="col-xs-3 btn btn-success statToggleBtn" id="currentSelectBtn" onclick="toggleStats('current')">
-				Current Run
+				当前运行
 			</div>
 		</div>
 		<br/>
@@ -1115,7 +1115,7 @@
 				<div id="equippedHeirlooms">
 					<div class="row">
 						<div class="col-xs-6">
-							Equipped Shield<br/>
+							配备盾牌<br/>
 							<div id="ShieldEquipped"></div><br/>
 							<span id="ShieldEquippedName"></span>
 						</div>
@@ -1138,7 +1138,7 @@
 					</div>
 				</div>
 				<div id="extraHeirlooms">
-					Temporary <span id="extraHeirloomsText"></span> <div id="recycleAllHeirloomsBtn" onclick="recycleAllHeirloomsClicked()" class="heirloomBtnActive heirBtn noselect">Recycle All</div>
+					临时 <span id="extraHeirloomsText"></span> <div id="recycleAllHeirloomsBtn" onclick="recycleAllHeirloomsClicked()" class="heirloomBtnActive heirBtn noselect">全部回收</div>
 					<div id="extraHeirloomsHere"></div>
 					<div id="extraHeirloomsBtnGroup" class="heirloomBtnGroup" style="visibility: hidden">
 						<div id="equipHeirloomBtn2" class="noselect heirloomBtnActive heirBtn"  onclick="equipHeirloom()">Equip</div>

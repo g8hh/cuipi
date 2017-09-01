@@ -2236,17 +2236,17 @@ function setGatherTextAs(what, on) {
     var trimpTrapText = '(<span id="trimpTrapText">' + prettify(game.buildings.Trap.owned) + '</span>)';
     switch (what) {
     case "food":
-        return (on) ? "Gathering" : "Gather";
+        return (on) ? "正在采集" : "采集";
     case "wood":
-        return (on) ? "Chopping" : "Chop";
+        return (on) ? "正在伐木" : "伐木";
     case "metal":
-        return (on) ? "Mining" : "Mine";
+        return (on) ? "正在采矿" : "采矿";
     case "science":
-        return (on) ? "Researching" : "Research";
+        return (on) ? "正在研究" : "研究";
     case "buildings":
-        return (on) ? "Building" : "Build";
+        return (on) ? "正在建造" : "建造";
     case "trimps":
-        return (on) ? ("Trapping " + trimpTrapText) : ("Check Traps " + trimpTrapText);
+        return (on) ? ("诱捕 " + trimpTrapText) : ("检查陷阱 " + trimpTrapText);
     }
 }
 

@@ -383,8 +383,8 @@ var toReturn = {
 				titles: ["Not Saving", "Auto Saving"],
 				onToggle: function () {
 					var elem = document.getElementById("saveIndicator");
-					if (this.enabled) elem.innerHTML = "<span class='autosaving'>(AutoSaving)</span>";
-					else elem.innerHTML = "<span class='notAutosaving'>(Not AutoSaving)</span>";
+					if (this.enabled) elem.innerHTML = "<span class='autosaving'>(自动保存)</span>";
+					else elem.innerHTML = "<span class='notAutosaving'>(不自动保存)</span>";
 				}
 			},
 			usePlayFab: {
@@ -767,13 +767,13 @@ var toReturn = {
 			disablePause: {
 				enabled: 1,
 				extraTags: "other",
-				description: "You can pause the game by clicking the run timer in the bottom right of the screen. This setting allows you to remove that ability!",
-				titles: ["Disable Pausing", "Enable Pausing"]
+				description: "您可以通过单击屏幕右下角的运行计时器来暂停游戏。 此设置允许您删除该功能!",
+				titles: ["禁用暂停", "启用暂停"]
 			},
 			deleteSave: {
 				enabled: 0,
 				extraTags: "reset hard wipe clear other",
-				description: "Delete your save and start fresh. Your Trimps will not be happy.",
+				description: "删除您的存档并重新开始，你的脆皮会不开心.",
 				titles: ["Delete Save"],
 				onToggle: function () {
 					cancelTooltip();
