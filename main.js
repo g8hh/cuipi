@@ -173,10 +173,10 @@ function save(exportThis, fromManual) {
 	try{
 		localStorage.setItem("trimpSave1",saveString);
 		if (localStorage.getItem("trimpSave1") == saveString){
-			message("Game Saved!", "Notices");
+			message("游戏已保存!", "Notices");
 		}
 		else {
-			message("For some reason, your game is not saving. Make sure you export and back up your save!", "Notices");
+			message("出于某些原因,你的游戏未能保存。请确保你已经导出并备份你的存档！", "Notices");
 		}
 	}
 	catch(e){
@@ -254,7 +254,7 @@ function load(saveString, autoLoad, fromPf) {
 			activateKongBonus(savegame.global.world);
 			return false;
 		}
-        message("I'm so terribly sorry, but your previous save game (version " + savegame.global.version + ") does not work in the new version. This should be the last reset!", "Notices");
+        message("我很抱歉,但是你以前保存的游戏 （版本 " + savegame.global.version + "） 无法在新版本中运行。这应该是最后一次重置！", "Notices");
         return false;
     }
 	else if (game.global.isBeta) {
@@ -899,7 +899,7 @@ function portalClicked() {
 	var titleText = "Time Portal";
 	if (game.global.sLevel >= 1) titleText += " Mk. " + romanNumeral(game.global.sLevel + 1);
 	document.getElementById("portalTitle").innerHTML = titleText;
-	document.getElementById("portalStory").innerHTML = "Well, you did it. You followed your instincts through this strange world, made your way through the Dimension of Anger, and obtained this portal. But why? Maybe there will be answers through this portal... Your scientists tell you they can overclock it to bring more memories and items back, but they'll need helium to cool it.";
+	document.getElementById("portalStory").innerHTML = "嗯，你做到了。你跟随你的直觉穿过这个奇怪的世界，并通过愤怒的维度，终于到达这个入口。但是为什么呢?通过这个门户也许会有答案...科学家告诉你，他们可以通过超频带来更多的记忆和物品,但是他们需要氦来冷却它。";
 	document.getElementById("portalHelium").innerHTML = '<span id="portalHeliumOwned">' + prettify(game.resources.helium.owned + game.global.heliumLeftover) + '</span> Helium';
 	document.getElementById("totalHeliumEarned").innerHTML = prettify(game.global.totalHeliumEarned);
 	document.getElementById("totalPortals").innerHTML = game.global.totalPortals;
@@ -1183,15 +1183,15 @@ function viewPortalUpgrades() {
 	document.getElementById("wrapper").style.display = "none";
 	swapClass("portalMk", "portalMkPreview", document.getElementById("portalWrapper"));
 	fadeIn("portalWrapper", 10);
-	document.getElementById("portalTitle").innerHTML = "View Perks";
+	document.getElementById("portalTitle").innerHTML = "查看特权";
 	document.getElementById("portalHelium").innerHTML = '<span id="portalHeliumOwned">' + prettify(parseInt(game.global.heliumLeftover, 10)) + '</span> Helium Left Over';
-	document.getElementById("portalStory").innerHTML = "These are all of your perks! You can reset them once per run.";
+	document.getElementById("portalStory").innerHTML = "这些都是你的福利！你每运行一次可以重置他们。";
 	document.getElementById("totalHeliumEarned").innerHTML = prettify(game.global.totalHeliumEarned);
 	document.getElementById("totalPortals").innerHTML = game.global.totalPortals;
-	document.getElementById("cancelPortalBtn").innerHTML = "Cancel";
+	document.getElementById("cancelPortalBtn").innerHTML = "取消";
 	document.getElementById("activatePortalBtn").style.display = "none";
 	if (game.global.canRespecPerks) {
-		document.getElementById("respecPortalBtn").innerHTML = "Respec";
+		document.getElementById("respecPortalBtn").innerHTML = "修改";
 		document.getElementById("respecPortalBtn").style.display = "inline-block";
 	}
 	document.getElementById("swapToCurrentChallengeBtn").style.display = "none";
@@ -1239,8 +1239,8 @@ function getCurrentChallengePane(){
 		description = description.replace('_', getScientistInfo(sciLevel));
 		description = description.replace('*', getScientistInfo(sciLevel, true));
 	}
-	challengeText = "You have the ";
-	challengeText += (game.global.challengeActive == "Daily") ? formatDailySeedDate() + " " + game.global.challengeActive + " challenge active. " + description : game.global.challengeActive + " challenge active. \"" + description + "\"";
+	challengeText = "你获得了 ";
+	challengeText += (game.global.challengeActive == "Daily") ? formatDailySeedDate() + " " + game.global.challengeActive + " challenge active. " + description : game.global.challengeActive + " 积极挑战. \"" + description + "\"";
 	return challengeText;
 }
 
@@ -1334,11 +1334,11 @@ function activateKongBonus(oldWorld){
 	var portalWrapper = document.getElementById("portalWrapper");
 	portalWrapper.style.backgroundColor = "black";
 	portalWrapper.style.color = "white";
-	document.getElementById("portalTitle").innerHTML = "Beta Bonus";
-	document.getElementById("portalStory").innerHTML = "Thank you so much for helping test the beta version of Trimps. All of the support and feedback was amazing! This version still needs some feedback and tweaks before it will be perfect, but saves will not be purposely reset again. Enjoy! " + addText;
+	document.getElementById("portalTitle").innerHTML = "测试奖励";
+	document.getElementById("portalStory").innerHTML = "非常感谢你帮助测试异形的beta版本。所有的支持和反馈是惊人的！这个版本仍然需要一些反馈和调整，在这之前它并不是是完美的,不过不会故意再次重置。所以享受吧! " + addText;
 	document.getElementById("portalHelium").innerHTML = '<span id="portalHeliumOwned">' + helium + '</span> Bonus Points';
-	document.getElementById("cancelPortalBtn").innerHTML = "No Thanks";
-	document.getElementById("activatePortalBtn").innerHTML = "Finished";
+	document.getElementById("cancelPortalBtn").innerHTML = "不用谢";
+	document.getElementById("activatePortalBtn").innerHTML = "已完成";
 		document.getElementById("activatePortalBtn").style.display = "inline-block";
 
 	fadeIn("portalWrapper", 10);
@@ -1491,8 +1491,8 @@ function respecPerks(){
 	game.resources.helium.respecMax = (game.global.viewingUpgrades) ? game.global.heliumLeftover : game.global.heliumLeftover + game.resources.helium.owned;
 	document.getElementById("portalHeliumOwned").innerHTML = prettify(game.resources.helium.respecMax - game.resources.helium.totalSpentTemp);
 	document.getElementById("respecPortalBtn").style.display = "none";
-	document.getElementById("portalStory").innerHTML = "You can only respec once per run. Clicking cancel will not consume this use.";
-	document.getElementById("portalTitle").innerHTML = "Respec Perks";
+	document.getElementById("portalStory").innerHTML = "你每次运行只能替换一次。点击取消不会消耗这次使用。";
+	document.getElementById("portalTitle").innerHTML = "替换特权";
 	document.getElementById("ptabRemove").style.display = "table-cell";
 	document.getElementById("clearPerksBtn").style.display = "inline-block";
 	if (selectedPreset)
@@ -1518,7 +1518,7 @@ function clearPerks(){
 	document.getElementById("portalHeliumOwned").innerHTML = prettify(game.resources.helium.respecMax);
 	if (game.global.viewingUpgrades) {
 		document.getElementById("respecPortalBtn").style.display = "none";
-		document.getElementById("activatePortalBtn").innerHTML = "Confirm";
+		document.getElementById("activatePortalBtn").innerHTML = "确定";
 		document.getElementById("activatePortalBtn").style.display = "inline-block";
 	}
 }
@@ -1885,7 +1885,7 @@ function activatePortal(){
 	displayPerksBtn();
 	handleFinishDailyBtn();
 	document.getElementById("portalUpgradesHere").innerHTML = "";
-	message("A green shimmer erupts then disappears, and you hit the ground. You look pretty hungry...", "Story");
+	message("绿色微光一闪而过，你摔在了地上。看起来你很饿...", "Story");
 }
 
 function cancelPortal(keep){
@@ -1893,7 +1893,7 @@ function cancelPortal(keep){
 	if (game.global.kongBonusMode){
 		game.global.kongBonusMode = false;
 		if (!keep) resetGame();
-		message("A green shimmer erupts then disappears, and you hit the ground. You look pretty hungry...", "Story");
+		message("绿色微光一闪而过，你摔在了地上。看起来你很饿...", "Story");
 	}
 	game.global.viewingUpgrades = false;
 	game.global.respecActive = false;
@@ -2192,12 +2192,12 @@ function fireMode(noChange) {
     var elem = document.getElementById("fireBtn");
     if (game.global.firing) {
         elem.className = elem.className.replace("fireBtnNotFiring", "fireBtnFiring");
-        elem.innerHTML = "Firing";
+        elem.innerHTML = "解雇中";
     } else {
         elem.className = elem.className.replace("fireBtnFiring", "fireBtnNotFiring");
-        elem.innerHTML = "Fire";
+        elem.innerHTML = "解雇";
     }
-    if (!noChange) tooltip("Fire Trimps", null, "update");
+    if (!noChange) tooltip("解雇异形", null, "update");
 }
 
 function setGather(what, updateOnly) {
@@ -2236,17 +2236,17 @@ function setGatherTextAs(what, on) {
     var trimpTrapText = '(<span id="trimpTrapText">' + prettify(game.buildings.Trap.owned) + '</span>)';
     switch (what) {
     case "food":
-        return (on) ? "正在采集" : "采集";
+        return (on) ? "收集中" : "采集";
     case "wood":
-        return (on) ? "正在伐木" : "伐木";
+        return (on) ? "砍伐中" : "伐木";
     case "metal":
-        return (on) ? "正在采矿" : "采矿";
+        return (on) ? "采矿中" : "采矿";
     case "science":
-        return (on) ? "正在研究" : "研究";
+        return (on) ? "研究中" : "研究";
     case "buildings":
-        return (on) ? "正在建造" : "建造";
+        return (on) ? "建造中" : "建造";
     case "trimps":
-        return (on) ? ("诱捕 " + trimpTrapText) : ("检查陷阱 " + trimpTrapText);
+        return (on) ? ("诱捕中 " + trimpTrapText) : ("检查陷阱 " + trimpTrapText);
     }
 }
 
@@ -2510,7 +2510,7 @@ function buyBuilding(what, confirmed, fromAuto, forceAmt) {
 	}
 	else
 		return false;
-	if (!fromAuto) tooltip(what, "buildings", "update");
+	if (!fromAuto) tooltip(what, "建筑", "更新");
 	return true;
 }
 
@@ -2565,7 +2565,7 @@ function craftBuildings(makeUp) {
 
 		var timeLeft = (game.global.timeLeftOnCraft / modifier).toFixed(1);
 		if (timeLeft < 0.1) timeLeft = 0.1;
-        if (timeRemaining) timeRemaining.innerHTML = " - " + timeLeft + " Seconds";
+        if (timeRemaining) timeRemaining.innerHTML = " - " + timeLeft + " 秒";
 		if (game.options.menu.queueAnimation.enabled) buildingsBar.style.opacity = percent;
 		else buildingsBar.style.opacity = "0";
         if (game.global.timeLeftOnCraft > 0) return;
@@ -2619,7 +2619,7 @@ function setNewCraftItem() {
 	var elem = document.getElementById("queueItemsHere").firstChild;
 	var timeLeft = (game.global.timeLeftOnCraft / (game.global.autoCraftModifier + getPlayerModifier())).toFixed(1);
 
-	if (elem && !document.getElementById("queueTimeRemaining")) elem.innerHTML += "<span id='queueTimeRemaining'> - " + timeLeft + " Seconds</span><div id='animationDiv'></div>";
+	if (elem && !document.getElementById("queueTimeRemaining")) elem.innerHTML += "<span id='queueTimeRemaining'> - " + timeLeft + " 秒</span><div id='animationDiv'></div>";
 	if (elem && timeLeft <= 0.1) {timeLeft = 0.1; if (game.options.menu.queueAnimation.enabled) document.getElementById("animationDiv").style.opacity = '1'}
 }
 
@@ -3044,11 +3044,11 @@ function breed() {
 		}
 	}
 	timeRemaining = (game.options.menu.showFullBreed.enabled > 0) ? timeRemaining.toFixed(1) : Math.ceil(timeRemaining);
-	timeRemaining += " Secs";
+	timeRemaining += " 秒";
 		//Display full breed time if desired
 	var totalTimeText = totalTime.toFixed(1);
 	if (game.options.menu.showFullBreed.enabled){
-		fullBreed = totalTimeText + " Secs";
+		fullBreed = totalTimeText + " 秒";
 		timeRemaining += " / " + fullBreed;
 	}
 
@@ -5743,7 +5743,7 @@ function pauseFight(updateOnly) {
 	var elem = document.getElementById("pauseFight");
 	elem.className = "";
 	elem.className = "btn fightBtn " + color;
-	elem.innerHTML = (!game.global.pauseFight) ? "AutoFight On" : "AutoFight Off";
+	elem.innerHTML = (!game.global.pauseFight) ? "自动战斗 开启" : "自动战斗 关闭";
 }
 
 function recycleBelow(confirmed){
@@ -7899,7 +7899,7 @@ function abandonDaily(){
 		checkAchieve('dailyHelium');
 	}
 	else console.log('attempted to give ' + reward + ' as daily challenge reward.');
-	message("You have completed the Daily challenge! You have been rewarded with " + prettify(reward) + " extra Helium!", "Notices");
+	message("你已经完成了每日挑战！ 你得到了回报 " + prettify(reward) + " 额外的氦气!", "Notices");
 	game.global.dailyChallenge = {};
 	handleFinishDailyBtn();
 	return reward;
@@ -7994,13 +7994,13 @@ function getDailyTopText(add){
 			var heliumValue = getDailyHeliumValue(countDailyWeight(getDailyChallenge(dayIndex, true)));
 			returnText += "<br/>" + prettify(heliumValue) + "%";
 		}
-		else returnText += "<br/>Done";
+		else returnText += "<br/>完成";
 		returnText += "</div>";
 	}
 	returnText += "</div><div class='row' style='margin: 0'><div class='col-xs-6 lowPad dailyTop' style='font-weight: bold'>" + dayOfWeek(getDailyTimeString(add, false, true)) + " " + getDailyTimeString(add, true) + "</div><div class='col-xs-6 dailyTop lowPad'>" + dayOfWeek(getDailyTimeString(1, false, true)) + " resets in <span id='dailyResetTimer'>00:00:00</span></div></div>";
 
 	if (checkedDayDone)
-		returnText += "<b class='redText'>You have already attempted this Daily Challenge!</b><br/><br/>";
+		returnText += "<b class='redText'>你已经尝试过这个每日挑战！</b><br/><br/>";
 	return [returnText, !checkedDayDone];
 }
 
@@ -9525,14 +9525,14 @@ function formatMinutesForDescriptions(number){
 	var text;
 	var minutes = Math.round(number % 60);
 	var hours = Math.floor(number / 60);
-	if (hours == 0) text = minutes + " minutes";
+	if (hours == 0) text = minutes + " 分钟";
 	else if (minutes > 0) {
 		if (minutes < 10) minutes = "0" + minutes;
 		text = hours + ":" + minutes;
 	}
 	else {
 		var s = (hours > 1) ? "s" : "";
-		text = hours + " hour" + s;
+		text = hours + " 小时" + s;
 	}
 	return text;
 }

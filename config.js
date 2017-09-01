@@ -1178,7 +1178,7 @@ var toReturn = {
 			modifier: 1,
 			priceBase: 4,
 			heliumSpent: 0,
-			tooltip: "A few of these in your traps are sure to bring in extra Trimps. Each level allows traps to catch $modifier$ extra Trimp."
+			tooltip: "放一些这个在你的陷阱中，一定会给你带来额外的异形的。 每个级别允许陷阱捕捉到 $modifier$ 额外的异形。"
 		},
 		Trumps: {
 		//fiveTrimpMax worldUnlock
@@ -1187,7 +1187,7 @@ var toReturn = {
 			modifier: 1,
 			priceBase: 3,
 			heliumSpent: 0,
-			tooltip: "Practicing aggressive strategizing allows you to earn $modifier$ extra max population from each battle territory bonus."
+			tooltip: "练习进攻性的策略允许你从每次战斗的领土红利中获得 $modifier$ 额外的最大人口。"
 		},
 		//breed main
 		Pheromones: {
@@ -1195,7 +1195,7 @@ var toReturn = {
 			modifier: 0.1,
 			priceBase: 3,
 			heliumSpent: 0,
-			tooltip: "Bring some pheromones with you to ensure that your Trimps will permanently breed 10% faster."
+			tooltip: "你可以带上一些费洛蒙，以确保你的异形能够永久性地增加10%的繁殖速度。"
 		},
 		//trapThings main
 		Packrat: {
@@ -1210,7 +1210,7 @@ var toReturn = {
 		Motivation: {
 			modifier: 0.05,
 			heliumSpent: 0,
-			tooltip: "Practice public speaking with your Trimps. Each level increases the amount of resources that workers produce by 5%.",
+			tooltip: "给你的异形们进行一些演讲吧。 每一级能增加5%工人生产的资源。",
 			priceBase: 2,
 			level: 0
 		},
@@ -1220,14 +1220,14 @@ var toReturn = {
 			modifier: 0.05,
 			priceBase: 1,
 			heliumSpent: 0,
-			tooltip: "Trimps learn through example. Spending some time bench pressing dead Elephimps should inspire any future Trimps to become stronger too. Adds 5% attack permanently to your Trimps."
+			tooltip: "异形们通过例子来学习。 花一些时间去卧推死掉的大象来使今后的异形们变得更加强大。 永久性增加异形5%攻击力。"
 		},
 		//startFight main
 		Toughness: {
 			modifier: 0.05,
 			priceBase: 1,
 			heliumSpent: 0,
-			tooltip: "Pay your Trimps to knock you around a little bit. By learning to not be such a wuss, your Trimps will be less wussy as well. Adds 5% health permanently to your Trimps.",
+			tooltip: "让你的异形学习如何变得像个硬汉，而不是一个老实巴交的容易受欺负的。 永久性增加异形5%的生命值。",
 			level: 0
 		},
 		//rewardResources main
@@ -1235,7 +1235,7 @@ var toReturn = {
 			modifier: 0.05,
 			priceBase: 1,
 			heliumSpent: 0,
-			tooltip: "Walk back through the empty zones, learning how to milk them for every last drop. Each level permanently increases the amount of resources gained from battle by 5%.",
+			tooltip: "从空荡荡的区域往回走，让他们学会如何榨干敌人的每一分血汗钱。 每一级永久性增加5%的战利品资源。",
 			level: 0
 		},
 
@@ -2044,7 +2044,7 @@ var toReturn = {
 			},
 			breakpoints: ["Hut", "House", "Mansion", "Hotel", "Resort", "Gateway", "Wormhole", "Collector", "Warpstation", "Generator"],
 			tiers: [1, 1, 1, 1, 2, 2, 2, 2, 3, 5],
-			names: ["Tiny Homes", "Residential Development", "Taste for Luxury", "Fancy", "The Skyline", "Dimensional Drift", "Too Cool For Helium", "Space From Stars", "To Infinity and Beyond", "Mass Generation"],
+			names: ["小公寓", "住宅开发", "品味奢华", "花俏", "地平线", "Dimensional Drift", "Too Cool For Helium", "Space From Stars", "To Infinity and Beyond", "Mass Generation"],
 			icon: "icomoon icon-building-o",
 			newStuff: []
 		},
@@ -2567,25 +2567,25 @@ var toReturn = {
 
 
 	worldText: {
-		w2: "Your Trimps killed a lot of bad guys back there. It seems like you're getting the hang of this. However, the world is large, and there are many more zones to explore. Chop chop.",
-		w3: "By your orders, your scientists have begun to try and figure out how large this planet is.",
-		w4: "You order your Trimps to search the area for the keys to your ship, but nobody finds anything. Bummer.",
-		w5: "Do you see that thing at the end of this zone? It's huge! It's terrifying! You've never seen anything like it before, but you know that it is a Blimp. How did you know that? Stop knowing things and go kill it.",
+		w2: "你的异形在那里杀死了很多坏人。 看起来你似乎已经弄清楚这是怎么一回事了。 然而这个世界很大，依然有去多区域需要探索，“砍”“砍”...",
+		w3: "根据您的命令，您的科学家们已经开始尝试了解这个星球有多大。",
+		w4: "您命令异形在该地区搜索您的船只的钥匙，但没有人找到任何东西。真令人失望。",
+		w5: "你看到尽头的那个东西了吗？多么的巨大！多么的可怕！ 你以前从未见过这样的东西,但是你知道这是一个顽固的守卫。你是怎么知道的？别问为什么了，去杀死它！",
 		w6: "You step over the corpse of the Blimp as it rapidly deflates, and one of your Trimps chuckles at the sound produced. You all cross the sulfuric river to the next zone, and can feel the presence of an ancient knowledge. Better explore.",
-		w7: "Slow and steady wins the race. Unless you're racing someone who is actually trying.",
+		w7: "慢而稳事必成， 除非跟你竞争的人比你更努力。",
 		w8: "Your settlement is getting crowded, there's Trimps in the streets, and you're taking heat. You feel a sudden strong desire to create a map, though you're not quite sure how that would help.",
-		w9: "You can't shake the feeling that you've been here before. Déjà-vu?",
-		w10: "Looks like another Blimp up ahead. Hard to tell from far away, but it looks like it has more heads than the last one.",
-		w11: "You're unstoppable as long as nothing stops you. Unfortunately, it seems like something really wants to stop you.",
-		w12: "Did you see that green light flash by? Weird. Oh well.",
+		w9: "你不能排除那种你以前来过这里的感觉，似曾相识。",
+		w10: "看起来像另一个顽固的守卫。但很难说，特别是从这么远的地方，不过它看起来比上次那个多了一个头。",
+		w11: "你不可阻挡，只要没人阻拦你。 不幸的是，看起来有些东西像是真的想阻止你。",
+		w12: "你看到绿光一闪而过吗？奇怪。噢，好吧。",
 		w13: "Your scientists have finally concluded their report on the analysis of the size of the world. According to the report, they're pretty sure it's infinitely large, but you're pretty sure they just got bored of checking.",
 		w14: "You were trying to help bring back some of the Equipment your Trimps left on the ground in that last zone, and you got a splinter. This planet is getting dangerous, stay alert.",
-		w15: "Another day, another Blimp at the end of the zone",
-		w16: "Seriously? Another Blimp so soon?",
-		w17: "You climb a large cliff and look out over the new zone. Red dirt, scorched ground, and devastation. Is that a Dragimp flying around out there?!",
-		w18: "There seems to be a strange force urging you to keep going. The atmosphere is becoming... angrier. Part of you wants to turn around and go back, but most of you wants to keep going.",
-		w19: "You look behind and see your kingdom. You have gems, a colony, and territory. You wonder if enough Trimps have already fallen in battle. After contemplation, one word falls out of your mouth as you begin to move forward. 'Nah'",
-		w20: "You can sense that you're close to your goal.",
+		w15: "另一天,又是一个顽固的守卫在区域的尽头。",
+		w16: "你是认真的吗？又一个守卫！",
+		w17: "你爬上一个巨大的悬崖，俯瞰着一片新的区域。红色的泥土，烧焦的地面，一片荒芜。 那是一头龙在飞来飞去吗？！",
+		w18: "似乎有一种奇怪的力量鼓励你继续前行。气氛变得有点，愤怒的感觉。 你的身体的一部分想转身回去,但其他大部分想继续前行。",
+		w19: "你回头看看你的王国，你拥有宝石、殖民地和领土。 你在想你的异形是不是已经在战斗中牺牲了。 沉思之后， 两个字从你的嘴里蹦了出来 “算了”",
+		w20: "你感觉到你离你的目标已经不远了。",
 		w22: "Strange, the sky seems to be getting darker. You ask one of your Trimps for the time, but he doesn't know what a clock is.",
 		w25: "You're a rebel. The universe pointed you into that portal, but you kept pushing forward. You feel... less like you've been here before.",
 		w27: "It seems like the further you press on, the less you know. You still feel an urge to use the portal, though the urge has begun to dwindle.",
@@ -2692,8 +2692,8 @@ var toReturn = {
 		w265: "You're determined to repair the planet, though you feel like it's not yet possible. Either way, you know you're gaining strength and that your Trimps would follow you anywhere."
 	},
 
-	trimpDeathTexts: ["ceased to be", "bit the dust", "took a dirt nap", "expired", "kicked the bucket", "evaporated", "needed more armor", "exploded", "melted", "fell over", "swam the river Styx", "turned in to jerky", "forgot to put armor on", "croaked", "flatlined", "won't follow you to battle again", "died. Lame", "lagged out", "imp-loded"],
-	badGuyDeathTexts: ["slew", "killed", "destroyed", "extinguished", "liquidated", "vaporized", "demolished", "ruined", "wrecked", "obliterated"],
+	trimpDeathTexts: ["不再是", "bit the dust", "took a dirt nap", "断气", "翘辫子", "蒸发", "需要更多的装甲", "exploded", "melted", "fell over", "swam the river Styx", "turned in to jerky", "forgot to put armor on", "croaked", "flatlined", "won't follow you to battle again", "died. Lame", "lagged out", "imp-loded"],
+	badGuyDeathTexts: ["slew", "杀死了", "摧毁了", "消灭了", "liquidated", "vaporized", "demolished", "ruined", "wrecked", "obliterated"],
 
 	settings: {
 		speed: 10,
@@ -2736,7 +2736,7 @@ var toReturn = {
 				return total;
 			},
 			set employed (value) {
-				console.warn('employed is now a getter, and does not need to be set');
+				console.warn('就业现在是一个吸气剂，不需要设定');
 				return;
 			},
 			soldiers: 0,
@@ -2773,8 +2773,8 @@ var toReturn = {
 	equipment: {
 		Shield: {
 			locked: 1,
-			tooltip: "A big, wooden shield. Adds $healthCalculated$ health to each soldier per level.",
-			blocktip: "A big, wooden shield. Adds $blockCalculated$ block to each soldier per level.",
+			tooltip: "一个巨大的木制的盾牌。 每级给每个战士增加 $healthCalculated$ 生命。",
+			blocktip: "一个巨大的木制的盾牌。 每级给每个战士增加 $blockCalculated$ 防御。",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -2790,7 +2790,7 @@ var toReturn = {
 		},
 		Dagger: {
 			locked: 1,
-			tooltip: "Better than nothing. Adds $attackCalculated$ attack to each soldier per level",
+			tooltip: "聊胜于无。 每级给每个战士增加 $attackCalculated$ 攻击。",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -2803,7 +2803,7 @@ var toReturn = {
 		},
 		Boots: {
 			locked: 1,
-			tooltip: "At least their feet will be safe. Adds $healthCalculated$ health to each soldier per level",
+			tooltip: "至少能保住他们的脚。每级给每个战士增加 $healthCalculated$ 生命。",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -2817,7 +2817,7 @@ var toReturn = {
 		//2
 		Mace: {
 			locked: 1,
-			tooltip: "It's kind of heavy for your Trimps, but they'll manage. Adds $attackCalculated$ attack to each soldier per level",
+			tooltip: "对你的异形来说有点重，但他们能搞定。 每级给每个战士增加 $attackCalculated$ 攻击。",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -2830,7 +2830,7 @@ var toReturn = {
 		},
 		Helmet: {
 			locked: 1,
-			tooltip: "Provides a decent amount of protection to the Trimps' heads, adding $healthCalculated$ health to each soldier per level.",
+			tooltip: "给你的异形们的头部提供相当程度的保护，每级给每个战士增加 $healthCalculated$ 生命。",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -2844,7 +2844,7 @@ var toReturn = {
 		//3
 		Polearm: {
 			locked: 1,
-			tooltip: "This thing is big and pointy. It adds $attackCalculated$ attack to each soldier per level",
+			tooltip: "这玩意儿又大又尖！ 每级给每个战士增加 $attackCalculated$ 攻击力。",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -2857,7 +2857,7 @@ var toReturn = {
 		},
 		Pants: {
 			locked: 1,
-			tooltip: "Pants designed specificially for the little Trimps! Adds $healthCalculated$ health to each soldier per level.",
+			tooltip: "给小异形们特制的裤衩！每级给每个战士增加 $healthCalculated$ 生命。",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -2871,7 +2871,7 @@ var toReturn = {
 		//4
 		Battleaxe: {
 			locked: 1,
-			tooltip: "This weapon is pretty intimidating, but your Trimps think they can handle it. Adds $attackCalculated$ attack to each soldier per level",
+			tooltip: "这武器看起来十分吓人，但你的异形们能够搞定。 每级给每个战士增加 $attackCalculated$ 攻击。",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -2884,7 +2884,7 @@ var toReturn = {
 		},
 		Shoulderguards: {
 			locked: 1,
-			tooltip: "These shoulderguards will help keep your Trimps' necks and shoulders safe, and they look cool too. Adds $healthCalculated$ health to each soldier per level",
+			tooltip: "这些护肩能够保护你的异形们的脖子和肩膀，而且它们看起来很酷！每级给每个战士增加 $healthCalculated$ 生命。",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -2898,7 +2898,7 @@ var toReturn = {
 		//5
 		Greatsword: {
 			locked: 1,
-			tooltip: "This sword looks sweet. Seriously, if you could see it you'd think it looked sweet. Trust me. Adds $attackCalculated$ attack to each soldier per level",
+			tooltip: "这些大剑看起来甜美。说真的,如果你能看到它，你也会认为它看起来甜。相信我。 每级给每个战士增加 $attackCalculated$ 攻击。",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -2911,7 +2911,7 @@ var toReturn = {
 		},
 		Breastplate: {
 			locked: 1,
-			tooltip: "Some real, heavy duty armor. Everyone looks badass in heavy duty armor. Adds $healthCalculated$ health to each soldier per level",
+			tooltip: "一些真正的重型装甲。每一个穿着重型护甲的人看起来都很痞气。 每级给每个战士增加 $healthCalculated$ 生命。",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -3204,12 +3204,12 @@ var toReturn = {
 				var amt = rewardResource("food", 2, level);
 				rewardResource("wood", 2, level);
 				rewardResource("metal", 2, level);
-				message("That Blimp dropped " + prettify(amt) + " Food, Wood and Metal! That should be useful.", "Loot", "piggy-bank", null, 'primary');
+				message("那个守卫掉落了 " + prettify(amt) + " 食品、木头和金属!这些应该是有用的。", "Loot", "piggy-bank", null, 'primary');
 				if (game.global.runningChallengeSquared) return;
 				if (game.global.world >= 21 && (game.global.totalPortals >= 1 || game.global.portalActive)){
 					if (game.resources.helium.owned == 0) fadeIn("helium", 10);
 					amt = rewardResource("helium", 1, level);
-					message("You were able to extract " + prettify(amt) + " Helium canisters from that Blimp!", "Loot", "oil", "helium", "helium");
+					message("你已经可以提取了 " + prettify(amt) + " 那个守卫掉落了氦罐！", "Loot", "oil", "helium", "helium");
 					if (game.global.world >= 40 && game.global.challengeActive == "Balance") {
 						var reward = game.challenges.Balance.heldHelium;
 						message("You have completed the Balance challenge! You have been rewarded with " + prettify(reward) + " Helium, and you may repeat the challenge.", "Notices");
@@ -3287,7 +3287,7 @@ var toReturn = {
 			fast: false,
 			loot: function (level) {
 				var amt = rewardResource("gems", 0.35, level, false);
-				message("That Dragimp dropped " + prettify(amt) + " gems!", "Loot", "*diamond", null, 'secondary');
+				message("那条龙掉落了 " + prettify(amt) + " 宝石!", "Loot", "*diamond", null, 'secondary');
 			}
 		},
 		Mitschimp: {
@@ -3300,7 +3300,7 @@ var toReturn = {
 			loot: function (level) {
 				checkAchieve("blockTimed");
 				var amt = rewardResource("wood", 2, level, true);
-				message("Mitschimp dropped " + prettify(amt) + " wood!", "Loot", "tree-deciduous", null, 'primary');
+				message("那只鼹鼠掉落了 " + prettify(amt) + " 木头!", "Loot", "tree-deciduous", null, 'primary');
 			}
 		},
 		Brickimp: {
@@ -3697,7 +3697,7 @@ var toReturn = {
 			attack: 1,
 			health: 1,
 			fast: false,
-			dropDesc: "45 seconds of production for 1 random resource",
+			dropDesc: "45秒生产1个随机资源",
 			loot: function () {
 				var elligible = ["food", "wood", "metal", "science"];
 				if (game.jobs.Dragimp.owned > 0) elligible.push("gems");
@@ -3718,7 +3718,7 @@ var toReturn = {
 			attack: 1,
 			health: 1,
 			fast: false,
-			dropDesc: "+100% damage for 30 seconds in maps",
+			dropDesc: "+100% 攻击在本地图中",
 			loot: function () {
 				var timeRemaining = parseInt(game.global.titimpLeft);
 				if (timeRemaining > 0) {
@@ -3805,11 +3805,11 @@ var toReturn = {
 
 	mapConfig: {
 		names: {
-			prefix: ["Whispering", "Sandy", "Little", "Big", "Rancid", "Tired", "Laughing", "Weeping", "Windy", "Terrible", "Nasty", "Dirty",
-			"Red", "Black", "Singing", "Fiery", "Rocky", "Haunted", "Forgotten", "Miserable", "Cursed", "Tainted", "Blessed", "Sacred",
-			"Abandoned", "Natural", "Enchanted", "Magical", "Calm", "Rugged", "Violent", "Weird", "Secret", "Forbidden", "Bewitched",
-			"Dark", "Light", "Magnificent", "Evil", "Holy", "Hallowed", "Desecrated", "Silent", "Eternal", "Underground", "Temperate", "Chilly",
-			"Muddy", "Dank", "Steamy", "Humid", "Dry", "Putrid", "Foul", "Dangerous", "Marred", "Blighted", "Crystal", "Frozen", "Simple", "Timeless"],
+			prefix: ["静悄悄的", "沙地的", "小的", "大的", "腐臭的", "疲倦的", "搞笑的", "哭泣的", "多风的", "可怕的", "肮脏的", "恶劣的",
+			"红的", "黑的", "歌唱", "炽烈的", "岩石", "闹鬼的", "被遗忘的", "悲惨的", "被诅咒的", "污染的", "神佑的", "神圣的",
+			"被遗弃的", "自然的", "被施魔法的", "有魔力的", "平静的", "崎岖的", "暴力的", "不可思议的", "秘密的", "被禁止的", "被施巫术的", 
+			"黑暗的", "光明的", "宏伟的", "邪恶的", "圣洁的", "圣光的", "亵渎的", "寂静的", "不朽的", "地下的", "温和的", "寒冷的", 
+			"泥泞的", "潮湿的", "多雾的", "湿润的", "干燥的", "腐败的", "污秽的", "危险的", "被损毁的", "枯萎的", "清澈的", "冻结的", "简单的", "永恒的"],
 			suffix: ["Creek.Sea", "Coast.Sea", "Swamp.Sea", "Forest.Forest", "Mountain.Mountain", "Beach.Sea", "Hill.Mountain", "Butte.Mountain",
 			"Ridge.Mountain", "Mesa.Mountain", "Valley.Depths", "Peak.Mountain", "Canyon.Depths", "Plateau.Mountain", "Crag.Depths",
 			"Crater.Depths", "Oaks.Forest",  "Volcano.Mountain", "Glacier.Sea",  "Brook.Sea", "Cave.Depths",  "Sea.Sea", "Ocean.Sea",
@@ -4103,7 +4103,7 @@ var toReturn = {
 		},
 		Shieldblock: {
 			world: 10,
-			message: "That thing dropped a book. Doesn't look like an ordinary book. Looks... blockier...",
+			message: "那玩意儿掉了一本书。看起来不像一个普通的书。看起来...是块盾牌...",
 			level: "last",
 			icon: "book",
 			title: "Shieldblock",
@@ -4141,7 +4141,7 @@ var toReturn = {
 		},
 		Supershield: {
 			world: -1,
-			message: "You found a book that will teach you how to upgrade your Shield!",
+			message: "你发现这本书会教你如何升级你的盾牌！",
 			level: "last",
 			icon: "book",
 			title: "Supershield",
@@ -4153,7 +4153,7 @@ var toReturn = {
 		},
 		Dagadder: {
 			world: -1,
-			message: "You found a book that will teach you how to upgrade your Dagger!",
+			message: "你发现这本书会教你如何升级你的匕首!",
 			level: "last",
 			icon: "book",
 			title: "Dagadder",
@@ -4165,7 +4165,7 @@ var toReturn = {
 		},
 		Bootboost: {
 			world: -1,
-			message: "You found a book that will teach you how to upgrade your Boots!",
+			message: "你发现这本书会教你如何升级你的靴子!",
 			level: "last",
 			icon: "book",
 			title: "Bootboost",
@@ -4177,7 +4177,7 @@ var toReturn = {
 		},
 		Megamace: {
 			world: -1,
-			message: "You found a book that will teach you how to upgrade your Mace!",
+			message: "你发现这本书会教你如何升级你的狼牙棒!",
 			level: "last",
 			icon: "book",
 			title: "Megamace",
@@ -4189,7 +4189,7 @@ var toReturn = {
 		},
 		Hellishmet: {
 			world: -1,
-			message: "You found a book that will teach you how to upgrade your Helmet!",
+			message: "你发现这本书会教你如何升级你的头盔!",
 			level: "last",
 			icon: "book",
 			title: "Hellishmet",
@@ -4201,7 +4201,7 @@ var toReturn = {
 		},
 		Polierarm: {
 			world: -1,
-			message: "You found a book that will teach you how to upgrade your Polearm!",
+			message: "你发现这本书会教你如何升级你的长柄武器!",
 			level: "last",
 			icon: "book",
 			title: "Polierarm",
@@ -4213,7 +4213,7 @@ var toReturn = {
 		},
 		Pantastic: {
 			world: -1,
-			message: "You found a book that will teach you how to upgrade your Pants!",
+			message: "你发现这本书会教你如何升级你的裤子!",
 			level: "last",
 			icon: "book",
 			title: "Pantastic",
@@ -4225,7 +4225,7 @@ var toReturn = {
 		},
 		Axeidic: {
 			world: -1,
-			message: "You found a book that will teach you how to upgrade your Battleaxe!",
+			message: "你发现这本书会教你如何升级你的战斧!",
 			level: "last",
 			icon: "book",
 			title: "Axeidic",
@@ -4237,7 +4237,7 @@ var toReturn = {
 		},
 		Smoldershoulder: {
 			world: -1,
-			message: "You found a book that will teach you how to upgrade your Shoulderguards!",
+			message: "你发现这本书会教你如何升级你的护肩!",
 			level: "last",
 			icon: "book",
 			title: "Smoldershoulder",
@@ -4249,7 +4249,7 @@ var toReturn = {
 		},
 		Greatersword: {
 			world: -1,
-			message: "You found a book that will teach you how to upgrade your Greatsword!",
+			message: "你发现这本书会教你如何升级你的大剑!",
 			level: "last",
 			icon: "book",
 			title: "Greatersword",
@@ -4261,7 +4261,7 @@ var toReturn = {
 		},
 		Bestplate: {
 			world: -1,
-			message: "You found a book that will teach you how to upgrade your Breastplate!",
+			message: "你发现这本书会教你如何升级你的胸甲!",
 			title: "Bestplate",
 			level: "last",
 			icon: "book",
@@ -4303,14 +4303,14 @@ var toReturn = {
 		},
 		TheBlock: {
 			world: -1,
-			message: "Holy cowimp! A unique map!",
+			message: "神圣的奶牛！一个独特的地图！",
 			level: [10, 20],
 			icon: "th-large",
 			title: "The Block",
 			startAt: 11,
 			canRunOnce: true,
 			fire: function () {
-				message("You just made a map to The Block!", "Story");
+				message("你制作了一张地图！", "Story");
 				createMap(11, "The Block", "Block", 2, 100, 1.3, true, true);
 			}
 		},
@@ -4366,7 +4366,7 @@ var toReturn = {
 		Mansion: {
 			world: -1,
 			startAt: 8,
-			message: "You found plans for a Mansion! Your Trimps will be pretty stoked",
+			message: "你找到了建造一个大厦的蓝图! 你的异形会感到十分振奋！",
 			level: [10, 20],
 			icon: "*home4",
 			title: "Mansion",
@@ -4379,7 +4379,7 @@ var toReturn = {
 		Hotel: {
 			world: -1,
 			startAt: 14,
-			message: "You found plans for a hotel! (A decent hotel, too)",
+			message: "你找到了建造一个旅馆的蓝图! （一家体面的旅馆，当然！）",
 			level: [10, 20],
 			icon: "*office",
 			title: "The Trimps' Guide to Cheap Hotel Construction",
@@ -5253,7 +5253,7 @@ var toReturn = {
 			tooltip: function () {
 				var catchAmt = (game.portal.Bait.level + 1);
 				var s = (catchAmt > 1) ? "s" : "";
-				return "Each Trap allows you to catch " + prettify(catchAmt) + " thing" + s + ".";
+				return "每个陷阱都能让你抓住 " + prettify(catchAmt) + " 东西" + s + ".";
 			},
 			cost: {
 				food: 10,
@@ -5268,7 +5268,7 @@ var toReturn = {
 			owned: 0,
 			purchased: 0,
 			craftTime: 10,
-			tooltip: "Increases your maximum food by 100%.",
+			tooltip: "增加100%食物储量上限.",
 			percent: true,
 			cost: {
 				food: function () {
@@ -5286,7 +5286,7 @@ var toReturn = {
 			purchased: 0,
 			craftTime: 10,
 			percent: true,
-			tooltip: "Increases your maximum wood by 100%.",
+			tooltip: "增加100%木头储量上限.",
 			cost: {
 				wood: function () {
 					return calculatePercentageBuildingCost("Shed", "wood", 0.25);
@@ -5303,7 +5303,7 @@ var toReturn = {
 			purchased: 0,
 			craftTime: 10,
 			percent: true,
-			tooltip: "Increases your maximum metal by 100%.",
+			tooltip: "增加100%金属储量上限.",
 			cost: {
 				metal: function () {
 					return calculatePercentageBuildingCost("Forge", "metal", 0.25);
@@ -5637,7 +5637,7 @@ var toReturn = {
 				var textString = "<p>Train a Magmamancer to craft pickaxe heads infused with Gems and Magma, custom for the unique rocks in each zone. The more Magmamancers you have and the longer you spend in one zone, the more Metal your Trimps will be able to gather!</p><p>For each 10 minutes you spend in a zone with Magmamancers up to 2 hours, your Magmamancer bonus will increase by 20% (compounding). Your current bonus is <b>" + prettify(bonus) + "%</b>, and you've been on this zone for " + timeStr + ".</p>";
 				if (this.owned > 0) textString += "<p>Your next Magmamancer will increase the total bonus by " + prettify(nextBonus) + "% (compounding, hold Ctrl to see formula)</p>";
 				else textString += "<p>After training your first Magmamancer, your bonus metal will be " + prettify((nextMag * (Math.pow(1.2, this.getBonusPercent(true)) - 1)) * 100) + "%. (Hold Ctrl to see formula)</p>";
-				if (ctrlPressed) textString += "<b><p>M = Magmamancer count. T = Time on zone in minutes, divided by 10, rounded down.</p><p>Metal/Sec *= 1 + (((1 - (0.9999 ^ M)) * 3) * ((1.2 ^ T) - 1))</p><b>";
+				if (ctrlPressed) textString += "<b><p>M = Magmamancer count. T = Time on zone in minutes, divided by 10, rounded down.</p><p>金属/秒 *= 1 + (((1 - (0.9999 ^ M)) * 3) * ((1.2 ^ T) - 1))</p><b>";
 				return textString;
 			},
 			cost: {
@@ -6509,7 +6509,7 @@ var toReturn = {
 		Megascience: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "This book will teach your Trimps how to science things ?% faster!",
+			tooltip: "这本书会教你的脆皮如何更快的研究科学的  ?%  东西！",
 			done: 0,
 			cost: {
 				resources: {
@@ -6526,7 +6526,7 @@ var toReturn = {
 	triggers: {
 		Trap: {
 			done: 0,
-			message: "Maybe there's something meaty and delicious here to Trap.",
+			message: "也许陷阱里面有一些肉和美味的东西.",
 			cost: {
 				resources: {
 					food: 5,
@@ -6540,7 +6540,7 @@ var toReturn = {
 		},
 		wood: {
 			done: 0,
-			message: "You'll need some wood to build stuff...",
+			message: "你需要一些木材来建造东西...",
 			cost: {
 				resources: {
 					food: 5
