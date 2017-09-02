@@ -137,9 +137,9 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		costText = "";
 	}
 	if (what == "Welcome"){
-		tooltipText = "Welcome to Trimps! This game saves using Local Storage in your browser. Clearing your cookies or browser settings will cause your save to disappear! Please make sure you regularly back up your save file by either using the 'Export' button in the bar below or the 'Online Saving' option under 'Settings'.<br/><br/><b>Chrome and Firefox are currently the only fully supported browsers.</b><br/><br/><b>Would you like to enable online saving before you start?</b>";
+		tooltipText = "欢迎来到Trimps！ 这个游戏会在浏览器中使用本地存储保存游戏进度。 清除您的Cookie或浏览器设置将导致您的游戏进度消失！ 请确保您通过使用下面的栏中的“导出”按钮或“设置”下的“在线保存”选项来定期备份保存文件。<br/> <br/> <b> Chrome和Firefox目前是 唯一完全支持的浏览器。</ b> <br/> <b>您是否希望在开始之前启用在线保存？</ b>";
 		game.global.lockTooltip = true;
-		costText = "<div class='maxCenter'><div class='btn btn-info' id='confirmTooltipBtn' onclick='cancelTooltip(); toggleSetting(\"usePlayFab\");'>Enable Online Saving</div><div class='btn btn-danger' onclick='cancelTooltip()'>Don't Enable</div></div>";
+		costText = "<div class='maxCenter'><div class='btn btn-info' id='confirmTooltipBtn' onclick='cancelTooltip(); toggleSetting(\"usePlayFab\");'>启用在线保存</div><div class='btn btn-danger' onclick='cancelTooltip()'>不启用</div></div>";
 		elem.style.left = "33.75%";
 		elem.style.top = "25%";
 	}

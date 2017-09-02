@@ -24,7 +24,7 @@
 if (typeof kongregate === 'undefined' && document.getElementById("boneBtn") !== null) {
 	var boneBtn = document.getElementById("getBonesBtn");
 	boneBtn.onclick = "";
-	boneBtn.innerHTML = "Kongregate API not loaded! You cannot submit high scores or spend Kreds. Try refreshing or contacting Kongregate support!";
+	boneBtn.innerHTML = "Kongregate API没有加载！ 您不能提交高分或花费Kreds。 尝试刷新或联系Kongregate支持！";
 	boneBtn.style.backgroundColor = "#d9534f";
 	document.getElementById("getBundleBtn").style.display = "none";
 }
@@ -166,7 +166,7 @@ function save(exportThis, fromManual) {
     saveString = LZString.compressToBase64(JSON.stringify(saveGame));
     if (exportThis) return saveString;
 	if (disableSaving) {
-		message("Due to an error occuring, saving has been disabled to prevent corruption", "Notices");
+		message("由于发生错误，已禁用保存以防止损坏", "Notices");
 		postMessages();
 		return;
 	}
@@ -181,10 +181,10 @@ function save(exportThis, fromManual) {
 	}
 	catch(e){
 		if(e.name == "NS_ERROR_FILE_CORRUPTED") {
-        message("Sorry, it looks like your browser storage has been corrupted. Please clear your storage by going to Tools -> Clear Recent History -> Cookies and set time range to 'Everything'. This will remove the corrupted browser storage across all sites.", "Notices");
+        message("对不起，您的浏览器存储看起来已损坏。 请通过转到工具 - >清除最近历史记录 - > Cookies清除存储空间，并将时间范围设置为“一切”。 这将删除所有站点上损坏的浏览器存储。", "Notices");
 		}
 		else
-		message("For some reason, your game is not saving. Make sure you export and back up your save!", "Notices");
+		message("由于某些原因，您的游戏不会保存。 确保导出并备份您的存档！", "Notices");
 		}
 
 	if (game.options.menu.usePlayFab.enabled == 1 && playFabId){
@@ -9937,9 +9937,9 @@ function getPlayFabLoginHTML(){
 	if (game.global.rememberInfo) {
 		info = readPlayFabInfo();
 	}
-		tipHtml[0] += "<div id='playFabLoginContainer' class='col-xs-6'><b id='playFabLoginTitle'>Login to PlayFab</b><br/><span id='playFabEmailHidden' style='display: none'>Your Email<br/><span id='emailNotice' style='font-size: 0.8em'>(For recovery, not required)<br/></span><input type='text' id='registerEmail' /></span><span id='usernameBox'>PlayFab Username<br/><input type='text' id='loginUserName' " + ((info) ? "value='" + info[0] + "'" : "") + "/></span><span id='playFabPasswordBox'><br/>Password <span style='font-size: 0.8em'>(6-30 Chars)</span><br/><input type='password' id='loginPassword'" + ((info) ? " value='" + info[1] + "'" : "") + "/></span><br/><div id='playFabConfirmPasswordHidden' style='display: none'>Confirm Password<br/><input type='password' id='confirmPassword' /><br/></div><span id='rememberInfoBox'>Remember Account Info<br/><input type='checkbox' id='rememberInfo' " + ((info) ? "checked='true'" : "") + "/><br/></span><div id='playFabLoginBtn' class='btn btn-sm btn-info' onclick='playFabLoginWithPlayFab()'>Login</div><div id='playFabRegisterBtn' class='btn btn-sm btn-info' style='display: none' onclick='playFabRegisterPlayFabUser()'>Register</div><span style='display: none' id='playFabRecoverBtns'><div class='btn btn-sm btn-info' onclick='playFabRecoverInfo(false)' style='display: none'>Get Username</div><div class='btn btn-sm btn-primary' onclick='playFabRecoverInfo(true)'>Send Password Reset Email</div></span><div id='playFabSwitchRegisterBtn' onclick='switchForm(true)' class='btn btn-sm btn-primary'>Register Playfab Account</div><div id='playFabSwitchRecoveryBtn' onclick='switchForm(false)' class='btn btn-sm btn-warning'>Recover Account Info</div></div>"
+		tipHtml[0] += "<div id='playFabLoginContainer' class='col-xs-6'><b id='playFabLoginTitle'>登录PlayFab</b><br/><span id='playFabEmailHidden' style='display: none'>你的邮箱<br/><span id='emailNotice' style='font-size: 0.8em'>(为了恢复，必需)<br/></span><input type='text' id='registerEmail' /></span><span id='usernameBox'>PlayFab用户名<br/><input type='text' id='loginUserName' " + ((info) ? "value='" + info[0] + "'" : "") + "/></span><span id='playFabPasswordBox'><br/>密码 <span style='font-size: 0.8em'>(6-30 字符 )</span><br/><input type='password' id='loginPassword'" + ((info) ? " value='" + info[1] + "'" : "") + "/></span><br/><div id='playFabConfirmPasswordHidden' style='display: none'>重复密码<br/><input type='password' id='confirmPassword' /><br/></div><span id='rememberInfoBox'>记住账号信息<br/><input type='checkbox' id='rememberInfo' " + ((info) ? "checked='true'" : "") + "/><br/></span><div id='playFabLoginBtn' class='btn btn-sm btn-info' onclick='playFabLoginWithPlayFab()'>登录</div><div id='playFabRegisterBtn' class='btn btn-sm btn-info' style='display: none' onclick='playFabRegisterPlayFabUser()'>注册</div><span style='display: none' id='playFabRecoverBtns'><div class='btn btn-sm btn-info' onclick='playFabRecoverInfo(false)' style='display: none'>找回用户名</div><div class='btn btn-sm btn-primary' onclick='playFabRecoverInfo(true)'>发送密码重置邮件</div></span><div id='playFabSwitchRegisterBtn' onclick='switchForm(true)' class='btn btn-sm btn-primary'>注册Playfab账号</div><div id='playFabSwitchRecoveryBtn' onclick='switchForm(false)' class='btn btn-sm btn-warning'>恢复帐户信息</div></div>"
 	}
-	tipHtml[0] += "<div id='playFabLoginInfo' class='col-xs-6'><ul><li>While connected to PlayFab, every time you manually save and <b>once per 30 minutes when auto-saving</b>, your file will also be sent to PlayFab's servers.</li><li>Data will be cleared from PlayFab's servers after 3 months of inactivity, this is not a permanent save!</li></ul>"
+	tipHtml[0] += "<div id='playFabLoginInfo' class='col-xs-6'><ul><li>连接到PlayFab时，每次手动保存时，每30分钟自动保存<b>一次</ b>，您的存档文件也将发送到PlayFab的服务器。</ li> <li>如果3个月内没有更新存档，存档将被从PlayFab的服务器删除，这不是一个永久保存！</li></ul>"
 	tipHtml[1] = "<div class='btn btn-sm btn-danger' onclick='cancelTooltip()'>取消</div>";
 	return tipHtml;
 }
@@ -9968,7 +9968,7 @@ function switchForm(register){ //true for register, false for recovery
 	if (rememberBox != null && !register) rememberBox.style.display = "none";
 	if (switchRecoveryBtn != null) switchRecoveryBtn.style.display = "none";
 	if (confirmPasswordBtn != null && register) confirmPasswordBtn.style.display = "block";
-	if (title != null) title.innerHTML = (register) ? "Register a PlayFab Account" : "Recover PlayFab Account Info - <i>Must have provided Email during registration</i>";
+	if (title != null) title.innerHTML = (register) ? "注册一个PlayFab账号" : "恢复帐户信息 - <i>必须在注册期间提供电子邮件</ i>";
 }
 
 function playFabRecoverInfo(needsPassword){
@@ -10250,7 +10250,7 @@ var playFabSaveErrors = 0;
 function saveToPlayFabCallback(data, error){
 	if (error){
 		playFabSaveErrors++;
-		message("Unable to back up your save to PlayFab! Double check your internet connection, and don't forget to back up your save manually.", "Notices");
+		message("无法将您的保存备份到PlayFab！ 仔细检查您的互联网连接，不要忘记手动备份您的保存。", "Notices");
 		swapClass("iconState", "iconStateBad", document.getElementById('playFabIndicator'));
 		console.log(error);
 		if (playFabId != -1) {
@@ -10261,7 +10261,7 @@ function saveToPlayFabCallback(data, error){
 	if (data){
 		swapClass("iconState", "iconStateGood", document.getElementById('playFabIndicator'));
 		lastOnlineSave = performance.now();
-		message("Game saved and backed up to PlayFab! Next automatic online save in 30 minutes.", "Notices", null, "save");
+		message("游戏保存并备份到PlayFab！ 下次自动在线保存30分钟。", "Notices", null, "save");
 		return true;
 	}
 }
@@ -10270,7 +10270,7 @@ function playFabAttemptReconnect(reconnected){
 	console.log((reconnected) ? "Reconnected" : "Attempting to reconnect");
 	if (reconnected){
 		playFabSaveErrors = 0;
-		message("Reconnected to PlayFab!", "Notices", null, "save");
+		message("重新连接到PlayFab！", "Notices", null, "save");
 		swapClass("iconState", "iconStateGood", document.getElementById('playFabIndicator'));
 		return;
 	}
@@ -10342,7 +10342,7 @@ function gameLoop(makeUp, now) {
 		if (game.global.challengeActive == "Daily" && typeof game.global.dailyChallenge.pressure !== 'undefined') dailyModifiers.pressure.addSecond();
 		if (game.global.autoUpgradesAvailable) autoUpgrades();
 		if (savedOfflineText && !game.global.lockTooltip) {
-			tooltip("Trustworthy Trimps", null, "update", savedOfflineText);
+			tooltip("值得信赖的异形", null, "update", savedOfflineText);
 			savedOfflineText = "";
 		}
 	}
