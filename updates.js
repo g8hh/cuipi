@@ -146,7 +146,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 	if (what == "Trustworthy Trimps"){
 		tooltipText = textString;
 		game.global.lockTooltip = true;
-		costText = "<div class='maxCenter'><div class='btn btn-info' id='confirmTooltipBtn' onclick='cancelTooltip()'>Sweet, thanks.</div></div>";
+		costText = "<div class='maxCenter'><div class='btn btn-info' id='confirmTooltipBtn' onclick='cancelTooltip()'>甜蜜的，谢谢。</div></div>";
 		elem.style.left = "33.75%";
 		elem.style.top = "25%";
 	}
@@ -272,11 +272,11 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		elem.style.top = "25%";
 	}
 	if (what == "Portal"){
-		tooltipText = "The portal device you found shines green in the lab. Such a familiar shade...";
+		tooltipText = "你找到的入口装置在实验室里闪着绿光。 多么熟悉的画面...";
 		costText = "";
 	}
 	if (what == "Repeat Map"){
-		tooltipText = "Allow the Trimps to find their way back to square 1 once they finish without your help. They grow up so fast. <br/><br/>If you are <b>not</b> repeating, your current group of Trimps will not be abandoned after the map ends. (Hotkey: R)";
+		tooltipText = "允许异形们自己找到回广场的路，一旦他们在没有你的帮助下完成过后。他们成长的如此之快！<br/><br/>如果您<b>不</ b>重复，地图结束后，您当前的Trimps组将不会被放弃。 （热键：R）";
 		costText = "";
 	}
 	if (what == "Challenge2"){
@@ -420,20 +420,20 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		//elem.style.top = "55%";
 	}
 	if (what == "Reset"){
-		tooltipText = "Are you sure you want to reset? This will really actually reset your game. You won't get anything cool. It will be gone. <b style='color: red'>This is not the soft-reset you're looking for. This will delete your save.</b>";
+		tooltipText = "你确定要重置吗?这实际上真的会重置你的游戏。你不会得到任何好玩的东西，游戏记录将会消失。 <b style='color: red'>这不是你想要的软重置。 这将删除您的保存。</b>";
 		costText="<div class='maxCenter'><div class='btn btn-danger' onclick='resetGame();unlockTooltip();tooltip(\"hide\")'>Delete Save</div> <div class='btn btn-info' onclick='cancelTooltip()'>Cancel</div></div>";
 		game.global.lockTooltip = true;
 		elem.style.left = "33.75%";
 		elem.style.top = "25%";
 	}
 	if (what == "Fight"){
-		tooltipText = "Send your poor Trimps to certain doom in the battlefield. You'll get cool stuff though, they'll understand. (Hotkey: F)";
+		tooltipText = "你把这些可怜的异形们运送到战场上去遭受厄运。然而你会得到很酷的东西,他们会明白的。 (热键: F)";
 		var soldiers = (game.portal.Coordinated.level) ? game.portal.Coordinated.currentSend : game.resources.trimps.maxSoldiers;
 		costText = (soldiers > 1) ? "s" : "";
 		costText = prettify(soldiers) + " Trimp" + costText;
 	}
 	if (what == "AutoFight"){
-		tooltipText = "Allow the Trimps to start fighting on their own whenever their town gets overcrowded (Hotkey: A)";
+		tooltipText = "允许这些异形们开始自己去战斗，当他们的小镇变得拥挤不堪的时候。(热键: A)";
 		costText = "";
 	}
 	if (what == "New Achievements"){
@@ -455,7 +455,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		titleText = "<div id='generatorUpgradeTitle'>Upgrade Generator</div><div id='magmiteOwned'></div>";
 	}
 	if (what == "Queue"){
-		tooltipText = "This is a building in your queue, you'll need to click \"Build\" to build it. Clicking an item in the queue will cancel it for a full refund.";
+		tooltipText = "在你的队列里有一个建筑，您需要点击 \"Build\" 去完成建造的工作。 点击队列里的项目将会取消它,并且资源将全额退还。";
 		costText = "";
 	}
 	if (what == "Toxic" && isItIn != "dailyStack"){
@@ -469,10 +469,10 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 	}
 	if (what == "Custom"){
 		customUp = (textString) ? 2 : 1;
-		tooltipText = "Type a number below to purchase a specific amount. You can also use shorthand such as 2e5 and 200k to select that large number, or fractions such as 1/2 and 50% to select that fraction of your available workspaces."
-		if (textString) tooltipText += " <b>Max of 1,000 for most perks</b>";
+		tooltipText = "在下方输入一个数字来自定义你购买的数量。您还可以使用2e5和200k的缩写来选择大量的数字，例如1/2和50％的分数来选择可用工作空间的一小部分。"
+		if (textString) tooltipText += " <b>最大补贴1,000</b>";
 		tooltipText += "<br/><br/><input id='customNumberBox' style='width: 50%' value='" + ((!isNumberBad(game.global.lastCustomExact)) ? prettify(game.global.lastCustomExact) : game.global.lastCustomExact) + "' />";
-		costText = "<div class='maxCenter'><div id='confirmTooltipBtn' class='btn btn-info' onclick='numTab(5, " + textString + ")'>Apply</div><div class='btn btn-info' onclick='cancelTooltip()'>Cancel</div></div>";
+		costText = "<div class='maxCenter'><div id='confirmTooltipBtn' class='btn btn-info' onclick='numTab(5, " + textString + ")'>应用</div><div class='btn btn-info' onclick='cancelTooltip()'>取消</div></div>";
 		game.global.lockTooltip = true;
 		elem.style.left = "33.75%";
 		elem.style.top = "25%";
@@ -498,8 +498,8 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 			what = "Thanks!";
 		}
 		else
-		tooltipText = "This is your save string. There are many like it but this one is yours. Save this save somewhere safe so you can save time next time. <br/><br/><textarea spellcheck='false' id='exportArea' style='width: 100%' rows='5'>" + save(true) + "</textarea>";
-		costText = "<div class='maxCenter'><div id='confirmTooltipBtn' class='btn btn-info' onclick='cancelTooltip()'>Got it</div>";
+		tooltipText = "这是你的存档的字符串，有很多像这样的，但这一串是只属于你的。找个安全的地方保存起来，这样下次你玩的时候就能节省很多时间了。 <br/><br/><textarea spellcheck='false' id='exportArea' style='width: 100%' rows='5'>" + save(true) + "</textarea>";
+		costText = "<div class='maxCenter'><div id='confirmTooltipBtn' class='btn btn-info' onclick='cancelTooltip()'>Got 知道了</div>";
 		if (document.queryCommandSupported('copy')){
 			costText += "<div id='clipBoardBtn' class='btn btn-success'>Copy to Clipboard</div>";
 		}
@@ -510,9 +510,9 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		elem.style.top = "25%";
 	}
 	if (what == "Import"){
-		tooltipText = "Import your save string! It'll be fun, I promise.<br/><br/><textarea spellcheck='false' id='importBox' style='width: 100%' rows='5'></textarea>";
-		costText="<div class='maxCenter'><div id='confirmTooltipBtn' class='btn btn-info' onclick='cancelTooltip(); load(true);'>Import</div>"
-		if (playFabId != -1) costText += "<div class='btn btn-primary' onclick='loadFromPlayFab()'>Import From PlayFab</div>";
+		tooltipText = "导入你存档的字符串！很有趣，我保证！<br/><br/><textarea spellcheck='false' id='importBox' style='width: 100%' rows='5'></textarea>";
+		costText="<div class='maxCenter'><div id='confirmTooltipBtn' class='btn btn-info' onclick='cancelTooltip(); load(true);'>导入</div>"
+		if (playFabId != -1) costText += "<div class='btn btn-primary' onclick='loadFromPlayFab()'>从PlayFab导入</div>";
 		costText += "<div class='btn btn-info' onclick='cancelTooltip()'>Cancel</div></div>";
 		game.global.lockTooltip = true;
 		elem.style.left = "33.75%";
@@ -549,16 +549,16 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 	}
 	if (what == "Fire Trimps"){
 		if (!game.global.firing)
-		tooltipText = "Activate firing mode, turning the job buttons red, and forcing them to fire trimps rather than hire them. The newly unemployed Trimps will start breeding instead of working, but you will not receive a refund on resources.";
+		tooltipText = "激活解雇模式，工作按钮将会变成红色并将会开始解雇异形们而不是雇佣他们。 被解雇的异形们将开始自我繁殖而不是工作， 但你不会得到任何资源的返还。";
 		else
-		tooltipText = "Disable firing mode";
+		tooltipText = "关闭解雇模式";
 		costText = "";
 	}
 	if (what == "Maps"){
 		if (!game.global.preMapsActive)
-		tooltipText = "Travel to the Map Chamber. Maps are filled with goodies, and for each max level map you clear you will gain a 20% stacking damage bonus for that zone (stacks up to 10 times). (Hotkey: M)";
+		tooltipText = "前往地图室。 地图充满了好东西，对于每个最大级别的地图，您将清楚，您将获得该区域的20％叠加损伤加成（叠加多达10次）。(热键: M)";
 		else
-		tooltipText = "Go back to the World Map. (Hotkey: M)";
+		tooltipText = "回到世界地图 (热键: M)";
 		costText = "";
 	}
 
@@ -592,7 +592,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		costText = canAffordBuilding(what, false, true);
 		if (game.global.buyAmt != 1) {
 			if (game.buildings[what].percent){
-				tooltipText += " <b>You can only purchase 1 " + what + " at a time.</b>";
+				tooltipText += " <b>你只能购买 1 " + what + "同一时间.</b>";
 				what += " X 1";
 			}
 			else {
@@ -661,7 +661,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		if (!noHide) attachFunction = attachFunction + "; cancelTooltip()";
 		attachFunction = (attachFunction) ? ' onclick="' + attachFunction + '"' : "";
 		costText = ' <div class="maxCenter" id="confirmTipCost"><div id="confirmTooltipBtn" class="btn btn-info"' + attachFunction + '>' + renameBtn + '</div>';
-		if (!hideCancel) costText += '<div class="btn btn-danger" onclick="cancelTooltip()">Cancel</div>';
+		if (!hideCancel) costText += '<div class="btn btn-danger" onclick="cancelTooltip()">取消</div>';
 		costText += '</div>';
 		game.global.lockTooltip = true;
 		elem.style.left = "33.75%";

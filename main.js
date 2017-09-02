@@ -519,7 +519,7 @@ function load(saveString, autoLoad, fromPf) {
 			if (typeof savegame.talents.foreman2 !== 'undefined' && savegame.talents.foreman2.purchased) game.global.autoCraftModifier -= 3750;
 			game.global.essence += game.global.spentEssence;
 			game.global.spentEssence = 0;
-			message("Due to a rework of the current Masteries, all of your spent Dark Essence has been refunded for free! Don't forget to repurchase your Masteries!", "Notices");
+			message("由于现在的Masteries的返工，所有您所使用的Dark Essence已经免费退还！ 不要忘了回购你的师父！", "Notices");
 			updateTalentNumbers();
 		}
 		game.global.messages.Loot.magma = true;
@@ -1076,7 +1076,7 @@ function confirmAbandonChallenge(){
 	var text = "Are you sure you want to abandon this challenge?";
 	if (game.global.challengeActive == 'Scientist') text += " <b>Abandoning this challenge will cause the portal to become unstable and start you from the beginning of this run. (You'll keep your permanent rewards like helium and perks)</b>";
 	tooltip('confirm', null, 'update', text, 'abandonChallenge()', 'Abandon Challenge');
-	if (game.global.challengeActive == "Scientist") document.getElementById("confirmTipCost").innerHTML += '<div class="btn btn-success" onclick="abandonChallenge(true); cancelTooltip()">Restart Challenge</div>';
+	if (game.global.challengeActive == "Scientist") document.getElementById("confirmTipCost").innerHTML += '<div class="btn btn-success" onclick="abandonChallenge(true); cancelTooltip()">重新挑战</div>';
 }
 
 function abandonChallenge(restart){
@@ -1463,7 +1463,7 @@ function checkOfflineProgress(noTip){
 		}
 	}
 	if (textArray.length === 0) return;
-	textString = "While you were away, your Trimps were able to produce ";
+	textString = "当你离开时，你的异形生产了 ";
 	for (var y = 0; y < textArray.length; y++){
 		textString += textArray[y];
 		if (y == textArray.length -2) textString += "and ";
@@ -5919,7 +5919,7 @@ function mapsSwitch(updateOnly, fromRecycle) {
         document.getElementById("grid").style.display = "none";
         document.getElementById("preMaps").style.display = "block";
         toggleMapGridHtml();
-        mapsBtn.innerHTML = "World";
+        mapsBtn.innerHTML = "世界";
         if (game.global.lookingAtMap && !game.global.currentMapId) selectMap(game.global.lookingAtMap, true);
 		else if (game.global.currentMapId === "") {
 			clearMapDescription();
@@ -5968,7 +5968,7 @@ function toggleMapGridHtml(on, currentMapObj){
 	}
 	document.getElementById("repeatBtn").style.display = settings[3];
 	if (!on) return;
-	document.getElementById("mapsBtn").innerHTML = (game.global.mapBonus) ? "Maps (" + game.global.mapBonus + ")" : "Maps";
+	document.getElementById("mapsBtn").innerHTML = (game.global.mapBonus) ? "地图 (" + game.global.mapBonus + ")" : "地图";
 	document.getElementById("mapBonus").innerHTML = "";
 	document.getElementById("battleHeadContainer").style.display = "block";
 	if (!currentMapObj) return;
@@ -5990,7 +5990,7 @@ function clearMapDescription(){
 }
 
 function setNonMapBox(){
-	document.getElementById("mapsBtn").innerHTML = "Maps";
+	document.getElementById("mapsBtn").innerHTML = "地图";
 	if (game.global.totalVoidMaps > 0) addVoidAlert();
 	var worldNumElem = document.getElementById("worldNumber");
 	worldNumElem.style.display = (game.global.spireActive) ? 'none' : 'inline';
@@ -5998,7 +5998,7 @@ function setNonMapBox(){
 	var mapBonus = document.getElementById("mapBonus");
 	if (game.global.mapBonus > 0) mapBonus.innerHTML = prettify(game.global.mapBonus * 20) + "% Map Bonus";
 	else mapBonus.innerHTML = "";
-	document.getElementById("worldName").innerHTML = (game.global.spireActive) ? "Spire" : "Zone";
+	document.getElementById("worldName").innerHTML = (game.global.spireActive) ? "尖塔" : "区域";
 }
 
 
@@ -9940,7 +9940,7 @@ function getPlayFabLoginHTML(){
 		tipHtml[0] += "<div id='playFabLoginContainer' class='col-xs-6'><b id='playFabLoginTitle'>Login to PlayFab</b><br/><span id='playFabEmailHidden' style='display: none'>Your Email<br/><span id='emailNotice' style='font-size: 0.8em'>(For recovery, not required)<br/></span><input type='text' id='registerEmail' /></span><span id='usernameBox'>PlayFab Username<br/><input type='text' id='loginUserName' " + ((info) ? "value='" + info[0] + "'" : "") + "/></span><span id='playFabPasswordBox'><br/>Password <span style='font-size: 0.8em'>(6-30 Chars)</span><br/><input type='password' id='loginPassword'" + ((info) ? " value='" + info[1] + "'" : "") + "/></span><br/><div id='playFabConfirmPasswordHidden' style='display: none'>Confirm Password<br/><input type='password' id='confirmPassword' /><br/></div><span id='rememberInfoBox'>Remember Account Info<br/><input type='checkbox' id='rememberInfo' " + ((info) ? "checked='true'" : "") + "/><br/></span><div id='playFabLoginBtn' class='btn btn-sm btn-info' onclick='playFabLoginWithPlayFab()'>Login</div><div id='playFabRegisterBtn' class='btn btn-sm btn-info' style='display: none' onclick='playFabRegisterPlayFabUser()'>Register</div><span style='display: none' id='playFabRecoverBtns'><div class='btn btn-sm btn-info' onclick='playFabRecoverInfo(false)' style='display: none'>Get Username</div><div class='btn btn-sm btn-primary' onclick='playFabRecoverInfo(true)'>Send Password Reset Email</div></span><div id='playFabSwitchRegisterBtn' onclick='switchForm(true)' class='btn btn-sm btn-primary'>Register Playfab Account</div><div id='playFabSwitchRecoveryBtn' onclick='switchForm(false)' class='btn btn-sm btn-warning'>Recover Account Info</div></div>"
 	}
 	tipHtml[0] += "<div id='playFabLoginInfo' class='col-xs-6'><ul><li>While connected to PlayFab, every time you manually save and <b>once per 30 minutes when auto-saving</b>, your file will also be sent to PlayFab's servers.</li><li>Data will be cleared from PlayFab's servers after 3 months of inactivity, this is not a permanent save!</li></ul>"
-	tipHtml[1] = "<div class='btn btn-sm btn-danger' onclick='cancelTooltip()'>Cancel</div>";
+	tipHtml[1] = "<div class='btn btn-sm btn-danger' onclick='cancelTooltip()'>取消</div>";
 	return tipHtml;
 }
 

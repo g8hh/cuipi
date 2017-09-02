@@ -386,7 +386,7 @@
 					<li role="presentation" id="buildingsTab" onclick="filterTabs('buildings')" class="tabNotSelected buyTab"><a id="buildingsA"><span id="buildingsAlert" class="alert badge"></span>建筑</a></li>
 					<li role="presentation" id="jobsTab" style="visibility: hidden" onclick="filterTabs('jobs')" class="tabNotSelected buyTab"><a id="jobsA"><span id="jobsAlert" class="alert badge"></span>工作</a></li>
 					<li role="presentation" id="upgradesTab" style="visibility: hidden" onclick="filterTabs('upgrades')" class="tabNotSelected buyTab"><a id="upgradesA"><span id="upgradesAlert" class="alert badge"></span>升级</a></li>
-					<li role="presentation" id="equipmentTab" style="visibility: hidden" onclick="filterTabs('equipment')" class="tabNotSelected buyTab"><a id="equipmentA"><span id="equipmentAlert" class="alert badge"></span>设备</a></li>		
+					<li role="presentation" id="equipmentTab" style="visibility: hidden" onclick="filterTabs('equipment')" class="tabNotSelected buyTab"><a id="equipmentA"><span id="equipmentAlert" class="alert badge"></span>装备</a></li>		
 					<li role="presentation" id="talentsTab"  style='display: none' onclick="filterTabs('talents')" class="tabNotSelected buyTab"><a id="talentA"><span id="talentsAlert" class="alert badge"></span>专精<span id="talentsEssenceTotal"></span></a></li>		
 					<li role="presentation" id="natureTab" style='display: none'  onclick="filterTabs('nature')" class="tabNotSelected buyTab empowerTabNone" onmouseover="tooltip('Empowerments of Nature', null, event)" onmouseout="tooltip('hide')"><a id="natureA">Nature</a></li>		
 				</ul>
@@ -607,7 +607,7 @@
 								<div class="row">
 									<div class="col-xs-9" style="padding-right: 5px">
 									<!-- Update in resetGame if adding to name -->
-										<div class="battleStatsTitle" id="goodGuyName">Trimps (<span id="trimpsFighting">1</span>) <span id="anticipationSpan"></span> <span id="titimpBuff"></span> <span id="debuffSpan"></span></div>
+										<div class="battleStatsTitle" id="goodGuyName">异形 (<span id="trimpsFighting">1</span>) <span id="anticipationSpan"></span> <span id="titimpBuff"></span> <span id="debuffSpan"></span></div>
 									</div>
 									<div class="col-xs-3" style="padding-left: 5px;">
 										<div class="row" style="padding-right: 15px;">
@@ -886,7 +886,7 @@
 						<div>统计</div>
 					</td>
 					<td class="btn tealColor" onclick="toggleAchievementWindow()">
-						<div>Achieves</div>
+						<div>成就</div>
 					</td>
 					<td class="btn btn-default" onclick="toggleSettingsMenu()">
 						<div id='settingsText'>设置</div>
@@ -906,24 +906,24 @@
 				<div id='searchSettingsWindow'>
 					<div id='settingTitleBar'>
 						<div class='noselect optionContainer settingsBtn tealColor settingTypeBtn' onclick='toggleSettingSection(false)'>Browse All</div>
-						<span id='searchSettingsTitle'>Choose a Category Below, or Search for a Setting/Keyword:</span>&nbsp;
+						<span id='searchSettingsTitle'>选择下面的类别，或搜索设置/关键字：</span>&nbsp;
 						<input id='searchSettings' onkeyup='searchSettings(this)' /><br/>
 						<div id='settingsTabs'>
 							<ul class="nav nav-tabs nav-justified">
 								<li role="presentation" style='display: none' id='NewTab' onclick="settingTab('New')" class="tabNotSelected settingTab"><a>New</a></li>
-								<li role="presentation" id='GeneralTab' onclick="settingTab('General')" class="tabNotSelected settingTab"><a>General</a></li>
-								<li role="presentation" id='PerformanceTab' onclick="settingTab('Performance')" class="tabNotSelected settingTab"><a>Performance</a></li>
-								<li role="presentation"  id='QOLTab' onclick="settingTab('QOL')" class="tabNotSelected settingTab"><a>Quality of Life</a></li>
-								<li role="presentation"  id='AlertsTab' onclick="settingTab('Alerts')" class="tabNotSelected settingTab"><a>Pop-ups and Alerts</a></li>
-								<li role="presentation"  id='LayoutTab' onclick="settingTab('Layout')" class="tabNotSelected settingTab"><a>Layout</a></li>
-								<li role="presentation"  id='OtherTab' onclick="settingTab('Other')" class="tabNotSelected settingTab"><a>Other</a></li>
+								<li role="presentation" id='GeneralTab' onclick="settingTab('General')" class="tabNotSelected settingTab"><a>常用</a></li>
+								<li role="presentation" id='PerformanceTab' onclick="settingTab('Performance')" class="tabNotSelected settingTab"><a>性能</a></li>
+								<li role="presentation"  id='QOLTab' onclick="settingTab('QOL')" class="tabNotSelected settingTab"><a>生活质量</a></li>
+								<li role="presentation"  id='AlertsTab' onclick="settingTab('Alerts')" class="tabNotSelected settingTab"><a>弹出窗口和通知</a></li>
+								<li role="presentation"  id='LayoutTab' onclick="settingTab('Layout')" class="tabNotSelected settingTab"><a>布局</a></li>
+								<li role="presentation"  id='OtherTab' onclick="settingTab('Other')" class="tabNotSelected settingTab"><a>其它</a></li>
 							</ul>
 						</div>
 					</div>					
 					<div id='settingSearchResults'></div>
 				</div>
 				<div id="allSettings" style="display: none">
-					<div class='noselect optionContainer settingsBtn tealColor' onclick='toggleSettingSection(true)'>Back to Search</div>
+					<div class='noselect optionContainer settingsBtn tealColor' onclick='toggleSettingSection(true)'>返回搜索</div>
 					<div id="allSettingsHere"></div>
 				</div>
 			</div>
@@ -942,34 +942,34 @@
 			<div id='titleCol2' class='titleCol'>
 				<div>
 					<div id="portalHelium"><span id="portalHeliumOwned">0</span> 罐</div>
-					<div id="portalTotalHelium"><span id="totalHeliumEarned">0</span> Earned All Time</div>
-					<div id="portalTotalPortals"><span id="totalPortals">0</span> Portals Used</div>		
+					<div id="portalTotalHelium"><span id="totalHeliumEarned">0</span> 获得所有时间</div>
+					<div id="portalTotalPortals"><span id="totalPortals">0</span> 门户使用</div>		
 				</div>
 			</div>
 		</div>
 		<div class="row" id="portalRow">
 			<div id="perkCol" class="col-xs-7">
-			<div class="challengeTitle">Perks</div>
+			<div class="challengeTitle">过滤</div>
 			<div id="portalStory"></div>
 			<div id="portalPresets" class="numTabs">
 				<ul class="nav nav-tabs nav-justified" id="portalPresetsTabs">
 						<li role="presentation" class="tabNotSelected" id="presetTab1" onclick="presetTab(1, true)" onmouseover="tooltip('Perk Preset', null, event, 1)" onmouseout="tooltip('hide')">
-							<a id="presetTab1Text">Preset 1</a>
+							<a id="presetTab1Text">预设 1</a>
 						</li>
 						<li role="presentation" class="tabNotSelected" id="presetTab2" onclick="presetTab(2, true)" onmouseover="tooltip('Perk Preset', null, event, 2)" onmouseout="tooltip('hide')">
-							<a id="presetTab2Text">Preset 2</a>
+							<a id="presetTab2Text">预设 2</a>
 						</li>
 						<li role="presentation" class="tabNotSelected" id="presetTab3" onclick="presetTab(3, true)" onmouseover="tooltip('Perk Preset', null, event, 3)" onmouseout="tooltip('hide')">
-							<a id="presetTab3Text">Preset 3</a>
+							<a id="presetTab3Text">预设 3</a>
 						</li>
 						<li role="presentation" class="tabNotEnabled" id="presetTabSave" onclick="savePerkPreset()" onmouseover="tooltip('Perk Preset', null, event, 'Save')" onmouseout="tooltip('hide')">
-							<a>Save</a>
+							<a>保存</a>
 						</li>
 						<li role="presentation" class="tabNotEnabled" id="presetTabLoad" onclick="loadPerkPreset()" onmouseover="tooltip('Perk Preset', null, event, 'Load')" onmouseout="tooltip('hide')">							
-							<a>Load</a>
+							<a>加载</a>
 						</li>
 						<li role="presentation" class="tabNotEnabled" id="presetTabRename" onclick="renamePerkPreset(true)" onmouseover="tooltip('Perk Preset', null, event, 'Rename')" onmouseout="tooltip('hide')">
-							<a>Rename</a>
+							<a>重命名</a>
 						</li>
 				</ul>
 			</div>
@@ -988,40 +988,40 @@
 							<a id="ptab4Text">+100</a>
 						</li>
 						<li role="presentation"  class="tabNotSelected" id="ptab5" onclick="tooltip('Custom', null, 'update', true)">
-							<a id="ptab5Text">Custom</a>
+							<a id="ptab5Text">自定义</a>
 						</li>
 						<li role="presentation" class="tabNotSelected pointer" id="ptabInfo" onclick="toggleSetting('detailedPerks', null, true)">
-							<a id="ptabInfoText">More Info</a>
+							<a id="ptabInfoText">更多信息</a>
 						</li>
 						<li role="presentation" id="ptabRemove" style="display: none" onclick="toggleRemovePerks()">
-							<a id="ptabRemoveText">Remove</a>
+							<a id="ptabRemoveText">清除</a>
 						</li>
 					</ul>
 				</div>
 				<div style="text-align: center">
-					<div class="btn btn-warning inPortalBtnSm" style="display: none" id="clearPerksBtn" onclick="clearPerks()">Clear All Perks</div>
+					<div class="btn btn-warning inPortalBtnSm" style="display: none" id="clearPerksBtn" onclick="clearPerks()">清除所有的礼物</div>
 				</div>
 				
 				<div id="portalUpgradesHere"></div>
 			</div>
 			<div id="challengeCol" class="col-xs-5">
 				<div id="viewChallenge" style="display: none">
-				<div style='text-align: center'><span class="thing thingColorSquared pointer" style='width: 50%; display: inline-block;'  onmouseover="tooltip('Challenge2', null, event, true)" onmouseout="tooltip('hide')" id='challengeSquaredViewBtn'>Challenge<sup>2</sup> - <span id='challengeSquaredBonusAmtView'>0</span>% bonus</span></div>
-					<span id="viewChallengeText">You do not currently have an active challenge.</span>
+				<div style='text-align: center'><span class="thing thingColorSquared pointer" style='width: 50%; display: inline-block;'  onmouseover="tooltip('Challenge2', null, event, true)" onmouseout="tooltip('hide')" id='challengeSquaredViewBtn'>挑战<sup>2</sup> - <span id='challengeSquaredBonusAmtView'>0</span>% 奖励</span></div>
+					<span id="viewChallengeText">您目前不具备有效的挑战。</span>
 				<br/><br/>
-				<div class="btn btn-warning inPortalBtn" style="display: none" id="cancelChallengeBtn" onclick="confirmAbandonChallenge()">Abandon Challenge</div>
+				<div class="btn btn-warning inPortalBtn" style="display: none" id="cancelChallengeBtn" onclick="confirmAbandonChallenge()">放弃挑战</div>
 
 				</div>
 				<div id="challenges"  style="display: none">
 					<div id='challengeTitleNoSquared'>
-						<div class="challengeTitle">Challenges</div>
+						<div class="challengeTitle">挑战</div>
 					</div>
 					<div id='challengeTitleSquared' style='display: none'>
-						<div class="challengeTitle" style='display: inline-block; width: 50%; padding: 0; margin: 0;'>Challenges</div><div style='display: inline-block; width: 50%; padding: 0; margin: 0;'><span class="thing thingColorSquared pointer" style='width: 75%; display: inline-block;' onclick="toggleChallengeSquared()"  onmouseover="tooltip('Challenge2', null, event)" onmouseout="tooltip('hide')">Challenge<sup>2</sup> - <span id='challengeSquaredBonusAmt'>0</span>% bonus</span></div>
+						<div class="challengeTitle" style='display: inline-block; width: 50%; padding: 0; margin: 0;'>挑战</div><div style='display: inline-block; width: 50%; padding: 0; margin: 0;'><span class="thing thingColorSquared pointer" style='width: 75%; display: inline-block;' onclick="toggleChallengeSquared()"  onmouseover="tooltip('Challenge2', null, event)" onmouseout="tooltip('hide')">挑战<sup>2</sup> - <span id='challengeSquaredBonusAmt'>0</span>% 奖励</span></div>
 					</div>
 					
 					<div id="challengeDescription">
-						<span id="challengeDescriptionPre">You can also choose to activate a challenge before using your portal. Completing a challenge will earn you a permanent reward. You can abandon or view an active challenge at any time by clicking the "View Perks" button.</span>
+						<span id="challengeDescriptionPre">您也可以选择在使用门户之前激活挑战。 完成挑战将为您带来永久的回报。 您可以随时点击“查看奖励”按钮放弃或查看积极的挑战。</span>
 						<span id="flagMustRestart" style="display: none;"><b>If you abandon this challenge, the portal will become unstable and the world will restart (you'll keep permanent bonuses like helium)</b></span>
 
 						<div id="specificChallengeDescription">
@@ -1063,13 +1063,13 @@
 			</div>
 			<div class="col-xs-6">
 				<div class="maxCenter" id="achievementHeader">
-					<span class="achievementMainTitle">Achievements</span><br/>
-					<span class="achievementTotals">You are dealing <span id="achievementTotalPercent"></span>% extra damage<span id="achievementFluff"></span>.</span>
+					<span class="achievementMainTitle">成就</span><br/>
+					<span class="achievementTotals">你造成了<span id="achievementTotalPercent"></span>% 的额外伤害<span id="achievementFluff"></span>.</span>
 					<div id="achievementGoldenBonusContainer">
 					</div>
 				</div>
 				<div id="achievementHelpContainer" style="display: none">
-					You can earn achievements by doing stuff. Each achievement will boost the amount of damage your Trimps can deal, and later achievements grant a larger bonus. You can learn more about an achievement by hovering your mouse over it.
+					你可以通过做东西来获得成就。 每个成就将会提高您的异形可以造成的伤害数量，以后的成就会给予更大的奖励。 您可以通过将鼠标悬停在其上来了解有关成就的更多信息。
 				</div>
 			</div>
 			<div class="col-xs-1">
