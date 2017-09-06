@@ -8,7 +8,7 @@
 // @include      *kongregate.com/games/GreenSatellite/trimps
 // @grant        none
 // ==/UserScript==
-var ATversion = '2.1.5.5u3-unimod-4-17-2017+Modular';
+var ATversion = '2.1.5.5u3-unimod-4-17-2017+模块';
 
 ////////////////////////////////////////////////////////////////////////////////
 //Main Loader Initialize Function (loads first, load everything else)///////////
@@ -37,7 +37,7 @@ function initializeAutoTrimps() {
     if (typeof(AutoPerks) === 'undefined')
         document.head.appendChild(document.createElement('script')).src = base + module + 'autoperks.js';
     else
-        debug('AutoPerks is now included in Autotrimps, please disable the tampermonkey script for AutoPerks to remove this message!', '*spinner3');
+        debug('AutoPerks现在包含在Autotrimps中，请禁用AutoPerks的tampermonkey脚本来删除此消息！', '*spinner3');
     toggleSettingsMenu();
     toggleSettingsMenu();
     // dank dark graphs by Unihedron
@@ -49,21 +49,21 @@ function initializeAutoTrimps() {
         document.head.appendChild($link);
     }
     //
-    debug('AutoTrimps v' + ATversion + ' Loaded!', '*spinner3');    
+    debug('AutoTrimps v' + ATversion + ' 已加载!', '*spinner3');    
 }
 
 function printChangelog() {
     tooltip('confirm', null, 'update', '\
-<br><b style="background-color:#002b3b">4/17 v2.1.5.5u3</b> - fix improvedautostorage hijack\
-<br>Fixed a certain specific stupid bug caused by how graph overwrites some functions unnecessarily\
-<br><b style="background-color:#b93e00">4/16 v2.1.5.5u2</b> - do more map stacks if not enoughHealth\
-<br><span style="opacity:.8">No longer forces Buy Storage off</span>\
-<br><b style="background-color:#840036">4/15 v2.1.5.5u1</b> - new settings BuyOvclock\
-<br><span style="opacity:.75"><b style="background-color:#2c3c8a">4/14 v2.1.5.4u6</b> - Improved nurseries map and betterautostorage <b class="AutoEggs">4/14 v2.1.5.4u5 - Auto Eggs</b>, some more 4.3 support <b style="background-color:#D8000B">4/12 v2.1.5.4u4</b> AutoTrimps lifecycle changes <b style="background-color:#105E28">4/11 v2.1.5.4u3</b> fixed spire farming, autogen supply zone <b style="background-color:#611047">4/10 v2.1.5.4u2</b> PrestigeSkip2 <b style="background-color:#50000D">4/09 v2.1.5.4u1</b> Magma: AutoGen, AutoGen2\
-<br><b style="background-color:#162955">4/08 v2.1.5.3u6</b> ForcePresZ <b style="background-color:#294D00">4/07 u5</b> FinishC2, PowerSaving <b style="background-color:#294D00">u4</b> PreferMetal, PreSpireNurseries <b style="background-color:#6E1236">u3</b> LinearZ, SupplyWall, OneTimeOnly <b style="background-color:#552700">u2</b> TrimpleZ, ScryerDieZ, IgnoreCrits <b style="background-color:#277552;">4/06 u1</b> Don\'t buy Coords / Skip challenge maps</span>\
-<br><u>Report any bugs/problems please! You can find me on Discord: <span style="background-color:#ddd;color:#222">Uni#8610</span></u>\
-<br><a href="https://github.com/Unihedro/AutoTrimps/commits/gh-pages" target="#">Check the commit history</a> (if you care)\
-', 'cancelTooltip()', 'Script Update Notice ' + ATversion);
+<br><b style="background-color:#002b3b">4/17 v2.1.5.5u3</b> - 修复改进自动存储\
+<br>修复了一个特定的愚蠢的错误，这是如何通过图形重写一些不必要的功能引起的\
+<br><b style="background-color:#b93e00">4/16 v2.1.5.5u2</b> - 做更多的地图堆栈，如果不够健康\
+<br><span style="opacity:.8">不再强制购买存储空间关闭</span>\
+<br><b style="background-color:#840036">4/15 v2.1.5.5u1</b> - 新设置购买超频\
+<br><span style="opacity:.75"><b style="background-color:#2c3c8a">4/14 v2.1.5.4u6</b> - 改进的托儿所地图和更好的自动存储 <b class="AutoEggs">4/14 v2.1.5.4u5 - 自动繁殖</b>, 更多的4.3支持<b style="background-color:#D8000B">4/12 v2.1.5.4u4</b> AutoTrimps生命周期更改 <b style="background-color:#105E28">4/11 v2.1.5.4u3</b> 固定尖塔养殖，自动供应区 <b style="background-color:#611047">4/10 v2.1.5.4u2</b> 声望跳过2 <b style="background-color:#50000D">4/09 v2.1.5.4u1</b> Magma: AutoGen, AutoGen2\
+<br><b style="background-color:#162955">4/08 v2.1.5.3u6</b> ForcePresZ <b style="background-color:#294D00">4/07 u5</b> FinishC2, PowerSaving <b style="background-color:#294D00">u4</b> 喜欢金属，预尖端苗圃 <b style="background-color:#6E1236">u3</b> LinearZ, SupplyWall, OneTimeOnly <b style="background-color:#552700">u2</b> TrimpleZ, ScryerDieZ, IgnoreCrits <b style="background-color:#277552;">4/06 u1</b> Don\'t buy Coords / Skip challenge maps</span>\
+<br><u>如果你有任何错误/问题，请上报给我！ 你可以在Discord找到我：<span style="background-color:#ddd;color:#222">Uni#8610</span></u>\
+<br><a href="https://github.com/Unihedro/AutoTrimps/commits/gh-pages" target="#">查看提交历史记录</a> (if you care)\
+', 'cancelTooltip()', '脚本更新日志 ' + ATversion);
 }
 ////////////////////////////////////////
 //Main DELAY Loop///////////////////////
