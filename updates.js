@@ -2498,7 +2498,7 @@ function filterMessage(what, updateOnly){ //send true for updateOnly
 		game.global.messages[what].enabled = displayed;
 	}
 	var toChange = document.getElementsByClassName(what + "Message");
-	var btnText = (displayed) ? what : what + " off";
+	var btnText = (displayed) ? what : what + " 关闭";
 	var btnElem = document.getElementById(what + "Filter");
 	if (btnElem == null) return;
 	btnElem.innerHTML = btnText;

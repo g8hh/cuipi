@@ -2689,11 +2689,11 @@ var toReturn = {
 		},
 		w251: "You asked that Omnipotrimp nicely not to explode after you killed it, but it exploded anyways. Pretty rude.",
 		w255: "Your Trimps continue to lose strength as you press through the zones, but they seem to be adapting well in spirits. It seems like each generation likes the heat more and more.",
-		w265: "You're determined to repair the planet, though you feel like it's not yet possible. Either way, you know you're gaining strength and that your Trimps would follow you anywhere."
+		w265: "你决心修复这个星球，尽管你觉得还不可能。 无论哪种方式，你都知道你正在获得力量，你的异形会跟随你。"
 	},
 
-	trimpDeathTexts: ["不再是", "bit the dust", "took a dirt nap", "断气", "翘辫子", "蒸发", "需要更多的装甲", "exploded", "melted", "fell over", "swam the river Styx", "turned in to jerky", "forgot to put armor on", "croaked", "flatlined", "won't follow you to battle again", "died. Lame", "lagged out", "imp-loded"],
-	badGuyDeathTexts: ["slew", "杀死了", "摧毁了", "消灭了", "liquidated", "vaporized", "demolished", "ruined", "wrecked", "obliterated"],
+	trimpDeathTexts: ["不再是", "化为尘土", "入土为安", "断气", "翘辫子", "蒸发", "需要更多的装甲", "爆炸", "融化了", "摔死了", "游冥河", "脖子扭断", "忘了穿装备", "嘶哑的", "平直线", "不会跟着你再次战", "死了。 瘸", "落后了", ""],
+	badGuyDeathTexts: ["投胎", "杀死了", "摧毁了", "消灭了", "肃清", "汽化了", "捣毁", "毁了", "摧毁", "抹杀"],
 
 	settings: {
 		speed: 10,
@@ -4323,7 +4323,7 @@ var toReturn = {
 			startAt: 15,
 			canRunOnce: true,
 			fire: function () {
-				message("You just made a map to The Wall!", "Story");
+				message("你刚刚做了一张墙垣地图！", "Story");
 				createMap(15, "The Wall", "Wall", 2, 100, 1.5, true, true);
 			}
 		},
@@ -4337,7 +4337,7 @@ var toReturn = {
 				game.global.mapsUnlocked = true;
 				unlockMapStuff();
 				createMap(80, "The Prison", "Prison", 2.6, 100, 2.6, true);
-				message("You found The Prison! You have a bad feeling about going in...", "Story");
+				message("你找到了监狱！ 你对进去有一个不好的感觉...", "Story");
 			}
 		},
 		BionicWonderland: {
@@ -4347,7 +4347,7 @@ var toReturn = {
 			canRunOnce: true,
 			title: "Bionic Wonderland",
 			fire: function () {
-				message("You found a map to the Bionic Wonderland. Sounds fun!", "Story");
+				message("你找到了一个地图通往映射到仿生仙境。 听起来很有趣！", "Story");
 				game.global.bionicOwned++;
 				createMap(125, "Bionic Wonderland", "Bionic", 3, 100, 2.6, true);
 			}
@@ -4359,7 +4359,7 @@ var toReturn = {
 			canRunOnce: true,
 			title: 'Imploding Star',
 			fire: function () {
-				message("You found a map to an Imploding Star inside of a supercooled dimension. The temperature there is perfect!", "Story");
+				message("你发现了一个地图的星爆过冷的尺寸内。 温度是完美的！", "Story");
 				createMap(170, "Imploding Star", "Star", 3, 100, 3.2, true);
 			}
 		},
@@ -4794,11 +4794,11 @@ var toReturn = {
 			}
 		},
 		Potency: {
-			message: "This book will help your Trimps make more Trimps!",
+			message: "这本书将帮助你的异形产生更多的异形！",
 			world: -5,
 			level: 29,
 			icon: "book",
-			title: "Trimpma Sutra",
+			title: "",
 			fire: function () {
 				if (game.global.challengeActive == "Trapper"){
 					message("Your Scientists let you know that your Trimps won't understand the book, but they offer to hold on to it for you for later. How nice of them!", "Notices");
@@ -6633,7 +6633,7 @@ var toReturn = {
 		},
 		Battle: {
 			done: 0,
-			once: function() {document.getElementById("upgradesTitleSpan").innerHTML = "Upgrades";},
+			once: function() {document.getElementById("upgradesTitleSpan").innerHTML = "升级";},
 			message: "战争...它到底有什么好处呢？探索或是别的什么吧。",
 			cost: {
 				special: function () {
@@ -6642,7 +6642,7 @@ var toReturn = {
 			},
 			fire: function () {
 				unlockUpgrade('Battle');
-				document.getElementById("upgradesTitleSpan").innerHTML = "Upgrades";
+				document.getElementById("upgradesTitleSpan").innerHTML = "升级";
 			}
 		},
 		Hut: {

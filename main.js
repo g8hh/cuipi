@@ -900,14 +900,14 @@ function portalClicked() {
 	if (game.global.sLevel >= 1) titleText += " Mk. " + romanNumeral(game.global.sLevel + 1);
 	document.getElementById("portalTitle").innerHTML = titleText;
 	document.getElementById("portalStory").innerHTML = "嗯，你做到了。你跟随你的直觉穿过这个奇怪的世界，并通过愤怒的维度，终于到达这个入口。但是为什么呢?通过这个门户也许会有答案...科学家告诉你，他们可以通过超频带来更多的记忆和物品,但是他们需要氦来冷却它。";
-	document.getElementById("portalHelium").innerHTML = '<span id="portalHeliumOwned">' + prettify(game.resources.helium.owned + game.global.heliumLeftover) + '</span> Helium';
+	document.getElementById("portalHelium").innerHTML = '<span id="portalHeliumOwned">' + prettify(game.resources.helium.owned + game.global.heliumLeftover) + '</span> 氦';
 	document.getElementById("totalHeliumEarned").innerHTML = prettify(game.global.totalHeliumEarned);
 	document.getElementById("totalPortals").innerHTML = game.global.totalPortals;
 	document.getElementById("activatePortalBtn").style.display = "inline-block";
-	document.getElementById("activatePortalBtn").innerHTML = "Activate Portal";
+	document.getElementById("activatePortalBtn").innerHTML = "激活门户";
 	document.getElementById("challengeSquaredBonusAmt").innerHTML = prettify(game.global.totalSquaredReward);
 	if (game.global.canRespecPerks) {
-		document.getElementById("respecPortalBtn").innerHTML = "Respec";
+		document.getElementById("respecPortalBtn").innerHTML = "天赋";
 		document.getElementById("respecPortalBtn").style.display = "inline-block";
 	}
 	document.getElementById('swapToCurrentChallengeBtn').style.display = (game.global.challengeActive) ? 'inline-block' : 'none';
@@ -931,8 +931,8 @@ function displayChallenges() {
 	var challengeCount = 0;
 	game.global.selectedChallenge = "";
 	var challengesHere = document.getElementById("challengesHere");
-	document.getElementById("specificChallengeDescription").innerHTML = "<br/><br/><br/>Click a challenge below to learn more about and/or run it!";
-	var challengeHTML = '<div class="noselect pointer challengeThing thing" id="challenge0" onclick="selectChallenge(0)"><span class="thingName">None</span></div>';
+	document.getElementById("specificChallengeDescription").innerHTML = "<br/><br/><br/>点击下面的挑战来了解更多和/或运行它！";
+	var challengeHTML = '<div class="noselect pointer challengeThing thing" id="challenge0" onclick="selectChallenge(0)"><span class="thingName">一个也没有</span></div>';
 	var firstFail = false;
 	var extraClass = "";
 	for (var what in game.challenges){
@@ -1008,7 +1008,7 @@ function selectChallenge(what) {
 	}
 	if (!game.challenges[what].filter()){
 		var unlockString = (typeof game.challenges[what].unlockString === 'function') ? game.challenges[what].unlockString() : game.challenges[what].unlockString;
-		document.getElementById("specificChallengeDescription").innerHTML = "You will unlock this challenge once you " + unlockString;
+		document.getElementById("specificChallengeDescription").innerHTML = "你会解锁这个挑战" + unlockString;
 		game.global.selectedChallenge = "";
 		document.getElementById("flagMustRestart").style.display = "none";
 		if (addChallenge !== null) addChallenge.innerHTML = "";
@@ -1018,9 +1018,9 @@ function selectChallenge(what) {
 	desc += "<b>";
 	if (challengeSquaredMode) {
 		var reward = getIndividualSquaredReward(game.challenges[what]);
-		desc += " Your highest zone reached for this Challenge<sup>2</sup> is Z" + game.challenges[what].highestSquared + ", earning you " + prettify(reward) + "% extra attack and health, and " + prettify(reward / 10) + "% more Helium from all sources.";
+		desc += " 您的最高区域达到了这个挑战<sup>2</sup> is Z" + game.challenges[what].highestSquared + ", earning you " + prettify(reward) + "% extra attack and health, and " + prettify(reward / 10) + "% more Helium from all sources.";
 	}
-	else if (game.portal[game.challenges[what].unlocks]) desc += (game.portal[game.challenges[what].unlocks].locked) ? " You will also earn a new Perk!" : " You will not earn a new perk.";
+	else if (game.portal[game.challenges[what].unlocks]) desc += (game.portal[game.challenges[what].unlocks].locked) ? " 你也会赚到一个新的额外奖励！" : " 你不会赚到一个新的额外奖励";
 	else if (what == "Scientist") {
 		var sciLev = getScientistLevel();
 		if (sciLev == game.global.sLevel) desc += " You have already completed this challenge!";
@@ -1051,7 +1051,7 @@ function getScientistLevel() {
 function getScientistInfo(number, reward){
 	switch (number){
 		case 1: {
-			return (reward) ? "start with 5000 Science, 100 Food, 100 Wood, 10 Traps, and 1 Foreman" : 11500;
+			return (reward) ? "从5000科学，100食物，100木，10陷阱和1工头开始" : 11500;
 		}
 		case 2: {
 			return (reward) ? "start with 5 Barns, 5 Sheds, 5 Forges, and T2 Equipment unlocked" : 8000;
@@ -2341,12 +2341,12 @@ function calculateTimeToMax(resource, perSec, toNumber, fromGather) {
 	if (!isFinite(years)) return "Long Time";
 	if (toFill < 60) {
 		if (toFill < 1 && fromGather) return "";
-		return Math.floor(seconds) + " Sec" + ((Math.floor(seconds) == 1) ? "" : "s");
+		return Math.floor(seconds) + " 秒" + ((Math.floor(seconds) == 1) ? "" : "s");
 	}
-	if (toFill < 3600) return minutes + " Min" + ((minutes == 1) ? "" : "s") + " " + seconds + " Sec" + ((seconds == 1) ? "" : "s");
-	if (toFill < 86400) return hours + " Hour" + ((hours == 1) ? "" : "s") + " " + minutes + " Min" + ((minutes == 1) ? "" : "s");
-	if (toFill < 31536000) return days + " Day" + ((days == 1) ? "" : "s") + " " + hours + " Hour" + ((hours == 1) ? "" : "s");
-	return prettify(years) + " Year" + ((years == 1) ? "" : "s") + " " + days + " Day" + ((days == 1) ? "" : "s");
+	if (toFill < 3600) return minutes + " 分" + ((minutes == 1) ? "" : "s") + " " + seconds + " 秒" + ((seconds == 1) ? "" : "s");
+	if (toFill < 86400) return hours + " 时" + ((hours == 1) ? "" : "s") + " " + minutes + " 分" + ((minutes == 1) ? "" : "s");
+	if (toFill < 31536000) return days + " 天" + ((days == 1) ? "" : "s") + " " + hours + " 时" + ((hours == 1) ? "" : "s");
+	return prettify(years) + " 年" + ((years == 1) ? "" : "s") + " " + days + " 天" + ((days == 1) ? "" : "s");
 }
 
 function checkTriggers(force) {
@@ -9674,7 +9674,7 @@ function toggleAutoTrap(updateOnly) {
 	var elem = document.getElementById("autoTrapBtn");
 	if (!game.global.trapBuildAllowed){
 		elem.style.display = "none";
-		elem.innerHTML = "AutoTraps Off";
+		elem.innerHTML = "关闭自动陷阱";
 		swapClass("color", "colorDanger", elem);
 		return;
 	}
@@ -9682,11 +9682,11 @@ function toggleAutoTrap(updateOnly) {
 	if (!updateOnly) game.global.trapBuildToggled = !game.global.trapBuildToggled;
 	if (game.global.trapBuildToggled){
 		swapClass("color", "colorSuccess", elem);
-		elem.innerHTML = "AutoTraps On";
+		elem.innerHTML = "打开自动陷阱";
 		return;
 	}
 	swapClass("color", "colorDanger", elem);
-	elem.innerHTML = "AutoTraps Off";
+	elem.innerHTML = "关闭自动陷阱";
 }
 
 function toggleAutoStorage(noChange){
@@ -9694,11 +9694,11 @@ function toggleAutoStorage(noChange){
 	var elem = document.getElementById("autoStorageBtn");
 	if (game.global.autoStorage) {
 		swapClass("color", "colorSuccess", elem);
-		elem.innerHTML = "AutoStorage On";
+		elem.innerHTML = "打开自动存储";
 	}
 	else {
 		swapClass("color", "colorDanger", elem);
-		elem.innerHTML = "AutoStorage Off";
+		elem.innerHTML = "关闭自动存储";
 	}
 }
 
@@ -9726,12 +9726,12 @@ function toggleAutoUpgrades(noChange){
 	if (!noChange) game.global.autoUpgrades = !game.global.autoUpgrades;
 	if (game.global.autoUpgrades){
 		swapClass("color", "colorSuccess", elem);
-		elem.innerHTML = "AutoUpgrade On";
+		elem.innerHTML = "打开自动升级";
 
 	}
 	else {
 		swapClass("color", "colorDanger", elem);
-		elem.innerHTML = "AutoUpgrade Off";
+		elem.innerHTML = "关闭自动升级";
 	}
 	if (game.global.autoUpgrades && game.global.sLevel >= 4){
 		document.getElementById("autoPrestigeBtn").style.display = "block";
