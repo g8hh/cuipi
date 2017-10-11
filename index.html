@@ -1120,30 +1120,30 @@
 							<span id="ShieldEquippedName"></span>
 						</div>
 						<div class="col-xs-6">
-							Equipped Staff<br/>
+							装备人员<br/>
 							<div id="StaffEquipped"></div><br/>
 							<span id="StaffEquippedName"></span>
 						</div>
 					</div>
 					<div id="equippedHeirloomsBtnGroup" class="heirloomBtnGroup" style="visibility: hidden">
-						<div id="unequipHeirloomBtn" class="noselect heirloomBtnActive heirBtn"  onclick="unequipHeirloom()">Unequip</div>
+						<div id="unequipHeirloomBtn" class="noselect heirloomBtnActive heirBtn"  onclick="unequipHeirloom()">卸下</div>
 					</div>
 				</div>
 				<div id="carriedHeirlooms">
 					Carried <span id="carriedHeirloomsText"></span> <div id="addCarriedBtn" onclick="addCarried()" class="heirloomBtnActive heirBtn noselect"></div>
 					<div id="carriedHeirloomsHere"></div>
 					<div id="carriedHeirloomsBtnGroup" class="heirloomBtnGroup" style="visibility: hidden">
-						<div id="equipHeirloomBtn" class="noselect heirloomBtnActive heirBtn"  onclick="equipHeirloom()">Equip</div>
-						<div id="stopCarryHeirloomBtn" class="noselect heirloomBtnActive heirBtn"  onclick="stopCarryHeirloom()">Stop Carrying</div>
+						<div id="equipHeirloomBtn" class="noselect heirloomBtnActive heirBtn"  onclick="equipHeirloom()">装备</div>
+						<div id="stopCarryHeirloomBtn" class="noselect heirloomBtnActive heirBtn"  onclick="stopCarryHeirloom()">停止携带</div>
 					</div>
 				</div>
 				<div id="extraHeirlooms">
 					临时 <span id="extraHeirloomsText"></span> <div id="recycleAllHeirloomsBtn" onclick="recycleAllHeirloomsClicked()" class="heirloomBtnActive heirBtn noselect">全部回收</div>
 					<div id="extraHeirloomsHere"></div>
 					<div id="extraHeirloomsBtnGroup" class="heirloomBtnGroup" style="visibility: hidden">
-						<div id="equipHeirloomBtn2" class="noselect heirloomBtnActive heirBtn"  onclick="equipHeirloom()">Equip</div>
-						<div id="carryHeirloomBtn" class="noselect heirloomBtnActive heirBtn"  onclick="carryHeirloom()">Carry</div>
-						<div id="recycleHeirloomBtn" class="noselect heirloomBtnActive heirBtn"  onclick="recycleHeirloom()">Recycle</div>
+						<div id="equipHeirloomBtn2" class="noselect heirloomBtnActive heirBtn"  onclick="equipHeirloom()">装备</div>
+						<div id="carryHeirloomBtn" class="noselect heirloomBtnActive heirBtn"  onclick="carryHeirloom()">携带</div>
+						<div id="recycleHeirloomBtn" class="noselect heirloomBtnActive heirBtn"  onclick="recycleHeirloom()">回收</div>
 					</div>
 				</div>
 			</div>
@@ -1153,11 +1153,11 @@
 					<div class="row">
 						<div class="col-xs-6" id="modReplaceBox">
 							<select id="modReplaceSelect"></select><br/>
-							<div id="modReplaceBtn" class="heirloomBtnActive heirBtn noselect" onclick="replaceMod()">Replace</div>
+							<div id="modReplaceBtn" class="heirloomBtnActive heirBtn noselect" onclick="replaceMod()">替换</div>
 						</div>
 						<div class="col-xs-6" id="modUpgradeBox">
 							<div id="modUpgradeCost"></div>
-							<div id="modUpgradeBtn" class="heirloomBtnActive heirBtn noselect" onclick="upgradeMod()">Upgrade</div>
+							<div id="modUpgradeBtn" class="heirloomBtnActive heirBtn noselect" onclick="upgradeMod()">升级</div>
 						</div>
 					</div>			
 				</div>
@@ -1181,7 +1181,7 @@
 	</div>
 	<div id="heirloomsPopup" style="display: none">
 		<div id="heirloomsPopupBtns">
-			You Found an Heirloom!
+			你找到了传家宝！
 
 			<span class="heirloomPopupBtn icomoon icon-close" onclick="closeHeirPopup()"></span>
 			<span class="heirloomPopupBtn icomoon icon-archive" onclick="toggleHeirlooms(); closeHeirPopup();"></span>
@@ -1202,7 +1202,7 @@
 	<script type="text/javascript" src="config.js?90"></script>
 	<script type="text/javascript" src="updates.js?90"></script>
 	<script type="text/javascript" src="main.js?90"></script>
-<!--	<script src="AutoTrimps2.js"></script>-->
+	<script src="AutoTrimps2.js"></script>
 	<!--document.body.appendChild(document.createElement('script')).src='https://zhaolinxu.github.io/cuipi/AutoTrimps2.js';-->
 	
 </body>
