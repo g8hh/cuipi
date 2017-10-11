@@ -1,5 +1,5 @@
 # 脆皮（Trimps）
 
-英文原版：http://trimps.github.io/
+英文原版(V 4.5)：http://trimps.github.io/
 
-汉化版：https://zhaolinxu.github.io/cuipi/
+汉化版(V 4.5)：https://zhaolinxu.github.io/cuipi/
