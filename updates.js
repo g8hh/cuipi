@@ -544,7 +544,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		elem.style.top = "15%";
 		elem.style.left = "25%";
 		swapClass('tooltipExtra', 'tooltipExtraLg', elem);
-
+		noExtraCheck = true;
 	}
 	if (what == "PlayFab Conflict"){
 		tooltipText = "It looks like your save stored at PlayFab is further along than the save on your computer.<br/><b>Your save on PlayFab has earned " + prettify(textString) + " total Helium, defeated Zone " + attachFunction + ", and cleared " + prettify(numCheck) + " total Zones. The save on your computer only has " + prettify(game.global.totalHeliumEarned) + " total Helium, has defeated Zone " + game.global.highestLevelCleared + ", and cleared " + prettify(game.stats.zonesCleared.value + game.stats.zonesCleared.valueTotal) + " total Zones.</b><br/>Would you like to Download your save from PlayFab, Overwrite your online save with this one, or Cancel and do nothing?";
@@ -650,8 +650,9 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 			tooltipText = tooltipText.replace('<coord>', coordReplace);
 			if (!canAffordCoordinationTrimps()){
 				var nextCount = (game.portal.Coordinated.level) ? game.portal.Coordinated.currentSend : game.resources.trimps.maxSoldiers;
-				var amtToGo = ((nextCount * 3) - game.resources.trimps.realMax());
-				tooltipText += "<b>You need enough room for " + prettify(nextCount * 3) + " max Trimps. You are short " + prettify(Math.floor(amtToGo)) + " Trimps.</b>";
+				var amtToGo = Math.floor((nextCount * 3) - game.resources.trimps.realMax());
+				var s = (amtToGo == 1) ? "" : "s";
+				tooltipText += " <b>You need enough room for " + prettify(nextCount * 3) + " max Trimps. You are short " + prettify(Math.floor(amtToGo)) + " Trimp" + s + ".</b>";
 			}
 		}
 	}
@@ -1435,6 +1436,11 @@ function getBattleStatBd(what) {
 		currentCalc *= (amt + 1);
 		textString += "<tr><td class='bdTitle'>Strength in Health</td><td>15%</td><td>" + cellCount + "</td><td>+ " + prettify(amt * 100) + "%</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>";
 	}
+	//Pumpkimp buff
+	if (game.global.sugarRush > 0 && what == "attack"){
+		currentCalc *= sugarRush.getAttackStrength();
+		textString += "<tr class='pumpkimpRow'><td class='bdTitle'>Sugar Rush</td><td>&nbsp;</td><td>&nbsp;</td><td>x " + sugarRush.getAttackStrength() + "</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + ((what == "attack") ? getFluctuation(currentCalc, minFluct, maxFluct) : "") + "</tr>";		
+	}
 	//Magma
 	if (mutations.Magma.active() && (what == "attack" || what == "health")){
 		mult = mutations.Magma.getTrimpDecay();
@@ -2050,6 +2056,7 @@ function resetGame(keepPortal) {
 	document.getElementById("mapsCreateRow").style.display = "none";
 	document.getElementById("worldName").innerHTML = "Zone";
 	document.getElementById("wrapper").style.background = "url(css/bg2.png) center repeat-x";
+	document.getElementById("wrapper").className = "wrapperUnbroken"
 	document.getElementById("turkimpBuff").style.display = "none";
 	document.getElementById("statsBtnRow").style.display = "block";
 	document.getElementById("mapsBtn").innerHTML = "Maps";
@@ -2348,8 +2355,8 @@ function resetGame(keepPortal) {
 		}
 	}
 	else {
-		game.options.menu.darkTheme.enabled = 0;
-		game.options.menu.darkTheme.restore();
+		game.options.menu.darkTheme.enabled = 1;
+		game.options.menu.darkTheme.removeStyles();
 		game.options.menu.usePlayFab.enabled = 0;
 		toggleSetting("usePlayFab", null, false, true);
 		playFabId = -1;

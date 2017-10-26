@@ -21,7 +21,7 @@
 function newGame () {
 var toReturn = {
 	global: {
-		version: 4.5,
+		version: 4.511,
 		isBeta: false,
 		killSavesBelow: 0.13,
 		playerGathering: "",
@@ -190,6 +190,8 @@ var toReturn = {
 		passive: true,
 		spiresCompleted: 0,
 		lastSpireCleared: 0,
+		sugarRush: 0,
+		holidaySeed: Math.floor(Math.random() * 100000),
 		sessionMapValues: {
 			loot: 0,
 			difficulty: 0,
@@ -534,35 +536,35 @@ var toReturn = {
 			darkTheme: {
 				extraTags: "general",
 				enabled: 1,
-				description: "Toggle between the default Trimps theme, a custom dark theme made by u/Grabarz19, and the default theme with a black background.",
-				titles: ["Black Background", "Default Theme", "Dark Theme"],
-				onToggle: function () {
-					var link;
-					if (this.enabled == 2){
-						link = document.createElement('link');
-						link.type = 'text/css';
-						link.rel = 'stylesheet';
-						link.href = 'css/dark.css';
-						link.id = 'darkTheme';
-						document.head.appendChild(link);
-						return;
-					}
-					if (this.enabled == 0) {
-						document.getElementById("innerWrapper").style.backgroundColor = "black";
-						link = document.getElementById("darkTheme");
-						if (!link) return;
-						link.disabled = true;
+				description: "Toggle between the default Trimps theme, a custom dark theme made by u/Grabarz19, a gradient theme by u/k1d_5h31d0n, and the default theme with a black background.",
+				titles: ["Black Background", "Default Theme", "Dark Theme", "Gradient Theme"],
+				//styleName index should always be equal to title index minus 2, and should match the css file name
+				styleNames: ["dark", "gradient"],
+				removeStyles: function () {
+					for (var x = 0; x < this.styleNames.length; x++){
+						var link = document.getElementById(this.styleNames[x] + "Theme");
+						if (!link) continue;
 						document.head.removeChild(link);
-						return;
 					}
 					document.getElementById("innerWrapper").style.backgroundColor = "initial";
 				},
-				restore: function () {
-					document.getElementById("innerWrapper").style.backgroundColor = "initial";
-					link = document.getElementById("darkTheme");
-					if (!link) return;
-					link.disabled = true;
-					document.head.removeChild(link);
+				applyStyle: function (titleIndex){
+					var styleName = this.styleNames[titleIndex - 2];
+					var link = document.createElement('link');
+					link.type = 'text/css';
+					link.rel = 'stylesheet';
+					link.href = 'css/' + styleName + '.css';
+					link.id = styleName + 'Theme';
+					document.head.appendChild(link);
+				},
+				onToggle: function () {
+					this.removeStyles();
+					if (this.enabled == 1) return;
+					if (this.enabled == 0){
+						document.getElementById("innerWrapper").style.backgroundColor = "black";
+						return;
+					}
+					this.applyStyle(this.enabled);
 				}
 			},
 			fadeIns: {
@@ -635,6 +637,16 @@ var toReturn = {
 					return (game.global.Geneticistassist);
 				}
 			},
+			liquification: {
+				enabled: 1,
+				extraTags: "general",
+				description: "Enable or disable Liquification. Nothing in game should be impossible to complete with Liquification enabled, but if you just want to slow things down then you have every right to do so.",
+				titles: ["Liquification Off", "Liquification On"],
+				lockUnless: function () {
+					return (game.global.spiresCompleted > 0);
+				}
+
+			},
 			overkillColor: {
 				enabled: 1,
 				extraTags: "layout",
@@ -647,7 +659,11 @@ var toReturn = {
 			forceQueue: {
 				enabled: 0,
 				extraTags: "qol",
-				description: "Choose whether or not to force instant-craft buildings to use the queue. Currently applies only to Warpstation. May be useful for double checking prices before building!",
+				get description() {
+					var appliesTo = " only to Warpstation";
+					if (game.global.improvedAutoStorage) appliesTo = " to Warpstation and AutoStorage";
+					return "Choose whether or not to force instant-craft buildings to use the queue. Currently applies " + appliesTo + ". May be useful for double checking prices before building!";
+				},
 				titles: ["Not Forcing Queue", "Forcing Queue"],
 				lockUnless: function () {
 					return (game.global.sLevel >= 4);
@@ -676,6 +692,15 @@ var toReturn = {
 				extraTags: "qol",
 				description: "Choose whether or not to display timestamps in the message log. <b>Local Timestamps</b> will log the current time according to your computer, <b>Run Timestamps</b> will log how long it has been since your run started. Note that toggling this setting will not add or remove timestamps from previous messages, but will add or remove them to or from any new ones.",
 				titles: ["No Timestamps", "Local Timestamps", "Run Timestamps"]
+			},
+			gaFire: {
+				enabled: 1,
+				extraTags: "qol",
+				description: "<p>Toggle between <b>Limited GA Firing</b>, <b>Geneticistassist Fire</b> and <b>No GA Firing</b>.</p><p><b>Limited GA Firing</b> will prevent Geneticistassist from firing Farmers, Lumberjacks, or Miners.</p><p><b>Geneticistassist Fire</b> is the default value, and allows Geneticistassist to fire anything.</p><p><b>No GA Firing</b> prevents your Geneticistassist from being able to fire anything at all, including other Geneticists.</p>",
+				titles: ["Limited GA Firing", "Geneticistassist Fire", "No GA Firing"],
+				lockUnless: function () {
+					return game.global.Geneticistassist
+				}
 			},
 			tinyButtons: {
 				enabled: 0,
@@ -718,6 +743,12 @@ var toReturn = {
 				description: "Disable the snow effect in the world. <b>This will take effect on the next zone after this setting is changed</b>. This setting is temporary, and will melt when the snow does.",
 				titles: ["No Snow", "Show Snow"]
 			}, */
+			showHoliday: {
+				enabled: 1,
+				extraTags: "general",
+				description: "<p>Choose between <b>Show Pumpkimps</b>, <b>Bordered Pumpkimps</b>, and <b>No Pumpkimps</b>. This setting applies only to the visual effect of Pumpkimp zones in the world, does not apply to maps, and has no impact on how many Pumpkimps or Pumpkimp Zones actually spawn. This setting is temporary and will rot away after the Pumpkimp season!</p><p><b>Show Pumpkimps</b> is the default, and displays Pumpkimp Zones as normal.</p><p><b>Bordered Pumpkimps</b> displays Pumpkimp cells by changing the border color instead of the background color.</p><p><b>No Pumpkimps</b> will not show any indicator at all that a world zone is a Pumpkimp Zone. Pumpkimps will still spawn at the same rate.</p>",
+				titles: ["No Pumpkimps", "Show Pumpkimps", "Bordered Pumpkimps"]
+			},
 			geneSend: {
 				enabled: 0,
 				extraTags: "other",
@@ -776,7 +807,6 @@ var toReturn = {
 						game.global.lastOnline = now;
 						game.global.start = now;
 						setTimeout(gameTimeout, (100));
-						setTimeout(updatePortalTimer, 1000);
 						swapClass("timer", "timerNotPaused", document.getElementById("portalTimer"));
 					}
 				},
@@ -2894,7 +2924,7 @@ var toReturn = {
 			if (game.global.spireRows >= 15) return "The land sure looks terrible and corrupted, but at least you have Fluffy.";
 			return "What do you have against Fluffy?";
 		},
-		w430: "The Trimps tried tieing two Turkimps to this tall tree, then the Turkimps thrashed those three trillion Trimps, throwing the Trimps tumbling towards the tall tree. The Trimps truly tried. Those Turkimps though... they tough.",
+		w430: "The Trimps tried tying two Turkimps to this tall tree, then the Turkimps thrashed those three trillion Trimps, throwing the Trimps tumbling towards the tall tree. The Trimps truly tried. Those Turkimps though... they tough.",
 		w440: "Wow, you've gotten pretty far. You would have never guessed there'd be this many zones out there, but here you are.",
 		w450: "It's just about time for another Spire, don't you think?",
 		w460: "This part of the world seems to be at a much higher elevation than any other part that you've been at. The air is strangely clear, and you can see more of the planet sprawled out around you than ever before. It feels good to see everything you're fighting for and feel like it's worth it.",
@@ -3196,7 +3226,7 @@ var toReturn = {
 			}
 		},
 		Pumpkimp: {
-			location: "None",
+			location: "Maps",
 			attack: 0.9,
 			health: 1.5,
 			fast: false,
@@ -3452,7 +3482,9 @@ var toReturn = {
 				var amt = (game.global.world >= 60) ? 10 : 2;
 				if (mutations.Magma.active()) amt *= 3;
 				var percentage = 1;
+				var rewardPercent = 1;
 				if (game.global.world >= mutations.Corruption.start(true)){
+					rewardPercent = 2;
 					percentage = (game.global.challengeActive == "Corrupted") ? 0.075 : 0.15;
 					var corrCount = mutations.Corruption.cellCount();
 					if (mutations.Healthy.active()) corrCount -= mutations.Healthy.cellCount();
@@ -3471,7 +3503,7 @@ var toReturn = {
 				if (game.global.runningChallengeSquared)
 					amt = 0;
 				else
-					amt = rewardResource("helium", amt, level, false, 2);
+					amt = rewardResource("helium", amt, level, false, rewardPercent);
 				var msg = "Cthulimp and the map it came from crumble into the darkness. You find yourself instantly teleported to ";
 				if (game.options.menu.repeatVoids.enabled && game.global.totalVoidMaps > 1){
 					msg += "the next Void map";
