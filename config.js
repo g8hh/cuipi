@@ -518,20 +518,20 @@ var toReturn = {
 			boneAlerts: {
 				enabled: 1,
 				extraTags: "alerts",
-				description: "Hide popup confirmation messages when in the Bone Trader or Heirlooms menus.",
-				titles: ["Not Confirming Bones", "Confirming Bones"]
+				description: "在“骨交易员”或“传家宝”菜单中不弹出确认提示。",
+				titles: ["不确认骨头", "确认骨头"]
 			},
 			showAlerts: {
 				enabled: 1,
 				extraTags: "alerts",
-				description: "Toggle on or off the display of yellow alert icons when unlocking something new.",
-				titles: ["Not Alerting", "Alerting"]
+				description: "当解锁新的东西时，打开或关闭黄色提醒图标的显示。",
+				titles: ["不提醒", "提醒"]
 			},
 			showFullBreed: {
 				enabled: 0,
 				extraTags: "popular general",
-				description: "Display time to breed a full group of soldiers next to the current breed timer.",
-				titles: ["Less Breed Timer", "More Breed Timer"]
+				description: "显示时间培育当前品种计时器旁边的一整队士兵。",
+				titles: ["更少的品种定时器", "更多的繁殖计时器"]
 			},
 			darkTheme: {
 				extraTags: "general",
@@ -603,14 +603,14 @@ var toReturn = {
 			detailedPerks: {
 				extraTags: "qol",
 				enabled: 0,
-				description: "Decide whether or not to show extra information on Perk buttons",
-				titles: ["Minimal Perk Info", "Extra Perk Info"]
+				description: "决定是否在额外津贴按钮上显示额外的信息",
+				titles: ["最小化额外津贴信息", "额外的信息"]
 			},
 			alwaysAbandon: {
 				extraTags: "general",
 				enabled: 0,
-				description: "Decide whether or not to wait for soldiers to die on switching between maps and world. Toggling this on will automatically abandon your soldiers.",
-				titles: ["Wait to Travel", "Auto Abandon"]
+				description: "决定是否要等待士兵在地图上和世界之间切换死亡。 切换这个将自动放弃你的士兵。",
+				titles: ["等待旅行", "自动放弃"]
 			},
 			extraMapBtns: {
 				extraTags: "layout",
@@ -5119,7 +5119,7 @@ var toReturn = {
 			world: 1,
 			level: 39,
 			icon: "book",
-			title: "Scientist",
+			title: "科学家",
 			fire: function () {
 				if (game.global.challengeActive == "Scientist"){
 					message("Your Trimps think they're too good at Science to read your dumb book. They're already working on Portal technology!", "Notices");
