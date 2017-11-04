@@ -2526,7 +2526,7 @@ function buyBuilding(what, confirmed, fromAuto, forceAmt) {
 	}
 	else
 		return false;
-	if (!fromAuto) tooltip(what, "建筑", "更新");
+	if (!fromAuto) tooltip(what, "buildings", "update");
 	return true;
 }
 
