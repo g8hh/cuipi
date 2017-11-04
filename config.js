@@ -453,8 +453,8 @@ var toReturn = {
 			formatPerkLevels: {
 				enabled: 1,
 				extraTags: "layout",
-				description: "Toggle on or off large number formatting for Perk levels.",
-				titles: ["No Perk Formatting", "Formatting Perk Levels"]
+				description: "打开或关闭津贴级别的大数字格式。",
+				titles: ["不格式化Perk", "格式化Perk级别"]
 			},
 			progressBars: {
 				enabled: 1,
@@ -570,14 +570,14 @@ var toReturn = {
 			fadeIns: {
 				enabled: 1,
 				extraTags: "layout performance animation",
-				description: "Toggle on or off the fade in effect on elements.",
-				titles: ["Not Fading", "Fading"]
+				description: "打开或关闭对元素的淡入效果。",
+				titles: ["不衰退", "衰退"]
 			},
 			extraStats: {
 				enabled: 1,
 				extraTags: "layout",
-				description: "Toggle on or off adding extra information to map items.",
-				titles: ["Minimalist Maps", "Extra Map Info"],
+				description: "打开或关闭添加额外的信息，以映射项目。",
+				titles: ["极简地图", "额外的地图信息"],
 				onToggle: function () {
 					refreshMaps();
 				}
@@ -585,8 +585,8 @@ var toReturn = {
 			useAverages: {
 				extraTags: "popular general",
 				enabled: 0,
-				description: "Toggle whether or not loot from maps and the world should be counted in the loot breakdown and tooltip calculations. Calculates the average of the last two minutes of loot. If you want to clear the last 2 minutes, try toggling it off and on again.",
-				titles: ["Not Averaging", "Averaging"],
+				description: "切换是否从地图和世界的战利品应计入战利品分解和工具提示计算。 计算战利品最后两分钟的平均值。 如果您想清除最后2分钟，请尝试将其关闭并重新打开。",
+				titles: ["不平均", "平均"],
 				onToggle: function () {
 					for (var item in game.global.lootAvgs){
 						if (Array.isArray(game.global.lootAvgs[item])) game.global.lootAvgs[item] = [0];
@@ -597,8 +597,8 @@ var toReturn = {
 			voidPopups: {
 				extraTags: "alerts",
 				enabled: 1,
-				description: "Decide whether or not you want popups on looting an Heirloom.",
-				titles: ["No Heirloom Pop", "Popping Heirlooms"]
+				description: "决定是否要弹出掠夺传家宝。",
+				titles: ["没有传家宝流行", "流行的传家宝"]
 			},
 			detailedPerks: {
 				extraTags: "qol",
@@ -786,8 +786,8 @@ var toReturn = {
 			pauseGame: {
 				enabled: 0,
 				extraTags: "other",
-				description: "Pause your game. This will pause all resource gathering, offline progress, and timers. (Hotkey: Space)",
-				titles: ["Not Paused", "Paused"],
+				description: "暂停你的游戏。 这将暂停所有资源收集，离线进度和计时器。 （热键：空格键）",
+				titles: ["不暂停", "暂停"],
 				timeAtPause: 0,
 				onToggle: function () {
 					if (this.enabled) {
@@ -1268,7 +1268,7 @@ var toReturn = {
 			max: 3,
 			priceBase: 100000,
 			heliumSpent: 0,
-			tooltip: "Use strategies discovered in alternate dimensions to siphon Map Bonus Damage stacks from lower level maps. For each level of Siphonology, you will earn stacks from maps one level lower than your current world. Maximum of 3 levels.",
+			tooltip: "使用替代维度中发现的策略从较低级别的地图虹吸地图奖励伤害堆栈。 对于虹吸学的每个级别，您将从比当前世界低一级的地图获得堆叠。 最多3个级别。",
 		},
 		Anticipation: {
 			level: 0,
@@ -2262,16 +2262,16 @@ var toReturn = {
 		},
 		totalZones: {
 			finished: 0,
-			title: "Total Zone Clears",
+			title: "总清理区域",
 			description: function (number) {
-				return "Clear  " + prettify(this.breakpoints[number]) + " total Zones";
+				return "清理了  " + prettify(this.breakpoints[number]) + " 总区域";
 			},
 			evaluate: function () {
 				return game.stats.zonesCleared.value + game.stats.zonesCleared.valueTotal;
 			},
 			progress: function () {
 				if (this.breakpoints.length > this.finished) return this.evaluate() + " / " + this.breakpoints[this.finished];
-				return this.evaluate() + " total";
+				return this.evaluate() + " 总共";
 			},
 			breakpoints: [30, 70, 130, 200, 400, 777, 1000, 1500, 10000, 50000],//total zones according to stats
 			tiers: [2, 2, 3, 3, 3, 4, 4, 5, 7, 7],
@@ -2281,16 +2281,16 @@ var toReturn = {
 		},
 		totalMaps: {
 			finished: 0,
-			title: "Total Map Clears",
+			title: "地图总清理数",
 			description: function (number) {
-				return "Clear  " + prettify(this.breakpoints[number]) + " total Maps";
+				return "总共清理了  " + prettify(this.breakpoints[number]) + " 地图";
 			},
 			display: function () {
 				return (this.evaluate() > 0);
 			},
 			progress: function () {
 				if (this.breakpoints.length > this.finished) return prettify(this.evaluate()) + " / " + prettify(this.breakpoints[this.finished]);
-				return prettify(this.evaluate()) + " total";
+				return prettify(this.evaluate()) + " 总共";
 			},
 			evaluate: function () {
 				return game.stats.mapsCleared.value + game.stats.mapsCleared.valueTotal;
@@ -5775,7 +5775,7 @@ var toReturn = {
 			purchased: 0,
 			craftTime: 120,
 			AP: true,
-			tooltip: "Pay a tribute of food to your Dragimp, increasing his appetite and his speed. He will gather gems 5% faster (compounding).",
+			tooltip: "向您的Dragimp捐款，增加他的胃口和速度。 他会收集宝石5％（复合）。",
 			cost: {
 				food: [10000, 1.05]
 			},

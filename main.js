@@ -637,7 +637,7 @@ function load(saveString, autoLoad, fromPf) {
 	if (game.jobs.Explorer.locked === 0) fadeIn("fragmentsPs", 10);
 	if (game.buildings.Tribute.locked === 0) fadeIn("gemsPs", 10);
     if (game.global.autoCraftModifier > 0)
-        document.getElementById("foremenCount").innerHTML = (game.global.autoCraftModifier * 4) + " Foremen";
+        document.getElementById("foremenCount").innerHTML = (game.global.autoCraftModifier * 4) + " 工头";
     if (game.global.fighting) startFight();
 	if (!game.options.menu.pauseGame.enabled) {
 		//If not paused and offline progress is enabled, run offline progress
@@ -3484,7 +3484,7 @@ function buyMap() {
 		if (!game.global.currentMapId) selectMap(game.global.mapsOwnedArray[game.global.mapsOwnedArray.length - 1].id);
 		return 1;
 	}
-	else message("You can't afford this map! You need " + prettify(cost) + " fragments.", "Notices");
+	else message("You can't afford this map! You need " + prettify(cost) + " 碎片。", "Notices");
 	return -3;
 }
 
@@ -6116,7 +6116,7 @@ function recycleBelow(confirmed){
 			total++;
 			}
 	}
-	if (total > 0) message("Recycled " + total + " maps for " + prettify(refund) + " fragments.", "Notices");
+	if (total > 0) message("回收 " + total + " 地图 " + prettify(refund) + " 碎片.", "Notices");
 }
 
 function recycleMap(map, fromMass, killVoid) {
@@ -6151,7 +6151,7 @@ function recycleMap(map, fromMass, killVoid) {
 	if (!killVoid) {
 		refund = getRecycleValue(mapObj.level);
 		game.resources.fragments.owned += refund;
-		if (!fromMass) message("Recycled " + mapObj.name + " for " + prettify(refund) + " fragments.", "Notices");
+		if (!fromMass) message("回收 " + mapObj.name + " 的 " + prettify(refund) + " 碎片.", "Notices");
 	}
 	game.global.mapsOwnedArray.splice(map, 1);
     if (killVoid) {
@@ -6172,12 +6172,12 @@ function getRecycleValue(level) {
 
 function updateMapCredits() {
 	var s = (game.challenges.Mapology.credits == 1) ? "" : "s"
-	document.getElementById("mapCreditsLeft").innerHTML = game.challenges.Mapology.credits + " Map Credit" + s;
+	document.getElementById("mapCreditsLeft").innerHTML = game.challenges.Mapology.credits + " 地图信用" + s;
 }
 
 function messageMapCredits() {
 	var s = (game.challenges.Mapology.credits == 1) ? "" : "s"
-	message("You have " + game.challenges.Mapology.credits + " Map Credit" + s + " left!", "Notices");
+	message("你还有 " + game.challenges.Mapology.credits + " 地图信用" + s + " 剩余！", "Notices");
 }
 
 function mapsClicked(confirmed) {
@@ -6350,7 +6350,7 @@ function setNonMapBox(){
 	worldNumElem.style.display = (game.global.spireActive) ? 'none' : 'inline';
 	document.getElementById("worldNumber").innerHTML = game.global.world;
 	var mapBonus = document.getElementById("mapBonus");
-	if (game.global.mapBonus > 0) mapBonus.innerHTML = prettify(game.global.mapBonus * 20) + "% Map Bonus";
+	if (game.global.mapBonus > 0) mapBonus.innerHTML = prettify(game.global.mapBonus * 20) + "% 地图奖金";
 	else mapBonus.innerHTML = "";
 	document.getElementById("worldName").innerHTML = (game.global.spireActive) ? ((checkIfSpireWorld(true) == 1) ? "尖塔" : "尖塔 " + romanNumeral(checkIfSpireWorld(true))) : "区域";	
 }
@@ -7081,7 +7081,7 @@ function calculateDamage(number, buildString, isTrimp, noCheckAchieve, cell) { /
 }
 
 function updateForemenCount(){
-	document.getElementById("foremenCount").innerHTML = (game.global.autoCraftModifier * 4) + " Foremen";
+	document.getElementById("foremenCount").innerHTML = (game.global.autoCraftModifier * 4) + " 工头";
 	updateBuildSpeed();
 }
 
@@ -7300,22 +7300,22 @@ function rewardLiquidZone(){
 		}
 	}
 	messageLock = false;
-	var text = "You liquified a Liquimp!<br/>";
-	if (unlocks !== "" && game.global.messages.Unlocks.enabled) text += "Unlocks Found: " + unlocks + "<br/>";
+	var text = "你液化了一个Liquimp！<br/>";
+	if (unlocks !== "" && game.global.messages.Unlocks.enabled) text += "解锁发现： " + unlocks + "<br/>";
 	if (game.global.messages.Loot.enabled && (game.global.messages.Loot.primary || game.global.messages.Loot.secondary)){
-		text += "Resources Found:";
+		text += "发现资源：";
 		var heCount = game.resources.helium.owned - helium;
 		if (game.global.messages.Loot.helium && heCount > 0){
-			text += " Helium - " + prettify(heCount) + ",";
+			text += " 氦 - " + prettify(heCount) + ",";
 		}
 		if (game.global.messages.Loot.secondary){
-			text += " Max Trimps - " + prettify(game.resources.trimps.realMax() - trimpsCount) + ",";
-			text += " Fragments - " + prettify(game.resources.fragments.owned - fragments) + ",";
+			text += " 脆皮最大上限 - " + prettify(game.resources.trimps.realMax() - trimpsCount) + ",";
+			text += " 碎片 - " + prettify(game.resources.fragments.owned - fragments) + ",";
 		}
 		if (game.global.messages.Loot.primary){
-			text += " Food - " + prettify(game.resources.food.owned - food) + ",";
-			text += " Wood - " + prettify(game.resources.wood.owned - wood) + ",";
-			text += " Metal - " + prettify(game.resources.metal.owned - metal) + ",";
+			text += " 食物 - " + prettify(game.resources.food.owned - food) + ",";
+			text += " 木头 - " + prettify(game.resources.wood.owned - wood) + ",";
+			text += " 金属 - " + prettify(game.resources.metal.owned - metal) + ",";
 		}
 		
 		text = text.slice(0, -1);
@@ -9379,7 +9379,7 @@ function updateTitimp(){
 function updateNomStacks(number){
 	var elem = document.getElementById('nomStack');
 	if (elem == null){
-		document.getElementById('badGuyName').innerHTML += ' <span class="badge badBadge" onmouseover="tooltip(\'Nom\', \'customText\', event, \'This Bad Guy is nice and plump from eating Trimps. Increases attack damage by 25% per stack\');" onmouseout="tooltip(\'hide\')"><span id="nomStack">' + number + '</span><span class="glyphicon glyphicon-scale"></span></span>';
+		document.getElementById('badGuyName').innerHTML += ' <span class="badge badBadge" onmouseover="tooltip(\'Nom\', \'customText\', event, \'这个坏家伙因为吃脆皮而变得丰满。 每堆增加25％攻击伤害\');" onmouseout="tooltip(\'hide\')"><span id="nomStack">' + number + '</span><span class="glyphicon glyphicon-scale"></span></span>';
 	}
 	else elem.innerHTML = number;
 }

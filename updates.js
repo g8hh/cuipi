@@ -507,7 +507,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		tooltipText = "这是你的存档的字符串，有很多像这样的，但这一串是只属于你的。找个安全的地方保存起来，这样下次你玩的时候就能节省很多时间了。 <br/><br/><textarea spellcheck='false' id='exportArea' style='width: 100%' rows='5'>" + save(true) + "</textarea>";
 		costText = "<div class='maxCenter'><div id='confirmTooltipBtn' class='btn btn-info' onclick='cancelTooltip()'>知道了</div>";
 		if (document.queryCommandSupported('copy')){
-			costText += "<div id='clipBoardBtn' class='btn btn-success'>Copy to Clipboard</div>";
+			costText += "<div id='clipBoardBtn' class='btn btn-success'>复制到粘贴板</div>";
 		}
 		costText += "</div>";
 		ondisplay = tooltips.handleCopyButton();
@@ -632,7 +632,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 			return;
 		}
 		if (typeof tooltipText.split('@')[1] !== 'undefined'){
-			var prestigeCost = "<b>You may not want to do this right away.</b> Your next " + game.upgrades[what].prestiges + " will grant " + getNextPrestigeValue(what) + ".";
+			var prestigeCost = "<b>你可能不想这样做。</b> Your next " + game.upgrades[what].prestiges + " will grant " + getNextPrestigeValue(what) + ".";
 			tooltipText = tooltipText.replace('@', prestigeCost);
 		}
 		if (typeof tooltipText.split('$')[1] !== 'undefined'){
@@ -652,12 +652,12 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 				var nextCount = (game.portal.Coordinated.level) ? game.portal.Coordinated.currentSend : game.resources.trimps.maxSoldiers;
 				var amtToGo = Math.floor((nextCount * 3) - game.resources.trimps.realMax());
 				var s = (amtToGo == 1) ? "" : "s";
-				tooltipText += " <b>You need enough room for " + prettify(nextCount * 3) + " max Trimps. You are short " + prettify(Math.floor(amtToGo)) + " Trimp" + s + ".</b>";
+				tooltipText += " <b>你需要足够的空间 " + prettify(nextCount * 3) + " 最大脆皮。 你很矮 " + prettify(Math.floor(amtToGo)) + " 脆皮" + s + "。</b>";
 			}
 		}
 	}
 	if (isItIn == "maps"){
-		tooltipText = "This is a map. Click it to see its properties or to run it. Maps can be run as many times as you want.";
+		tooltipText = "这是一张地图。 点击它来查看它的属性或运行它。 地图可以根据需要多次运行。";
 		costText = "";
 	}
 	if (what == 'confirm'){
@@ -854,20 +854,20 @@ function messageConfigHover(what, event){
 	var title = "";
 	switch(what){
 		case 'Lootprimary':
-			text = "Log the common loot items: Food, Wood, and Metal.";
-			title = "Primary";
+			text = "记录常见的物品：食物，木头和金属。";
+			title = "主要";
 			break;
 		case 'Lootsecondary':
-			text = "Log the less common loot items: Gems, Fragments, Territory Bonus, and others.";
-			title = "Secondary";
+			text = "记录不太常见的物品掉落物品：宝石，碎片，领土奖金，等等。";
+			title = "次要";
 			break;
 		case 'Lootevents':
-			text = "Log drops and messages from temporary events, such as holidays.";
-			title = "Events";
+			text = "记录来自临时事件（例如假期）的掉落和消息。";
+			title = "事件";
 			break;
 		case 'Lootexotic':
-			text = "Log the rewards granted by Exotic Imports.";
-			title = "Exotic";
+			text = "记录异域的进口授予的奖励。";
+			title = "异域";
 			break;
 		case 'Loothelium':
 			text = "Log Helium rewards.";
@@ -1087,14 +1087,14 @@ function getPsString(what, rawNum) {
 function getZoneStats(event, update) {
 	if (!update && game.global.lockTooltip) return;
 	var textString =  "<table class='bdTable table table-striped'><tbody>";
-	textString += "<tr><td class='bdTitle bdZoneTitle' colspan='3'>Zone "  + game.global.world + ", Cell " + (game.global.lastClearedCell + 2) + "</td></tr>";
-	textString += "<tr><td colspan='3'>You have been in this Zone for " + formatMinutesForDescriptions((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) + "</td></tr>";
+	textString += "<tr><td class='bdTitle bdZoneTitle' colspan='3'>区域 "  + game.global.world + ", Cell " + (game.global.lastClearedCell + 2) + "</td></tr>";
+	textString += "<tr><td colspan='3'>你已经在这个区域 " + formatMinutesForDescriptions((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) + "</td></tr>";
 	if ((game.global.mapsActive || game.global.preMapsActive) && game.global.currentMapId){
 		var map = game.global.mapsOwnedArray[getMapIndex(game.global.currentMapId)];
-		textString += "<tr><td class='bdTitle bdZoneTitle' colspan='3'>" + map.name + ", Level " + map.level + ", Cell " + (game.global.lastClearedMapCell + 2) + "</td></tr>";
+		textString += "<tr><td class='bdTitle bdZoneTitle' colspan='3'>" + map.name + ", 等级 " + map.level + ", 格子 " + (game.global.lastClearedMapCell + 2) + "</td></tr>";
 		textString += '<tr><td><span class="' + getMapIcon(map) + '"></span> ' + ((map.location == "Void") ? voidBuffConfig[game.global.voidBuff].title : getMapIcon(map, true)) + '</td><td><span class="icomoon icon-gift2"></span>' + Math.floor(map.loot * 100) + '%</span> <span class="icomoon icon-cube2"></span>' + map.size + ' <span class="icon icon-warning"></span>' + Math.floor(map.difficulty * 100) + '%</td><td>' + ((map.location == "Void") ? '&nbsp' : ('Items: ' + addSpecials(true, true, map))) + '</td></tr>';
 		textString += "<tr><td colspan='3'>You have been on this map for " + formatMinutesForDescriptions((new Date().getTime() - game.global.mapStarted) / 1000 / 60) + "</td></tr>";
-		if (map.location == "Void") textString += "<tr><td colspan='3'>You have " + game.global.totalVoidMaps + " Void Map" + ((game.global.totalVoidMaps == 1) ? "" : "s") + ".</td></tr>";
+		if (map.location == "Void") textString += "<tr><td colspan='3'>你拥有 " + game.global.totalVoidMaps + " 虚空地图" + ((game.global.totalVoidMaps == 1) ? "" : "s") + ".</td></tr>";
 	}
 	textString += "</tbody></table>";
 	if (update) {
@@ -1344,7 +1344,7 @@ function getBattleStatBd(what) {
 		var mapBonusMult = 0.2 * game.global.mapBonus;
 		currentCalc *= (1 + mapBonusMult);
 		mapBonusMult *= 100;
-		textString += "<tr><td class='bdTitle'>Map Bonus</td><td>20%</td><td>" + game.global.mapBonus + "</td><td>+ " + prettify(mapBonusMult) + "%</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>";
+		textString += "<tr><td class='bdTitle'>地图奖金</td><td>20%</td><td>" + game.global.mapBonus + "</td><td>+ " + prettify(mapBonusMult) + "%</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>";
 	}
 	//Add RoboTrimp
 	if (what == "attack" && game.global.roboTrimpLevel > 0){
@@ -2044,7 +2044,7 @@ function resetGame(keepPortal) {
 	log.scrollTop = log.scrollHeight;
 	document.getElementById("worldNumber").innerHTML = "1";
 	document.getElementById("mapsHere").innerHTML = "";
-	document.getElementById("sciencePs").innerHTML = "+0/sec";
+	document.getElementById("sciencePs").innerHTML = "+0/秒";
 	document.getElementById("repeatBtn").style.display = "none";
 	document.getElementById("helium").style.visibility = "hidden";
 	document.getElementById("jobsTitleDiv").style.display = "none";
@@ -2106,7 +2106,7 @@ function resetGame(keepPortal) {
 
 	for (var item in game.resources){
 		var elem = document.getElementById(item + "Ps");
-		if (elem !== null) elem.innerHTML = "+0/sec";
+		if (elem !== null) elem.innerHTML = "+0/秒";
 	}
 	filterTabs("all");
 	var gatherBtns = ["buildings", "food", "wood", "metal", "science", "trimps"];
@@ -2418,7 +2418,7 @@ function applyS1(){
 	game.buildings.Trap.owned += 10;
 	fadeIn("trimps", 10);
 	game.global.autoCraftModifier += 0.25;
-	document.getElementById("foremenCount").innerHTML = (game.global.autoCraftModifier * 4) + " Foremen";
+	document.getElementById("foremenCount").innerHTML = (game.global.autoCraftModifier * 4) + " 工头";
 }
 
 function applyS2(){
@@ -2828,7 +2828,7 @@ function addQueueItem(what) {
 
 function updateSkeleBtn(){
 	document.getElementById("boneBtnContainer").style.display = "block";
-	document.getElementById("boneBtnText").innerHTML = "Trade " + prettify(game.global.b) + " Bone" + (game.global.b == 1 ? "" : "s");
+	document.getElementById("boneBtnText").innerHTML = "交易 " + prettify(game.global.b) + " 骨头" + (game.global.b == 1 ? "" : "");
 }
 
 //
@@ -2969,7 +2969,7 @@ function updatePs(jobObj, trimps, jobName){ //trimps is true/false, send PS as f
 		psText = prettify(psText);
 /*		var color = (psText < 0) ? "red" : "green";
 		if (psText == 0) color = "black"; */
-		psText = "+" + psText + "/sec";
+		psText = "+" + psText + "/秒";
 		if (trimps && game.unlocks.quickTrimps) {
 			psText += " (x2!)";
 		}
@@ -3637,7 +3637,7 @@ function toggleSetting(setting, elem, fromPortal, updateOnly){
 		if (!trimpAchievementsOpen) return;
 		displayAchievements();
 		var fluff = [
-			[", better get some more achievements", ", you'd do fine with a few more achievements", " but you wish you had a few more achievements"],
+			[", 更好的取得更多的成就", ", 你会做一些更多的成就更好", " 但是你希望你有更多的成就"],
 			[", your achievement game shows promise", " on your path to achievement", ", thanks to your achievements"],
 			[", thanks to your bounty of achievements", ", must be all those achievements", ", you are one with the achievements", " and you water your achievements daily"],
 			[", your Trimps are mighty impressed", ", your achievements are mind blowing", ". You wake up, achieve, then sleep", ", you have achievement in your blood"],
@@ -3902,7 +3902,7 @@ tooltips.showError = function (textString) {
 	tooltip += "</textarea>";
 	var costText = "<div class='maxCenter'><div id='confirmTooltipBtn' class='btn btn-info' onclick='cancelTooltip()'>Got it</div>";
 	if (document.queryCommandSupported('copy')){
-		costText += "<div id='clipBoardBtn' class='btn btn-success'>Copy to Clipboard</div>";
+		costText += "<div id='clipBoardBtn' class='btn btn-success'>复制到粘贴板</div>";
 	}
 	costText += "<a id='downloadLink' target='_blank' download='Trimps Bug Report', href=";
 	if (Blob !== null) {
