@@ -565,11 +565,14 @@ function load(saveString, autoLoad, fromPf) {
 	if (oldVersion < 4.511 && game.global.version == 4.511){
 		addNewSetting('showHoliday');
 	}
+	
 	//End compatibility
 
 	//Test server only
 	//End test server only
 	//Temporary until next patch
+	//End Temporary
+
 	if (!getCurrentMapObject()) {
 		game.global.currentMapId = "";
 		game.global.mapGridArray = []
