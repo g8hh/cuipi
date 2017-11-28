@@ -402,7 +402,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 			costText = "<span style='color: green'>Purchased</span>";
 		else if (game.global.essence < nextTalCost)
 			costText = "<span style='color: red'>" + prettify(nextTalCost) + " Dark Essence (Use Scrying Formation to earn more)</span>";
-		else costText = prettify(nextTalCost) + " Dark Essence";
+		else costText = prettify(nextTalCost) + " 黑暗精华";
 		what = talent.name;
 	}
 	if (what == "Corruption"){
@@ -445,8 +445,8 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		elem.style.top = "25%";
 	}
 	if (what == "Respec Talents"){
-		tooltipText = "This will return all Dark Essence that was spent on talents at the cost of 20 bones. Are you sure?";
-		costText = "<div class='maxCenter'><div id='confirmTooltipBtn' class='btn btn-info' onclick='cancelTooltip(); respecTalents(true)'>Respec</div><div class='btn btn-danger' onclick='cancelTooltip()'>取消</div></div>";
+		tooltipText = "这将以20块骨头为代价，返回所有用于天赋的黑暗精华。 你确定吗？";
+		costText = "<div class='maxCenter'><div id='confirmTooltipBtn' class='btn btn-info' onclick='cancelTooltip(); respecTalents(true)'>洗点</div><div class='btn btn-danger' onclick='cancelTooltip()'>取消</div></div>";
 		game.global.lockTooltip = true;
 		elem.style.left = "33.75%";
 		elem.style.top = "25%";
@@ -1046,17 +1046,17 @@ function getPsString(what, rawNum) {
 	//Add Size (challenge)
 	if (game.global.challengeActive == "Size"){
 		currentCalc *= 1.5;
-		textString += "<tr><td class='bdTitle'>Huge (Size)</td><td class='bdPercent'>+ 50%</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+		textString += "<tr><td class='bdTitle'>巨大 (尺寸)</td><td class='bdPercent'>+ 50%</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 	}	//Add meditate (challenge)
 	if (game.global.challengeActive == "Meditate"){
 		currentCalc *= 1.25;
-		textString += "<tr><td class='bdTitle'>Meditate</td><td class='bdPercent'>+ 25%</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+		textString += "<tr><td class='bdTitle'>冥想</td><td class='bdPercent'>+ 25%</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 	}
 	if (game.global.challengeActive == "Toxicity"){
 		var toxMult = (game.challenges.Toxicity.lootMult * game.challenges.Toxicity.stacks) / 100;
 		currentCalc *= (1 + toxMult);
 		toxMult = (toxMult * 100).toFixed(1) + "%";
-		textString += "<tr><td class='bdTitle'>Tweaky (Toxicity)</td><td class='bdPercent'>+ " + toxMult + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+		textString += "<tr><td class='bdTitle'>微调 (毒)</td><td class='bdPercent'>+ " + toxMult + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 	}
 	if (game.global.challengeActive == "Balance"){
 		currentCalc *= game.challenges.Balance.getGatherMult();
@@ -1064,7 +1064,7 @@ function getPsString(what, rawNum) {
 	}
 	if (game.global.challengeActive == "Decay"){
 		currentCalc *= 10;
-		textString += "<tr><td class='bdTitle'>Sanity (Decay)</td><td class='bdPercent'>x 10</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+		textString += "<tr><td class='bdTitle'>明智 (衰变)</td><td class='bdPercent'>x 10</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 		var stackStr = Math.pow(0.995, game.challenges.Decay.stacks);
 		currentCalc *= stackStr;
 		textString += "<tr style='color: red'><td class='bdTitle'>Decay</td><td class='bdPercent'>x " + stackStr.toFixed(3) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
@@ -1075,14 +1075,14 @@ function getPsString(what, rawNum) {
 	}
 	if (game.global.challengeActive == "Lead" && ((game.global.world % 2) == 1)){
 		currentCalc *= 2;
-		textString += "<tr><td class='bdTitle'>Determined (Lead)</td><td class='bdPercent'>+ 100%</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+		textString += "<tr><td class='bdTitle'>决心 (Lead)</td><td class='bdPercent'>+ 100%</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 	}
 	if (game.global.challengeActive == "Daily"){
 		var mult = 0;
 		if (typeof game.global.dailyChallenge.dedication !== 'undefined'){
 			mult = dailyModifiers.dedication.getMult(game.global.dailyChallenge.dedication.strength);
 			currentCalc *= mult;
-			textString += "<tr><td class='bdTitle'>Dedicated (Daily)</td><td class='bdPercent'>+ " + prettify((mult * 100) - 100) + "%</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+			textString += "<tr><td class='bdTitle'>专用 (日常)</td><td class='bdPercent'>+ " + prettify((mult * 100) - 100) + "%</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 		}
 		if (typeof game.global.dailyChallenge.famine !== 'undefined' && what != "fragments" && what != "science"){
 			mult = dailyModifiers.famine.getMult(game.global.dailyChallenge.famine.strength);
@@ -1093,13 +1093,13 @@ function getPsString(what, rawNum) {
 	if (getEmpowerment() == "Wind"){
 		var windMod = game.empowerments.Wind.getCombatModifier() * 10;
 		currentCalc *= (1 + windMod);
-		textString += "<tr><td class='bdTitle'>Swiftness (Wind)</td><td class='bdPercent'>+ " + prettify(windMod * 100) +"%</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+		textString += "<tr><td class='bdTitle'>迅捷 (风)</td><td class='bdPercent'>+ " + prettify(windMod * 100) +"%</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 	}
 	var heirloomBonus = calcHeirloomBonus("Staff", jobs[index] + "Speed", 0, true);
 	if (heirloomBonus > 0){
 		currentCalc *= ((heirloomBonus / 100) + 1);
 		heirloomBonus = prettify(heirloomBonus) + '%';
-		textString += "<tr><td class='bdTitle'>Heirloom (Staff)</td><td class='bdPercent'>+ " + heirloomBonus + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+		textString += "<tr><td class='bdTitle'>传家宝 (员工)</td><td class='bdPercent'>+ " + heirloomBonus + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 	}
 	//Add player
 	if (game.global.playerGathering == what){
@@ -1108,11 +1108,11 @@ function getPsString(what, rawNum) {
 			if (game.talents.turkimp4.purchased) tBonus = 100;
 			else if (game.talents.turkimp3.purchased) tBonus = 75;
 			currentCalc *= (1 + (tBonus / 100));
-			textString += "<tr><td class='bdTitle'>Sharing Food</td><td class='bdPercent'>+ " + tBonus + "%</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+			textString += "<tr><td class='bdTitle'>分享食物</td><td class='bdPercent'>+ " + tBonus + "%</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 		}
 		var playerStrength = getPlayerModifier();
 		currentCalc += playerStrength;
-		textString += "<tr><td class='bdTitle'>You</td><td class='bdPercent'>+ " + prettify(playerStrength) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+		textString += "<tr><td class='bdTitle'>你</td><td class='bdPercent'>+ " + prettify(playerStrength) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 
 	}
 	//Add Loot	ALWAYS LAST
@@ -1120,7 +1120,7 @@ function getPsString(what, rawNum) {
 		var avg = getAvgLootSecond(what);
 		if (avg > 0) {
 			currentCalc += avg;
-			textString += "<tr><td class='bdTitle'>Average Loot</td><td class='bdPercent'>+ " + prettify(avg) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+			textString += "<tr><td class='bdTitle'>平均战利品</td><td class='bdPercent'>+ " + prettify(avg) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 		}
 	}
 	if (rawNum) return currentCalc;
@@ -3031,7 +3031,7 @@ function updateSideTrimps(){
 	var free = (Math.ceil(trimps.realMax() / 2) - trimps.employed);
 	if (free < 0) free = 0;
 	var s = (free > 1) ? "s" : "";
-	document.getElementById("jobsTitleUnemployed").innerHTML = prettify(free) + " workspace" + s;
+	document.getElementById("jobsTitleUnemployed").innerHTML = prettify(free) + " 工作空间" + s;
 }
 
 function unlockBuilding(what) {
@@ -3144,7 +3144,7 @@ function drawJob(what, where){
 }
 
 function drawGeneticistassist(where){
-	where.innerHTML += '<div id="GeneticistassistContainer" class="thing"><div onmouseover="tooltip(\'Geneticist\',\'jobs\',event)" onmouseout="tooltip(\'hide\')" class="thingColorCanNotAfford thing noselect pointer jobThing" id="Geneticist" onclick="buyJob(\'Geneticist\')"><span class="thingName"><span id="GeneticistAlert" class="alert badge"></span>Geneticist</span><br/><span class="thingOwned" id="GeneticistOwned">0</span></div><div onmouseover="tooltip(\'Geneticistassist\',null,event)" onmouseout="tooltip(\'hide\')" class="thing noselect stateHappy pointer jobThing" id="Geneticistassist" onclick="toggleGeneticistassist()">Geneticistassist<span id="GAIndicator"></span><br/><span id="GeneticistassistSetting">&nbsp;</span></div></div>';
+	where.innerHTML += '<div id="GeneticistassistContainer" class="thing"><div onmouseover="tooltip(\'Geneticist\',\'jobs\',event)" onmouseout="tooltip(\'hide\')" class="thingColorCanNotAfford thing noselect pointer jobThing" id="Geneticist" onclick="buyJob(\'Geneticist\')"><span class="thingName"><span id="GeneticistAlert" class="alert badge"></span>遗传学家</span><br/><span class="thingOwned" id="GeneticistOwned">0</span></div><div onmouseover="tooltip(\'Geneticistassist\',null,event)" onmouseout="tooltip(\'hide\')" class="thing noselect stateHappy pointer jobThing" id="Geneticistassist" onclick="toggleGeneticistassist()">遗传学家助手<span id="GAIndicator"></span><br/><span id="GeneticistassistSetting">&nbsp;</span></div></div>';
 	toggleGeneticistassist(true);
 }
 
@@ -3255,11 +3255,33 @@ function drawUpgrade(what, where){
 	var dif = upgrade.allowed - done;
 	if (dif >= 1) dif -= 1;
      var cnupgrade="";
+//    console.log(what)
     if(what=="Coordination"){
         cnupgrade="协作"
     }else if(what=="Megamace"){
-        cnupgrade="Megamace"
+        cnupgrade="巨型狼牙棒"
+    }else if(what=="Hellishmet"){
+        cnupgrade="地狱详见"
+    }else if(what=="Supershield"){
+        cnupgrade="超级盾牌"
+    }else if(what=="Dagadder"){
+        cnupgrade="攻击匕首"
+    }else if(what=="Bootboost"){
+        cnupgrade="增速靴"
+    }else if(what=="Polierarm"){
+        cnupgrade="波利肩"
+    }else if(what=="Pantastic"){
+        cnupgrade="七分裤"
+    }else if(what=="Axeidic"){
+        cnupgrade="斧头"
+    }else if(what=="Smoldershoulder"){
+        cnupgrade="阴燃肩"
+    }else if(what=="Greatersword"){
+        cnupgrade="更大的剑"
+    }else if(what=="Bestplate"){
+        cnupgrade="最好的盘子"
     }
+    
 	where.innerHTML += '<div onmouseover="tooltip(\'' + what + '\',\'upgrades\',event)" onmouseout="tooltip(\'hide\')" class="thingColorCanNotAfford thing noselect pointer upgradeThing" id="' + what + '" onclick="buyUpgrade(\'' + what + '\')"><span id="' + what + 'Alert" class="alert badge"></span><span class="thingName">' + cnupgrade + '</span><br/><span class="thingOwned" id="' + what + 'Owned">' + done + '</span></div>';
 	if (dif >= 1) document.getElementById(what + "Owned").innerHTML = upgrade.done + "(+" + dif + ")";
 }
@@ -3645,10 +3667,10 @@ function toggleSetting(setting, elem, fromPortal, updateOnly){
 		if (forHover && ((!one && !achievement.showAll && displayNumber > achievement.finished) || (one && (game.global.highestLevelCleared < achievement.filters[displayNumber] && !achievement.finished[displayNumber])))) {
 			document.getElementById("achievement" + location).style.display = "block";
 			document.getElementById("achievement" + location + "IconContainer").innerHTML = '<span style= "color: ' + color + ';" class="icomoon icon-locked achievementPopupIcon"></span>';
-			document.getElementById("achievement" + location + "Title").innerHTML = "Locked";
+			document.getElementById("achievement" + location + "Title").innerHTML = "未解锁";
 			document.getElementById("achievement" + location + "Title").style.color = color;
-			document.getElementById("achievement" + location + "Description").innerHTML = "Locked";
-			document.getElementById("achievement" + location + "Reward").innerHTML = '<b>Reward:</b> +' + game.tierValues[achievement.tiers[displayNumber]] + "% Damage";
+			document.getElementById("achievement" + location + "Description").innerHTML = "未解锁";
+			document.getElementById("achievement" + location + "Reward").innerHTML = '<b>奖励:</b> +' + game.tierValues[achievement.tiers[displayNumber]] + "% 伤害";
 			prog.innerHTML = "";
 			return;
 		}
@@ -3657,9 +3679,9 @@ function toggleSetting(setting, elem, fromPortal, updateOnly){
 		document.getElementById("achievement" + location + "Title").innerHTML = achievement.names[displayNumber];
 		document.getElementById("achievement" + location + "Title").style.color = color;
 		document.getElementById("achievement" + location + "Description").innerHTML = achievement.description(displayNumber);
-		document.getElementById("achievement" + location + "Reward").innerHTML = '<b>Reward:</b> +' + game.tierValues[achievement.tiers[displayNumber]] + "% Damage";
+		document.getElementById("achievement" + location + "Reward").innerHTML = '<b>奖励:</b> +' + game.tierValues[achievement.tiers[displayNumber]] + "% 伤害";
 		if (forHover && typeof achievement.progress !== 'undefined' && (typeof achievement.highest === 'undefined' || achievement.highest > 0)){
-			prog.innerHTML = "Progress: " + achievement.progress();
+			prog.innerHTML = "进度: " + achievement.progress();
 		}
 		else
 			prog.innerHTML = "";

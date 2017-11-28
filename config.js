@@ -500,19 +500,19 @@ var toReturn = {
 			repeatUntil: {
 				enabled: 0,
 				description: "<b>Repeat Forever</b> will cause the map to continually repeat if Repeat Maps is enabled. <b>Repeat to 10</b> will exit the map after 10 stacks, if the map's level is high enough. <b>Repeat for Items</b> will exit the map once there are no more special items left for that level of map. <br/><br/><b>This setting only matters if Repeat is on. Toggling Repeat off will still leave the map when it is finished no matter what.</b>",
-				titles: ["Repeat Forever", "Repeat to 10", "Repeat for Items"],
+				titles: ["永远重复", "重复10次", "重复项目"],
 				locked: true
 			},
 			exitTo: {
 				enabled: 0,
 				description: "Choose whether to go to the Maps Screen or World after completing a map.",
-				titles: ["Exit to Maps", "Exit to World"],
+				titles: ["退出地图", "退出世界"],
 				locked: true
 			},
 			repeatVoids: {
 				enabled: 0,
 				description: "Decide if you want to continue running the rest of your Void Maps after finishing one.",
-				titles: ["One Void Map", "Finish All Voids"],
+				titles: ["一个虚空地图", "完成全部虚空地图"],
 				locked: true
 			},
 			boneAlerts: {
@@ -1032,7 +1032,7 @@ var toReturn = {
 			icon: "*diamonds"
 		},
 		skeletimp2: {
-			description: "Reduce the minimum time between Skeletimp spawns by 10 minutes",
+			description: "将Skeletimp产卵之间的最短时间缩短10分钟",
 			name: "King of Bones II",
 			tier: 5,
 			purchased: false,
@@ -1040,7 +1040,7 @@ var toReturn = {
 			requires: "skeletimp"
 		},
 		voidPower3: {
-			description: "Your Trimps gain an additional 30% attack and health inside Void Maps",
+			description: "你的脆皮在虚空地图内将获得额外的30％的攻击和生命",
 			name: "Void Power III",
 			tier: 6,
 			purchased: false,
@@ -1049,7 +1049,7 @@ var toReturn = {
 		},
 		blacksmith3: {
 			get description () {
-				return "Each cleared zone through Z" + Math.floor((game.global.highestLevelCleared + 1) * 0.9) + " (90% of your highest zone reached) will drop all available equipment prestiges from maps.";
+				return "每个清除的区域通过区域" + Math.floor((game.global.highestLevelCleared + 1) * 0.9) + " （达到你最高区域的90％）将会从地图上掉落所有可用的装备声望。";
 			},
 			name: "Blacksmithery III",
 			requires: "blacksmith2",
@@ -1058,7 +1058,7 @@ var toReturn = {
 			icon: "*hammer2"
 		},
 		nature: {
-			description: "Increase your token trading ratio from 10:5 to 10:6",
+			description: "将您的令牌交易比率从10：5提高到10：6",
 			name: "Natural Diplomacy I",
 			tier: 6,
 			purchased: false,
@@ -1066,8 +1066,8 @@ var toReturn = {
 		},
 		liquification: {
 			get description () {
-				var text = (this.purchased) ? "This mastery is increasing " : "This mastery would increase ";
-				return "Increase your Liquification bonus by 5%, as if you had completed 1 extra Spire. You have currently completed " + game.global.spiresCompleted + " unique Spire" + ((game.global.spiresCompleted == 1) ? "" : "s") + ", giving you " + (game.global.spiresCompleted * 5) + "% of your highest Zone reached (through Z" + Math.floor((game.global.spiresCompleted / 20) * (game.global.highestLevelCleared + 1)) + "). " + text + " your bonus to " + ((game.global.spiresCompleted + 1) * 5) + "% of your highest Zone reached (through Z" + Math.floor(((game.global.spiresCompleted + 1) / 20) * (game.global.highestLevelCleared + 1)) + ").";
+				var text = (this.purchased) ? "这种掌握在增加 " : "掌握这将增加 ";
+				return "将你的液化奖励提高5％，就好像你已经完成了1个额外的尖塔。 您目前已完成 " + game.global.spiresCompleted + " 唯一尖塔" + ((game.global.spiresCompleted == 1) ? "" : "s") + ", 给你 " + (game.global.spiresCompleted * 5) + "% 达到你的最高区域 (通过区域" + Math.floor((game.global.spiresCompleted / 20) * (game.global.highestLevelCleared + 1)) + "). " + text + " 你的奖金 " + ((game.global.spiresCompleted + 1) * 5) + "% 达到你的最高区域 (通过区域" + Math.floor(((game.global.spiresCompleted + 1) / 20) * (game.global.highestLevelCleared + 1)) + ").";
 			},
 			name: "Liquification I",
 			tier: 6,
@@ -1075,7 +1075,7 @@ var toReturn = {
 			icon: "*water"
 		},
 		turkimp4: {
-			description: "Learn to grow your own Turkimp, increasing the bonus to +100%, and making the bonus available permanently.",
+			description: "学习发展自己的土耳其人，增加奖金+ 100％，并永久提供奖金。",
 			name: "Turkimp Tamer IV",
 			tier: 6,
 			purchased: false,
@@ -1093,14 +1093,14 @@ var toReturn = {
 			}
 		},
 		magmamancer: {
-			description: "Magmamancers will now increase Trimp Attack by the same amount that they increase Metal. In addition, start every post-magma zone with 5 minutes of credit already applied to your Magmamancers.",
+			description: "现在，岩浆喷浆机将会增加同样数量的金属增加。 此外，开始每个后岩浆区与5分钟的信用已经适用于你的岩浆机。",
 			name: "Magmamancermancy",
 			tier: 7,
 			purchased: false,
 			icon: "*fire2"
 		},
 		mapLoot2: {
-			description: "Reduces the min and max number of cells by 5 when creating maps.",
+			description: "创建地图时，将最小和最大单元数减少5。",
 			name: "Map Reducer II",
 			tier: 7,
 			purchased: false,
@@ -1108,7 +1108,7 @@ var toReturn = {
 			icon: "*gift2"
 		},
 		nature2: {
-			description: "Increase your token trading ratio more, from 10:6 to 10:8",
+			description: "将您的令牌交易比率从10：6增加到10：8",
 			name: "Natural Diplomacy II",
 			tier: 7,
 			purchased: false,
@@ -1116,35 +1116,35 @@ var toReturn = {
 			icon: "*tree3"
 		},
 		patience: {
-			description: "Anticipation can now reach 45 stacks.",
+			description: "预计现在可以达到45堆。",
 			name: "Patience",
 			tier: 7,
 			purchased: false,
 			icon: "*clock2"
 		},
 		stillRowing: {
-			description: "Increase the bonus for completing a full row in a Spire by 50%, from 2% extra loot to 3%.",
+			description: "在尖塔中增加50％的奖励，从2％的额外战利品增加到3％。",
 			name: "Still Rowing I",
 			tier: 7,
 			purchased: false,
 			icon: "align-justify"
 		},
 		voidSpecial: {
-			description: "Receive 1 free Void Map after using your Portal for each 100 zones cleared last run. Helium from Void Maps is also increased by 25% for each 100 zones cleared last run.",
+			description: "使用您的门户网站清除上次运行的每个100个区域后，接收1个免费的虚空地图。 来自虚空地图的氦气在上次清除的每100个区域也增加了25％。",
 			name: "Void Specialization",
 			tier: 8,
 			purchased: false,
 			icon: "*feed"
 		},
 		healthStrength: {
-			description: "Your Trimps gain 15% additive damage per Healthy cell in your current Zone.",
+			description: "你的脆皮在你当前区域内的每个健康细胞中获得15％的附加伤害。",
 			name: "Strength in Health",
 			tier: 8,
 			purchased: false,
 			icon: "*aid-kit"
 		},
 		nature3: {
-			description: "Add 5 levels to the Upgrade and Stack Transfer of all 3 Empowerments of Nature, without increasing the costs.",
+			description: "增加5个级别的升级和堆栈转让的所有3个自然赋权，而不增加成本。",
 			name: "Natural Diplomacy III",
 			tier: 8,
 			purchased: false,
@@ -1153,10 +1153,10 @@ var toReturn = {
 		},
 		liquification2: {
 			get description () {
-				var text = (this.purchased) ? "This mastery is increasing " : "This mastery would increase ";
+				var text = (this.purchased) ? "这种掌握在增加 " : "掌握这将增加 ";
 				var totalSpires = game.global.spiresCompleted;
 				if (game.talents.liquification.purchased) totalSpires++;
-				return "Increase your Liquification bonus by another 5%, as if you had completed 1 extra Spire. Counting Liquification I, you have currently completed " + totalSpires + " unique Spire" + ((totalSpires == 1) ? "" : "s") + ", giving you " + (totalSpires * 5) + "% of your highest Zone reached (through Z" + Math.floor((totalSpires / 20) * (game.global.highestLevelCleared + 1)) + "). " + text + " your bonus to " + ((totalSpires + 1) * 5) + "% of your highest Zone reached (through Z" + Math.floor(((totalSpires + 1) / 20) * (game.global.highestLevelCleared + 1)) + ").";
+				return "将你的液化奖励提高5％，就好像你已经完成了1个额外的尖塔。 计算液化我，你现在已经完成了" + totalSpires + " 唯一尖塔" + ((totalSpires == 1) ? "" : "") + ", 给你 " + (totalSpires * 5) + "% 达到你的最高区域 (通过区域" + Math.floor((totalSpires / 20) * (game.global.highestLevelCleared + 1)) + "). " + text + " 你的奖金 " + ((totalSpires + 1) * 5) + "% 达到你的最高区域 (通过区域" + Math.floor(((totalSpires + 1) / 20) * (game.global.highestLevelCleared + 1)) + ").";
 			},
 			name: "Liquification II",
 			tier: 8,
@@ -1165,7 +1165,7 @@ var toReturn = {
 			icon: "*water"
 		},
 		stillRowing2: {
-			description: "Your Trimps will now gain attack equal to 2x their looting bonus from each Spire row cleared.",
+			description: "你的脆皮现在将获得等于他们从每个尖塔行清除的2倍的掠夺奖金。",
 			name: "Still Rowing II",
 			tier: 8,
 			purchased: false,
@@ -5364,14 +5364,14 @@ var toReturn = {
 			world: 20,
 			level: 99,
 			icon: "eye-open",
-			title: "The End Of The Road",
+			title: "路的尽头",
 			fire: function () {
 				message(	"你往下看去，看到一个绿色的宝石似乎在回瞪你。你把它捡起来,感觉你身体内的肾上腺素激增。 也许最好把这个带回实验室进行一些研究。", "Story");
 				unlockUpgrade("Anger");
 			}
 		},
 		Coordination: {
-			message: "You find an ancient book titled Coordination. Exciting.",
+			message: "你会发现一本名为“协调”的古书。令人兴奋的。",
 			world: -1,
 			level: 99,
 			get icon (){
@@ -5380,7 +5380,7 @@ var toReturn = {
 			title: "Coordination",
 			fire: function() {
 				if (game.global.challengeActive == "Trimp"){
-					message("Your scientists don't think that it's a very smart idea to try any of the suggestions in this book.", "Notices");
+					message("你的科学家不认为尝试本书中的任何建议是一个非常聪明的想法。", "Notices");
 					game.challenges.Trimp.heldBooks ++;
 					return;
 				}

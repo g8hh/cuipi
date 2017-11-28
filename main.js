@@ -839,7 +839,46 @@ function displayAllStats(buildAll) {
 		if (mode == 'total' && typeof stat.valueTotal !== 'function' && typeof stat.value !== 'undefined' && !stat.noAdd) value += stat.value;
 		if (!stat.noFormat) value = prettify(value);
 		if (buildAll){
-			document.getElementById("statCol" + column).innerHTML += '<div class="statContainer" id="stat' + item + 'Container"><span class="statTitle">' + stat.title + '</span><br/><span class="statValue" id="stat' + item + 'Value">' + value + '</span></div>'
+//            console.log(stat.title);
+            //统计汉化
+            var cnstat="";
+            if(stat.title=="Dead Trimps"){
+                cnstat="死去的脆皮"
+            }else if(stat.title=="Battles Won"){
+                cnstat="战斗胜利"
+            }else if(stat.title=="Battles Lost"){
+                cnstat="战斗失败"
+            }else if(stat.title=="Maps Cleared"){
+                cnstat="地图清除"
+            }else if(stat.title=="Zones Cleared"){
+                cnstat="区域清除"
+            }else if(stat.title=="Gems Collected"){
+                cnstat="宝石收集"
+            }else if(stat.title=="Wormholed Helium"){
+                cnstat="虫洞氦气"
+            }else if(stat.title=="He/Hour this Run"){
+                cnstat="他/小时运行了"
+            }else if(stat.title=="Best He/Hr this Run"){
+                cnstat="最好的，他/小时运行"
+            }else if(stat.title=="Highest Void Map Clear"){
+                cnstat="最高虚空地图清除"
+            }else if(stat.title=="Golden Upgrades"){
+                cnstat="黄金升级"
+            }else if(stat.title=="Heirlooms Found"){
+                cnstat="传家宝发现"
+            }else if(stat.title=="Daily Challenge Helium"){
+                cnstat="每日的挑战氦"
+            }else if(stat.title=="World Cells Overkilled"){
+                cnstat="世界单元格过于复杂"
+            }else if(stat.title=="Trimps from Generator"){
+                cnstat="发电机生产的脆皮"
+            }else if(stat.title=="Nurseries Closed by Magma"){
+                cnstat="由岩浆封闭的幼儿园"
+            }else if(stat.title=="Zones Liquified"){
+                cnstat="区域液化"
+            }
+//            stat.title
+			document.getElementById("statCol" + column).innerHTML += '<div class="statContainer" id="stat' + item + 'Container"><span class="statTitle">' + cnstat + '</span><br/><span class="statValue" id="stat' + item + 'Value">' + value + '</span></div>'
 			column++;
 			if (column == 4) column = 1;
 		}
@@ -1852,7 +1891,7 @@ function canCommitCarpentry(){ //Uh, and Coordinated. This checks coordinated to
 		good = false;
     }
 	if (Math.ceil(newMax / 2) < game.resources.trimps.employed){
-		error.innerHTML += "You have too many workers assigned for this Perk setup.";
+		error.innerHTML += "你有太多的工作人员分配给这个额外津贴设置。";
 		error.style.display = "block";
 		good = false;
 	}
@@ -1877,7 +1916,7 @@ function clearQueue(specific) {
 function activatePortal(){
 	if (game.global.selectedChallenge == "Daily"){
 		if (getDailyChallenge(readingDaily, false, true) !== nextDaily) {
-			document.getElementById("portalStory").innerHTML = "<span style='color: red'>The daily challenge has changed since you looked at it. The challenge description has been refreshed, click Activate Portal to run it!</span>";
+			document.getElementById("portalStory").innerHTML = "<span style='color: red'>自从你看以后，日常的挑战已经改变了。 挑战描述已刷新，点击激活门户运行它！</span>";
 			getDailyChallenge();
 			return;
 			}
@@ -5346,7 +5385,7 @@ function updateGeneratorInfo(){
 	state = state[game.global.generatorMode];
 
 	if (elem == null){
-		var html = "<div class='thing generatorState' id='generatorWindow'><div id='genTitleContainer'> <div id='generatorTitle'>Dimensional Generator</div><div><span id='generatorActiveBtn' onclick='changeGeneratorState(1)' class='workBtn pointer noselect colorDanger hoverColor'>Gain Fuel</span> <span onclick='changeGeneratorState(0)' id='generatorPassiveBtn' class='workBtn pointer noselect colorPrimary hoverColor'>Gain Mi</span> <span onclick='changeGeneratorState(2)' id='generatorHybridBtn' class='workBtn pointer noselect colorTeal hoverColor' style='display: none'>Hybrid</span></div> <div id='generatorUpgradeBtn' onclick='tooltip(\"Upgrade Generator\", null, \"update\")'class='workBtn pointer noselect colorDark hoverColor'>Upgrade (<span id='upgradeMagmiteTotal'></span>)</div></div><div id='genGaugeContainer'><div class='row'><div class='col-xs-4'><div id='fuelContainer'><div id='fuelBar'></div><div id='fuelStorageBar'></div><div id='fuelGlass'></div><div id='fuelOwnedText'>Fuel<br/><span id='generatorFuelOwned'>0</span> / <span id='generatorFuelMax'>0</span></div></div></div><div class='col-xs-4'><div id='generatorProducingContainer'>Producing<br/><span id='generatorTrimpsPs'>0</span><br/>Housing/Tick</div></div><div class='col-xs-4'><div id='generatorTickContainer'> <div id='generatorRadialContainer' class='radial-progress'> <div class='radial-progress-circle'> <div class='radial-progress-arrow static''></div></div><div id='generatorRadial' class='radial-progress-circle'> <div class='radial-progress-arrow mobile'></div> </div> <div id='clockKnob' class='radial-progress-knob generatorState'></div></div><span id='generatorNextTick'>0</span></div></div></div></div></div>";
+		var html = "<div class='thing generatorState' id='generatorWindow'><div id='genTitleContainer'> <div id='generatorTitle'>维度发生器</div><div><span id='generatorActiveBtn' onclick='changeGeneratorState(1)' class='workBtn pointer noselect colorDanger hoverColor'>获得燃料</span> <span onclick='changeGeneratorState(0)' id='generatorPassiveBtn' class='workBtn pointer noselect colorPrimary hoverColor'>获得Mi</span> <span onclick='changeGeneratorState(2)' id='generatorHybridBtn' class='workBtn pointer noselect colorTeal hoverColor' style='display: none'>混合动力</span></div> <div id='generatorUpgradeBtn' onclick='tooltip(\"Upgrade Generator\", null, \"update\")'class='workBtn pointer noselect colorDark hoverColor'>升级 (<span id='upgradeMagmiteTotal'></span>)</div></div><div id='genGaugeContainer'><div class='row'><div class='col-xs-4'><div id='fuelContainer'><div id='fuelBar'></div><div id='fuelStorageBar'></div><div id='fuelGlass'></div><div id='fuelOwnedText'>燃料<br/><span id='generatorFuelOwned'>0</span> / <span id='generatorFuelMax'>0</span></div></div></div><div class='col-xs-4'><div id='generatorProducingContainer'>生产<br/><span id='generatorTrimpsPs'>0</span><br/>房子/秒</div></div><div class='col-xs-4'><div id='generatorTickContainer'> <div id='generatorRadialContainer' class='radial-progress'> <div class='radial-progress-circle'> <div class='radial-progress-arrow static''></div></div><div id='generatorRadial' class='radial-progress-circle'> <div class='radial-progress-arrow mobile'></div> </div> <div id='clockKnob' class='radial-progress-knob generatorState'></div></div><span id='generatorNextTick'>0</span></div></div></div></div></div>";
 		document.getElementById('buildingsHere').innerHTML += html;
 	}
 	changeGeneratorState(null, true);
@@ -6279,7 +6318,7 @@ function mapsSwitch(updateOnly, fromRecycle) {
 	if (game.global.currentMapId !== "") currentMapObj = getCurrentMapObject();
 	var mapsBtn = document.getElementById("mapsBtn");
 	var recycleBtn = document.getElementById("recycleMapBtn");
-	recycleBtn.innerHTML = "Recycle Map";
+	recycleBtn.innerHTML = "回收地图";
 	document.getElementById("mapsBtn").className = "btn btn-warning fightBtn";
     if (game.global.preMapsActive) {
 		if (currentMapObj && currentMapObj.location == "Void") {
@@ -6349,7 +6388,7 @@ function toggleMapGridHtml(on, currentMapObj){
 	if (!currentMapObj) return;
 	var worldNumElem = document.getElementById("worldNumber");
 	worldNumElem.style.display = 'inline';
-	worldNumElem.innerHTML = "<br/>Lv: " + currentMapObj.level;
+	worldNumElem.innerHTML = "<br/>等级: " + currentMapObj.level;
 	document.getElementById("worldName").innerHTML = currentMapObj.name;
 }
 
@@ -6428,7 +6467,7 @@ function selectMap(mapId, force) {
 	var currentSelected = document.getElementById(mapId);
 	currentSelected.className = currentSelected.className.replace("mapElementNotSelected", "mapElementSelected");
     game.global.lookingAtMap = mapId;
-    document.getElementById("selectMapBtn").innerHTML = "Run Map";
+    document.getElementById("selectMapBtn").innerHTML = "运行地图";
     document.getElementById("selectMapBtn").style.visibility = "visible";
 	document.getElementById("recycleMapBtn").style.visibility = (map.noRecycle) ? "hidden" : "visible";
 }
@@ -7151,7 +7190,92 @@ function displayTalents(){
 		var talentClass = "talentItem talent" + ((talent.purchased) ? "Purchased" : "NotPurchased");
 		if (talent.requires && !game.talents[talent.requires].purchased) talentClass += " talentReqNeeded";
 		var icon = (talent.icon.charAt(0) == "*") ? "icomoon icon-" + talent.icon.substr(1) : "glyphicon glyphicon-" + talent.icon;
-		html += "<div class='" + talentClass + "' id='" + item + "' onmouseover='tooltip(\"" + item + "\", \"talents\", event)' onmouseout='tooltip(\"hide\")' onclick='purchaseTalent(\"" + item + "\")'><span class='talentIcon'><span class='" + icon + "'></span></span><br/><div class='talentName'>" + talent.name + "</div></div>";
+        //专精汉化
+        var cntalentname="";
+//        console.log(talent.name)
+        if(talent.name=="Bionic Magnet"){
+            cntalentname="仿生磁"
+        }else if(talent.name=="Portal Generator"){
+            cntalentname="门户生成器"
+        }else if(talent.name=="Bounty Hunter"){
+            cntalentname="赏金猎人"
+        }else if(talent.name=="Home Detector"){
+            cntalentname="家庭探测器"
+        }else if(talent.name=="Turkimp Tamer I"){
+            cntalentname="驯兽师 I"
+        }else if(talent.name=="Turkimp Tamer II"){
+            cntalentname="驯兽师 II"
+        }else if(talent.name=="Turkimp Tamer III"){
+            cntalentname="驯兽师 III"
+        }else if(talent.name=="Turkimp Tamer IV"){
+            cntalentname="驯兽师 IV"
+        }else if(talent.name=="Void Power I"){
+            cntalentname="虚空力量 I"
+        }else if(talent.name=="Void Power II"){
+            cntalentname="虚空力量 II"
+        }else if(talent.name=="Void Power III"){
+            cntalentname="虚空力量 III"
+        }else if(talent.name=="Metallic Coat"){
+            cntalentname="金属外套"
+        }else if(talent.name=="Headstart I"){
+            cntalentname="领先地位 I"
+        }else if(talent.name=="Headstart II"){
+            cntalentname="领先地位 II"
+        }else if(talent.name=="Headstart III"){
+            cntalentname="领先地位 III"
+        }else if(talent.name=="Foremany"){
+            cntalentname="脱颖而出"
+        }else if(talent.name=="Map Reducer I"){
+            cntalentname="地图还原剂 I"
+        }else if(talent.name=="Map Reducer II"){
+            cntalentname="地图还原剂 II"
+        }else if(talent.name=="Double Build"){
+            cntalentname="双重建造"
+        }else if(talent.name=="King of Bones I"){
+            cntalentname="骨头之王 I"
+        }else if(talent.name=="King of Bones II"){
+            cntalentname="骨头之王 II"
+        }else if(talent.name=="Hyperspeed I"){
+            cntalentname="超高速 I"
+        }else if(talent.name=="Hyperspeed II"){
+            cntalentname="超高速 II"
+        }else if(talent.name=="Blacksmithery I"){
+            cntalentname="黑煅炼 I"
+        }else if(talent.name=="Blacksmithery II"){
+            cntalentname="黑煅炼 II"
+        }else if(talent.name=="Blacksmithery III"){
+            cntalentname="黑煅炼 III"
+        }else if(talent.name=="岩浆流"){
+            cntalentname=""
+        }else if(talent.name=="Quick Gen"){
+            cntalentname="快速第二代"
+        }else if(talent.name=="AutoStructure"){
+            cntalentname="自动结构"
+        }else if(talent.name=="Natural Diplomacy I"){
+            cntalentname="自然外交 I"
+        }else if(talent.name=="Natural Diplomacy II"){
+            cntalentname="自然外交 II"
+        }else if(talent.name=="Natural Diplomacy III"){
+            cntalentname="自然外交 III"
+        }else if(talent.name=="Liquification I"){
+            cntalentname="液化 I"
+        }else if(talent.name=="Liquification II"){
+            cntalentname="液化 II"
+        }else if(talent.name=="Magmamancermancy"){
+            cntalentname="微小的女侍者"
+        }else if(talent.name=="Patience"){
+            cntalentname="忍耐"
+        }else if(talent.name=="Still Rowing I"){
+            cntalentname="持续赛艇 I"
+        }else if(talent.name=="Still Rowing II"){
+            cntalentname="持续赛艇 II"
+        }else if(talent.name=="Void Specialization"){
+            cntalentname="虚空专精"
+        }else if(talent.name=="Strength in Health"){
+            cntalentname="健康的力量"
+        }
+		html += "<div class='" + talentClass + "' id='" + item + "' onmouseover='tooltip(\"" + item + "\", \"talents\", event)' onmouseout='tooltip(\"hide\")' onclick='purchaseTalent(\"" + item + "\")'><span class='talentIcon'><span class='" + icon + "'></span></span><br/><div class='talentName'>" + cntalentname + "</div></div>";
+//        talent.name
 	}
 	html += "</div>";
 	document.getElementById('talentsHere').innerHTML = html;
