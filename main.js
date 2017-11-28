@@ -1053,7 +1053,7 @@ function selectChallenge(what) {
 	var addChallenge = document.getElementById("addChallenge");
 	if (what === 0){
 		game.global.selectedChallenge = "";
-		document.getElementById("specificChallengeDescription").innerHTML = "<br/><br/><br/>Click a challenge below to learn more about and/or run it!";
+		document.getElementById("specificChallengeDescription").innerHTML = "<br/><br/><br/>点击下面的挑战了解更多相关信息，或运行它！";
 		document.getElementById("flagMustRestart").style.display = "none";
 		if (addChallenge !== null) addChallenge.innerHTML = "";
 		return;
@@ -1329,7 +1329,7 @@ function displayPortalUpgrades(fromTab){
 		var html = '<div onmouseover="tooltip(\'' + what + '\',\'portal\',event)" onmouseout="tooltip(\'hide\')" class="noselect pointer portalThing thing perkColorOff';
 		if (game.options.menu.detailedPerks.enabled == 1) html += " detailed";
 		if (portUpgrade.additive) html += " additive";
-        console.log(what)
+//        console.log(what)
         //特权汉化
 		html += '" id="' + what + '" onclick="buyPortalUpgrade(\'' + what + '\')"><span class="thingName">' + what.replace('_', ' ') + '</span>';
 
@@ -6459,7 +6459,21 @@ function selectMap(mapId, force) {
 	document.getElementById("mapStatsDifficulty").innerHTML = Math.floor(map.difficulty * 100) + "%";
 	document.getElementById("mapStatsLoot").innerHTML = Math.floor(map.loot * 100) + "%";
 	document.getElementById("mapStatsItems").innerHTML = (map.location == "Void") ? "&nbsp;" : addSpecials(true, true, map);
-	document.getElementById("mapStatsResource").innerHTML = game.mapConfig.locations[map.location].resourceType;
+    //汉化地图资源类型
+    var cnresourcetype="";
+    if(game.mapConfig.locations[map.location].resourceType=="Food"){
+        cnresourcetype="食物"
+    }else if(game.mapConfig.locations[map.location].resourceType=="Metal"){
+        cnresourcetype="金属"
+    }else if(game.mapConfig.locations[map.location].resourceType=="Wood"){
+        cnresourcetype="木头"
+    }else if(game.mapConfig.locations[map.location].resourceType=="Gems"){
+        cnresourcetype="宝石"
+    }else if(game.mapConfig.locations[map.location].resourceType=="Any"){
+        cnresourcetype="所有"
+    }
+//    game.mapConfig.locations[map.location].resourceType
+	document.getElementById("mapStatsResource").innerHTML = cnresourcetype;
 	if (typeof game.global.mapsOwnedArray[getMapIndex(game.global.lookingAtMap)] !== 'undefined') {
 		var prevSelected = document.getElementById(game.global.lookingAtMap);
 		prevSelected.className = prevSelected.className.replace("mapElementSelected","mapElementNotSelected");

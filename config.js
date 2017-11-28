@@ -615,8 +615,8 @@ var toReturn = {
 			extraMapBtns: {
 				extraTags: "layout",
 				enabled: 0,
-				description: "Toggle the button menu to the right of the map grid",
-				titles: ["Less Map Buttons", "Extra Map Buttons"],
+				description: "将按钮菜单切换到地图网格的右侧",
+				titles: ["较少的地图按钮", "额外的地图按钮"],
 				onToggle: function () {
 					if (!game.global.mapsActive) return;
 					var setTo = (this.enabled) ? ["8", "2"] : ["10", "off"];
@@ -631,8 +631,8 @@ var toReturn = {
 				enabled: 0,
 				disableOnUnlock: false,
 				extraTags: "popular general",
-				description: "Customize your three available Geneticistassist targets, and decide whether or not Geneticistassist should start automatically when unlocked each run.",
-				titles: ["Geneticistassist Settings"],
+				description: "定制您的三个可用的遗传学家目标，并决定每次运行解锁时遗传学家是否应该自动启动。",
+				titles: ["遗传学家帮助设置"],
 				lockUnless: function () {
 					return (game.global.Geneticistassist);
 				}
@@ -640,8 +640,8 @@ var toReturn = {
 			liquification: {
 				enabled: 1,
 				extraTags: "general",
-				description: "Enable or disable Liquification. Nothing in game should be impossible to complete with Liquification enabled, but if you just want to slow things down then you have every right to do so.",
-				titles: ["Liquification Off", "Liquification On"],
+				description: "启用或禁用液化。 游戏中的任何事情都不应该在启用液化的情况下完成，但如果你只是想放慢速度，那么你完全有权这样做。",
+				titles: ["液化关闭", "液化开启"],
 				lockUnless: function () {
 					return (game.global.spiresCompleted > 0);
 				}
@@ -650,8 +650,8 @@ var toReturn = {
 			overkillColor: {
 				enabled: 1,
 				extraTags: "layout",
-				description: "Choose if you would like to see a different cell color for cells that you overkilled. Toggle between off, showing both cells involved in the overkill, or just showing the 1 cell that was skipped.",
-				titles: ["No Overcolors", "1 Overkill Cell", "2 Overkill Cells"],
+				description: "选择你是否想要一个不同的细胞来处理你过度使用的细胞。 在关闭之间切换，显示涉及过度杀伤的两个单元格，或者只显示跳过的单元格。",
+				titles: ["没有过度的颜色", "1过度杀伤细胞", "2过度杀伤细胞"],
 				lockUnless: function () {
 					return (!game.portal.Overkill.locked)
 				},
@@ -660,11 +660,11 @@ var toReturn = {
 				enabled: 0,
 				extraTags: "qol",
 				get description() {
-					var appliesTo = " only to Warpstation";
-					if (game.global.improvedAutoStorage) appliesTo = " to Warpstation and AutoStorage";
-					return "Choose whether or not to force instant-craft buildings to use the queue. Currently applies " + appliesTo + ". May be useful for double checking prices before building!";
+					var appliesTo = " 只有经纱站";
+					if (game.global.improvedAutoStorage) appliesTo = " 去经纱站和自动存储";
+					return "选择是否强制即时工艺建筑物使用队列。 目前适用 " + appliesTo + ". 可能是双重检查价格有用建设之前！";
 				},
-				titles: ["Not Forcing Queue", "Forcing Queue"],
+				titles: ["不强制队列", "强制队列"],
 				lockUnless: function () {
 					return (game.global.sLevel >= 4);
 				}
@@ -672,7 +672,7 @@ var toReturn = {
 			mapsOnSpire: {
 				enabled: 1,
 				extraTags: "other",
-				description: "Choose whether you would like the game to pause combat by sending you to maps when you reach a Spire. <b>Keep Fighting at Spires</b> will not interrupt you when reaching a Spire, <b>Map at Spires</b> will send you to maps on every Spire, <b>Map at Top 2 Spires</b> will send you to maps at the highest and second highest level Spire reached, and <b>Map at Top Spire</b> will switch to maps only on the single highest Spire reached.",
+				description: "选择是否希望游戏在到达尖塔时通过发送地图来暂停战斗。<b>保持在尖塔格斗</b> 到达尖塔时不会中断你， <b>地图在尖顶</b> will send you to maps on every Spire, <b>Map at Top 2 Spires</b> will send you to maps at the highest and second highest level Spire reached, and <b>Map at Top Spire</b> will switch to maps only on the single highest Spire reached.",
 				titles: ["Keep Fighting at Spires", "Map at Spires", "Map at Top 2 Spires", "Map at Top Spire"],
 				lockUnless: function () {
 					return (game.global.highestLevelCleared >= 199);
