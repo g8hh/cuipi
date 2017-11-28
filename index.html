@@ -91,7 +91,7 @@
 							</tr>
 							<tr>
 								<td>+ <span class="glyphicon glyphicon-tree-deciduous" title="wood"></span> <span id="woodBoostPreview">0</span></td>
-								<td><span class="glyphicon glyphicon-home" title="storage added"></span> <span id="ShedAdded">0</span> Sheds Auto-purchased</td>
+								<td><span class="glyphicon glyphicon-home" title="storage added"></span> <span id="ShedAdded">0</span> 棚子自动购买</td>
 							</tr>
 							<tr>
 								<td>+ <span class="icomoon icon-cubes" title="metal"></span> <span id="metalBoostPreview">0</span></td>
@@ -518,9 +518,9 @@
 									<div class='col-xs-4 tabColPoison tabColNature'>
 										<div class='natureTitle'>
 											<span id='infoSpanPoison' class='infoSpanNature' onmouseover="natureTooltip(event, 'description', 'Poison')" onmouseout="tooltip('hide')"><span class='icomoon icon-info2'></span></span>
-											Poison									
+											毒								
 										</div>
-										Tokens: <span id="tokenCountPoison">0</span>
+										符记: <span id="tokenCountPoison">0</span>
 										<span class='natureBuyIcon' onmouseover="natureTooltip(event, 'upgrade', 'Poison')" onmouseout="tooltip('hide');" onclick="naturePurchase('upgrade', 'Poison')">
 											<span class='natureUpgradeLevel' id='natureUpgradePoisonLevel'></span>
 											<span class='natureUpgradeCost' id='natureUpgradePoisonCost'></span>
@@ -543,9 +543,9 @@
 									<div class='col-xs-4 tabColWind tabColNature'>
 										<div class='natureTitle'>
 											<span id='infoSpanWind' class='infoSpanNature' onmouseover="natureTooltip(event, 'description', 'Wind')" onmouseout="tooltip('hide')"><span class='icomoon icon-info2'></span></span>
-												Wind
+												风
 										</div>
-										Tokens: <span id="tokenCountWind">0</span>
+										符记: <span id="tokenCountWind">0</span>
 										<span class='natureBuyIcon' onmouseover="natureTooltip(event, 'upgrade', 'Wind')" onmouseout="tooltip('hide');" onclick="naturePurchase('upgrade', 'Wind')">
 											<span class='natureUpgradeLevel' id='natureUpgradeWindLevel'></span>
 											<span class='natureUpgradeCost' id='natureUpgradeWindCost'></span>
@@ -569,9 +569,9 @@
 									<div class='col-xs-4 tabColIce tabColNature'>
 										<div class='natureTitle'>
 											<span id='infoSpanIce' class='infoSpanNature' onmouseover="natureTooltip(event, 'description', 'Ice')" onmouseout="tooltip('hide')"></span>
-											Ice
+											冰
 										</div>
-										Tokens: <span id="tokenCountIce">0</span>
+										符记: <span id="tokenCountIce">0</span>
 										<span class='natureBuyIcon' onmouseover="natureTooltip(event, 'upgrade', 'Ice')" onmouseout="tooltip('hide');" onclick="naturePurchase('upgrade', 'Ice')">
 											<span class='natureUpgradeLevel' id='natureUpgradeIceLevel'></span>
 											<span class='natureUpgradeCost' id='natureUpgradeIceCost'></span>
@@ -746,7 +746,7 @@
 							<div id="preMaps" style="display: none">
 							<div style="display: none" id="mapsCreateRow" class="row">
 								<div id="mapLevelContainer" class="col-xs-4">
-									Level <span class="pointer noselect incrementBtn" onclick="incrementMapLevel(-1)"><span class="glyphicon glyphicon-download"></span></span><input onkeyup="updateMapCost()" type="number" id="mapLevelInput"><span class="pointer noselect incrementBtn" onclick="incrementMapLevel(1)"><span class="glyphicon glyphicon-upload"></span></span><span class="pointer iconStateBad noselect incrementBtn" onmouseover="tooltip('Recycle All', null, event)" onmouseout="tooltip('hide')" onclick="recycleBelow(false)"><span class="glyphicon glyphicon-remove-circle"></span></span>
+									等级 <span class="pointer noselect incrementBtn" onclick="incrementMapLevel(-1)"><span class="glyphicon glyphicon-download"></span></span><input onkeyup="updateMapCost()" type="number" id="mapLevelInput"><span class="pointer noselect incrementBtn" onclick="incrementMapLevel(1)"><span class="glyphicon glyphicon-upload"></span></span><span class="pointer iconStateBad noselect incrementBtn" onmouseover="tooltip('Recycle All', null, event)" onmouseout="tooltip('hide')" onclick="recycleBelow(false)"><span class="glyphicon glyphicon-remove-circle"></span></span>
 								</div>
 								<div id="mapCostContainer" class="col-xs-4 lowPad">
 									<span id="mapCostFragmentCost"></span><span id="mapCostFragmentText"> 碎片</span>
@@ -896,7 +896,7 @@
 					<td class="btn btn-new" onclick="window.open('updates.html', '_blank')">
 							版本号 <span id="versionNumber"></span> | 更新日志
 					</td>
-					<td id="portalTimer" class="timerNotPaused" onclick="toggleSetting('pauseGame')" onmouseover="tooltip('Pause the game', 'customText', event, game.options.menu['pauseGame'].description)" onmouseout="tooltip('hide')">
+					<td id="portalTimer" class="timerNotPaused" onclick="toggleSetting('pauseGame')" onmouseover="tooltip('暂停游戏', 'customText', event, game.options.menu['pauseGame'].description)" onmouseout="tooltip('hide')">
 						<span id="portalTime">&nbsp;</span>&nbsp;&nbsp;<span style='font-size: 0.85em; line-height: 0.85em;' class='icomoon icon-pause3'></span>&nbsp;
 					</td>
 				</tr>

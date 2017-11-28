@@ -124,24 +124,24 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		noExtraCheck = true;
 	}
 	if (what == "Respec"){
-		tooltipText = "You can respec your perks once per portal. Clicking cancel after clicking this button will not consume your respec.";
+		tooltipText = "您可以为每个门户重新分配一次。 点击此按钮后点击取消将不会消耗您的洗点。";
 		costText = "";
 	}
 	if (what == "Well Fed"){
 		var tBonus = 50;
 		if (game.talents.turkimp4.purchased) tBonus = 100;
 		else if (game.talents.turkimp3.purchased) tBonus = 75;
-		tooltipText = "That Turkimp was delicious, and you have leftovers. If you set yourself to gather Food, Wood, or Metal while this buff is active, you can share with your workers to increase their gather speed by " + tBonus + "%";
+		tooltipText = "这Turkimp很可口，你有剩菜。 如果你设置自己收集食物，木头，或金属，而这个buff是积极的，你可以与你的工人分享，以提高他们的收集速度 " + tBonus + "%";
 		costText = "";
 	}
 	if (what == "Geneticistassist"){
-		tooltipText = "I'm your Geneticistassist! I'll hire and fire Geneticists until your total breed time is as close as possible to the target time you choose. I will fire a Farmer, Lumberjack, or Miner at random if there aren't enough workspaces, I will never spend more than 1% of your food on a Geneticist, and you can customize my target time options in Settings. I have uploaded myself to your portal and will never leave you.";
+		tooltipText = "我是你的遗传学家！ 我会雇用和解雇遗传学家，直到您的总繁殖时间尽可能接近您选择的目标时间。 如果没有足够的工作空间，我将随机发射一个农民，伐木工人或矿工，我绝对不会在遗传学家身上花费超过1％的食物，并且可以在设置中自定义我的目标时间选项。 我已经上传自己的门户，永远不会离开你。";
 		costText = "";
 	}
 	if (what == "Welcome"){
 		tooltipText = "欢迎来到Trimps！ 这个游戏会在浏览器中使用本地存储保存游戏进度。 清除您的Cookie或浏览器设置将导致您的游戏进度消失！ 请确保您通过使用下面的栏中的“导出”按钮或“设置”下的“在线保存”选项来定期备份保存文件。<br/> <br/> <b> Chrome和Firefox目前是 唯一完全支持的浏览器。</ b> <br/> <b>您是否希望在开始之前启用在线保存？</b><br/><br/>";
 		if (document.getElementById('boneBtn') !== null){
-			tooltipText += "<b style='color: red'>注意：你期望在这里看到你的保存？</b><br/>If this is your first time playing since November 13th 2017, check <a target='_blank' href='http://trimps.github.io'>http://trimps.github.io</a> (make sure you go to http, not https), and see if it's there. For more information, see <a target='_blank' href='http://www.kongregate.com/forums/11406-general-discussion/topics/941201-if-your-save-is-missing-after-november-13th-click-here?page=1#posts-11719541'>This Forum Thread</a>.<br/><br/>";
+			tooltipText += "<b style='color: red'>注意：你期望在这里看到你的保存？</b><br/>如果这是你从2017 11月13日开始的第一次游戏，请检查 <a target='_blank' href='http://trimps.github.io'>http://trimps.github.io</a> (确定你用的是 http, 不是 https), 看看它在不在那里。有关更多信息，请参见 <a target='_blank' href='http://www.kongregate.com/forums/11406-general-discussion/topics/941201-if-your-save-is-missing-after-november-13th-click-here?page=1#posts-11719541'>这个论坛主题</a>.<br/><br/>";
 		}
 		tooltipText += "<b>您希望在开始之前启用在线存储吗？</b>";
 		game.global.lockTooltip = true;
@@ -3007,6 +3007,7 @@ function drawAllBuildings(){
 	for (var item in game.buildings){
 		building = game.buildings[item];
 		if (building.locked == 1) continue;
+        //建筑名称
 		drawBuilding(item, elem);
 		if (building.alert && game.options.menu.showAlerts.enabled){
 			document.getElementById("buildingsAlert").innerHTML = "!";
@@ -3017,7 +3018,42 @@ function drawAllBuildings(){
 }
 
 function drawBuilding(what, where){
-	where.innerHTML += '<div onmouseover="tooltip(\'' + what + '\',\'buildings\',event)" onmouseout="tooltip(\'hide\')" class="thingColorCanNotAfford thing noselect pointer buildingThing" id="' + what + '" onclick="buyBuilding(\'' + what + '\')"><span class="thingName"><span id="' + what + 'Alert" class="alert badge"></span>' + what + '</span><br/><span class="thingOwned" id="' + what + 'Owned">0</span></div>';
+    //汉化建筑名称
+    var cnwhat="";
+    if(what=="Trap"){
+        cnwhat="陷阱"
+    }else if(what=="Barn"){
+        cnwhat="谷仓"
+    }else if(what=="Shed"){
+        cnwhat="窝棚"
+    }else if(what=="Forge"){
+        cnwhat="锻造"
+    }else if(what=="Hut"){
+        cnwhat="茅舍"
+    }else if(what=="House"){
+        cnwhat="房子"
+    }else if(what=="Mansion"){
+        cnwhat="大厦"
+    }else if(what=="Hotel"){
+        cnwhat="旅馆"
+    }else if(what=="Resort"){
+        cnwhat="娱乐场"
+    }else if(what=="Gateway"){
+        cnwhat="出入口"
+    }else if(what=="Wormhole"){
+        cnwhat="虫洞"
+    }else if(what=="Collector"){
+        cnwhat="集电极"
+    }else if(what=="Warpstation"){
+        cnwhat="经纱站"
+    }else if(what=="Gym"){
+        cnwhat="健身房"
+    }else if(what=="Tribute"){
+        cnwhat="贡品"
+    }else if(what=="Nursery"){
+        cnwhat="托儿所"
+    }
+	where.innerHTML += '<div onmouseover="tooltip(\'' + what + '\',\'buildings\',event)" onmouseout="tooltip(\'hide\')" class="thingColorCanNotAfford thing noselect pointer buildingThing" id="' + what + '" onclick="buyBuilding(\'' + what + '\')"><span class="thingName"><span id="' + what + 'Alert" class="alert badge"></span>' + cnwhat + '</span><br/><span class="thingOwned" id="' + what + 'Owned">0</span></div>';
 }
 
 function unlockJob(what) {
@@ -3046,7 +3082,24 @@ function drawAllJobs(){
 }
 
 function drawJob(what, where){
-	where.innerHTML += '<div onmouseover="tooltip(\'' + what + '\',\'jobs\',event)" onmouseout="tooltip(\'hide\')" class="thingColorCanNotAfford thing noselect pointer jobThing" id="' + what + '" onclick="buyJob(\'' + what + '\')"><span class="thingName"><span id="' + what + 'Alert" class="alert badge"></span>' + what + '</span><br/><span class="thingOwned" id="' + what + 'Owned">0</span></div>';
+    //工作汉化
+        var cnjob="";
+   if(what=="Farmer"){
+        cnjob="农民";
+    }else if(what=="Lumberjack"){
+        cnjob="伐木工";
+    }else if(what=="Miner"){
+        cnjob="矿工";
+    }else if(what=="Scientist"){
+        cnjob="科学家";
+    }else if(what=="Trainer"){
+        cnjob="培训师";
+    }else if(what=="Explorer"){
+        cnjob="探险者";
+    }else if(what=="Magmamancer"){
+        cnjob="Magmamancer";
+    }
+	where.innerHTML += '<div onmouseover="tooltip(\'' + what + '\',\'jobs\',event)" onmouseout="tooltip(\'hide\')" class="thingColorCanNotAfford thing noselect pointer jobThing" id="' + what + '" onclick="buyJob(\'' + what + '\')"><span class="thingName"><span id="' + what + 'Alert" class="alert badge"></span>' + cnjob + '</span><br/><span class="thingOwned" id="' + what + 'Owned">0</span></div>';
 }
 
 function drawGeneticistassist(where){
@@ -3160,7 +3213,13 @@ function drawUpgrade(what, where){
 	var done = upgrade.done;
 	var dif = upgrade.allowed - done;
 	if (dif >= 1) dif -= 1;
-	where.innerHTML += '<div onmouseover="tooltip(\'' + what + '\',\'upgrades\',event)" onmouseout="tooltip(\'hide\')" class="thingColorCanNotAfford thing noselect pointer upgradeThing" id="' + what + '" onclick="buyUpgrade(\'' + what + '\')"><span id="' + what + 'Alert" class="alert badge"></span><span class="thingName">' + what + '</span><br/><span class="thingOwned" id="' + what + 'Owned">' + done + '</span></div>';
+     var cnupgrade="";
+    if(what=="Coordination"){
+        cnupgrade="协作"
+    }else if(what=="Megamace"){
+        cnupgrade="Megamace"
+    }
+	where.innerHTML += '<div onmouseover="tooltip(\'' + what + '\',\'upgrades\',event)" onmouseout="tooltip(\'hide\')" class="thingColorCanNotAfford thing noselect pointer upgradeThing" id="' + what + '" onclick="buyUpgrade(\'' + what + '\')"><span id="' + what + 'Alert" class="alert badge"></span><span class="thingName">' + cnupgrade + '</span><br/><span class="thingOwned" id="' + what + 'Owned">' + done + '</span></div>';
 	if (dif >= 1) document.getElementById(what + "Owned").innerHTML = upgrade.done + "(+" + dif + ")";
 }
 
@@ -3291,7 +3350,36 @@ function drawEquipment(what, elem){
 	if (equipment.prestige > 1){
 		numeral = romanNumeral(equipment.prestige);
 	}
-	elem.innerHTML += '<div onmouseover="tooltip(\'' + what + '\',\'equipment\',event)" onmouseout="tooltip(\'hide\')" class="noselect pointer thingColorCanNotAfford thing" id="' + what + '" onclick="buyEquipment(\'' + what + '\')"><span class="thingName">' + what + ' <span id="' + what + 'Numeral">' + numeral + '</span></span><br/><span class="thingOwned">Level: <span id="' + what + 'Owned">0</span></span></div>';
+    //装备汉化
+    var cnequip="";
+    if(what=="Shield"){
+        cnequip="盾"
+    }else if(what=="Dagger"){
+        cnequip="匕首"
+    }else if(what=="Boots"){
+        cnequip="靴子"
+    }else if(what=="Mace"){
+        cnequip="锤"
+    }else if(what=="Helmet"){
+        cnequip="头盔"
+    }else if(what=="Polearm"){
+        cnequip="长柄武器"
+    }else if(what=="Pants"){
+        cnequip="裤子"
+    }else if(what=="Battleaxe"){
+        cnequip="战斧"
+    }else if(what=="Shoulderguards"){
+        cnequip="护肩"
+    }else if(what=="Greatsword"){
+        cnequip="巨剑"
+    }else if(what=="Breastplate"){
+        cnequip="护胸甲"
+    }else if(what=="Arbalest"){
+        cnequip="劲弩"
+    }else if(what=="Gambeson"){
+        cnequip="夹克"
+    }
+	elem.innerHTML += '<div onmouseover="tooltip(\'' + what + '\',\'equipment\',event)" onmouseout="tooltip(\'hide\')" class="noselect pointer thingColorCanNotAfford thing" id="' + what + '" onclick="buyEquipment(\'' + what + '\')"><span class="thingName">' + cnequip + ' <span id="' + what + 'Numeral">' + numeral + '</span></span><br/><span class="thingOwned">等级: <span id="' + what + 'Owned">0</span></span></div>';
 }
 
 //isPrevious returns the previous color, used for swapping with str.replace to know which one was before
@@ -3310,7 +3398,7 @@ function displayPerksBtn(){
 	}
 	else {
 		btn.className = "btn btn-primary";
-		btn.innerHTML = "View Perks";
+		btn.innerHTML = "查看特权";
 	}
 }
 
