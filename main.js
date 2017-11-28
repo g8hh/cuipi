@@ -1290,6 +1290,7 @@ function displayPortalUpgrades(fromTab){
 		var html = '<div onmouseover="tooltip(\'' + what + '\',\'portal\',event)" onmouseout="tooltip(\'hide\')" class="noselect pointer portalThing thing perkColorOff';
 		if (game.options.menu.detailedPerks.enabled == 1) html += " detailed";
 		if (portUpgrade.additive) html += " additive";
+        console.log(what)
 		html += '" id="' + what + '" onclick="buyPortalUpgrade(\'' + what + '\')"><span class="thingName">' + what.replace('_', ' ') + '</span>';
 
 		if (game.options.menu.detailedPerks.enabled == 1){
@@ -1464,7 +1465,7 @@ function checkOfflineProgress(noTip){
 						newMax = calcHeirloomBonus("Shield", "storageSize", newMax);
 						if (newMax > (resource.owned + amt)) break;
 					}
-					var s = (count > 1) ? "s" : "";
+					var s = (count > 1) ? "" : "";
 					storageBought.push(count + " " + storages[x] + s + ", ");
 				}
 			}
@@ -2362,10 +2363,10 @@ function calculateTimeToMax(resource, perSec, toNumber, fromGather) {
 		if (toFill < 1 && fromGather) return "";
 		return Math.floor(seconds) + " 秒" + ((Math.floor(seconds) == 1) ? "" : "s");
 	}
-	if (toFill < 3600) return minutes + " 分" + ((minutes == 1) ? "" : "s") + " " + seconds + " 秒" + ((seconds == 1) ? "" : "s");
-	if (toFill < 86400) return hours + " 时" + ((hours == 1) ? "" : "s") + " " + minutes + " 分" + ((minutes == 1) ? "" : "s");
-	if (toFill < 31536000) return days + " 天" + ((days == 1) ? "" : "s") + " " + hours + " 时" + ((hours == 1) ? "" : "s");
-	return prettify(years) + " 年" + ((years == 1) ? "" : "s") + " " + days + " 天" + ((days == 1) ? "" : "s");
+	if (toFill < 3600) return minutes + " 分" + ((minutes == 1) ? "" : "") + " " + seconds + " 秒" + ((seconds == 1) ? "" : "");
+	if (toFill < 86400) return hours + " 时" + ((hours == 1) ? "" : "") + " " + minutes + " 分" + ((minutes == 1) ? "" : "");
+	if (toFill < 31536000) return days + " 天" + ((days == 1) ? "" : "") + " " + hours + " 时" + ((hours == 1) ? "" : "");
+	return prettify(years) + " 年" + ((years == 1) ? "" : "") + " " + days + " 天" + ((days == 1) ? "" : "");
 }
 
 function checkTriggers(force) {
@@ -2478,7 +2479,23 @@ function canAffordBuilding(what, take, buildCostString, isEquipment, updatingLab
 				percent = (game.resources[costItem].owned > 0) ? prettify(((price / game.resources[costItem].owned) * 100).toFixed(1)) : 0;
 				percent = "(" + percent + "%)";
 			}
-			costString += '<span class="' + color + '">' + costItem + ':&nbsp;' + prettify(price) + '&nbsp;' + percent + '</span>, ';
+//            console.log(costItem)
+            //汉化变量
+            var cnitem="";
+            if(costItem=="food"){
+                cnitem="食物";
+            }else if(costItem=="wood"){
+                cnitem="木头";
+            }else if(costItem=="metal"){
+                cnitem="金属";
+            }else if(costItem=="fragments"){
+                cnitem="碎片";
+            }else if(costItem=="gems"){
+                cnitem="宝石";
+            }else if(costItem=="helium"){
+                cnitem="氦";
+            }
+			costString += '<span class="' + color + '">' + cnitem + ':&nbsp;' + prettify(price) + '&nbsp;' + percent + '</span>, ';
 		}
 		if (take) game.resources[costItem].owned -= price;
 	}
@@ -4468,7 +4485,7 @@ function setEmpowerTab(){
 		Wind: "icomoon icon-air"
 	}
 	swapClass("empowerTab", "empowerTab" + empowerMod, empowerTab);
-	document.getElementById('natureA').innerHTML = "<span class='" + icons[empowerMod] + "'></span> Nature";
+	document.getElementById('natureA').innerHTML = "<span class='" + icons[empowerMod] + "'></span>自然";
 }
 
 function updateEmpowerCosts(){
@@ -6338,7 +6355,7 @@ function toggleMapGridHtml(on, currentMapObj){
 function clearMapDescription(){
 	document.getElementById("selectMapBtn").style.visibility = "hidden";
 	document.getElementById("recycleMapBtn").style.visibility = "hidden";
-	document.getElementById("selectedMapName").innerHTML = "Select a Map!";
+	document.getElementById("selectedMapName").innerHTML = "请选择一个地图!";
 	document.getElementById("mapStatsSize").innerHTML = "";
 	document.getElementById("mapStatsDifficulty").innerHTML = "";
 	document.getElementById("mapStatsLoot").innerHTML = "";
@@ -6369,7 +6386,7 @@ function resetAdvMaps() {
 	}
 	var elem = document.getElementById("biomeAdvMapsSelect");
 
-	if (game.global.decayDone && document.getElementById('gardenOption') === null) elem.innerHTML += "<option id='gardenOption' value='Plentiful'>Gardens</option>";
+	if (game.global.decayDone && document.getElementById('gardenOption') === null) elem.innerHTML += "<option id='gardenOption' value='Plentiful'>花园</option>";
 	elem.value = (game.global.sessionMapValues.biome) ? game.global.sessionMapValues.biome : "Random";
 	updateMapCost();
 }
@@ -6380,18 +6397,23 @@ function repeatClicked(updateOnly){
 	var elem = document.getElementById("repeatBtn");
 	elem.className = "";
 	elem.className = "btn fightBtn " + color;
-	elem.innerHTML = (game.global.repeatMap) ? "Repeat On" : "Repeat Off";
+	elem.innerHTML = (game.global.repeatMap) ? "重复:开" : "重复:关";
 }
 
 function selectMap(mapId, force) {
 	if (game.options.menu.pauseGame.enabled && !force) return;
     if (!force && game.global.currentMapId !== "") {
-        message("You must finish or recycle your current map before moving on.", "Notices");
+        message("你必须在完成或移动之前回收当前的地图。", "Notices");
         return;
     }
     var map = getMapIndex(mapId);
     map = game.global.mapsOwnedArray[map];
 	if (!map) return;
+    //地图名称
+    var mapname="";
+    if(map.name=="Enchanted Gardens"){
+        mapname="魔法花园";
+    }
     document.getElementById("selectedMapName").innerHTML = map.name;
 	document.getElementById("mapStatsSize").innerHTML = (Math.floor(map.size));
 	document.getElementById("mapStatsDifficulty").innerHTML = Math.floor(map.difficulty * 100) + "%";

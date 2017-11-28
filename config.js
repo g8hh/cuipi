@@ -331,7 +331,7 @@ var toReturn = {
 		},
 		Wind: {
 			description: function () {
-				return "When this Empowerment is active, each successful attack by your Trimps stacks a debuff on the enemy, causing winds to swell and knock extra resources in to your reach. Each stack increases Helium gained from all sources by <b>" + this.formatModifier(this.getModifier()) + "%</b> and increases all other resources gained by <b>" + this.formatModifier(this.getModifier() * 10) + "%</b> until that enemy dies (maximum of 200 stacks). The helium bonus does not apply to maps.";
+				return "当这个赋权活动时，你的Trimps的每次成功攻击都会对敌人造成一个debuff，导致风向膨胀，并将额外的资源砸到你的手中。 每个堆栈增加从所有来源获得的氦 <b>" + this.formatModifier(this.getModifier()) + "%</b> 并增加所获得的所有其他资源 <b>" + this.formatModifier(this.getModifier() * 10) + "%</b> 直到敌人死亡（最多200堆）。 氦气奖金不适用于地图。";
 			},
 			upgradeDescription: function () {
 				return "Increases the amount of extra Helium you find by <b>" + this.formatModifier(this.baseModifier) + "%</b> and non-Helium resources by <b>" + this.formatModifier(this.baseModifier * 10) + "%</b> per stack when the Empowerment of Wind is active. Your current bonus is <b>" + this.formatModifier(this.getModifier()) + "%</b> Helium, and next level will bring your bonus to <b>" + this.formatModifier(this.getModifier(1)) + "%</b> extra helium. Non-Helium resource gain is always 10x that of Helium, and the Helium bonus does not apply in maps.";
@@ -481,20 +481,20 @@ var toReturn = {
 			lockOnUnlock: {
 				enabled: 0,
 				extraTags: "qol",
-				description: "Enables/disables the locking of buildings, jobs, upgrades, and equipment for 1 second after unlocking something new. Useful to prevent accidental purchases.",
-				titles: ["Not Locking", "Locking"],
+				description: "启用/禁用建筑，就业，升级的锁定，以及设备解锁新的东西后1秒。 有助于防止意外购买。",
+				titles: ["不锁定", "锁定"],
 			},
 			achievementPopups: {
 				enabled: 1,
 				extraTags: "alerts",
-				description: "Decide whether or not you want popups on completing an achievement.",
-				titles: ["No Achieve Popup", "Popup Achievements"]
+				description: "决定你是否希望在完成一个成就后弹出提示窗口。",
+				titles: ["不弹出", "弹出成就"]
 			},
 			mapLoot: {
 				enabled: 0,
 				extraTags: "qol",
-				description: "<p>Choose which upgrades you want first if it has been a while since you last ran maps.</p><p><b>Tier first</b> will cause maps to drop all items for the lowest tier before moving to the next. (Greatsword II -> Breastplate II -> Shield III)</p><p><b>Equip first</b> will start from Shield and drop all available Shield prestiges before continuing to Dagger and so on. (Shield III -> Shield IV -> Dagger III)</p>",
-				titles: ["Tier First", "Equip First"],
+				description: "<p>如果自上次运行地图以来一段时间，请选择您的首要升级。</p><p><b>升级优先</b> 会导致地图在移到下一层之前删除最低层的所有项目。 （巨剑II - >胸甲II - >盾III）</p><p><b>装备优先</b> 将从盾牌开始，并在继续匕首之前放下所有可用的盾牌声望，等等。 （盾III - >盾IV - >匕首III）</p>",
+				titles: ["升级优先", "装备优先"],
 				secondLocation: "togglemapLoot2",
 			},
 			repeatUntil: {
@@ -536,8 +536,8 @@ var toReturn = {
 			darkTheme: {
 				extraTags: "general",
 				enabled: 1,
-				description: "Toggle between the default Trimps theme, a custom dark theme made by u/Grabarz19, a gradient theme by u/k1d_5h31d0n, and the default theme with a black background.",
-				titles: ["Black Background", "Default Theme", "Dark Theme", "Gradient Theme"],
+				description: "在默认Trimps主题，由u / Grabarz19制作的自定义黑色主题，由u / k1d_5h31d0n制作的渐变主题以及黑色背景的默认主题之间切换。",
+				titles: ["黑底主题", "默认主题", "黑色主题", "渐变主题"],
 				//styleName index should always be equal to title index minus 2, and should match the css file name
 				styleNames: ["dark", "gradient"],
 				removeStyles: function () {
@@ -690,8 +690,8 @@ var toReturn = {
 			timestamps: {
 				enabled: 0,
 				extraTags: "qol",
-				description: "Choose whether or not to display timestamps in the message log. <b>Local Timestamps</b> will log the current time according to your computer, <b>Run Timestamps</b> will log how long it has been since your run started. Note that toggling this setting will not add or remove timestamps from previous messages, but will add or remove them to or from any new ones.",
-				titles: ["No Timestamps", "Local Timestamps", "Run Timestamps"]
+				description: "选择是否在消息日志中显示时间戳。 <b>本地时间戳</b> 将根据您的电脑记录当前时间， <b>运行时间戳</b> 将记录自运行开始以来的时间。 请注意，切换此设置不会添加或删除以前的邮件的时间戳，但将添加或删除任何新的邮件。",
+				titles: ["没有时间戳", "本地时间戳", "运行时间戳"]
 			},
 			gaFire: {
 				enabled: 1,
@@ -705,8 +705,8 @@ var toReturn = {
 			tinyButtons: {
 				enabled: 0,
 				extraTags: "layout",
-				description: "Shrink the buttons in the menu where you purchase Buildings, Upgrades, Jobs, and Equipment. <b>Large Buttons</b> is default and fits 4 buttons per row. <b>Small Buttons</b> shrinks the size to fit 5 per row, and <b>Tiny Buttons</b> fits 6 per row. Small and Tiny may not be readable on small screens.",
-				titles: ["Large Buttons", "Small Buttons", "Tiny Buttons"],
+				description: "收缩的菜单，您购买的建筑物，升级，工作，和装备的按钮。 <b>大按钮</b> 是默认的，适合每行4个按钮。 <b>小按钮</b> 收缩以适应5每行的大小，和 <b>小按钮</b> 适合每行6个。 小按钮和超小按钮可能不适合在小屏幕上阅读。",
+				titles: ["大按钮", "小按钮", "超小按钮"],
 				onToggle: function () {
 					var classNames = ["buttonSizeLarge", "buttonSizeSmall", "buttonSizeTiny"];
 					swapClass("buttonSize", classNames[this.enabled], document.getElementById('buyHere'));
@@ -753,35 +753,35 @@ var toReturn = {
 			geneSend: {
 				enabled: 0,
 				extraTags: "other",
-				description: "<p>When <b>Using Gene Send</b> is enabled, as long as you have one Geneticist, AutoFight will automatically send soldiers to fight if they have been breeding for longer than your Geneticistassist setting.</p><p>When <b>Enforce Gene Send</b> is enabled, as long as you have one Geneticist, AutoFight will never send a group of Trimps to fight unless you are at max population or you have reached your set Geneticistassist timer.</p>",
-				titles: ["No Gene Sending", "Using Gene Send", "Enforce Gene Send"]
+				description: "<p>当 <b>使用基因发送</b> 启用时, 只要你有一个遗传学家，自动战斗会自动派遣战士，如果他们的繁殖时间超过了你的遗传学家的设定。</p><p>当 <b>强制基因发送</b> 启用时, 只要你有一个遗传学家，自动战斗将永远不会派出一组脆皮战斗，除非你是最大的人口，或者你已经达到了你的设置基因学计时器。</p>",
+				titles: ["不基因发送", "使用基因发送", "强制基因发送"]
 			},
 			fireForJobs: {
 				enabled: 0,
 				extraTags: "other",
-				description: "When enabled, hiring Trimps for jobs with scaling price increases (Trainer, Explorer, etc) while you have no workspaces will attempt to fire Farmers, Lumberjacks and Miners until you have enough room.",
-				titles: ["Not Firing For Jobs", "Firing For Jobs"]
+				description: "启用后，雇用脆皮与缩放提价（培训师，探险者等）的工作，而你没有工作区将尝试火灾农民，伐木工人和矿工，直到你有足够的空间。",
+				titles: ["不招聘工作", "招聘工作"]
 			},
 			ctrlGigas: {
 				enabled: 0,
 				extraTags: "other",
-				description: "When enabled, all Gigastation purchases will act as if the Ctrl key was held, regardless of whether or not it actually was held. When disabled, you will have to hold Ctrl to tell Gigastations to automatically purchase Warpstations (See Gigastation tooltip for more info).",
+				description: "启用后，所有千兆站购买行为都将按住Ctrl键，无论是否实际持有。 禁用时，您必须按住Ctrl键才能让千兆站自动购买变形站（请参阅千兆站工具提示获取更多信息）。",
 				lockUnless: function () {
 					return (game.global.highestLevelCleared >= 60);
 				},
-				titles: ["Dynamic Giga Ctrl", "Always Giga Ctrl"]
+				titles: ["动态按Ctrl键", "始终按Ctrl键"]
 			},
 			hotkeys: {
 				enabled: 1,
 				extraTags: "other",
-				description: "Enable or disable hotkeys.",
-				titles: ["Disable Hotkeys", "Enable Hotkeys"]
+				description: "启用或禁用热键",
+				titles: ["禁用热键", "启用热键"]
 			},
 			offlineProgress: {
 				enabled: 1,
 				extraTags: "other",
-				description: "Disables or enables earning resources while offline. <b>Warning: If this is toggled off, no resources will be earned from Trustworthy Trimps when coming back to the game after being offline.</b> This can be helpful if you are analysing stats and do not want resources counted when there is no timer running",
-				titles: ["No Offline Progress", "Offline Progress"]
+				description: "在离线状态下禁用或启用赚钱资源。 <b>警告：如果切换关闭，离线后回到游戏时，将不会从可信的脆皮那里获得资源。</b> 如果您正在分析统计信息并且不需要在没有定时器运行时计算资源，这可能会有所帮助",
+				titles: ["禁止离线进度", "离线进度"]
 			},
 			pauseGame: {
 				enabled: 0,
@@ -823,7 +823,7 @@ var toReturn = {
 				enabled: 0,
 				extraTags: "reset hard wipe clear other",
 				description: "删除您的存档并重新开始，你的异形会不开心.",
-				titles: ["Delete Save"],
+				titles: ["删除存档"],
 				onToggle: function () {
 					cancelTooltip();
 					tooltip('Reset', null, 'update');
@@ -1632,7 +1632,7 @@ var toReturn = {
 			filter: function () {
 				return (game.global.highestLevelCleared >= 54);
 			},
-			unlockString: "reach Zone 55",
+			unlockString: "到达区域55",
 		},
 		Trimp: {
 			description: "Tweak the portal to bring you to a dimension where Trimps explode if more than 1 fights at a time. You will not be able to learn Coordination, but completing <b>'The Block' (11)</b> will teach you how to keep your Trimps alive for much longer.",
@@ -2349,31 +2349,31 @@ var toReturn = {
 		},
 		totalGems: {
 			finished: 0,
-			title: "Gem Collection",
+			title: "宝石收集",
 			description: function (number) {
 				var number = this.breakpoints[number];
 				var s = (number > 1) ? "s" : "";
-				return "Collect  " + prettify(number) + " Gem" + s;
+				return "收集  " + prettify(number) + " 宝石" + s;
 			},
 			progress: function () {
 				if (this.breakpoints.length > this.finished) return prettify(this.evaluate()) + " / " + prettify(this.breakpoints[this.finished]);
-				return prettify(this.evaluate()) + " total";
+				return prettify(this.evaluate()) + " 总共";
 			},
 			evaluate: function () {
 				return game.stats.gemsCollected.value + game.stats.gemsCollected.valueTotal;
 			},
 			breakpoints: [1, 1e+9, 1e+21, 1e+30, 1e+39, 1e+48],//total gems according to statistics
 			tiers: [1, 2, 3, 4, 5, 6],
-			names: ["What's This For?", "Collector of Shinies", "Dragimp Lover", "Expert of Shinies", "Jeweller", "Gemaster"],
+			names: ["这个是干什么的?", "Shinies收藏家", "Dragimp爱人", "Shinies专家", "珠宝商", "宝石大师"],
 			icon: "icomoon icon-diamond",
 			newStuff: []
 		},
 		dailyHelium: {
 			finished: 0,
-			title: "Daily Bonus",
+			title: "日常奖金",
 			description: function (number) {
 				var number = this.breakpoints[number];
-				return "Earn " + prettify(number) + " Helium from the Daily Challenge";
+				return "获取 " + prettify(number) + " 氦气从每日挑战";
 			},
 			evaluate: function () {
 				return game.stats.dailyBonusHelium.value + game.stats.dailyBonusHelium.valueTotal;
@@ -2393,20 +2393,20 @@ var toReturn = {
 		},
 		humaneRun: {
 			finished: 0,
-			title: "Humane Run",
+			title: "人性化战斗",
 			description: function (number){
 				var number = this.breakpoints[number];
-				return "<span style='font-size: .8em'>Reach Z" + number + " after losing no more than one fight per zone.</span>";
+				return "<span style='font-size: .8em'>关爱区域" + number + " 每个区域失去不超过一个战士。</span>";
 			},
 			evaluate: function () {
 				if (!this.earnable || game.stats.battlesLost.value > this.lastZone + 1) return 0;
 				return game.global.world;
 			},
 			progress: function () {
-				if (!this.earnable && this.lastZone == -1) return "You need to portal to become eligible";
-				if (!this.earnable) return "You lost more than once on Z" + this.lastZone;
-				if (game.stats.battlesLost.value > this.lastZone + 1) return "You lost too many fights!";
-				if (game.stats.battlesLost.value == this.lastZone + 1) return "You've lost once this zone, be careful!";
+				if (!this.earnable && this.lastZone == -1) return "您需要入口才能符合条件";
+				if (!this.earnable) return "你失去了不止一次区域" + this.lastZone;
+				if (game.stats.battlesLost.value > this.lastZone + 1) return "你失去了太多战士!";
+				if (game.stats.battlesLost.value == this.lastZone + 1) return "你在该区域已经失败了一次，要小心!";
 				return "Still Earnable!";
 			},
 			earnable: true,
@@ -2620,8 +2620,8 @@ var toReturn = {
 		oneOffs: {
 			//Turns out this method of handling the feats does NOT scale well... adding stuff to the middle is a nightmare
 			finished: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-			title: "Feats",
-			descriptions: ["Reach Z30 with no respec and 60 or less He spent", "Have over 1M traps at once", "Die 50 times to a single Voidsnimp", "Reach Zone 10 with 5 or fewer dead Trimps", "Reach exactly 1337 he/hr", "Equip a magnificent or better Staff and Shield", "Reach Z60 with 1000 or fewer dead Trimps", "Reach Z120 without using manual research", "Reach Z75 without buying any housing", "Find an uncommon heirloom at Z146 or higher", "Spend over 250k total He on Wormholes", "Reach Z60 with rank III or lower equipment", "Kill an Improbability in one hit", "Beat a Lv 60+ Destructive Void Map with no deaths", "Beat Crushed without being crit past Z5", "Kill an enemy with 100 stacks of Nom", "Reach Z60 without hiring a single Trimp", "Beat Toxicity, never having more than 400 stacks", "Own 100 of all housing buildings", "Overkill every possible world cell before Z60", "Complete Watch without entering maps or buying Nurseries", "Complete Lead with 1 or fewer Gigastations", "Complete Corrupted without Geneticists", "Complete The Spire with 0 deaths"],
+			title: "伟绩",
+			descriptions: ["", "Have over 1M traps at once", "Die 50 times to a single Voidsnimp", "Reach Zone 10 with 5 or fewer dead Trimps", "Reach exactly 1337 he/hr", "Equip a magnificent or better Staff and Shield", "Reach Z60 with 1000 or fewer dead Trimps", "Reach Z120 without using manual research", "Reach Z75 without buying any housing", "Find an uncommon heirloom at Z146 or higher", "Spend over 250k total He on Wormholes", "Reach Z60 with rank III or lower equipment", "Kill an Improbability in one hit", "Beat a Lv 60+ Destructive Void Map with no deaths", "Beat Crushed without being crit past Z5", "Kill an enemy with 100 stacks of Nom", "Reach Z60 without hiring a single Trimp", "Beat Toxicity, never having more than 400 stacks", "Own 100 of all housing buildings", "Overkill every possible world cell before Z60", "Complete Watch without entering maps or buying Nurseries", "Complete Lead with 1 or fewer Gigastations", "Complete Corrupted without Geneticists", "Complete The Spire with 0 deaths"],
 			tiers: [3, 3, 3, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 7, 7, 7],
 			description: function (number) {
 				return this.descriptions[number];
@@ -3179,7 +3179,7 @@ var toReturn = {
 		},
 		Gambeson: {
 			locked: 1,
-			tooltip: "A cozy and thick padded jacket that goes under the breastplate. Your Trimps think they're great! Adds $healthCalculated$ health to each soldier per level.",
+			tooltip: "在胸甲下穿着一件舒适厚实的棉服夹克。 你的脆皮认为他们太棒了！ 为每个级别的每名士兵增加$healthCalculated$生命。",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -5530,7 +5530,7 @@ var toReturn = {
 			craftTime: 5,
 			tooltip: function () {
 				var catchAmt = (game.portal.Bait.level + 1);
-				var s = (catchAmt > 1) ? "s" : "";
+				var s = (catchAmt > 1) ? "" : "";
 				return "每个陷阱都能让你抓住 " + prettify(catchAmt) + " 东西" + s + ".";
 			},
 			cost: {
@@ -5650,7 +5650,7 @@ var toReturn = {
 			purchased: 0,
 			craftTime: 120,
 			AP: true,
-			tooltip: "A fancy hotel for many Trimps to live in. Complete with room service and a mini bar. Supports $incby$ Trimps.",
+			tooltip: "看上去不错的旅馆，成为很多脆皮的住所。提供客房服务和一个迷你酒吧完成。 可以住 $incby$ 脆皮。",
 			cost: {
 				gems: [2000, 1.18],
 				food: [10000, 1.18],
