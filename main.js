@@ -1291,6 +1291,7 @@ function displayPortalUpgrades(fromTab){
 		if (game.options.menu.detailedPerks.enabled == 1) html += " detailed";
 		if (portUpgrade.additive) html += " additive";
         console.log(what)
+        //特权汉化
 		html += '" id="' + what + '" onclick="buyPortalUpgrade(\'' + what + '\')"><span class="thingName">' + what.replace('_', ' ') + '</span>';
 
 		if (game.options.menu.detailedPerks.enabled == 1){

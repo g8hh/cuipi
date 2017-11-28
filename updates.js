@@ -308,18 +308,56 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 
 	}
 	if (what == "Message Config"){
-		tooltipText = "<div id='messageConfigMessage'>Here you can finely tune your message settings, to see only what you want from each category. Mouse over the name of a filter for more info.</div>";
+		tooltipText = "<div id='messageConfigMessage'>在这里，你可以微调你的消息设置，只看到你想要从每个类别。 将鼠标悬停在过滤器的名称上以获取更多信息。</div>";
 		var msgs = game.global.messages;
 		var toCheck = ["Loot", "Unlocks", "Combat"];
 		tooltipText += "<div class='row'>";
 		for (var x = 0; x < toCheck.length; x++){
 			var name = toCheck[x];
-			tooltipText += "<div class='col-xs-4'><span class='messageConfigTitle'>" + toCheck[x] + "</span><br/>";
+            //汉化消息设置
+            var cntit="";
+            if(toCheck[x]=="Loot"){
+                cntit="战利品"
+            }else if(toCheck[x]=="Unlocks"){
+                cntit="解锁"
+            }else if(toCheck[x]=="Combat"){
+                cntit="战斗"
+            }
+			tooltipText += "<div class='col-xs-4'><span class='messageConfigTitle'>" + cntit + "</span><br/>";
 			for (var item in msgs[name]){
 				if (item == "essence" && game.global.highestLevelCleared <= 179) continue;
 				if (item == "magma" && game.global.highestLevelCleared <= 229) continue;
 				if (item == 'enabled') continue;
-				tooltipText += "<span class='messageConfigContainer'><span class='messageCheckboxHolder'><input id='" + name + item + "'" + ((msgs[name][item]) ? " checked='true'" : "") + "' type='checkbox' /></span><span onmouseover='messageConfigHover(\"" + name + item + "\", event)' onmouseout='tooltip(\"hide\")' class='messageNameHolder'> - " + item.charAt(0).toUpperCase() + item.substr(1) + "</span></span><br/>";
+                //汉化
+                var cnitems="";
+                if(item=="primary"){
+                    cnitems="主要"
+                }else if(item=="secondary"){
+                    cnitems="次要"
+                }else if(item=="exotic"){
+                    cnitems="异国"
+                }else if(item=="helium"){
+                    cnitems="氦"
+                }else if(item=="essence"){
+                    cnitems="真髓"
+                }else if(item=="token"){
+                    cnitems="符记"
+                }else if(item=="magma"){
+                    cnitems="热门"
+                }else if(item=="events"){
+                    cnitems="事件"
+                }else if(item=="repeated"){
+                    cnitems="重复"
+                }else if(item=="unique"){
+                    cnitems="独特"
+                }else if(item=="trimp"){
+                    cnitems="脆皮"
+                }else if(item=="enemy"){
+                    cnitems="敌人"
+                }
+            
+				tooltipText += "<span class='messageConfigContainer'><span class='messageCheckboxHolder'><input id='" + name + item + "'" + ((msgs[name][item]) ? " checked='true'" : "") + "' type='checkbox' /></span><span onmouseover='messageConfigHover(\"" + name + item + "\", event)' onmouseout='tooltip(\"hide\")' class='messageNameHolder'> - " + cnitems + "</span></span><br/>";
+//                item.charAt(0).toUpperCase() + item.substr(1)
 			}
 			tooltipText += "</div>";
 		}
@@ -329,11 +367,11 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		elem.style.top = "25%";
 		elem.style.left = "25%";
 		swapClass('tooltipExtra', 'tooltipExtraLg', elem);
-		costText = "<div class='maxCenter'><div class='btn btn-info' id='confirmTooltipBtn' onclick='cancelTooltip();configMessages();'>Confirm</div> <div class='btn btn-danger' onclick='cancelTooltip()'>取消</div>"
+		costText = "<div class='maxCenter'><div class='btn btn-info' id='confirmTooltipBtn' onclick='cancelTooltip();configMessages();'>确定</div> <div class='btn btn-danger' onclick='cancelTooltip()'>取消</div>"
 	}
 	if (what == "The Improbability"){
-		tooltipText = "<span class='planetBreakMessage'>That shouldn't have happened. There should have been a Blimp there. Something is growing unstable.</span>";
-		if (!game.global.autoUpgradesAvailable) tooltipText += "<br/><br/><span class='planetBreakMessage'><b>Your Trimps seem to understand that they'll need to help out more, and you realize how to permanently use them to automate upgrades!<b></span><br/>";
+		tooltipText = "<span class='planetBreakMessage'>这不应该发生。 那里应该有一个飞艇。 有些东西变得不稳定。</span>";
+		if (!game.global.autoUpgradesAvailable) tooltipText += "<br/><br/><span class='planetBreakMessage'><b>你的脆皮似乎明白，他们需要更多的帮助，并且你意识到如何永久使用它们来自动升级！<b></span><br/>";
 		costText = "<span class='planetBreakDescription'><span class='bad'>Trimp breed speed reduced by a factor of 10. 20% of enemy damage can now penetrate your block.</span><span class='good'> You have unlocked a new upgrade to learn a Formation. Helium harvested per zone is increased by a factor of 5. Equipment cost is dramatically cheaper. You have access to the 'Trimp' challenge!<span></span>";
 		if (game.global.challengeActive == "Corrupted") costText += "<br/><br/><span class='corruptedBadGuyName'>Looks like the Corruption is starting early...</span>";
 		costText += "<hr/><div class='maxCenter'><div class='btn btn-info' id='confirmTooltipBtn' onclick='cancelTooltip()'>I'll be fine</div><div class='btn btn-danger' onclick='cancelTooltip(); message(\"Sorry\", \"Notices\")'>I'm Scared</div></div>"
@@ -874,35 +912,36 @@ function messageConfigHover(what, event){
 			title = "异域";
 			break;
 		case 'Loothelium':
-			text = "Log Helium rewards.";
-			title = "Helium";
+			text = "记录氦奖励。";
+			title = "氦";
 			break;
 		case 'Unlocksrepeated':
-			text = "Log all unlocks that drop more than once per run, such as Speedfarming or Coordination.";
-			title = "Repeated";
+			text = "记录所有每次运行下降超过一次的解锁，例如Speedfarming或Coordination。";
+			title = "重复";
 			break;
 		case 'Unlocksunique':
-			text = "Log all unlocks that only drop once per portal, such as Gyms or Miners.";
-			title = "Unique";
+			text = "记录所有解锁，只有每门降一次，如健身房或矿工。";
+			title = "独特";
 			break;
 		case 'Combattrimp':
-			text = "Log all combat messages involving your Trimps.";
-			title = "Trimp";
+			text = "记录涉及您的脆皮的所有战斗消息。";
+			title = "脆皮";
 			break;
 		case 'Combatenemy':
-			text = "Log all combat messages involving the enemy.";
-			title = "Enemy";
+			text = "记录涉及敌人的所有战斗消息。";
+			title = "敌人";
 			break;
 		case 'Lootessence':
-			text = "Log all Dark Essence found by scrying.";
-			title = "Dark Essence";
+			text = "记录所有发现的黑暗精华。";
+			title = "黑暗精华";
 			break;
 		case 'Lootmagma':
-			text = "Log drops from Magma cells, including Fuel and Magmite.";
-			title = "Magma";
+			text = "记录微捷码的细胞，包括燃料和Magmite下降。";
+			title = "热门";
 			break;
 		default: return;
 	}
+    
 	document.getElementById('messageConfigMessage').innerHTML = "<b>" + title + "</b> - " + text;
 	tooltip(title, 'customText', event, text);
 }
@@ -933,16 +972,18 @@ function getPsString(what, rawNum) {
 	var base = (what == "fragments") ? 0.1 : 0.5;
 	var textString =  "<table class='bdTable table table-striped'><tbody>";
 	//Add base
-	textString += "<tr><td class='bdTitle'>Base</td><td class='bdPercent'></td><td class='bdNumber'>" + prettify(base) + "</td></tr>";
+	textString += "<tr><td class='bdTitle'>基础</td><td class='bdPercent'></td><td class='bdNumber'>" + prettify(base) + "</td></tr>";
 	//Add job count
 	var currentCalc = job.owned * base;
+    //总览
+    
 	textString += "<tr><td class='bdTitle'>" + jobs[index] + "s</td><td class='bdPercent'>" + prettify(job.owned) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 	//Add books
 	if (typeof book !== 'undefined' && book.done > 0){
 		var bookStrength = Math.pow(1.25, book.done);
 		currentCalc *= bookStrength;
 		bookStrength = prettify((bookStrength - 1) * 100) + "%";
-		textString += "<tr><td class='bdTitle'>Speed" + books[index] + "</td><td class='bdPercent'>+ " + bookStrength + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+		textString += "<tr><td class='bdTitle'>速度" + books[index] + "</td><td class='bdPercent'>+ " + bookStrength + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 	}
 	//Add Megabooks
 	if (typeof mBook !== 'undefined' && mBook.done > 0){
@@ -950,19 +991,19 @@ function getPsString(what, rawNum) {
 		var mBookStrength = Math.pow(mod, mBook.done);
 		currentCalc *= mBookStrength;
 		mBookStrength = prettify((mBookStrength - 1) * 100) + "%";
-		textString += "<tr><td class='bdTitle'>Mega" + books[index] + "</td><td class='bdPercent'>+ " + mBookStrength + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+		textString += "<tr><td class='bdTitle'>巨型" + books[index] + "</td><td class='bdPercent'>+ " + mBookStrength + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 	}
 	//Add bounty
 	if (what != "gems" && game.upgrades.Bounty.done > 0){
 		currentCalc *= 2;
-		textString += "<tr><td class='bdTitle'>Bounty</td><td class='bdPercent'>+ 100%</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+		textString += "<tr><td class='bdTitle'>奖金</td><td class='bdPercent'>+ 100%</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 	}
 	//Add Tribute
 	if (what == "gems" && game.buildings.Tribute.owned > 0){
 		var tributeStrength = Math.pow(game.buildings.Tribute.increase.by, game.buildings.Tribute.owned);
 		currentCalc *= tributeStrength;
 		tributeStrength = prettify((tributeStrength - 1) * 100) + "%";
-		textString += "<tr><td class='bdTitle'>Tribute</td><td class='bdPercent'>+ " + tributeStrength + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+		textString += "<tr><td class='bdTitle'>贡品</td><td class='bdPercent'>+ " + tributeStrength + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 	}
 	//Add Whipimp
 	if (game.unlocks.impCount.Whipimp > 0){
@@ -976,7 +1017,7 @@ function getPsString(what, rawNum) {
 		var motivationStrength = (game.portal.Motivation.level * game.portal.Motivation.modifier);
 		currentCalc  *= (motivationStrength + 1);
 		motivationStrength = prettify(motivationStrength * 100) + "%";
-		textString += "<tr><td class='bdTitle'>Motivation</td><td class='bdPercent'>+ " + motivationStrength + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+		textString += "<tr><td class='bdTitle'>激励</td><td class='bdPercent'>+ " + motivationStrength + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 	}
 	if (game.portal.Motivation_II.level > 0){
 		var motivationStrength = (game.portal.Motivation_II.level * game.portal.Motivation_II.modifier);
@@ -1118,7 +1159,7 @@ function getTrimpPs() {
 	var base = 0.0085;
 	var textString =  "<table class='bdTable table table-striped'><tbody>";
 	//Add base
-	textString += "<tr><td class='bdTitle'>Base</td><td class='bdPercent'></td><td class='bdNumber'>" + base + "</td></tr>";
+	textString += "<tr><td class='bdTitle'>基础</td><td class='bdPercent'></td><td class='bdNumber'>" + base + "</td></tr>";
 	//Add job count
 	var breeding = trimps.owned - trimps.employed;
 	var currentCalc = breeding * base;
@@ -1210,14 +1251,14 @@ function getFluctuation(number, minFluct, maxFluct){
 function getBattleStatBd(what) {
 	var equipment = {};
 	var name = what.charAt(0).toUpperCase() + what.substr(1, what.length);
-	var textString =  "<table class='bdTableSm table table-striped'><tbody><tr><td></td><td>Base</td><td>Level</td><td>Item " + name + "</td><td>Total</td>" + ((what == "attack") ? "<td>Min</td><td>Max</td>" : "") + "</tr>";
+	var textString =  "<table class='bdTableSm table table-striped'><tbody><tr><td></td><td>基础</td><td>Level</td><td>Item " + name + "</td><td>Total</td>" + ((what == "attack") ? "<td>Min</td><td>Max</td>" : "") + "</tr>";
 	var currentCalc = 0;
 	var maxFluct = 0.2;
 	var minFluct = 0.2;
 	var percent = 0;
 	if (what == "health" || what == "attack"){
 		currentCalc += (what == "health") ? 50 : 6;
-		textString += "<tr><td class='bdTitle'>Base</td><td class='bdPercentSm'>" + prettify(currentCalc) + "</td><td></td><td></td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + ((what == "attack") ? "<td>-20%</td><td>+20%</td>" : "") + "</tr>";
+		textString += "<tr><td class='bdTitle'>基础</td><td class='bdPercentSm'>" + prettify(currentCalc) + "</td><td></td><td></td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + ((what == "attack") ? "<td>-20%</td><td>+20%</td>" : "") + "</tr>";
 		if (what == "attack"){
 			//Discipline
 			if (game.global.challengeActive == "Discipline"){
@@ -1506,7 +1547,7 @@ function getMaxTrimps() {
 	var base = 10;
 	var textString =  "<table class='bdTable table table-striped'><tbody>";
 	//Add base
-	textString += "<tr><td class='bdTitle'>Base</td><td class='bdPercent'></td><td class='bdNumber'>" + base + "</td></tr>";
+	textString += "<tr><td class='bdTitle'>基础</td><td class='bdPercent'></td><td class='bdNumber'>" + base + "</td></tr>";
 	//Add job count
 	var housing = trimps.max - game.global.totalGifts - game.unlocks.impCount.TauntimpAdded - base - game.global.trimpsGenerated;
 	var currentCalc = housing + base;
@@ -1577,7 +1618,7 @@ function getMaxResources(what) {
 	var textString =  "<table class='bdTable table table-striped'><tbody>";
 	//Add base
 	var currentCalc = base;
-	textString += "<tr><td class='bdTitle'>Base</td><td class='bdPercent'></td><td class='bdNumber'>" + base + "</td></tr>";
+	textString += "<tr><td class='bdTitle'>基础</td><td class='bdPercent'></td><td class='bdNumber'>" + base + "</td></tr>";
 	//Add structure
 	var structBonus = Math.pow(2, structureObj.owned);
 	currentCalc *= structBonus;
@@ -1620,7 +1661,7 @@ function getLootBd(what) {
 	if (game.global.mapsUnlocked) textString += '<li role="presentation" onclick="getLootBd(\'Fragments\')"><a href="#">Fragments</a></li><li role="presentation" onclick="getLootBd(\'Gems\')"><a href="#">Gems</a></li>';
 	if (game.global.world >= 20) textString += '<li role="presentation" onclick="getLootBd(\'Helium\')"><a href="#">Helium</a></li>';
 	textString += '</ul></div>';
-	textString +=  "<table class='bdTableSm table table-striped'><tbody><tr><td style='font-weight: bold; font-size: 1.1em'>" + what + "</td><td>Base</td><td>Amount</td><td>Line Total</td><td>Total</td></tr>";
+	textString +=  "<table class='bdTableSm table table-striped'><tbody><tr><td style='font-weight: bold; font-size: 1.1em'>" + what + "</td><td>基础</td><td>Amount</td><td>Line Total</td><td>Total</td></tr>";
 	var currentCalc = 0;
 	var percent = 0;
 	var amt = 0;
@@ -1650,7 +1691,7 @@ function getLootBd(what) {
 				else if (game.talents.turkimp3.purchased) tBonus = 1.249;
 				amt *= tBonus;
 			}
-			textString += "<tr><td class='bdTitle'>Base</td><td></td><td></td><td>" + prettify(amt) + "</td><td>" + prettify(currentCalc) + "</td></tr>";
+			textString += "<tr><td class='bdTitle'>基础</td><td></td><td></td><td>" + prettify(amt) + "</td><td>" + prettify(currentCalc) + "</td></tr>";
 			amt = game.resources.trimps.realMax() * 0.16;
 			currentCalc *= amt;
 			textString += "<tr><td class='bdTitle'>Trimps</td><td>0.16</td><td>x " + prettify(game.resources.trimps.realMax()) + "</td><td>x " + prettify(amt) + "</td><td>" + prettify(currentCalc) + "</td></tr>";
@@ -1664,7 +1705,7 @@ function getLootBd(what) {
 			amt += Math.round(0.5 * level);
 			amt = (amt * .8) + ((amt * .002) * (cell + 1));
 			currentCalc = amt;
-			textString += "<tr><td class='bdTitle'>Base</td><td></td><td></td><td>" + prettify(amt) + "</td><td>" + prettify(currentCalc) + "</td></tr>";
+			textString += "<tr><td class='bdTitle'>基础</td><td></td><td></td><td>" + prettify(amt) + "</td><td>" + prettify(currentCalc) + "</td></tr>";
 			if (game.jobs.Dragimp.owned >= 1){
 				amt = 1.5 * game.jobs.Dragimp.modifier;
 				amt = (amt * .8) + ((amt * .002) * (cell + 1));
@@ -1675,7 +1716,7 @@ function getLootBd(what) {
 		case "Fragments":
 			amt = Math.pow(1.15, game.global.world);
 			currentCalc = amt;
-			textString += "<tr><td class='bdTitle'>Base</td><td></td><td></td><td>" + prettify(amt) + "</td><td>" + prettify(currentCalc) + "</td></tr>";
+			textString += "<tr><td class='bdTitle'>基础</td><td></td><td></td><td>" + prettify(amt) + "</td><td>" + prettify(currentCalc) + "</td></tr>";
 			break;
 		case "Helium":
 			var level = scaleLootLevel(99);
@@ -1690,7 +1731,7 @@ function getLootBd(what) {
 			amt += Math.round(baseAmt * level);
 			amt /= baseAmt;
 			currentCalc = amt;
-			textString += "<tr><td class='bdTitle'>Base</td><td></td><td></td><td>" + prettify(amt) + "</td><td>" + prettify(currentCalc) + "</td></tr>";
+			textString += "<tr><td class='bdTitle'>基础</td><td></td><td></td><td>" + prettify(amt) + "</td><td>" + prettify(currentCalc) + "</td></tr>";
 			if (baseAmt >= 5){
 				if (mutations.Magma.active()){
 					currentCalc *= 15;
@@ -3730,10 +3771,10 @@ function toggleSetting(setting, elem, fromPortal, updateOnly){
 		displayAchievements();
 		var fluff = [
 			[", 更好的取得更多的成就", ", 你会做一些更多的成就更好", " 但是你希望你有更多的成就"],
-			[", your achievement game shows promise", " on your path to achievement", ", thanks to your achievements"],
+			[", your achievement game shows promise", " 在你成就的道路上", ", thanks to your achievements"],
 			[", thanks to your bounty of achievements", ", must be all those achievements", ", you are one with the achievements", " and you water your achievements daily"],
 			[", your Trimps are mighty impressed", ", your achievements are mind blowing", ". You wake up, achieve, then sleep", ", you have achievement in your blood"],
-			[", your achievements are beyond mortal comprehension", ", Trimps far and wide tell stories of your achievement", ", you have achieved achievement", ", everything you touch turns to achievement"],
+			[", your achievements are beyond mortal comprehension", ", 脆皮远播告诉你的成就的故事", ", you have achieved achievement", ", everything you touch turns to achievement"],
 			[", your achievements have achieved achievement", ", news of your achievement spreads throughout the galaxy", ", achievements bend to your will", ", your achievements transcend reality"],
 			[", word of your achievement spreads throughout the universe", ", everyone else is super jealous", ", the achievements of your achievements have achieved achievement", ", your achievements have gained sentience", ", everyone else just stays home", ", you appear if someone says 'Achievement' 3 times in a mirror"]
 		];
@@ -3974,7 +4015,7 @@ var tooltips = {};
  * @return {{tooltip: String, costText: String}}   tooltip to be shown[description]
  */
 tooltips.showError = function (textString) {
-	var tooltip = "<p>Well this is embarrassing. Trimps has encountered an error. Try refreshing the page.</p>";
+	var tooltip = "<p>嗯，这很尴尬。脆皮遇到了一个错误。尝试刷新页面。</p>";
 	tooltip += "<p>It would be awesome if you post the following to the <a href='reddit.com/r/Trimps/'>trimps subreddit</a> or email it to trimpsgame@gmail.com</p>";
 	tooltip += "Note: Saving has been disabled.<br/><br/><textarea id='exportArea' spellcheck='false' style='width: 100%' rows='5'>";
 	var bugReport = "--BEGIN ERROR STACK--\n";

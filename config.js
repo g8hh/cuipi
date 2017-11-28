@@ -822,7 +822,7 @@ var toReturn = {
 			deleteSave: {
 				enabled: 0,
 				extraTags: "reset hard wipe clear other",
-				description: "删除您的存档并重新开始，你的异形会不开心.",
+				description: "删除您的存档并重新开始，你的脆皮会不开心.",
 				titles: ["删除存档"],
 				onToggle: function () {
 					cancelTooltip();
@@ -1361,7 +1361,7 @@ var toReturn = {
 			modifier: 1,
 			priceBase: 4,
 			heliumSpent: 0,
-			tooltip: "放一些这个在你的陷阱中，一定会给你带来额外的异形的。 每个级别允许陷阱捕捉到 $modifier$ 额外的异形。"
+			tooltip: "放一些这个在你的陷阱中，一定会给你带来额外的脆皮的。 每个级别允许陷阱捕捉到 $modifier$ 额外的脆皮。"
 		},
 		Trumps: {
 		//fiveTrimpMax worldUnlock
@@ -1378,7 +1378,7 @@ var toReturn = {
 			modifier: 0.1,
 			priceBase: 3,
 			heliumSpent: 0,
-			tooltip: "你可以带上一些费洛蒙，以确保你的异形能够永久性地增加10%的繁殖速度。"
+			tooltip: "你可以带上一些费洛蒙，以确保你的脆皮能够永久性地增加10%的繁殖速度。"
 		},
 		//trapThings main
 		Packrat: {
@@ -1393,7 +1393,7 @@ var toReturn = {
 		Motivation: {
 			modifier: 0.05,
 			heliumSpent: 0,
-			tooltip: "给你的异形们进行一些演讲吧。 每一级能增加5%工人生产的资源。",
+			tooltip: "给你的脆皮们进行一些演讲吧。 每一级能增加5%工人生产的资源。",
 			priceBase: 2,
 			level: 0
 		},
@@ -1403,14 +1403,14 @@ var toReturn = {
 			modifier: 0.05,
 			priceBase: 1,
 			heliumSpent: 0,
-			tooltip: "异形们通过例子来学习。 花一些时间去卧推死掉的大象来使今后的异形们变得更加强大。 永久性增加异形5%攻击力。"
+			tooltip: "脆皮们通过例子来学习。 花一些时间去卧推死掉的大象来使今后的脆皮们变得更加强大。 永久性增加脆皮5%攻击力。"
 		},
 		//startFight main
 		Toughness: {
 			modifier: 0.05,
 			priceBase: 1,
 			heliumSpent: 0,
-			tooltip: "让你的异形学习如何变得像个硬汉，而不是一个老实巴交的容易受欺负的。 永久性增加异形5%的生命值。",
+			tooltip: "让你的脆皮学习如何变得像个硬汉，而不是一个老实巴交的容易受欺负的。 永久性增加脆皮5%的生命值。",
 			level: 0
 		},
 		//rewardResources main
@@ -1884,7 +1884,7 @@ var toReturn = {
 	},
 	stats:{
 		trimpsKilled: {
-			title: "死掉的异形",
+			title: "死掉的脆皮",
 			value: 0,
 			valueTotal: 0
 		},
@@ -1917,7 +1917,7 @@ var toReturn = {
 			}
 		},
 		trimpsFired: {
-			title: "解雇异形",
+			title: "解雇脆皮",
 			value: 0,
 			valueTotal: 0,
 			//This stat was added in 3.6 and the numbers will look bad for a few months.
@@ -2188,7 +2188,7 @@ var toReturn = {
 			evaluate: function () { return game.global.highestLevelCleared},
 			breakpoints: [2, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240, 250, 260, 270, 280, 290, 300, 350, 400, 450, 500],
 			tiers: [1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 8, 8, 8, 8],
-			names: ["这很容易", "飞艇杀手", "都是开拓", "开端", "决心", "教授", "异形业余爱好者", "星际杀手", "上进心", "电气", "残端", "耐久力", "坚定不移", "配合", "已解决", "坚定", "砂砾", "恒心", "坚持", "韧性", "研究者", "破坏者", "毁灭者", "灭火器", "制热机", "加热器", "热断路器", "热火杀手", "热火专家", "热弯机", "火山", "岩浆大师", "大自然", "灵感", "癫狂", "尖顶大师"],
+			names: ["这很容易", "飞艇杀手", "都是开拓", "开端", "决心", "教授", "脆皮业余爱好者", "星际杀手", "上进心", "电气", "残端", "耐久力", "坚定不移", "配合", "已解决", "坚定", "砂砾", "恒心", "坚持", "韧性", "研究者", "破坏者", "毁灭者", "灭火器", "制热机", "加热器", "热断路器", "热火杀手", "热火专家", "热弯机", "火山", "岩浆大师", "大自然", "灵感", "癫狂", "尖顶大师"],
 			icon: "icomoon icon-compass2",
 			newStuff: []
 		},
@@ -2205,14 +2205,14 @@ var toReturn = {
 			highest: 0,
 			breakpoints: [100, 100000, 1e+11, 1e+17, 1e+23, 1e+29, 1e+35, 1e+41, 1e+47, 1e+53, 1e+60, 1e+67],
 			tiers: [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6],
-			names: ["领导异形", "银色异形", "金色异形", "铜色异形", "白金异形", "铁异形", "钢异形", "黑曜石异形", "钴异形", "黄玉异形", "钻石异形", "超越异形"],
+			names: ["领导脆皮", "银色脆皮", "金色脆皮", "铜色脆皮", "白金脆皮", "铁脆皮", "钢脆皮", "黑曜石脆皮", "钴脆皮", "黄玉脆皮", "钻石脆皮", "超越脆皮"],
 			icon: "icomoon icon-bomb",
 			newStuff: []
 		},
 		trimps: {
 			finished: 0,
 			highest: 0,
-			title: "拥有异形",
+			title: "拥有脆皮",
 			description: function (number) {
 				return "Have  " + prettify(this.breakpoints[number]) + " total Trimps";
 			},
@@ -2222,7 +2222,7 @@ var toReturn = {
 			},
 			breakpoints: [50, 150, 300, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000, 10000000000, 100000000000],
 			tiers: [1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4],
-			names: ["太多异形", "人满为患", "这是脆皮", "建成部落", "建成乡镇", "建成城市", "建成国家", "调整增长", "MMMEGATRIMPS", "它是一个国家", "星球", "宇宙"],
+			names: ["太多脆皮", "人满为患", "这是脆皮", "建成部落", "建成乡镇", "建成城市", "建成国家", "调整增长", "MMMEGATRIMPS", "它是一个国家", "星球", "宇宙"],
 			icon: "icomoon icon-group",
 			newStuff: []
 		},
@@ -2758,9 +2758,9 @@ var toReturn = {
 
 
 	worldText: {
-		w2: "你的异形在那里杀死了很多坏人。 看起来你似乎已经弄清楚这是怎么一回事了。 然而这个世界很大，依然有去多区域需要探索，“砍”“砍”...",
+		w2: "你的脆皮在那里杀死了很多坏人。 看起来你似乎已经弄清楚这是怎么一回事了。 然而这个世界很大，依然有去多区域需要探索，“砍”“砍”...",
 		w3: "根据您的命令，您的科学家们已经开始尝试了解这个星球有多大。",
-		w4: "您命令异形在该地区搜索您的船只的钥匙，但没有人找到任何东西。真令人失望。",
+		w4: "您命令脆皮在该地区搜索您的船只的钥匙，但没有人找到任何东西。真令人失望。",
 		w5: "你看到尽头的那个东西了吗？多么的巨大！多么的可怕！ 你以前从未见过这样的东西,但是你知道这是一个顽固的守卫。你是怎么知道的？别问为什么了，去杀死它！",
 		w6: "You step over the corpse of the Blimp as it rapidly deflates, and one of your Trimps chuckles at the sound produced. You all cross the sulfuric river to the next zone, and can feel the presence of an ancient knowledge. Better explore.",
 		w7: "慢而稳事必成， 除非跟你竞争的人比你更努力。",
@@ -2775,7 +2775,7 @@ var toReturn = {
 		w16: "你是认真的吗？又一个守卫！",
 		w17: "你爬上一个巨大的悬崖，俯瞰着一片新的区域。红色的泥土，烧焦的地面，一片荒芜。 那是一头龙在飞来飞去吗？！",
 		w18: "似乎有一种奇怪的力量鼓励你继续前行。气氛变得有点，愤怒的感觉。 你的身体的一部分想转身回去,但其他大部分想继续前行。",
-		w19: "你回头看看你的王国，你拥有宝石、殖民地和领土。 你在想你的异形是不是已经在战斗中牺牲了。 沉思之后， 两个字从你的嘴里蹦了出来 “算了”",
+		w19: "你回头看看你的王国，你拥有宝石、殖民地和领土。 你在想你的脆皮是不是已经在战斗中牺牲了。 沉思之后， 两个字从你的嘴里蹦了出来 “算了”",
 		w20: "你感觉到你离你的目标已经不远了。",
 		w22: "Strange, the sky seems to be getting darker. You ask one of your Trimps for the time, but he doesn't know what a clock is.",
 		w25: "You're a rebel. The universe pointed you into that portal, but you kept pushing forward. You feel... less like you've been here before.",
@@ -3059,7 +3059,7 @@ var toReturn = {
 		//2
 		Mace: {
 			locked: 1,
-			tooltip: "对你的异形来说有点重，但他们能搞定。 每级给每个战士增加 $attackCalculated$ 攻击。",
+			tooltip: "对你的脆皮来说有点重，但他们能搞定。 每级给每个战士增加 $attackCalculated$ 攻击。",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -3072,7 +3072,7 @@ var toReturn = {
 		},
 		Helmet: {
 			locked: 1,
-			tooltip: "给你的异形们的头部提供相当程度的保护，每级给每个战士增加 $healthCalculated$ 生命。",
+			tooltip: "给你的脆皮们的头部提供相当程度的保护，每级给每个战士增加 $healthCalculated$ 生命。",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -3099,7 +3099,7 @@ var toReturn = {
 		},
 		Pants: {
 			locked: 1,
-			tooltip: "给小异形们特制的裤衩！每级给每个战士增加 $healthCalculated$ 生命。",
+			tooltip: "给小脆皮们特制的裤衩！每级给每个战士增加 $healthCalculated$ 生命。",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -3113,7 +3113,7 @@ var toReturn = {
 		//4
 		Battleaxe: {
 			locked: 1,
-			tooltip: "这武器看起来十分吓人，但你的异形们能够搞定。 每级给每个战士增加 $attackCalculated$ 攻击。",
+			tooltip: "这武器看起来十分吓人，但你的脆皮们能够搞定。 每级给每个战士增加 $attackCalculated$ 攻击。",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -3126,7 +3126,7 @@ var toReturn = {
 		},
 		Shoulderguards: {
 			locked: 1,
-			tooltip: "这些护肩能够保护你的异形们的脖子和肩膀，而且它们看起来很酷！每级给每个战士增加 $healthCalculated$ 生命。",
+			tooltip: "这些护肩能够保护你的脆皮们的脖子和肩膀，而且它们看起来很酷！每级给每个战士增加 $healthCalculated$ 生命。",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -4049,7 +4049,7 @@ var toReturn = {
 			health: 2,
 			fast: false,
 			loot: function () {
-				message("您的异形设法从Skeletimp中拉出1个完全保存的骨头！", "Loot", "italic", null, "secondary");
+				message("您的脆皮设法从Skeletimp中拉出1个完全保存的骨头！", "Loot", "italic", null, "secondary");
 				game.global.b++;
 				game.global.lastSkeletimp = new Date().getTime();
 				updateSkeleBtn();
@@ -4635,7 +4635,7 @@ var toReturn = {
 		Mansion: {
 			world: -1,
 			startAt: 8,
-			message: "你找到了建造一个大厦的蓝图! 你的异形会感到十分振奋！",
+			message: "你找到了建造一个大厦的蓝图! 你的脆皮会感到十分振奋！",
 			level: [10, 20],
 			icon: "*home4",
 			title: "Mansion",
@@ -5064,7 +5064,7 @@ var toReturn = {
 			}
 		},
 		Potency: {
-			message: "这本书将帮助你的异形产生更多的异形！",
+			message: "这本书将帮助你的脆皮产生更多的脆皮！",
 			world: -5,
 			level: 29,
 			icon: "book",
@@ -5598,7 +5598,7 @@ var toReturn = {
 			purchased: 0,
 			craftTime: 10,
 			AP: true,
-			tooltip: "棚屋可以居住$incby$更可爱的异形。 所有的异形住房都有足够的工作空间，只有一半的异形可以住在那里。",
+			tooltip: "棚屋可以居住$incby$更可爱的脆皮。 所有的脆皮住房都有足够的工作空间，只有一半的脆皮可以住在那里。",
 			cost: {
 				food: [125, 1.24],
 				wood: [75, 1.24]
@@ -5614,7 +5614,7 @@ var toReturn = {
 			purchased: 0,
 			craftTime: 20,
 			AP: true,
-			tooltip: "一个更好的房子对于您的异形！ 每个房子支持$incby$更多的异形。",
+			tooltip: "一个更好的房子对于您的脆皮！ 每个房子支持$incby$更多的脆皮。",
 			cost: {
 				food: [1500, 1.22],
 				wood: [750, 1.22],
@@ -5631,7 +5631,7 @@ var toReturn = {
 			purchased: 0,
 			craftTime: 60,
 			AP: true,
-			tooltip: "A pretty sick mansion for your Trimps to live in. Each Mansion supports $incby$ more Trimps.",
+			tooltip: "一个相当恶心的豪宅，让你的脆皮住在里面。 每个可以住 $incby$ 脆皮",
 			cost: {
 				gems: [100, 1.2],
 				food: [3000, 1.2],
@@ -5669,7 +5669,7 @@ var toReturn = {
 			purchased: 0,
 			craftTime: 240,
 			AP: true,
-			tooltip: "A huge resort for your Trimps to live in. Sucks for the ones still stuck in huts. Supports $incby$ Trimps.",
+			tooltip: "对于你的脆皮来说，这是一个巨大的胜地。 可以住 $incby$ 脆皮。",
 			cost: {
 				gems: [20000, 1.16],
 				food: [100000, 1.16],
@@ -5688,7 +5688,7 @@ var toReturn = {
 			purchased: 0,
 			craftTime: 480,
 			AP: true,
-			tooltip: "A Gateway to another dimension, where your Trimps can sleep and work. Supports $incby$ Trimps.",
+			tooltip: "另一个维度的门户，你的脆皮可以睡觉和工作. 可以住 $incby$ 脆皮。",
 			cost: {
 				fragments: [3000, 1.14],
 				gems: [20000, 1.14],
@@ -5705,7 +5705,7 @@ var toReturn = {
 			purchased: 0,
 			craftTime: 600,
 			AP: true,
-			tooltip: "Use your crazy, helium-cooled, easy-to-aim wormhole generator to create easy-to-travel links to other colonizable planets where your Trimps can sleep and work. Each supports $incby$ Trimps. <b>This building costs helium to create.</b>",
+			tooltip: "使用你疯狂的，氦冷却，容易瞄准的虫洞发生器创建易于旅行的链接到其他可定居的行星，在那里你的脆皮可以睡觉和工作。 每个可以住 $incby$ 脆皮. <b>这座建筑需要耗费氦气来创造。</b>",
 			cost: {
 				helium: [10, 1.075],
 				metal: [100000, 1.1]
@@ -5721,7 +5721,7 @@ var toReturn = {
 			purchased: 0,
 			craftTime: 1200,
 			AP: true,
-			tooltip: "Each collector allows you to harvest more of the power of your home star, allowing your Trimps to colonize a larger chunk of your solar system. Each supports $incby$ Trimps.",
+			tooltip: "每个收集器都可以让你收获更多的家庭之星的力量，让你的脆皮能够在你的太阳系中占据更大的比例。 每个可以住 $incby$ 脆皮.",
 			cost: {
 				gems: [500000000000, 1.12]
 			},
@@ -5737,7 +5737,7 @@ var toReturn = {
 			craftTime: 1200,
 			origTime: 1200,
 			AP: true,
-			tooltip: "Create a gigantic Warpstation, capable of housing tons of Trimps and instantly transporting them back to the home planet when needed. Supports $incby$ Trimps.",
+			tooltip: "创造一个巨大的经纱站，能够容纳大量的脆皮，并在需要时立即将它们运回家园。可以住 $incby$ 脆皮。",
 			cost: {
 				gems: [100000000000000, 1.4],
 				metal: [1000000000000000, 1.4]
@@ -5754,7 +5754,7 @@ var toReturn = {
 			purchased: 0,
 			craftTime: 20,
 			AP: true,
-			tooltip: "你的异形可以锻炼的建筑物。 每个健身房都可以增加每个异形$incby$〜格挡的伤害量",
+			tooltip: "你的脆皮可以锻炼的建筑物。 每个健身房都可以增加每个脆皮$incby$〜格挡的伤害量",
 			cost: {
 				wood: [400, 1.185]
 			},
@@ -5792,8 +5792,8 @@ var toReturn = {
 			AP: true,
 			get tooltip () {
 				if (mutations.Magma.active())
-					return "<p>Magma is generally not conductive to a healthy Nursery environment. Each Nursery will still increase Trimps per second from breeding by 1% (compounding), but 10% of your active Nurseries will shut down each zone as the Magma moves closer. Safety first!</p><p>You have purchased " + prettify(this.purchased) + " total Nurseries.</p>";
-				return "Construct a gem-powered nursery, where baby Trimps can grow up faster. Increases Trimps per second from breeding by 1% (compounding).";
+					return "<p>岩浆一般是不利于健康的幼儿园环境。 各苗圃仍会增加Trimps每秒从1％（配混）繁殖，但作为岩浆移近您的活性苗圃的10％将关闭每个区域。 安全第一！</p><p>你总共已经购买托儿所" + prettify(this.purchased) + "个</p>";
+				return "构建一个宝石托儿所，脆皮宝宝可以更快地成长。 繁殖率每秒增加1％（复合）。";
 
 			},
 			cost: {
@@ -5808,7 +5808,7 @@ var toReturn = {
 		Farmer: {
 			locked: 1,
 			owned: 0,
-			tooltip: "训练你的异形们学会耕作的技术。 每个农民每秒生产 $modifier$ 食物。",
+			tooltip: "训练你的脆皮们学会耕作的技术。 每个农民每秒生产 $modifier$ 食物。",
 			cost: {
 				food: 5
 			},
@@ -5818,7 +5818,7 @@ var toReturn = {
 		Lumberjack: {
 			locked: 1,
 			owned: 0,
-			tooltip: "训练你的异形们学会砍伐的技术。 每个木工每秒生产 $modifier$ 木头。",
+			tooltip: "训练你的脆皮们学会砍伐的技术。 每个木工每秒生产 $modifier$ 木头。",
 			
 			cost: {
 				food: 5
@@ -5829,7 +5829,7 @@ var toReturn = {
 		Miner: {
 			locked: 1,
 			owned: 0,
-			tooltip: "训练你的异形们学会采矿的技术。 每个矿工每秒生产 $modifier$ 金属。",
+			tooltip: "训练你的脆皮们学会采矿的技术。 每个矿工每秒生产 $modifier$ 金属。",
 			cost: {
 				food: 20
 			},
@@ -5839,7 +5839,7 @@ var toReturn = {
 		Scientist: {
 			locked: 1,
 			owned: 0,
-			tooltip: "训练你的异形们学会如何研究。 每个科学家每秒生产 $modifier$ 科学点。",
+			tooltip: "训练你的脆皮们学会如何研究。 每个科学家每秒生产 $modifier$ 科学点。",
 			cost: {
 				food: 100
 			},
@@ -5887,7 +5887,7 @@ var toReturn = {
 			locked: 1,
 			allowAutoFire: true,
 			owned: 0,
-			tooltip: "每个遗传学家都会将每个异形的健康状况提高1％（复合），但会降低婴儿异形生长2％（复合）的速度。",
+			tooltip: "每个遗传学家都会将每个脆皮的健康状况提高1％（复合），但会降低婴儿脆皮生长2％（复合）的速度。",
 			cost: {
 				food: [1000000000000000, 1.03],
 			},
@@ -5982,7 +5982,7 @@ var toReturn = {
 	//Important Upgrades
 		Coordination: {
 			locked: 1,
-			tooltip: "这本书能教会你的战士们如何多人协同作战。 战斗需要 <coord>%更多的异形（集合），但攻击和生命也同样的提升了。",
+			tooltip: "这本书能教会你的战士们如何多人协同作战。 战斗需要 <coord>%更多的脆皮（集合），但攻击和生命也同样的提升了。",
 			done: 0,
 			allowed: 0,
 			cost: {
@@ -6029,7 +6029,7 @@ var toReturn = {
 	//One Time Use Upgrades, in order of common unlock order
 		Battle: { //0
 			locked: 1,
-			tooltip: "弄清楚如何教这些异形们去战斗并杀死那些坏家伙。",
+			tooltip: "弄清楚如何教这些脆皮们去战斗并杀死那些坏家伙。",
 			done: 0,
 			allowed: 0,
 			cost: {
@@ -6054,7 +6054,7 @@ var toReturn = {
 		},
 		Bloodlust: { //1
 			locked: 1,
-			tooltip: "这本书能教会异形们如何进行持久战。",
+			tooltip: "这本书能教会脆皮们如何进行持久战。",
 			done: 0,
 			allowed: 0,
 			cost: {
@@ -6277,7 +6277,7 @@ var toReturn = {
 		},
 		Scientists: {
 			locked: 1,
-			tooltip: "你真的不相信,但这本书表明异形们可以更聪明。好好读一下去了解了解吧。",
+			tooltip: "你真的不相信,但这本书表明脆皮们可以更聪明。好好读一下去了解了解吧。",
 			done: 0,
 			allowed: 0,
 			cost: {
@@ -6292,7 +6292,7 @@ var toReturn = {
 		},
 		Trainers: {
 			locked: 1,
-			tooltip: "这本书是所有的高层管理的秘密。 训练你的异形去训练其他异形。",
+			tooltip: "这本书是所有的高层管理的秘密。 训练你的脆皮去训练其他脆皮。",
 			done: 0,
 			allowed: 0,
 			cost: {
@@ -6307,7 +6307,7 @@ var toReturn = {
 		},
 		Explorers: {
 			locked: 1,
-			tooltip: "这本书能让你雇佣一些异形去为你找到地图碎片！",
+			tooltip: "这本书能让你雇佣一些脆皮去为你找到地图碎片！",
 			done: 0,
 			allowed: 0,
 			cost: {
@@ -6635,7 +6635,7 @@ var toReturn = {
 		Potency: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "这本书能教会你如何提升10%的繁殖异形的效率。",
+			tooltip: "这本书能教会你如何提升10%的繁殖脆皮的效率。",
 			done: 0,
 			cost: {
 				resources: {
@@ -6684,7 +6684,7 @@ var toReturn = {
 		Speedminer: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "这本书能教你的异形如何提升25%的采矿速度！",
+			tooltip: "这本书能教你的脆皮如何提升25%的采矿速度！",
 			done: 0,
 			cost: {
 				resources: {
@@ -6699,7 +6699,7 @@ var toReturn = {
 		Speedlumber: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "这本书能教你的异形如何提升25%的砍伐速度！",
+			tooltip: "这本书能教你的脆皮如何提升25%的砍伐速度！",
 			done: 0,
 			cost: {
 				resources: {
@@ -6714,7 +6714,7 @@ var toReturn = {
 		Speedfarming: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "这本书能教你的异形如何提升25%的耕作速度！",
+			tooltip: "这本书能教你的脆皮如何提升25%的耕作速度！",
 			done: 0,
 			cost: {
 				resources: {
@@ -6729,7 +6729,7 @@ var toReturn = {
 		Speedscience: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "这本书能教你的异形如何提升25%的研究速度！",
+			tooltip: "这本书能教你的脆皮如何提升25%的研究速度！",
 			done: 0,
 			cost: {
 				resources: {
@@ -6743,7 +6743,7 @@ var toReturn = {
 		Megaminer: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "This book will teach your Trimps how to mine ?% faster!",
+			tooltip: "这本书将教你如何挖矿加速 ?% !",
 			done: 0,
 			cost: {
 				resources: {
@@ -6759,7 +6759,7 @@ var toReturn = {
 		Megalumber: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "This book will teach your Trimps how to chop wood ?% faster!",
+			tooltip: "这本书将教你如何让脆皮伐木加速 ?% !",
 			done: 0,
 			cost: {
 				resources: {
@@ -6775,7 +6775,7 @@ var toReturn = {
 		Megafarming: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "This book will teach your Trimps how to farm ?% faster!",
+			tooltip: "这本书将教你如何让脆皮种植加速 ?% !",
 			done: 0,
 			cost: {
 				resources: {
@@ -6791,7 +6791,7 @@ var toReturn = {
 		Megascience: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "这本书会教你的异形如何更快的研究科学的  ?%  东西！",
+			tooltip: "这本书会教你的脆皮如何更快的研究科学的  ?%  东西！",
 			done: 0,
 			cost: {
 				resources: {
@@ -6871,7 +6871,7 @@ var toReturn = {
 		},
 		jobs: {
 			done: 0,
-			message: "陷阱里抓住了一个奇怪的小鬼似得小生物。 一个异形，你决定这么称呼它。既然你是如此富有创造力，那你也可以训练这个异形来帮你的忙。",
+			message: "陷阱里抓住了一个奇怪的小鬼似得小生物。 一个脆皮，你决定这么称呼它。既然你是如此富有创造力，那你也可以训练这个脆皮来帮你的忙。",
 			cost: {
 				resources: {
 					trimps: 1
@@ -6879,7 +6879,7 @@ var toReturn = {
 			},
 			fire: function () {
 				fadeIn("jobsTab", 10);
-				document.getElementById("trimpTitle").innerHTML = "异形";
+				document.getElementById("trimpTitle").innerHTML = "脆皮";
 				document.getElementById("empHide").style.visibility = "visible";
 				unlockJob("Farmer");
 				document.getElementById("jobsTitleDiv").style.display = "block";
@@ -6929,7 +6929,7 @@ var toReturn = {
 		},
 		Hut: {
 			done: 0,
-			message: "看起来并不是所有的异形都能适合住你的船。幸运的是，你还记得如何去建造小屋。",
+			message: "看起来并不是所有的脆皮都能适合住你的船。幸运的是，你还记得如何去建造小屋。",
 			cost: {
 				resources: {
 					trimps: 8
@@ -6954,8 +6954,8 @@ var toReturn = {
 		breeding: {
 			done: 0,
 			message: function () {
-				if (game.global.challengeActive == "Trapper") return "你的异形看起来很无聊。";
-				else return "很明显， 这些异形不工作的时候就在进行繁殖活动（#_#！）。看起来不像岛国爱情动作片那么美~~ ";
+				if (game.global.challengeActive == "Trapper") return "你的脆皮看起来很无聊。";
+				else return "很明显， 这些脆皮不工作的时候就在进行繁殖活动（#_#！）。看起来不像岛国爱情动作片那么美~~ ";
 			},
 			cost: {
 				special: function () {
