@@ -322,41 +322,17 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
                 cntit="解锁"
             }else if(toCheck[x]=="Combat"){
                 cntit="战斗"
+            } else{
+                return toCheck[x];
             }
 			tooltipText += "<div class='col-xs-4'><span class='messageConfigTitle'>" + cntit + "</span><br/>";
 			for (var item in msgs[name]){
 				if (item == "essence" && game.global.highestLevelCleared <= 179) continue;
 				if (item == "magma" && game.global.highestLevelCleared <= 229) continue;
 				if (item == 'enabled') continue;
-                //汉化
-                var cnitems="";
-                if(item=="primary"){
-                    cnitems="主要"
-                }else if(item=="secondary"){
-                    cnitems="次要"
-                }else if(item=="exotic"){
-                    cnitems="异国"
-                }else if(item=="helium"){
-                    cnitems="氦"
-                }else if(item=="essence"){
-                    cnitems="真髓"
-                }else if(item=="token"){
-                    cnitems="符记"
-                }else if(item=="magma"){
-                    cnitems="热门"
-                }else if(item=="events"){
-                    cnitems="事件"
-                }else if(item=="repeated"){
-                    cnitems="重复"
-                }else if(item=="unique"){
-                    cnitems="独特"
-                }else if(item=="trimp"){
-                    cnitems="脆皮"
-                }else if(item=="enemy"){
-                    cnitems="敌人"
-                }
+                
             
-				tooltipText += "<span class='messageConfigContainer'><span class='messageCheckboxHolder'><input id='" + name + item + "'" + ((msgs[name][item]) ? " checked='true'" : "") + "' type='checkbox' /></span><span onmouseover='messageConfigHover(\"" + name + item + "\", event)' onmouseout='tooltip(\"hide\")' class='messageNameHolder'> - " + cnitems + "</span></span><br/>";
+				tooltipText += "<span class='messageConfigContainer'><span class='messageCheckboxHolder'><input id='" + name + item + "'" + ((msgs[name][item]) ? " checked='true'" : "") + "' type='checkbox' /></span><span onmouseover='messageConfigHover(\"" + name + item + "\", event)' onmouseout='tooltip(\"hide\")' class='messageNameHolder'> - " + cnitems(item) + "</span></span><br/>";
 //                item.charAt(0).toUpperCase() + item.substr(1)
 			}
 			tooltipText += "</div>";
@@ -3093,6 +3069,8 @@ function drawBuilding(what, where){
         cnwhat="贡品"
     }else if(what=="Nursery"){
         cnwhat="托儿所"
+    }else{
+        cnwhat=what;
     }
 	where.innerHTML += '<div onmouseover="tooltip(\'' + what + '\',\'buildings\',event)" onmouseout="tooltip(\'hide\')" class="thingColorCanNotAfford thing noselect pointer buildingThing" id="' + what + '" onclick="buyBuilding(\'' + what + '\')"><span class="thingName"><span id="' + what + 'Alert" class="alert badge"></span>' + cnwhat + '</span><br/><span class="thingOwned" id="' + what + 'Owned">0</span></div>';
 }
@@ -3139,6 +3117,8 @@ function drawJob(what, where){
         cnjob="探险者";
     }else if(what=="Magmamancer"){
         cnjob="Magmamancer";
+    }else{
+        cnjob=what;
     }
 	where.innerHTML += '<div onmouseover="tooltip(\'' + what + '\',\'jobs\',event)" onmouseout="tooltip(\'hide\')" class="thingColorCanNotAfford thing noselect pointer jobThing" id="' + what + '" onclick="buyJob(\'' + what + '\')"><span class="thingName"><span id="' + what + 'Alert" class="alert badge"></span>' + cnjob + '</span><br/><span class="thingOwned" id="' + what + 'Owned">0</span></div>';
 }
@@ -4095,3 +4075,37 @@ tooltips.handleCopyButton = function () {
 	}
 	return ondisplay;
 };
+
+function cnitems(item) {
+    //汉化升级项
+    var cnitems = "";
+    var temp = item;
+    if (item == "primary") {
+        cnitems = "主要"
+    } else if (item == "secondary") {
+        cnitems = "次要"
+    } else if (item == "exotic") {
+        cnitems = "异国"
+    } else if (item == "helium") {
+        cnitems = "氦"
+    } else if (item == "essence") {
+        cnitems = "真髓"
+    } else if (item == "token") {
+        cnitems = "符记"
+    } else if (item == "magma") {
+        cnitems = "热门"
+    } else if (item == "events") {
+        cnitems = "事件"
+    } else if (item == "repeated") {
+        cnitems = "重复"
+    } else if (item == "unique") {
+        cnitems = "独特"
+    } else if (item == "trimp") {
+        cnitems = "脆皮"
+    } else if (item == "enemy") {
+        cnitems = "敌人"
+    } else {
+        return item;
+    }
+    return cnitems;
+}

@@ -840,45 +840,8 @@ function displayAllStats(buildAll) {
 		if (!stat.noFormat) value = prettify(value);
 		if (buildAll){
 //            console.log(stat.title);
-            //统计汉化
-            var cnstat="";
-            if(stat.title=="Dead Trimps"){
-                cnstat="死去的脆皮"
-            }else if(stat.title=="Battles Won"){
-                cnstat="战斗胜利"
-            }else if(stat.title=="Battles Lost"){
-                cnstat="战斗失败"
-            }else if(stat.title=="Maps Cleared"){
-                cnstat="地图清除"
-            }else if(stat.title=="Zones Cleared"){
-                cnstat="区域清除"
-            }else if(stat.title=="Gems Collected"){
-                cnstat="宝石收集"
-            }else if(stat.title=="Wormholed Helium"){
-                cnstat="虫洞氦气"
-            }else if(stat.title=="He/Hour this Run"){
-                cnstat="他/小时运行了"
-            }else if(stat.title=="Best He/Hr this Run"){
-                cnstat="最好的，他/小时运行"
-            }else if(stat.title=="Highest Void Map Clear"){
-                cnstat="最高虚空地图清除"
-            }else if(stat.title=="Golden Upgrades"){
-                cnstat="黄金升级"
-            }else if(stat.title=="Heirlooms Found"){
-                cnstat="传家宝发现"
-            }else if(stat.title=="Daily Challenge Helium"){
-                cnstat="每日的挑战氦"
-            }else if(stat.title=="World Cells Overkilled"){
-                cnstat="世界单元格过于复杂"
-            }else if(stat.title=="Trimps from Generator"){
-                cnstat="发电机生产的脆皮"
-            }else if(stat.title=="Nurseries Closed by Magma"){
-                cnstat="由岩浆封闭的幼儿园"
-            }else if(stat.title=="Zones Liquified"){
-                cnstat="区域液化"
-            }
 //            stat.title
-			document.getElementById("statCol" + column).innerHTML += '<div class="statContainer" id="stat' + item + 'Container"><span class="statTitle">' + cnstat + '</span><br/><span class="statValue" id="stat' + item + 'Value">' + value + '</span></div>'
+			document.getElementById("statCol" + column).innerHTML += '<div class="statContainer" id="stat' + item + 'Container"><span class="statTitle">' + cnstat(stat.title) + '</span><br/><span class="statValue" id="stat' + item + 'Value">' + value + '</span></div>'
 			column++;
 			if (column == 4) column = 1;
 		}
@@ -2519,23 +2482,8 @@ function canAffordBuilding(what, take, buildCostString, isEquipment, updatingLab
 				percent = (game.resources[costItem].owned > 0) ? prettify(((price / game.resources[costItem].owned) * 100).toFixed(1)) : 0;
 				percent = "(" + percent + "%)";
 			}
-//            console.log(costItem)
-            //汉化变量
-            var cnitem="";
-            if(costItem=="food"){
-                cnitem="食物";
-            }else if(costItem=="wood"){
-                cnitem="木头";
-            }else if(costItem=="metal"){
-                cnitem="金属";
-            }else if(costItem=="fragments"){
-                cnitem="碎片";
-            }else if(costItem=="gems"){
-                cnitem="宝石";
-            }else if(costItem=="helium"){
-                cnitem="氦";
-            }
-			costString += '<span class="' + color + '">' + cnitem + ':&nbsp;' + prettify(price) + '&nbsp;' + percent + '</span>, ';
+            
+			costString += '<span class="' + color + '">' + cnitem(costItem) + ':&nbsp;' + prettify(price) + '&nbsp;' + percent + '</span>, ';
 		}
 		if (take) game.resources[costItem].owned -= price;
 	}
@@ -6459,21 +6407,7 @@ function selectMap(mapId, force) {
 	document.getElementById("mapStatsDifficulty").innerHTML = Math.floor(map.difficulty * 100) + "%";
 	document.getElementById("mapStatsLoot").innerHTML = Math.floor(map.loot * 100) + "%";
 	document.getElementById("mapStatsItems").innerHTML = (map.location == "Void") ? "&nbsp;" : addSpecials(true, true, map);
-    //汉化地图资源类型
-    var cnresourcetype="";
-    if(game.mapConfig.locations[map.location].resourceType=="Food"){
-        cnresourcetype="食物"
-    }else if(game.mapConfig.locations[map.location].resourceType=="Metal"){
-        cnresourcetype="金属"
-    }else if(game.mapConfig.locations[map.location].resourceType=="Wood"){
-        cnresourcetype="木头"
-    }else if(game.mapConfig.locations[map.location].resourceType=="Gems"){
-        cnresourcetype="宝石"
-    }else if(game.mapConfig.locations[map.location].resourceType=="Any"){
-        cnresourcetype="所有"
-    }
-//    game.mapConfig.locations[map.location].resourceType
-	document.getElementById("mapStatsResource").innerHTML = cnresourcetype;
+	document.getElementById("mapStatsResource").innerHTML = cnresourcetype(game.mapConfig.locations[map.location].resourceType);
 	if (typeof game.global.mapsOwnedArray[getMapIndex(game.global.lookingAtMap)] !== 'undefined') {
 		var prevSelected = document.getElementById(game.global.lookingAtMap);
 		prevSelected.className = prevSelected.className.replace("mapElementSelected","mapElementNotSelected");
@@ -7204,92 +7138,8 @@ function displayTalents(){
 		var talentClass = "talentItem talent" + ((talent.purchased) ? "Purchased" : "NotPurchased");
 		if (talent.requires && !game.talents[talent.requires].purchased) talentClass += " talentReqNeeded";
 		var icon = (talent.icon.charAt(0) == "*") ? "icomoon icon-" + talent.icon.substr(1) : "glyphicon glyphicon-" + talent.icon;
-        //专精汉化
-        var cntalentname="";
-//        console.log(talent.name)
-        if(talent.name=="Bionic Magnet"){
-            cntalentname="仿生磁"
-        }else if(talent.name=="Portal Generator"){
-            cntalentname="门户生成器"
-        }else if(talent.name=="Bounty Hunter"){
-            cntalentname="赏金猎人"
-        }else if(talent.name=="Home Detector"){
-            cntalentname="家庭探测器"
-        }else if(talent.name=="Turkimp Tamer I"){
-            cntalentname="驯兽师 I"
-        }else if(talent.name=="Turkimp Tamer II"){
-            cntalentname="驯兽师 II"
-        }else if(talent.name=="Turkimp Tamer III"){
-            cntalentname="驯兽师 III"
-        }else if(talent.name=="Turkimp Tamer IV"){
-            cntalentname="驯兽师 IV"
-        }else if(talent.name=="Void Power I"){
-            cntalentname="虚空力量 I"
-        }else if(talent.name=="Void Power II"){
-            cntalentname="虚空力量 II"
-        }else if(talent.name=="Void Power III"){
-            cntalentname="虚空力量 III"
-        }else if(talent.name=="Metallic Coat"){
-            cntalentname="金属外套"
-        }else if(talent.name=="Headstart I"){
-            cntalentname="领先地位 I"
-        }else if(talent.name=="Headstart II"){
-            cntalentname="领先地位 II"
-        }else if(talent.name=="Headstart III"){
-            cntalentname="领先地位 III"
-        }else if(talent.name=="Foremany"){
-            cntalentname="脱颖而出"
-        }else if(talent.name=="Map Reducer I"){
-            cntalentname="地图还原剂 I"
-        }else if(talent.name=="Map Reducer II"){
-            cntalentname="地图还原剂 II"
-        }else if(talent.name=="Double Build"){
-            cntalentname="双重建造"
-        }else if(talent.name=="King of Bones I"){
-            cntalentname="骨头之王 I"
-        }else if(talent.name=="King of Bones II"){
-            cntalentname="骨头之王 II"
-        }else if(talent.name=="Hyperspeed I"){
-            cntalentname="超高速 I"
-        }else if(talent.name=="Hyperspeed II"){
-            cntalentname="超高速 II"
-        }else if(talent.name=="Blacksmithery I"){
-            cntalentname="黑煅炼 I"
-        }else if(talent.name=="Blacksmithery II"){
-            cntalentname="黑煅炼 II"
-        }else if(talent.name=="Blacksmithery III"){
-            cntalentname="黑煅炼 III"
-        }else if(talent.name=="岩浆流"){
-            cntalentname=""
-        }else if(talent.name=="Quick Gen"){
-            cntalentname="快速第二代"
-        }else if(talent.name=="AutoStructure"){
-            cntalentname="自动结构"
-        }else if(talent.name=="Natural Diplomacy I"){
-            cntalentname="自然外交 I"
-        }else if(talent.name=="Natural Diplomacy II"){
-            cntalentname="自然外交 II"
-        }else if(talent.name=="Natural Diplomacy III"){
-            cntalentname="自然外交 III"
-        }else if(talent.name=="Liquification I"){
-            cntalentname="液化 I"
-        }else if(talent.name=="Liquification II"){
-            cntalentname="液化 II"
-        }else if(talent.name=="Magmamancermancy"){
-            cntalentname="微小的女侍者"
-        }else if(talent.name=="Patience"){
-            cntalentname="忍耐"
-        }else if(talent.name=="Still Rowing I"){
-            cntalentname="持续赛艇 I"
-        }else if(talent.name=="Still Rowing II"){
-            cntalentname="持续赛艇 II"
-        }else if(talent.name=="Void Specialization"){
-            cntalentname="虚空专精"
-        }else if(talent.name=="Strength in Health"){
-            cntalentname="健康的力量"
-        }
-		html += "<div class='" + talentClass + "' id='" + item + "' onmouseover='tooltip(\"" + item + "\", \"talents\", event)' onmouseout='tooltip(\"hide\")' onclick='purchaseTalent(\"" + item + "\")'><span class='talentIcon'><span class='" + icon + "'></span></span><br/><div class='talentName'>" + cntalentname + "</div></div>";
-//        talent.name
+        
+		html += "<div class='" + talentClass + "' id='" + item + "' onmouseover='tooltip(\"" + item + "\", \"talents\", event)' onmouseout='tooltip(\"hide\")' onclick='purchaseTalent(\"" + item + "\")'><span class='talentIcon'><span class='" + icon + "'></span></span><br/><div class='talentName'>" + cntalentname(talent.name) + "</div></div>";
 	}
 	html += "</div>";
 	document.getElementById('talentsHere').innerHTML = html;
@@ -11518,6 +11368,179 @@ document.addEventListener('keyup', function(e) {
 
 }, true);
 
+function cnstat(stat) {
+    //统计汉化
+    var cnstat = "";
+    var stat = stat;
+    if (stat == "Dead Trimps") {
+        cnstat = "死去的脆皮"
+    } else if (stat == "Battles Won") {
+        cnstat = "战斗胜利"
+    } else if (stat == "Battles Lost") {
+        cnstat = "战斗失败"
+    } else if (stat == "Maps Cleared") {
+        cnstat = "地图清除"
+    } else if (stat == "Zones Cleared") {
+        cnstat = "区域清除"
+    } else if (stat == "Gems Collected") {
+        cnstat = "宝石收集"
+    } else if (stat == "Wormholed Helium") {
+        cnstat = "虫洞氦气"
+    } else if (stat == "He/Hour this Run") {
+        cnstat = "他/小时运行了"
+    } else if (stat == "Best He/Hr this Run") {
+        cnstat = "最好的，他/小时运行"
+    } else if (stat == "Highest Void Map Clear") {
+        cnstat = "最高虚空地图清除"
+    } else if (stat == "Golden Upgrades") {
+        cnstat = "黄金升级"
+    } else if (stat == "Heirlooms Found") {
+        cnstat = "传家宝发现"
+    } else if (stat == "Daily Challenge Helium") {
+        cnstat = "每日的挑战氦"
+    } else if (stat == "World Cells Overkilled") {
+        cnstat = "世界单元格过于复杂"
+    } else if (stat == "Trimps from Generator") {
+        cnstat = "发电机生产的脆皮"
+    } else if (stat == "Nurseries Closed by Magma") {
+        cnstat = "由岩浆封闭的幼儿园"
+    } else if (stat == "Zones Liquified") {
+        cnstat = "区域液化"
+    } else {
+        return stat;
+    }
+    return cnstat;
+}
+function cnitem(item) {
+    //汉化变量
+    var cnitem = "";
+    var temp = item;
+    if (temp == "food") {
+        cnitem = "食物";
+    } else if (temp == "wood") {
+        cnitem = "木头";
+    } else if (temp == "metal") {
+        cnitem = "金属";
+    } else if (temp == "fragments") {
+        cnitem = "碎片";
+    } else if (temp == "gems") {
+        cnitem = "宝石";
+    } else if (temp == "helium") {
+        cnitem = "氦";
+    } else {
+        return item;
+    }
+    return cnitem;
+}
+
+function cntalentname(name){
+    //专精汉化
+        var cntalentname="";
+    var temp=name;
+        if(temp=="Bionic Magnet"){
+            cntalentname="仿生磁"
+        }else if(temp=="Portal Generator"){
+            cntalentname="门户生成器"
+        }else if(temp=="Bounty Hunter"){
+            cntalentname="赏金猎人"
+        }else if(temp=="Home Detector"){
+            cntalentname="家庭探测器"
+        }else if(temp=="Turkimp Tamer I"){
+            cntalentname="驯兽师 I"
+        }else if(temp=="Turkimp Tamer II"){
+            cntalentname="驯兽师 II"
+        }else if(temp=="Turkimp Tamer III"){
+            cntalentname="驯兽师 III"
+        }else if(temp=="Turkimp Tamer IV"){
+            cntalentname="驯兽师 IV"
+        }else if(temp=="Void Power I"){
+            cntalentname="虚空力量 I"
+        }else if(temp=="Void Power II"){
+            cntalentname="虚空力量 II"
+        }else if(temp=="Void Power III"){
+            cntalentname="虚空力量 III"
+        }else if(temp=="Metallic Coat"){
+            cntalentname="金属外套"
+        }else if(temp=="Headstart I"){
+            cntalentname="领先地位 I"
+        }else if(temp=="Headstart II"){
+            cntalentname="领先地位 II"
+        }else if(temp=="Headstart III"){
+            cntalentname="领先地位 III"
+        }else if(temp=="Foremany"){
+            cntalentname="脱颖而出"
+        }else if(temp=="Map Reducer I"){
+            cntalentname="地图还原剂 I"
+        }else if(temp=="Map Reducer II"){
+            cntalentname="地图还原剂 II"
+        }else if(temp=="Double Build"){
+            cntalentname="双重建造"
+        }else if(temp=="King of Bones I"){
+            cntalentname="骨头之王 I"
+        }else if(temp=="King of Bones II"){
+            cntalentname="骨头之王 II"
+        }else if(temp=="Hyperspeed I"){
+            cntalentname="超高速 I"
+        }else if(temp=="Hyperspeed II"){
+            cntalentname="超高速 II"
+        }else if(temp=="Blacksmithery I"){
+            cntalentname="黑煅炼 I"
+        }else if(temp=="Blacksmithery II"){
+            cntalentname="黑煅炼 II"
+        }else if(temp=="Blacksmithery III"){
+            cntalentname="黑煅炼 III"
+        }else if(temp=="岩浆流"){
+            cntalentname=""
+        }else if(temp=="Quick Gen"){
+            cntalentname="快速第二代"
+        }else if(temp=="AutoStructure"){
+            cntalentname="自动结构"
+        }else if(temp=="Natural Diplomacy I"){
+            cntalentname="自然外交 I"
+        }else if(temp=="Natural Diplomacy II"){
+            cntalentname="自然外交 II"
+        }else if(temp=="Natural Diplomacy III"){
+            cntalentname="自然外交 III"
+        }else if(temp=="Liquification I"){
+            cntalentname="液化 I"
+        }else if(temp=="Liquification II"){
+            cntalentname="液化 II"
+        }else if(temp=="Magmamancermancy"){
+            cntalentname="微小的女侍者"
+        }else if(temp=="Patience"){
+            cntalentname="忍耐"
+        }else if(temp=="Still Rowing I"){
+            cntalentname="持续赛艇 I"
+        }else if(temp=="Still Rowing II"){
+            cntalentname="持续赛艇 II"
+        }else if(temp=="Void Specialization"){
+            cntalentname="虚空专精"
+        }else if(temp=="Strength in Health"){
+            cntalentname="健康的力量"
+        }else{
+            return name;
+        }
+    return cntalentname;
+}
+function cnresourcetype(type){
+    //汉化地图资源类型
+    var cnresourcetype="";
+    var temp=type;
+    if(temp=="Food"){
+        cnresourcetype="食物"
+    }else if(temp=="Metal"){
+        cnresourcetype="金属"
+    }else if(temp=="Wood"){
+        cnresourcetype="木头"
+    }else if(temp=="Gems"){
+        cnresourcetype="宝石"
+    }else if(temp=="Any"){
+        cnresourcetype="所有"
+    }else{
+        return type;
+    }
+    return cnresourcetype;
+}
 
 load();
 displayPerksBtn();
