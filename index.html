@@ -2,13 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-	<title>脆皮 4.512</title>
+	<title>脆皮 4.603</title>
 	<meta name="description" content="Trimps">
 	<meta name="author" content="Brownprobe">
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="fonts/icomoon/style.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css?53" />
-<!--<script>
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="css/style.css?54" />
+<!--
+<script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -17,7 +19,8 @@
   ga('create', 'UA-64748869-1', 'auto');
   ga('send', 'pageview');
 
-</script>-->
+</script>
+-->
 </head>
 <!-- 		Trimps
 		Copyright (C) 2016 Zach Hood
@@ -316,7 +319,7 @@
 						
 					</div>
 					<div id="unempHide" style="visibility: hidden">
-						<span id="trimpsUnemployed">0</span> 孵化
+						<span id="trimpsUnemployed">0</span>&nbsp;<span id='trimpsBreedingTitle'>选育</span>
 						<br/><span id="trimpsPs" class="pointer sizeSecRegular noselect bdHover psColorWhite" onclick="getTrimpPs()">+0/秒</span>
 						<br/>
 					</div>
@@ -745,8 +748,14 @@
 							<div id="grid"></div>
 							<div id="preMaps" style="display: none">
 							<div style="display: none" id="mapsCreateRow" class="row">
+								<div id='advMapsControlBtns'>
+									<span id='advMapsHideBtn' class='icomoon icon-minus-circle pointer' onclick='hideAdvMaps()' onmouseover="tooltip('Show/Hide Map Config', 'advMaps', event)" onmouseout="tooltip('hide')"></span>
+									<span id='advMapsSaveBtn' class='icomoon icon-save pointer' onclick='saveAdvMaps()' onmouseover="tooltip('Save Map Settings', 'advMaps', event)" onmouseout="tooltip('hide')"></span>	
+									<span id='advMapsResetBtn' class='icomoon icon-refresh pointer' onclick='resetAdvMaps(true)' onmouseover="tooltip('Reset Map Settings', 'advMaps', event)" onmouseout="tooltip('hide')"></span>											
+									<span id='advMapsRecycleBtn' class="icomoon icon-trash-o pointer iconStateBad" onmouseover="tooltip('Recycle All', null, event)" onmouseout="tooltip('hide')" onclick="recycleBelow(false)"></span>
+								</div>
 								<div id="mapLevelContainer" class="col-xs-4">
-									等级 <span class="pointer noselect incrementBtn" onclick="incrementMapLevel(-1)"><span class="glyphicon glyphicon-download"></span></span><input onkeyup="updateMapCost()" type="number" id="mapLevelInput"><span class="pointer noselect incrementBtn" onclick="incrementMapLevel(1)"><span class="glyphicon glyphicon-upload"></span></span><span class="pointer iconStateBad noselect incrementBtn" onmouseover="tooltip('Recycle All', null, event)" onmouseout="tooltip('hide')" onclick="recycleBelow(false)"><span class="glyphicon glyphicon-remove-circle"></span></span>
+									等级 <span class="pointer noselect incrementBtn" onclick="incrementMapLevel(-1)"><span class="glyphicon glyphicon-download"></span></span><input onkeyup="updateMapCost()" type="number" id="mapLevelInput"><span class="pointer noselect incrementBtn" onclick="incrementMapLevel(1)"><span class="glyphicon glyphicon-upload"></span></span>
 								</div>
 								<div id="mapCostContainer" class="col-xs-4 lowPad">
 									<span id="mapCostFragmentCost"></span><span id="mapCostFragmentText"> 碎片</span>
@@ -757,85 +766,129 @@
 							</div>
 							<div id="advMapsRow" class="row">
 								<div id="advLootContainer" class="col-xs-3 advContainer lowPad">
-									<div class="advMapsTitle">
-										战利品
+									<div class="advMapsTitle" onmouseover="tooltip('Loot', 'advMaps', event)" onmouseout="tooltip('hide')">
+										劫掠
 									</div>
-									<input value="0" id="lootAdvMapsRange" class="mapSelector mapInput" type="range" min="0" max="9" oninput="adjustMap('loot', this.value)" onchange="adjustMap('loot', this.value)">
+									<br/>
+									<input value="0" id="lootAdvMapsRange" class="mapSelector mapInput" type="range" min="0" max="9" oninput="updateMapNumbers()" onchange="updateMapNumbers()">
 									<div id="lootAdvMapsText"></div>
 								</div>
 								<div id="advSizeContainer" class="col-xs-3 advContainer lowPad">
-									<div class="advMapsTitle">
+									<div class="advMapsTitle" onmouseover="tooltip('Size', 'advMaps', event)" onmouseout="tooltip('hide')">
 										尺寸
 									</div>
-									<input value="0" id="sizeAdvMapsRange" class="mapSelector mapInput" type="range" min="0" max="9" oninput="adjustMap('size', this.value)" onchange="adjustMap('size', this.value)">
+									<br/>
+									<input value="0" id="sizeAdvMapsRange" class="mapSelector mapInput" type="range" min="0" max="9" oninput="updateMapNumbers()" onchange="updateMapNumbers()">
 									<div id="sizeAdvMapsText"></div>
 								</div>
 								<div id="advDifficultyContainer" class="col-xs-3 advContainer lowPad">
-									<div class="advMapsTitle">
+									<div class="advMapsTitle" onmouseover="tooltip('Difficulty', 'advMaps', event)" onmouseout="tooltip('hide')">
 										难度
 									</div>
-									<input value="0" id="difficultyAdvMapsRange" class="mapSelector mapInput" type="range" min="0" max="9" oninput="adjustMap('difficulty', this.value)" onchange="adjustMap('difficulty', this.value)">
+									<br/>
+									<input value="0" id="difficultyAdvMapsRange" class="mapSelector mapInput" type="range" min="0" max="9" oninput="updateMapNumbers()" onchange="updateMapNumbers()">
 									<div id="difficultyAdvMapsText"></div>
 								</div>
-								<div id="advBiomeContainer" class="col-xs-3 advContainer lowPad">
+								<div id="advBiomeContainer" class="col-xs-3 advContainer lowPad" onmouseover="tooltip('Biome', 'advMaps', event)" onmouseout="tooltip('hide')">
 									<div class="advMapsTitle">
 										生物群落
 									</div>
-									<select id="biomeAdvMapsSelect" onchange="updateMapCost()">
+									<br/>
+									<select id="biomeAdvMapsSelect" class="advSelect" onchange="updateMapCost()">
 										<option value="Random">随机</option>
 										<option value="Mountain">山地</option>
 										<option value="Forest">森林</option>
 										<option value="Sea">海洋</option>
-										<option value="Depths">Depths</option>
+										<option value="Depths">深渊</option>
 									</select>
 								</div>
 							</div>
-							<div id="heirRare" style="display: none">
-								
+							<div id="advMapsRow2" class="row">
+								<div class="col-xs-2 advContainer lowPad"></div>
+								<div class="col-xs-3 advContainer lowPad">
+									<div class="advMapsTitle" onmouseover="tooltip('Special Modifier', 'advMaps', event)" onmouseout="tooltip('hide')">
+										特殊修饰符
+									</div>
+									<br/>
+									<select id="advSpecialSelect" class="advSelect" onchange="updateMapCost()">
+									</select>
+								</div>
+								<div class="col-xs-2 advContainer lowPad">
+									<div id="advPerfectLocked" style="border: 1px solid white">
+										<div class="advMapsTitle">
+											在Z110解锁
+										</div>
+										<span class="icomoon icon-lock3"></span>
+									</div>
+									<div id="advPerfectUnlocked" style="display: none">
+										<div class="advMapsTitle" onmouseover="tooltip('Perfect Sliders', 'advMaps', event)" onmouseout="tooltip('hide')">
+											完美的滑块
+										</div>
+										<br/>
+										<input id="advPerfectCheckbox" type="checkbox" onchange="updateMapNumbers()">
+									</div>
+								</div>
+								<div class="col-xs-3 advContainer lowPad">
+									<div id="advExtraLevelLocked" style="border: 1px solid white">
+										<div class="advMapsTitle">
+											在Z210解锁
+										</div>
+										<span class="icomoon icon-lock3"></span>
+									</div>
+									<div id="advExtraLevelUnlocked" style="display: none">
+										<div class="advMapsTitle" onmouseover="tooltip('Extra Zones', 'advMaps', event)" onmouseout="tooltip('hide')">
+											额外的区域
+										</div>
+										<br/>
+										<select id="advExtraLevelSelect" class="advSelect" onchange="updateMapCost()"></select>
+									</div>
+								</div>
+								<div class="col-xs-2 advContainer lowPad"></div>
 							</div>
-								<div id="selectedMapContainer" class="row">
-									<div id="selectedMapCol" class="col-xs-3 lowPad">
-										<div id="selectedMapName"></div><br/>
-										<div id="mapCreditsLeft" title="Earn 1 Credit for each zone you clear while on this challenge"></div>
-									</div>
-
-									<div id="mapStatsCol3" class="col-xs-5 lowPad">
-									<div class="row">
-										<div class="col-xs-7 mapStatsCol">
-											<div class="mapStatsTitle">物品</div>
-											<div class="mapStatsTitle">资源</div>
-										</div>
-										<div id="mapStatsCol4" class="col-xs-5 mapStatsCol">
-											<div class="mapStatsValue" id="mapStatsItems"></div>
-											<div class="mapStatsValue" id="mapStatsResource"></div>
-										</div>
-									</div>
-									<div id="selectMapBtns">
-										<span id="selectMapBtn" class="workBtn pointer noselect infoColor selectMapBtn" style="visibility: hidden" onclick="runMap()">
-											运行地图
-										</span>
-										<span id="recycleMapBtn" class="workBtn pointer noselect dangerColor selectMapBtn" style="visibility: hidden" onclick="recycleMap()">
-											回收地图
-										</span>
-									</div>
-									</div>
-									<div id="mapStatsCol1" class="col-xs-2 mapStatsCol">
-										<div class="mapStatsTitle">尺寸</div>
-										<div class="mapStatsTitle">难度</div>
-										<div class="mapStatsTitle">战利品</div>
-									</div>
-									<div id="mapStatsCol2" class="col-xs-2 mapStatsCol">
-										<div class="mapStatsValue" id="mapStatsSize"></div>
-										<div class="mapStatsValue" id="mapStatsDifficulty"></div>
-										<div class="mapStatsValue" id="mapStatsLoot"></div>
-									</div>
-
+							<div id="heirRare" style="display: none">
 									
+							</div>
+							<div id="selectedMapContainer" class="row">
+								<div id="selectedMapCol" class="col-xs-3 lowPad">
+									<div id="selectedMapName"></div><br/>
+									<div id="mapCreditsLeft" title="Earn 1 Credit for each zone you clear while on this challenge"></div>
 								</div>
-								<div id="mapsHere" class="niceScroll">
+
+								<div id="mapStatsCol3" class="col-xs-5 lowPad">
+								<div class="row">
+									<div class="col-xs-7 mapStatsCol">
+										<div class="mapStatsTitle">项目</div>
+										<div class="mapStatsTitle">资源</div>
+									</div>
+									<div id="mapStatsCol4" class="col-xs-5 mapStatsCol">
+										<div class="mapStatsValue" id="mapStatsItems"></div>
+										<div class="mapStatsValue" id="mapStatsResource"></div>
+									</div>
 								</div>
-								<div id="voidMapsHere" class="niceScroll">
+								<div id="selectMapBtns">
+									<span id="selectMapBtn" class="workBtn pointer noselect infoColor selectMapBtn" style="visibility: hidden" onclick="runMap()">
+										运行地图
+									</span>
+									<span id="recycleMapBtn" class="workBtn pointer noselect dangerColor selectMapBtn" style="visibility: hidden" onclick="recycleMap()">
+										回收地图
+									</span>
 								</div>
+								</div>
+								<div id="mapStatsCol1" class="col-xs-2 mapStatsCol">
+									<div class="mapStatsTitle">Size</div>
+									<div class="mapStatsTitle">Difficulty</div>
+									<div class="mapStatsTitle">Loot</div>
+								</div>
+								<div id="mapStatsCol2" class="col-xs-2 mapStatsCol">
+									<div class="mapStatsValue" id="mapStatsSize"></div>
+									<div class="mapStatsValue" id="mapStatsDifficulty"></div>
+									<div class="mapStatsValue" id="mapStatsLoot"></div>
+								</div>	
+							</div>
+							<div id="mapsHere" class="mapSize1 niceScroll">
+							</div>
+							<div id="voidMapsHere" class="niceScroll">
+							</div>
 							</div>
 							<div id="mapGrid" class="gridShrunk" style="display: none;"></div>
 							<div id="extraGridInfo" style="display: none;">
@@ -996,11 +1049,7 @@
 							<a id="ptabRemoveText">清除</a>
 						</li>
 					</ul>
-				</div>
-				<div style="text-align: center">
-					<div class="btn btn-warning inPortalBtnSm" style="display: none" id="clearPerksBtn" onclick="clearPerks()">清除所有的礼物</div>
-				</div>
-				
+				</div>		
 				<div id="portalUpgradesHere"></div>
 			</div>
 			<div id="challengeCol" class="col-xs-5">
@@ -1023,7 +1072,7 @@
 						<span id="challengeDescriptionPre">您也可以选择在使用门户之前激活挑战。 完成挑战将为您带来永久的回报。 您可以随时点击“查看奖励”按钮放弃或查看积极的挑战。</span>
 						<span id="flagMustRestart" style="display: none;"><b>If you abandon this challenge, the portal will become unstable and the world will restart (you'll keep permanent bonuses like helium)</b></span>
 
-						<div id="specificChallengeDescription">
+						<div id="specificChallengeDescription" class="challengeDescriptionLg">
 							
 						</div>
 					</div>
@@ -1038,6 +1087,7 @@
 			<div class="btn btn-danger inPortalBtn" id="cancelPortalBtn" onclick="cancelTooltip(); cancelPortal()">取消</div>
 			<div class="btn btn-warning inPortalBtn" style="display: none" id="respecPortalBtn" onclick="respecPerks()" onmouseover="tooltip('Respec', null, event)" onmouseout="tooltip('hide')"></div>
 			<div class="btn btn-success inPortalBtn" style='display: none' id="swapToCurrentChallengeBtn" onclick="swapToCurrentChallenge()" onmouseover="tooltip('View Current Challenge', 'customText', event, 'Swap the Challenge Selection pane to instead display your current challenge, or vice versa')" onmouseout="tooltip('hide')">View Current Challenge</div>
+			<div class="btn btn-warning inPortalBtn" style="display: none" id="clearPerksBtn" onclick="clearPerks()">Clear All Perks</div>
 		</div>
 	</div>
 	<div id="achievementWrapper" style="display: none">
@@ -1097,13 +1147,10 @@
 			<div class="col-xs-4" id="statCol3">
 			</div>			
 		</div>
-		<div class="btn btn-danger inPortalBtn" id="closeStatsBtn" onclick="toggleStats()">关闭</div> <br/> <br/><br/>
-		<div id="helpContainer">
-			需要帮助或想讨论脆皮？请访问 <a href="http://www.reddit.com/r/trimps" target="_blank">/r/Trimps SubReddit</a>, the <a href="http://www.kongregate.com/forums/11405-trimps" target="_blank">Kongregate论坛</a>, 或者 <a href="http://trimps.wikia.com/wiki/Trimps_Wiki" target="_blank">community-created 脆皮 Wiki!</a><br/>
-		</div>
+		<div class="btn btn-danger inPortalBtn" id="closeStatsBtn" onclick="toggleStats()">关闭</div>&nbsp;<div class="btn btn-info inPortalBtn" id="closeStatsBtn" onclick="tooltip('脆皮信息', null, 'update')">脆皮信息</div>
 	</div>
 	<div id="heirloomWrapper" style="display: none">
-		<div id="heirloomTitleBar" class="row"><div class="col-xs-5">Heirlooms - Gifts to past you from future you</div><div class="col-xs-5" id="nullifiumContainer">You have <span id="nullifiumCount"></span> Nullifium</div><div class="col-xs-1"><div onclick="toggleHeirloomHelp()" class="pointer noselect colorPrimary heirBtn heirInfo">Help</div></div><div class="col-xs-1"><div class="pointer noselect colorDanger heirBtn heirInfo" onclick="toggleHeirlooms()">Close</div></div></div>
+		<div id="heirloomTitleBar" class="row"><div class="col-xs-5">传家宝 - 从未来的礼物给你过去</div><div class="col-xs-5" id="nullifiumContainer">你有 <span id="nullifiumCount"></span> Nullifium</div><div class="col-xs-1"><div onclick="toggleHeirloomHelp()" class="pointer noselect colorPrimary heirBtn heirInfo">Help</div></div><div class="col-xs-1"><div class="pointer noselect colorDanger heirBtn heirInfo" onclick="toggleHeirlooms()">关闭</div></div></div>
 		<div id="heirloomHelp" style="display: none">
 			Heirlooms are powerful items that can drop with a variety of bonuses and a variety of rarities. You will earn one Heirloom every time a Void Map is completed, and you have a better chance to get higher rarities if you complete the Void Map at higher zones. Once you have an Heirloom, you can click the icon below to select it.<br/><br/>
 			Once you've selected an Heirloom, you can see all of its stats on the right side of this screen. <b>You can click a stat to upgrade or replace it.</b> The currency to upgrade and replace stats, <b>Nullifium, or Nu,</b> can only be gathered by recycling an Heirloom. You can also click on the Heirloom's name on this menu to rename it.<br/><br/>
@@ -1196,15 +1243,22 @@
 		<hr/>
 		<div id="tipCost"></div>
 	</div>
+	<div id="tooltipDiv2" class="tooltipExtraNone" style="display: none">
+		<div id="tipTitle2"></div>
+		<hr/>
+		<div id="tipText2"></div>
+		<hr/>
+		<div id="tipCost2"></div>
+	</div>
 	<script type="text/javascript" src="Playfab/PlayFabSDK/PlayFabClientApi.js"></script>
 	<script type="text/javascript" src="lz-string.js"></script>
 	<script type="text/javascript" src="decimal.min.js"></script>
 <!--	<script src="https://zhaolinxu.github.io/AutoTrimps/AutoTrimps2.js" type="text/javascript" charset="utf-8"></script>-->
 	<!--<script src="AutoTrimps2.js"></script>-->
 	<!--document.body.appendChild(document.createElement('script')).src='https://zhaolinxu.github.io/cuipi/AutoTrimps2.js';-->
-	<script type="text/javascript" src="config.js?94"></script>
-	<script type="text/javascript" src="updates.js?94"></script>
-	<script type="text/javascript" src="main.js?94"></script>
+	<script type="text/javascript" src="config.js?95"></script>
+	<script type="text/javascript" src="updates.js?95"></script>
+	<script type="text/javascript" src="main.js?95"></script>
 	
 </body>
 
