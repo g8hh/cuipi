@@ -48,7 +48,7 @@
     margin-right: 0px;
 }
 
-.battleCell.TrimpmasSnow, .badge.TrimpmasSnow, .badge.CorruptSnow, .badge.HotSnow, .badNameMutation.TrimpmasSnow, .badNameMutation.CorruptSnow, .badNameMutation.HotSnow{
+.battleCell.TrimpmasSnow, .badge.TrimpmasSnow, .badge.CorruptSnow, .badge.HotSnow, .badNameMutation.TrimpmasSnow, .badNameMutation.CorruptSnow, .badNameMutation.HotSnow, .badNameMutation.Healthy{
     color: #003a54;
     background: linear-gradient(45deg, rgba(255, 255, 255, 0.6), rgba(189, 255, 255, 0.6));
 }
@@ -56,6 +56,11 @@
 .battleCell.CorruptSnow {
     color: #2E0854;
    background: linear-gradient(45deg, rgba(255, 255, 255, 0.6), rgba(221, 175, 255, 0.6));
+}
+
+.battleCell.HealthySnow{
+    color: #313D36;
+    background: linear-gradient(45deg, rgba(255,255,255,0.8), rgba(214, 214, 175, 0.6));
 }
 
 .battleCell.HotSnow {
@@ -1009,4 +1014,33 @@ color:#8F8F00
 
 .LiquimpMessage {
     background-color: rgba(90, 90, 223, 0.42) !important;
+}
+
+.battleCell.cellColorNotBeaten.Living, .battleCell.cellColorBeaten.Living, .badge.Living, .badNameMutation.Living{
+	background-color: black !important;
+	color: white !important;
+}
+
+.badNameMutation.Healthy, .badge.Healthy, .battleCell.Healthy, .message.Healthy{
+	background: initial;
+	background-color: #3D2C15;
+	color: white;
+}
+
+.badNameMutation.Corruption{
+	background: initial;
+	background-color: #2f006d;
+	color: white;
+}
+
+.battleCell.Corruption, .badge.Corruption{
+	background: initial;
+	background-color: #2E0854;
+	color: #DDDDFF;
+}
+
+.battleCell.Magma, .badge.Magma, .badNameMutation.Magma, .message.Magma {
+	background: initial;
+	background-color: #8c0000;
+	color: #FFDDDD;
 }
