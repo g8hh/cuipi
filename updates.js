@@ -3405,6 +3405,10 @@ function drawUpgrade(what, where){
         cnupgrade="更大的剑"
     }else if(what=="Bestplate"){
         cnupgrade="最好的盘子"
+    }else if(what=="Speedexplorer"){
+        cnupgrade="速度探险家"
+    }else{
+        cnupgrade=what
     }
     
 	where.innerHTML += '<div onmouseover="tooltip(\'' + what + '\',\'upgrades\',event)" onmouseout="tooltip(\'hide\')" class="thingColorCanNotAfford thing noselect pointer upgradeThing" id="' + what + '" onclick="buyUpgrade(\'' + what + '\')"><span id="' + what + 'Alert" class="alert badge"></span><span class="thingName">' + cnupgrade + '</span><br/><span class="thingOwned" id="' + what + 'Owned">' + done + '</span></div>';
