@@ -5377,7 +5377,7 @@ var toReturn = {
 			lastAt: 69,
 			level: 19,
 			icon: "*make-group",
-			title: "Gigastation",
+			title: "千兆站",
 			fire: function () {
 				unlockUpgrade("Gigastation");
 			}
@@ -5392,7 +5392,7 @@ var toReturn = {
 			level: 19,
 			icon: "*make-group",
 			displayAs: "Gigastation",
-			title: "Gigastation",
+			title: "千兆站",
 			fire: function () {
 				unlockUpgrade("Gigastation");
 			}

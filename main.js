@@ -2972,7 +2972,7 @@ function getTooltipJobText(what, toBuy) {
     for (var item in job.cost) {
 		var result = (checkJobItem(what, false, item, false, toBuy))
         var color =  (result === 0) ? "orange" : ((result == true) ? "green" : "red");
-        fullText += '<span class="' + color + '">' + item + ':&nbsp;' + checkJobItem(what, false, item, true, toBuy) + '</span>, ';
+        fullText += '<span class="' + color + '">' + cnitem(item) + ':&nbsp;' + checkJobItem(what, false, item, true, toBuy) + '</span>, ';
     }
     fullText = fullText.slice(0, -2);
     return fullText;
@@ -7031,8 +7031,10 @@ function selectMap(mapId, force) {
     var mapname="";
     if(map.name=="Enchanted Gardens"){
         mapname="魔法花园";
+    }else{
+        mapname=map.name
     }
-    document.getElementById("selectedMapName").innerHTML = map.name;
+    document.getElementById("selectedMapName").innerHTML = mapname;
 	document.getElementById("mapStatsSize").innerHTML = (Math.floor(map.size));
 	document.getElementById("mapStatsDifficulty").innerHTML = Math.floor(map.difficulty * 100) + "%";
 	document.getElementById("mapStatsLoot").innerHTML = Math.floor(map.loot * 100) + "%";
@@ -7821,7 +7823,7 @@ function displayTalents(){
 			html += "<div class='talentItem talentNotPurchased talentLocked' id='" + item + "')'><span class='talentIcon'><span class='icomoon icon-locked'></span></span></div>";
 		}
 		else {
-			html += "<div class='" + talentClass + "' id='" + item + "' onmouseover='tooltip(\"" + item + "\", \"talents\", event)' onmouseout='tooltip(\"hide\")' onclick='purchaseTalent(\"" + item + "\")'><span class='talentIcon'><span class='" + icon + "'></span></span><br/><div class='talentName'>" + talent.name + "</div></div>";
+			html += "<div class='" + talentClass + "' id='" + item + "' onmouseover='tooltip(\"" + item + "\", \"talents\", event)' onmouseout='tooltip(\"hide\")' onclick='purchaseTalent(\"" + item + "\")'><span class='talentIcon'><span class='" + icon + "'></span></span><br/><div class='talentName'>" + cntalentname(talent.name) + "</div></div>";
 		}
 	}
 	html += "</div>";
@@ -8007,7 +8009,7 @@ function rewardLiquidZone(){
 		}
 	}
 	messageLock = false;
-	var text = "你液化了一个Liquimp！<br/>";
+	var text = "你液化了一个烈酒！<br/>";
 	if (unlocks !== "" && game.global.messages.Unlocks.enabled) text += "解锁发现： " + unlocks + "<br/>";
 	if (game.global.messages.Loot.enabled && (game.global.messages.Loot.primary || game.global.messages.Loot.secondary)){
 		text += "发现资源：";
@@ -8036,7 +8038,7 @@ function rewardLiquidZone(){
 		}
 	}
 	if (trackedList != "" && game.global.messages.Loot.exotic && game.global.messages.Loot.enabled){
-		trackedList = "Rare Imps: " + trackedList + "<br/>";
+		trackedList = "罕见的小鬼: " + trackedList + "<br/>";
 		text += trackedList;
 	}
 	text = text.slice(0, -5);
@@ -8603,7 +8605,15 @@ function displayGoldenUpgrades(redraw) {
 		){
 			color = "thingColorCanNotAfford";
 		}
-		html += '<div onmouseover="tooltip(\'' + item + '\', \'goldenUpgrades\', event)" onmouseout="tooltip(\'hide\')" class="' + color + ' thing goldenUpgradeThing noselect pointer upgradeThing" id="' + item + 'Golden" onclick="buyGoldenUpgrade(\'' + item + '\'); tooltip(\'hide\')"><span class="thingName">Golden ' + item + ' ' + romanNumeral(game.global.goldenUpgrades + 1) + '</span><br/><span class="thingOwned" id="golden' + item + 'Owned">' + upgrade.purchasedAt.length + '</span></div>';
+        var cnit="";
+        if(item=="Void"){
+            cnit="虚空"
+        }else if(item=="Gigastation"){
+            cnit="千兆站"
+        }else{
+            cnit=item;
+        }
+		html += '<div onmouseover="tooltip(\'' + item + '\', \'goldenUpgrades\', event)" onmouseout="tooltip(\'hide\')" class="' + color + ' thing goldenUpgradeThing noselect pointer upgradeThing" id="' + item + 'Golden" onclick="buyGoldenUpgrade(\'' + item + '\'); tooltip(\'hide\')"><span class="thingName">金色 ' + cnit + ' ' + romanNumeral(game.global.goldenUpgrades + 1) + '</span><br/><span class="thingOwned" id="golden' + item + 'Owned">' + upgrade.purchasedAt.length + '</span></div>';
 	}
 	var elem = document.getElementById('upgradesHere');
 	elem.innerHTML =  html + elem.innerHTML;
@@ -11194,7 +11204,7 @@ function toggleAutoGolden(noChange){
 	}
 	var color = "settingBtn" + setting;
 	swapClass("settingBtn", color, btnElem);
-	var texts = ["AutoGolden Off", "AutoGolden Helium", "AutoGolden Battle", "AutoGolden Void"];
+	var texts = ["自动金色关闭", "自动金色氦", "自动金色战斗", "自动金色虚空"];
 	var text = texts[setting];
 	if (!noChange && setting != 0) text += ' <span id="autoGoldenTimeLeft">(4)</span>';
 	document.getElementById('autoGoldenText').innerHTML = text;
@@ -12221,6 +12231,8 @@ function cnitem(item) {
         cnitem = "宝石";
     } else if (temp == "helium") {
         cnitem = "氦";
+    } else if(temp=="science"){
+           cnitem = "科学";   
     } else {
         return item;
     }

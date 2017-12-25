@@ -236,7 +236,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		costText = "";
 	}
 	if (what == "AutoGolden"){
-		tooltipText = '<p>Thanks to your brilliant Scientists, you can designate Golden Upgrades to be purchased automatically! Toggle between: </p><p><b>AutoGolden Off</b> when you\'re not feeling particularly trusting.</p><p><b>AutoGolden Helium (' + game.goldenUpgrades.Helium.purchasedAt.length + '/' + Math.round(game.goldenUpgrades.Helium.currentBonus * 100) + '%)</b> when you\'re looking to boost your Perk game. 4/5 Trimps agree that this will increase your overall Helium earned, though none of the 5 really understood the question.</p><p><b>AutoGolden Battle (' + game.goldenUpgrades.Battle.purchasedAt.length + '/' + Math.round(game.goldenUpgrades.Battle.currentBonus * 100) + '%)</b> if your Trimps have a tendency to slack off when you turn your back.</p><p><b>AutoGolden Void (' + game.goldenUpgrades.Void.purchasedAt.length + '/' + Math.round(game.goldenUpgrades.Void.currentBonus * 100) + '%)</b> if you need some more purple in your life. This is your Trimps\' least favorite choice, but it\'s pretty lucrative so...</p><p>Please allow 4 seconds for Trimp retraining after clicking this button before any Golden Upgrades are automatically purchased, and don\'t forget to frequently thank your scientists! Seriously, they get moody.</p>';
+		tooltipText = '<p>Thanks to your brilliant Scientists, you can designate Golden Upgrades to be purchased automatically! Toggle between: </p><p><b>自动黄金关闭</b> when you\'re not feeling particularly trusting.</p><p><b>AutoGolden Helium (' + game.goldenUpgrades.Helium.purchasedAt.length + '/' + Math.round(game.goldenUpgrades.Helium.currentBonus * 100) + '%)</b> when you\'re looking to boost your Perk game. 4/5 Trimps agree that this will increase your overall Helium earned, though none of the 5 really understood the question.</p><p><b>AutoGolden Battle (' + game.goldenUpgrades.Battle.purchasedAt.length + '/' + Math.round(game.goldenUpgrades.Battle.currentBonus * 100) + '%)</b> if your Trimps have a tendency to slack off when you turn your back.</p><p><b>AutoGolden Void (' + game.goldenUpgrades.Void.purchasedAt.length + '/' + Math.round(game.goldenUpgrades.Void.currentBonus * 100) + '%)</b> if you need some more purple in your life. This is your Trimps\' least favorite choice, but it\'s pretty lucrative so...</p><p>Please allow 4 seconds for Trimp retraining after clicking this button before any Golden Upgrades are automatically purchased, and don\'t forget to frequently thank your scientists! Seriously, they get moody.</p>';
 		costText = "";
 	}
 	if (what == "Unliving"){
@@ -799,7 +799,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 	}
 	titleText = (titleText) ? titleText : what;
 	var tipNum = (tip2) ? "2" : "";
-	document.getElementById("tipTitle" + tipNum).innerHTML = titleText;
+	document.getElementById("tipTitle" + tipNum).innerHTML = cntitle(titleText);
 	document.getElementById("tipText" + tipNum).innerHTML = tooltipText;
 	document.getElementById("tipCost" + tipNum).innerHTML = costText;
 	elem.style.display = "block";
@@ -2983,7 +2983,13 @@ function addQueueItem(what) {
 	var name = what.split('.');
 	if (name[1] > 1) name = name[0] + " X" + prettify(name[1]);
 	else name = name[0];
-	elem.innerHTML += '<div class="queueItem" id="queueItem' + game.global.nextQueueId + '" onmouseover="tooltip(\'Queue\',null,event)" onmouseout="tooltip(\'hide\')" onClick="removeQueueItem(\'queueItem' + game.global.nextQueueId + '\'); cancelTooltip();"><span class="queueItemName">' + name + '</span><div id="animationDiv"></div></div>';
+    var cnname="";
+    if(name=="Trap"){
+        cnname="陷阱"
+    }else{
+        cnname=name
+    }
+	elem.innerHTML += '<div class="queueItem" id="queueItem' + game.global.nextQueueId + '" onmouseover="tooltip(\'Queue\',null,event)" onmouseout="tooltip(\'hide\')" onClick="removeQueueItem(\'queueItem' + game.global.nextQueueId + '\'); cancelTooltip();"><span class="queueItemName">' + cnname + '</span><div id="animationDiv"></div></div>';
 	if (game.global.nextQueueId === 0) setNewCraftItem();
 	game.global.nextQueueId++;
 }
@@ -3147,7 +3153,7 @@ function updateSideTrimps(){
 	document.getElementById("maxEmployed").innerHTML = prettify(Math.ceil(trimps.realMax() / 2));
 	var free = (Math.ceil(trimps.realMax() / 2) - trimps.employed);
 	if (free < 0) free = 0;
-	var s = (free > 1) ? "s" : "";
+	var s = (free > 1) ? "" : "";
 	document.getElementById("jobsTitleUnemployed").innerHTML = prettify(free) + " 工作空间" + s;
 }
 
@@ -3176,44 +3182,8 @@ function drawAllBuildings(){
 }
 
 function drawBuilding(what, where){
-    //汉化建筑名称
-    var cnwhat="";
-    if(what=="Trap"){
-        cnwhat="陷阱"
-    }else if(what=="Barn"){
-        cnwhat="谷仓"
-    }else if(what=="Shed"){
-        cnwhat="窝棚"
-    }else if(what=="Forge"){
-        cnwhat="锻造"
-    }else if(what=="Hut"){
-        cnwhat="茅舍"
-    }else if(what=="House"){
-        cnwhat="房子"
-    }else if(what=="Mansion"){
-        cnwhat="大厦"
-    }else if(what=="Hotel"){
-        cnwhat="旅馆"
-    }else if(what=="Resort"){
-        cnwhat="娱乐场"
-    }else if(what=="Gateway"){
-        cnwhat="出入口"
-    }else if(what=="Wormhole"){
-        cnwhat="虫洞"
-    }else if(what=="Collector"){
-        cnwhat="集电极"
-    }else if(what=="Warpstation"){
-        cnwhat="经纱站"
-    }else if(what=="Gym"){
-        cnwhat="健身房"
-    }else if(what=="Tribute"){
-        cnwhat="贡品"
-    }else if(what=="Nursery"){
-        cnwhat="托儿所"
-    }else{
-        cnwhat=what;
-    }
-	where.innerHTML += '<div onmouseover="tooltip(\'' + what + '\',\'buildings\',event)" onmouseout="tooltip(\'hide\')" class="thingColorCanNotAfford thing noselect pointer buildingThing" id="' + what + '" onclick="buyBuilding(\'' + what + '\')"><span class="thingName"><span id="' + what + 'Alert" class="alert badge"></span>' + cnwhat + '</span><br/><span class="thingOwned" id="' + what + 'Owned">0</span></div>';
+    
+	where.innerHTML += '<div onmouseover="tooltip(\'' + what + '\',\'buildings\',event)" onmouseout="tooltip(\'hide\')" class="thingColorCanNotAfford thing noselect pointer buildingThing" id="' + what + '" onclick="buyBuilding(\'' + what + '\')"><span class="thingName"><span id="' + what + 'Alert" class="alert badge"></span>' + cnwhat(what) + '</span><br/><span class="thingOwned" id="' + what + 'Owned">0</span></div>';
 }
 
 function unlockJob(what) {
@@ -3242,26 +3212,7 @@ function drawAllJobs(){
 }
 
 function drawJob(what, where){
-    //工作汉化
-        var cnjob="";
-   if(what=="Farmer"){
-        cnjob="农民";
-    }else if(what=="Lumberjack"){
-        cnjob="伐木工";
-    }else if(what=="Miner"){
-        cnjob="矿工";
-    }else if(what=="Scientist"){
-        cnjob="科学家";
-    }else if(what=="Trainer"){
-        cnjob="培训师";
-    }else if(what=="Explorer"){
-        cnjob="探险者";
-    }else if(what=="Magmamancer"){
-        cnjob="Magmamancer";
-    }else{
-        cnjob=what;
-    }
-	where.innerHTML += '<div onmouseover="tooltip(\'' + what + '\',\'jobs\',event)" onmouseout="tooltip(\'hide\')" class="thingColorCanNotAfford thing noselect pointer jobThing" id="' + what + '" onclick="buyJob(\'' + what + '\')"><span class="thingName"><span id="' + what + 'Alert" class="alert badge"></span>' + cnjob + '</span><br/><span class="thingOwned" id="' + what + 'Owned">0</span></div>';
+	where.innerHTML += '<div onmouseover="tooltip(\'' + what + '\',\'jobs\',event)" onmouseout="tooltip(\'hide\')" class="thingColorCanNotAfford thing noselect pointer jobThing" id="' + what + '" onclick="buyJob(\'' + what + '\')"><span class="thingName"><span id="' + what + 'Alert" class="alert badge"></span>' + cnjob(what) + '</span><br/><span class="thingOwned" id="' + what + 'Owned">0</span></div>';
 }
 
 function drawGeneticistassist(where){
@@ -3407,6 +3358,8 @@ function drawUpgrade(what, where){
         cnupgrade="最好的盘子"
     }else if(what=="Speedexplorer"){
         cnupgrade="速度探险家"
+    }else if(what=="Gigastation"){
+        cnupgrade="千兆站"
     }else{
         cnupgrade=what
     }
@@ -3542,36 +3495,7 @@ function drawEquipment(what, elem){
 	if (equipment.prestige > 1){
 		numeral = romanNumeral(equipment.prestige);
 	}
-    //装备汉化
-    var cnequip="";
-    if(what=="Shield"){
-        cnequip="盾"
-    }else if(what=="Dagger"){
-        cnequip="匕首"
-    }else if(what=="Boots"){
-        cnequip="靴子"
-    }else if(what=="Mace"){
-        cnequip="锤"
-    }else if(what=="Helmet"){
-        cnequip="头盔"
-    }else if(what=="Polearm"){
-        cnequip="长柄武器"
-    }else if(what=="Pants"){
-        cnequip="裤子"
-    }else if(what=="Battleaxe"){
-        cnequip="战斧"
-    }else if(what=="Shoulderguards"){
-        cnequip="护肩"
-    }else if(what=="Greatsword"){
-        cnequip="巨剑"
-    }else if(what=="Breastplate"){
-        cnequip="护胸甲"
-    }else if(what=="Arbalest"){
-        cnequip="劲弩"
-    }else if(what=="Gambeson"){
-        cnequip="夹克"
-    }
-	elem.innerHTML += '<div onmouseover="tooltip(\'' + what + '\',\'equipment\',event)" onmouseout="tooltip(\'hide\')" class="noselect pointer thingColorCanNotAfford thing" id="' + what + '" onclick="buyEquipment(\'' + what + '\')"><span class="thingName">' + cnequip + ' <span id="' + what + 'Numeral">' + numeral + '</span></span><br/><span class="thingOwned">等级: <span id="' + what + 'Owned">0</span></span></div>';
+	elem.innerHTML += '<div onmouseover="tooltip(\'' + what + '\',\'equipment\',event)" onmouseout="tooltip(\'hide\')" class="noselect pointer thingColorCanNotAfford thing" id="' + what + '" onclick="buyEquipment(\'' + what + '\')"><span class="thingName">' + cnequip(what) + ' <span id="' + what + 'Numeral">' + numeral + '</span></span><br/><span class="thingOwned">等级: <span id="' + what + 'Owned">0</span></span></div>';
 }
 
 //isPrevious returns the previous color, used for swapping with str.replace to know which one was before
@@ -4255,6 +4179,29 @@ tooltips.handleCopyButton = function () {
 	return ondisplay;
 };
 
+function cnjob(job){
+    //工作汉化
+        var cnjob="";
+    var what=job;
+   if(what=="Farmer"){
+        cnjob="农民";
+    }else if(what=="Lumberjack"){
+        cnjob="伐木工";
+    }else if(what=="Miner"){
+        cnjob="矿工";
+    }else if(what=="Scientist"){
+        cnjob="科学家";
+    }else if(what=="Trainer"){
+        cnjob="培训师";
+    }else if(what=="Explorer"){
+        cnjob="探险者";
+    }else if(what=="Magmamancer"){
+        cnjob="巫师";
+    }else{
+        cnjob=job;
+    }
+    return cnjob;
+}
 function cnitems(item) {
     //汉化升级项
     var cnitems = "";
@@ -4287,4 +4234,166 @@ function cnitems(item) {
         return item;
     }
     return cnitems;
+}
+
+function cnwhat(hat){
+    //汉化建筑名称
+    var cnwhat="";
+    var what=hat;
+    if(what=="Trap"){
+        cnwhat="陷阱"
+    }else if(what=="Barn"){
+        cnwhat="谷仓"
+    }else if(what=="Shed"){
+        cnwhat="窝棚"
+    }else if(what=="Forge"){
+        cnwhat="锻造"
+    }else if(what=="Hut"){
+        cnwhat="茅舍"
+    }else if(what=="House"){
+        cnwhat="房子"
+    }else if(what=="Mansion"){
+        cnwhat="大厦"
+    }else if(what=="Hotel"){
+        cnwhat="旅馆"
+    }else if(what=="Resort"){
+        cnwhat="娱乐场"
+    }else if(what=="Gateway"){
+        cnwhat="出入口"
+    }else if(what=="Wormhole"){
+        cnwhat="虫洞"
+    }else if(what=="Collector"){
+        cnwhat="集电极"
+    }else if(what=="Warpstation"){
+        cnwhat="经纱站"
+    }else if(what=="Gym"){
+        cnwhat="健身房"
+    }else if(what=="Tribute"){
+        cnwhat="贡品"
+    }else if(what=="Nursery"){
+        cnwhat="托儿所"
+    }else{
+        cnwhat=what;
+    }
+    return cnwhat;
+}
+
+function cnequip(obj){
+    //装备汉化
+    var cnequip="";
+    var what=obj;
+    if(what=="Shield"){
+        cnequip="盾"
+    }else if(what=="Dagger"){
+        cnequip="匕首"
+    }else if(what=="Boots"){
+        cnequip="靴子"
+    }else if(what=="Mace"){
+        cnequip="锤"
+    }else if(what=="Helmet"){
+        cnequip="头盔"
+    }else if(what=="Polearm"){
+        cnequip="长柄武器"
+    }else if(what=="Pants"){
+        cnequip="裤子"
+    }else if(what=="Battleaxe"){
+        cnequip="战斧"
+    }else if(what=="Shoulderguards"){
+        cnequip="护肩"
+    }else if(what=="Greatsword"){
+        cnequip="巨剑"
+    }else if(what=="Breastplate"){
+        cnequip="护胸甲"
+    }else if(what=="Arbalest"){
+        cnequip="劲弩"
+    }else if(what=="Gambeson"){
+        cnequip="夹克"
+    }else{
+        cnequip=obj
+    }
+    return cnequip;
+}
+
+//汉化标题
+function cntitle(tit){
+    var cntit="";
+    var what = tit;
+    if(what=="Shield"){
+        cntit="盾"
+    }else if(what=="Dagger"){
+        cntit="匕首"
+    }else if(what=="Boots"){
+        cntit="靴子"
+    }else if(what=="Mace"){
+        cntit="锤"
+    }else if(what=="Helmet"){
+        cntit="头盔"
+    }else if(what=="Polearm"){
+        cntit="长柄武器"
+    }else if(what=="Pants"){
+        cntit="裤子"
+    }else if(what=="Battleaxe"){
+        cntit="战斧"
+    }else if(what=="Shoulderguards"){
+        cntit="护肩"
+    }else if(what=="Greatsword"){
+        cntit="巨剑"
+    }else if(what=="Breastplate"){
+        cntit="护胸甲"
+    }else if(what=="Arbalest"){
+        cntit="劲弩"
+    }else if(what=="Gambeson"){
+        cntit="夹克"
+    }else if(what=="Trap"){
+        cntit="陷阱"
+    }else if(what=="Barn"){
+        cntit="谷仓"
+    }else if(what=="Shed"){
+        cntit="窝棚"
+    }else if(what=="Forge"){
+        cntit="锻造"
+    }else if(what=="Hut"){
+        cntit="茅舍"
+    }else if(what=="House"){
+        cntit="房子"
+    }else if(what=="Mansion"){
+        cntit="大厦"
+    }else if(what=="Hotel"){
+        cntit="旅馆"
+    }else if(what=="Resort"){
+        cntit="娱乐场"
+    }else if(what=="Gateway"){
+        cntit="出入口"
+    }else if(what=="Wormhole"){
+        cntit="虫洞"
+    }else if(what=="Collector"){
+        cntit="集电极"
+    }else if(what=="Warpstation"){
+        cntit="经纱站"
+    }else if(what=="Gym"){
+        cntit="健身房"
+    }else if(what=="Tribute"){
+        cntit="贡品"
+    }else if(what=="Nursery"){
+        cntit="托儿所"
+    }else if(what=="Farmer"){
+        cntit="农民";
+    }else if(what=="Lumberjack"){
+        cntit="伐木工";
+    }else if(what=="Miner"){
+        cntit="矿工";
+    }else if(what=="Scientist"){
+        cntit="科学家";
+    }else if(what=="Trainer"){
+        cntit="培训师";
+    }else if(what=="Explorer"){
+        cntit="探险者";
+    }else if(what=="Magmamancer"){
+        cntit="巫师";
+    }else if(what=="Gigastation"){
+        cntit="千兆站";
+    }else{
+        cntit=tit
+    }
+    return cntit;
 }
