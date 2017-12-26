@@ -18,8 +18,6 @@
 		<http://www.gnu.org/licenses/>. */
 
 //Spoilers ahead, proceed with caution
-test
-test
 function newGame () {
 var toReturn = {
 	global: {
