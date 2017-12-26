@@ -24,7 +24,7 @@
 if (typeof kongregate === 'undefined' && document.getElementById("boneBtn") !== null) {
 	var boneBtn = document.getElementById("getBonesBtn");
 	boneBtn.onclick = "";
-	boneBtn.innerHTML = "Kongregate API not loaded! You cannot submit high scores or spend Kreds. Try refreshing or contacting Kongregate support!";
+	boneBtn.innerHTML = "Kongregate API没有加载！ 您不能提交高分或花费Kreds。 尝试刷新或联系Kongregate支持！";
 	boneBtn.style.backgroundColor = "#d9534f";
 	document.getElementById("getBundleBtn").style.display = "none";
 }
@@ -169,25 +169,25 @@ function save(exportThis, fromManual) {
     saveString = LZString.compressToBase64(JSON.stringify(saveGame));
     if (exportThis) return saveString;
 	if (disableSaving) {
-		message("Due to an error occuring, saving has been disabled to prevent corruption", "Notices");
+		message("由于发生错误，已禁用保存以防止损坏", "Notices");
 		postMessages();
 		return;
 	}
 	try{
 		localStorage.setItem("trimpSave1",saveString);
 		if (localStorage.getItem("trimpSave1") == saveString){
-			message("Game Saved!", "Notices");
+			message("游戏已保存!", "Notices");
 		}
 		else {
-			message("For some reason, your game is not saving. Make sure you export and back up your save!", "Notices");
+			message("出于某些原因,你的游戏未能保存。请确保你已经导出并备份你的存档！", "Notices");
 		}
 	}
 	catch(e){
 		if(e.name == "NS_ERROR_FILE_CORRUPTED") {
-        message("Sorry, it looks like your browser storage has been corrupted. Please clear your storage by going to Tools -> Clear Recent History -> Cookies and set time range to 'Everything'. This will remove the corrupted browser storage across all sites.", "Notices");
+        message("对不起，您的浏览器存储看起来已损坏。 请通过转到工具 - >清除最近历史记录 - > Cookies清除存储空间，并将时间范围设置为“一切”。 这将删除所有站点上损坏的浏览器存储。", "Notices");
 		}
 		else
-		message("For some reason, your game is not saving. Make sure you export and back up your save!", "Notices");
+		message("由于某些原因，您的游戏不会保存。 确保导出并备份您的存档！", "Notices");
 		}
 
 	if (game.options.menu.usePlayFab.enabled == 1 && playFabId){
@@ -257,7 +257,7 @@ function load(saveString, autoLoad, fromPf) {
 			activateKongBonus(savegame.global.world);
 			return false;
 		}
-        message("I'm so terribly sorry, but your previous save game (version " + savegame.global.version + ") does not work in the new version. This should be the last reset!", "Notices");
+        message("我很抱歉,但是你以前保存的游戏 （版本 " + savegame.global.version + "） 无法在新版本中运行。这应该是最后一次重置！", "Notices");
         return false;
     }
 	else if (game.global.isBeta) {
@@ -529,7 +529,7 @@ function load(saveString, autoLoad, fromPf) {
 			if (typeof savegame.talents.foreman2 !== 'undefined' && savegame.talents.foreman2.purchased) game.global.autoCraftModifier -= 3750;
 			game.global.essence += game.global.spentEssence;
 			game.global.spentEssence = 0;
-			message("Due to a rework of the current Masteries, all of your spent Dark Essence has been refunded for free! Don't forget to repurchase your Masteries!", "Notices");
+			message("由于现在的Masteries的返工，所有您所使用的Dark Essence已经免费退还！ 不要忘了回购你的师父！", "Notices");
 			updateTalentNumbers();
 		}
 		game.global.messages.Loot.magma = true;
@@ -679,7 +679,7 @@ function load(saveString, autoLoad, fromPf) {
 	if (game.jobs.Explorer.locked === 0) fadeIn("fragmentsPs", 10);
 	if (game.buildings.Tribute.locked === 0) fadeIn("gemsPs", 10);
     if (game.global.autoCraftModifier > 0)
-        document.getElementById("foremenCount").innerHTML = (game.global.autoCraftModifier * 4) + " Foremen";
+        document.getElementById("foremenCount").innerHTML = (game.global.autoCraftModifier * 4) + " 工头";
     if (game.global.fighting) startFight();
 	if (!game.options.menu.pauseGame.enabled) {
 		//If not paused and offline progress is enabled, run offline progress
@@ -916,7 +916,9 @@ function displayAllStats(buildAll) {
 		if (mode == 'total' && typeof stat.valueTotal !== 'function' && typeof stat.value !== 'undefined' && !stat.noAdd) value += stat.value;
 		if (!stat.noFormat) value = prettify(value);
 		if (buildAll){
-			document.getElementById("statCol" + column).innerHTML += '<div class="statContainer" id="stat' + item + 'Container"><span class="statTitle">' + stat.title + '</span><br/><span class="statValue" id="stat' + item + 'Value">' + value + '</span></div>'
+//            console.log(stat.title);
+//            stat.title
+			document.getElementById("statCol" + column).innerHTML += '<div class="statContainer" id="stat' + item + 'Container"><span class="statTitle">' + cnstat(stat.title) + '</span><br/><span class="statValue" id="stat' + item + 'Value">' + value + '</span></div>'
 			column++;
 			if (column == 4) column = 1;
 		}
@@ -992,16 +994,16 @@ function portalClicked() {
 	var portalStory = (game.global.sLevel >= 1) ? "Helium goes in, victory comes out" : "Well, you did it. You followed your instincts through this strange world, made your way through the Dimension of Anger, and obtained this portal. But why? Maybe there will be answers through this portal... Your scientists tell you they can overclock it to bring more memories and items back, but they'll need helium to cool it.";
 	document.getElementById("portalTitle").innerHTML = titleText;
 	document.getElementById("portalStory").innerHTML = portalStory;
-	document.getElementById("portalHelium").innerHTML = '<span id="portalHeliumOwned">' + prettify(game.resources.helium.owned + game.global.heliumLeftover) + '</span> Helium';
+	document.getElementById("portalHelium").innerHTML = '<span id="portalHeliumOwned">' + prettify(game.resources.helium.owned + game.global.heliumLeftover) + '</span> 氦';
 	document.getElementById("totalHeliumEarned").innerHTML = prettify(game.global.totalHeliumEarned);
 	document.getElementById("totalPortals").innerHTML = game.global.totalPortals;
 	document.getElementById("activatePortalBtn").style.display = "inline-block";
-	document.getElementById("activatePortalBtn").innerHTML = "Activate Portal";
+	document.getElementById("activatePortalBtn").innerHTML = "激活门户";
 	document.getElementById("challengeSquaredBonusAmt").innerHTML = prettify(game.global.totalSquaredReward);
 	document.getElementById("challengeDescription").style.height = (game.global.sLevel >= 1) ? "19vw" : "22.5vw";
-	document.getElementById("challengeDescriptionPre").innerHTML = (game.global.sLevel >= 1) ? "Don't forget to bring a challenge<br/>" : 'You can also choose to activate a challenge before using your portal. Completing a challenge will earn you a permanent reward. You can abandon or view an active challenge at any time by clicking the "View Perks" button.';
+	document.getElementById("challengeDescriptionPre").innerHTML = (game.global.sLevel >= 1) ? "Don't forget to bring a challenge<br/>" : '在使用门户之前，还可以选择激活一个挑战。完成挑战会给你永久的奖励。您可以通过单击“查看特权”按钮随时放弃或查看进行的挑战。';
 	if (game.global.canRespecPerks) {
-		document.getElementById("respecPortalBtn").innerHTML = "Respec";
+		document.getElementById("respecPortalBtn").innerHTML = "天赋";
 		document.getElementById("respecPortalBtn").style.display = "inline-block";
 	}
 	document.getElementById('swapToCurrentChallengeBtn').style.display = (game.global.challengeActive) ? 'inline-block' : 'none';
@@ -1025,8 +1027,8 @@ function displayChallenges() {
 	var challengeCount = 0;
 	game.global.selectedChallenge = "";
 	var challengesHere = document.getElementById("challengesHere");
-	document.getElementById("specificChallengeDescription").innerHTML = "<br/><br/><br/>Click a challenge below to learn more about and/or run it!";
-	var challengeHTML = '<div class="noselect pointer challengeThing thing" id="challenge0" onclick="selectChallenge(0)"><span class="thingName">None</span></div>';
+	document.getElementById("specificChallengeDescription").innerHTML = "<br/><br/><br/>点击下面的挑战来了解更多和/或运行它！";
+	var challengeHTML = '<div class="noselect pointer challengeThing thing" id="challenge0" onclick="selectChallenge(0)"><span class="thingName">一个也没有</span></div>';
 	var firstFail = false;
 	var extraClass = "";
 	for (var what in game.challenges){
@@ -1109,7 +1111,7 @@ function selectChallenge(what) {
 	var addChallenge = document.getElementById("addChallenge");
 	if (what === 0){
 		game.global.selectedChallenge = "";
-		document.getElementById("specificChallengeDescription").innerHTML = "<br/><br/><br/>Click a challenge below to learn more about and/or run it!";
+		document.getElementById("specificChallengeDescription").innerHTML = "<br/><br/><br/>点击下面的挑战了解更多相关信息，或运行它！";
 		document.getElementById("flagMustRestart").style.display = "none";
 		swapClass('challengeDescription', 'challengeDescriptionLg', document.getElementById('specificChallengeDescription'));
 		if (addChallenge !== null) addChallenge.innerHTML = "";
@@ -1117,7 +1119,7 @@ function selectChallenge(what) {
 	}
 	if (!game.challenges[what].filter()){
 		var unlockString = (typeof game.challenges[what].unlockString === 'function') ? game.challenges[what].unlockString() : game.challenges[what].unlockString;
-		document.getElementById("specificChallengeDescription").innerHTML = "You will unlock this challenge once you " + unlockString;
+		document.getElementById("specificChallengeDescription").innerHTML = "你会解锁这个挑战" + unlockString;
 		game.global.selectedChallenge = "";
 		document.getElementById("flagMustRestart").style.display = "none";
 		swapClass('challengeDescription', 'challengeDescriptionLg', document.getElementById('specificChallengeDescription'));
@@ -1128,9 +1130,9 @@ function selectChallenge(what) {
 	desc += "<b>";
 	if (challengeSquaredMode) {
 		var reward = getIndividualSquaredReward(what);
-		desc += " Your highest zone reached for this Challenge<sup>2</sup> is Z" + game.c2[what] + ", earning you " + prettify(reward) + "% extra attack and health, and " + prettify(reward / 10) + "% more Helium from all sources.";
+		desc += " 您的最高区域达到了这个挑战<sup>2</sup> is Z" + game.c2[what] + ", earning you " + prettify(reward) + "% extra attack and health, and " + prettify(reward / 10) + "% more Helium from all sources.";
 	}
-	else if (game.portal[game.challenges[what].unlocks]) desc += (game.portal[game.challenges[what].unlocks].locked) ? " You will also earn a new Perk!" : " You will not earn a new perk.";
+	else if (game.portal[game.challenges[what].unlocks]) desc += (game.portal[game.challenges[what].unlocks].locked) ? " 你也会赚到一个新的额外奖励！" : " 你不会赚到一个新的额外奖励";
 	else if (what == "Scientist") {
 		var sciLev = getScientistLevel();
 		if (sciLev == game.global.sLevel) desc += " You have already completed this challenge!";
@@ -1163,7 +1165,7 @@ function getScientistLevel() {
 function getScientistInfo(number, reward){
 	switch (number){
 		case 1: {
-			return (reward) ? "start with 5000 Science, 100 Food, 100 Wood, 10 Traps, and 1 Foreman" : 11500;
+			return (reward) ? "从5000科学，100食物，100木，10陷阱和1工头开始" : 11500;
 		}
 		case 2: {
 			return (reward) ? "start with 5 Barns, 5 Sheds, 5 Forges, and T2 Equipment unlocked" : 8000;
@@ -1188,7 +1190,7 @@ function confirmAbandonChallenge(){
 	var text = "Are you sure you want to abandon this challenge?";
 	if (game.challenges[game.global.challengeActive].mustRestart) text += " <b>Abandoning this challenge will cause the portal to become unstable and start you from the beginning of this run. (You'll keep your permanent rewards like helium and perks)</b><br/><br/>Click Confirm to abandon the challenge and restart at Z1, Cancel to go back, or Restart to go back to Z1 with the same challenge.";
 	tooltip('confirm', null, 'update', text, 'abandonChallenge()', 'Abandon Challenge');
-	if (game.challenges[game.global.challengeActive].mustRestart) document.getElementById("confirmTipCost").innerHTML += '<div class="btn btn-success" onclick="abandonChallenge(true); cancelTooltip()">Restart Challenge</div>';
+	if (game.challenges[game.global.challengeActive].mustRestart) document.getElementById("confirmTipCost").innerHTML += '<div class="btn btn-success" onclick="abandonChallenge(true); cancelTooltip()">重新挑战</div>';
 }
 
 function abandonChallenge(restart){
@@ -1303,15 +1305,15 @@ function viewPortalUpgrades() {
 	document.getElementById("wrapper").style.display = "none";
 	swapClass("portalMk", "portalMkPreview", document.getElementById("portalWrapper"));
 	fadeIn("portalWrapper", 10);
-	document.getElementById("portalTitle").innerHTML = "View Perks";
+	document.getElementById("portalTitle").innerHTML = "查看特权";
 	document.getElementById("portalHelium").innerHTML = '<span id="portalHeliumOwned">' + prettify(parseInt(game.global.heliumLeftover, 10)) + '</span> Helium Left Over';
-	document.getElementById("portalStory").innerHTML = "These are all of your perks! You can reset them once per run.";
+	document.getElementById("portalStory").innerHTML = "这些都是你的福利！你每运行一次可以重置他们。";
 	document.getElementById("totalHeliumEarned").innerHTML = prettify(game.global.totalHeliumEarned);
 	document.getElementById("totalPortals").innerHTML = game.global.totalPortals;
-	document.getElementById("cancelPortalBtn").innerHTML = "Cancel";
+	document.getElementById("cancelPortalBtn").innerHTML = "取消";
 	document.getElementById("activatePortalBtn").style.display = "none";
 	if (game.global.canRespecPerks) {
-		document.getElementById("respecPortalBtn").innerHTML = "Respec";
+		document.getElementById("respecPortalBtn").innerHTML = "修改";
 		document.getElementById("respecPortalBtn").style.display = "inline-block";
 	}
 	document.getElementById("swapToCurrentChallengeBtn").style.display = "none";
@@ -1359,8 +1361,8 @@ function getCurrentChallengePane(){
 		description = description.replace('_', getScientistInfo(sciLevel));
 		description = description.replace('*', getScientistInfo(sciLevel, true));
 	}
-	challengeText = "You have the ";
-	challengeText += (game.global.challengeActive == "Daily") ? formatDailySeedDate() + " " + game.global.challengeActive + " challenge active. " + description : game.global.challengeActive + " challenge active. \"" + description + "\"";
+	challengeText = "你获得了 ";
+	challengeText += (game.global.challengeActive == "Daily") ? formatDailySeedDate() + " " + game.global.challengeActive + " challenge active. " + description : game.global.challengeActive + " 积极挑战. \"" + description + "\"";
 	return challengeText;
 }
 
@@ -1397,6 +1399,8 @@ function displayPortalUpgrades(fromTab){
 		var html = '<div onmouseover="tooltip(\'' + what + '\',\'portal\',event)" onmouseout="tooltip(\'hide\')" class="noselect pointer portalThing thing perkColorOff';
 		if (game.options.menu.detailedPerks.enabled == 1) html += " detailed";
 		if (portUpgrade.additive) html += " additive";
+//        console.log(what)
+        //特权汉化
 		html += '" id="' + what + '" onclick="buyPortalUpgrade(\'' + what + '\')"><span class="thingName">' + what.replace('_', ' ') + '</span>';
 
 		if (game.options.menu.detailedPerks.enabled == 1){
@@ -1455,11 +1459,11 @@ function activateKongBonus(oldWorld){
 	var portalWrapper = document.getElementById("portalWrapper");
 	portalWrapper.style.backgroundColor = "black";
 	portalWrapper.style.color = "white";
-	document.getElementById("portalTitle").innerHTML = "Beta Bonus";
-	document.getElementById("portalStory").innerHTML = "Thank you so much for helping test the beta version of Trimps. All of the support and feedback was amazing! This version still needs some feedback and tweaks before it will be perfect, but saves will not be purposely reset again. Enjoy! " + addText;
+	document.getElementById("portalTitle").innerHTML = "测试奖励";
+	document.getElementById("portalStory").innerHTML = "非常感谢你帮助测试异形的beta版本。所有的支持和反馈是惊人的！这个版本仍然需要一些反馈和调整，在这之前它并不是是完美的,不过不会故意再次重置。所以享受吧! " + addText;
 	document.getElementById("portalHelium").innerHTML = '<span id="portalHeliumOwned">' + helium + '</span> Bonus Points';
-	document.getElementById("cancelPortalBtn").innerHTML = "No Thanks";
-	document.getElementById("activatePortalBtn").innerHTML = "Finished";
+	document.getElementById("cancelPortalBtn").innerHTML = "不用谢";
+	document.getElementById("activatePortalBtn").innerHTML = "已完成";
 		document.getElementById("activatePortalBtn").style.display = "inline-block";
 
 	fadeIn("portalWrapper", 10);
@@ -1571,7 +1575,7 @@ function checkOfflineProgress(noTip){
 						newMax = calcHeirloomBonus("Shield", "storageSize", newMax);
 						if (newMax > (resource.owned + amt)) break;
 					}
-					var s = (count > 1) ? "s" : "";
+					var s = (count > 1) ? "" : "";
 					storageBought.push(count + " " + storages[x] + s + ", ");
 				}
 			}
@@ -1584,7 +1588,7 @@ function checkOfflineProgress(noTip){
 		}
 	}
 	if (textArray.length === 0) return;
-	textString = "While you were away, your Trimps were able to produce ";
+	textString = "当你离开时，你的异形生产了 ";
 	for (var y = 0; y < textArray.length; y++){
 		textString += textArray[y];
 		if (y == textArray.length -2) textString += "and ";
@@ -1612,8 +1616,8 @@ function respecPerks(){
 	game.resources.helium.respecMax = (game.global.viewingUpgrades) ? game.global.heliumLeftover : game.global.heliumLeftover + game.resources.helium.owned;
 	document.getElementById("portalHeliumOwned").innerHTML = prettify(game.resources.helium.respecMax - game.resources.helium.totalSpentTemp);
 	document.getElementById("respecPortalBtn").style.display = "none";
-	document.getElementById("portalStory").innerHTML = "You can only respec once per run. Clicking cancel will not consume this use.";
-	document.getElementById("portalTitle").innerHTML = "Respec Perks";
+	document.getElementById("portalStory").innerHTML = "你每次运行只能替换一次。点击取消不会消耗这次使用。";
+	document.getElementById("portalTitle").innerHTML = "替换特权";
 	document.getElementById("ptabRemove").style.display = "table-cell";
 	document.getElementById("clearPerksBtn").style.display = "inline-block";
 	if (selectedPreset)
@@ -1639,7 +1643,7 @@ function clearPerks(){
 	document.getElementById("portalHeliumOwned").innerHTML = prettify(game.resources.helium.respecMax);
 	if (game.global.viewingUpgrades) {
 		document.getElementById("respecPortalBtn").style.display = "none";
-		document.getElementById("activatePortalBtn").innerHTML = "Confirm";
+		document.getElementById("activatePortalBtn").innerHTML = "确定";
 		document.getElementById("activatePortalBtn").style.display = "inline-block";
 	}
 }
@@ -1957,7 +1961,7 @@ function canCommitCarpentry(){ //Uh, and Coordinated. This checks coordinated to
 		good = false;
     }
 	if (Math.ceil(newMax / 2) < game.resources.trimps.employed){
-		error.innerHTML += "You have too many workers assigned for this Perk setup.";
+		error.innerHTML += "你有太多的工作人员分配给这个额外津贴设置。";
 		error.style.display = "block";
 		good = false;
 	}
@@ -1982,7 +1986,7 @@ function clearQueue(specific) {
 function activatePortal(){
 	if (game.global.selectedChallenge == "Daily"){
 		if (getDailyChallenge(readingDaily, false, true) !== nextDaily) {
-			document.getElementById("portalStory").innerHTML = "<span style='color: red'>The daily challenge has changed since you looked at it. The challenge description has been refreshed, click Activate Portal to run it!</span>";
+			document.getElementById("portalStory").innerHTML = "<span style='color: red'>自从你看以后，日常的挑战已经改变了。 挑战描述已刷新，点击激活门户运行它！</span>";
 			getDailyChallenge();
 			return;
 			}
@@ -2007,7 +2011,7 @@ function activatePortal(){
 	displayPerksBtn();
 	handleFinishDailyBtn();
 	document.getElementById("portalUpgradesHere").innerHTML = "";
-	message("A green shimmer erupts then disappears, and you hit the ground. You look pretty hungry...", "Story");
+	message("绿色微光一闪而过，你摔在了地上。看起来你很饿...", "Story");
 }
 
 function cancelPortal(keep){
@@ -2015,7 +2019,7 @@ function cancelPortal(keep){
 	if (game.global.kongBonusMode){
 		game.global.kongBonusMode = false;
 		if (!keep) resetGame();
-		message("A green shimmer erupts then disappears, and you hit the ground. You look pretty hungry...", "Story");
+		message("绿色微光一闪而过，你摔在了地上。看起来你很饿...", "Story");
 	}
 	game.global.viewingUpgrades = false;
 	game.global.respecActive = false;
@@ -2320,12 +2324,12 @@ function fireMode(noChange) {
     var elem = document.getElementById("fireBtn");
     if (game.global.firing) {
         elem.className = elem.className.replace("fireBtnNotFiring", "fireBtnFiring");
-        elem.innerHTML = "Firing";
+        elem.innerHTML = "解雇中";
     } else {
         elem.className = elem.className.replace("fireBtnFiring", "fireBtnNotFiring");
-        elem.innerHTML = "Fire";
+        elem.innerHTML = "解雇";
     }
-    if (!noChange) tooltip("Fire Trimps", null, "update");
+    if (!noChange) tooltip("解雇异形", null, "update");
 }
 
 function setGather(what, updateOnly) {
@@ -2364,17 +2368,17 @@ function setGatherTextAs(what, on) {
     var trimpTrapText = '(<span id="trimpTrapText">' + prettify(game.buildings.Trap.owned) + '</span>)';
     switch (what) {
     case "food":
-        return (on) ? "Gathering" : "Gather";
+        return (on) ? "收集中" : "采集";
     case "wood":
-        return (on) ? "Chopping" : "Chop";
+        return (on) ? "砍伐中" : "伐木";
     case "metal":
-        return (on) ? "Mining" : "Mine";
+        return (on) ? "采矿中" : "采矿";
     case "science":
-        return (on) ? "Researching" : "Research";
+        return (on) ? "研究中" : "研究";
     case "buildings":
-        return (on) ? "Building" : "Build";
+        return (on) ? "建造中" : "建造";
     case "trimps":
-        return (on) ? ("Trapping " + trimpTrapText) : ("Check Traps " + trimpTrapText);
+        return (on) ? ("诱捕中 " + trimpTrapText) : ("检查陷阱 " + trimpTrapText);
     }
 }
 
@@ -2472,12 +2476,12 @@ function calculateTimeToMax(resource, perSec, toNumber, fromGather) {
 	if (!isFinite(years)) return "Long Time";
 	if (toFill < 60) {
 		if (toFill < 1 && fromGather) return "";
-		return Math.floor(seconds) + " Sec" + ((Math.floor(seconds) == 1) ? "" : "s");
+		return Math.floor(seconds) + " 秒" + ((Math.floor(seconds) == 1) ? "" : "s");
 	}
-	if (toFill < 3600) return minutes + " Min" + ((minutes == 1) ? "" : "s") + " " + seconds + " Sec" + ((seconds == 1) ? "" : "s");
-	if (toFill < 86400) return hours + " Hour" + ((hours == 1) ? "" : "s") + " " + minutes + " Min" + ((minutes == 1) ? "" : "s");
-	if (toFill < 31536000) return days + " Day" + ((days == 1) ? "" : "s") + " " + hours + " Hour" + ((hours == 1) ? "" : "s");
-	return prettify(years) + " Year" + ((years == 1) ? "" : "s") + " " + days + " Day" + ((days == 1) ? "" : "s");
+	if (toFill < 3600) return minutes + " 分" + ((minutes == 1) ? "" : "") + " " + seconds + " 秒" + ((seconds == 1) ? "" : "");
+	if (toFill < 86400) return hours + " 时" + ((hours == 1) ? "" : "") + " " + minutes + " 分" + ((minutes == 1) ? "" : "");
+	if (toFill < 31536000) return days + " 天" + ((days == 1) ? "" : "") + " " + hours + " 时" + ((hours == 1) ? "" : "");
+	return prettify(years) + " 年" + ((years == 1) ? "" : "") + " " + days + " 天" + ((days == 1) ? "" : "");
 }
 
 function checkTriggers(force) {
@@ -2596,7 +2600,7 @@ function canAffordBuilding(what, take, buildCostString, isEquipment, updatingLab
 				percent = (game.resources[costItem].owned > 0) ? prettify(((price / game.resources[costItem].owned) * 100).toFixed(1)) : 0;
 				percent = "(" + percent + "%)";
 			}
-			costString += '<span class="' + color + '">' + costItem + ':&nbsp;' + prettify(price) + '&nbsp;' + percent + '</span>, ';
+			costString += '<span class="' + color + '">' + cnitem(costItem) + ':&nbsp;' + prettify(price) + '&nbsp;' + percent + '</span>, ';
 		}
 		if (take) game.resources[costItem].owned -= price;
 	}
@@ -2702,7 +2706,7 @@ function craftBuildings(makeUp) {
 
 		var timeLeft = (game.global.timeLeftOnCraft / modifier).toFixed(1);
 		if (timeLeft < 0.1) timeLeft = 0.1;
-        if (timeRemaining) timeRemaining.innerHTML = " - " + timeLeft + " Seconds";
+        if (timeRemaining) timeRemaining.innerHTML = " - " + timeLeft + " 秒";
 		if (game.options.menu.queueAnimation.enabled) buildingsBar.style.opacity = percent;
 		else buildingsBar.style.opacity = "0";
         if (game.global.timeLeftOnCraft > 0) return;
@@ -2756,7 +2760,7 @@ function setNewCraftItem() {
 	var elem = document.getElementById("queueItemsHere").firstChild;
 	var timeLeft = (game.global.timeLeftOnCraft / (game.global.autoCraftModifier + getPlayerModifier())).toFixed(1);
 
-	if (elem && !document.getElementById("queueTimeRemaining")) elem.innerHTML += "<span id='queueTimeRemaining'> - " + timeLeft + " Seconds</span><div id='animationDiv'></div>";
+	if (elem && !document.getElementById("queueTimeRemaining")) elem.innerHTML += "<span id='queueTimeRemaining'> - " + timeLeft + " 秒</span><div id='animationDiv'></div>";
 	if (elem && timeLeft <= 0.1) {timeLeft = 0.1; if (game.options.menu.queueAnimation.enabled) document.getElementById("animationDiv").style.opacity = '1'}
 }
 
@@ -2967,7 +2971,7 @@ function getTooltipJobText(what, toBuy) {
     for (var item in job.cost) {
 		var result = (checkJobItem(what, false, item, false, toBuy))
         var color =  (result === 0) ? "orange" : ((result == true) ? "green" : "red");
-        fullText += '<span class="' + color + '">' + item + ':&nbsp;' + checkJobItem(what, false, item, true, toBuy) + '</span>, ';
+        fullText += '<span class="' + color + '">' + cnitems(item) + ':&nbsp;' + checkJobItem(what, false, item, true, toBuy) + '</span>, ';
     }
     fullText = fullText.slice(0, -2);
     return fullText;
@@ -3232,11 +3236,11 @@ function breed() {
 	totalTime = totalTime.toNumber();
 	breeding = breeding.toNumber();
 	timeRemaining = (game.options.menu.showFullBreed.enabled > 0) ? timeRemaining.toFixed(1) : Math.ceil(timeRemaining);
-	timeRemaining += " Secs";
+	timeRemaining += " 秒";
 		//Display full breed time if desired
 	var totalTimeText = totalTime.toFixed(1);
 	if (game.options.menu.showFullBreed.enabled){
-		fullBreed = totalTimeText + " Secs";
+		fullBreed = totalTimeText + " 秒";
 		timeRemaining += " / " + fullBreed;
 	}
 
@@ -3987,7 +3991,7 @@ function buyMap() {
 		if (!game.global.currentMapId) selectMap(game.global.mapsOwnedArray[game.global.mapsOwnedArray.length - 1].id);
 		return 1;
 	}
-	else message("You can't afford this map! You need " + prettify(cost) + " fragments.", "Notices");
+	else message("You can't afford this map! You need " + prettify(cost) + " 碎片。", "Notices");
 	return -3;
 }
 
@@ -4092,22 +4096,22 @@ function addVoidAlert(){
 var voidBuffConfig = {
 		doubleAttack: {
 			icon: 'icomoon icon-pushpin',
-			text: 'This bad guy attacks twice - once before you, and once again after you.',
+			text: '这个坏家伙攻击两次，一次在你之前，一次在你之后。',
 			title: 'Void Attack',
 		},
 		slowBreed: {
 			icon: 'icomoon icon-cloudy2',
-			text: 'This map is reducing the repopulation speed of your Trimps by 80%.',
+			text: '这张地图将脆皮的繁殖速度降低了80％。',
 			title: 'Void Gas',
 		},
 		getCrit: {
 			icon: 'icomoon icon-heart6',
-			text: 'This bad guy has a 25% chance to crit you for 400% extra damage.',
+			text: '这个坏家伙有25％的几率对你造成400％的额外伤害。',
 			title: 'Void Strength',
 		},
 		bleed: {
 			icon: "icomoon icon-drop",
-			text: 'Every time this bad guy attacks, you will lose an additional 20% of your <b>current</b> health.',
+			text: '每次当这个坏家伙攻击时，你就会失去 <b>当前</b> 20％的生命。',
 			title: 'Void Bleed',
 		}
 }
@@ -4919,7 +4923,7 @@ function setEmpowerTab(){
 		Wind: "icomoon icon-air"
 	}
 	swapClass("empowerTab", "empowerTab" + empowerMod, empowerTab);
-	document.getElementById('natureA').innerHTML = "<span class='" + icons[empowerMod] + "'></span> Nature";
+	document.getElementById('natureA').innerHTML = "<span class='" + icons[empowerMod] + "'></span>自然";
 }
 
 function updateEmpowerCosts(){
@@ -5720,17 +5724,17 @@ var mutations = {
 var mutationEffects = {
 	corruptDbl: {
 		icon: 'icomoon icon-pushpin',
-		text: 'this bad guy attacks twice - once before you, and once again after you.',
+		text: '这个坏家伙攻击两次，一次在你之前，一次在你之后。',
 		title: 'Corrupted Stamina'
 	},
 	corruptCrit: {
 		icon: 'icomoon icon-heart6',
-		text: 'this bad guy has a 25% chance to crit you for 400% extra damage.',
+		text: '这个坏家伙有25％的几率对你造成400％的额外伤害。',
 		title: 'Corrupted Precision'
 	},
 	corruptBleed: {
 		icon: "icomoon icon-drop",
-		text: 'every time this bad guy attacks, you will lose an additional 20% of your <b>current</b> health.',
+		text: '每次当这个坏家伙攻击时，你就会失去 <b>当前</b> 20％的生命。',
 		title: 'Corrupted Sharpness'
 	},
 	corruptStrong: {
@@ -5933,7 +5937,7 @@ function updateGeneratorInfo(){
 	state = state[game.global.generatorMode];
 
 	if (elem == null){
-		var html = "<div class='thing generatorState' id='generatorWindow'><div id='genTitleContainer'> <div id='generatorTitle'>Dimensional Generator</div><div><span id='generatorActiveBtn' onclick='changeGeneratorState(1)' class='workBtn pointer noselect colorDanger hoverColor'>Gain Fuel</span> <span onclick='changeGeneratorState(0)' id='generatorPassiveBtn' class='workBtn pointer noselect colorPrimary hoverColor'>Gain Mi</span> <span onclick='changeGeneratorState(2)' id='generatorHybridBtn' class='workBtn pointer noselect colorTeal hoverColor' style='display: none'>Hybrid</span></div> <div id='generatorUpgradeBtn' onclick='tooltip(\"Upgrade Generator\", null, \"update\")'class='workBtn pointer noselect colorDark hoverColor'>Upgrade (<span id='upgradeMagmiteTotal'></span>)</div></div><div id='genGaugeContainer'><div class='row'><div class='col-xs-4'><div id='fuelContainer'><div id='fuelBar'></div><div id='fuelStorageBar'></div><div id='fuelGlass'></div><div id='fuelOwnedText'>Fuel<br/><span id='generatorFuelOwned'>0</span> / <span id='generatorFuelMax'>0</span></div></div></div><div class='col-xs-4'><div id='generatorProducingContainer'>Producing<br/><span id='generatorTrimpsPs'>0</span><br/>Housing/Tick</div></div><div class='col-xs-4'><div id='generatorTickContainer'> <div id='generatorRadialContainer' class='radial-progress'> <div class='radial-progress-circle'> <div class='radial-progress-arrow static''></div></div><div id='generatorRadial' class='radial-progress-circle'> <div class='radial-progress-arrow mobile'></div> </div> <div id='clockKnob' class='radial-progress-knob generatorState'></div></div><span id='generatorNextTick'>0</span></div></div></div></div></div>";
+		var html = "<div class='thing generatorState' id='generatorWindow'><div id='genTitleContainer'> <div id='generatorTitle'>维度发生器</div><div><span id='generatorActiveBtn' onclick='changeGeneratorState(1)' class='workBtn pointer noselect colorDanger hoverColor'>获得燃料</span> <span onclick='changeGeneratorState(0)' id='generatorPassiveBtn' class='workBtn pointer noselect colorPrimary hoverColor'>获得Mi</span> <span onclick='changeGeneratorState(2)' id='generatorHybridBtn' class='workBtn pointer noselect colorTeal hoverColor' style='display: none'>混合动力</span></div> <div id='generatorUpgradeBtn' onclick='tooltip(\"Upgrade Generator\", null, \"update\")'class='workBtn pointer noselect colorDark hoverColor'>升级 (<span id='upgradeMagmiteTotal'></span>)</div></div><div id='genGaugeContainer'><div class='row'><div class='col-xs-4'><div id='fuelContainer'><div id='fuelBar'></div><div id='fuelStorageBar'></div><div id='fuelGlass'></div><div id='fuelOwnedText'>燃料<br/><span id='generatorFuelOwned'>0</span> / <span id='generatorFuelMax'>0</span></div></div></div><div class='col-xs-4'><div id='generatorProducingContainer'>生产<br/><span id='generatorTrimpsPs'>0</span><br/>房子/秒</div></div><div class='col-xs-4'><div id='generatorTickContainer'> <div id='generatorRadialContainer' class='radial-progress'> <div class='radial-progress-circle'> <div class='radial-progress-arrow static''></div></div><div id='generatorRadial' class='radial-progress-circle'> <div class='radial-progress-arrow mobile'></div> </div> <div id='clockKnob' class='radial-progress-knob generatorState'></div></div><span id='generatorNextTick'>0</span></div></div></div></div></div>";
 		document.getElementById('buildingsHere').innerHTML += html;
 	}
 	changeGeneratorState(null, true);
@@ -6737,7 +6741,7 @@ function pauseFight(updateOnly) {
 	var elem = document.getElementById("pauseFight");
 	elem.className = "";
 	elem.className = "btn fightBtn " + color;
-	elem.innerHTML = (!game.global.pauseFight) ? "AutoFight On" : "AutoFight Off";
+	elem.innerHTML = (!game.global.pauseFight) ? "自动战斗 开启" : "自动战斗 关闭";
 }
 
 function recycleBelow(confirmed){
@@ -6756,7 +6760,7 @@ function recycleBelow(confirmed){
 			total++;
 			}
 	}
-	if (total > 0) message("Recycled " + total + " maps for " + prettify(refund) + " fragments.", "Notices");
+	if (total > 0) message("回收 " + total + " 地图 " + prettify(refund) + " 碎片.", "Notices");
 }
 
 function recycleMap(map, fromMass, killVoid) {
@@ -6791,7 +6795,7 @@ function recycleMap(map, fromMass, killVoid) {
 	if (!killVoid) {
 		refund = getRecycleValue(mapObj.level);
 		game.resources.fragments.owned += refund;
-		if (!fromMass) message("Recycled " + mapObj.name + " for " + prettify(refund) + " fragments.", "Notices");
+		if (!fromMass) message("回收 " + mapObj.name + " 的 " + prettify(refund) + " 碎片.", "Notices");
 	}
 	game.global.mapsOwnedArray.splice(map, 1);
     if (killVoid) {
@@ -6812,12 +6816,12 @@ function getRecycleValue(level) {
 
 function updateMapCredits() {
 	var s = (game.challenges.Mapology.credits == 1) ? "" : "s"
-	document.getElementById("mapCreditsLeft").innerHTML = game.challenges.Mapology.credits + " Map Credit" + s;
+	document.getElementById("mapCreditsLeft").innerHTML = game.challenges.Mapology.credits + " 地图信用" + s;
 }
 
 function messageMapCredits() {
 	var s = (game.challenges.Mapology.credits == 1) ? "" : "s"
-	message("You have " + game.challenges.Mapology.credits + " Map Credit" + s + " left!", "Notices");
+	message("你还有 " + game.challenges.Mapology.credits + " 地图信用" + s + " 剩余！", "Notices");
 }
 
 function mapsClicked(confirmed) {
@@ -6902,7 +6906,7 @@ function mapsSwitch(updateOnly, fromRecycle) {
 	if (game.global.currentMapId !== "") currentMapObj = getCurrentMapObject();
 	var mapsBtn = document.getElementById("mapsBtn");
 	var recycleBtn = document.getElementById("recycleMapBtn");
-	recycleBtn.innerHTML = "Recycle Map";
+	recycleBtn.innerHTML = "回收地图";
 	document.getElementById("mapsBtn").className = "btn btn-warning fightBtn";
     if (game.global.preMapsActive) {
 		//Switching to Map Chamber
@@ -6918,7 +6922,7 @@ function mapsSwitch(updateOnly, fromRecycle) {
         document.getElementById("grid").style.display = "none";
         document.getElementById("preMaps").style.display = "block";
         toggleMapGridHtml();
-        mapsBtn.innerHTML = "World";
+        mapsBtn.innerHTML = "世界";
         if (game.global.lookingAtMap && !game.global.currentMapId) selectMap(game.global.lookingAtMap, true);
 		else if (game.global.currentMapId === "") {
 			clearMapDescription();
@@ -6971,20 +6975,20 @@ function toggleMapGridHtml(on, currentMapObj){
 	}
 	document.getElementById("repeatBtn").style.display = settings[3];
 	if (!on) return;
-	document.getElementById("mapsBtn").innerHTML = (game.global.mapBonus) ? "Maps (" + game.global.mapBonus + ")" : "Maps";
+	document.getElementById("mapsBtn").innerHTML = (game.global.mapBonus) ? "地图 (" + game.global.mapBonus + ")" : "地图";
 	document.getElementById("mapBonus").innerHTML = "";
 	document.getElementById("battleHeadContainer").style.display = "block";
 	if (!currentMapObj) return;
 	var worldNumElem = document.getElementById("worldNumber");
 	worldNumElem.style.display = 'inline';
-	worldNumElem.innerHTML = "<br/>Lv: " + currentMapObj.level;
+	worldNumElem.innerHTML = "<br/>等级: " + currentMapObj.level;
 	document.getElementById("worldName").innerHTML = currentMapObj.name;
 }
 
 function clearMapDescription(){
 	document.getElementById("selectMapBtn").style.visibility = "hidden";
 	document.getElementById("recycleMapBtn").style.visibility = "hidden";
-	document.getElementById("selectedMapName").innerHTML = "Select a Map!";
+	document.getElementById("selectedMapName").innerHTML = "请选择一个地图!";
 	document.getElementById("mapStatsSize").innerHTML = "";
 	document.getElementById("mapStatsDifficulty").innerHTML = "";
 	document.getElementById("mapStatsLoot").innerHTML = "";
@@ -6993,15 +6997,15 @@ function clearMapDescription(){
 }
 
 function setNonMapBox(){
-	document.getElementById("mapsBtn").innerHTML = "Maps";
+	document.getElementById("mapsBtn").innerHTML = "地图";
 	if (game.global.totalVoidMaps > 0) addVoidAlert();
 	var worldNumElem = document.getElementById("worldNumber");
 	worldNumElem.style.display = (game.global.spireActive) ? 'none' : 'inline';
 	document.getElementById("worldNumber").innerHTML = game.global.world;
 	var mapBonus = document.getElementById("mapBonus");
-	if (game.global.mapBonus > 0) mapBonus.innerHTML = prettify(game.global.mapBonus * 20) + "% Map Bonus";
+	if (game.global.mapBonus > 0) mapBonus.innerHTML = prettify(game.global.mapBonus * 20) + "% 地图奖金";
 	else mapBonus.innerHTML = "";
-	document.getElementById("worldName").innerHTML = (game.global.spireActive) ? ((checkIfSpireWorld(true) == 1) ? "Spire" : "Spire " + romanNumeral(checkIfSpireWorld(true))) : "Zone";	
+	document.getElementById("worldName").innerHTML = (game.global.spireActive) ? ((checkIfSpireWorld(true) == 1) ? "尖塔" : "尖塔 " + romanNumeral(checkIfSpireWorld(true))) : "区域";	
 }
 
 function repeatClicked(updateOnly){
@@ -7010,24 +7014,29 @@ function repeatClicked(updateOnly){
 	var elem = document.getElementById("repeatBtn");
 	elem.className = "";
 	elem.className = "btn fightBtn " + color;
-	elem.innerHTML = (game.global.repeatMap) ? "Repeat On" : "Repeat Off";
+	elem.innerHTML = (game.global.repeatMap) ? "重复:开" : "重复:关";
 }
 
 function selectMap(mapId, force) {
 	if (game.options.menu.pauseGame.enabled && !force) return;
     if (!force && game.global.currentMapId !== "") {
-        message("You must finish or recycle your current map before moving on.", "Notices");
+        message("你必须在完成或移动之前回收当前的地图。", "Notices");
         return;
     }
     var map = getMapIndex(mapId);
     map = game.global.mapsOwnedArray[map];
 	if (!map) return;
+    //地图名称
+    var mapname="";
+    if(map.name=="Enchanted Gardens"){
+        mapname="魔法花园";
+    }
     document.getElementById("selectedMapName").innerHTML = map.name;
 	document.getElementById("mapStatsSize").innerHTML = (Math.floor(map.size));
 	document.getElementById("mapStatsDifficulty").innerHTML = Math.floor(map.difficulty * 100) + "%";
 	document.getElementById("mapStatsLoot").innerHTML = Math.floor(map.loot * 100) + "%";
 	document.getElementById("mapStatsItems").innerHTML = (map.location == "Void") ? "&nbsp;" : addSpecials(true, true, map);
-	document.getElementById("mapStatsResource").innerHTML = game.mapConfig.locations[map.location].resourceType;
+	document.getElementById("mapStatsResource").innerHTML = cnresourcetype(game.mapConfig.locations[map.location].resourceType);
 	if (typeof game.global.mapsOwnedArray[getMapIndex(game.global.lookingAtMap)] !== 'undefined') {
 		var prevSelected = document.getElementById(game.global.lookingAtMap);
 		prevSelected.className = prevSelected.className.replace("mapElementSelected","mapElementNotSelected");
@@ -7035,7 +7044,7 @@ function selectMap(mapId, force) {
 	var currentSelected = document.getElementById(mapId);
 	currentSelected.className = currentSelected.className.replace("mapElementNotSelected", "mapElementSelected");
     game.global.lookingAtMap = mapId;
-    document.getElementById("selectMapBtn").innerHTML = "Run Map";
+    document.getElementById("selectMapBtn").innerHTML = "运行地图";
     document.getElementById("selectMapBtn").style.visibility = "visible";
 	document.getElementById("recycleMapBtn").style.visibility = (map.noRecycle) ? "hidden" : "visible";
 }
@@ -7762,7 +7771,7 @@ function calculateDamage(number, buildString, isTrimp, noCheckAchieve, cell) { /
 }
 
 function updateForemenCount(){
-	document.getElementById("foremenCount").innerHTML = (game.global.autoCraftModifier * 4) + " Foremen";
+	document.getElementById("foremenCount").innerHTML = (game.global.autoCraftModifier * 4) + " 工头";
 	updateBuildSpeed();
 }
 
@@ -7997,22 +8006,22 @@ function rewardLiquidZone(){
 		}
 	}
 	messageLock = false;
-	var text = "You liquified a Liquimp!<br/>";
-	if (unlocks !== "" && game.global.messages.Unlocks.enabled) text += "Unlocks Found: " + unlocks + "<br/>";
+	var text = "你液化了一个Liquimp！<br/>";
+	if (unlocks !== "" && game.global.messages.Unlocks.enabled) text += "解锁发现： " + unlocks + "<br/>";
 	if (game.global.messages.Loot.enabled && (game.global.messages.Loot.primary || game.global.messages.Loot.secondary)){
-		text += "Resources Found:";
+		text += "发现资源：";
 		var heCount = game.resources.helium.owned - helium;
 		if (game.global.messages.Loot.helium && heCount > 0){
-			text += " Helium - " + prettify(heCount) + ",";
+			text += " 氦 - " + prettify(heCount) + ",";
 		}
 		if (game.global.messages.Loot.secondary){
-			text += " Max Trimps - " + prettify(game.resources.trimps.realMax() - trimpsCount) + ",";
-			text += " Fragments - " + prettify(game.resources.fragments.owned - fragments) + ",";
+			text += " 脆皮最大上限 - " + prettify(game.resources.trimps.realMax() - trimpsCount) + ",";
+			text += " 碎片 - " + prettify(game.resources.fragments.owned - fragments) + ",";
 		}
 		if (game.global.messages.Loot.primary){
-			text += " Food - " + prettify(game.resources.food.owned - food) + ",";
-			text += " Wood - " + prettify(game.resources.wood.owned - wood) + ",";
-			text += " Metal - " + prettify(game.resources.metal.owned - metal) + ",";
+			text += " 食物 - " + prettify(game.resources.food.owned - food) + ",";
+			text += " 木头 - " + prettify(game.resources.wood.owned - wood) + ",";
+			text += " 金属 - " + prettify(game.resources.metal.owned - metal) + ",";
 		}
 		
 		text = text.slice(0, -1);
@@ -9297,7 +9306,7 @@ function abandonDaily(){
 		checkAchieve('dailyHelium');
 	}
 	else console.log('attempted to give ' + reward + ' as daily challenge reward.');
-	message("You have completed the Daily challenge! You have been rewarded with " + prettify(reward) + " extra Helium!", "Notices");
+	message("你已经完成了每日挑战！ 你得到了回报 " + prettify(reward) + " 额外的氦气!", "Notices");
 	game.global.dailyChallenge = {};
 	handleFinishDailyBtn();
 	return reward;
@@ -9392,13 +9401,13 @@ function getDailyTopText(add){
 			var heliumValue = getDailyHeliumValue(countDailyWeight(getDailyChallenge(dayIndex, true)));
 			returnText += "<br/>" + prettify(heliumValue) + "%";
 		}
-		else returnText += "<br/>Done";
+		else returnText += "<br/>完成";
 		returnText += "</div>";
 	}
 	returnText += "</div><div class='row' style='margin: 0'><div class='col-xs-6 lowPad dailyTop' style='font-weight: bold'>" + dayOfWeek(getDailyTimeString(add, false, true)) + " " + getDailyTimeString(add, true) + "</div><div class='col-xs-6 dailyTop lowPad'>" + dayOfWeek(getDailyTimeString(1, false, true)) + " resets in <span id='dailyResetTimer'>00:00:00</span></div></div>";
 
 	if (checkedDayDone)
-		returnText += "<b class='redText'>You have already attempted this Daily Challenge!</b><br/><br/>";
+		returnText += "<b class='redText'>你已经尝试过这个每日挑战！</b><br/><br/>";
 	return [returnText, !checkedDayDone];
 }
 
@@ -10135,7 +10144,7 @@ function updateTitimp(){
 function updateNomStacks(number){
 	var elem = document.getElementById('nomStack');
 	if (elem == null){
-		document.getElementById('badGuyName').innerHTML += ' <span class="badge badBadge" onmouseover="tooltip(\'Nom\', \'customText\', event, \'This Bad Guy is nice and plump from eating Trimps. Increases attack damage by 25% per stack\');" onmouseout="tooltip(\'hide\')"><span id="nomStack">' + number + '</span><span class="glyphicon glyphicon-scale"></span></span>';
+		document.getElementById('badGuyName').innerHTML += ' <span class="badge badBadge" onmouseover="tooltip(\'Nom\', \'customText\', event, \'这个坏家伙因为吃脆皮而变得丰满。 每堆增加25％攻击伤害\');" onmouseout="tooltip(\'hide\')"><span id="nomStack">' + number + '</span><span class="glyphicon glyphicon-scale"></span></span>';
 	}
 	else elem.innerHTML = number;
 }
@@ -11075,14 +11084,14 @@ function formatMinutesForDescriptions(number){
 	var text;
 	var minutes = Math.round(number % 60);
 	var hours = Math.floor(number / 60);
-	if (hours == 0) text = minutes + " min" + ((minutes == 1) ? "" : "s");
+	if (hours == 0) text = minutes + " 分钟" + ((minutes == 1) ? "" : "秒");
 	else if (minutes > 0) {
 		if (minutes < 10) minutes = "0" + minutes;
 		text = hours + ":" + minutes;
 	}
 	else {
-		var s = (hours > 1) ? "s" : "";
-		text = hours + " hour" + s;
+		var s = (hours > 1) ? "秒" : "";
+		text = hours + " 小时" + s;
 	}
 	return text;
 }
@@ -11248,7 +11257,7 @@ function toggleAutoTrap(updateOnly) {
 	var elem = document.getElementById("autoTrapBtn");
 	if (!game.global.trapBuildAllowed){
 		elem.style.display = "none";
-		elem.innerHTML = "AutoTraps Off";
+		elem.innerHTML = "关闭自动陷阱";
 		swapClass("color", "colorDanger", elem);
 		return;
 	}
@@ -11256,11 +11265,11 @@ function toggleAutoTrap(updateOnly) {
 	if (!updateOnly) game.global.trapBuildToggled = !game.global.trapBuildToggled;
 	if (game.global.trapBuildToggled){
 		swapClass("color", "colorSuccess", elem);
-		elem.innerHTML = "AutoTraps On";
+		elem.innerHTML = "打开自动陷阱";
 		return;
 	}
 	swapClass("color", "colorDanger", elem);
-	elem.innerHTML = "AutoTraps Off";
+	elem.innerHTML = "关闭自动陷阱";
 }
 
 function toggleAutoStorage(noChange){
@@ -11268,11 +11277,11 @@ function toggleAutoStorage(noChange){
 	var elem = document.getElementById("autoStorageBtn");
 	if (game.global.autoStorage) {
 		swapClass("color", "colorSuccess", elem);
-		elem.innerHTML = "AutoStorage On";
+		elem.innerHTML = "打开自动存储";
 	}
 	else {
 		swapClass("color", "colorDanger", elem);
-		elem.innerHTML = "AutoStorage Off";
+		elem.innerHTML = "关闭自动存储";
 	}
 }
 
@@ -11300,12 +11309,12 @@ function toggleAutoUpgrades(noChange){
 	if (!noChange) game.global.autoUpgrades = !game.global.autoUpgrades;
 	if (game.global.autoUpgrades){
 		swapClass("color", "colorSuccess", elem);
-		elem.innerHTML = "AutoUpgrade On";
+		elem.innerHTML = "打开自动升级";
 
 	}
 	else {
 		swapClass("color", "colorDanger", elem);
-		elem.innerHTML = "AutoUpgrade Off";
+		elem.innerHTML = "关闭自动升级";
 	}
 	if (game.global.autoUpgrades && game.global.sLevel >= 4){
 		document.getElementById("autoPrestigeBtn").style.display = "block";
@@ -11524,10 +11533,10 @@ function getPlayFabLoginHTML(){
 	if (game.global.rememberInfo) {
 		info = readPlayFabInfo();
 	}
-		tipHtml[0] += "<div id='playFabLoginContainer' class='col-xs-6'><b id='playFabLoginTitle'>Login to PlayFab</b><br/><span id='playFabEmailHidden' style='display: none'>Your Email<br/><span id='emailNotice' style='font-size: 0.8em'>(For recovery, not required)<br/></span><input type='text' id='registerEmail' /></span><span id='usernameBox'>PlayFab Username<br/><input type='text' id='loginUserName' " + ((info) ? "value='" + info[0] + "'" : "") + "/></span><span id='playFabPasswordBox'><br/>Password <span style='font-size: 0.8em'>(6-30 Chars)</span><br/><input type='password' id='loginPassword'" + ((info) ? " value='" + info[1] + "'" : "") + "/></span><br/><div id='playFabConfirmPasswordHidden' style='display: none'>Confirm Password<br/><input type='password' id='confirmPassword' /><br/></div><span id='rememberInfoBox'>Remember Account Info<br/><input type='checkbox' id='rememberInfo' " + ((info) ? "checked='true'" : "") + "/><br/></span><div id='playFabLoginBtn' class='btn btn-sm btn-info' onclick='playFabLoginWithPlayFab()'>Login</div><div id='playFabRegisterBtn' class='btn btn-sm btn-info' style='display: none' onclick='playFabRegisterPlayFabUser()'>Register</div><span style='display: none' id='playFabRecoverBtns'><div class='btn btn-sm btn-info' onclick='playFabRecoverInfo(false)' style='display: none'>Get Username</div><div class='btn btn-sm btn-primary' onclick='playFabRecoverInfo(true)'>Send Password Reset Email</div></span><div id='playFabSwitchRegisterBtn' onclick='switchForm(true)' class='btn btn-sm btn-primary'>Register Playfab Account</div><div id='playFabSwitchRecoveryBtn' onclick='switchForm(false)' class='btn btn-sm btn-warning'>Recover Account Info</div></div>"
+		tipHtml[0] += "<div id='playFabLoginContainer' class='col-xs-6'><b id='playFabLoginTitle'>登录PlayFab</b><br/><span id='playFabEmailHidden' style='display: none'>你的邮箱<br/><span id='emailNotice' style='font-size: 0.8em'>(为了恢复，必需)<br/></span><input type='text' id='registerEmail' /></span><span id='usernameBox'>PlayFab用户名<br/><input type='text' id='loginUserName' " + ((info) ? "value='" + info[0] + "'" : "") + "/></span><span id='playFabPasswordBox'><br/>密码 <span style='font-size: 0.8em'>(6-30 字符 )</span><br/><input type='password' id='loginPassword'" + ((info) ? " value='" + info[1] + "'" : "") + "/></span><br/><div id='playFabConfirmPasswordHidden' style='display: none'>重复密码<br/><input type='password' id='confirmPassword' /><br/></div><span id='rememberInfoBox'>记住账号信息<br/><input type='checkbox' id='rememberInfo' " + ((info) ? "checked='true'" : "") + "/><br/></span><div id='playFabLoginBtn' class='btn btn-sm btn-info' onclick='playFabLoginWithPlayFab()'>登录</div><div id='playFabRegisterBtn' class='btn btn-sm btn-info' style='display: none' onclick='playFabRegisterPlayFabUser()'>注册</div><span style='display: none' id='playFabRecoverBtns'><div class='btn btn-sm btn-info' onclick='playFabRecoverInfo(false)' style='display: none'>找回用户名</div><div class='btn btn-sm btn-primary' onclick='playFabRecoverInfo(true)'>发送密码重置邮件</div></span><div id='playFabSwitchRegisterBtn' onclick='switchForm(true)' class='btn btn-sm btn-primary'>注册Playfab账号</div><div id='playFabSwitchRecoveryBtn' onclick='switchForm(false)' class='btn btn-sm btn-warning'>恢复帐户信息</div></div>"
 	}
-	tipHtml[0] += "<div id='playFabLoginInfo' class='col-xs-6'><ul><li>While connected to PlayFab, every time you manually save and <b>once per 30 minutes when auto-saving</b>, your file will also be sent to PlayFab's servers.</li><li>Data will be cleared from PlayFab's servers after 3 months of inactivity, this is not a permanent save!</li></ul>"
-	tipHtml[1] = "<div class='btn btn-sm btn-danger' onclick='cancelTooltip()'>Cancel</div>";
+	tipHtml[0] += "<div id='playFabLoginInfo' class='col-xs-6'><ul><li>连接到PlayFab时，每次手动保存时，每30分钟自动保存<b>一次</ b>，您的存档文件也将发送到PlayFab的服务器。</ li> <li>如果3个月内没有更新存档，存档将被从PlayFab的服务器删除，这不是一个永久保存！</li></ul>"
+	tipHtml[1] = "<div class='btn btn-sm btn-danger' onclick='cancelTooltip()'>取消</div>";
 	return tipHtml;
 }
 
@@ -11555,7 +11564,7 @@ function switchForm(register){ //true for register, false for recovery
 	if (rememberBox != null && !register) rememberBox.style.display = "none";
 	if (switchRecoveryBtn != null) switchRecoveryBtn.style.display = "none";
 	if (confirmPasswordBtn != null && register) confirmPasswordBtn.style.display = "block";
-	if (title != null) title.innerHTML = (register) ? "Register a PlayFab Account" : "Recover PlayFab Account Info - <i>Must have provided Email during registration</i>";
+	if (title != null) title.innerHTML = (register) ? "注册一个PlayFab账号" : "恢复帐户信息 - <i>必须在注册期间提供电子邮件</ i>";
 }
 
 function playFabRecoverInfo(needsPassword){
@@ -11837,7 +11846,7 @@ var playFabSaveErrors = 0;
 function saveToPlayFabCallback(data, error){
 	if (error){
 		playFabSaveErrors++;
-		message("Unable to back up your save to PlayFab! Double check your internet connection, and don't forget to back up your save manually.", "Notices");
+		message("无法将您的保存备份到PlayFab！ 仔细检查您的互联网连接，不要忘记手动备份您的保存。", "Notices");
 		swapClass("iconState", "iconStateBad", document.getElementById('playFabIndicator'));
 		console.log(error);
 		if (playFabId != -1) {
@@ -11848,7 +11857,7 @@ function saveToPlayFabCallback(data, error){
 	if (data){
 		swapClass("iconState", "iconStateGood", document.getElementById('playFabIndicator'));
 		lastOnlineSave = performance.now();
-		message("Game saved and backed up to PlayFab! Next automatic online save in 30 minutes.", "Notices", null, "save");
+		message("游戏保存并备份到PlayFab！ 下次自动在线保存30分钟。", "Notices", null, "save");
 		return true;
 	}
 }
@@ -11857,7 +11866,7 @@ function playFabAttemptReconnect(reconnected){
 	console.log((reconnected) ? "Reconnected" : "Attempting to reconnect");
 	if (reconnected){
 		playFabSaveErrors = 0;
-		message("Reconnected to PlayFab!", "Notices", null, "save");
+		message("重新连接到PlayFab！", "Notices", null, "save");
 		swapClass("iconState", "iconStateGood", document.getElementById('playFabIndicator'));
 		return;
 	}
@@ -12142,6 +12151,189 @@ document.addEventListener('keyup', function(e) {
 
 }, true);
 
+function cnstat(stat) {
+    //统计汉化
+    var cnstat = "";
+    var stat = stat;
+    if (stat == "Dead Trimps") {
+        cnstat = "死去的脆皮"
+    } else if (stat == "Battles Won") {
+        cnstat = "战斗胜利"
+    } else if (stat == "Battles Lost") {
+        cnstat = "战斗失败"
+    } else if (stat == "Maps Cleared") {
+        cnstat = "地图清除"
+    } else if (stat == "Zones Cleared") {
+        cnstat = "区域清除"
+    } else if (stat == "Gems Collected") {
+        cnstat = "宝石收集"
+    } else if (stat == "Wormholed Helium") {
+        cnstat = "虫洞氦气"
+    } else if (stat == "He/Hour this Run") {
+        cnstat = "他/小时运行了"
+    } else if (stat == "Best He/Hr this Run") {
+        cnstat = "最好的，他/小时运行"
+    } else if (stat == "Highest Void Map Clear") {
+        cnstat = "最高虚空地图清除"
+    } else if (stat == "Golden Upgrades") {
+        cnstat = "黄金升级"
+    } else if (stat == "Heirlooms Found") {
+        cnstat = "传家宝发现"
+    } else if (stat == "Daily Challenge Helium") {
+        cnstat = "每日的挑战氦"
+    } else if (stat == "World Cells Overkilled") {
+        cnstat = "世界单元格过于复杂"
+    } else if (stat == "Trimps from Generator") {
+        cnstat = "发电机生产的脆皮"
+    } else if (stat == "Nurseries Closed by Magma") {
+        cnstat = "由岩浆封闭的幼儿园"
+    } else if (stat == "Zones Liquified") {
+        cnstat = "区域液化"
+    } else if (stat == "Highest Zone") {
+        cnstat = "最高区域"
+    } else if (stat == "Total Portals Used") {
+        cnstat = "使用的总门户"
+    } else if (stat == "Total Helium Earned") {
+        cnstat = "获得总氦气"
+    } else if (stat == "Best He/Hour all Runs") {
+        cnstat = "最好的他/小时全部运行"
+    } else if (stat == "Planets Broken") {
+        cnstat = "行星破碎"
+    } else {
+        return stat;
+    }
+    return cnstat;
+}
+function cnitem(item) {
+    //汉化变量
+    var cnitem = "";
+    var temp = item;
+    if (temp == "food") {
+        cnitem = "食物";
+    } else if (temp == "wood") {
+        cnitem = "木头";
+    } else if (temp == "metal") {
+        cnitem = "金属";
+    } else if (temp == "fragments") {
+        cnitem = "碎片";
+    } else if (temp == "gems") {
+        cnitem = "宝石";
+    } else if (temp == "helium") {
+        cnitem = "氦";
+    } else {
+        return item;
+    }
+    return cnitem;
+}
+
+function cntalentname(name){
+    //专精汉化
+        var cntalentname="";
+    var temp=name;
+        if(temp=="Bionic Magnet"){
+            cntalentname="仿生磁"
+        }else if(temp=="Portal Generator"){
+            cntalentname="门户生成器"
+        }else if(temp=="Bounty Hunter"){
+            cntalentname="赏金猎人"
+        }else if(temp=="Home Detector"){
+            cntalentname="家庭探测器"
+        }else if(temp=="Turkimp Tamer I"){
+            cntalentname="驯兽师 I"
+        }else if(temp=="Turkimp Tamer II"){
+            cntalentname="驯兽师 II"
+        }else if(temp=="Turkimp Tamer III"){
+            cntalentname="驯兽师 III"
+        }else if(temp=="Turkimp Tamer IV"){
+            cntalentname="驯兽师 IV"
+        }else if(temp=="Void Power I"){
+            cntalentname="虚空力量 I"
+        }else if(temp=="Void Power II"){
+            cntalentname="虚空力量 II"
+        }else if(temp=="Void Power III"){
+            cntalentname="虚空力量 III"
+        }else if(temp=="Metallic Coat"){
+            cntalentname="金属外套"
+        }else if(temp=="Headstart I"){
+            cntalentname="领先地位 I"
+        }else if(temp=="Headstart II"){
+            cntalentname="领先地位 II"
+        }else if(temp=="Headstart III"){
+            cntalentname="领先地位 III"
+        }else if(temp=="Foremany"){
+            cntalentname="脱颖而出"
+        }else if(temp=="Map Reducer I"){
+            cntalentname="地图还原剂 I"
+        }else if(temp=="Map Reducer II"){
+            cntalentname="地图还原剂 II"
+        }else if(temp=="Double Build"){
+            cntalentname="双重建造"
+        }else if(temp=="King of Bones I"){
+            cntalentname="骨头之王 I"
+        }else if(temp=="King of Bones II"){
+            cntalentname="骨头之王 II"
+        }else if(temp=="Hyperspeed I"){
+            cntalentname="超高速 I"
+        }else if(temp=="Hyperspeed II"){
+            cntalentname="超高速 II"
+        }else if(temp=="Blacksmithery I"){
+            cntalentname="黑煅炼 I"
+        }else if(temp=="Blacksmithery II"){
+            cntalentname="黑煅炼 II"
+        }else if(temp=="Blacksmithery III"){
+            cntalentname="黑煅炼 III"
+        }else if(temp=="岩浆流"){
+            cntalentname=""
+        }else if(temp=="Quick Gen"){
+            cntalentname="快速第二代"
+        }else if(temp=="AutoStructure"){
+            cntalentname="自动结构"
+        }else if(temp=="Natural Diplomacy I"){
+            cntalentname="自然外交 I"
+        }else if(temp=="Natural Diplomacy II"){
+            cntalentname="自然外交 II"
+        }else if(temp=="Natural Diplomacy III"){
+            cntalentname="自然外交 III"
+        }else if(temp=="Liquification I"){
+            cntalentname="液化 I"
+        }else if(temp=="Liquification II"){
+            cntalentname="液化 II"
+        }else if(temp=="Magmamancermancy"){
+            cntalentname="微小的女侍者"
+        }else if(temp=="Patience"){
+            cntalentname="忍耐"
+        }else if(temp=="Still Rowing I"){
+            cntalentname="持续赛艇 I"
+        }else if(temp=="Still Rowing II"){
+            cntalentname="持续赛艇 II"
+        }else if(temp=="Void Specialization"){
+            cntalentname="虚空专精"
+        }else if(temp=="Strength in Health"){
+            cntalentname="健康的力量"
+        }else{
+            return name;
+        }
+    return cntalentname;
+}
+function cnresourcetype(type){
+    //汉化地图资源类型
+    var cnresourcetype="";
+    var temp=type;
+    if(temp=="Food"){
+        cnresourcetype="食物"
+    }else if(temp=="Metal"){
+        cnresourcetype="金属"
+    }else if(temp=="Wood"){
+        cnresourcetype="木头"
+    }else if(temp=="Gems"){
+        cnresourcetype="宝石"
+    }else if(temp=="Any"){
+        cnresourcetype="所有"
+    }else{
+        return type;
+    }
+    return cnresourcetype;
+}
 
 load();
 displayPerksBtn();
