@@ -339,7 +339,7 @@ var toReturn = {
 		},
 		Wind: {
 			description: function () {
-				return "当这个赋权活动时，你的Trimps的每次成功攻击会对敌人造成一个debuff，导致风向膨胀，并将额外资源砸到你的手中。 每个堆栈增加从所有来源获得的氦 <b>" + this.formatModifier(this.getModifier()) + "%</b> 并增加所获得的所有其他资源 <b>" + this.formatModifier(this.getModifier() * 10) + "%</b> 直到敌人死亡（最多200堆）。 氦气奖金不适用于地图。";
+				return "当这个赋权活动时，你的脆皮的每次成功攻击会对敌人造成一个debuff，导致风向膨胀，并将额外资源砸到你的手中。 每个堆栈增加从所有来源获得的氦 <b>" + this.formatModifier(this.getModifier()) + "%</b> 并增加所获得的所有其他资源 <b>" + this.formatModifier(this.getModifier() * 10) + "%</b> 直到敌人死亡（最多200堆）。 氦气奖金不适用于地图。";
 			},
 			upgradeDescription: function () {
 				return "Increases the amount of extra Helium you find by <b>" + this.formatModifier(this.baseModifier) + "%</b> and non-Helium resources by <b>" + this.formatModifier(this.baseModifier * 10) + "%</b> per stack when the Empowerment of Wind is active. Your current bonus is <b>" + this.formatModifier(this.getModifier()) + "%</b> Helium, and next level will bring your bonus to <b>" + this.formatModifier(this.getModifier(1)) + "%</b> extra helium. Non-Helium resource gain is always 10x that of Helium, and the Helium bonus does not apply in maps.";
@@ -544,7 +544,7 @@ var toReturn = {
 			darkTheme: {
 				extraTags: "general",
 				enabled: 1,
-				description: "在默认Trimps主题，由u / Grabarz19制作的自定义黑色主题，由u / k1d_5h31d0n制作的渐变主题以及黑色背景的默认主题之间切换。",
+				description: "在默认脆皮主题，由u / Grabarz19制作的自定义黑色主题，由u / k1d_5h31d0n制作的渐变主题以及黑色背景的默认主题之间切换。",
 				titles: ["黑底主题", "默认主题", "黑色主题", "渐变主题"],
 				//styleName index should always be equal to title index minus 2, and should match the css file name
 				styleNames: ["dark", "gradient"],
@@ -766,7 +766,7 @@ var toReturn = {
 			showSnow: {
 				enabled: 1,
 				extraTags: "general",
-				description: "Disable the snow effect in the world. <b>This will take effect on the next zone after this setting is changed</b>. This setting is temporary, and will melt when the snow does.",
+				description: "禁用世界上的雪花效果。 <b>此设置更改后，此功能将在下一个区域生效</b>。 这个设置是暂时的，并且在下雪时会融化。",
 				titles: ["No Snow", "Show Snow"]
 			},
 /*			showHoliday: {
@@ -1359,7 +1359,7 @@ var toReturn = {
 			otherModifier: 0.3,
 			priceBase: 75,
 			heliumSpent: 0,
-			tooltip: "You've seen too many Trimps fall, it's time for more aggressive training. Bringing back these memories will cause your Trimps to gain a 5% chance to critically strike for +130% damage at level 1, and they will gain an additional 5% crit chance and 30% crit damage per level. Maximum of 10 levels.",
+			tooltip: "你已经看到太多的失败了，是时候进行更积极的训练了。 带回这些记忆会使你的脆皮在1级时获得5％的几率造成+ 130％的伤害，并且每级将获得额外的5％暴击几率和30％的爆击伤害。 最多10个级别。",
 			max: 10
 		},
 		Carpentry: {
@@ -1376,7 +1376,7 @@ var toReturn = {
 			modifier: 0.05,
 			priceBase: 15,
 			heliumSpent: 0,
-			tooltip: "You're beginning to notice ways to make equally powerful equipment with considerably fewer resources. Bringing back these new ideas will allow you to spend 5% fewer resources <b>than the current cost</b> per level on all equipment."
+			tooltip: "你已经开始注意到用相当少的资源制造同样强大的设备的方法。 带回这些新想法将使您可以在所有设备上花费比现有成本低5％的资源。"
 		},
 		Range: {
 			level: 0,
@@ -1385,7 +1385,7 @@ var toReturn = {
 			max: 10,
 			priceBase: 1,
 			heliumSpent: 0,
-			tooltip: "Use your new-found leadership skills in order to increase the minimum damage your Trimps deal by 2% per level. Stacks up to 10 times, doesn't affect max damage. At 10 levels, you will get a minimum of 100% benefit from all attack damage per strike.",
+			tooltip: "使用你的新发现的领导技能，使你的脆皮最低伤害提高2％。 叠加10次，不会影响最大伤害。 在10级时，每次攻击造成至少100％的伤害。",
 		},
 		Agility: {
 			level: 0,
@@ -1423,7 +1423,7 @@ var toReturn = {
 		Packrat: {
 			modifier: 0.2,
 			heliumSpent: 0,
-			tooltip: "Study the ancient, secret Trimp methods of hoarding. Each level increases the amount of stuff you can shove in each Barn, Shed, and Forge by 20%.",
+			tooltip: "研究古代、秘密的贮藏方法。每一级都增加了你可以在每个谷仓里塞进的东西数量，存储上限增加20%。",
 			priceBase: 3,
 			level: 0
 		},
@@ -1497,17 +1497,17 @@ var toReturn = {
 			unlockString: "reach Zone 100"
 		},
 		Discipline: {
-			description: "Tweak the portal to bring you back to a universe where Trimps are less disciplined, in order to teach you how to be a better Trimp trainer. Your Trimps' minimum damage will be drastically lower, but their high end damage will be considerably higher. Completing The Dimension Of Anger will cause Trimp damage to return to normal.",
+			description: "调整门户网站，让你回到脆皮不那么被训练的世界，以教你如何做一个更好的脆皮教练。 你的脆皮的最小伤害将大大降低，但是他们的极限伤害会更高。 完成愤怒维度将导致脆皮伤害恢复正常。",
 			filter: function () {
 				return (game.resources.helium.owned >= 30 || game.global.totalHeliumEarned >= 30);
 			},
 			allowSquared: true,
-			squaredDescription: "Tweak the portal to bring you back to a universe where Trimps are less disciplined, in order to teach you how to be a better Trimp trainer. Your Trimps' minimum damage will be drastically lower, but their high end damage will be considerably higher.",
+			squaredDescription: "调整门户网站，让你回到脆皮不那么被训练的世界，以教你如何做一个更好的脆皮教练。 你的脆皮的最小伤害将大大降低，但是他们的极限伤害会更高。",
 			unlocks: "Range",
 			unlockString: "have 30 total helium"
 		},
 		Metal: {
-			description: "Tweak the portal to bring you to an alternate reality, where the concept of Miners does not exist, to force yourself to become frugal with equipment crafting strategies. If you complete The Dimension Of Anger without disabling the challenge, miners will re-unlock.",
+			description: "调整门户把你带到另一个现实，那里的矿工的概念不存在，迫使自己变得节俭与设备各具特色的战略。如果你在没有削弱挑战的情况下完成了愤怒的维度，矿工将重新解锁。",
 			completed: false,
 			filter: function () {
 				return (game.global.highestLevelCleared >= 24);
@@ -1532,7 +1532,7 @@ var toReturn = {
 					unlockUpgrade("Magmamancers");
 			},
 			allowSquared: true,
-			squaredDescription: "Tweak the portal to bring you to alternate reality, where the concept of Miners does not exist, to force yourself to become frugal with equipment crafting strategies.",
+			squaredDescription: "调整门户把你带到另一个现实，那里的矿工的概念不存在，迫使自己变得节俭与设备各具特色的战略。",
 			fireAbandon: false,
 			heldBooks: 0,
 			heldMegaBooks: 0,
@@ -1541,7 +1541,7 @@ var toReturn = {
 			unlockString: "reach Zone 25"
 		},
 		Size: {
-			description: "Tweak the portal to bring you to an alternate reality, where Trimps are bigger and stronger, to force yourself to figure out a way to build larger housing. Your Trimps will gather 50% more resources, but your housing will fit 50% fewer Trimps. If you complete The Dimension of Anger without disabling the challenge, your stats will return to normal.",
+			description: "调整门户网站，让你进入另一个现实，在那里脆皮越来越强大，迫使自己想出一个方法来建造更大的房屋。 你的脆皮会多收集50％的资源，但你的住房将少50％的脆皮。 如果您完成“愤怒的维度”，你的数据将恢复正常。",
 			completed: false,
 			filter: function () {
 				return (game.global.world >= 35 || game.global.highestLevelCleared >= 34);
@@ -1559,13 +1559,13 @@ var toReturn = {
 				game.resources.trimps.maxMod = 0.5;
 			},
 			allowSquared: true,
-			squaredDescription: "Tweak the portal to bring you to an alternate reality, where Trimps are bigger and stronger, to force yourself to figure out a way to build larger housing. Your Trimps will gather 50% more resources, but your housing will fit 50% fewer Trimps.",
+			squaredDescription: "调整门户网站，让你进入另一个现实，在那里脆皮越来越强大，迫使自己想出一个方法来建造更大的房屋。 你的脆皮会多收集50％的资源，但你的住房将少50％的脆皮。",
 			fireAbandon: true,
 			unlocks: "Carpentry",
 			unlockString: "reach Zone 35"
 		},
 		Balance: {
-			description: "Your scientists have discovered a chaotic dimension filled with helium. All enemies have 100% more health, enemies in world deal 17% more damage, and enemies in maps deal 135% more damage. Starting at Zone 6, every time an enemy in the world is slain you will gain a stack of 'Unbalance'. Every time an enemy in a map is slain, you will lose a stack of Unbalance. Each stack of Unbalance reduces your health by 1%, but increases your Trimps' gathering speed by 1%. Unbalance can only stack to 250. Completing <b>Zone 40</b> with this challenge active will grant an additional 100% of all helium earned up to that point. This challenge is repeatable!",
+			description: "你的科学家发现了一个充满氦气的混沌空间。 所有敌人的生命值提高100％，世界上的敌人造成的伤害提高17％，地图上的敌人造成135％的伤害。 从6区开始，每当世界上的一个敌人被击毙时，你将获得一堆“不平衡”。 每当地图上的敌人被杀时，你将失去一堆不平衡。 每次不平衡叠加可以使你的生命值降低1％，但你的脆皮的收集速度提高1％。 不平衡只能叠加到250。在这个挑战激活的情况下，完成 <b>40区</b> 将额外获得100％的氦气。 这个挑战是可重复的！",
 			completed: false,
 			filter: function () {
 				return (game.global.highestLevelCleared >= 39);
@@ -1601,7 +1601,7 @@ var toReturn = {
 				return ((this.balanceStacks * 0.01) + 1);
 			},
 			allowSquared: true,
-			squaredDescription: "Your scientists have discovered a chaotic dimension filled with unharvestable but pretty helium. All enemies have 100% more health, enemies in world deal 17% more damage, and enemies in maps deal 135% more damage. Starting at Zone 6, every time an enemy in the world is slain you will gain a stack of 'Unbalance'. Every time an enemy in a map is slain, you will lose a stack of Unbalance. Each stack of Unbalance reduces your health by 1%, but increases your Trimps' gathering speed by 1%. Unbalance can only stack to 250.",
+			squaredDescription: "你的科学家发现了一个充满氦气的混沌空间。 所有敌人的生命值提高100％，世界上的敌人造成的伤害提高17％，地图上的敌人造成135％的伤害。 从6区开始，每当世界上的一个敌人被击毙时，你将获得一堆“不平衡”。 每当地图上的敌人被杀时，你将失去一堆不平衡。 每次不平衡叠加可以使你的生命值降低1％，但你的脆皮的收集速度提高1％。 不平衡只能叠加到250。",
 			highestStacks: 0,
 			fireAbandon: true,
 			heldHelium: 0,
@@ -2813,47 +2813,47 @@ var toReturn = {
 		rarityBreakpoints: [41, 60, 80, 100, 125, 146, 166, 181, 201, 230, 300, 400],
 		Staff: {
 			metalDrop: {
-				name: "Metal Drop Rate",
+				name: "金属掉落加成",
 				currentBonus: 0,
 			},
 			foodDrop: {
-				name: "Food Drop Rate",
+				name: "食物掉落加成",
 				currentBonus: 0,
 			},
 			woodDrop: {
-				name: "Wood Drop Rate",
+				name: "木头掉落加成",
 				currentBonus: 0,
 			},
 			gemsDrop: {
-				name: "Gem Drop Rate",
+				name: "宝石掉落加成",
 				currentBonus: 0,
 			},
 			fragmentsDrop: {
-				name: "Fragment Drop Rate",
+				name: "碎片掉落加成",
 				currentBonus: 0,
 			},
 			FarmerSpeed: {
-				name: "Farmer Efficiency",
+				name: "农民效率",
 				currentBonus: 0,
 			},
 			LumberjackSpeed: {
-				name: "Lumberjack Efficiency",
+				name: "伐木工的效率",
 				currentBonus: 0,
 			},
 			MinerSpeed: {
-				name: "Miner Efficiency",
+				name: "矿工效率",
 				currentBonus: 0,
 			},
 			DragimpSpeed: {
-				name: "Dragimp Efficiency",
+				name: "宝石效率",
 				currentBonus: 0,
 			},
 			ExplorerSpeed: {
-				name: "Explorer Efficiency",
+				name: "探险家效率",
 				currentBonus: 0,
 			},
 			ScientistSpeed: {
-				name: "Scientist Efficiency",
+				name: "科学家效率",
 				currentBonus: 0,
 			},
 			empty: {
@@ -2863,42 +2863,42 @@ var toReturn = {
 		},
 		Shield: {
 			playerEfficiency: {
-				name: "Player Efficiency",
+				name: "玩家效率",
 				currentBonus: 0,
 				steps: [[2,4,1],[4,8,1],[8,16,1],[16,32,2],[32,64,4],[64,128,8],[128,256,16], [256, 512, 32]]
 			},
 			trainerEfficiency: {
-				name: "Trainer Efficiency",
+				name: "培训师效率",
 				currentBonus: 0,
 				steps: [[1,5,1],[5,10,1],[10,20,1],[20,40,2],[40,60,2],[60,80,2],[80,100,2], [100, 120, 2]]
 			},
 			storageSize: {
-				name: "Storage Size",
+				name: "存储上限",
 				currentBonus: 0,
 				steps: [[8,16,4],[16,32,4],[32,64,4],[64,128,4],[128,256,8],[256,512,16],[512,768,16],[768, 1024, 16]]
 			},
 			breedSpeed: {
-				name: "Breed Speed",
+				name: "繁殖速度",
 				currentBonus: 0,
 				steps: [[1,2,1],[2,5,1],[5,10,1],[10,20,1],[70,100,3],[100,130,3],[130,160,3],[160, 190, 3]]
 			},
 			trimpHealth: {
-				name: "Trimp Health",
+				name: "脆皮生命",
 				currentBonus: 0,
 				steps: [[1,2,1],[2,6,1],[6,20,2],[20,40,2],[50,100,5],[100,150,5],[150,200,5],[200, 260, 6]]
 			},
 			trimpAttack: {
-				name: "Trimp Attack",
+				name: "脆皮攻击",
 				currentBonus: 0,
 				steps: [[1,2,1],[2,6,1],[6,20,2],[20,40,2],[50,100,5],[100,150,5],[150,200,5],[200, 260, 6]]
 			},
 			trimpBlock: {
-				name: "Trimp Block",
+				name: "脆皮防御",
 				currentBonus: 0,
 				steps: [[1,2,1],[2,4,1],[4,7,1],[7,10,1],[28,40,1],[48,60,1],[68,80,1],[88, 100, 1]]
 			},
 			critDamage: {
-				name: "Crit Damage, additive",
+				name: "暴击伤害, 附加的",
 				currentBonus: 0,
 				steps: [[10,20,5],[20,40,5],[40,60,5],[60,100,5],[100,200,10],[200,300,10],[300,400,10],[400, 500, 10]],
 				filter: function () {
@@ -2906,7 +2906,7 @@ var toReturn = {
 				}
 			},
 			critChance: {
-				name: "Crit Chance, additive",
+				name: "暴击几率, 附加的",
 				currentBonus: 0,
 				steps: [[0.2,0.6,0.2],[0.6,1.4,0.2],[1.4,2.6,0.2],[2.6,5,0.2],[5,7.4,0.2],[7.4,9.8,0.2],[9.8,12.2,0.2], [12.3, 15.9, 0.3]],
 				filter: function () {
@@ -2914,7 +2914,7 @@ var toReturn = {
 				}
 			},
 			voidMaps: {
-				name: "Void Map Drop Chance",
+				name: "虚空地图掉落几率",
 				currentBonus: 0,
 				steps: [[0.5,1.5,0.5],[2.5,4,0.5],[5,7,0.5],[8,11,0.5],[12,16,0.5],[17,22,0.5],[24,30,0.5],[32, 38, 0.5]]
 			},
@@ -4107,7 +4107,7 @@ var toReturn = {
 			attack: 1,
 			health: 1,
 			fast: false,
-			dropDesc: "Grants 0.3% Trimp resource production speed",
+			dropDesc: "获得0.3%的脆皮资源生产速度",
 			loot: function () {
 				game.unlocks.impCount.Whipimp++;
 				game.jobs.Farmer.modifier *= 1.003;
@@ -4129,7 +4129,7 @@ var toReturn = {
 			attack: 1,
 			health: 1,
 			fast: false,
-			dropDesc: "Grants 0.3% Trimp breed speed",
+			dropDesc: "获得0.3%的脆皮繁殖速度",
 			loot: function () {
 				game.unlocks.impCount.Venimp++;
 				var amt = Math.pow(1.003, game.unlocks.impCount.Venimp);
@@ -4209,7 +4209,7 @@ var toReturn = {
 			attack: 1,
 			health: 1,
 			fast: false,
-			dropDesc: "0.3% extra loot from maps and zones (Not Helium)",
+			dropDesc: "0.3%额外的战利品从地图和区域（除了氦）",
 			loot: function () {
 				game.unlocks.impCount.Magnimp++;
 				var amt = Math.pow(1.003, game.unlocks.impCount.Magnimp);
@@ -5976,7 +5976,7 @@ var toReturn = {
 			purchased: 0,
 			craftTime: 120,
 			AP: true,
-			tooltip: "向您的Dragimp捐款，增加他的胃口和速度。 他会收集宝石5％（复合）。",
+			tooltip: "向您的Dragimp捐款，增加他的胃口和速度。 他将更快地收集宝石5%（复合）。",
 			cost: {
 				food: [10000, 1.05]
 			},
@@ -5993,7 +5993,7 @@ var toReturn = {
 			AP: true,
 			get tooltip () {
 				if (mutations.Magma.active())
-					return "<p>岩浆一般是不利于健康的幼儿园环境。 各苗圃仍会增加Trimps每秒从1％（配混）繁殖，但作为岩浆移近您的活性苗圃的10％将关闭每个区域。 安全第一！</p><p>你总共已经购买托儿所" + prettify(this.purchased) + "个</p>";
+					return "<p>岩浆一般是不利于健康的幼儿园环境。 各苗圃仍会增加脆皮每秒从1％（配混）繁殖，但作为岩浆移近您的活性苗圃的10％将关闭每个区域。 安全第一！</p><p>你总共已经购买托儿所" + prettify(this.purchased) + "个</p>";
 				return "构建一个宝石托儿所，脆皮宝宝可以更快地成长。 繁殖率每秒增加1％（复合）。";
 
 			},
@@ -6020,7 +6020,6 @@ var toReturn = {
 			locked: 1,
 			owned: 0,
 			tooltip: "训练你的脆皮们学会砍伐的技术。 每个木工每秒生产 $modifier$ 木头。",
-			
 			cost: {
 				food: 5
 			},
@@ -6290,7 +6289,7 @@ var toReturn = {
 		Trapstorm: { //10
 			locked: 1,
 			allowed: 0,
-			tooltip: "This book details the fine art of teaching your foremen to actually do stuff instead of just sitting around. When asked, your foremen will start construction on a new Trap if the queue is empty.",
+			tooltip: "这本书详细介绍了教你的工头们实际做事情而不是无所事事的艺术。当被问到，如果队列是空的，你的工头将会开始建造一个新的陷阱。",
 			done: 0,
 			cost: {
 				resources: {
@@ -6331,7 +6330,7 @@ var toReturn = {
 		},
 		Bounty: { //15
 			locked: 1,
-			tooltip: "This book will teach your Farmers, Lumberjacks, Miners, Scientists, and Explorers to all be twice as productive.",
+			tooltip: "这本书将教给你的农民、伐木工、矿工、科学家和探险家，提高两倍生产力",
 			done: 0,
 			allowed: 0,
 			cost: {
@@ -6370,7 +6369,8 @@ var toReturn = {
 		Anger: { //20
 			locked: 1,
 			allowed: 0,
-			tooltip: "你的科学家们很生气。不是因为你做的任何事情,而是这宝石似乎让他们疯了。虽然需要一些研究,但你认为你可以创建一张地图去到这些宝石的原产地。",done: 0,
+			tooltip: "你的科学家们很生气。不是因为你做的任何事情,而是这宝石似乎让他们疯了。虽然需要一些研究,但你认为你可以创建一张地图去到这些宝石的原产地。",
+			done: 0,
 			cost: {
 				resources: {
 					science: 100000,
@@ -6385,7 +6385,7 @@ var toReturn = {
 		Gymystic: { //25
 			locked: 1,
 			allowed: 0,
-			tooltip: "This book will cause each gym you purchase to increase the block provided by all Gyms by 5%. Each consecutive level of this upgrade will increase the block provided by an additional 1%. <b>The extra block provided compounds per Gym.</b>",
+			tooltip: "本书将使您购买的每个健身房增加5％所有健身房提供的防御。 这个升级的每个连续级别都会增加一个额外的1％. <b>The extra block provided compounds per Gym.</b>",
 			done: 0,
 			cost: {
 				resources: {
@@ -6541,7 +6541,7 @@ var toReturn = {
 		UberHut: {
 				locked: 1,
 				allowed: 0,
-				tooltip: "This book will increase the space gained from each Hut by 100%.",
+				tooltip: "这本书将使每个小屋的空间增加100%。",
 				done: 0,
 				cost: {
 					resources: {
@@ -6558,7 +6558,7 @@ var toReturn = {
 		UberHouse: {
 				locked: 1,
 				allowed: 0,
-				tooltip: "This book will increase the space gained from each House by 100%.",
+				tooltip: "这本书将使每个房子的空间增加100%。",
 				done: 0,
 				cost: {
 					resources: {
@@ -6575,7 +6575,7 @@ var toReturn = {
 		UberMansion: {
 				locked: 1,
 				allowed: 0,
-				tooltip: "This book will increase the space gained from each Mansion by 100%.",
+				tooltip: "这本书将使每个大厦的空间增加100%。",
 				done: 0,
 				cost: {
 					resources: {
@@ -6592,7 +6592,7 @@ var toReturn = {
 		UberHotel: {
 				locked: 1,
 				allowed: 0,
-				tooltip: "This book will increase the space gained from each Hotel by 100%.",
+				tooltip: "这本书将使每个旅馆的空间增加100%。",
 				done: 0,
 				cost: {
 					resources: {
@@ -6609,7 +6609,7 @@ var toReturn = {
 		UberResort: {
 				locked: 1,
 				allowed: 0,
-				tooltip: "This book will increase the space gained from each Resort by 100%.",
+				tooltip: "这本书将使每个娱乐场的空间增加100%。",
 				done: 0,
 				cost: {
 					resources: {
@@ -6944,7 +6944,7 @@ var toReturn = {
 		Speedexplorer: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "This book will teach your Trimps how to explore 300% more efficiently!",
+			tooltip: "这本书将教你如何更有效地探索,  碎片生产加速300%！",
 			done: 0,
 			cost: {
 				resources: {

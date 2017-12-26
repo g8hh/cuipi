@@ -78,9 +78,9 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 				}
 				return text;
 			},
-			Show_Hide_Map_Config: "Click this to collapse/expand the map configuration options.",
-			Save_Map_Settings: "Click this to save your current map configuration settings. These settings will load by default every time you come in to the map chamber.",
-			Reset_Map_Settings: "Click this to reset all settings to their default positions. This will not clear your saved setting, which will still be loaded next time you enter the map chamber.",
+			Show_Hide_Map_Config: "点击可折叠/展开地图配置选项。",
+			Save_Map_Settings: "点击此按钮保存您当前的地图配置设置。 每次进入地图室时，这些设置都会默认加载。",
+			Reset_Map_Settings: "点击此按钮将所有设置重置为默认位置。 这将不会清除您保存的设置，下次您进入地图室时仍然会将其加载。",
 			Extra_Zones: "<p>Create a map up to 10 zones higher than your current zone number. This map will gain +10% loot per extra level (compounding), and can drop Prestige upgrades higher than you could get from a world level map.</p><p>You can only use this setting when creating a max level map.</p>",
 			Perfect_Sliders: "<p>This option takes all of the RNG out of map generation! If sliders are maxxed and the box is checked, you have a 100% chance to get a perfect roll on Loot, Size, and Difficulty.</p><p>You can only choose this setting if the sliders for Loot, Size, and Difficulty are at the max.</p>"
 		}
@@ -118,7 +118,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 	}
 	if (what == "脆皮信息"){
 		var kongMode = (document.getElementById('boneBtn') !== null);
-		var text = '<div class="trimpsInfoPopup">需要帮助，发现错误或者只想谈谈Trimps？ 请访问 <a href="https://www.reddit.com/r/trimps" target="_blank">脆皮论坛</a>';
+		var text = '<div class="trimpsInfoPopup">需要帮助，发现错误或者只想谈谈脆皮？ 请访问 <a href="https://www.reddit.com/r/trimps" target="_blank">脆皮论坛</a>';
 		if (kongMode) text += ' 或者 <a href="https://www.kongregate.com/forums/11405-trimps" target="_blank">Kongregate论坛</a>.<br/><br/>';
 		else text +=' 或者来新挂出去的 <a href="https://discord.gg/kSpNHte" target="_blank">脆皮官方</a>!<br/><br/>';
 		text += ' 如果你想阅读或讨论脆皮力学的更详细的细节，请访问 <a href="https://trimps.wikia.com/wiki/Trimps_Wiki" target="_blank">社区创建的脆皮Wiki!</a><br/><br/>';
@@ -187,7 +187,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		costText = "";
 	}
 	if (what == "Welcome"){
-		tooltipText = "欢迎来到Trimps！ 这个游戏会在浏览器中使用本地存储保存游戏进度。 清除您的Cookie或浏览器设置将导致您的游戏进度消失！ 请确保您通过使用下面的栏中的“导出”按钮或“设置”下的“在线保存”选项来定期备份保存文件。<br/> <br/> <b> Chrome和Firefox目前是 唯一完全支持的浏览器。</ b> <br/> <b>您是否希望在开始之前启用在线保存？</b><br/><br/>";
+		tooltipText = "欢迎来到脆皮！ 这个游戏会在浏览器中使用本地存储保存游戏进度。 清除您的Cookie或浏览器设置将导致您的游戏进度消失！ 请确保您通过使用下面的栏中的“导出”按钮或“设置”下的“在线保存”选项来定期备份保存文件。<br/> <br/> <b> Chrome和Firefox目前是 唯一完全支持的浏览器。</ b> <br/> <b>您是否希望在开始之前启用在线保存？</b><br/><br/>";
 		if (document.getElementById('boneBtn') !== null){
 			tooltipText += "<b style='color: red'>注意：你期望在这里看到你的保存？</b><br/>如果这是你从2017 11月13日开始的第一次游戏，请检查 <a target='_blank' href='http://trimps.github.io'>http://trimps.github.io</a> (确定你用的是 http, 不是 https), 看看它在不在那里。有关更多信息，请参见 <a target='_blank' href='http://www.kongregate.com/forums/11406-general-discussion/topics/941201-if-your-save-is-missing-after-november-13th-click-here?page=1#posts-11719541'>这个论坛主题</a>.<br/><br/>";
 		}
@@ -344,7 +344,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		costText = "";
 	}
 	if (what == "Repeat Map"){
-		tooltipText = "允许异形们自己找到回广场的路，一旦他们在没有你的帮助下完成过后。他们成长的如此之快！<br/><br/>如果您<b>不</ b>重复，地图结束后，您当前的Trimps组将不会被放弃。 （热键：R）";
+		tooltipText = "允许异形们自己找到回广场的路，一旦他们在没有你的帮助下完成过后。他们成长的如此之快！<br/><br/>如果您<b>不</ b>重复，地图结束后，您当前的脆皮组将不会被放弃。 （热键：R）";
 		costText = "";
 	}
 	if (what == "Challenge2"){
@@ -393,8 +393,6 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 				if (item == "cache" && game.global.highestLevelCleared < 59) continue;
 				if (item == "token" && game.global.highestLevelCleared < 235) continue;
 				if (item == 'enabled') continue;
-                
-            
 				tooltipText += "<span class='messageConfigContainer'><span class='messageCheckboxHolder'><input id='" + name + item + "'" + ((msgs[name][item]) ? " checked='true'" : "") + "' type='checkbox' /></span><span onmouseover='messageConfigHover(\"" + name + item + "\", event)' onmouseout='tooltip(\"hide\")' class='messageNameHolder'> - " + cnitems(item) + "</span></span><br/>";
 //                item.charAt(0).toUpperCase() + item.substr(1)
 			}
@@ -620,7 +618,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		tooltipText = "Your scientists can finally handle some upgrades on their own! Toggling this on will cause most upgrades to be purchased automatically. Does not include equipment prestiges or upgrades that would trigger a confirmation popup.";
 	}
 	if (what == "Recycle All"){
-		tooltipText = "Recycle all maps below the selected level.";
+		tooltipText = "回收所有在选定级别以下的地图。";
 	}
 	if (what == "PlayFab Login"){
 		var tipHtml = getPlayFabLoginHTML();
@@ -920,10 +918,10 @@ function addTooltipPricing(toTip, what, isItIn) {
 							percentOfTotal = "(" + percentOfTotal + "%)";
 						}
 					}
-					costText += '<span class="' + canAfford + '">' + item + ':&nbsp;' + prettify(price) + '&nbsp;' + percentOfTotal + '</span>, ';
+					costText += '<span class="' + canAfford + '">' + cnitems(item) + ':&nbsp;' + prettify(price) + '&nbsp;' + percentOfTotal + '</span>, ';
 				}
 				else
-				costText += item + ": " + prettify(price) + ", ";
+				costText += cnitems(item) + ": " + prettify(price) + ", ";
 			}
 			continue;
 		}
@@ -3154,7 +3152,7 @@ function updateSideTrimps(){
 	var free = (Math.ceil(trimps.realMax() / 2) - trimps.employed);
 	if (free < 0) free = 0;
 	var s = (free > 1) ? "" : "";
-	document.getElementById("jobsTitleUnemployed").innerHTML = prettify(free) + " 工作空间" + s;
+	document.getElementById("jobsTitleUnemployed").innerHTML = prettify(free) + " 工作空间";
 }
 
 function unlockBuilding(what) {
@@ -3182,7 +3180,6 @@ function drawAllBuildings(){
 }
 
 function drawBuilding(what, where){
-    
 	where.innerHTML += '<div onmouseover="tooltip(\'' + what + '\',\'buildings\',event)" onmouseout="tooltip(\'hide\')" class="thingColorCanNotAfford thing noselect pointer buildingThing" id="' + what + '" onclick="buyBuilding(\'' + what + '\')"><span class="thingName"><span id="' + what + 'Alert" class="alert badge"></span>' + cnwhat(what) + '</span><br/><span class="thingOwned" id="' + what + 'Owned">0</span></div>';
 }
 
@@ -3273,7 +3270,7 @@ function unlockMap(what) { //what here is the array index
 	if (item.location == "Void") {
 		btnClass += " voidMap";
 		level = '<span class="glyphicon glyphicon-globe"></span>';
-		tooltip = " onmouseover=\"tooltip('Void Map', 'customText', event, 'This Map will scale in level to your current Zone Number, enemies have a random buff, and the boss at the final cell will drop helium. This map will disappear after it is completed once, and leaving the map will reset its progress.');\" onmouseout=\"tooltip('hide')\"";
+		tooltip = " onmouseover=\"tooltip('Void Map', 'customText', event, '这张地图将按你当前的区域等级进行变化，敌人有一个随机buff，最后一个单元格的boss会掉落氦。此地图在完成一次后将消失，离开地图将重置其进度。');\" onmouseout=\"tooltip('hide')\"";
 		loc = "voidMapsHere";
 	}
 	else if (item.noRecycle) btnClass += getUniqueColor(item);
@@ -4230,6 +4227,16 @@ function cnitems(item) {
         cnitems = "脆皮"
     } else if (item == "enemy") {
         cnitems = "敌人"
+    } else if (item == "food") {
+        cnitems = "食物"
+    } else if (item == "wood") {
+        cnitems = "木头"
+    } else if (item == "metal") {
+        cnitems = "金属"
+    } else if (item == "gems") {
+        cnitems = "宝石"
+    } else if (item == "science") {
+        cnitems = "科学"
     } else {
         return item;
     }
@@ -4392,6 +4399,10 @@ function cntitle(tit){
         cntit="巫师";
     }else if(what=="Gigastation"){
         cntit="千兆站";
+    }else if(what=="Geneticistassist"){
+        cntit="遗传学家助手";
+    }else if(what=="Geneticist"){
+        cntit="遗传学家";
     }else{
         cntit=tit
     }

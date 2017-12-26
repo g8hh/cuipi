@@ -1001,7 +1001,7 @@ function portalClicked() {
 	document.getElementById("activatePortalBtn").innerHTML = "激活门户";
 	document.getElementById("challengeSquaredBonusAmt").innerHTML = prettify(game.global.totalSquaredReward);
 	document.getElementById("challengeDescription").style.height = (game.global.sLevel >= 1) ? "19vw" : "22.5vw";
-	document.getElementById("challengeDescriptionPre").innerHTML = (game.global.sLevel >= 1) ? "Don't forget to bring a challenge<br/>" : 'You can also choose to activate a challenge before using your portal. Completing a challenge will earn you a permanent reward. You can abandon or view an active challenge at any time by clicking the "View Perks" button.';
+	document.getElementById("challengeDescriptionPre").innerHTML = (game.global.sLevel >= 1) ? "Don't forget to bring a challenge<br/>" : '在使用门户之前，还可以选择激活一个挑战。完成挑战会给你永久的奖励。您可以通过单击“查看特权”按钮随时放弃或查看进行的挑战。';
 	if (game.global.canRespecPerks) {
 		document.getElementById("respecPortalBtn").innerHTML = "天赋";
 		document.getElementById("respecPortalBtn").style.display = "inline-block";
@@ -2600,7 +2600,6 @@ function canAffordBuilding(what, take, buildCostString, isEquipment, updatingLab
 				percent = (game.resources[costItem].owned > 0) ? prettify(((price / game.resources[costItem].owned) * 100).toFixed(1)) : 0;
 				percent = "(" + percent + "%)";
 			}
-            
 			costString += '<span class="' + color + '">' + cnitem(costItem) + ':&nbsp;' + prettify(price) + '&nbsp;' + percent + '</span>, ';
 		}
 		if (take) game.resources[costItem].owned -= price;
@@ -2972,7 +2971,7 @@ function getTooltipJobText(what, toBuy) {
     for (var item in job.cost) {
 		var result = (checkJobItem(what, false, item, false, toBuy))
         var color =  (result === 0) ? "orange" : ((result == true) ? "green" : "red");
-        fullText += '<span class="' + color + '">' + cnitem(item) + ':&nbsp;' + checkJobItem(what, false, item, true, toBuy) + '</span>, ';
+        fullText += '<span class="' + color + '">' + cnitems(item) + ':&nbsp;' + checkJobItem(what, false, item, true, toBuy) + '</span>, ';
     }
     fullText = fullText.slice(0, -2);
     return fullText;
@@ -4097,22 +4096,22 @@ function addVoidAlert(){
 var voidBuffConfig = {
 		doubleAttack: {
 			icon: 'icomoon icon-pushpin',
-			text: 'This bad guy attacks twice - once before you, and once again after you.',
+			text: '这个坏家伙攻击两次，一次在你之前，一次在你之后。',
 			title: 'Void Attack',
 		},
 		slowBreed: {
 			icon: 'icomoon icon-cloudy2',
-			text: 'This map is reducing the repopulation speed of your Trimps by 80%.',
+			text: '这张地图将脆皮的繁殖速度降低了80％。',
 			title: 'Void Gas',
 		},
 		getCrit: {
 			icon: 'icomoon icon-heart6',
-			text: 'This bad guy has a 25% chance to crit you for 400% extra damage.',
+			text: '这个坏家伙有25％的几率对你造成400％的额外伤害。',
 			title: 'Void Strength',
 		},
 		bleed: {
 			icon: "icomoon icon-drop",
-			text: 'Every time this bad guy attacks, you will lose an additional 20% of your <b>current</b> health.',
+			text: '每次当这个坏家伙攻击时，你就会失去 <b>当前</b> 20％的生命。',
 			title: 'Void Bleed',
 		}
 }
@@ -5725,17 +5724,17 @@ var mutations = {
 var mutationEffects = {
 	corruptDbl: {
 		icon: 'icomoon icon-pushpin',
-		text: 'this bad guy attacks twice - once before you, and once again after you.',
+		text: '这个坏家伙攻击两次，一次在你之前，一次在你之后。',
 		title: 'Corrupted Stamina'
 	},
 	corruptCrit: {
 		icon: 'icomoon icon-heart6',
-		text: 'this bad guy has a 25% chance to crit you for 400% extra damage.',
+		text: '这个坏家伙有25％的几率对你造成400％的额外伤害。',
 		title: 'Corrupted Precision'
 	},
 	corruptBleed: {
 		icon: "icomoon icon-drop",
-		text: 'every time this bad guy attacks, you will lose an additional 20% of your <b>current</b> health.',
+		text: '每次当这个坏家伙攻击时，你就会失去 <b>当前</b> 20％的生命。',
 		title: 'Corrupted Sharpness'
 	},
 	corruptStrong: {
@@ -7035,6 +7034,7 @@ function selectMap(mapId, force) {
         mapname=map.name
     }
     document.getElementById("selectedMapName").innerHTML = mapname;
+
 	document.getElementById("mapStatsSize").innerHTML = (Math.floor(map.size));
 	document.getElementById("mapStatsDifficulty").innerHTML = Math.floor(map.difficulty * 100) + "%";
 	document.getElementById("mapStatsLoot").innerHTML = Math.floor(map.loot * 100) + "%";
@@ -8009,7 +8009,7 @@ function rewardLiquidZone(){
 		}
 	}
 	messageLock = false;
-	var text = "你液化了一个烈酒！<br/>";
+	var text = "你液化了一个Liquimp！<br/>";
 	if (unlocks !== "" && game.global.messages.Unlocks.enabled) text += "解锁发现： " + unlocks + "<br/>";
 	if (game.global.messages.Loot.enabled && (game.global.messages.Loot.primary || game.global.messages.Loot.secondary)){
 		text += "发现资源：";
