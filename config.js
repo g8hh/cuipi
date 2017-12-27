@@ -1368,7 +1368,7 @@ var toReturn = {
 			modifier: 0.1,
 			priceBase: 25,
 			heliumSpent: 0,
-			tooltip: "You've built quite a few houses and you're getting pretty good at it. Bringing your expertise in construction back through the portal will allow you to house 10% more Trimps per level <b>than the current amount (compounds)</b>."
+			tooltip: "你已经建了很多房子，而且你已经做得很好了。 通过门户网站将您在建筑方面的专业知识带回来，将使您能够在每个级别上存放比当前数量多10％的脆皮（复合）。"
 		},
 		Artisanistry: {
 			level: 0,
@@ -1392,7 +1392,7 @@ var toReturn = {
 			modifier: 0.05,
 			priceBase: 4,
 			heliumSpent: 0,
-			tooltip: "Crank your portal into overdrive, requiring extra helium but increasing the clock speed of the Universe. Each level reduces the time between Trimp and Bad Guy attacks by 5% <b>of the current time (compounds)</b>. Maximum of 20 levels.",
+			tooltip: "把你的门户搞成超速，需要额外的氦气，但是增加了宇宙的时钟速度。 每个级别都会将脆皮与坏人的攻击间隔缩短5％（复合）。 最高20级。",
 			max: 20
 		},
 		Bait: {
@@ -4561,7 +4561,7 @@ var toReturn = {
 					game.global.challengeActive = "";
 					game.global.sLevel = getScientistLevel();
 					game.challenges.Scientist.abandon();
-					message("You have completed the <b>Scientist Challenge!</b> From now on, you'll " + getScientistInfo(game.global.sLevel, true) + " every time you portal. You've unlocked Scientists, and <b>Don't forget that you can click Research on your Science again!</b>", "Notices");
+					message("你已经完成了 <b>科学家</b> 的挑战！ 每次游戏你都将从 " + getScientistInfo(game.global.sLevel, true) + " 开始。 你已经解锁了科学家，别忘了你可以再次点击研究你的科学！", "Notices");
 				}
 				if (game.global.challengeActive == "Trimp"){
 					game.global.challengeActive = "";
@@ -6051,7 +6051,7 @@ var toReturn = {
 			allowAutoFire: true,
 			owned: 0,
 			tooltip: function () {
-				var text = "个训练员都将增加你的士兵防御";
+				var text = "每个训练员都将增加你的士兵防御";
 				var heirloomBonus = game.heirlooms.Shield.trainerEfficiency.currentBonus;
 				var modifier = game.jobs.Trainer.modifier;
 				if (heirloomBonus > 0){
