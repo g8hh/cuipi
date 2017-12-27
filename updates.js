@@ -3354,9 +3354,23 @@ function drawUpgrade(what, where){
     }else if(what=="Bestplate"){
         cnupgrade="最好的盘子"
     }else if(what=="Speedexplorer"){
-        cnupgrade="速度探险家"
+        cnupgrade="探险家加速"
     }else if(what=="Gigastation"){
         cnupgrade="千兆站"
+    }else if(what=="Speedminer"){
+        cnupgrade="采矿加速"
+    }else if(what=="Speedlumber"){
+        cnupgrade="砍伐加速"
+    }else if(what=="Speedfarming"){
+        cnupgrade="耕作加速"
+    }else if(what=="Speedscience"){
+        cnupgrade="研究加速"
+    }else if(what=="Efficiency"){
+        cnupgrade="生产效率"
+    }else if(what=="TrainTacular"){
+        cnupgrade="防御提升"
+    }else if(what=="Potency"){
+        cnupgrade="繁殖效率"
     }else{
         cnupgrade=what
     }
