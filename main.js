@@ -1001,7 +1001,7 @@ function portalClicked() {
 	document.getElementById("activatePortalBtn").innerHTML = "激活门户";
 	document.getElementById("challengeSquaredBonusAmt").innerHTML = prettify(game.global.totalSquaredReward);
 	document.getElementById("challengeDescription").style.height = (game.global.sLevel >= 1) ? "19vw" : "22.5vw";
-	document.getElementById("challengeDescriptionPre").innerHTML = (game.global.sLevel >= 1) ? "Don't forget to bring a challenge<br/>" : '在使用门户之前，还可以选择激活一个挑战。完成挑战会给你永久的奖励。您可以通过单击“查看特权”按钮随时放弃或查看进行的挑战。';
+	document.getElementById("challengeDescriptionPre").innerHTML = (game.global.sLevel >= 1) ? "别忘了带个挑战。<br/>" : '在使用门户之前，还可以选择激活一个挑战。完成挑战会给你永久的奖励。您可以通过单击“查看特权”按钮随时放弃或查看进行的挑战。';
 	if (game.global.canRespecPerks) {
 		document.getElementById("respecPortalBtn").innerHTML = "天赋";
 		document.getElementById("respecPortalBtn").style.display = "inline-block";
@@ -1300,7 +1300,7 @@ function viewPortalUpgrades() {
 		challengeText = getCurrentChallengePane();
 	}
 	else
-		challengeText = "You don't have an active challenge.";
+		challengeText = "你没有进行中的挑战。";
 	document.getElementById("viewChallengeText").innerHTML = challengeText;
 	document.getElementById("wrapper").style.display = "none";
 	swapClass("portalMk", "portalMkPreview", document.getElementById("portalWrapper"));
@@ -1335,7 +1335,7 @@ function swapToCurrentChallenge(updateOnly){
 		challengesElem.style.display = 'none';
 		document.getElementById('viewChallengeText').innerHTML = getCurrentChallengePane();
 		updatePortalChallengeAbandonButton();
-		btnElem.innerHTML = "Select New Challenge";
+		btnElem.innerHTML = "选择新的挑战";
 		var c2Reward = document.getElementById('challengeSquaredBonusAmtView');
 		if (c2Reward !== null)
 			c2Reward.innerHTML = prettify(game.global.totalSquaredReward);
@@ -1343,7 +1343,7 @@ function swapToCurrentChallenge(updateOnly){
 	else {
 		viewChallengeElem.style.display = 'none';
 		challengesElem.style.display = 'block';
-		btnElem.innerHTML = "View Current Challenge";
+		btnElem.innerHTML = "查看当前的挑战";
 	}
 }
 
@@ -1375,7 +1375,7 @@ function updatePortalChallengeAbandonButton(){
 			abandonElem.innerHTML = "Finish Daily";
 		}
 		else{
-			abandonElem.innerHTML = "Abandon Challenge";
+			abandonElem.innerHTML = "放弃挑战";
 			swapClass('btn-', 'btn-warning', abandonElem);
 		}
 	}
@@ -10169,7 +10169,7 @@ function updateBalanceStacks(){
 	var stacks = game.challenges.Balance.balanceStacks;
 	if (stacks > 0) {
 		elem.style.display = "inline-block";
-		elem.innerHTML = ' <span class="badge antiBadge" onmouseover="tooltip(\'Unbalance\', \'customText\', event, \'Your Trimps have ' + game.challenges.Balance.getHealthMult(true) + ' less health, but all Trimps can gather ' + game.challenges.Balance.getGatherMult(true) + ' faster. You will gain one stack from killing Bad Guys in the world, and lose one stack for killing Bad Guys in maps.\');" onmouseout="tooltip(\'hide\')"><span id="balanceStack">' + stacks + '</span><span class="icomoon icon-balance-scale"></span></span>';
+		elem.innerHTML = ' <span class="badge antiBadge" onmouseover="tooltip(\'Unbalance\', \'customText\', event, \'你的脆皮的生命值减少' + game.challenges.Balance.getHealthMult(true) + '，但是所有脆皮的收集速度提高' + game.challenges.Balance.getGatherMult(true) + '。 在世界上杀死坏人你将获得一次叠加，在地图上杀死坏人将失去一次叠加。\');" onmouseout="tooltip(\'hide\')"><span id="balanceStack">' + stacks + '</span><span class="icomoon icon-balance-scale"></span></span>';
 	}
 	else elem.style.display = "none";
 }
