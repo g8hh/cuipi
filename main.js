@@ -987,7 +987,7 @@ function portalClicked() {
 	else bgColor = "green";
 	swapClass("portalMk", "portalMk" + (game.global.sLevel + 1), document.getElementById("portalWrapper"));
 	fadeIn("portalWrapper", 10);
-	var titleText = "Time Portal";
+	var titleText = "时间传送门";
 	if (game.global.sLevel >= 1) titleText += " Mk. " + romanNumeral(game.global.sLevel + 1);
 	var portalStory = (game.global.sLevel >= 1) ? "Helium goes in, victory comes out" : "Well, you did it. You followed your instincts through this strange world, made your way through the 愤怒的维度, and obtained this portal. But why? Maybe there will be answers through this portal... Your scientists tell you they can overclock it to bring more memories and items back, but they'll need helium to cool it.";
 	document.getElementById("portalTitle").innerHTML = titleText;
@@ -1082,7 +1082,7 @@ function displayChallenges() {
 		if (thisFail) done = "nextChallenge";
 		if (!name) name = what;
 		//make sure the challengeSquaredMode color still works after messing with line below
-		challengeHTML += '<div class="noselect pointer challengeThing thing ' + done + '" id="challenge' + what + '" onclick="selectChallenge(\'' + what + '\')"><span class="thingName">' + name + '</span></div>';
+		challengeHTML += '<div class="noselect pointer challengeThing thing ' + done + '" id="challenge' + what + '" onclick="selectChallenge(\'' + what + '\')"><span class="thingName">' + cntequan(name) + '</span></div>';
 	}
 	challengesHere.innerHTML = challengeHTML;
 	if (challengeCount > 0) document.getElementById("challenges").style.display = "block";
@@ -1396,18 +1396,18 @@ function displayPortalUpgrades(fromTab){
 		}
 		var html = '<div onmouseover="tooltip(\'' + what + '\',\'portal\',event)" onmouseout="tooltip(\'hide\')" class="noselect pointer portalThing thing perkColorOff';
 		if (game.options.menu.detailedPerks.enabled == 1) html += " detailed";
-		if (portUpgrade.additive) html += " additive";
-//        console.log(what)
+		if (portUpgrade.additive) html += " 附加的";
+//        console.log(what.replace('_', ' '))
         //特权汉化
-		html += '" id="' + what + '" onclick="buyPortalUpgrade(\'' + what + '\')"><span class="thingName">' + what.replace('_', ' ') + '</span>';
+		html += '" id="' + what + '" onclick="buyPortalUpgrade(\'' + what + '\')"><span class="thingName">' + cntequan(what.replace('_', ' ')) + '</span>';
 
 		if (game.options.menu.detailedPerks.enabled == 1){
-		html += '<br/>Level:&nbsp;<span class="thingOwned"><b><span id="' + what + 'Owned">' + ((game.options.menu.formatPerkLevels.enabled) ? prettify(portUpgrade.level) : portUpgrade.level) + '</span></b>';
-		if (!portUpgrade.max || portUpgrade.max > portUpgrade.level + portUpgrade.levelTemp) html += "<br/>Price: <span id='" + what + "Price'>" + prettify(getPortalUpgradePrice(what)) + "</span>";
-		else html += "<br/>Price: <span id='" + what + "Price'>Max</span>";
-		html += '<br/>Spent: <span id="' + what + 'Spent">' + prettify(portUpgrade.heliumSpent + portUpgrade.heliumSpentTemp) + '</span>';
+		html += '<br/>等级:&nbsp;<span class="thingOwned"><b><span id="' + what + 'Owned">' + ((game.options.menu.formatPerkLevels.enabled) ? prettify(portUpgrade.level) : portUpgrade.level) + '</span></b>';
+		if (!portUpgrade.max || portUpgrade.max > portUpgrade.level + portUpgrade.levelTemp) html += "<br/>价格: <span id='" + what + "Price'>" + prettify(getPortalUpgradePrice(what)) + "</span>";
+		else html += "<br/>价格: <span id='" + what + "Price'>最大</span>";
+		html += '<br/>花费: <span id="' + what + 'Spent">' + prettify(portUpgrade.heliumSpent + portUpgrade.heliumSpentTemp) + '</span>';
 		}
-		else html += '<br/><span class="thingOwned">Lv:&nbsp;<span id="' + what + 'Owned">' + ((game.options.menu.formatPerkLevels.enabled) ? prettify(portUpgrade.level) : portUpgrade.level) + '</span>';
+		else html += '<br/><span class="thingOwned">等级:&nbsp;<span id="' + what + 'Owned">' + ((game.options.menu.formatPerkLevels.enabled) ? prettify(portUpgrade.level) : portUpgrade.level) + '</span>';
 		html += '</span></div>';
 		elem.innerHTML += html;
 		updatePerkColor(what);
@@ -1749,7 +1749,7 @@ function resetPresets(){
 	for (var x = 1; x <= 3; x++){
 		var preset = game.global["perkPreset" + x];
 		swapClass('tab', 'tabNotSelected', document.getElementById('presetTab' + x));
-		document.getElementById('presetTab' + x + 'Text').innerHTML = (preset.Name) ? preset.Name : "Preset " + x;
+		document.getElementById('presetTab' + x + 'Text').innerHTML = (preset.Name) ? preset.Name : "预设 " + x;
 	}
 }
 
@@ -1764,7 +1764,7 @@ function savePerkPreset(){
 	}
 	if (game.global["perkPreset" + to].Name) saved.Name = game.global["perkPreset" + to].Name;
 	game.global["perkPreset" + to] = saved;
-	document.getElementById('presetTab' + to + 'Text').innerHTML = ((saved.Name) ? saved.Name : "Preset " + to);
+	document.getElementById('presetTab' + to + 'Text').innerHTML = ((saved.Name) ? saved.Name : "预设 " + to);
 }
 
 function renamePerkPreset(needTooltip, name){
@@ -1780,7 +1780,7 @@ function renamePerkPreset(needTooltip, name){
 	cancelTooltip();
 	for (var x = 1; x <= 3; x++){
 		var preset = game.global["perkPreset" + x];
-		document.getElementById('presetTab' + x + 'Text').innerHTML = (preset.Name) ? preset.Name : "Preset " + x;
+		document.getElementById('presetTab' + x + 'Text').innerHTML = (preset.Name) ? preset.Name : "预设 " + x;
 	}
 }
 
@@ -10759,20 +10759,20 @@ function purchaseMisc(what){
 function resetOnePortalRewards() {
 	if (game.unlocks.goldMaps) {
 		document.getElementById("mapsPurchaseBtn").style.backgroundColor = "#337ab7";
-		document.getElementById("goldMapsDesc").innerHTML = "All of your current and future maps will gain +100% loot <b>Until your next portal</b>";
+		document.getElementById("goldMapsDesc").innerHTML = "所有你现在和未来的地图都将获得+ 100%的战利品 <b>直到你的下一个传送门</b>";
 	}
 	if (game.unlocks.quickTrimps) {
 		document.getElementById("trimpsPurchaseBtn").style.backgroundColor = "#337ab7";
-		document.getElementById("quickTrimpsDesc").innerHTML = "All of your Trimps will breed 2x faster <br/><b>Until your next portal</b>";
+		document.getElementById("quickTrimpsDesc").innerHTML = "你的所有脆皮繁殖出速度x2。 <br/><b>直到你的下一个传送门</b>";
 	}
 }
 
 function successPurchaseFlavor(){
-	document.getElementById("boneFlavorRow").innerHTML = "The Bone Trader takes the bones, casts a spell, then begins to make soup";
+	document.getElementById("boneFlavorRow").innerHTML = "骨法商人拿走了骨头，施展法术，然后开始做汤";
 }
 
 function updateBones() {
-	document.getElementById("bonesOwned").innerHTML = prettify(game.global.b) + " " + ((game.global.b == 1) ? "Bone" : "Bones");
+	document.getElementById("bonesOwned").innerHTML = prettify(game.global.b) + " " + ((game.global.b == 1) ? "骨头" : "骨头");
 	updateSkeleBtn();
 }
 
@@ -12350,6 +12350,42 @@ function cnresourcetype(type){
         return type;
     }
     return cnresourcetype;
+}
+function cntequan(what){
+    //汉化地图资源类型
+    var cntequan="";
+    var temp=what;
+    if(temp=="Agility"){
+        cntequan="敏捷"
+    }else if(temp=="Bait"){
+        cntequan="诱饵"
+    }else if(temp=="Pheromones"){
+        cntequan="信息素"
+    }else if(temp=="Packrat"){
+        cntequan="包装"
+    }else if(temp=="Motivation"){
+        cntequan="动机"
+    }else if(temp=="Power"){
+        cntequan="力量"
+    }else if(temp=="Toughness"){
+        cntequan="坚韧"
+    }else if(temp=="Looting"){
+        cntequan="抢劫"
+    }else if(temp=="Trumps"){
+        cntequan="法宝"
+    }else if(temp=="Discipline"){
+        //从这里开始是时间传送门下的按钮
+        cntequan="纪律"
+    }else if(temp=="Metal"){
+        cntequan="金属"
+    }else if(temp=="Size"){
+        cntequan="尺寸"
+    }else if(temp=="Balance"){
+        cntequan="平衡"
+    }else{
+        return what;
+    }
+    return cntequan;
 }
 
 load();

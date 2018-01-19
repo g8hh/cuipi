@@ -102,16 +102,16 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 			eval(attachFunction);
 			return;
 		}
-		var btnText = "Make Purchase";
+		var btnText = "购买";
 		if (numCheck && game.global.b < numCheck){
 			if (typeof kongregate === 'undefined') return;
-			tooltipText = "You can't afford this bonus. Would you like to visit the shop?";
+			tooltipText = "你付不起这笔奖金。你想去参观商店吗?";
 			attachFunction = "showPurchaseBones()";
-			btnText = "Visit Shop";
+			btnText = "访问商店";
 		}
 		else
 		tooltipText = textString;
-		costText += '<div class="maxCenter"><div id="confirmTooltipBtn" class="btn btn-info" onclick="' + attachFunction + '; cancelTooltip()">' + btnText + '</div><div class="btn btn-info" onclick="cancelTooltip()">Cancel</div></div>';
+		costText += '<div class="maxCenter"><div id="confirmTooltipBtn" class="btn btn-info" onclick="' + attachFunction + '; cancelTooltip()">' + btnText + '</div><div class="btn btn-info" onclick="cancelTooltip()">取消</div></div>';
 		game.global.lockTooltip = true;
 		elem.style.left = "33.75%";
 		elem.style.top = "25%";
@@ -126,7 +126,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		else text += ' 如果您出于任何原因需要联系开发人员, <a href="https://www.reddit.com/message/compose/?to=Brownprobe" target="_blank">点击这里在Reddit上发送消息</a> 或在脆皮Discord中找到GreenSatellite。<hr/><br/>' + "如果您想捐款来帮助支持脆皮的发展，现在可以使用PayPal来实现这一点！ 如果你想捐助，但无法承担捐款，你仍然可以通过加入社区，分享你的反馈意见或帮助他人。 谢谢你，你太棒了！ <form id='donateForm' style='text-align: center' action='https://www.paypal.com/cgi-bin/webscr' method='post' target='_blank'><input type='hidden' name='cmd' value='_s-xclick'><input type='hidden' name='hosted_button_id' value='MGFEJS3VVJG6U'><input type='image' src='https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online!'><img alt='' border='0' src='https://www.paypalobjects.com/en_US/i/scr/pixel.gif' width='1' height='1'></form>";
 		text += '</div>';
 		tooltipText = text;
-		costText = '<div class="btn btn-info" onclick="cancelTooltip()">Close</div>';
+		costText = '<div class="btn btn-info" onclick="cancelTooltip()">关闭</div>';
 		game.global.lockTooltip = true;
 		elem.style.left = "33.75%";
 		elem.style.top = "25%";
@@ -251,7 +251,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 	}
 	if (what == "AutoGolden Unlocked"){
 		tooltipText = "<p>Your Trimps have extracted and processed hundreds of Golden Upgrades by now, and though you're still nervous to leave things completely to them, you figure they can probably handle doing this on their own as well. You find the nearest Trimp and ask if he could handle buying Golden Upgrades on his own, as long as you told him which ones to buy. You can tell by the puddle of drool rapidly gaining mass at his feet that this is going to take either magic or a lot of hard work.</p><p>You can't find any magic anywhere, so you decide to found Trimp University, a school dedicated to teaching Trimps how to extract the might of Golden Upgrades without any assistance. Weeks go by while you and your Trimps work tirelessly to set up the University, choosing only the finest building materials and hiring only the most renowned Foremen to draw the plans. Just as you're finishing up, a Scientist stops by, sees what you're doing, and offers to just handle the Golden Upgrades instead. Probably should have just asked one of them first.</p><p><b>You have unlocked AutoGolden!</b></p>";
-		costText = "<div class='maxCenter'><div id='confirmTooltipBtn' class='btn btn-info' onclick='cancelTooltip()'>Close</div></div>";
+		costText = "<div class='maxCenter'><div id='confirmTooltipBtn' class='btn btn-info' onclick='cancelTooltip()'>关闭</div></div>";
 		game.global.lockTooltip = true;
 		elem.style.left = "33.75%";
 		elem.style.top = "25%";
@@ -272,27 +272,27 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 	}
 	if (what == "Perk Preset"){
 		if (textString == "Save"){
-			what = "Save Perk Preset";
-			tooltipText = "Click to save your current perk loadout to the selected preset";
+			what = "保存额外福利预设";
+			tooltipText = "点击把你当前的额外福利放在选定的预设值上";
 		}
 		else if (textString == "Rename"){
-			what = "Rename Perk Preset";
-			tooltipText = "Click to set a name for your currently selected perk preset";
+			what = "重命名额外福利预设";
+			tooltipText = "点击为当前选中的额外福利设置一个名称";
 		}
 		else if (textString == "Load"){
-			what = "Load Perk Preset";
-			tooltipText = "Click to load your currently selected perk preset.";
-			if (!game.global.respecActive) tooltipText += " <p class='red'>You must have your Respec active to load a preset!</p>";
+			what = "加载额外福利预设";
+			tooltipText = "点击载入当前选中的额外福利预设。";
+			if (!game.global.respecActive) tooltipText += " <p class='red'>您必须有相应的激活才能加载预置!</p>";
 		}
 		else if (textString > 0 && textString <= 3){
 			var preset = game.global["perkPreset" + textString];
 			if (typeof preset === 'undefined') return;
-			what = (preset.Name) ? "Preset: " + preset.Name : "Preset " + textString;
+			what = (preset.Name) ? "预设: " + preset.Name : "预设 " + textString;
 			if (isObjectEmpty(preset)){
-				tooltipText = "<span class='red'>This Preset slot is empty!</span> Select this slot and then click 'Save' to save your current Perk configuration to this slot. You'll be able to load this configuration back whenever you want, as long as you have your Respec active.";
+				tooltipText = "<span class='red'>这个预设槽是空的!</span> 选择这个插槽，然后点击“保存”，将当前的额外福利配置保存到这个槽中。只要您愿意，您就可以随时加载该配置，只要您有您的响应。";
 			}
 			else{
-				tooltipText = "<p style='font-weight: bold'>This Preset holds:</p>";
+				tooltipText = "<p style='font-weight: bold'>这种预设:</p>";
 				var count = 0;
 				for (var item in preset){
 					if (item == "Name") continue;
@@ -306,11 +306,11 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 	if (what == "Rename Preset"){
 		what == "Rename Preset " + selectedPreset;
 		tooltipText = "Type a name below for your Perk Preset! This name will show up on the Preset bar and make it easy to identify which Preset is which."
-		if (textString) tooltipText += " <b>Max of 1,000 for most perks</b>";
+		if (textString) tooltipText += " <b>额外福利最多可以达到 1,000。</b>";
 		var preset = game.global["perkPreset" + selectedPreset];
 		var oldName = (preset && preset.Name) ? preset.Name : "";
 		tooltipText += "<br/><br/><input id='renamePresetBox' maxlength='25' style='width: 50%' value='" + oldName + "' />";
-		costText = "<div class='maxCenter'><div id='confirmTooltipBtn' class='btn btn-info' onclick='renamePerkPreset()'>Apply</div><div class='btn btn-info' onclick='cancelTooltip()'>取消</div></div>";
+		costText = "<div class='maxCenter'><div id='confirmTooltipBtn' class='btn btn-info' onclick='renamePerkPreset()'>确认</div><div class='btn btn-info' onclick='cancelTooltip()'>取消</div></div>";
 		game.global.lockTooltip = true;
 		elem.style.left = "33.75%";
 		elem.style.top = "25%";
@@ -348,11 +348,11 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		costText = "";
 	}
 	if (what == "Challenge2"){
-		what = "Challenge<sup>2</sup>";
+		what = "挑战<sup>2</sup>";
 		tooltipText = "";
 		if (!textString)
-		tooltipText = "<p>Click to toggle a challenge mode for your challenges!</p>";
-		tooltipText += "<p>In Challenge<sup>2</sup> mode, you can re-run some challenges in order to earn a permanent attack, health, and Helium bonus for your Trimps. MOST Challenge<sup>2</sup>s will grant <b>" + squaredConfig.rewardEach + "% attack and health and " + prettify(squaredConfig.rewardEach / 10) + "% increased Helium for every " + squaredConfig.rewardFreq + " zones reached. Every " + squaredConfig.thresh + " zones, the attack and health bonus will increase by an additional 1%, and the Helium bonus will increase by 0.1%</b>. This bonus is additive with all available Challenge<sup>2</sup>s, and your highest zone reached for each challenge is saved and used.</p><p><b>No Challenge<sup>2</sup>s end at any specific zone</b>, they can only be completed by using your portal or abandoning through the 'View Perks' menu. However, <b>no Helium can drop, and no bonus Helium will be earned during or after the run</b>. Void Maps will still drop heirlooms, and all other currency can still be earned.</p><p>You are currently gaining " + prettify(game.global.totalSquaredReward) + "% extra attack and health, and are gaining " + prettify(game.global.totalSquaredReward / 10) + "% extra Helium thanks to your Challenge<sup>2</sup> bonus.</p>";
+		tooltipText = "<p>单击以切换到挑战模式，迎接您的挑战!</p>";
+		tooltipText += "<p>在挑战<sup>2</sup> 模式中, you can re-run some challenges in order to earn a permanent attack, health, and Helium bonus for your Trimps. MOST Challenge<sup>2</sup>s will grant <b>" + squaredConfig.rewardEach + "% attack and health and " + prettify(squaredConfig.rewardEach / 10) + "% increased Helium for every " + squaredConfig.rewardFreq + " zones reached. Every " + squaredConfig.thresh + " zones, the attack and health bonus will increase by an additional 1%, and the Helium bonus will increase by 0.1%</b>. This bonus is additive with all available Challenge<sup>2</sup>s, and your highest zone reached for each challenge is saved and used.</p><p><b>No Challenge<sup>2</sup>s end at any specific zone</b>, they can only be completed by using your portal or abandoning through the 'View Perks' menu. However, <b>no Helium can drop, and no bonus Helium will be earned during or after the run</b>. Void Maps will still drop heirlooms, and all other currency can still be earned.</p><p>You are currently gaining " + prettify(game.global.totalSquaredReward) + "% extra attack and health, and are gaining " + prettify(game.global.totalSquaredReward / 10) + "% extra Helium thanks to your Challenge<sup>2</sup> bonus.</p>";
 		if (game.talents.headstart.purchased) tooltipText += "<p><b>Note that your Headstart mastery will be disabled during Challenge<sup>2</sup> runs.</b></p>";
 		costText = "";
 	}
@@ -522,27 +522,27 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		costText = (soldiers > 1) ? "s" : "";
 		costText = prettify(soldiers) + " Trimp" + costText;
 	}
-	if (what == "AutoFight"){
+	if (what == "自动战斗"){
 		tooltipText = "允许这些异形们开始自己去战斗，当他们的小镇变得拥挤不堪的时候。(热键: A)";
 		costText = "";
 	}
 	if (what == "New Achievements"){
-		tooltipText = "The universe has taken an interest in your achievements, and has begun tracking them. You already have some completed thanks to your previous adventures, would you like to see them?";
-		costText = "<div class='maxCenter'><div class='btn btn-success' onclick='toggleAchievementWindow(); cancelTooltip()'>Check Achievements</div> <div class='btn btn-danger' onclick='cancelTooltip()'>No, That Sounds Dumb</div></div>";
+		tooltipText = "宇宙已对您的成就表示关注，并开始跟踪您的成就。你已经完成了一些之前的冒险，你想看看吗?";
+		costText = "<div class='maxCenter'><div class='btn btn-success' onclick='toggleAchievementWindow(); cancelTooltip()'>查看成就</div> <div class='btn btn-danger' onclick='cancelTooltip()'>不，听起来很蠢。</div></div>";
 		game.global.lockTooltip = true;
 		elem.style.left = "33.75%";
 		elem.style.top = "25%";
 	}
 	if (what == "Upgrade Generator"){
 		tooltipText = getGeneratorUpgradeHtml();
-		costText = "<b style='color: red'>These upgrades persist through portal and cannot be refunded. Choose wisely! " + getMagmiteDecayAmt() + "% of your unspent Magmite will decay on portal.</b><br/><br/><div class='maxCenter'><span class='btn btn-info' onclick='cancelTooltip()'>Close</span></div>";
+		costText = "<b style='color: red'>These upgrades persist through portal and cannot be refunded. Choose wisely! " + getMagmiteDecayAmt() + "% of your unspent Magmite will decay on portal.</b><br/><br/><div class='maxCenter'><span class='btn btn-info' onclick='cancelTooltip()'>关闭</span></div>";
 		game.global.lockTooltip = true;
 		elem.style.left = "33.75%";
 		elem.style.top = "25%";
 		ondisplay = function(){
 			updateGeneratorUpgradeHtml();
 		};
-		titleText = "<div id='generatorUpgradeTitle'>Upgrade Generator</div><div id='magmiteOwned'></div>";
+		titleText = "<div id='generatorUpgradeTitle'>升级生成器</div><div id='magmiteOwned'></div>";
 	}
 	if (what == "Queue"){
 		tooltipText = "在你的队列里有一个建筑，您需要点击 \"Build\" 去完成建造的工作。 点击队列里的项目将会取消它,并且资源将全额退还。";
@@ -577,7 +577,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 	}
 	if (what == "Max"){
 		tooltipText = "No reason to spend everything in one place! Here you can set the ratio of your resources to spend when using the 'Max' button. Setting this to 0.5 will spend no more than half of your resources per click, etc."
-		costText = "<ul id='buyMaxUl'><li onclick='setMax(1)'>Max</li><li onclick='setMax(0.5)'>0.5</li><li onclick='setMax(0.33)'>0.33</li><li onclick='setMax(0.25)'>0.25</li><li onclick='setMax(0.1)'>0.1</li></ul>";
+		costText = "<ul id='buyMaxUl'><li onclick='setMax(1)'>最大</li><li onclick='setMax(0.5)'>0.5</li><li onclick='setMax(0.33)'>0.33</li><li onclick='setMax(0.25)'>0.25</li><li onclick='setMax(0.1)'>0.1</li></ul>";
 		game.global.lockTooltip = true;
 		elem.style.left = "33.75%";
 		elem.style.top = "25%";
@@ -696,14 +696,14 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		if (!perkItem.max || perkItem.max > perkItem.level + perkItem.levelTemp) costText = prettify(getPortalUpgradePrice(what)) + resAppend;
 		else costText = "";
 		if (game.global.buyAmt > 1) what += " X " + game.global.buyAmt;
-		tooltipText += " <b>(You have spent " + prettify(perkItem.heliumSpent + perkItem.heliumSpentTemp) + " Helium on this Perk)</b>";
+		tooltipText += " <b>(你需要花费 " + prettify(perkItem.heliumSpent + perkItem.heliumSpentTemp) + " 氦在这个附带福利上)</b>";
 		what = what.replace("_", " ");
 	}
 	if (isItIn == "equipment"){
 		costText = canAffordBuilding(what, false, true, true);
 		if (what == "Shield" && game.equipment.Shield.blockNow){
 			var blockPerShield = game.equipment.Shield.blockCalculated + (game.equipment.Shield.blockCalculated * game.jobs.Trainer.owned * (game.jobs.Trainer.modifier / 100));
-			tooltipText += " (" + prettify(blockPerShield) + " after Trainers)";
+			tooltipText += " (" + prettify(blockPerShield) + " 经过培训)";
 		}
 		if (game.global.buyAmt != 1) {
 			what += " X " + ((game.global.buyAmt == "Max") ? calculateMaxAfford(game.equipment[what], false, true) : game.global.buyAmt);
@@ -716,7 +716,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 			return;
 		}
 		if (typeof tooltipText.split('@')[1] !== 'undefined'){
-			var prestigeCost = "<b>你可能不想这样做。</b> Your next " + game.upgrades[what].prestiges + " will grant " + getNextPrestigeValue(what) + ".";
+			var prestigeCost = "<b>你可能不想这样做。</b> 你的下一 " + game.upgrades[what].prestiges + " 将授予 " + getNextPrestigeValue(what) + "。";
 			tooltipText = tooltipText.replace('@', prestigeCost);
 		}
 		if (typeof tooltipText.split('$')[1] !== 'undefined'){
@@ -4417,6 +4417,28 @@ function cntitle(tit){
         cntit="遗传学家助手";
     }else if(what=="Geneticist"){
         cntit="遗传学家";
+    }else if(what=="Agility"){
+        cntit="敏捷"
+    }else if(what=="Bait"){
+        cntit="诱饵"
+    }else if(what=="Pheromones"){
+        cntit="信息素"
+    }else if(what=="Packrat"){
+        cntit="包装"
+    }else if(what=="Motivation"){
+        cntit="动机"
+    }else if(what=="Power"){
+        cntit="力量"
+    }else if(what=="Toughness"){
+        cntit="坚韧"
+    }else if(what=="Looting"){
+        cntit="抢劫"
+    }else if(what=="Trumps"){
+        cntit="法宝"
+    }else if(what=="Custom"){
+        cntit="自定义"
+    }else if(what=="Confirm Purchase"){
+        cntit="确认购买"
     }else{
         cntit=tit
     }
