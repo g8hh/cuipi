@@ -869,7 +869,7 @@ var toReturn = {
 	},
 	talents: {
 		bionic: {
-			description: "<p>Automatically pick up each level of Bionic Wonderland (BW) as you pass a BW zone. Will not work if you have already missed any BWs this run, or if you reach a zone higher than any BW you have ever cleared before.</p><p>In addition, give all current and future copies of Bionic Wonderland the 'Fast Attacks' special modifier.</p>",
+			description: "<p>Automatically pick up each level of 仿生仙境 (BW) as you pass a BW zone. Will not work if you have already missed any BWs this run, or if you reach a zone higher than any BW you have ever cleared before.</p><p>In addition, give all current and future copies of 仿生仙境 the 'Fast Attacks' special modifier.</p>",
 			name: "Bionic Magnet",
 			onPurchase: function (clear) {
 				addMapModifier('Bionic', 'fa');
@@ -1175,7 +1175,7 @@ var toReturn = {
 			icon: "align-justify"
 		},
 		voidSpecial: {
-			description: "使用您的门户清除上次运行的每个100个区域后，获得1个免费的虚空地图。 来自虚空地图的氦气在上一次清除的每个区域也增加了0.25％。",
+			description: "使用您的传送门清除上次运行的每个100个区域后，获得1个免费的虚空地图。 来自虚空地图的氦气在上一次清除的每个区域也增加了0.25％。",
 			name: "Void Specialization",
 			tier: 8,
 			purchased: false,
@@ -1374,7 +1374,7 @@ var toReturn = {
 			modifier: 0.1,
 			priceBase: 25,
 			heliumSpent: 0,
-			tooltip: "你已经建了很多房子，而且你已经做得很好了。 通过门户网站将您在建筑方面的专业知识带回来，将使您能够在每个级别上存放比当前数量多10％的脆皮（复合）。"
+			tooltip: "你已经建了很多房子，而且你已经做得很好了。 通过传送门将您在建筑方面的专业知识带回来，将使您能够在每个级别上存放比当前数量多10％的脆皮（复合）。"
 		},
 		Artisanistry: {
 			level: 0,
@@ -1398,7 +1398,7 @@ var toReturn = {
 			modifier: 0.05,
 			priceBase: 4,
 			heliumSpent: 0,
-			tooltip: "把你的门户搞成超速，需要额外的氦气，但是增加了宇宙的时钟速度。 每个级别都会将脆皮与坏人的攻击间隔缩短5％（复合）。 最高20级。",
+			tooltip: "把你的传送门搞成超速，需要额外的氦气，但是增加了宇宙的时钟速度。 每个级别都会将脆皮与坏人的攻击间隔缩短5％（复合）。 最高20级。",
 			max: 20
 		},
 		Bait: {
@@ -1503,17 +1503,17 @@ var toReturn = {
 			unlockString: "reach Zone 100"
 		},
 		Discipline: {
-			description: "调整门户网站，让你回到脆皮不那么被训练的世界，以教你如何做一个更好的脆皮教练。 你的脆皮的最小伤害将大大降低，但是他们的极限伤害会更高。 完成愤怒维度将导致脆皮伤害恢复正常。",
+			description: "调整传送门，让你回到脆皮不那么被训练的世界，以教你如何做一个更好的脆皮教练。 你的脆皮的最小伤害将大大降低，但是他们的极限伤害会更高。 完成愤怒维度将导致脆皮伤害恢复正常。",
 			filter: function () {
 				return (game.resources.helium.owned >= 30 || game.global.totalHeliumEarned >= 30);
 			},
 			allowSquared: true,
-			squaredDescription: "调整门户网站，让你回到脆皮不那么被训练的世界，以教你如何做一个更好的脆皮教练。 你的脆皮的最小伤害将大大降低，但是他们的极限伤害会更高。",
+			squaredDescription: "调整传送门，让你回到脆皮不那么被训练的世界，以教你如何做一个更好的脆皮教练。 你的脆皮的最小伤害将大大降低，但是他们的极限伤害会更高。",
 			unlocks: "Range",
 			unlockString: "have 30 total helium"
 		},
 		Metal: {
-			description: "调整门户把你带到另一个现实，那里的矿工的概念不存在，迫使自己变得节俭与设备各具特色的战略。如果你在没有削弱挑战的情况下完成了愤怒的维度，矿工将重新解锁。",
+			description: "调整传送门把你带到另一个现实，那里的矿工的概念不存在，迫使自己变得节俭与设备各具特色的战略。如果你在没有削弱挑战的情况下完成了愤怒的维度，矿工将重新解锁。",
 			completed: false,
 			filter: function () {
 				return (game.global.highestLevelCleared >= 24);
@@ -1538,7 +1538,7 @@ var toReturn = {
 					unlockUpgrade("Magmamancers");
 			},
 			allowSquared: true,
-			squaredDescription: "调整门户把你带到另一个现实，那里的矿工的概念不存在，迫使自己变得节俭与设备各具特色的战略。",
+			squaredDescription: "调整传送门把你带到另一个现实，那里的矿工的概念不存在，迫使自己变得节俭与设备各具特色的战略。",
 			fireAbandon: false,
 			heldBooks: 0,
 			heldMegaBooks: 0,
@@ -1547,7 +1547,7 @@ var toReturn = {
 			unlockString: "reach Zone 25"
 		},
 		Size: {
-			description: "调整门户网站，让你进入另一个现实，在那里脆皮越来越强大，迫使自己想出一个方法来建造更大的房屋。 你的脆皮会多收集50％的资源，但你的住房将少50％的脆皮。 如果您完成“愤怒的维度”，你的数据将恢复正常。",
+			description: "调整传送门，让你进入另一个现实，在那里脆皮越来越强大，迫使自己想出一个方法来建造更大的房屋。 你的脆皮会多收集50％的资源，但你的住房将少50％的脆皮。 如果您完成“愤怒的维度”，你的数据将恢复正常。",
 			completed: false,
 			filter: function () {
 				return (game.global.world >= 35 || game.global.highestLevelCleared >= 34);
@@ -1565,7 +1565,7 @@ var toReturn = {
 				game.resources.trimps.maxMod = 0.5;
 			},
 			allowSquared: true,
-			squaredDescription: "调整门户网站，让你进入另一个现实，在那里脆皮越来越强大，迫使自己想出一个方法来建造更大的房屋。 你的脆皮会多收集50％的资源，但你的住房将少50％的脆皮。",
+			squaredDescription: "调整传送门，让你进入另一个现实，在那里脆皮越来越强大，迫使自己想出一个方法来建造更大的房屋。 你的脆皮会多收集50％的资源，但你的住房将少50％的脆皮。",
 			fireAbandon: true,
 			unlocks: "Carpentry",
 			unlockString: "reach Zone 35"
@@ -1763,7 +1763,7 @@ var toReturn = {
 			unlockString: "clear 'The Prison' at Zone 80"
 		},
 		Frugal: {
-			description: "Bring yourself to a dimension where Equipment is cheap but unable to be prestiged, in order to teach yourself better resource and equipment management. Completing <b>'Dimension of Anger' (20)</b> with this challenge active will return missing books to maps, and your new skills in Frugality will permanently cause MegaBooks to increase gather speed by 60% instead of 50%.",
+			description: "Bring yourself to a dimension where Equipment is cheap but unable to be prestiged, in order to teach yourself better resource and equipment management. Completing <b>'愤怒的维度' (20)</b> with this challenge active will return missing books to maps, and your new skills in Frugality will permanently cause MegaBooks to increase gather speed by 60% instead of 50%.",
 			completed: false,
 			filter: function () {
 				return (game.global.highestLevelCleared >= 99);
@@ -1828,7 +1828,7 @@ var toReturn = {
 			difficultyIncrease: 3
 		},
 		Coordinate: {
-			description: "Visit a dimension where Bad Guys are Coordinated but never fast, to allow you to study naturally evolved Coordination. Completing <b>'Dimension of Anger' (20)</b> with this challenge active will cause all enemies to lose their Coordination.",
+			description: "Visit a dimension where Bad Guys are Coordinated but never fast, to allow you to study naturally evolved Coordination. Completing <b>'愤怒的维度' (20)</b> with this challenge active will cause all enemies to lose their Coordination.",
 			completed: false,
 			allowSquared: true,
 			squaredDescription: "Visit a dimension where Bad Guys are Coordinated but never fast, chip 'em down!",
@@ -1841,7 +1841,7 @@ var toReturn = {
 			unlockString: "reach Zone 120"
 		},
 		Crushed: {
-			description: "Journey to a dimension where the atmosphere is rich in helium, but Bad Guys have a 50% chance to Critical Strike for +400% damage unless your Block is as high as your current Health. Clearing <b>Bionic Wonderland (Z125)</b> will reward you with an additional 300% of all helium earned up to but not including Z125. This challenge is repeatable.",
+			description: "Journey to a dimension where the atmosphere is rich in helium, but Bad Guys have a 50% chance to Critical Strike for +400% damage unless your Block is as high as your current Health. Clearing <b>仿生仙境 (Z125)</b> will reward you with an additional 300% of all helium earned up to but not including Z125. This challenge is repeatable.",
 			completed: false,
 			filter: function () {
 				return (game.global.highestLevelCleared >= 124);
@@ -2033,7 +2033,7 @@ var toReturn = {
 			}
 		},
 		totalPortals: {
-			title: "使用的总门户数",
+			title: "使用的总传送门数",
 			display: function () {
 				return (game.global.totalPortals > 0);
 			},
@@ -2343,7 +2343,7 @@ var toReturn = {
 		},
 		portals: {
 			finished: 0,
-			title: "总门户",
+			title: "总传送门",
 			description: function (number) {
 				var s = (number > 0) ? "s" : "";
 				return "Use the Portal " + prettify(this.breakpoints[number]) + " time" + s;
@@ -2405,7 +2405,7 @@ var toReturn = {
 		},
 		totalHelium: {
 			finished: 0,
-			title: "Helium Collection",
+			title: "氦收集",
 			description: function (number) {
 				return "Gather " + prettify(this.breakpoints[number]) + " total Helium";
 			},
@@ -2427,15 +2427,15 @@ var toReturn = {
 		},
 		totalHeirlooms: {
 			finished: 0,
-			title: "Heirloom Collection",
+			title: "传家宝收藏",
 			description: function (number) {
 				var number = this.breakpoints[number];
-				var s = (number > 1) ? "s" : "";
-				return "Collect " + prettify(number) + " Heirloom" + s;
+				var s = (number > 1) ? "" : "";
+				return "收集了 " + prettify(number) + " 传家宝" + s;
 			},
 			progress: function () {
 				if (this.breakpoints.length > this.finished) return this.evaluate() + " / " + this.breakpoints[this.finished];
-				return prettify(this.evaluate()) + " total";
+				return prettify(this.evaluate()) + " 总计";
 			},
 			evaluate: function () {
 				return game.stats.totalHeirlooms.value + game.stats.totalHeirlooms.valueTotal;
@@ -2649,7 +2649,7 @@ var toReturn = {
 			title: "Speed: Bionic",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
-				return "<span style='font-size: .8em'>Clear Bionic Wonderland in less than " + number + " from start of run</span>";
+				return "<span style='font-size: .8em'>Clear 仿生仙境 in less than " + number + " from start of run</span>";
 			},
 			display: function () {
 				return (game.global.highestLevelCleared >= 79);
@@ -2797,8 +2797,8 @@ var toReturn = {
 		oneOffs: {
 			//Turns out this method of handling the feats does NOT scale well... adding stuff to the middle is a nightmare
 			finished: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-			title: "Feats",
-			descriptions: ["Reach Z30 with no respec and 60 or less He spent", "Have over 1M traps at once", "Die 50 times to a single Voidsnimp", "Beat Balance, never having more than 100 stacks", "Reach Zone 10 with 5 or fewer dead Trimps", "Reach exactly 1337 he/hr", "Attack 20 times without dying in Electricity", "Equip a magnificent or better Staff and Shield", "Reach Z60 with 1000 or fewer dead Trimps", "Reach Z120 without using manual research", "Reach Z75 without buying any housing", "Find an uncommon heirloom at Z146 or higher", "Spend over 250k total He on Wormholes", "Reach Z60 with rank III or lower equipment", "Kill an Improbability in one hit", "Beat a Lv 60+ Destructive Void Map with no deaths", "Beat Crushed without being crit past Z5", "Kill an enemy with 100 stacks of Nom", "Reach Z60 without hiring a single Trimp", "Complete a zone above 99 without falling below 150 stacks on Life", "Spend at least 10 minutes breeding an army with Geneticists", "Beat Toxicity, never having more than 400 stacks", "Own 100 of all housing buildings", "Overkill every possible world cell before Z60", "Complete Watch without entering maps or buying Nurseries", "Equip a Magmatic Staff and Shield", "Bring a world enemy's attack below 1", "Complete Lead with 1 or fewer Gigastations", "Complete Corrupted without Geneticists", "Complete The Spire with 0 deaths", "Overkill an Omnipotrimp", "Defeat a Healthy enemy with 200 stacks of wind", "Earn a Challenge<sup>2</sup> bonus of 2000%", "Complete a Bionic Wonderland map 45 levels higher than your zone number", "Beat the Spire with no respec and less than 100M He Spent", "Defeat an enemy on Obliterated"],
+			title: "光辉事迹",
+			descriptions: ["抵达 Z30 with no respec and 60 or less He spent", "Have over 1M traps at once", "Die 50 times to a single Voidsnimp", "Beat Balance, never having more than 100 stacks", "Reach Zone 10 with 5 or fewer dead Trimps", "Reach exactly 1337 he/hr", "Attack 20 times without dying in Electricity", "Equip a magnificent or better Staff and Shield", "Reach Z60 with 1000 or fewer dead Trimps", "Reach Z120 without using manual research", "Reach Z75 without buying any housing", "Find an uncommon heirloom at Z146 or higher", "Spend over 250k total He on Wormholes", "Reach Z60 with rank III or lower equipment", "Kill an Improbability in one hit", "Beat a Lv 60+ Destructive Void Map with no deaths", "Beat Crushed without being crit past Z5", "Kill an enemy with 100 stacks of Nom", "Reach Z60 without hiring a single Trimp", "Complete a zone above 99 without falling below 150 stacks on Life", "Spend at least 10 minutes breeding an army with Geneticists", "Beat Toxicity, never having more than 400 stacks", "Own 100 of all housing buildings", "Overkill every possible world cell before Z60", "Complete Watch without entering maps or buying Nurseries", "Equip a Magmatic Staff and Shield", "Bring a world enemy's attack below 1", "Complete Lead with 1 or fewer Gigastations", "Complete Corrupted without Geneticists", "Complete The Spire with 0 deaths", "Overkill an Omnipotrimp", "Defeat a Healthy enemy with 200 stacks of wind", "Earn a Challenge<sup>2</sup> bonus of 2000%", "Complete a 仿生仙境 map 45 levels higher than your zone number", "Beat the Spire with no respec and less than 100M He Spent", "Defeat an enemy on Obliterated"],
 			tiers: [3, 3, 3, 3, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 8, 8, 8, 8],
 			description: function (number) {
 				return this.descriptions[number];
@@ -4350,11 +4350,11 @@ var toReturn = {
 			createMap: function(tier) {
 				game.global.bionicOwned++;
 				if (game.global.bionicOwned == 1)
-					message("You found a map to the Bionic Wonderland. Sounds fun!", "Story");
+					message("你发现了一个通往仿生仙境的地图。听起来很有趣!", "Story");
 				else
-					message("You found a map to an even more advanced version of the Bionic Wonderland! Looks scary... Your scientists remind you that you can only carry 3 of these incredibly heavy, metallic maps at a time.", "Story");
+					message("你找到了一个更高级版本的仿生仙境的地图!看起来很吓人……你的科学家提醒你，你一次只能携带3个非常重的金属地图。", "Story");
 				var roman = romanNumeral(tier + 1);
-				createMap(((tier * 15) + 125), "Bionic Wonderland " + roman, "Bionic", 3, 100, 2.6, true);
+				createMap(((tier * 15) + 125), "仿生仙境 " + roman, "Bionic", 3, 100, 2.6, true);
 				purgeBionics();
 			},
 			fire: function (fromTalent) {
@@ -4367,7 +4367,7 @@ var toReturn = {
 				if (bionicTier - 1 == game.global.roboTrimpLevel) {
 					if (game.global.roboTrimpLevel == 0){
 						cancelTooltip();
-						var text = "There seems to be a small RoboTrimp that you appear to have orphaned. You decide to take him with you, since you're pretty good at training stuff. He deals <b>20%</b> extra damage for you, and has a special ability. You can learn more about the special ability by hovering over the new <span class='icomoon icon-chain'></span> icon by your soldiers.<br/><br/>You also found a map to a more powerful version of the Bionic Wonderland. You would bet there's another RoboTrimp who needs 'rescuing' in there.";
+						var text = "There seems to be a small RoboTrimp that you appear to have orphaned. You decide to take him with you, since you're pretty good at training stuff. He deals <b>20%</b> extra damage for you, and has a special ability. You can learn more about the special ability by hovering over the new <span class='icomoon icon-chain'></span> icon by your soldiers.<br/><br/>You also found a map to a more powerful version of the 仿生仙境. You would bet there's another RoboTrimp who needs 'rescuing' in there.";
 						if (game.options.menu.tooltips.enabled == 0) text += '<br/><br/><b>Just a heads up</b>: You have tooltips disabled, so you will need to hold shift when you mouse over the <span class="icomoon icon-chain"></span> to read about it.';
 						tooltip('confirm', null, 'update', text, null, 'RoboTrimp');
 						game.global.roboTrimpLevel = 1;
@@ -4821,11 +4821,11 @@ var toReturn = {
 			level: [1, 15],
 			icon: "th-large",
 			canRunOnce: true,
-			title: "Bionic Wonderland",
+			title: "仿生仙境",
 			fire: function () {
 				message("你找到了一个地图通往映射到仿生仙境。 听起来很有趣！", "Story");
 				game.global.bionicOwned++;
-				createMap(125, "Bionic Wonderland", "Bionic", 3, 100, 2.6, true);
+				createMap(125, "仿生仙境", "Bionic", 3, 100, 2.6, true);
 			}
 		},
 		ImplodingStar: {
@@ -5895,7 +5895,7 @@ var toReturn = {
 			purchased: 0,
 			craftTime: 480,
 			AP: true,
-			tooltip: "另一个维度的门户，你的脆皮可以睡觉和工作. 可以住 $incby$ 脆皮。",
+			tooltip: "另一个维度的传送门，你的脆皮可以睡觉和工作. 可以住 $incby$ 脆皮。",
 			cost: {
 				fragments: [3000, 1.14],
 				gems: [20000, 1.14],
@@ -6385,7 +6385,7 @@ var toReturn = {
 			},
 			fire: function () {
 				message("你制作了一张通往愤怒次元的地图！应该会很有趣！", "Notices");
-				createMap(20, "Dimension of Anger", "Hell", 3, 100, 2.5, true, true);
+				createMap(20, "愤怒的维度", "Hell", 3, 100, 2.5, true, true);
 			}
 		},
 		Gymystic: { //25
@@ -6410,12 +6410,12 @@ var toReturn = {
 			locked: 1,
 			allowed: 0,
 			get tooltip (){
-				var text = "This book will teach your Robotrimp how to do a much better job of shrieking, allowing MagnetoShriek to be used on multiple Corrupted cells in addition to Improbabilities. Upgraded MagnetoShriek starts off only being able to affect 1 cell at a time, but each use after purchasing this upgrade will extend the bonus by one additional cell, up to a max of 5 cells (resets on portal). <br/><br/> Each new Bionic Wonderland clear starting at Z185 will permanently increase the cell count cap by 1.";
+				var text = "This book will teach your Robotrimp how to do a much better job of shrieking, allowing MagnetoShriek to be used on multiple Corrupted cells in addition to Improbabilities. Upgraded MagnetoShriek starts off only being able to affect 1 cell at a time, but each use after purchasing this upgrade will extend the bonus by one additional cell, up to a max of 5 cells (resets on portal). <br/><br/> Each new 仿生仙境 clear starting at Z185 will permanently increase the cell count cap by 1.";
 				var cap = 5;
 				if (game.global.roboTrimpLevel >= 5)
 					cap += game.global.roboTrimpLevel - 4;
 				var cleared = (game.global.roboTrimpLevel - 4);
-				text += " <b>You have cleared " + cleared + " Bionic Wonderland" + ((cleared == 1) ? "" : "s") + " at 185 or higher, and your MagnetoShriek cell count cap will be " + cap + "</b>";
+				text += " <b>You have cleared " + cleared + " 仿生仙境" + ((cleared == 1) ? "" : "s") + " at 185 or higher, and your MagnetoShriek cell count cap will be " + cap + "</b>";
 				return text;
 			}
 		},

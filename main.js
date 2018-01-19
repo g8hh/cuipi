@@ -210,7 +210,7 @@ function load(saveString, autoLoad, fromPf) {
         savegame = JSON.parse(LZString.decompressFromBase64(((fromImport) ? document.getElementById("importBox").value.replace(/(\r\n|\n|\r|\s)/gm,"") : saveString)));
         tooltip('hide');
 		if (!savegame) {
-			message("It looks like your import code isn't working properly. Please make sure that your export code is saved in a text file compatible with all of the characters. If you believe this code should be working, you can Email it to Trimpsgame@gmail.com and I will do my best to restore it for you!", "Notices");
+			message("看起来您的导入代码不能正常工作。请确保您的导出代码保存在与所有字符兼容的文本文件中。如果您认为这段代码应该有效，您可以将它发送到Trimpsgame@gmail.com，我将尽我最大的努力为您恢复它!", "Notices");
 			return false;
 		}
 		else if (fromImport){
@@ -224,29 +224,29 @@ function load(saveString, autoLoad, fromPf) {
 			unparsedSave = localStorage.getItem("trimpSave1");
 		}
 		catch (e) {
-			message("Your browser is preventing Trimps from accessing localStorage, and you will not be able to save or load your progress. Please check your browser settings to ensure that 3rd party cookies are not disabled, and that you're not using any addons that might interrupt storage! <br/><br/> AutoSave has been disabled to prevent damage to your save. If you previously had a save file, it should still be waiting for you once you fix your browser settings.", "Notices");
+			message("您的浏览器正在阻止脆皮访问浏览器的本地存储，您将无法保存或加载您的进程。请检查您的浏览器设置，以确保第三方cookie没有被禁用，并且您没有使用任何可能中断存储的插件! <br/><br/> 自动保存已被禁用，以防止对您的存档造成损害。如果您以前有一个保存文件，它应该还在等待您修复您的浏览器设置。", "Notices");
 			game.options.menu.autoSave.enabled = 0;
 			game.options.menu.autoSave.onToggle();
 			return false;
 		}
         if (unparsedSave !== null) savegame = JSON.parse(LZString.decompressFromBase64(unparsedSave));
 		else {
-			tooltip("Welcome", null, "update");
+			tooltip("欢迎", null, "update");
 			return false;
 		}
     }
 	if (typeof savegame === 'undefined' || savegame === null || typeof savegame.global === 'undefined') {
-		tooltip("Welcome", null, "update");
+		tooltip("欢迎", null, "update");
 		return false;
 	}
 	oldVersion = savegame.global.version;
 	betaV = savegame.global.betaV;
 	if (savegame.global.isBeta && !game.global.isBeta){
-		message("You can't import a save from the beta version to this version!", "Notices");
+		message("您不能把beta版的存档导入到这个版本!", "Notices");
 		return false;
 	}
 	if (oldVersion > game.global.version) {
-		message("Your save file is from a newer version of Trimps (v" + oldVersion + ") than what your computer is running (v" + game.global.version + "). Refresh or restart your browser!", "Notices");
+		message("您的存档文件来自一个比你当前脆皮的版本更新的 (v" + oldVersion + ")  当前脆皮版本是(v" + game.global.version + ")。 刷新或者重启你的浏览器!", "Notices");
 		return false;
 	}
 	resetGame();
@@ -261,7 +261,7 @@ function load(saveString, autoLoad, fromPf) {
         return false;
     }
 	else if (game.global.isBeta) {
-		message("Note: You are playing on the beta/dev version. You will be unable to export your save from this version to the live version, and this server may go down or change without warning. Thank you for helping test!", "Notices");
+		message("注意:您正在使用beta/dev版本。您将无法将您的save从这个版本导出到live版本，并且此服务器可能会在没有警告的情况下进行更改或更改。感谢您的帮助测试!", "Notices");
 		savegame.global.isBeta = true;
 	}
 	savegame.global.version = game.global.version;
@@ -403,11 +403,11 @@ function load(saveString, autoLoad, fromPf) {
 	if (oldVersion < 2.3){
 		if (game.global.highestLevelCleared >= 80) game.global.prisonClear++;
 		if (game.global.world >= 70) {
-			message("Welcome to 2.3! Since you are currently past zone 70, you have automatically unlocked the new Challenge - 'Trapper' and the new Job - 'Geneticist'", "Notices");
+			message("欢迎来到 2.3! 因为你现在已经70岁了，你已经自动开启了新的挑战——“猎人”和新工作——“遗传学家”", "Notices");
 			unlockJob("Geneticist");
 		}
 		else if (game.global.highestLevelCleared >= 69){
-			message("Welcome to 2.3! Since you have previously cleared up to at least zone 70, you have unlocked the new Challenge - 'Trapper'!", "Notices");
+			message("欢迎来到 2.3! 因为你之前已经清理了至少70区，你已经打开了新的挑战——“猎人”!", "Notices");
 		}
 	}
 	if (oldVersion < 2.7){
@@ -453,7 +453,7 @@ function load(saveString, autoLoad, fromPf) {
 	}
 	if (oldVersion < 2.9){
 		if (game.options.menu.showFullBreed.enabled == 2) game.options.menu.showFullBreed.enabled = 1;
-		if (game.global.totalPortals >= 5) message("Heavy use of the portal has created a chance for the Void to seep into your world. Be alert.", "Story", null, "voidMessage");
+		if (game.global.totalPortals >= 5) message("对传送门的大量使用创造了一个机会让它渗入你的世界。保持警惕。", "Story", null, "voidMessage");
 	}
 	if (oldVersion < 3){
 		game.global.heirloomSeed = getRandomIntSeeded(game.global.voidSeed, 0, 1000000);
@@ -643,7 +643,7 @@ function load(saveString, autoLoad, fromPf) {
         pauseFight(true);
     }
     for (var itemC in game.global.mapsOwnedArray) {
-		if (game.global.mapsOwnedArray[itemC].name == "Dimension of Anger") game.global.mapsOwnedArray[itemC].level = 20;
+		if (game.global.mapsOwnedArray[itemC].name == "愤怒的维度") game.global.mapsOwnedArray[itemC].level = 20;
         unlockMap(itemC);
     }
 	for (var messageBool in game.global.messages){
@@ -989,17 +989,17 @@ function portalClicked() {
 	fadeIn("portalWrapper", 10);
 	var titleText = "Time Portal";
 	if (game.global.sLevel >= 1) titleText += " Mk. " + romanNumeral(game.global.sLevel + 1);
-	var portalStory = (game.global.sLevel >= 1) ? "Helium goes in, victory comes out" : "Well, you did it. You followed your instincts through this strange world, made your way through the Dimension of Anger, and obtained this portal. But why? Maybe there will be answers through this portal... Your scientists tell you they can overclock it to bring more memories and items back, but they'll need helium to cool it.";
+	var portalStory = (game.global.sLevel >= 1) ? "Helium goes in, victory comes out" : "Well, you did it. You followed your instincts through this strange world, made your way through the 愤怒的维度, and obtained this portal. But why? Maybe there will be answers through this portal... Your scientists tell you they can overclock it to bring more memories and items back, but they'll need helium to cool it.";
 	document.getElementById("portalTitle").innerHTML = titleText;
 	document.getElementById("portalStory").innerHTML = portalStory;
 	document.getElementById("portalHelium").innerHTML = '<span id="portalHeliumOwned">' + prettify(game.resources.helium.owned + game.global.heliumLeftover) + '</span> 氦';
 	document.getElementById("totalHeliumEarned").innerHTML = prettify(game.global.totalHeliumEarned);
 	document.getElementById("totalPortals").innerHTML = game.global.totalPortals;
 	document.getElementById("activatePortalBtn").style.display = "inline-block";
-	document.getElementById("activatePortalBtn").innerHTML = "激活门户";
+	document.getElementById("activatePortalBtn").innerHTML = "激活传送门";
 	document.getElementById("challengeSquaredBonusAmt").innerHTML = prettify(game.global.totalSquaredReward);
 	document.getElementById("challengeDescription").style.height = (game.global.sLevel >= 1) ? "19vw" : "22.5vw";
-	document.getElementById("challengeDescriptionPre").innerHTML = (game.global.sLevel >= 1) ? "别忘了带个挑战。<br/>" : '在使用门户之前，还可以选择激活一个挑战。完成挑战会给你永久的奖励。您可以通过单击“查看特权”按钮随时放弃或查看进行的挑战。';
+	document.getElementById("challengeDescriptionPre").innerHTML = (game.global.sLevel >= 1) ? "别忘了带个挑战。<br/>" : '在使用传送门之前，还可以选择激活一个挑战。完成挑战会给你永久的奖励。您可以通过单击“查看特权”按钮随时放弃或查看进行的挑战。';
 	if (game.global.canRespecPerks) {
 		document.getElementById("respecPortalBtn").innerHTML = "天赋";
 		document.getElementById("respecPortalBtn").style.display = "inline-block";
@@ -1145,7 +1145,7 @@ function selectChallenge(what) {
 	swapClass('challengeDescription', descSize, document.getElementById('specificChallengeDescription'));
 
 	if (addChallenge !== null){
-		addChallenge.innerHTML = "You have the <b>" + what + " Challenge</b> active.";
+		addChallenge.innerHTML = "你有 <b>" + what + " 个挑战</b> 激活。";
 		addChallenge.className = (challengeSquaredMode) ? "colorSquared" : "";
 	}
 	if (what == "Daily") updateDailyClock();
@@ -1370,7 +1370,7 @@ function updatePortalChallengeAbandonButton(){
 		abandonElem.style.display = "inline-block";
 		if (game.global.challengeActive == "Daily") {
 			swapClass('btn-', 'btn-success', abandonElem);
-			abandonElem.innerHTML = "Finish Daily";
+			abandonElem.innerHTML = "完成日常";
 		}
 		else{
 			abandonElem.innerHTML = "放弃挑战";
@@ -1381,7 +1381,7 @@ function updatePortalChallengeAbandonButton(){
 }
 
 function displayPortalUpgrades(fromTab){
-	document.getElementById('ptabInfoText').innerHTML = (game.options.menu.detailedPerks.enabled) ? "Less Info" : "More Info";
+	document.getElementById('ptabInfoText').innerHTML = (game.options.menu.detailedPerks.enabled) ? "较少信息" : "更多信息";
 	toggleRemovePerks(true);
 	var elem = document.getElementById("portalUpgradesHere");
 	elem.innerHTML = "";
@@ -1580,7 +1580,7 @@ function checkOfflineProgress(noTip){
 		}
 		if (amt > 0){
 			resource.owned += amt;
-			textString = prettify(amt) + " " + resName + ", ";
+			textString = prettify(amt) + " " + cnresourcetype(resName) + ", ";
 			textArray.push(textString);
 			if (resName == "gems") game.stats.gemsCollected.value += amt;
 		}
@@ -1589,19 +1589,19 @@ function checkOfflineProgress(noTip){
 	textString = "当你离开时，你的异形生产了 ";
 	for (var y = 0; y < textArray.length; y++){
 		textString += textArray[y];
-		if (y == textArray.length -2) textString += "and ";
+		if (y == textArray.length -2) textString += "和 ";
 	}
 	textString = textString.slice(0, -2);
 	if (storageBought.length) {
-		textString += " <b>after buying</b> ";
+		textString += " <b>购买之后</b> ";
 		for (var z = 0; z < storageBought.length; z++){
 			textString += storageBought[z];
-			if (z == storageBought.length - 2) textString += "and ";
+			if (z == storageBought.length - 2) textString += "和 ";
 		}
 		textString = textString.slice(0, -2);
 	}
 	textString += ".";
-	if (!noTip) tooltip("Trustworthy Trimps", null, "update", textString);
+	if (!noTip) tooltip("守信的脆皮", null, "update", textString);
 	else savedOfflineText = textString;
 }
 
@@ -1696,7 +1696,7 @@ function activateClicked(){
 
 function enablePerkConfirmBtn(){
 	if (portalWindowOpen && game.global.selectedChallenge == "Daily") return;
-	document.getElementById("activatePortalBtn").innerHTML = "Confirm";
+	document.getElementById("activatePortalBtn").innerHTML = "确认";
 	document.getElementById("activatePortalBtn").style.display = "inline-block";
 }
 
@@ -1984,7 +1984,7 @@ function clearQueue(specific) {
 function activatePortal(){
 	if (game.global.selectedChallenge == "Daily"){
 		if (getDailyChallenge(readingDaily, false, true) !== nextDaily) {
-			document.getElementById("portalStory").innerHTML = "<span style='color: red'>自从你看以后，日常的挑战已经改变了。 挑战描述已刷新，点击激活门户运行它！</span>";
+			document.getElementById("portalStory").innerHTML = "<span style='color: red'>自从你看以后，日常的挑战已经改变了。 挑战描述已刷新，点击激活传送门运行它！</span>";
 			getDailyChallenge();
 			return;
 			}
@@ -10881,7 +10881,7 @@ function onPurchaseResult(result) {
 		var tooltipText = "Your purchase of ";
 		tooltipText += (split[0] > 0) ? split[0] + " bones has completed successfully!" : "the Exotic Imp-Ort Bundle has completed successfully, and your new bad guys will start spawning in your next zone/map!";
 		tooltipText += " Below is the export code for your save file. <b>Please copy, paste, and back this up to somewhere safe, just in case.</b> Thank you for your support!";
-		tooltip('Export', null, 'update', tooltipText);
+		tooltip('导出', null, 'update', tooltipText);
 		boneTemp.waitingFor = "";
 	}
 }
@@ -11985,7 +11985,7 @@ function runEverySecond(){
 	if (Math.floor(game.stats.heliumHour.value()) == 1337) giveSingleAchieve("Elite Feat");
 	//Display and stats
 	if (savedOfflineText && !game.global.lockTooltip) {
-		tooltip("Trustworthy Trimps", null, "update", savedOfflineText);
+		tooltip("守信的脆皮", null, "update", savedOfflineText);
 		savedOfflineText = "";
 	}
 	if (trimpStatsDisplayed) displayAllStats();
@@ -12205,7 +12205,7 @@ function cnstat(stat) {
     } else if (stat == "Highest Zone") {
         cnstat = "最高区域"
     } else if (stat == "Total Portals Used") {
-        cnstat = "使用的总门户"
+        cnstat = "使用的总传送门"
     } else if (stat == "Total Helium Earned") {
         cnstat = "获得总氦气"
     } else if (stat == "Best He/Hour all Runs") {
@@ -12248,7 +12248,7 @@ function cntalentname(name){
         if(temp=="Bionic Magnet"){
             cntalentname="仿生磁"
         }else if(temp=="Portal Generator"){
-            cntalentname="门户生成器"
+            cntalentname="传送门生成器"
         }else if(temp=="Bounty Hunter"){
             cntalentname="赏金猎人"
         }else if(temp=="Home Detector"){
@@ -12334,16 +12334,18 @@ function cnresourcetype(type){
     //汉化地图资源类型
     var cnresourcetype="";
     var temp=type;
-    if(temp=="Food"){
+    if((temp=="Food")||((temp=="food"))){
         cnresourcetype="食物"
     }else if(temp=="Metal"){
         cnresourcetype="金属"
     }else if(temp=="Wood"){
         cnresourcetype="木头"
-    }else if(temp=="Gems"){
+    }else if((temp=="Gems")||(temp=="gems")){
         cnresourcetype="宝石"
     }else if(temp=="Any"){
         cnresourcetype="所有"
+    }else if((temp=="Fragments")||(temp=="fragments")){
+        cnresourcetype="碎片"
     }else{
         return type;
     }
