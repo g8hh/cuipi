@@ -1400,7 +1400,7 @@ function displayPortalUpgrades(fromTab){
 		if (portUpgrade.additive) html += " 附加的";
         //特权汉化
 		html += '" id="' + what + '" onclick="buyPortalUpgrade(\'' + what + '\')"><span class="thingName">' + cntequan(what.replace('_', ' ')) + '</span>';
-console.log(cntequan(what.replace('_', ' ')))
+//console.log(cntequan(what.replace('_', ' ')))
 		if (game.options.menu.detailedPerks.enabled == 1){
 		html += '<br/>等级:&nbsp;<span class="thingOwned"><b><span id="' + what + 'Owned">' + ((game.options.menu.formatPerkLevels.enabled) ? prettify(portUpgrade.level) : portUpgrade.level) + '</span></b>';
 		if (!portUpgrade.max || portUpgrade.max > portUpgrade.level + portUpgrade.levelTemp) html += "<br/>价格: <span id='" + what + "Price'>" + prettify(getPortalUpgradePrice(what)) + "</span>";
@@ -3783,7 +3783,7 @@ var mapSpecialModifierConfig = {
 		name: "Fast Attacks",
 		unlocksAt: 60,
 		get description(){
-			var text = "All attacks in this map happen 100ms faster.";
+			var text = "这张地图上的所有攻击速度都要快100毫秒。";
 			if (game.talents.hyperspeed2.purchased) text += " <span style='color: red'>Does not stack with Hyperspeed II</span>";
 			return text;
 		},
@@ -3793,7 +3793,7 @@ var mapSpecialModifierConfig = {
 	lc: {
 		name: "Large Cache",
 		unlocksAt: 60,
-		description: "Earn 20 seconds of production for either food, wood, or metal at random each time you complete this map.",
+		description: "在每次完成此地图时，随机获得食物、木头或金属的20秒产量。",
 		costIncrease: 7,
 		onCompletion: function (){
 			cacheReward("random", 20, this.name);
@@ -3803,7 +3803,7 @@ var mapSpecialModifierConfig = {
 	ssc: {
 		name: "Small Savory Cache",
 		unlocksAt: 85,
-		description: "Earn 10 seconds of food production each time you complete this map.",
+		description: "每次完成这张地图，你就能获得10秒的食物产量。",
 		costIncrease: 10,
 		onCompletion: function () {
 			cacheReward("food", 10, this.name);
@@ -3813,7 +3813,7 @@ var mapSpecialModifierConfig = {
 	swc: {
 		name: "Small Wooden Cache",
 		unlocksAt: 85,
-		description: "Earn 10 seconds of wood production each time you complete this map.",
+		description: "每次完成这张地图，你都可以获得10秒的木材产量。",
 		costIncrease: 10,
 		onCompletion: function () {
 			cacheReward("wood", 10, this.name);
@@ -3823,7 +3823,7 @@ var mapSpecialModifierConfig = {
 	smc: {
 		name: "Small Metal Cache",
 		unlocksAt: 85,
-		description: "Earn 10 seconds of metal production each time you complete this map.",
+		description: "每次完成这张地图，你都可以获得10秒钟的金属产量。",
 		costIncrease: 10,
 		onCompletion: function () {
 			cacheReward("metal", 10, this.name);
@@ -3833,7 +3833,7 @@ var mapSpecialModifierConfig = {
 	p: {
 		name: "Prestigious",
 		unlocksAt: 135,
-		description: "This map can hold two different equipment prestige upgrades, if two are available.",
+		description: "这张地图可以有两种不同的装备声望升级，如果有两种的话。",
 		costIncrease: 10,
 		abv: "P"
 	},
@@ -12297,12 +12297,12 @@ function cntalentname(name){
             cntalentname="黑煅炼 II"
         }else if(temp=="Blacksmithery III"){
             cntalentname="黑煅炼 III"
-        }else if(temp=="岩浆流"){
-            cntalentname=""
         }else if(temp=="Quick Gen"){
             cntalentname="快速第二代"
         }else if(temp=="AutoStructure"){
             cntalentname="自动结构"
+        }else if(temp=="Magma Flow"){
+            cntalentname="岩浆流"
         }else if(temp=="Natural Diplomacy I"){
             cntalentname="自然外交 I"
         }else if(temp=="Natural Diplomacy II"){
@@ -12324,7 +12324,7 @@ function cntalentname(name){
         }else if(temp=="Void Specialization"){
             cntalentname="虚空专精"
         }else if(temp=="Strength in Health"){
-            cntalentname="健康的力量"
+            cntalentname="生命的力量"
         }else{
             return name;
         }

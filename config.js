@@ -1079,7 +1079,7 @@ var toReturn = {
 			requires: "skeletimp"
 		},
 		voidPower3: {
-			description: "你的脆皮在虚空地图内获得额外的30％攻击力和健康，所有当前和未来的虚空地图都会获得“快速攻击”特效修正。",
+			description: "你的脆皮在虚空地图内获得额外的30％攻击力和生命，所有当前和未来的虚空地图都会获得“快速攻击”特效修正。",
 			name: "Void Power III",
 			onPurchase: function (clear) {
 				addMapModifier('Void', 'fa');
@@ -1266,7 +1266,7 @@ var toReturn = {
 			locked: true,
 			priceBase: 20000,
 			heliumSpent: 0,
-			tooltip: "当你记得你从哪里来的时候，你会感到更加踏实。将你的韧性扩展给你的脆皮，每级增加1%的健康。这种额外福利的价格会增加，而且每一层的价格将比之前的水平高出整整500美元。",
+			tooltip: "当你记得你从哪里来的时候，你会感到更加踏实。将你的韧性扩展给你的脆皮，每级增加1%的生命。这种额外福利的价格会增加，而且每一层的价格将比之前的水平高出整整500美元。",
 			additive: true,
 			additiveInc: 500,
 			modifier: 0.01
@@ -1285,7 +1285,7 @@ var toReturn = {
 			modifier: 0.05,
 			priceBase: 50000,
 			heliumSpent: 0,
-			tooltip: "Spending time with limited maps has taught you how to be more resourceful. Each level will allow you to spend 5% fewer resources <b>than the current cost</b> per level on all structures."
+			tooltip: "在有限的地图上花时间教会了你如何变得更足智多谋。每级都能让你 <b>比当前的成本</b> 少花5%的资源，在所有结构。"
 		},
 		Coordinated: {
 			level: 0,
@@ -6093,7 +6093,7 @@ var toReturn = {
 			locked: 1,
 			allowAutoFire: true,
 			owned: 0,
-			tooltip: "每个遗传学家都会将每个脆皮的健康状况提高1％（复合），但会降低婴儿脆皮生长2％（复合）的速度。",
+			tooltip: "每个遗传学家都会将每个脆皮的生命状况提高1％（复合），但会降低婴儿脆皮生长2％（复合）的速度。",
 			cost: {
 				food: [1000000000000000, 1.03],
 			},
@@ -6729,7 +6729,7 @@ var toReturn = {
 		Pantastic: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "研究这个将重铸你的裤子。这将使您的裤子达到1级，并大大增加进一步升级的成本，但会大大增加健康的数量。@",
+			tooltip: "研究这个将重铸你的裤子。这将使您的裤子达到1级，并大大增加进一步升级的成本，但会大大增加生命的数量。@",
 			done: 0,
 			cost: {
 				resources: {
@@ -6761,7 +6761,7 @@ var toReturn = {
 		Smoldershoulder: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "研究这个将重铸你的护肩。这将使您的护肩达到1级，并大大增加进一步升级的成本，但会大大增加健康的数量。@",
+			tooltip: "研究这个将重铸你的护肩。这将使您的护肩达到1级，并大大增加进一步升级的成本，但会大大增加生命的数量。@",
 			done: 0,
 			cost: {
 				resources: {
@@ -6793,7 +6793,7 @@ var toReturn = {
 		Bestplate: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "研究这个将重铸你的胸甲。这将使您的胸甲达到1级，并大大增加进一步升级的成本，但会大大增加健康的数量。@",
+			tooltip: "研究这个将重铸你的胸甲。这将使您的胸甲达到1级，并大大增加进一步升级的成本，但会大大增加生命的数量。@",
 			done: 0,
 			cost: {
 				resources: {
@@ -6825,7 +6825,7 @@ var toReturn = {
 		GambesOP: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "研究这个将重铸你的gambeson。 这将使您的gambeson进入1级，并大大增加进一步升级的成本，但会大大增加健康的数量。@",
+			tooltip: "研究这个将重铸你的gambeson。 这将使您的gambeson进入1级，并大大增加进一步升级的成本，但会大大增加生命的数量。@",
 			done: 0,
 			cost: {
 				resources: {
