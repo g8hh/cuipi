@@ -74,9 +74,9 @@
 			</div>
 			<div id="boneBuyRow" class="row">
 				<div id="boneBoostsColumn" class="col-xs-4 boneBuyColumn">
-					<div class="boneBuyTitle">Boosts</div>
+					<div class="boneBuyTitle">提升</div>
 					<div class="boostSpacer">
-					<div class="boneBuyDesc">Instantly earn the next 12 or 36 hours worth of resources! If you don't have enough storage, storage will be purchased (and the cost deducted) automatically.</div>
+					<div class="boneBuyDesc">立即获得下一个12或36小时的资源!如果您没有足够的储存，则会自动购买(和扣除成本)。</div>
 					<div id="boostSelectContainer">
 						<div id="boost0" class="thingSmall pointer noselect boneBtnStateTeal" onclick="selectBoost(0)">
 							12 小时
@@ -90,7 +90,7 @@
 							<tbody>
 							<tr>
 								<td>+ <span class="glyphicon glyphicon-apple" title="food"></span> <span id="foodBoostPreview">0</span></td>
-								<td><span class="glyphicon glyphicon-home" title="storage added"></span> <span id="BarnAdded">0</span> Barns Auto-purchased</td>
+								<td><span class="glyphicon glyphicon-home" title="storage added"></span> <span id="BarnAdded">0</span>谷仓自动购买</td>
 							</tr>
 							<tr>
 								<td>+ <span class="glyphicon glyphicon-tree-deciduous" title="wood"></span> <span id="woodBoostPreview">0</span></td>
@@ -98,7 +98,7 @@
 							</tr>
 							<tr>
 								<td>+ <span class="icomoon icon-cubes" title="metal"></span> <span id="metalBoostPreview">0</span></td>
-								<td><span class="glyphicon glyphicon-home" title="storage added"></span> <span id="ForgeAdded"></span> Forges Auto-purchased</td>
+								<td><span class="glyphicon glyphicon-home" title="storage added"></span> <span id="ForgeAdded"></span> 锻造自动购买</td>
 							</tr>
 							<tr>
 								<td colspan="2">+ <span class="icomoon icon-diamond" title="gems"></span> <span id="gemsBoostPreview">0</span></td>
@@ -109,28 +109,28 @@
 							</tbody>
 						</table>
 						<div id="minusRes" style="display: none">
-							One of your storage structures will be more expensive than the amount you can receive from this boost. Spend some resources first to get the most benefit!
+							你的一个存储结构会比你从这个提升中获得的金额更贵。先花些资源来获得最大的利益！
 						</div>
 					</div>
 					</div>
 					<div id="purchaseContainerBoost">
 						<div class="boneBtn boneBtnStateOn pointer noselect buyBoostBtn" id="boostPurchaseBtn0" onclick="tooltip('Confirm Purchase', null, 'update', 'You are about to purchase 12 hours of instant production for 20 bones. Is this what you wanted to do?', 'purchaseBoost(0)', 20)">
-							Buy 12 Hours (20 bones)
+							购买12小时 (20 骨头)
 						</div>
 						<div class="boneBtn boneBtnStateOn pointer noselect buyBoostBtn" id="boostPurchaseBtn1" onclick="tooltip('Confirm Purchase', null, 'update', 'You are about to purchase 36 hours of instant production for 40 bones. Is this what you wanted to do?', 'purchaseBoost(1)', 40)">
-							Buy 36 Hours (40 bones)
+							购买36小时 (40 骨头)
 						</div>
 					</div>
 				</div>
 				<div id="boneImportsColumn" class="col-xs-4 boneBuyColumn">
 					<div class="boneBuyTitle">Exotic Imp-orts</div>
 					<div class="boostSpacerImports boostSpacer">
-					<div class="boneBuyDesc">Exotic Imp-orts will be unlocked permanently once purchased, and will stick around through portals. Each has a 3% chance to spawn per square and better loot than normal enemies. Collect them all!</div>
+					<div class="boneBuyDesc">外来的撞击物将被永久解锁，并将在传送门附近逗留。每一个都有3%的几率产生一个正方形，比普通的敌人更好的掠夺。把它们都收集起来!</div>
 					<div class="importsPreview">
-						<div class="importLocation">Spawns in World</div>
+						<div class="importLocation">在世界上产卵</div>
 						<table class="table importsTable" id="importsTableWorld0">						
 						</table>
-						<div class="importLocation table-hover">Spawns in Maps</div>
+						<div class="importLocation table-hover">在地图中产生</div>
 						<table class="table importsTable" id="importsTableMaps0">					
 						</table>
 					</div>
@@ -148,13 +148,13 @@
 								购买传送门 (100 骨头)
 							</div>
 							<div class="miscDesc">
-								<b>+ <span id="heliumGainedMisc"></span> Helium </b><br/>
-								Automatically gain helium equal to the amount you earned on your best run
+								<b>+ <span id="heliumGainedMisc"></span> 氦 </b><br/>
+								自动获得氦等于你在最佳运行时所获得的量
 							</div>
 						</div>
 						<div id="buyHeirloomArea">
 							<div class="boneBtn boneBtnStateOn pointer noselect" id="heirloomPurchaseBtn" onclick="tooltip('Confirm Purchase', null, 'update', 'You are about to purchase one Heirloom for 30 bones. This will be created at a random rarity, and will be just like completing a Void Map at your highest ever Zone reached. Are you sure?', 'purchaseMisc(\'heirloom\')', 30)"> 
-								Buy Heirloom (30 bones)
+								购买传家宝 (30 骨头)
 							</div>
 							
 							<div class="miscDesc">
@@ -725,7 +725,7 @@
 								</span>
 							</div>
 							<div class="battleSideBtnContainer" style="display: none" id="heirloomBtnContainer">
-								<span id="heirloomsBtn" class="btn fightBtn heirloomsBtnColor" onclick="toggleHeirlooms()">Heirlooms</span>
+								<span id="heirloomsBtn" class="btn fightBtn heirloomsBtnColor" onclick="toggleHeirlooms()">传家宝</span>
 							</div>
 							<div class="battleSideBtnContainer" style="display: none" id="boneBtnContainer">
 								<span class="btn btn-default fightBtn" id="boneBtnMain" onclick="showBones()">

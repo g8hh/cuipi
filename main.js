@@ -1083,6 +1083,7 @@ function displayChallenges() {
 		if (!name) name = what;
 		//make sure the challengeSquaredMode color still works after messing with line below
 		challengeHTML += '<div class="noselect pointer challengeThing thing ' + done + '" id="challenge' + what + '" onclick="selectChallenge(\'' + what + '\')"><span class="thingName">' + cntequan(name) + '</span></div>';
+//        console.log(what.replace('_', ' '))
 	}
 	challengesHere.innerHTML = challengeHTML;
 	if (challengeCount > 0) document.getElementById("challenges").style.display = "block";
@@ -1304,7 +1305,7 @@ function viewPortalUpgrades() {
 	swapClass("portalMk", "portalMkPreview", document.getElementById("portalWrapper"));
 	fadeIn("portalWrapper", 10);
 	document.getElementById("portalTitle").innerHTML = "查看特权";
-	document.getElementById("portalHelium").innerHTML = '<span id="portalHeliumOwned">' + prettify(parseInt(game.global.heliumLeftover, 10)) + '</span> Helium Left Over';
+	document.getElementById("portalHelium").innerHTML = '<span id="portalHeliumOwned">' + prettify(parseInt(game.global.heliumLeftover, 10)) + '</span> 氦剩余';
 	document.getElementById("portalStory").innerHTML = "这些都是你的福利！你每运行一次可以重置他们。";
 	document.getElementById("totalHeliumEarned").innerHTML = prettify(game.global.totalHeliumEarned);
 	document.getElementById("totalPortals").innerHTML = game.global.totalPortals;
@@ -1397,10 +1398,9 @@ function displayPortalUpgrades(fromTab){
 		var html = '<div onmouseover="tooltip(\'' + what + '\',\'portal\',event)" onmouseout="tooltip(\'hide\')" class="noselect pointer portalThing thing perkColorOff';
 		if (game.options.menu.detailedPerks.enabled == 1) html += " detailed";
 		if (portUpgrade.additive) html += " 附加的";
-//        console.log(what.replace('_', ' '))
         //特权汉化
 		html += '" id="' + what + '" onclick="buyPortalUpgrade(\'' + what + '\')"><span class="thingName">' + cntequan(what.replace('_', ' ')) + '</span>';
-
+console.log(cntequan(what.replace('_', ' ')))
 		if (game.options.menu.detailedPerks.enabled == 1){
 		html += '<br/>等级:&nbsp;<span class="thingOwned"><b><span id="' + what + 'Owned">' + ((game.options.menu.formatPerkLevels.enabled) ? prettify(portUpgrade.level) : portUpgrade.level) + '</span></b>';
 		if (!portUpgrade.max || portUpgrade.max > portUpgrade.level + portUpgrade.levelTemp) html += "<br/>价格: <span id='" + what + "Price'>" + prettify(getPortalUpgradePrice(what)) + "</span>";
@@ -1574,7 +1574,7 @@ function checkOfflineProgress(noTip){
 						if (newMax > (resource.owned + amt)) break;
 					}
 					var s = (count > 1) ? "" : "";
-					storageBought.push(count + " " + storages[x] + s + ", ");
+					storageBought.push(count + " " + cnresourcetype(storages[x]) + s + ", ");
 				}
 			}
 		}
@@ -1593,7 +1593,7 @@ function checkOfflineProgress(noTip){
 	}
 	textString = textString.slice(0, -2);
 	if (storageBought.length) {
-		textString += " <b>购买之后</b> ";
+		textString += " <b>购买了</b> ";
 		for (var z = 0; z < storageBought.length; z++){
 			textString += storageBought[z];
 			if (z == storageBought.length - 2) textString += "和 ";
@@ -12338,8 +12338,16 @@ function cnresourcetype(type){
         cnresourcetype="食物"
     }else if(temp=="Metal"){
         cnresourcetype="金属"
-    }else if(temp=="Wood"){
+    }else if((temp=="Wood")||((temp=="wood"))){
         cnresourcetype="木头"
+    }else if((temp=="Metal")||((temp=="metal"))){
+        cnresourcetype="金属"
+    }else if((temp=="Barn")||((temp=="barn"))){
+        cnresourcetype="仓库"
+    }else if((temp=="Shed")||((temp=="shed"))){
+        cnresourcetype="木棚"
+    }else if((temp=="Forge")||((temp=="forge"))){
+        cnresourcetype="锻造"
     }else if((temp=="Gems")||(temp=="gems")){
         cnresourcetype="宝石"
     }else if(temp=="Any"){
@@ -12382,6 +12390,38 @@ function cntequan(what){
         cntequan="尺寸"
     }else if(temp=="Balance"){
         cntequan="平衡"
+    }else if(temp=="Looting II"){
+        cntequan="劫掠 II"
+    }else if(temp=="Carpentry II"){
+        cntequan="木工 II"
+    }else if(temp=="Power II"){
+        cntequan="力量 II"
+    }else if(temp=="Toughness II"){
+        cntequan="坚韧 II"
+    }else if(temp=="Overkill"){
+        cntequan="超杀"
+    }else if(temp=="Resourceful"){
+        cntequan="足智多谋"
+    }else if(temp=="Coordinated"){
+        cntequan="协作"
+    }else if(temp=="Siphonology"){
+        cntequan="虹吸学"
+    }else if(temp=="Anticipation"){
+        cntequan="预期"
+    }else if(temp=="Resilience"){
+        cntequan="弹性"
+    }else if(temp=="Meditation"){
+        cntequan="冥想"
+    }else if(temp=="Relentlessness"){
+        cntequan="无情"
+    }else if(temp=="Carpentry"){
+        cntequan="木工"
+    }else if(temp=="Artisanistry"){
+        cntequan="艺术性"
+    }else if(temp=="Range"){
+        cntequan="范围"
+    }else if(temp=="Motivation II"){
+        cntequan="动机 II"
     }else{
         return what;
     }

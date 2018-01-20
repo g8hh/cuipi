@@ -4439,6 +4439,38 @@ function cntitle(tit){
         cntit="自定义"
     }else if(what=="Confirm Purchase"){
         cntit="确认购买"
+    }else if(what=="Looting II"){
+        cntit="劫掠 II"
+    }else if(what=="Carpentry II"){
+        cntit="木工 II"
+    }else if(what=="Power II"){
+        cntit="力量 II"
+    }else if(what=="Toughness II"){
+        cntit="坚韧 II"
+    }else if(what=="Overkill"){
+        cntit="超杀"
+    }else if(what=="Resourceful"){
+        cntit="足智多谋"
+    }else if(what=="Coordinated"){
+        cntit="协作"
+    }else if(what=="Siphonology"){
+        cntit="虹吸学"
+    }else if(what=="Anticipation"){
+        cntit="预期"
+    }else if(what=="Resilience"){
+        cntit="弹性"
+    }else if(what=="Meditation"){
+        cntit="冥想"
+    }else if(what=="Relentlessness"){
+        cntit="无情"
+    }else if(what=="Carpentry"){
+        cntit="木工"
+    }else if(what=="Artisanistry"){
+        cntit="艺术性"
+    }else if(what=="Range"){
+        cntit="范围"
+    }else if(what=="Motivation II"){
+        cntit="动机 II"
     }else{
         cntit=tit
     }

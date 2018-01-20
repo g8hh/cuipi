@@ -1266,7 +1266,7 @@ var toReturn = {
 			locked: true,
 			priceBase: 20000,
 			heliumSpent: 0,
-			tooltip: "You feel more grounded as you remember where you came from. Spread your toughness to your Trimps, increasing health by 1% per level. The price for this perk increases additively, and each level will cost exactly 500 more than the previous level.",
+			tooltip: "当你记得你从哪里来的时候，你会感到更加踏实。将你的韧性扩展给你的脆皮，每级增加1%的健康。这种额外福利的价格会增加，而且每一层的价格将比之前的水平高出整整500美元。",
 			additive: true,
 			additiveInc: 500,
 			modifier: 0.01
@@ -1276,7 +1276,7 @@ var toReturn = {
 			locked: true,
 			priceBase: 1000000,
 			heliumSpent: 0,
-			tooltip: "You have overcome the otherworldly objective of obtaining Overkill, outstanding! Each level of this perk will allow 0.5% of your overkill damage to harm the next enemy. If this damage kills the next enemy, you will lose no time moving through that cell. Maximum of 30 levels.",
+			tooltip: "你已经完成了一个超凡脱俗的目标，那就是获得超杀，出类拔萃！每个等级的额外奖励将会允许你的超杀伤害的0.5%伤害下一个敌人。如果这个伤害杀死了下一个敌人，你就不会再穿过那间牢房了。最高30层。",
 			max: 30
 		},
 		Resourceful: {
