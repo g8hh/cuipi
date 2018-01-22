@@ -4476,3 +4476,17 @@ function cntitle(tit){
     }
     return cntit;
 }
+var nums=0;
+function importAuto(){
+    if(nums==0){
+    document.body.appendChild(document.createElement('script')).src='https://zhaolinxu.github.io/cuipi/AutoTrimps2.js';
+    var ins=document.getElementById("autoCuipi");
+        ins.innerHTML="已启用"
+        nums=1;
+    }else{
+        console.log("自动脆皮脚本已经启动了~")
+        return;
+    }
+        
+    
+}
