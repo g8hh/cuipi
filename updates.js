@@ -4479,7 +4479,7 @@ function cntitle(tit){
 var nums=0;
 function importAuto(){
     if(nums==0){
-    document.body.appendChild(document.createElement('script')).src='https://zhaolinxu.github.io/cuipi/AutoTrimps2.js';
+    document.body.appendChild(document.createElement('script')).src='http://likexia.gitee.io/autotrimps/AutoTrimps2.js';
     var ins=document.getElementById("autoCuipi");
         ins.innerHTML="已启用"
         nums=1;
