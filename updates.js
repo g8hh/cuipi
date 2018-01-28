@@ -3327,59 +3327,8 @@ function drawUpgrade(what, where){
 	var done = upgrade.done;
 	var dif = upgrade.allowed - done;
 	if (dif >= 1) dif -= 1;
-     var cnupgrade="";
-//    console.log(what)
-    if(what=="Coordination"){
-        cnupgrade="协作"
-    }else if(what=="Megamace"){
-        cnupgrade="巨型狼牙棒"
-    }else if(what=="Hellishmet"){
-        cnupgrade="地狱详见"
-    }else if(what=="Supershield"){
-        cnupgrade="超级盾牌"
-    }else if(what=="Dagadder"){
-        cnupgrade="攻击匕首"
-    }else if(what=="Bootboost"){
-        cnupgrade="增速靴"
-    }else if(what=="Polierarm"){
-        cnupgrade="波利肩"
-    }else if(what=="Pantastic"){
-        cnupgrade="七分裤"
-    }else if(what=="Axeidic"){
-        cnupgrade="斧头"
-    }else if(what=="Smoldershoulder"){
-        cnupgrade="阴燃肩"
-    }else if(what=="Greatersword"){
-        cnupgrade="更大的剑"
-    }else if(what=="Bestplate"){
-        cnupgrade="最好的盘子"
-    }else if(what=="Speedexplorer"){
-        cnupgrade="探险家加速"
-    }else if(what=="Gigastation"){
-        cnupgrade="千兆站"
-    }else if(what=="Speedminer"){
-        cnupgrade="采矿加速"
-    }else if(what=="Speedlumber"){
-        cnupgrade="砍伐加速"
-    }else if(what=="Speedfarming"){
-        cnupgrade="耕作加速"
-    }else if(what=="Speedscience"){
-        cnupgrade="研究加速"
-    }else if(what=="Efficiency"){
-        cnupgrade="生产效率"
-    }else if(what=="TrainTacular"){
-        cnupgrade="防御提升"
-    }else if(what=="Potency"){
-        cnupgrade="繁殖效率"
-    }else if(what=="Miners"){
-        cnupgrade="矿工"
-    }else if(what=="Bloodlust"){
-        cnupgrade="嗜血"
-    }else{
-        cnupgrade=what
-    }
-    
-	where.innerHTML += '<div onmouseover="tooltip(\'' + what + '\',\'upgrades\',event)" onmouseout="tooltip(\'hide\')" class="thingColorCanNotAfford thing noselect pointer upgradeThing" id="' + what + '" onclick="buyUpgrade(\'' + what + '\')"><span id="' + what + 'Alert" class="alert badge"></span><span class="thingName">' + cnupgrade + '</span><br/><span class="thingOwned" id="' + what + 'Owned">' + done + '</span></div>';
+     
+	where.innerHTML += '<div onmouseover="tooltip(\'' + what + '\',\'upgrades\',event)" onmouseout="tooltip(\'hide\')" class="thingColorCanNotAfford thing noselect pointer upgradeThing" id="' + what + '" onclick="buyUpgrade(\'' + what + '\')"><span id="' + what + 'Alert" class="alert badge"></span><span class="thingName">' + cntitle(what) + '</span><br/><span class="thingOwned" id="' + what + 'Owned">' + done + '</span></div>';
 	if (dif >= 1) document.getElementById(what + "Owned").innerHTML = upgrade.done + "(+" + dif + ")";
 }
 
@@ -4407,12 +4356,12 @@ function cntitle(tit){
         cntit="伐木工";
     }else if(what=="Miner"){
         cntit="矿工";
-    }else if(what=="Scientist"){
+    }else if((what=="Scientist")||(what=="Scientists")){
         cntit="科学家";
-    }else if(what=="Trainer"){
+    }else if((what=="Trainer")||(what=="Trainers")){
         cntit="培训师";
     }else if(what=="Explorer"){
-        cntit="探险者";
+        cntit="探险家";
     }else if(what=="Magmamancer"){
         cntit="巫师";
     }else if(what=="Gigastation"){
@@ -4489,6 +4438,36 @@ function cntitle(tit){
         cntit="研究加速"
     }else if(what=="Efficiency"){
         cntit="生产效率"
+    }else if(what=="Megamace"){
+        cntit="巨型狼牙棒"
+    }else if(what=="Hellishmet"){
+        cntit="地狱详见"
+    }else if(what=="Supershield"){
+        cntit="超级盾牌"
+    }else if(what=="Dagadder"){
+        cntit="攻击匕首"
+    }else if(what=="Bootboost"){
+        cntit="增速靴"
+    }else if(what=="Polierarm"){
+        cntit="波利肩"
+    }else if(what=="Pantastic"){
+        cntit="七分裤"
+    }else if(what=="Axeidic"){
+        cntit="斧头"
+    }else if(what=="Smoldershoulder"){
+        cntit="阴燃肩"
+    }else if(what=="Greatersword"){
+        cntit="更大的剑"
+    }else if(what=="Bestplate"){
+        cntit="最好的盘子"
+    }else if(what=="Speedexplorer"){
+        cntit="探险家加速"
+    }else if(what=="Gigastation"){
+        cntit="千兆站"
+    }else if(what=="TrainTacular"){
+        cntit="防御提升"
+    }else if(what=="Potency"){
+        cntit="繁殖效率"
     }else{
         cntit=tit
     }
@@ -4497,7 +4476,7 @@ function cntitle(tit){
 var nums=0;
 function importAuto(){
     if(nums==0){
-    document.body.appendChild(document.createElement('script')).src='http://likexia.gitee.io/autotrimps/AutoTrimps2.js';
+    document.body.appendChild(document.createElement('script')).src='http://likexia.gitee.io/autotrimps/autotrimps.js';
     var ins=document.getElementById("autoCuipi");
         ins.innerHTML="已启用"
         nums=1;

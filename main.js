@@ -5015,7 +5015,7 @@ function displayNature(){
 function rewardToken(empowerment){
 	var tokens = Math.floor((game.global.world - 241) / 15) + 1;
 	game.empowerments[empowerment].tokens += tokens;
-	message("You found " + prettify(tokens) + " Token" + ((tokens == 1) ? "" : "s") + " of " + empowerment + "!", "Loot", "*medal2", "empoweredCell" + empowerment, 'token');
+	message("你找到了 " + prettify(tokens) + " Token" + ((tokens == 1) ? "" : "s") + " of " + empowerment + "!", "Loot", "*medal2", "empoweredCell" + empowerment, 'token');
 	if (game.global.buyTab == "nature")
 		updateNatureInfoSpans();
 }
@@ -7793,7 +7793,7 @@ function tryScry(){
 		message("You have no more use for Dark Essence!", "Loot", "*cloud3", "essenceMessage", "essence");
 	}
 	else {
-		message("You found " + prettify(reward) + " Dark Essence!", "Loot", "*cloud3", "essenceMessage", "essence");
+		message("你找到了 " + prettify(reward) + " Dark Essence!", "Loot", "*cloud3", "essenceMessage", "essence");
 	}
 	updateTalentNumbers();
 	return reward;
@@ -8427,7 +8427,7 @@ function giveSpireReward(level){
 		case(20):
 			var nuReward = 200 * (spireWorld - 1);
 			game.global.nullifium += nuReward;
-			message(getSpireStory(spireWorld, 2) + "You found " + nuReward + " Nullifium!", "Story");
+			message(getSpireStory(spireWorld, 2) + "你找到了 " + nuReward + " Nullifium!", "Story");
 			break;
 		case(40):
 			if (!game.global.runningChallengeSquared){
@@ -8445,7 +8445,7 @@ function giveSpireReward(level){
 		case(60):
 			var nuReward = 300 * (spireWorld - 1);
 			game.global.nullifium += nuReward;
-			message(getSpireStory(spireWorld, 6) + "You found " + nuReward + " Nullifium!</span>", "Story");
+			message(getSpireStory(spireWorld, 6) + "你找到了 " + nuReward + " Nullifium!</span>", "Story");
 			break;
 		case(70):
 			message(getSpireStory(spireWorld, 7) + "You found a Z400 Heirloom!", "Story");
@@ -8456,7 +8456,7 @@ function giveSpireReward(level){
 			game.empowerments.Poison.tokens += tokReward;
 			game.empowerments.Wind.tokens += tokReward;
 			game.empowerments.Ice.tokens += tokReward;
-			message(getSpireStory(spireWorld, 8) + "You found " + tokReward + " of each type of Nature Token!", "Story");
+			message(getSpireStory(spireWorld, 8) + "你找到了 " + tokReward + " of each type of Nature Token!", "Story");
 			if (game.global.buyTab == "nature")
 				updateNatureInfoSpans();
 			break;
@@ -8587,7 +8587,7 @@ function rewardSpire1(level){
 			amt = 0.5;
 			amt *= Math.pow(1.01, level);
 			amt = giveHeliumReward(amt);
-			message("You found " + prettify(amt) + " helium!", "Loot", "oil", "helium", "helium");
+			message("你找到了 " + prettify(amt) + " helium!", "Loot", "oil", "helium", "helium");
 	}
 }
 
