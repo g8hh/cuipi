@@ -1129,12 +1129,12 @@ function selectChallenge(what) {
 	desc += "<b>";
 	if (challengeSquaredMode) {
 		var reward = getIndividualSquaredReward(what);
-		desc += " 您的最高区域达到了这个挑战<sup>2</sup> is Z" + game.c2[what] + ", earning you " + prettify(reward) + "% extra attack and health, and " + prettify(reward / 10) + "% more Helium from all sources.";
+		desc += " 您达到了这个挑战<sup>2</sup> 的最高区域是 Z" + game.c2[what] + ", 为你增加了 " + prettify(reward) + "% 额外的攻击和生命, 还有 " + prettify(reward / 10) + "% 更多来自所有来源的氦。";
 	}
 	else if (game.portal[game.challenges[what].unlocks]) desc += (game.portal[game.challenges[what].unlocks].locked) ? " 你也会赚到一个新的额外奖励！" : " 你不会赚到一个新的额外奖励";
 	else if (what == "Scientist") {
 		var sciLev = getScientistLevel();
-		if (sciLev == game.global.sLevel) desc += " You have already completed this challenge!";
+		if (sciLev == game.global.sLevel) desc += " 你已经完成了这个挑战!";
 		desc = desc.replace("_", getScientistInfo(sciLev));
 		desc = desc.replace("*", getScientistInfo(sciLev, true));
 	}
@@ -1167,10 +1167,10 @@ function getScientistInfo(number, reward){
 			return (reward) ? "从5000科学，100食物，100木，10陷阱和1工头开始" : 11500;
 		}
 		case 2: {
-			return (reward) ? "start with 5 Barns, 5 Sheds, 5 Forges, and T2 Equipment unlocked" : 8000;
+			return (reward) ? "启动5个谷仓，5个棚屋，5个锻造，T2装备解锁。" : 8000;
 		}
 		case 3: {
-			return (reward) ? "start with full Trimps and 200% player efficiency" : 1500;
+			return (reward) ? "以完整的脆皮和200%的玩家效率开始" : 1500;
 		}
 		case 4: {
 			return (reward) ? "earn two levels of each prestige upgrade per map, unlock AutoPrestiges, and your Warpstations will build instantly, skipping the queue" : 70;
@@ -3707,7 +3707,7 @@ function setAdvExtraZoneText(){
 		elem.innerHTML = text;
 	}
 	for (var x = 0; x <= 10; x++){
-		document.getElementById("advExtra" + x).innerHTML = "+" + x + " (Zone " + (game.global.world + x) + ")";
+		document.getElementById("advExtra" + x).innerHTML = "+" + x + " (区域 " + (game.global.world + x) + ")";
 	}
 }
 
@@ -4185,8 +4185,8 @@ function getNextCarriedCost(){
 }
 
 function displayAddCarriedBtn(){
-	var s = (game.global.maxCarriedHeirlooms > 1) ? "s" : "";
-	document.getElementById("carriedHeirloomsText").innerHTML = " - You can carry <b>" + game.global.maxCarriedHeirlooms + "</b> additional Heirloom" + s + " through the Portal.";
+	var s = (game.global.maxCarriedHeirlooms > 1) ? "" : "";
+	document.getElementById("carriedHeirloomsText").innerHTML = " - 通过传送门时你可以随身携带 <b>" + game.global.maxCarriedHeirlooms + "</b> 额外的传家宝" + s + "。";
 	var elem = document.getElementById("addCarriedBtn");
 	if (game.global.maxCarriedHeirlooms > game.heirlooms.values.length){
 		elem.style.display = "none";
@@ -4194,7 +4194,7 @@ function displayAddCarriedBtn(){
 	}
 	elem.style.display = "inline-block";
 	var cost = getNextCarriedCost();
-	elem.innerHTML = "Add Slot (" + cost + " Nu)";
+	elem.innerHTML = "添加插槽 (" + cost + " Nu)";
 	if (game.global.nullifium < cost) swapClass("heirloomBtn", "heirloomBtnInactive", elem);
 	else swapClass("heirloomBtn", "heirloomBtnActive", elem);
 }
@@ -4224,7 +4224,7 @@ function displayExtraHeirlooms(){
 	var tempHtml = "";
 	var extraExtraText = game.global.heirloomsExtra.length;
 	if (!extraExtraText) {
-		document.getElementById("extraHeirloomsHere").innerHTML = "You have no extra Heirlooms";
+		document.getElementById("extraHeirloomsHere").innerHTML = "你没有多余的传家宝。";
 		document.getElementById("extraHeirloomsText").innerHTML = "";
 		return;
 	}
@@ -7256,7 +7256,7 @@ function startFight() {
 		badName += ' <span class="badge badBadge Magma" onmouseover="tooltip(\'Superheated\', \'customText\', event, \'This Omnipotrimp is Superheated, and will explode on death.\')" onmouseout="tooltip(\'hide\')"><span class="icomoon icon-fire2"></span></span>';
 	}
 	if (game.global.brokenPlanet && !game.global.mapsActive){
-		badName += ' <span class="badge badBadge" onmouseover="tooltip(\'Pierce\', \'customText\', event, \'' + prettify(getPierceAmt() * 100) + '% of the damage from this Bad Guy pierces through block\')" onmouseout="tooltip(\'hide\')"><span class="glyphicon glyphicon-tint"></span></span>';
+		badName += ' <span class="badge badBadge" onmouseover="tooltip(\'Pierce\', \'customText\', event, \'' + prettify(getPierceAmt() * 100) + '% 这个坏家伙造成的伤害包含20%的穿透伤害。\')" onmouseout="tooltip(\'hide\')"><span class="glyphicon glyphicon-tint"></span></span>';
 	}
 	if (game.global.challengeActive == "Slow" || ((game.badGuys[cell.name].fast || cell.mutation == "Corruption") && game.global.challengeActive != "Coordinate" && game.global.challengeActive != "Nom"))
 		badName += ' <span class="badge badBadge" onmouseover="tooltip(\'Fast\', \'customText\', event, \'This Bad Guy is fast and attacks first\')" onmouseout="tooltip(\'hide\')"><span class="glyphicon glyphicon-forward"></span></span>';

@@ -882,14 +882,14 @@ var toReturn = {
 			icon: "magnet"
 		},
 		portal: {
-			description: "Unlock Portal immediately after clearing Z20.",
+			description: "打开Z20后马上打开传送门。",
 			name: "Portal Generator",
 			tier: 1,
 			purchased: false,
 			icon: "eye-open",
 		},
 		bounty: {
-			description: "Unlock Bounty immediately after clearing Z15.",
+			description: "在清理Z15后马上解锁赏金。",
 			name: "Bounty Hunter",
 			tier: 1,
 			purchased: false,
@@ -5011,7 +5011,7 @@ var toReturn = {
 			repeat: 5,
 			fire: function (level) {
 				var amt = rewardResource("gems", 0.5, level, true);
-				message("You found " + prettify(amt) + " gems! Terrific!", "Loot", "*diamond", null, "secondary");
+				message("你找到了 " + prettify(amt) + " gems! Terrific!", "Loot", "*diamond", null, "secondary");
 			}
 		},
 		//This one is for depths maps
@@ -5024,7 +5024,7 @@ var toReturn = {
 			filter: true,
 			fire: function (level) {
 				var amt = rewardResource("gems", 0.5, level, true);
-				message("You found " + prettify(amt) + " gems! Terrific!", "Loot", "*diamond", null, "secondary");
+				message("你找到了 " + prettify(amt) + " gems! Terrific!", "Loot", "*diamond", null, "secondary");
 			}
 		},
 		Any: {
@@ -5655,10 +5655,10 @@ var toReturn = {
 			level: [0, 20],
 			repeat: 10,
 			icon: "th",
-			title: "Map Fragments",
+			title: "地图碎片",
 			fire: function() {
 				var amt = rewardResource("fragments");
-				message("You found " + prettify(amt) + " map fragments!", "Loot", "th", null, "secondary");
+				message("你找到了 " + prettify(amt) + " 地图碎片!", "Loot", "th", null, "secondary");
 			}
 		},
 		//portal Trumps
@@ -5666,7 +5666,7 @@ var toReturn = {
 			world: -1,
 			level: [10, 20],
 			icon: "gift",
-			title: "Battle Territory Bonus!",
+			title: "战场上的奖励!",
 			repeat: 45,
 			fire: function () {
 				var amt = 5 + (game.portal.Trumps.modifier * game.portal.Trumps.level);
@@ -5674,7 +5674,7 @@ var toReturn = {
 				game.global.totalGifts += amt;
 				if (game.portal.Carpentry.level) amt *= Math.pow((1 + game.portal.Carpentry.modifier), game.portal.Carpentry.level);
 				if (game.portal.Carpentry_II.level > 0) amt *= (1 + (game.portal.Carpentry_II.modifier * game.portal.Carpentry_II.level));
-				message("You have cleared enough land to support " + prettify(amt) + " more Trimps!", "Loot", "gift", null, "secondary");
+				message("你已经清除了足够的土地来容纳更多 " + prettify(amt) + " 的脆皮!", "Loot", "gift", null, "secondary");
 			}
 		},
 		fruit: {

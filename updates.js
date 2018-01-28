@@ -516,11 +516,11 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		elem.style.left = "33.75%";
 		elem.style.top = "25%";
 	}
-	if (what == "Fight"){
+	if (what == "战斗"){
 		tooltipText = "你把这些可怜的异形们运送到战场上去遭受厄运。然而你会得到很酷的东西,他们会明白的。 (热键: F)";
 		var soldiers = (game.portal.Coordinated.level) ? game.portal.Coordinated.currentSend : game.resources.trimps.maxSoldiers;
-		costText = (soldiers > 1) ? "s" : "";
-		costText = prettify(soldiers) + " Trimp" + costText;
+		costText = (soldiers > 1) ? "" : "";
+		costText = prettify(soldiers) + " 脆皮" + costText;
 	}
 	if (what == "自动战斗"){
 		tooltipText = "允许这些异形们开始自己去战斗，当他们的小镇变得拥挤不堪的时候。(热键: A)";
@@ -1203,7 +1203,7 @@ function getPsString(what, rawNum) {
 function getZoneStats(event, update) {
 	if (!update && game.global.lockTooltip) return;
 	var textString =  "<table class='bdTable table table-striped'><tbody>";
-	textString += "<tr><td class='bdTitle bdZoneTitle' colspan='3'>区域 "  + game.global.world + ", Cell " + (game.global.lastClearedCell + 2) + "</td></tr>";
+	textString += "<tr><td class='bdTitle bdZoneTitle' colspan='3'>区域 "  + game.global.world + ", 格子 " + (game.global.lastClearedCell + 2) + "</td></tr>";
 	textString += "<tr><td colspan='3'>你已经在这个区域 " + formatMinutesForDescriptions((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) + "</td></tr>";
 	if ((game.global.mapsActive || game.global.preMapsActive) && game.global.currentMapId){
 		var map = game.global.mapsOwnedArray[getMapIndex(game.global.currentMapId)];
@@ -1217,7 +1217,7 @@ function getZoneStats(event, update) {
 		document.getElementById("tipText").innerHTML = textString;
 		return;
 	}
-	tooltip("World Info", "customText", event, textString)
+	tooltip("世界信息", "customText", event, textString)
 	tooltipUpdateFunction = function() {
 		getZoneStats(null, true);
 	}
@@ -1374,14 +1374,14 @@ function getBattleStatBd(what) {
 			var gymStrength = gym.owned * gym.increase.by;
 			percent = ((gymStrength / game.global.block) * 100).toFixed(1) + "%";
 			currentCalc += gymStrength;
-			textString += "<tr><td class='bdTitle'>Gym</td><td>" + prettify(gym.increase.by) + "</td><td>" + prettify(gym.owned) + "</td><td>" + prettify(gymStrength) + " (" + percent + ")</td><td>" + prettify(currentCalc) + "</td></tr>";
+			textString += "<tr><td class='bdTitle'>健身房</td><td>" + prettify(gym.increase.by) + "</td><td>" + prettify(gym.owned) + "</td><td>" + prettify(gymStrength) + " (" + percent + ")</td><td>" + prettify(currentCalc) + "</td></tr>";
 		}
 		var shield = game.equipment.Shield;
 		if (shield.blockNow && shield.level > 0){
 			var shieldStrength = shield.level * shield.blockCalculated;
 			percent = ((shieldStrength / game.global.block) * 100).toFixed(1) + "%";
 			currentCalc += shieldStrength;
-			textString += "<tr><td class='bdTitle'>Shield</td><td>" + prettify(shield.blockCalculated) + "</td><td>" + prettify(shield.level) + "</td><td>" + prettify(shieldStrength) + " (" + percent + ")</td><td>" + prettify(currentCalc) + "</td></tr>";
+			textString += "<tr><td class='bdTitle'>盾</td><td>" + prettify(shield.blockCalculated) + "</td><td>" + prettify(shield.level) + "</td><td>" + prettify(shieldStrength) + " (" + percent + ")</td><td>" + prettify(currentCalc) + "</td></tr>";
 		}
 		var trainer = game.jobs.Trainer;
 		if (trainer.owned > 0){
@@ -1389,16 +1389,16 @@ function getBattleStatBd(what) {
 			trainerStrength = calcHeirloomBonus("Shield", "trainerEfficiency", trainerStrength);
 			currentCalc  *= (trainerStrength + 1);
 			trainerStrength = prettify(trainerStrength * 100) + "%";
-			textString += "<tr><td class='bdTitle'>Trainers</td><td>" + prettify(calcHeirloomBonus("Shield", "trainerEfficiency", trainer.modifier)) + "%</td><td>" + prettify(trainer.owned) + "</td><td>+ " + trainerStrength + "</td><td>" + prettify(currentCalc) + "</td></tr>";
+			textString += "<tr><td class='bdTitle'>培训师</td><td>" + prettify(calcHeirloomBonus("Shield", "trainerEfficiency", trainer.modifier)) + "%</td><td>" + prettify(trainer.owned) + "</td><td>+ " + trainerStrength + "</td><td>" + prettify(currentCalc) + "</td></tr>";
 		}
 	}
 	//Add coordination
 	currentCalc  *= game.resources.trimps.maxSoldiers;
-	textString += "<tr><td class='bdTitle'>Soldiers</td><td class='bdPercentSm'></td><td></td><td>x " + prettify(game.resources.trimps.maxSoldiers) + "</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + ((what == "attack") ? getFluctuation(currentCalc, minFluct, maxFluct) : "") + "</tr>";
+	textString += "<tr><td class='bdTitle'>士兵</td><td class='bdPercentSm'></td><td></td><td>x " + prettify(game.resources.trimps.maxSoldiers) + "</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + ((what == "attack") ? getFluctuation(currentCalc, minFluct, maxFluct) : "") + "</tr>";
 	//Add achievements
 	if (what == "attack" && game.global.achievementBonus > 0){
 		currentCalc *= 1 + (game.global.achievementBonus / 100);
-		textString += "<tr><td class='bdTitle'>Achievements</td><td class='bdPercentSm'></td><td></td><td>+ " + game.global.achievementBonus + "%</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>"
+		textString += "<tr><td class='bdTitle'>成就</td><td class='bdPercentSm'></td><td></td><td>+ " + game.global.achievementBonus + "%</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>"
 	}
 	//Add perk
 	var perk = "";
@@ -2158,7 +2158,7 @@ function resetGame(keepPortal) {
 	document.getElementById("buyCol").style.visibility = "hidden";
 	document.getElementById("unempHide").style.visibility = "hidden";
 	document.getElementById("empHide").style.visibility = "hidden";
-	document.getElementById("upgradesTitleSpan").innerHTML = "Upgrades (research first)";
+	document.getElementById("upgradesTitleSpan").innerHTML = "升级(先做研究)";
 	document.getElementById("science").style.visibility = "hidden";
 	document.getElementById("battleContainer").style.visibility = "hidden";
 	document.getElementById("pauseFight").style.display = "none";
@@ -2193,12 +2193,12 @@ function resetGame(keepPortal) {
 	document.getElementById("respecPortalBtn").style.display = "none";
 	document.getElementById("battleHeadContainer").style.display = "block";
 	document.getElementById("mapsCreateRow").style.display = "none";
-	document.getElementById("worldName").innerHTML = "Zone";
+	document.getElementById("worldName").innerHTML = "区域";
 	document.getElementById("wrapper").style.background = "url(css/bg2.png) center repeat-x";
 	document.getElementById("wrapper").className = "wrapperUnbroken"
 	document.getElementById("turkimpBuff").style.display = "none";
 	document.getElementById("statsBtnRow").style.display = "block";
-	document.getElementById("mapsBtn").innerHTML = "Maps";
+	document.getElementById("mapsBtn").innerHTML = "地图";
 	document.getElementById("mapBonus").innerHTML = "";
 	document.getElementById("roboTrimpTurnsLeft").innerHTML = "";
 	swapClass("shriekState", "shriekStateCooldown", document.getElementById("chainHolder"));
@@ -2212,7 +2212,7 @@ function resetGame(keepPortal) {
 	document.getElementById("voidMapsHere").innerHTML = "";
 	document.getElementById("heirloomWrapper").style.display = "none";
 	document.getElementById("heirloomBtnContainer").style.display = "none";
-	document.getElementById("goodGuyName").innerHTML = 'Trimps (<span id="trimpsFighting">1</span>) <span id="anticipationSpan"></span> <span id="titimpBuff"></span> <span id="debuffSpan"></span>';
+	document.getElementById("goodGuyName").innerHTML = '脆皮 (<span id="trimpsFighting">1</span>) <span id="anticipationSpan"></span> <span id="titimpBuff"></span> <span id="debuffSpan"></span>';
 	document.getElementById("autoStorageBtn").style.display = "none";
 	document.getElementById("repeatVoidsContainer").style.display = "none";
 	document.getElementById('corruptionBuff').innerHTML = "";
@@ -2225,7 +2225,7 @@ function resetGame(keepPortal) {
 	document.getElementById("swapToCurrentChallengeBtn").style.display = "none";
 	document.getElementById('autoGoldenBtn').style.display = "none";
 	document.getElementById('scienceCollectBtn').style.display = "block";
-	document.getElementById('trimpsBreedingTitle').innerHTML = "breeding";
+	document.getElementById('trimpsBreedingTitle').innerHTML = "配种";
 	lookingAtCurrentChallenge = false;
 	swapClass("col-xs", "col-xs-10", document.getElementById("gridContainer"));
 	swapClass("col-xs", "col-xs-off", document.getElementById("extraMapBtns"));
@@ -2556,7 +2556,7 @@ function enableImprovedAutoStorage(){
 function applyS1(){
 	game.resources.science.owned += 5000;
 	fadeIn("science", 10);
-	document.getElementById("upgradesTitleSpan").innerHTML = "Upgrades";
+	document.getElementById("upgradesTitleSpan").innerHTML = "升级";
 	game.resources.wood.owned += 100;
 	game.resources.food.owned += 100;
 	game.buildings.Trap.owned += 10;
@@ -3371,6 +3371,10 @@ function drawUpgrade(what, where){
         cnupgrade="防御提升"
     }else if(what=="Potency"){
         cnupgrade="繁殖效率"
+    }else if(what=="Miners"){
+        cnupgrade="矿工"
+    }else if(what=="Bloodlust"){
+        cnupgrade="嗜血"
     }else{
         cnupgrade=what
     }
@@ -4180,7 +4184,7 @@ tooltips.handleCopyButton = function () {
 				  try {
 					document.execCommand('copy');
 				  } catch (err) {
-					document.getElementById('clipBoardBtn').innerHTML = "Error, not copied";
+					document.getElementById('clipBoardBtn').innerHTML = "错误，未复制";
 				  }
 			});
 		}
@@ -4451,7 +4455,7 @@ function cntitle(tit){
         cntit="超杀"
     }else if(what=="Resourceful"){
         cntit="足智多谋"
-    }else if(what=="Coordinated"){
+    }else if((what=="Coordinated") || what=="Coordination"){
         cntit="协作"
     }else if(what=="Siphonology"){
         cntit="虹吸学"
@@ -4471,6 +4475,20 @@ function cntitle(tit){
         cntit="范围"
     }else if(what=="Motivation II"){
         cntit="动机 II"
+    }else if(what=="Bloodlust"){
+        cntit="嗜血"
+    }else if(what=="Miners"){
+        cntit="矿工"
+    }else if(what=="Speedminer"){
+        cntit="采矿加速"
+    }else if(what=="Speedlumber"){
+        cntit="砍伐加速"
+    }else if(what=="Speedfarming"){
+        cntit="耕作加速"
+    }else if(what=="Speedscience"){
+        cntit="研究加速"
+    }else if(what=="Efficiency"){
+        cntit="生产效率"
     }else{
         cntit=tit
     }
