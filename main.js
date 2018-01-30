@@ -989,7 +989,7 @@ function portalClicked() {
 	fadeIn("portalWrapper", 10);
 	var titleText = "时间传送门";
 	if (game.global.sLevel >= 1) titleText += " Mk. " + romanNumeral(game.global.sLevel + 1);
-	var portalStory = (game.global.sLevel >= 1) ? "Helium goes in, victory comes out" : "Well, you did it. You followed your instincts through this strange world, made your way through the 愤怒的维度, and obtained this portal. But why? Maybe there will be answers through this portal... Your scientists tell you they can overclock it to bring more memories and items back, but they'll need helium to cool it.";
+	var portalStory = (game.global.sLevel >= 1) ? "氦进去了，胜利就出来了" : "嗯,你做到了。你通过这个奇怪的世界跟随你的直觉,使你在愤怒的维度,并获得这个传送门。但是为什么呢?也许通过这个门户会有答案……你的科学家告诉你，他们可以把时间过得很长，以便带回更多的记忆和物品，但他们需要氦气来冷却。";
 	document.getElementById("portalTitle").innerHTML = titleText;
 	document.getElementById("portalStory").innerHTML = portalStory;
 	document.getElementById("portalHelium").innerHTML = '<span id="portalHeliumOwned">' + prettify(game.resources.helium.owned + game.global.heliumLeftover) + '</span> 氦';
@@ -8523,15 +8523,15 @@ function rewardSpire1(level){
 			text = "<span class='spirePoem'>To stay safe, I built many large towers.<br/>I'd climb up, and I'd peer out for hours.<br/>I searched for lifetimes, my mind became devoured,<br/>then one day I found a way to gain power.</span><br/>Dammit Druopitee. This is all going to end up being his fault, isn't it? ";
 			if (!game.global.runningChallengeSquared){
 				amt = giveHeliumReward(15);
-				text += "You help yourself to a container filled with " + prettify(amt) + " Helium, and figure he'll owe you a lot more than that once you hear some more.";
+				text += "你帮助自己充满容器，使用 " + prettify(amt) + " 氦, 当你听到更多的消息时，他会比你更感激你。";
 				}
 			else
-				text += "You look for something to steal to try and even the playing field, but can't find anything. Oh well.";
+				text += "你想要尝试去偷些什么东西，甚至是玩游戏，但什么都找不到。好吧。";
 			message(text, "Story");
 			break;
 		case 50:
-			text = "<span class='spirePoem'>After many lifetimes of observation,<br/>I had finally found my salvation.<br/>An airborne chemical to cause great mutation,<br/>the Corruption was my new creation.</span><br/>Yup, totally his fault.";
-			if (game.portal.Motivation_II.locked) text += "Your desire to stop him is so strong that you've <b>unlocked Motivation II</b>!"
+			text = "<span class='spirePoem'>经过多年的观察，<br/>我终于找到了我的救赎。<br/>一种能引起巨大变异的空气化学物质。,<br/>腐败是我的新发明。</span><br/>是的,完全是他的错。";
+			if (game.portal.Motivation_II.locked) text += "Your desire to stop him is so strong that you've <b>你想要阻止他的欲望是如此强烈，以至于你解锁了 动力 II。</b>!"
 			message(text, "Story");
 			game.portal.Motivation_II.locked = false;
 			break;
@@ -10946,16 +10946,16 @@ function givePumpkimpLoot(){
 	var success = [
 		"Oops, that Pumpkimp just wanted to give you some candy. You found ",
 		"When checking the Pumpkimp for loot, you find a pouch that says to take one. You take all ",
-		"That Pumpkimp gave you ",
+		"那个Pumpkimp给了你 ",
 		"Right before you finish the Pumpkimp off, it throws a large bag at you and rolls away. Inside, you find ",
-		"This Pumpkimp was still in pretty good shape, so you let your Trimps carve it. Inside, they found ",
-		"That Pumpkimp was so smashed that he gave you ",
-		"You dig through what's left of the Pumpkimp and find ",
+		"这个Pumpkimp仍然很好，所以你让你的脆皮雕刻它。在里面,他们发现了 ",
+		"那个Pumpkimp被砸得粉碎，他给了你。 ",
+		"你挖掘出Pumpkimp的剩余部分，然后找到了 ",
 		"Aww man, there's seeds and orange stuff everywhere. At least you found ",
 		"You're not wearing a costume, but you'll still take this "
 	];
 	var failures = [
-		"That Pumpkimp gave you nothing! What a jerk!",
+		"那个Pumpkimp什么也没给你!真是个混蛋!",
 		"Lame, this one just has stringy stuff in it.",
 		"You crack open your newly captured Pumpkimp and find... Nothing!",
 		"Right before you finish the Pumpkimp off, it winks at you and rolls away. That was pretty weird.",

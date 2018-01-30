@@ -3481,7 +3481,7 @@ var toReturn = {
 			fast: true,
 			loot: function (level) {
 				var amt = rewardResource("food", 0.5, level, true);
-				message("That Chickimp dropped " + prettify(amt) + " food!", "Loot", "apple", null, 'primary');
+				message("那个小鸡怪掉落了 " + prettify(amt) + " 食物!", "Loot", "apple", null, 'primary');
 			}
 		},
 		Hippopotamimp: {
@@ -3599,7 +3599,7 @@ var toReturn = {
 			fast: true,
 			loot: function (level) {
 				var amt = rewardResource("wood", 0.35, level, true);
-				message("The Entimp is no more. You manage to salvage " + prettify(amt) + " logs of wood from his trunk!", "Loot", "tree-deciduous", null, 'primary');
+				message("Entimp已经不复存在了。你设法挽救了 " + prettify(amt) + " 木材原木从他的行李箱!", "Loot", "tree-deciduous", null, 'primary');
 			}
 		},
 		Squirrimp: {
@@ -3609,7 +3609,7 @@ var toReturn = {
 			fast: false,
 			loot: function (level) {
 				var amt = rewardResource("food", 0.35, level, true);
-				message("Time for some stew! You scored " + prettify(amt) + " food from that Squirrimp!", "Loot", "apple", null, 'primary');
+				message("该吃点炖菜了! 你得到了 " + prettify(amt) + " 来自那个地方的食物。!", "Loot", "apple", null, 'primary');
 			}
 		},
 		Gravelimp: {
@@ -3619,7 +3619,7 @@ var toReturn = {
 			fast: false,
 			loot: function (level) {
 				var amt = rewardResource("metal", 0.35, level, true);
-				message("You sift through the Gravelimp, and manage to find " + prettify(amt) + " bars of metal! Good on you!", "Loot", "*cubes", null, 'primary');
+				message("你在坟墓里摸索着，设法找到了 " + prettify(amt) + " 金属条! 祝贺你!", "Loot", "*cubes", null, 'primary');
 			}
 		},
 		Blimp: {
@@ -3767,18 +3767,18 @@ var toReturn = {
 			loot: function (level) {
 				checkAchieve("doomTimed");
 				var amt = rewardResource("metal", 2, level, true);
-				message("Indianimp dropped " + prettify(amt) + " metal!", "Loot", "*cubes", null, 'primary');
+				message("Indianimp 掉落了 " + prettify(amt) + " 金属!", "Loot", "*cubes", null, 'primary');
 				if (game.global.runningChallengeSquared) return;
 				if (game.global.challengeActive == "Trapper"){
 					game.global.challengeActive = "";
 					game.challenges.Trapper.abandon();
 					game.portal.Anticipation.locked = false;
-					message("You have completed the 'Trapper' challenge! Your Trimps now remember how to breed, and you have unlocked a new perk!", "Notices");
+					message("你完成了 '捕手' 挑战! 你的脆皮现在还记得如何繁殖，而且你已经解锁了一个新的额外福利!", "Notices");
 				}
 				if (game.global.challengeActive == "Meditate"){
 					game.global.challengeActive = "";
 					game.portal.Meditation.locked = false;
-					message("You have completed the 'Meditate' challenge! The dimension has returned to normal, and you have unlocked a new perk!", "Notices");
+					message("你完成了 '冥想' 挑战! 这个维度已经恢复正常了，你已经解锁了一个新福利！", "Notices");
 				}
 			}
 		},
@@ -4050,11 +4050,11 @@ var toReturn = {
 			world: 6,
 			attack: 1,
 			health: 1,
-			dropDesc: "Drops 6x Gems",
+			dropDesc: "掉落 6x 宝石",
 			fast: false,
 			loot: function (level) {
 				var amt = rewardResource("gems", 3, level, true);
-				message("That Goblimp dropped " + prettify(amt) + " gems! What a bro!", "Loot", "*diamond", "exotic", 'exotic');
+				message("那个Goblimp掉落了 " + prettify(amt) + " 宝石! 多好的兄弟!", "Loot", "*diamond", "exotic", 'exotic');
 				game.unlocks.impCount.Goblimp++;
 			}
 		},
@@ -4069,7 +4069,7 @@ var toReturn = {
 			loot: function (level) {
 				if (game.resources.gems.owned == 0) 	fadeIn("gems", 10);
 				var amt = rewardResource("gems", 7.5, level);
-				message("That Feyimp gave you " + prettify(amt) + " gems! Thanks Feyimp!", "Loot", "*diamond", "exotic", "exotic");
+				message("那个Feyimp给了你 " + prettify(amt) + " 宝石! 谢谢，Feyimp!", "Loot", "*diamond", "exotic", "exotic");
 				game.unlocks.impCount.Feyimp++;
 			}
 		},
@@ -4083,7 +4083,7 @@ var toReturn = {
 			dropDesc: "Drops Fragments",
 			loot: function (level) {
 				var amt = rewardResource("fragments", 1, level, true);
-				message("You stole " + prettify(amt) + " fragments from that Flutimp! It really didn't look like she needed them though, don't feel bad.", "Loot", "th", "exotic", "exotic");
+				message("你偷了 " + prettify(amt) + " 碎片从那个小恶魔那里 !虽然看起来她并不需要他们，但也不要觉得不好。", "Loot", "th", "exotic", "exotic");
 				game.unlocks.impCount.Flutimp++;
 			}
 		},
@@ -4102,7 +4102,7 @@ var toReturn = {
 				game.unlocks.impCount.TauntimpAdded += amt;
 				if (game.portal.Carpentry.level) amt *= Math.pow((1 + game.portal.Carpentry.modifier), game.portal.Carpentry.level);
 				if (game.portal.Carpentry_II.level > 0) amt *= (1 + (game.portal.Carpentry_II.modifier * game.portal.Carpentry_II.level));
-				message("It's nice, warm, and roomy in that dead Tauntimp. It's big enough for " + prettify(amt) + " Trimps to live inside!", "Loot", "gift", "exotic", "exotic");
+				message("这是一个不错的，温暖并且宽敞的死亡Tauntimp。 它大得足够容纳 " + prettify(amt) + " 脆皮在里面生活!", "Loot", "gift", "exotic", "exotic");
 
 			}
 		},
@@ -4159,7 +4159,7 @@ var toReturn = {
 				var amt = simpleSeconds(item, 45);
 				amt = scaleToCurrentMap(amt);
 				addResCheckMax(item, amt);
-				message("That Jestimp gave you " + prettify(amt) + " " + item + "!", "Loot", "*dice", "exotic", "exotic");
+				message("那个Jestimp给了你 " + prettify(amt) + " " + cnresourcetype(item) + "!", "Loot", "*dice", "exotic", "exotic");
 				game.unlocks.impCount.Jestimp++;
 			}
 		},
@@ -4179,7 +4179,7 @@ var toReturn = {
 				}
 				else timeRemaining = 30;
 				game.global.titimpLeft = timeRemaining;
-				message("That Titimp made your Trimps super strong!", "Loot", "*hammer", "exotic", "exotic");
+				message("那个Titimp使你的脆皮非常强壮!", "Loot", "*hammer", "exotic", "exotic");
 			}
 		},
 		Chronoimp: {
@@ -4189,19 +4189,19 @@ var toReturn = {
 			attack: 1,
 			health: 1,
 			fast: false,
-			dropDesc: "5 seconds of production for all basic resources",
+			dropDesc: "所有基本资源5秒的产量",
 			loot: function () {
 				var eligible = ["food", "wood", "metal", "science"];
 				if (game.jobs.Dragimp.owned > 0) eligible.push("gems");
-				var cMessage = "That Chronoimp dropped ";
+				var cMessage = "那个Chronoimp掉落了 ";
 				for (var x = 0; x < eligible.length; x++){
 					var item = eligible[x];
 					var amt = simpleSeconds(item, 5);
 					amt = scaleToCurrentMap(amt);
 					addResCheckMax(item, amt, null, null, true);
-					cMessage += prettify(amt) + " " + item;
+					cMessage += prettify(amt) + " " + cnitem(item);
 					if (x == (eligible.length - 1)) cMessage += "!";
-					else if (x == (eligible.length - 2)) cMessage += ", and ";
+					else if (x == (eligible.length - 2)) cMessage += ", 和 ";
 					else cMessage += ", ";
 				}
 				message(cMessage, "Loot", "hourglass", "exotic", "exotic");
@@ -4967,7 +4967,7 @@ var toReturn = {
 		Collector: {
 			world: -1,
 			startAt: 50,
-			message: "You found plans for some sort of overly complicated solar panel.",
+			message: "你发现了一些设计过于复杂的太阳能电池板的图纸。",
 			level: [3, 19],
 			icon: "dashboard",
 			title: "Collector",
@@ -4993,7 +4993,7 @@ var toReturn = {
 		Nursery: {
 			world: -1,
 			startAt: 23,
-			message: "You found blueprints for some sort of nursery that can harness more power from gems.",
+			message: "你找到了一些可以从宝石中获得更多能量的托儿所的蓝图。",
 			level: [5, 20],
 			icon: "home",
 			title: "Nursery",
@@ -5011,7 +5011,7 @@ var toReturn = {
 			repeat: 5,
 			fire: function (level) {
 				var amt = rewardResource("gems", 0.5, level, true);
-				message("你找到了 " + prettify(amt) + " gems! Terrific!", "Loot", "*diamond", null, "secondary");
+				message("你找到了 " + prettify(amt) + " 宝石! 好极了!", "Loot", "*diamond", null, "secondary");
 			}
 		},
 		//This one is for depths maps
@@ -5024,7 +5024,7 @@ var toReturn = {
 			filter: true,
 			fire: function (level) {
 				var amt = rewardResource("gems", 0.5, level, true);
-				message("你找到了 " + prettify(amt) + " gems! Terrific!", "Loot", "*diamond", null, "secondary");
+				message("你找到了 " + prettify(amt) + " 宝石! 好极了!", "Loot", "*diamond", null, "secondary");
 			}
 		},
 		Any: {
@@ -5322,14 +5322,14 @@ var toReturn = {
 			}
 		},
 		Scientist: {
-			message: "You found a book about Einstrimp!",
+			message: "你找到一本关于爱因斯坦脆皮的书。!",
 			world: 1,
 			level: 39,
 			icon: "book",
 			title: "科学家",
 			fire: function () {
 				if (game.global.challengeActive == "Scientist"){
-					message("Your Trimps think they're too good at Science to read your dumb book. They're already working on Portal technology!", "Notices");
+					message("你的脆皮认为他们在科学上太擅长阅读你的愚蠢的书。。他们已经在研究传送门技术了!", "Notices");
 					game.challenges.Scientist.fireAbandon = true;
 					return;
 				}
@@ -5337,7 +5337,7 @@ var toReturn = {
 			}
 		},
 		Explorer: {
-			message: "You found a book detailing the intricacies of solo exploration!",
+			message: "你找到了一本书，详细描述了独自探索的错综复杂之处!",
 			world: 15,
 			level: 39,
 			icon: "book",
@@ -5347,7 +5347,7 @@ var toReturn = {
 			}
 		},
 		Speedscience: {
-			message: "You found a book called Speedscience! What do you think it could possibly do?!",
+			message: "你找到了一本叫做《速度科学》的书!你认为它能做什么?!",
 			brokenPlanet: -1,
 			world: -2,
 			level: 39,
@@ -5355,7 +5355,7 @@ var toReturn = {
 			title: "Speedscience",
 			fire: function () {
 			if (game.global.challengeActive == "Scientist"){
-				message("You found a book called Speedscience, but you haven't found anyone to read it. Such a shame.", "Notices");
+				message("你找到一本叫《速度科学》的书，但你还没找到读它的人。真遗憾。", "Notices");
 				game.challenges.Scientist.heldBooks++;
 				return;
 			}
@@ -5363,7 +5363,7 @@ var toReturn = {
 			}
 		},
 		Megascience: {
-			message: "You found a book called Megascience! It seems to fade in and out of reality.",
+			message: "你找到了一本书叫《超级科学》!它似乎在现实中逐渐消失。",
 			brokenPlanet: 1,
 			addClass: "brokenUpgrade",
 			world: -2,
@@ -5375,7 +5375,7 @@ var toReturn = {
 			}
 		},
 		Gigastation: {
-			message: "You found blueprints detailing how to upgrade your Warpstation. Blimey!",
+			message: "你找到了蓝图，详细说明如何升级你的作战计划。啊呀!",
 			brokenPlanet: 1,
 			addClass: "brokenUpgrade",
 			world: -1,
@@ -5389,7 +5389,7 @@ var toReturn = {
 			}
 		},
 		Gigastation2: {
-			message: "You found blueprints detailing how to upgrade your Warpstation. Blimey!",
+			message: "你找到了蓝图，详细说明如何升级你的作战计划。啊呀!",
 			brokenPlanet: 1,
 			addClass: "brokenUpgrade",
 			world: -2,
@@ -5404,7 +5404,7 @@ var toReturn = {
 			}
 		},
 		Gigastation3: {
-			message: "You found blueprints detailing how to upgrade your Warpstation. Blimey!",
+			message: "你找到了蓝图，详细说明如何升级你的作战计划。啊呀!!",
 			brokenPlanet: 1,
 			addClass: "brokenUpgrade",
 			world: -33,
@@ -5419,7 +5419,7 @@ var toReturn = {
 			}
 		},
 		Gigastation4: {
-			message: "You found blueprints detailing how to upgrade your Warpstation. Blimey!",
+			message: "你找到了蓝图，详细说明如何升级你的作战计划。啊呀!!",
 			brokenPlanet: 1,
 			addClass: "brokenUpgrade",
 			world: -5,
@@ -5434,7 +5434,7 @@ var toReturn = {
 			}
 		},
 		Gigastation5: {
-			message: "You found blueprints detailing how to upgrade your Warpstation. Blimey!",
+			message: "你找到了蓝图，详细说明如何升级你的作战计划。啊呀!",
 			brokenPlanet: 1,
 			addClass: "brokenUpgrade",
 			world: -10,
@@ -5449,7 +5449,7 @@ var toReturn = {
 			}
 		},
 		Magmamancer: {
-			message: "You find a smouldering book that looks like it was pushed from the core of this planet. Inside are drawings of Trimps performing rituals with Gems and Magma. It's very hot to the touch, but you take it with you as you haven't had new reading material in a while.",
+			message: "你会发现一本闷烧的书，看起来像是从这个星球的核心被推了出来。里面是用宝石和岩浆进行仪式的脆皮的画。摸起来很热，但是你随身携带，因为你已经有一段时间没有新的阅读材料了。",
 			world: 230,
 			level: 90,
 			icon: "book",
@@ -5457,7 +5457,7 @@ var toReturn = {
 			fire: function () {
 				if (game.global.challengeActive == "Metal"){
 					game.challenges.Metal.holdMagma = true;
-					message("This book really doesn't help too much while you're dealing with the minerlessness of this dimension. Better let your scientists hold this one for you for a bit.", "Notices");
+					message("这本书在你处理这个维度的矿物元素的过程中真的没什么帮助。最好让你的科学家为你保留这一点。", "Notices");
 					return;
 				}
 				unlockUpgrade("Magmamancers");
@@ -5465,7 +5465,7 @@ var toReturn = {
 		},
 		//49 is for weapon
 		Speedfarming:{
-			message: "You found a book called Speedfarming! It looks delicious!",
+			message: "你找到了一本叫做“速度农场”的书!它看起来美味!",
 			brokenPlanet: -1,
 			world: -1,
 			level: 79,
@@ -5476,7 +5476,7 @@ var toReturn = {
 			}
 		},
 		Megafarming:{
-			message: "You found a book called Megafarming! It indicates that you should actually water your crops. Brilliant!",
+			message: "你发现了一本书叫《大型农场》它表明你实际上应该给你的庄稼浇水。太棒了!",
 			brokenPlanet: 1,
 			addClass: "brokenUpgrade",
 			world: -1,
@@ -5489,7 +5489,7 @@ var toReturn = {
 		},
 
 		Speedlumber: {
-			message: "You found a book called Speedlumber! It looks long.",
+			message: "你找到了一本书叫《速度木材》!它看起来长。",
 			brokenPlanet: -1,
 			world: -1,
 			level: 69,
@@ -5500,7 +5500,7 @@ var toReturn = {
 			}
 		},
 		Megalumber: {
-			message: "You found a book called Megalumber! The quote on the back reads 'How much wood could a Wood Trimp chop if a Wood Trimp could chop wood?'",
+			message: "你找到了一本书叫《超级木材》!背面的引用上写着:“如果一个木三轮车能劈木头，木头能砍多少木头?”",
 			brokenPlanet: 1,
 			addClass: "brokenUpgrade",
 			world: -1,
@@ -5512,7 +5512,7 @@ var toReturn = {
 			}
 		},
 		Speedminer: {
-			message: "You found a book called Speedminer!",
+			message: "你找到了一本叫《速度矿工》的书!",
 			brokenPlanet: -1,
 			world: -1,
 			level: 59,
