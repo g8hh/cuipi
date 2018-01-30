@@ -2332,12 +2332,12 @@ var toReturn = {
 			finished: 0,
 			title: "房地产",
 			description: function (number) {
-				if (number == 9) return "Use the Dimensional Generator";
+				if (number == 9) return "使用维度生成器";
 				return "建造你的第一个  " + this.breakpoints[number];
 			},
 			breakpoints: ["帐篷", "房子", "大厦", "旅馆", "娱乐场", "出入口", "虫洞", "集电极", "经线站", "发电机"],
 			tiers: [1, 1, 1, 1, 2, 2, 2, 2, 3, 5],
-			names: ["小公寓", "住宅开发", "品味奢华", "花俏", "地平线", "Dimensional Drift", "Too Cool For Helium", "Space From Stars", "To Infinity and Beyond", "Mass Generation"],
+			names: ["小公寓", "住宅开发", "品味奢华", "花俏", "地平线", "维漂移", "对氦来说太酷了", "星际空间", "无穷无尽", "大众新一代"],
 			icon: "icomoon icon-building-o",
 			newStuff: []
 		},
@@ -2345,8 +2345,8 @@ var toReturn = {
 			finished: 0,
 			title: "总传送门",
 			description: function (number) {
-				var s = (number > 0) ? "s" : "";
-				return "Use the Portal " + prettify(this.breakpoints[number]) + " time" + s;
+				var s = (number > 0) ? "" : "";
+				return "使用传送门 " + prettify(this.breakpoints[number]) + " 次" + s;
 			},
 			display: function () {
 				return (game.global.totalPortals > 0);
@@ -2454,7 +2454,7 @@ var toReturn = {
 			title: "宝石收集",
 			description: function (number) {
 				var number = this.breakpoints[number];
-				var s = (number > 1) ? "s" : "";
+				var s = (number > 1) ? "" : "";
 				return "收集  " + prettify(number) + " 宝石" + s;
 			},
 			progress: function () {
@@ -4124,8 +4124,8 @@ var toReturn = {
 				game.jobs.Explorer.modifier *= 1.003;
 				var amt = Math.pow(1.003, game.unlocks.impCount.Whipimp);
 				amt = (amt - 1) * 100;
-				var s = (game.unlocks.impCount.Whipimp == 1) ? "" : "s";
-				message("Seeing the Whipimp" + s + " fall is causing all of your Trimps to work " + amt.toFixed(2) + "% harder!", "Loot", "star", "exotic", "exotic");
+				var s = (game.unlocks.impCount.Whipimp == 1) ? "" : "";
+				message("看见惠皮普" + s + " 坠落，会让你的所有脆皮工作效率提升 " + amt.toFixed(2) + "% !", "Loot", "star", "exotic", "exotic");
 			}
 		},
 		Venimp: {
@@ -5070,7 +5070,7 @@ var toReturn = {
 			filter: true,
 			fire: function (level) {
 				var amt = rewardResource("food", 0.5, level, true);
-				message("That guy just left " + prettify(amt) + " food on the ground! Sweet!", "Loot", "apple", null, "primary");
+				message("那家伙在地上留下了 " + prettify(amt) + " 食物! 爽!", "Loot", "apple", null, "primary");
 			}
 		},
 		Wood: {
@@ -5107,21 +5107,21 @@ var toReturn = {
 			icon: "question-sign"
 		},
 		Dagger: {
-			message: "You found plans for a Dagger! Fancy!",
+			message: "你找到了匕首的图纸!真想不到!",
 			world: 1,
 			level: 19,
 			title: "新武器",
 			icon: "question-sign"
 		},
 		Mace: {
-			message: "You found plans for a mace!",
+			message: "你找到了一个狼牙棒的图纸!",
 			world: 2,
 			level: 19,
 			title: "新武器",
 			icon: "question-sign"
 		},
 		Helmet: {
-			message: "You found plans for a helmet!",
+			message: "你找到了一个头盔的图纸！",
 			world: 2,
 			level: 49,
 			title: "新装甲",
@@ -5142,28 +5142,28 @@ var toReturn = {
 			icon: "question-sign"
 		},
 		Battleaxe: {
-			message: "You found plans for a Battleaxe!",
+			message: "你找到了一个战斧的图纸！",
 			world: 4,
 			level: 19,
 			title: "新武器",
 			icon: "question-sign"
 		},
 		Shoulderguards: {
-			message: "You found plans for Shoulderguards!",
+			message: "你找到了护肩的图纸！",
 			world: 4,
 			level: 49,
 			title: "新装甲",
 			icon: "question-sign"
 		},
 		Greatsword: {
-			message: "You found plans for a Greatsword!",
+			message: "你找到了巨剑的图纸！",
 			world: 5,
 			level: 19,
 			title: "新武器",
 			icon: "question-sign"
 		},
 		Breastplate: {
-			message: "You found plans for a Breastplate!",
+			message: "你找到了护胸甲的图纸！",
 			world: 5,
 			level: 49,
 			title: "新装甲",
@@ -5171,7 +5171,7 @@ var toReturn = {
 		},
 		//Non Equipment
 		Bloodlust: {
-			message: "You found an ancient book titled Bloodlust. You should look at it or something.",
+			message: "你找到一本名为《嗜血》的古书。你应该看看它或别的什么。",
 			world: 1,
 			level: 9,
 			icon: "book",
@@ -5181,7 +5181,7 @@ var toReturn = {
 			}
 		},
 		Efficiency: {
-			message: "Hey, this book might be for you!",
+			message: "嘿，这本书可能适合你!",
 			world: -2,
 			level: 9,
 			icon: "book",
@@ -5229,8 +5229,8 @@ var toReturn = {
 			lastAt: 55,
 			level: 44,
 			icon: "book",
-			message: "Trimp cave paintings predicted the existence of a book such as this one, you had no idea it actually existed. It smells dusty.",
-			title: "Some old, dusty book",
+			message: "脆皮洞穴壁画预言了这本书的存在，你根本不知道它的存在。它有灰尘气味。",
+			title: "一些旧的、布满灰尘的书",
 			fire: function () {
 				unlockUpgrade("Gymystic");
 			}
@@ -5242,8 +5242,8 @@ var toReturn = {
 			level: 54,
 			icon: "book",
 			displayAs: "Gymystic",
-			message: "Trimp cave paintings predicted the existence of a book such as this one, you had no idea it actually existed. It smells dusty.",
-			title: "Some old, dusty book",
+			message: "脆皮洞穴壁画预言了这本书的存在，你根本不知道它的存在。它有灰尘气味。",
+			title: "一些旧的、布满灰尘的书",
 			fire: function () {
 				unlockUpgrade("Gymystic");
 			}
@@ -5278,7 +5278,7 @@ var toReturn = {
 			title: "",
 			fire: function () {
 				if (game.global.challengeActive == "Trapper"){
-					message("Your Scientists let you know that your Trimps won't understand the book, but they offer to hold on to it for you for later. How nice of them!", "Notices");
+					message("你的科学家让你知道，你的脆皮不会理解这本书，但是他们会为你保留它。真是太好了!", "Notices");
 					game.challenges.Trapper.heldBooks++;
 					return;
 				}
@@ -5297,14 +5297,14 @@ var toReturn = {
 		}, */
 		//19 is for Armor
 		Miner: {
-			message: "You found an ancient book about mining. With some research you should be able to teach the Trimps to mine!",
+			message: "你找到一本关于采矿的古书。通过一些研究，你应该能够教会我的脆皮们！",
 			world: 1,
 			level: 29,
 			icon: "book",
 			title: "矿工",
 			fire: function () {
 				if (game.global.challengeActive == "Metal"){
-					message("Your Trimps simply do not understand what this book is talking about. It's blowing their minds. What is a 'Miner'?!", "Notices");
+					message("你的脆皮根本不理解这本书在说什么。这是他们的想法。什么是“矿工”? !", "Notices");
 					game.challenges.Metal.fireAbandon = true;
 					return;
 				}
@@ -5312,11 +5312,11 @@ var toReturn = {
 			}
 		},
 		Trainer: {
-			message: "You found a book about proper physical training!",
+			message: "你找到了一本关于适当的体能训练的书！",
 			world: 3,
 			level: 3,
 			icon: "book",
-			title: "Step Up Your Block Game!",
+			title: "加强你的方块游戏!",
 			fire: function () {
 				unlockUpgrade("Trainers");
 			}
@@ -6121,8 +6121,8 @@ var toReturn = {
 				var nextMag = (((1 - Math.pow(0.9999, this.owned + 1)) * 3));
 				var nextBonus = (1 - (currentMag / nextMag)) * 100;
 				var textString = "<p>Train a Magmamancer to craft pickaxe heads infused with Gems and Magma, custom for the unique rocks in each zone. The more Magmamancers you have and the longer you spend in one zone, the more Metal your Trimps will be able to gather!</p><p>For each 10 minutes you spend in a zone with Magmamancers up to 2 hours, your Magmamancer bonus will increase by 20% (compounding). Your current bonus is <b>" + prettify(bonus) + "%</b>, and you've been on this zone for " + timeStr + ".</p>";
-				if (this.owned > 0) textString += "<p>Your next Magmamancer will increase the total bonus by " + prettify(nextBonus) + "% (compounding, hold Ctrl to see formula)</p>";
-				else textString += "<p>After training your first Magmamancer, your bonus metal will be " + prettify((nextMag * (Math.pow(1.2, this.getBonusPercent(true)) - 1)) * 100) + "%. (Hold Ctrl to see formula)</p>";
+				if (this.owned > 0) textString += "<p>你的下一个岩浆法师将增加总奖励 " + prettify(nextBonus) + "% (复利, 按住Ctrl键查看公式)</p>";
+				else textString += "<p>培训了你的第一个岩浆法师之后，你的金属奖励将会是 " + prettify((nextMag * (Math.pow(1.2, this.getBonusPercent(true)) - 1)) * 100) + "%. (按住Ctrl键查看公式)</p>";
 				if (ctrlPressed) textString += "<b><p>M = Magmamancer count. T = Time on zone in minutes, divided by 10, rounded down.</p><p>金属/秒 *= 1 + (((1 - (0.9999 ^ M)) * 3) * ((1.2 ^ T) - 1))</p><b>";
 				return textString;
 			},
@@ -6154,7 +6154,7 @@ var toReturn = {
 	goldenUpgrades: {
 		Helium: {
 			tooltip: function() {
-				return "Increase helium gain by " + prettify(game.goldenUpgrades.Helium.nextAmt() * 100) + "%.";
+				return "增加氦获得量 " + prettify(game.goldenUpgrades.Helium.nextAmt() * 100) + "%.";
 			},
 			nextAmt: function() {
 				return 0.01 * (game.global.goldenUpgrades + 1);
@@ -6164,7 +6164,7 @@ var toReturn = {
 		},
 		Battle: {
 			tooltip: function() {
-				return "Increase Trimp attack and health by " + prettify(game.goldenUpgrades.Battle.nextAmt() * 100) + "%.";
+				return "增加脆皮的攻击和生命 " + prettify(game.goldenUpgrades.Battle.nextAmt() * 100) + "%.";
 			},
 			nextAmt: function() {
 				return 0.03 * (game.global.goldenUpgrades + 1);
@@ -6174,7 +6174,7 @@ var toReturn = {
 		},
 		Void: {
 			tooltip: function() {
-				return "Decrease the minimum amount of enemies between Void Map drops by " + prettify(game.goldenUpgrades.Void.nextAmt() * 100) + "%.";
+				return "减少虚空地图掉落时的最小敌人数量 " + prettify(game.goldenUpgrades.Void.nextAmt() * 100) + "%.";
 			},
 			nextAmt: function() {
 				return 0.02 * (game.global.goldenUpgrades + 1);

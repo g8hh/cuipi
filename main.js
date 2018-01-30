@@ -2471,7 +2471,7 @@ function calculateTimeToMax(resource, perSec, toNumber, fromGather) {
 		minutes = 0;
 		toFill++;
 	}
-	if (!isFinite(years)) return "Long Time";
+	if (!isFinite(years)) return "很长时间";
 	if (toFill < 60) {
 		if (toFill < 1 && fromGather) return "";
 		return Math.floor(seconds) + " 秒" + ((Math.floor(seconds) == 1) ? "" : "s");
@@ -2636,7 +2636,7 @@ function buyBuilding(what, confirmed, fromAuto, forceAmt) {
     var canAfford = ((forceAmt) ? canAffordBuilding(what, false, false, false, false, purchaseAmt) : canAffordBuilding(what));
 	if (canAfford){
 		if (what == "Wormhole" && !confirmed && game.options.menu.confirmhole.enabled && !fromAuto){
-			tooltip('Confirm Purchase', null, 'update', 'You are about to purchase ' + purchaseAmt + ' Wormholes, <b>which cost helium</b>. Make sure you can earn back what you spend!', 'buyBuilding(\'Wormhole\', true)');
+			tooltip('Confirm Purchase', null, 'update', '你将要购买 ' + purchaseAmt + ' 虫洞, <b>需要消耗氦</b>。 请确保你有能力去赚回你花费的氦气!', 'buyBuilding(\'Wormhole\', true)');
 			return false;
 		}
 		((forceAmt) ? canAffordBuilding(what, true, false, false, false, purchaseAmt) : canAffordBuilding(what, true));
@@ -3436,10 +3436,10 @@ function toggleGeneticistassist(updateOnly){
 	currentStep = steps[currentStep];
 	var text = "";
 	if (currentStep == -1) {
-		text = "Disabled";
+		text = "禁用";
 		swapClass("state", "stateDanger", elem);
 	}
-	else text = "<span class='icomoon icon-target'></span> " + currentStep + " Second" + ((currentStep > 1) ? "s" : "");
+	else text = "<span class='icomoon icon-target'></span> " + currentStep + " 秒" + ((currentStep > 1) ? "" : "");
 	document.getElementById("GeneticistassistSetting").innerHTML = text;
 }
 
@@ -3533,7 +3533,7 @@ function getNextPrestigeValue(what){
 	var equipment = game.equipment[name];
 	var stat;
 	if (equipment.blockNow) stat = "block";
-	else stat = (typeof equipment.health !== 'undefined') ? "health" : "attack";
+	else stat = (typeof equipment.health !== 'undefined') ? "生命" : "攻击";
 	var toReturn = Math.round(equipment[stat] * Math.pow(1.19, ((equipment.prestige) * game.global.prestige[stat]) + 1));
 	return prettify(toReturn) + " " + stat;
 }
@@ -3622,7 +3622,7 @@ function resetAdvMaps(fromClick) {
 	//biome
 	var biomeElem = document.getElementById("biomeAdvMapsSelect");
 	if (game.global.decayDone && document.getElementById('gardenOption') === null) 
-		biomeElem.innerHTML += "<option id='gardenOption' value='Plentiful'>Gardens</option>";
+		biomeElem.innerHTML += "<option id='gardenOption' value='Plentiful'>花园</option>";
 	biomeElem.value = (game.global.sessionMapValues.biome && !fromClick) ? game.global.sessionMapValues.biome : "Random";
 	//bottom row
 	hideAdvMaps(true);
@@ -9744,7 +9744,7 @@ function fight(makeUp) {
 				skip = true;
 			}
 			if (shouldRepeat && !game.global.switchToMaps && (game.global.challengeActive != "Mapology" || game.challenges.Mapology.credits >= 1) && !skip){
-				if (game.global.mapBonus > 0) document.getElementById("mapsBtn").innerHTML = "Maps (" + game.global.mapBonus + ")";
+				if (game.global.mapBonus > 0) document.getElementById("mapsBtn").innerHTML = "地图 (" + game.global.mapBonus + ")";
 				game.global.lastClearedMapCell = -1;
 				buildMapGrid(game.global.currentMapId);
 				drawGrid(true);
@@ -10005,10 +10005,10 @@ function fight(makeUp) {
 		game.global.soldierHealth -= (game.global.soldierHealth * bleedMod);
 		if (game.global.soldierHealth < 1) thisKillsTheTrimp();
 	}
-	if (gotCrit) critSpan.innerHTML = "Crit!";
+	if (gotCrit) critSpan.innerHTML = "暴击!";
 	var badCritText;
-	if (badDodge) badCritText = "Dodge!";
-	else if (badCrit && wasAttacked) badCritText = "Crit!";
+	if (badDodge) badCritText = "躲闪!";
+	else if (badCrit && wasAttacked) badCritText = "暴击!";
 	else badCritText = "";
 	document.getElementById("badCrit").innerHTML =  badCritText;
     if (cell.health <= 0) game.global.battleCounter = 800;
