@@ -4411,7 +4411,7 @@ function displaySelectedHeirloom(modSelected, selectedIndex, fromTooltip, locati
 	html += ')" id="selectedHeirloomTitle">' + heirloom.name + '</span> '
 	if (!fromTooltip) html += '<span id="renameContainer"></span>';
 	html+= '</div></div>';
-	if (!fromTooltip && (game.global.selectedHeirloom[1] == "StaffEquipped" || game.global.selectedHeirloom[1] == "ShieldEquipped")) html += '<span class="heirloomEquipped">Equipped</span><br/>';
+	if (!fromTooltip && (game.global.selectedHeirloom[1] == "StaffEquipped" || game.global.selectedHeirloom[1] == "ShieldEquipped")) html += '<span class="heirloomEquipped">已装备</span><br/>';
 	var noneEmpty = true;
 	var opacity = (modSelected) ? 'style="opacity: 0.5" ' : '';
 	for (var x = 0; x < heirloom.mods.length; x++){
@@ -4420,7 +4420,7 @@ function displaySelectedHeirloom(modSelected, selectedIndex, fromTooltip, locati
 				if (modSelected && selectedIndex != x) html += opacity;
 				html += 'onclick="selectMod(' + x;
 				if (fromPopup) html += ', true';
-				html+= ')">Empty</span><br/>';
+				html+= ')">空</span><br/>';
 			}
 		else{
 			html += '&bull; <span class="heirloomMod" ';
@@ -4497,9 +4497,9 @@ function selectMod(which, fromPopup){
 	swapClass("heirloomBtn", newClass, replaceBtn);
 	newClass = (upgradeCost > game.global.nullifium) ? "heirloomBtnInactive" : "heirloomBtnActive";
 	swapClass("heirloomBtn", newClass, upgradeBtn);
-	replaceBtn.innerHTML = (mod[0] == "empty") ? "Add (" + prettify(replaceCost) + " Nu)" : "Replace (" + prettify(replaceCost) + " Nu)";
-	document.getElementById("modUpgradeCost").innerHTML = "Upgrade to " + getModUpgradeValue(heirloom, which) + "%";
-	upgradeBtn.innerHTML = "Upgrade (" + prettify(upgradeCost) + " Nu)";
+	replaceBtn.innerHTML = (mod[0] == "empty") ? "增加 (" + prettify(replaceCost) + " Nu)" : "替换 (" + prettify(replaceCost) + " Nu)";
+	document.getElementById("modUpgradeCost").innerHTML = "升级到 " + getModUpgradeValue(heirloom, which) + "%";
+	upgradeBtn.innerHTML = "升级 (" + prettify(upgradeCost) + " Nu)";
 }
 
 function checkModCap(mod, modConfig, heirloom){
@@ -4618,15 +4618,15 @@ function replaceMod(confirmed){
 	if (game.global.nullifium < cost) return;
 	if (!confirmed && game.options.menu.boneAlerts.enabled == 1) {
 		var oldName = game.heirlooms[heirloom.type][heirloom.mods[selectedMod][0]].name;
-		var text = (oldName == "Empty") ? "You are about to add " : "You are about to replace " + oldName + " with ";
-		text += newMod.name + ' for ' + prettify(cost) + ' Nullifium. ';
+		var text = (oldName == "Empty") ? "你准备要增加 " : "你准备要替换 " + oldName + " 用 ";
+		text += newMod.name + ' 花费 ' + prettify(cost) + ' Nullifium. ';
 		if (oldName != "Empty"){
 			if (mod[3] > 0){
 				var cost = countPriceOfUpgrades(setupDummyHeirloom(heirloom, mod), mod[3]);
-				text += "<br/><br/><b>You have already purchased " + mod[3] + " upgrades for " + oldName + " and spent a total of " + prettify(cost) + " Nullifium. <span style='color:red'>Replacing this mod will not refund your Nu, and it will be permanently lost</span></b>.";
+				text += "<br/><br/><b>你已经购买了 " + mod[3] + " 升级 " + oldName + " 累计消耗了 " + prettify(cost) + " Nullifium. <span style='color:red'>Replacing this mod will not refund your Nu, and it will be permanently lost</span></b>.";
 			}
 		}
-		text += " Are you sure?";
+		text += " 你确定吗?";
 		tooltip('confirm', null, 'update', text, 'replaceMod(true)', 'Replace Mod');
 		return;
 	}
@@ -4650,7 +4650,7 @@ function replaceMod(confirmed){
 function buildModOptionDdl(type, rarity){
 	var html = '';
 	var baseValue = game.heirlooms.values[rarity] * 5;
-	html += '<option value="-1">Select a Mod</option>';
+	html += '<option value="-1">选择一个模式</option>';
 	for (var item in game.heirlooms[type]){
 		if (item == 'empty') continue;
 
@@ -8719,7 +8719,7 @@ function distributeToChallenges(amt) {
 var dailyModifiers = {
 	minDamage: {
             description: function (str) {
-                return "Trimp min damage reduced by " + prettify(this.getMult(str) * 100) + "% (additive).";
+                return "脆皮的最小伤害降低 " + prettify(this.getMult(str) * 100) + "% (附加的)。";
             },
             getMult: function (str) {
                 return 0.1 + ((str - 1) * 0.01);
@@ -8732,7 +8732,7 @@ var dailyModifiers = {
         },
         maxDamage: {
             description: function (str) {
-                return "Trimp max damage increased by " + prettify(this.getMult(str) * 100) + "% (additive).";
+                return "脆皮最大伤害增加 " + prettify(this.getMult(str) * 100) + "% (附加的)。";
             },
             getMult: function (str) {
                 return str;
@@ -8745,7 +8745,7 @@ var dailyModifiers = {
         },
 		plague: { //Half of electricity
 			description: function (str) {
-                return "Enemies stack a debuff with each attack, damaging Trimps for " + prettify(this.getMult(str, 1) * 100) + "% of total health per turn per stack, resets on Trimp death."
+                return "敌人的每次攻击叠加一个debuff，每回合每堆栈对脆皮造成 " + prettify(this.getMult(str, 1) * 100) + "% 总血量的伤害，直到脆皮死亡后重置。"
             },
             getMult: function (str, stacks) {
                 return 0.01 * str * stacks;
@@ -8758,12 +8758,12 @@ var dailyModifiers = {
 			chance: 0.6,
 			icon: "*bug2",
 			stackDesc: function (str, stacks) {
-				return "Your Trimps are taking " + prettify(this.getMult(str, stacks) * 100) + "% damage after each attack.";
+				return "你的脆皮每次攻击后都会造成 " + prettify(this.getMult(str, stacks) * 100) + "% 伤害。";
 			}
         },
 		weakness: {
 			description: function (str) {
-				return "Enemies stack a debuff with each attack, reducing Trimp attack by " + prettify(100 - this.getMult(str, 1) * 100) + "% per stack. Stacks cap at 9 and reset on Trimp death.";
+				return "敌人会在每次攻击时叠加一次，减少脆皮攻击 " + prettify(100 - this.getMult(str, 1) * 100) + "% 每个堆栈。最高叠加9次，直到脆皮死亡后重置。";
 			},
 			getMult: function (str, stacks) {
 				return 1 - (0.01 * str * stacks);
@@ -8775,7 +8775,7 @@ var dailyModifiers = {
 			chance: 0.6,
 			icon: "fire",
 			stackDesc: function (str, stacks) {
-				return "Your Trimps have " + prettify(100 - this.getMult(str, stacks) * 100) + "% less attack.";
+				return "你的脆皮攻击减少 " + prettify(100 - this.getMult(str, stacks) * 100) + "% 。";
 			}
 		},
 		large: {
@@ -8799,7 +8799,7 @@ var dailyModifiers = {
         },
 		dedication: {
 			description: function (str) {
-				return "Gain " + prettify((this.getMult(str) * 100) - 100) + "% more resources from gathering";
+				return "通过收集获得的资源增加 " + prettify((this.getMult(str) * 100) - 100) + "%";
 			},
 			getMult: function(str) {
 				return 1 + (0.1 * str);
@@ -8812,7 +8812,7 @@ var dailyModifiers = {
 		},
 		famine: {
             description: function (str) {
-                return "Gain " + prettify(100 - (this.getMult(str) * 100)) + "% less Metal, Food, Wood, and Gems from all sources";
+                return "所有来源的金属，食物，木材和宝石收益减少" + prettify(100 - (this.getMult(str) * 100)) + "%。";
             },
             getMult: function (str) {
                 return 1 - (0.01 * str);
@@ -8825,7 +8825,7 @@ var dailyModifiers = {
         },
 		badStrength: {
 			description: function (str) {
-				return "Enemy attack increased by " + prettify((this.getMult(str) * 100) - 100) + "%.";
+				return "敌人攻击增加 " + prettify((this.getMult(str) * 100) - 100) + "%。";
 			},
 			getMult: function (str) {
 				return 1 + (0.2 * str);
