@@ -1642,7 +1642,7 @@ var toReturn = {
 				for (var x = 0; x < this.heldBooks; x++){
 					unlockUpgrade("Speedscience");
 				}
-				message("You can research science again!", "Notices");
+				message("你可以再次研究科学!", "Notices");
 				if (game.global.sLevel >= 4) {
 					if (game.buildings.Warpstation.craftTime > 0){
 						game.buildings.Warpstation.craftTime = 0;
@@ -3071,7 +3071,7 @@ var toReturn = {
 		w298: "The deranged spirit in the tower is now begging that you stay back. It obviously knows you destroyed the last tower and doesn't want you taking out another. Too bad, buddy. You're coming.",
 		get w303() {
 			if (game.global.spireRows >= 15) return "You're glad you have Fluffy around now. He seems to be getting along well with the other Trimps, and seems happy to have found others like him. He doesn't seem to be any smarter than a normal Trimp so you're sure you'll get some entertainment out of him.";
-			return "You wish you had a pet.";
+			return "你希望有一只宠物。";
 		},
 		get w315(){
 			if (game.global.lastSpireCleared == 2) return "These healthy spots of land seem to be increasing as the Spire pumps more and more into the air! Hopefully that's a good thing. You ask Fluffy what he thinks and he nods in approval.";
@@ -3095,7 +3095,7 @@ var toReturn = {
 		},
 		get w405(){
 			if (game.global.lastSpireCleared == 3) return "It really seemed like you weakened Druopitee back there. Maybe you'll be able to at least shut off any last conscious parts of him with just one more Spire?";
-			return "You can't shake the feeling like you forgot to do something.";
+			return "你无法摆脱这种感觉，就像你忘记了做一些事情一样。";
 		},
 		get w415(){
 			if (game.global.lastSpireCleared == 3) return "The Healthy mutation is starting to spread nicely now. The bad guys hurt quite a bit more, but you're pretty sure you're doing the right thing which kinda makes you feel good.";
@@ -3533,7 +3533,7 @@ var toReturn = {
 			fast: false,
 			loot: function (level) {
 				var amt = rewardResource("metal", 0.2, level, true);
-				message("The Moltimp thanked you for the combat, and handed you " + prettify(amt) + " bars of metal! Then he died.", "Loot", "*cubes", null, 'primary');
+				message("Moltimp为了感谢你的战斗，给了你 " + prettify(amt) + " 金属条! 然后就死了。", "Loot", "*cubes", null, 'primary');
 			}
 		},
 		Golimp: {
@@ -3559,7 +3559,7 @@ var toReturn = {
 					icon = "*cubes";
 					tag = "primary";
 				}
-				message("The Golimp fell to pieces! You manage to grab " + prettify(amt) + " " + res + " before it begins pulling itself together.", "Loot", icon, null, tag);
+				message("Golimp摔成了碎片！你抓住了 " + prettify(amt) + " " + res + " 在它开始把自己拉到一起之前。", "Loot", icon, null, tag);
 			}
 		},
 		Lavimp: {
@@ -3599,7 +3599,7 @@ var toReturn = {
 			fast: true,
 			loot: function (level) {
 				var amt = rewardResource("wood", 0.35, level, true);
-				message("Entimp已经不复存在了。你设法挽救了 " + prettify(amt) + " 木材原木从他的行李箱!", "Loot", "tree-deciduous", null, 'primary');
+				message("Entimp已经不复存在了。你从他的行李箱得到了 " + prettify(amt) + " 木材原木!", "Loot", "tree-deciduous", null, 'primary');
 			}
 		},
 		Squirrimp: {
@@ -3642,7 +3642,7 @@ var toReturn = {
 					if (game.global.world >= 40 && game.global.challengeActive == "Balance") {
 						if (game.challenges.Balance.highestStacks <= 100) giveSingleAchieve("Underbalanced");
 						var reward = game.challenges.Balance.heldHelium;
-						message("You have completed the Balance challenge! You have been rewarded with " + prettify(reward) + " Helium, and you may repeat the challenge.", "Notices");
+						message("你已经完成了平衡挑战! 你获得了 " + prettify(reward) + " 氦, 你可以重复这个挑战。", "Notices");
 						game.challenges.Balance.abandon();
 						game.global.challengeActive = "";
 						addHelium(reward);
@@ -3686,7 +3686,7 @@ var toReturn = {
 					amt = rewardResource("helium", amt, level, false, rewardPercent);
 				var msg = "Cthulimp and the map it came from crumble into the darkness. You find yourself instantly teleported to ";
 				if (game.options.menu.repeatVoids.enabled && game.global.totalVoidMaps > 1){
-					msg += "the next Void map";
+					msg += "下一个虚空地图";
 				}
 				else {
 					msg += ((game.options.menu.exitTo.enabled) ? "the world " : "your map chamber");
@@ -3794,9 +3794,9 @@ var toReturn = {
 				if (game.global.runningChallengeSquared) return;
 				if (game.global.challengeActive == "Electricity" || game.global.challengeActive == "Mapocalypse") {
 					var reward = Math.floor(game.challenges.Electricity.heldHelium * 2);
-					if (game.global.challengeActive == "Electricity") message("You have completed the Electricity challenge! You have been rewarded with " + prettify(reward) + " Helium, and you may repeat the challenge.", "Notices");
+					if (game.global.challengeActive == "Electricity") message("你已经完成了电力挑战! 你获得了 " + prettify(reward) + " 氦, 你可以重复这个挑战。", "Notices");
 					else if (game.global.challengeActive == "Mapocalypse") {
-						message("You have completed the Mapocalypse challenge! You have unlocked the 'Siphonology' Perk, and have been rewarded with " + prettify(reward) + " Helium.", "Notices");
+						message("你已经完成了Mapocalypse挑战! 你解锁了 '虹吸学' 额外福利,并且获得了 " + prettify(reward) + " 氦。", "Notices");
 						if (game.portal.Siphonology.locked) addNewSetting('siphonologyMapLevel');
 						game.portal.Siphonology.locked = false;
 						game.challenges.Mapocalypse.abandon();
@@ -4220,7 +4220,7 @@ var toReturn = {
 				game.unlocks.impCount.Magnimp++;
 				var amt = Math.pow(1.003, game.unlocks.impCount.Magnimp);
 				amt = (amt - 1) * 100;
-				message("You killed a Magnimp! The strong magnetic forces now increase your loot by " + amt.toFixed(2) + "%!", "Loot", "magnet", "exotic", "exotic");
+				message("你杀死了一个Magnimp! The strong magnetic forces now increase your loot by " + amt.toFixed(2) + "%!", "Loot", "magnet", "exotic", "exotic");
 			}
 		},
 		Skeletimp: {
@@ -5058,7 +5058,7 @@ var toReturn = {
 			filter: true,
 			fire: function (level) {
 				var amt = rewardResource("metal", 0.5, level, true);
-				message("你发现了 " + prettify(amt) + " 金属条！ 方便！", "Loot", "*cubes", null, "primary");
+				message("你发现了 " + prettify(amt) + " 金属条！ 不错！", "Loot", "*cubes", null, "primary");
 			}
 		},
 		Food: {
@@ -5082,7 +5082,7 @@ var toReturn = {
 			filter: true,
 			fire: function (level) {
 				var amt = rewardResource("wood", 0.5, level, true);
-				message("你发现了 " + prettify(amt) + "木头！ 干得相当干净！", "Loot", "tree-deciduous", null, "primary");
+				message("你发现了 " + prettify(amt) + "木头！ 干得相当漂亮！", "Loot", "tree-deciduous", null, "primary");
 			}
 		}
 	},
@@ -5621,7 +5621,7 @@ var toReturn = {
 			title: "Too dark to see",
 			fire: function () {
 				createMap(33, "Trimple Of Doom", "Doom", 3, 100, 1.8, true);
-				message("There is something strange about this map. It doesn't seem to reflect any light at all, just pure darkness.", "Story");
+				message("这张地图有些奇怪。它似乎没有反射任何光线，只是纯粹的黑暗。", "Story");
 			}
 		},
 		FirstMap: {
@@ -5633,7 +5633,7 @@ var toReturn = {
 				game.global.mapsUnlocked = true;
 				unlockMapStuff();
 				createMap(6, "Tricky Paradise", "Plentiful", 1.2, 45, 0.85);
-				message("You found your first map! Travel to your map chamber to check it out.", "Story");
+				message("你找到了你的第一个地图! 前往你的地图室看看吧。", "Story");
 			}
 		},
 		easterEgg: {
@@ -5696,7 +5696,7 @@ var toReturn = {
 			repeat: 8,
 			fire: function (level) {
 				var amt = rewardResource("wood", 0.5, level);
-				message("你发现了 " + prettify(amt) + " 木头！ 干得相当干净！", "Loot", "tree-deciduous", null, 'primary');
+				message("你发现了 " + prettify(amt) + " 木头！ 干得相当漂亮！", "Loot", "tree-deciduous", null, 'primary');
 			}
 		},
 		freeMetals: {
@@ -5707,7 +5707,7 @@ var toReturn = {
 			repeat: 6,
 			fire: function (level) {
 				var amt = rewardResource("metal", 0.5, level);
-				message("你发现了 " + prettify(amt) + " 金属条！ 方便！", "Loot", "*cubes", null, 'primary');
+				message("你发现了 " + prettify(amt) + " 金属条！ 不错！", "Loot", "*cubes", null, 'primary');
 			}
 		},
 		spireMetals: {
@@ -6114,7 +6114,7 @@ var toReturn = {
 				else{
 					var remaining = 10 - (timeOnZone % 10);
 					var nextBonus = ((this.getBonusPercent(false, Math.floor(timeOnZone / 10) + 1) - 1) * 100);
-					timeStr = prettify(timeOnZone) + " minute" + ((timeOnZone == 1) ? "" : "s") + ". In " + prettify(remaining) + " minute" + ((remaining == 1) ? "" : "s") + ", this bonus will increase to " + prettify(nextBonus) + "%";
+					timeStr = prettify(timeOnZone) + " 分钟" + ((timeOnZone == 1) ? "" : "") + "。 在 " + prettify(remaining) + " 分钟里" + ((remaining == 1) ? "" : "") + ", 这个奖金将增加到 " + prettify(nextBonus) + "%";
 					if (timeOnZone < 10) bonus = 0;
 				}
 				var currentMag = (((1 - Math.pow(0.9999, this.owned)) * 3));

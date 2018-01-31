@@ -3585,7 +3585,7 @@ function createMap(newLevel, nameOverride, locationOverride, lootOverride, sizeO
 		newMap.bonus = "fa";
 	}
 	game.global.mapsOwnedArray.push(newMap);
-    if (!messageOverride) message("You just made " + mapName[0] + "!", "Loot", "th-large", null, 'secondary');
+    if (!messageOverride) message("你制作了 " + mapName[0] + "!", "Loot", "th-large", null, 'secondary');
     unlockMap(game.global.mapsOwnedArray.length - 1);
 }
 
@@ -3888,7 +3888,7 @@ function cacheReward(resourceName, time, cacheName){
 	var amt = simpleSeconds(resourceName, time);
 	amt = scaleToCurrentMap(amt);
 	addResCheckMax(resourceName, amt, null, null, true);
-	message("You open the " + cacheName + " at the end of the map to find " + prettify(amt) + " " + resourceName + "!", "Loot", "*dice", null, "cache");
+	message("你在地图的终点打开了 " + cacheName + " 去寻找 " + prettify(amt) + " " + resourceName + "!", "Loot", "*dice", null, "cache");
 }
 
 function updateMapCost(getValue){
@@ -3976,12 +3976,12 @@ function buyMap() {
 	var cost = updateMapCost(true);
 	var newLevel = parseInt(document.getElementById("mapLevelInput").value, 10);
 	if (!newLevel || newLevel <= 5 || newLevel > game.global.world || isNaN(newLevel) || isNaN(cost)) {
-		message("You must create a map between level 6 and your highest zone, " + game.global.world + ".", "Notices");
+		message("你必须在第6级和你的最高区域之间创建一张地图, " + game.global.world + ".", "Notices");
 		return -1;
 	}
 	if (cost > 0 && game.resources.fragments.owned >= cost){
 		if (game.global.mapsOwnedArray.length >= 100) {
-			message("Woah, that's a lot of maps. You're certain your Scientists will just lose them if you make any more. Better recycle a few of them, it's good for the environment anyways.", "Notices");
+			message("哇，地图真多啊。你可以肯定，如果你再多做一些，你的科学家就会失去它们。最好回收其中的一些，这对环境有好处。", "Notices");
 			return -2;
 		}
 		game.resources.fragments.owned -= cost;
@@ -3989,7 +3989,7 @@ function buyMap() {
 		if (!game.global.currentMapId) selectMap(game.global.mapsOwnedArray[game.global.mapsOwnedArray.length - 1].id);
 		return 1;
 	}
-	else message("You can't afford this map! You need " + prettify(cost) + " 碎片。", "Notices");
+	else message("你负担不起这张地图! 你需要 " + prettify(cost) + " 碎片。", "Notices");
 	return -3;
 }
 
@@ -4232,8 +4232,8 @@ function displayExtraHeirlooms(){
 		tempHtml += generateHeirloomIcon(game.global.heirloomsExtra[y], "Extra", y);
 	}
 	document.getElementById("extraHeirloomsHere").innerHTML = tempHtml;
-	var s = (extraExtraText > 1) ? "s" : "";
-	document.getElementById("extraHeirloomsText").innerHTML = " - " + extraExtraText + " Heirloom" + s + ", recycled for " + recycleAllExtraHeirlooms(true) + " Nu on Portal";
+	var s = (extraExtraText > 1) ? "" : "";
+	document.getElementById("extraHeirloomsText").innerHTML = " - " + extraExtraText + " 传家宝" + s + ", 回收可以得到 " + recycleAllExtraHeirlooms(true) + " Nu 在传送门";
 
 }
 
@@ -4249,13 +4249,13 @@ function selectHeirloom(number, location, elem){
 			break;
 		case "heirloomsCarried":
 			document.getElementById("carriedHeirloomsBtnGroup").style.visibility = "visible";
-			document.getElementById("equipHeirloomBtn").innerHTML = (typeof game.global[heirloom.type + "Equipped"].name === 'undefined') ? "Equip" : "Swap";
+			document.getElementById("equipHeirloomBtn").innerHTML = (typeof game.global[heirloom.type + "Equipped"].name === 'undefined') ? "装备" : "交换";
 			break;
 		case "heirloomsExtra":
 			document.getElementById("extraHeirloomsBtnGroup").style.visibility = "visible";
-			document.getElementById("equipHeirloomBtn2").innerHTML = (typeof game.global[heirloom.type + "Equipped"].name === 'undefined') ? "Equip" : "Swap";
+			document.getElementById("equipHeirloomBtn2").innerHTML = (typeof game.global[heirloom.type + "Equipped"].name === 'undefined') ? "装备" : "交换";
 			if (game.global.heirloomsCarried.length < game.global.maxCarriedHeirlooms) swapClass("heirloomBtn", "heirloomBtnActive", document.getElementById("carryHeirloomBtn"));
-			document.getElementById("recycleHeirloomBtn").innerHTML = "Recycle (+" + prettify(getTotalHeirloomRefundValue(heirloom)) + " Nullifium)";
+			document.getElementById("recycleHeirloomBtn").innerHTML = "回收 (+" + prettify(getTotalHeirloomRefundValue(heirloom)) + " Nullifium)";
 			break;
 	}
 	displaySelectedHeirloom();
@@ -4266,7 +4266,7 @@ function recycleHeirloom(confirmed){
 	if (game.global.selectedHeirloom[0] == -1 || game.global.selectedHeirloom[1] == "heirloomsCarried") return;
 	var value = Math.floor(getTotalHeirloomRefundValue(heirloom));
 	if (!confirmed) {
-		tooltip('confirm', null, 'update', 'You are about to recycle ' + heirloom.name + ' for ' + prettify(value) + ' Nullifium. Are you sure?' , 'recycleHeirloom(true)', 'Recycle Heirloom');
+		tooltip('confirm', null, 'update', '你正在回收 ' + heirloom.name + ' 去得到 ' + prettify(value) + ' Nullifium。 你确定吗?' , 'recycleHeirloom(true)', 'Recycle Heirloom');
 		return;
 	}
 	game.global.nullifium += value;
@@ -6829,7 +6829,7 @@ function messageMapCredits() {
 function mapsClicked(confirmed) {
 	if (game.options.menu.pauseGame.enabled) return;
 	if (game.global.mapsActive && getCurrentMapObject().location == "Void" && !confirmed && !game.global.switchToMaps){
-		tooltip('confirm', null, 'update', 'You are about to abandon this Void Map, which will cause you to lose all current progress in this map. Are you sure?' , 'mapsClicked(true)', 'Abandon Void Map');
+		tooltip('confirm', null, 'update', '你将放弃这张虚空地图，这将使你失去在这张地图上所有当前的进展。”你确定吗?' , 'mapsClicked(true)', 'Abandon Void Map');
 		return;
 	}
     if (game.global.switchToMaps || game.global.switchToWorld || game.options.menu.alwaysAbandon.enabled == 1) {

@@ -375,18 +375,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		tooltipText += "<div class='row'>";
 		for (var x = 0; x < toCheck.length; x++){
 			var name = toCheck[x];
-            //汉化消息设置
-            var cntit="";
-            if(toCheck[x]=="Loot"){
-                cntit="战利品"
-            }else if(toCheck[x]=="Unlocks"){
-                cntit="解锁"
-            }else if(toCheck[x]=="Combat"){
-                cntit="战斗"
-            } else{
-                return toCheck[x];
-            }
-			tooltipText += "<div class='col-xs-4'><span class='messageConfigTitle'>" + cntit + "</span><br/>";
+			tooltipText += "<div class='col-xs-4'><span class='messageConfigTitle'>" + cnwhat(toCheck[x]) + "</span><br/>";
 			for (var item in msgs[name]){
 				if (item == "essence" && game.global.highestLevelCleared < 179) continue;
 				if (item == "magma" && game.global.highestLevelCleared < 229) continue;
@@ -502,7 +491,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 	}
 	if (what == "MagnetoShriek"){
 		var shriekValue = ((1 - game.mapUnlocks.roboTrimp.getShriekValue()) * 100).toFixed(1);
-		tooltipText = "Your pet RoboTrimp seems to be gifted at distorting the magnetic field around certain bad guys, especially Improbabilities. You can activate this ability once every 5 zones in order to tell your RoboTrimp to reduce the attack damage of the next Improbability by " + shriekValue + "%. This must be reactivated each time it comes off cooldown.";
+		tooltipText = "你的宠物机器人看起来很有天赋，它扭曲了某些坏人周围的磁场，尤其是不可能的能力。你可以每隔5个区域就激活这个能力，让你的机器三mp减少 " + shriekValue + "% 的攻击伤害 This must be reactivated each time it comes off cooldown.";
 		tooltipText += "<span id='roboTrimpTooltipActive' style='font-weight: bold'><br/><br/>";
 		tooltipText += (game.global.useShriek) ? "MagnetoShriek is currently active and will fire on the next Improbability." : "MagnetoShriek is NOT active and will not fire.";
 		tooltipText += "</span>";
@@ -511,7 +500,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 	}
 	if (what == "Reset"){
 		tooltipText = "你确定要重置吗?这实际上真的会重置你的游戏。你不会得到任何好玩的东西，游戏记录将会消失。 <b style='color: red'>这不是你想要的软重置。 这将删除您的保存。</b>";
-		costText="<div class='maxCenter'><div class='btn btn-danger' onclick='resetGame();unlockTooltip();tooltip(\"hide\")'>Delete Save</div> <div class='btn btn-info' onclick='cancelTooltip()'>取消</div></div>";
+		costText="<div class='maxCenter'><div class='btn btn-danger' onclick='resetGame();unlockTooltip();tooltip(\"hide\")'>删除存档</div> <div class='btn btn-info' onclick='cancelTooltip()'>取消</div></div>";
 		game.global.lockTooltip = true;
 		elem.style.left = "33.75%";
 		elem.style.top = "25%";
@@ -2753,7 +2742,7 @@ function filterMessage(what, updateOnly){ //send true for updateOnly
 		game.global.messages[what].enabled = displayed;
 	}
 	var toChange = document.getElementsByClassName(what + "Message");
-	var btnText = (displayed) ? what : what + " 关闭";
+	var btnText = (displayed) ? cnwhat(what) : cnwhat(what) + "关闭";
 	var btnElem = document.getElementById(what + "Filter");
 	if (btnElem == null) return;
 	btnElem.innerHTML = btnText;
@@ -4250,8 +4239,15 @@ function cnwhat(hat){
         cnwhat="贡品"
     }else if(what=="Nursery"){
         cnwhat="托儿所"
+    }else if(what=="Loot"){
+        //日志筛选
+        cnwhat="战利品"
+    }else if(what=="Unlocks"){
+        cnwhat="解锁"
+    }else if(what=="Combat"){
+        cnwhat="战斗"
     }else{
-        cnwhat=what;
+    cnwhat=what;
     }
     return cnwhat;
 }
