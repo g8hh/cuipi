@@ -4416,6 +4416,8 @@ function cntitle(tit){
         cntit="冥想"
     }else if(what=="Relentlessness"){
         cntit="无情"
+    }else if(what=="Battle"){
+        cntit="战斗"
     }else if(what=="Carpentry"){
         cntit="木工"
     }else if(what=="Artisanistry"){

@@ -2316,7 +2316,7 @@ var toReturn = {
 			highest: 0,
 			title: "拥有脆皮",
 			description: function (number) {
-				return "Have  " + prettify(this.breakpoints[number]) + " total Trimps";
+				return "累计拥有  " + prettify(this.breakpoints[number]) + " 脆皮";
 			},
 			progress: function () {
 				if (this.breakpoints.length > this.finished) return prettify(Math.floor(this.highest)) + " / " + prettify(this.breakpoints[this.finished]);
@@ -2333,9 +2333,10 @@ var toReturn = {
 			title: "房地产",
 			description: function (number) {
 				if (number == 9) return "使用维度生成器";
-				return "建造你的第一个  " + this.breakpoints[number];
+				return "建造你的第一个  " + cnwhat(this.breakpoints[number]);
 			},
-			breakpoints: ["帐篷", "房子", "大厦", "旅馆", "娱乐场", "出入口", "虫洞", "集电极", "经线站", "发电机"],
+//			breakpoints: ["窝棚", "房子", "大厦", "旅馆", "娱乐场", "出入口", "虫洞", "集电极", "经线站", "发电机"],
+            breakpoints: ["Hut", "House", "Mansion", "Hotel", "Resort", "Gateway", "Wormhole", "Collector", "Warpstation", "Generator"],
 			tiers: [1, 1, 1, 1, 2, 2, 2, 2, 3, 5],
 			names: ["小公寓", "住宅开发", "品味奢华", "花俏", "地平线", "维漂移", "对氦来说太酷了", "星际空间", "无穷无尽", "大众新一代"],
 			icon: "icomoon icon-building-o",
