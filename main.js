@@ -7256,12 +7256,12 @@ function startFight() {
 		badName += ' <span class="badge badBadge Magma" onmouseover="tooltip(\'Superheated\', \'customText\', event, \'This Omnipotrimp is Superheated, and will explode on death.\')" onmouseout="tooltip(\'hide\')"><span class="icomoon icon-fire2"></span></span>';
 	}
 	if (game.global.brokenPlanet && !game.global.mapsActive){
-		badName += ' <span class="badge badBadge" onmouseover="tooltip(\'Pierce\', \'customText\', event, \'' + prettify(getPierceAmt() * 100) + '% 这个坏家伙造成的伤害包含20%的穿透伤害。\')" onmouseout="tooltip(\'hide\')"><span class="glyphicon glyphicon-tint"></span></span>';
+		badName += ' <span class="badge badBadge" onmouseover="tooltip(\'Pierce\', \'customText\', event, \'这个坏家伙造成的伤害有 ' + prettify(getPierceAmt() * 100) + '% 的几率包含20%的穿透伤害。\')" onmouseout="tooltip(\'hide\')"><span class="glyphicon glyphicon-tint"></span></span>';
 	}
 	if (game.global.challengeActive == "Slow" || ((game.badGuys[cell.name].fast || cell.mutation == "Corruption") && game.global.challengeActive != "Coordinate" && game.global.challengeActive != "Nom"))
-		badName += ' <span class="badge badBadge" onmouseover="tooltip(\'Fast\', \'customText\', event, \'This Bad Guy is fast and attacks first\')" onmouseout="tooltip(\'hide\')"><span class="glyphicon glyphicon-forward"></span></span>';
+		badName += ' <span class="badge badBadge" onmouseover="tooltip(\'Fast\', \'customText\', event, \'这个坏家伙速度非常快，并且会先攻击你\')" onmouseout="tooltip(\'hide\')"><span class="glyphicon glyphicon-forward"></span></span>';
 	if ((game.global.challengeActive == "Electricity" || game.global.challengeActive == "Mapocalypse")){
-		badName += ' <span class="badge badBadge" onmouseover="tooltip(\'Electric\', \'customText\', event, \'This Bad Guy is electric and stacks a debuff on your Trimps\')" onmouseout="tooltip(\'hide\')"><span class="icomoon icon-power-cord"></span></span>';
+		badName += ' <span class="badge badBadge" onmouseover="tooltip(\'Electric\', \'customText\', event, \'这个坏家伙是电动的，并且会给你的脆皮叠加负面\')" onmouseout="tooltip(\'hide\')"><span class="icomoon icon-power-cord"></span></span>';
 	}
 	document.getElementById("badGuyName").innerHTML = badName;
 	var corruptionStart = mutations.Corruption.start(true);
@@ -10391,14 +10391,14 @@ function showBones() {
 		}
 		else document.getElementById("buyHeirloomArea").style.display = "none";
 	}
-	updateImportButton("First, select an Imp", false);
+	updateImportButton("首先, 选择一个 Imp", false);
 	if (game.unlocks.goldMaps) {
 		document.getElementById("mapsPurchaseBtn").style.backgroundColor = "grey";
-		document.getElementById("goldMapsDesc").innerHTML = "This bonus is active!";
+		document.getElementById("goldMapsDesc").innerHTML = "该奖金已启用!";
 	}
 	if (game.unlocks.quickTrimps) {
 		document.getElementById("trimpsPurchaseBtn").style.backgroundColor = "grey";
-		document.getElementById("quickTrimpsDesc").innerHTML = "This bonus is active!";
+		document.getElementById("quickTrimpsDesc").innerHTML = "该奖金已启用!";
 	}
 	document.getElementById("heliumGainedMisc").innerHTML = prettify(boostHe(true));
 	if (typeof kongregate === 'undefined') return;
@@ -10410,7 +10410,7 @@ function showBones() {
 
 function updateImportButton(text, enabled){
 	var elem = document.getElementById("importPurchaseBtn");
-	elem.innerHTML = text + " (50 bones)";
+	elem.innerHTML = text + " (50 骨头)";
 	swapClass('boneBtnState', 'boneBtnState' + ((enabled) ? 'On' : 'Off'), elem);
 }
 
@@ -12384,12 +12384,16 @@ function cntequan(what){
     }else if(temp=="Discipline"){
         //从这里开始是时间传送门下的按钮
         cntequan="纪律"
+    }else if(temp=="Daily"){
+        cntequan="日常"
     }else if(temp=="Metal"){
         cntequan="金属"
     }else if(temp=="Size"){
         cntequan="尺寸"
     }else if(temp=="Balance"){
         cntequan="平衡"
+    }else if(temp=="Scientist V"){
+        cntequan="科学家 V"
     }else if(temp=="Looting II"){
         cntequan="劫掠 II"
     }else if(temp=="Carpentry II"){
@@ -12422,6 +12426,22 @@ function cntequan(what){
         cntequan="范围"
     }else if(temp=="Motivation II"){
         cntequan="动机 II"
+    }else if(temp=="Meditate"){
+        cntequan="冥想"
+    }else if(temp=="Decay"){
+        cntequan="衰变"
+    }else if(temp=="Trimp"){
+        cntequan="脆皮"
+    }else if(temp=="Trapper"){
+        cntequan="捕手"
+    }else if(temp==""){
+        cntequan=""
+    }else if(temp==""){
+        cntequan=""
+    }else if(temp==""){
+        cntequan=""
+    }else if(temp==""){
+        cntequan=""
     }else{
         return what;
     }

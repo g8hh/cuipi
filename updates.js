@@ -305,7 +305,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 	}
 	if (what == "Rename Preset"){
 		what == "Rename Preset " + selectedPreset;
-		tooltipText = "Type a name below for your Perk Preset! This name will show up on the Preset bar and make it easy to identify which Preset is which."
+		tooltipText = "为你的额外福利预设输入一个名字！这个名字会出现在预设的栏中，并且很容易识别哪个预设是哪个。"
 		if (textString) tooltipText += " <b>额外福利最多可以达到 1,000。</b>";
 		var preset = game.global["perkPreset" + selectedPreset];
 		var oldName = (preset && preset.Name) ? preset.Name : "";
@@ -340,7 +340,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		elem.style.top = "25%";
 	}
 	if (what == "Portal"){
-		tooltipText = "你找到的入口装置在实验室里闪着绿光。 多么熟悉的画面...";
+		tooltipText = "你找到的传送门装置在实验室里闪着绿光。 多么熟悉的画面...";
 		costText = "";
 	}
 	if (what == "Repeat Map"){
@@ -491,7 +491,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 	}
 	if (what == "MagnetoShriek"){
 		var shriekValue = ((1 - game.mapUnlocks.roboTrimp.getShriekValue()) * 100).toFixed(1);
-		tooltipText = "你的宠物机器人看起来很有天赋，它扭曲了某些坏人周围的磁场，尤其是不可能的能力。你可以每隔5个区域就激活这个能力，让你的机器三mp减少 " + shriekValue + "% 的攻击伤害 This must be reactivated each time it comes off cooldown.";
+		tooltipText = "你的宠物机器人看起来很有天赋，它扭曲了某些坏人周围的磁场，尤其是不可能的能力。你可以每隔5个区域就激活这个能力，让你的脆皮减少受到 " + shriekValue + "% 的攻击伤害，这必须在每次冷却后重新启动。";
 		tooltipText += "<span id='roboTrimpTooltipActive' style='font-weight: bold'><br/><br/>";
 		tooltipText += (game.global.useShriek) ? "MagnetoShriek is currently active and will fire on the next Improbability." : "MagnetoShriek is NOT active and will not fire.";
 		tooltipText += "</span>";
@@ -995,7 +995,7 @@ function messageConfigHover(what, event){
 			title = "Token";
 			break;
 		case 'Lootcache':
-			text = "Log drops from Caches in maps.";
+			text = "地图掉落日志";
 			title = "Cache";
 			break;
 		default: return;
@@ -4214,7 +4214,7 @@ function cnwhat(hat){
     }else if(what=="Shed"){
         cnwhat="窝棚"
     }else if(what=="Forge"){
-        cnwhat="锻造"
+        cnwhat="锻造室"
     }else if(what=="Hut"){
         cnwhat="茅舍"
     }else if(what=="House"){
@@ -4325,7 +4325,7 @@ function cntitle(tit){
     }else if(what=="Shed"){
         cntit="窝棚"
     }else if(what=="Forge"){
-        cntit="锻造"
+        cntit="锻造室"
     }else if(what=="Hut"){
         cntit="茅舍"
     }else if(what=="House"){
@@ -4480,6 +4480,14 @@ function cntitle(tit){
         cntit="胫甲OP"
     }else if(what=="Maps"){
         cntit="地图"
+    }else if(what=="Rename Preset"){
+        cntit="重命名预设"
+    }else if(what=="Portal"){
+        cntit="传送门"
+    }else if(what=="Pierce"){
+        cntit="穿刺"
+    }else if(what=="Fast"){
+        cntit="快速"
     }else{
         cntit=tit
     }

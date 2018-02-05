@@ -1670,13 +1670,13 @@ var toReturn = {
 			}
 		},
 		Meditate: {
-			description: "Visit a dimension where everything is stronger, in an attempt to learn how to better train your Trimps. All enemies will have +100% health and +50% attack, but your Trimps will gather 25% faster. Completing <b>'Trimple of Doom' (33)</b> will return the world to normal.",
+			description: "访问一个更强大的维度，试图学习如何更好地训练你的脆皮。 所有的敌人将拥有+100%的生命和+50%的攻击，但是你的脆皮收集速度将会提高25%。 完成 <b>'Trimple of Doom' (33)</b> 后将返回正常的世界。",
 			completed: false,
 			filter: function () {
 				return (game.global.highestLevelCleared >= 44);
 			},
 			allowSquared: true,
-			squaredDescription: "Visit a dimension where everything is stronger, in an attempt to learn how to better train your Trimps. All enemies will have +100% health and +50% attack, but your Trimps will gather 25% faster.",
+			squaredDescription: "访问一个更强大的维度，尝试学习如何更好地训练你的脆皮。 所有的敌人将拥有+100%的生命和+50%的攻击，但是你的脆皮收集速度将会提高25%。",
 			unlocks: "Meditation",
 			unlockString: "到达区域 45"
 		},
@@ -1694,12 +1694,12 @@ var toReturn = {
 			unlockString: "到达区域55",
 		},
 		Trimp: {
-			description: "Tweak the portal to bring you to a dimension where Trimps explode if more than 1 fights at a time. You will not be able to learn Coordination, but completing <b>'The Block' (11)</b> will teach you how to keep your Trimps alive for much longer.",
+			description: "调整传送门，让你进入一个维度，如果一次超过1次的战斗，脆皮会爆炸。 你将不能学习协调， 但是完成 <b>'The Block' (11)</b> 将教会你如何让你的脆皮存活更长时间。",
 			completed: false,
 			heldBooks: 0,
 			fireAbandon: true,
 			allowSquared: true,
-			squaredDescription: "Tweak the portal to bring you to a dimension where Trimps explode if more than 1 fights at a time. You will not be able to learn Coordination.",
+			squaredDescription: "调整传送门，让你进入一个维度，如果一次超过1次的战斗，脆皮会爆炸。你将无法学会协调。",
 			replaceSquareThresh: 40,
 			replaceSquareReward: 3,
 			replaceSquareGrowth: 3,
@@ -1716,12 +1716,12 @@ var toReturn = {
 			unlockString: "到达区域 60"
 		},
 		Trapper: {
-			description: "Travel to a dimension where Trimps refuse to breed in captivity, teaching yourself new ways to take advantage of situations where breed rate is low. Clearing <b>'Trimple Of Doom' (33)</b> with this challenge active will return your breeding rate to normal.",
+			description: "旅行到一个地方，在那里，脆皮拒绝在人工饲养的环境中繁殖，为你自己学习如何利用繁殖率较低的新环境。 清理 <b>'Trimple Of Doom' (33)</b> 有了这个挑战，你的繁殖率就会恢复到正常水平。",
 			completed: false,
 			heldBooks: 0,
 			fireAbandon: true,
 			allowSquared: true,
-			squaredDescription: "Travel to a dimension where Trimps refuse to breed in captivity, good luck!",
+			squaredDescription: "旅行到一个地方，在那里，脆皮拒绝在囚禁中繁殖，祝你好运!",
 			replaceSquareThresh: 50,
 			replaceSquareGrowth: 2,
 			unlocks: "Anticipation",
@@ -2506,7 +2506,7 @@ var toReturn = {
 				return game.global.world;
 			},
 			progress: function () {
-				if (!this.earnable && this.lastZone == -1) return "您需要入口才能符合条件";
+				if (!this.earnable && this.lastZone == -1) return "您需要传送门才能符合条件";
 				if (!this.earnable) return "你失去了不止一次区域" + this.lastZone;
 				if (game.stats.battlesLost.value > this.lastZone + 1) return "你失去了太多战士!";
 				if (game.stats.battlesLost.value == this.lastZone + 1) return "你在该区域已经失败了一次，要小心!";
@@ -4065,7 +4065,7 @@ var toReturn = {
 			world: 1,
 			attack: 1,
 			health: 1,
-			dropDesc: "Drops 15x Gems",
+			dropDesc: "掉落 15x 宝石",
 			fast: false,
 			loot: function (level) {
 				if (game.resources.gems.owned == 0) 	fadeIn("gems", 10);
@@ -4081,7 +4081,7 @@ var toReturn = {
 			attack: 1,
 			health: 1,
 			fast: false,
-			dropDesc: "Drops Fragments",
+			dropDesc: "掉落碎片",
 			loot: function (level) {
 				var amt = rewardResource("fragments", 1, level, true);
 				message("你偷了 " + prettify(amt) + " 碎片从那个小恶魔那里 !虽然看起来她并不需要他们，但也不要觉得不好。", "Loot", "th", "exotic", "exotic");
@@ -4095,7 +4095,7 @@ var toReturn = {
 			attack: 1,
 			health: 1,
 			fast: false,
-			dropDesc: "Grants an extra 0.3% of current Trimps",
+			dropDesc: "额外增加0.3%的现有的脆皮。",
 			loot: function () {
 				var amt = Math.ceil(game.resources.trimps.max * 0.003);
 				game.resources.trimps.max += amt;
@@ -6424,7 +6424,7 @@ var toReturn = {
 		Formations: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "The air may be filled with pollution, but your Trimps seem to be getting smarter and a battle technique from what could only be a past life has crept into your memory. This would probably be a good opportunity to teach it to your Trimps. Once researched, you will be able to enter the 'Heap Formation'. This can be toggled to increase your Trimps' health by 4x, but reduce block and attack by half.",
+			tooltip: "The air may be filled with pollution, but your Trimps seem to be getting smarter and a battle technique from what could only be a past life has crept into your memory. This would probably be a good opportunity to teach it to your Trimps. Once researched, you will be able to enter the '堆叠阵型'. This can be toggled to increase your Trimps' health by 4x, but reduce block and attack by half.",
 			done: 0,
 			cost: {
 				resources: {
