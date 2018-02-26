@@ -22,21 +22,33 @@ var customUp;
 var tooltipUpdateFunction = "";
 var lastMousePos = [];
 var lastTooltipFrom = "";
+var onShift;
+var openTooltip = null;
 
 //"onmouseover="tooltip('*TOOLTIP_TITLE*', 'customText', event, '*TOOLTIP_TEXT*');" onmouseout="tooltip('hide')""
 //in the event of what == 'confirm', numCheck works as a Title! Exciting, right?
 function tooltip(what, isItIn, event, textString, attachFunction, numCheck, renameBtn, noHide, hideCancel, ignoreShift) { //Now 20% less menacing. Work in progress.
 	checkAlert(what, isItIn);
-	if (game.global.lockTooltip) return;
+	if (game.global.lockTooltip && event != 'update') return;
+	if (game.global.lockTooltip && isItIn && event == 'update') return;
 	var elem = document.getElementById("tooltipDiv");
 	swapClass("tooltipExtra", "tooltipExtraNone", elem);
 	var ondisplay = null; // if non-null, called after the tooltip is displayed
+	openTooltip = null;
 	if (what == "hide"){
 		elem.style.display = "none";
 		tooltipUpdateFunction = "";
+		onShift = null;
 		return;
 	}
-	if ((event != 'update' || isItIn) && !game.options.menu.tooltips.enabled && !shiftPressed && what != "Well Fed" && what != "Challenge2" && what != 'Perk Preset' && what != 'Activate Portal' && !ignoreShift) return;
+	if ((event != 'update' || isItIn) && !game.options.menu.tooltips.enabled && !shiftPressed && what != "Well Fed" && what != 'Perk Preset' && what != 'Activate Portal' && !ignoreShift) {
+		var whatU = what, isItInU = isItIn, eventU = event, textStringU = textString, attachFunctionU = attachFunction, numCheckU = numCheck, renameBtnU = renameBtn, noHideU = noHide;
+		var newFunction = function () {
+			tooltip(whatU, isItInU, eventU, textStringU, attachFunctionU, numCheckU, renameBtnU, noHideU);
+		};
+		onShift = newFunction;
+		return;
+	}
 	if (event != "update"){
 		var whatU = what, isItInU = isItIn, eventU = event, textStringU = textString, attachFunctionU = attachFunction, numCheckU = numCheck, renameBtnU = renameBtn, noHideU = noHide;
 		var newFunction = function () {
@@ -82,7 +94,8 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 			Save_Map_Settings: "点击此按钮保存您当前的地图配置设置。 每次进入地图室时，这些设置都会默认加载。",
 			Reset_Map_Settings: "点击此按钮将所有设置重置为默认位置。 这将不会清除您保存的设置，下次您进入地图室时仍然会将其加载。",
 			Extra_Zones: "<p>Create a map up to 10 zones higher than your current zone number. This map will gain +10% loot per extra level (compounding), and can drop Prestige upgrades higher than you could get from a world level map.</p><p>You can only use this setting when creating a max level map.</p>",
-			Perfect_Sliders: "<p>This option takes all of the RNG out of map generation! If sliders are maxxed and the box is checked, you have a 100% chance to get a perfect roll on Loot, Size, and Difficulty.</p><p>You can only choose this setting if the sliders for Loot, Size, and Difficulty are at the max.</p>"
+			Perfect_Sliders: "<p>This option takes all of the RNG out of map generation! If sliders are maxxed and the box is checked, you have a 100% chance to get a perfect roll on Loot, Size, and Difficulty.</p><p>You can only choose this setting if the sliders for Loot, Size, and Difficulty are at the max.</p>",
+			Map_Preset: "You can save up to 3 different map configurations to switch between at will. The most recently selected setting will load each time you enter your map chamber."
 		}
 		if (what == "Special Modifier" && game.global.highestLevelCleared >= 149) {
 			swapClass("tooltipExtra", "tooltipExtraLg", elem);
@@ -131,6 +144,27 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		elem.style.left = "33.75%";
 		elem.style.top = "25%";
 		noExtraCheck = true;
+	}
+	if (what == "Fluffy"){
+		if (event == 'update'){
+			//clicked
+			game.global.lockTooltip = true;
+			elem.style.top = "25%";
+			elem.style.left = "25%";
+			swapClass('tooltipExtra', 'tooltipExtraLg', elem);
+			tooltipText = Fluffy.tooltip(true);
+			costText = '<div class="btn btn-danger" onclick="cancelTooltip()">Close</div>';
+			openTooltip = "Fluffy";
+			setTimeout(Fluffy.refreshTooltip, 1000);
+			ondisplay = function(){
+				verticalCenterTooltip(true);
+			};
+		}
+		else {
+			//mouseover
+			tooltipText = Fluffy.tooltip();
+			costText = "Click for more detailed info"
+		}
 	}
 	if (what == "Empowerments of Nature"){
 		var active = getEmpowerment();
@@ -297,7 +331,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 				for (var item in preset){
 					if (item == "Name") continue;
 					tooltipText += (count > 0) ? ", " : "";
-					tooltipText += '<b>' + item.replace('_', '&nbsp;') + ":</b>&nbsp;" + preset[item];
+					tooltipText += '<b>' + cntequan(item.replace('_', ' ')) + ":</b>&nbsp;" + preset[item];
 					count++;
 				}
 			}
@@ -367,6 +401,47 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 			elem.style.left = "33.75%";
 			elem.style.top = "25%";
 		}
+	}
+	if (what == "Configure Maps"){
+		if (isItIn == null){
+			geneMenuOpen = true;
+			elem = document.getElementById('tooltipDiv2');
+			tip2 = true;
+			var steps = game.global.GeneticistassistSteps;
+			tooltipText = "<div id='GATargetError'></div><div>Customize your settings for running maps!</div>";
+			tooltipText += "<hr class='noBotMarg'/><div class='maxCenter'>"
+			var settingCount = 0;
+			if (game.global.totalPortals >= 1) {
+				tooltipText += getSettingHtml(game.options.menu.mapLoot, 'mapLoot', null, "CM");
+				settingCount++;
+			}
+			tooltipText += getSettingHtml(game.options.menu.repeatUntil, 'repeatUntil', null, "CM");
+			settingCount++;
+			if (settingCount % 2 == 0) tooltipText += "<br/><br/>";
+			tooltipText += getSettingHtml(game.options.menu.exitTo, 'exitTo', null, "CM")
+			settingCount++;
+			if (game.options.menu.mapsOnSpire.lockUnless()){
+				if (settingCount % 2 == 0) tooltipText += "<br/><br/>";
+				tooltipText +=  getSettingHtml(game.options.menu.mapsOnSpire, 'mapsOnSpire', null, "CM");
+				settingCount++;
+			}
+			if (game.global.canMapAtZone){
+				if (settingCount % 2 == 0) tooltipText += "<br/><br/>";
+				tooltipText +=  getSettingHtml(game.options.menu.mapAtZone, 'mapAtZone', null, "CM");
+				settingCount++;
+			}
+			tooltipText += "</div>";
+			costText = "<div class='maxCenter'><div class='btn btn-info' id='confirmTooltipBtn' onclick='cancelTooltip();'>Close</div></div>"
+			elem.style.left = "33.75%";
+			elem.style.top = "25%";
+		}
+	}
+	if (what == "Set Map At Zone"){
+		tooltipText = "Enter a number between 10 and 1000. Next time you reach this Zone number, you will automatically be pulled into the Map Chamber.<div id='mapAtZoneErrorText'></div><br/><br/><input id='mapAtZoneInput' value='" + game.options.menu.mapAtZone.setZone + "'/>";
+		costText = "<div class='maxCenter'><span class='btn btn-success btn-md' id='confirmTooltipBtn' onclick='saveMapAtZone()'>Confirm</span><span class='btn btn-danger btn-md' onclick='cancelTooltip(true)'>Cancel</span>"
+		game.global.lockTooltip = true;
+		elem.style.top = "25%";
+		elem.style.left = "25%";
 	}
 	if (what == "Message Config"){
 		tooltipText = "<div id='messageConfigMessage'>在这里，你可以微调你的消息设置，只看到你想要从每个类别。 将鼠标悬停在过滤器的名称上以获取更多信息。</div>";
@@ -998,6 +1073,10 @@ function messageConfigHover(what, event){
 			text = "地图掉落日志";
 			title = "Cache";
 			break;
+		case 'Lootbone':
+			text = "Log Bone drops from Skeletimps.";
+			title = "Bone";
+			break;
 		default: return;
 	}
     
@@ -1019,6 +1098,7 @@ function cancelTooltip(ignore2){
 	document.getElementById("tipCost").innerHTML = "";
 	customUp = 0;
 	lastMousePos = [0, 0];
+	openTooltip = null;
 }
 
 function unlockTooltip(){
@@ -1199,6 +1279,8 @@ function getPsString(what, rawNum) {
 	tooltip('confirm', null, 'update', textString, "getPsString('" + what + "')", what.charAt(0).toUpperCase() + what.substr(1, what.length) + " Per Second", "Refresh", true);
 }
 
+
+
 function getZoneStats(event, update) {
 	if (!update && game.global.lockTooltip) return;
 	var textString =  "<table class='bdTable table table-striped'><tbody>";
@@ -1206,7 +1288,10 @@ function getZoneStats(event, update) {
 	textString += "<tr><td colspan='3'>你已经在这个区域 " + formatMinutesForDescriptions((new Date().getTime() - game.global.zoneStarted) / 1000 / 60) + "</td></tr>";
 	if ((game.global.mapsActive || game.global.preMapsActive) && game.global.currentMapId){
 		var map = game.global.mapsOwnedArray[getMapIndex(game.global.currentMapId)];
-		textString += "<tr><td class='bdTitle bdZoneTitle' colspan='3'>" + map.name + ", 等级 " + map.level + ", 格子 " + (game.global.lastClearedMapCell + 2) + "</td></tr>";
+		textString += "<tr><td class='bdTitle bdZoneTitle' colspan='3'>" + map.name + ", 等级 " + map.level;
+		if (map.bonus && typeof mapSpecialModifierConfig[map.bonus] !== 'undefined')
+			textString += " (" + mapSpecialModifierConfig[map.bonus].abv + ")";
+		textString += ", 格子 " + (game.global.lastClearedMapCell + 2) + "</td></tr>";
 		textString += '<tr><td><span class="' + getMapIcon(map) + '"></span> ' + ((map.location == "Void") ? voidBuffConfig[game.global.voidBuff].title : getMapIcon(map, true)) + '</td><td><span class="icomoon icon-gift2"></span>' + Math.floor(map.loot * 100) + '%</span> <span class="icomoon icon-cube2"></span>' + map.size + ' <span class="icon icon-warning"></span>' + Math.floor(map.difficulty * 100) + '%</td><td>' + ((map.location == "Void") ? '&nbsp' : ('物品: ' + addSpecials(true, true, map))) + '</td></tr>';
 		textString += "<tr><td colspan='3'>你已经在这个地图上停留了 " + formatMinutesForDescriptions((new Date().getTime() - game.global.mapStarted) / 1000 / 60) + "</td></tr>";
 		if (map.location == "Void") textString += "<tr><td colspan='3'>你拥有 " + game.global.totalVoidMaps + " 虚空地图" + ((game.global.totalVoidMaps == 1) ? "" : "") + ".</td></tr>";
@@ -1394,6 +1479,7 @@ function getBattleStatBd(what) {
 	//Add coordination
 	currentCalc  *= game.resources.trimps.maxSoldiers;
 	textString += "<tr><td class='bdTitle'>士兵</td><td class='bdPercentSm'></td><td></td><td>x " + prettify(game.resources.trimps.maxSoldiers) + "</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + ((what == "attack") ? getFluctuation(currentCalc, minFluct, maxFluct) : "") + "</tr>";
+
 	//Add achievements
 	if (what == "attack" && game.global.achievementBonus > 0){
 		currentCalc *= 1 + (game.global.achievementBonus / 100);
@@ -1584,6 +1670,13 @@ function getBattleStatBd(what) {
 		currentCalc *= (1 + amt);
 		textString += "<tr><td class='bdTitle'>冷冻敌人</td><td></td><td></td><td>+ " + prettify(amt * 100) + "%</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>"
 
+	}
+	//Fluffy
+	if (what == "attack" && Fluffy.isActive()){
+		amt = Fluffy.getDamageModifier();
+		currentCalc *= amt;
+		textString += "<tr><td class='bdTitle'>Fluffy</td><td></td><td></td><td>+ " + prettify((amt -1 ) * 100) + "%</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>"
+		
 	}
 
 	var critChance = getPlayerCritChance();
@@ -1838,6 +1931,11 @@ function getLootBd(what) {
 			if (game.global.voidBuff) {
 				currentCalc *= 2;
 				textString += "<tr><td class='bdTitle'>虚空地图</td><td></td><td></td><td>X 2</td><td>" + prettify(currentCalc) + "</td></tr>";
+			}
+			var fluffyBonus = Fluffy.isRewardActive("helium");
+			if (fluffyBonus > 0){
+				currentCalc += (currentCalc * (0.25 * fluffyBonus));
+				textString += "<tr><td class='bdTitle'>Fluffy Helium</td><td>25%</td><td>" + fluffyBonus + "</td><td>+ " + (25 * fluffyBonus) + "%</td><td>" + prettify(currentCalc) + "</td></tr>";
 			}
 	}
 	if (game.global.mapsActive && what != "Helium") {
@@ -2197,7 +2295,7 @@ function resetGame(keepPortal) {
 	document.getElementById("wrapper").className = "wrapperUnbroken"
 	document.getElementById("turkimpBuff").style.display = "none";
 	document.getElementById("statsBtnRow").style.display = "block";
-	document.getElementById("mapsBtn").innerHTML = "地图";
+	document.getElementById("mapsBtnText").innerHTML = "地图";
 	document.getElementById("mapBonus").innerHTML = "";
 	document.getElementById("roboTrimpTurnsLeft").innerHTML = "";
 	swapClass("shriekState", "shriekStateCooldown", document.getElementById("chainHolder"));
@@ -2311,6 +2409,9 @@ function resetGame(keepPortal) {
 	var empowerments;
 	var spiresCompleted;
 	var hideMapRow;
+	var fluffyExp;
+	var fluffyPrestige;
+	var canMapAtZone;
 	if (keepPortal){
 		portal = game.portal;
 		helium = game.global.heliumLeftover;
@@ -2372,7 +2473,7 @@ function resetGame(keepPortal) {
 		genUpgrades = game.generatorUpgrades;
 		permanentGenUpgrades = game.permanentGeneratorUpgrades;
 		genMode = game.global.generatorMode;
-		advMaps = game.global.sessionMapValues;
+		advMaps = game.global.mapPresets;
 		lastBonePresimpt = game.global.lastBonePresimpt;
 		challengeSquared = game.global.runningChallengeSquared;
 		improvedAutoStorage = game.global.improvedAutoStorage;
@@ -2385,6 +2486,9 @@ function resetGame(keepPortal) {
 		empowerments = game.empowerments;
 		spiresCompleted = game.global.spiresCompleted;
 		hideMapRow = game.global.hideMapRow;
+		fluffyExp = game.global.fluffyExp;
+		fluffyPrestige = game.global.fluffyPrestige;
+		canMapAtZone = game.global.canMapAtZone;
 		if (!game.global.canMagma) {
 			if (highestLevel > 229) highestLevel = 229;
 			if (roboTrimp > 8) roboTrimp = 8;
@@ -2437,7 +2541,7 @@ function resetGame(keepPortal) {
 		game.generatorUpgrades = genUpgrades;
 		game.permanentGeneratorUpgrades = permanentGenUpgrades;
 		game.global.generatorMode = genMode;
-		game.global.sessionMapValues = advMaps;
+		game.global.mapPresets = advMaps;
 		game.global.lastBonePresimpt = lastBonePresimpt;
 		game.global.runningChallengeSquared = challengeSquared;
 		game.global.perkPreset1 = perkPresets.perkPreset1;
@@ -2453,6 +2557,9 @@ function resetGame(keepPortal) {
 		game.empowerments = empowerments;
 		game.global.spiresCompleted = spiresCompleted;
 		game.global.hideMapRow = hideMapRow;
+		game.global.fluffyExp = fluffyExp;
+		game.global.fluffyPrestige = fluffyPrestige;
+		game.global.canMapAtZone = canMapAtZone;
 		for (var statItem in stats){
 			statItem = stats[statItem];
 			if (typeof statItem.value !== 'undefined' && typeof statItem.valueTotal !== 'undefined' && !statItem.noAdd) statItem.valueTotal += statItem.value;
@@ -2483,7 +2590,6 @@ function resetGame(keepPortal) {
 		for (var heirItem in heirloomStuff){
 			game.global[heirItem] = heirloomStuff[heirItem];
 		}
-		if (game.global.totalPortals == 1) game.options.menu.extraMapBtns.enabled = 1;
 		if (game.global.totalPortals == 5) message("Heavy use of the portal has created a chance for the Void to seep into your world. Be alert.", "Story", null, "voidMessage");
 		if (game.global.totalPortals >= 5) document.getElementById("heirloomBtnContainer").style.display = "block";
 		recalculateHeirloomBonuses();
@@ -2503,6 +2609,9 @@ function resetGame(keepPortal) {
 		toggleSetting("usePlayFab", null, false, true);
 		playFabId = -1;
 	}
+	missingTrimps = new DecimalBreed(0);
+	Fluffy.handleBox();
+	Fluffy.checkAndRunVoidance();
 	numTab(1);
 	document.getElementById("tab5Text").innerHTML = "+" + prettify(game.global.lastCustomAmt);
 	pauseFight(true);
@@ -2526,6 +2635,7 @@ function resetGame(keepPortal) {
 	countChallengeSquaredReward();
 	displayGoldenUpgrades();
 	updateSkeleBtn();
+	Fluffy.currentLevel = 0;
 	game.options.menu.tinyButtons.onToggle();
 	if (keepPortal) checkAchieve("portals");
 	document.getElementById("goodGuyAttack").innerHTML = "";
@@ -2535,6 +2645,7 @@ function resetGame(keepPortal) {
 	document.getElementById("goodGuyHealthMax").innerHTML = "0";
 	document.getElementById("trimpsFighting").innerHTML = "1";
 	document.getElementById("critSpan").innerHTML = "";
+	document.getElementById('togglemapAtZone2').style.display = (game.global.canMapAtZone) ? "block" : "none";
 	if (game.global.autoGolden != -1)
 		lastAutoGoldenToggle = new Date().getTime() + 26000;
 	if (game.talents.voidSpecial.purchased){
@@ -3597,10 +3708,33 @@ function searchSettings(elem){
 	resultsElem.innerHTML = text;
 }
 
-function getSettingHtml(optionItem, item, forceClass){
+function getSettingHtml(optionItem, item, forceClass, appendId){
+	if (!appendId) appendId = "";
 	if (!forceClass) forceClass = "";
 	var text = optionItem.titles[optionItem.enabled];
-	return "<div class='optionContainer" + forceClass + "'><div id='toggle" + item + "' class='noselect settingsBtn settingBtn" + optionItem.enabled + "' onclick='toggleSetting(\"" + item + "\", this)' onmouseover='tooltip(\"" + text + "\", \"customText\", event, \"" + optionItem.description + "\")' onmouseout='tooltip(\"hide\")'>" + text + "</div></div>";
+	return "<div class='optionContainer" + forceClass + "'><div id='toggle" + item + appendId + "' class='noselect settingsBtn settingBtn" + optionItem.enabled + "' onclick='toggleSetting(\"" + item + "\"" + ((appendId) ? "" : ", this") + ")' onmouseover='tooltip(\"" + text + "\", \"customText\", event, \"" + optionItem.description + "\")' onmouseout='tooltip(\"hide\")'>" + text + "</div></div>";
+}
+
+function saveMapAtZone(){
+	var elem = document.getElementById('mapAtZoneInput');
+	var errText = document.getElementById('mapAtZoneErrorText');
+	if (elem == null){
+		cancelTooltip(true);
+		return;
+	} 
+	var value = parseInt(elem.value);
+	if (isNaN(value)) {
+		if (errText) errText.innerHTML = elem.value + " is not a number.";
+		return;
+	}
+	if (value < 10 || value > 1000) {
+		if (errText) errText.innerHTML = value + " is not between 10 and 1000.";
+		return;
+	}
+	game.options.menu.mapAtZone.setZone = value;
+	game.options.menu.mapAtZone.enabled = 1;
+	toggleSetting('mapAtZone', null, false, true);
+	cancelTooltip(true);
 }
 
 function toggleSetting(setting, elem, fromPortal, updateOnly, backwards){
@@ -3610,6 +3744,10 @@ function toggleSetting(setting, elem, fromPortal, updateOnly, backwards){
 	}
 	if (setting == "pauseGame" && game.options.menu.disablePause.enabled == 0) return;
 	var menuOption = game.options.menu[setting];
+	if (setting == "mapAtZone" && !updateOnly && menuOption.enabled == 0){
+		tooltip('Set Map At Zone', null, 'update');
+		return;
+	}
 	if (setting == "usePlayFab" && !updateOnly){
 		if (menuOption.enabled == 0){
 			authenticated = enablePlayFab();
@@ -3643,7 +3781,11 @@ function toggleSetting(setting, elem, fromPortal, updateOnly, backwards){
 	}
 	var menuElem = [];
 	menuElem[0] = (elem) ? elem : document.getElementById("toggle" + setting);
-	if (typeof menuOption.secondLocation !== 'undefined') menuElem[1] = document.getElementById(menuOption.secondLocation);
+	if (typeof menuOption.secondLocation !== 'undefined'){
+		for (var z = 0; z < menuOption.secondLocation.length; z++){
+			menuElem.push(document.getElementById(menuOption.secondLocation[z]));
+		}
+	}
 	for (var x = 0; x < menuElem.length; x++){
 		if (menuElem[x] === null) continue;
 		menuElem[x].innerHTML = menuOption.titles[menuOption.enabled];
@@ -3821,7 +3963,7 @@ function toggleSetting(setting, elem, fromPortal, updateOnly, backwards){
 			[", thanks to your bounty of achievements", ", must be all those achievements", ", you are one with the achievements", " and you water your achievements daily"],
 			[", your Trimps are mighty impressed", ", your achievements are mind blowing", ". You wake up, achieve, then sleep", ", you have achievement in your blood"],
 			[", your achievements are beyond mortal comprehension", ", 脆皮远播告诉你的成就的故事", ", you have achieved achievement", ", everything you touch turns to achievement"],
-			[", your achievements have achieved achievement", ", news of your achievement spreads throughout the galaxy", ", achievements bend to your will", ", your achievements transcend reality"],
+			[", 你的成就已经取得成就", ", 你的成就的消息传遍了整个银河系。", ", achievements bend to your will", ", your achievements transcend reality"],
 			[", word of your achievement spreads throughout the universe", ", everyone else is super jealous", ", the achievements of your achievements have achieved achievement", ", your achievements have gained sentience", ", everyone else just stays home", ", you appear if someone says 'Achievement' 3 times in a mirror"]
 		];
 		var fluffLevel = getAchievementStrengthLevel();

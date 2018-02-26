@@ -21,7 +21,7 @@
 function newGame () {
 var toReturn = {
 	global: {
-		version: 4.611,
+		version: 4.7,
 		isBeta: false,
 		betaV: 0,
 		killSavesBelow: 0.13,
@@ -196,14 +196,39 @@ var toReturn = {
 		hideMapRow: false,
 		mapExtraBonus: "",
 		realBreedTime: 0,
-		sessionMapValues: {
-			loot: 0,
-			difficulty: 0,
-			size: 0,
-			biome: "Random",
-			specMod: "0",
-			perf: false,
-			extra: 0
+		fluffyExp: 0,
+		fluffyPrestige: 0,
+		selectedMapPreset: 1,
+		genPaused: false,
+		canMapAtZone: false,
+		mapPresets: {
+			p1: {
+				loot: 0,
+				difficulty: 0,
+				size: 0,
+				biome: "Random",
+				specMod: "0",
+				perf: false,
+				extra: 0
+			},
+			p2: {
+				loot: 0,
+				difficulty: 0,
+				size: 0,
+				biome: "Random",
+				specMod: "0",
+				perf: false,
+				extra: 0				
+			},
+			p3: {
+				loot: 0,
+				difficulty: 0,
+				size: 0,
+				biome: "Random",
+				specMod: "0",
+				perf: false,
+				extra: 0
+			}
 		},
 		lootAvgs: {
 			food: [0],
@@ -230,6 +255,7 @@ var toReturn = {
 				enabled: true,
 				primary: true,
 				secondary: true,
+				bone: true,
 				exotic: true,
 				helium: true,
 				essence: true,
@@ -317,7 +343,7 @@ var toReturn = {
 	empowerments: {
 		Poison: {
 			description: function () {
-				return "When this Empowerment is active, each successful attack by your Trimps stacks a debuff on the enemy, causing it to take <b>" + this.formatModifier(this.getModifier()) + "%</b> of the damage you dealt every turn until it dies. Each attack by your Trimps will further add to the poison effect.";
+				return "When this Empowerment is active, each successful attack by your Trimps stacks a debuff on the enemy, causing it to take <b>" + this.formatModifier(this.getModifier()) + "%</b> of the damage you dealt every attack until it dies. Each attack by your Trimps will further add to the poison effect.";
 			},
 			upgradeDescription: function () {
 				return "Increases the percentage of damage that sticks to enemies as poison during the Empowerment of Poison by <b>" + this.formatModifier(this.baseModifier) + "%</b>. You currently poison for <b>" + this.formatModifier(this.getModifier()) + "%</b>, and next level will cause you to poison for <b>" + this.formatModifier(this.getModifier(1)) + "%</b>.";
@@ -420,6 +446,9 @@ var toReturn = {
 				extraTags: "layout",
 				description: "标准格式之间进行切换 (12.7M, 540B), 工程表示法 (12.7e6, 540e9), 科学计数法 (1.27e7, 5.40e11), 字母符号 (12.7b, 540c), 和混合符号（标准高达e96，然后工程。摹拟标准前4.6）。",
 				titles: ["科学计数法", "标准格式", "工程符号", "字母符号", "混合符号"],
+				onToggle: function () {
+					document.getElementById("tab5Text").innerHTML = "+" + prettify(game.global.lastCustomAmt);
+				}
 			},
 			tooltips: {
 				enabled: 1,
@@ -464,6 +493,12 @@ var toReturn = {
 				description: "打开或关闭津贴级别的大数字格式。",
 				titles: ["不格式化Perk", "格式化Perk级别"]
 			},
+			smallPerks: {
+				extraTags: "layout",
+				enabled: 0,
+				description: "Shrink the size of perk buttons in the Portal and View Perks windows. <b>Large Perk Buttons</b> is default and fits 5 buttons per row. <b>Small Perk Buttons</b> shrinks the size to fit 6 per row, and <b>Tiny Perk Buttons</b> fits 7 per row.",
+				titles: ["Large Perk Buttons", "Small Perk Buttons", "Tiny Perk Buttons"]
+			},
 			progressBars: {
 				enabled: 1,
 				extraTags: "performance",
@@ -503,19 +538,21 @@ var toReturn = {
 				extraTags: "qol",
 				description: "<p>如果自上次运行地图以来一段时间，请选择您的首要升级。</p><p><b>升级优先</b> 会导致地图在移到下一层之前删除最低层的所有项目。 （巨剑II - >胸甲II - >盾III）</p><p><b>装备优先</b> 将从盾牌开始，并在继续匕首之前放下所有可用的盾牌声望，等等。 （盾III - >盾IV - >匕首III）</p>",
 				titles: ["升级优先", "装备优先"],
-				secondLocation: "togglemapLoot2",
+				secondLocation: ["togglemapLoot2", "togglemapLootCM"]
 			},
 			repeatUntil: {
 				enabled: 0,
 				description: "<p><b>Repeat Forever</b> will cause the map to continually repeat if Repeat Maps is enabled.</p><p><b>Repeat to 10</b> will repeat unless you have 10 Map Bonus stacks.</p><p><b>Repeat for Items</b> will repeat unless there are no more special items left for that level of map.</p><p><b>Repeat for Any</b> will repeat unless there are no special items available AND you can not earn more Map Bonus stacks.</p><p><b>This setting only matters if Repeat is on. Toggling Repeat off will still leave the map when it is finished no matter what.</b></p>",
 				titles: ["永远重复", "重复10次", "重复项", "重复所有"],
-				locked: true
+				locked: true,
+				secondLocation: ['togglerepeatUntilCM']
 			},
 			exitTo: {
 				enabled: 0,
 				description: "Choose whether to go to the Maps Screen or World after completing a map.",
 				titles: ["退出地图", "退出世界"],
-				locked: true
+				locked: true,
+				secondLocation: ['toggleexitToCM']
 			},
 			repeatVoids: {
 				enabled: 0,
@@ -658,7 +695,7 @@ var toReturn = {
 			overkillColor: {
 				enabled: 1,
 				extraTags: "layout",
-				description: "选择你是否想要一个不同的细胞来处理你过度使用的细胞。 在关闭之间切换，显示涉及过度杀伤的两个单元格，或者只显示跳过的单元格。",
+				description: "选择你是否想要一个不同的细胞来处理你过度使用的细胞。<b>没有过度的颜色</b> 将不会改变任何颜色基于过度杀伤。 <b>1过度杀伤细胞</b> 是默认设置，并用特殊颜色显示被过度杀死的单元格。 <b>2过度杀伤细胞</b> 将显示为所有细胞过度杀灭的细胞颜色。",
 				titles: ["没有过度的颜色", "1过度杀伤细胞", "2过度杀伤细胞"],
 				lockUnless: function () {
 					return (!game.portal.Overkill.locked)
@@ -684,6 +721,20 @@ var toReturn = {
 				titles: ["Keep Fighting at Spires", "Map at Spires", "Map at Top 2 Spires", "Map at Top Spire"],
 				lockUnless: function () {
 					return (game.global.highestLevelCleared >= 199);
+				},
+				secondLocation: ["togglemapsOnSpireCM"]
+			},
+			mapAtZone: {
+				enabled: 0,
+				extraTags: "other",
+				description: "When enabled, you will automatically abandon your Trimps in the World and enter the Map Chamber as soon as you hit your specified Zone number.",
+				get titles(){
+					return ["No Map At Zone", "Map At Z" + this.setZone];
+				},
+				setZone: 200,
+				secondLocation: ["togglemapAtZone2", "togglemapAtZoneCM"],
+				lockUnless: function () {
+					return game.global.canMapAtZone;
 				}
 			},
 			siphonologyMapLevel: {
@@ -724,8 +775,8 @@ var toReturn = {
 			masteryTab: {
 				enabled: 1,
 				extraTags: "alerts",
-				description: "Choose what you would like to see on your Mastery Tab! <b>No Mastery Info</b> will keep the tab clean and static. <b>Alert Mastery</b> will show an alert on the tab as soon as a new Mastery becomes affordable. <b>Show Essence</b> will always show your total amount of unspent essence on the tab.",
-				titles: ["No Mastery Info", "Alert Mastery", "Show Essence"],
+				description: "Choose what you would like to see on your Mastery Tab! <b>No Mastery Info</b> will keep the tab clean and static. <b>Alert Mastery</b> will show an alert on the tab as soon as a new Mastery becomes affordable. <b>Show Essence</b> will always show your total amount of unspent essence on the tab. <b>Hybrid Essence</b> will show your total amount of unspent essence on the tab, but will switch to the alert icon once you have enough essence for a new Mastery.",
+				titles: ["No Mastery Info", "Alert Mastery", "Show Essence", "Hybrid Alerts"],
 				lockUnless: function () {
 					return (game.global.highestLevelCleared >= 180)
 				},
@@ -786,8 +837,8 @@ var toReturn = {
 				enabled: 0,
 				locked: true,
 				extraTags: "other",
-				description: "<p>当 <b>使用基因发送</b> 启用时, 只要你有一个遗传学家，自动战斗会自动派遣战士，如果他们的繁殖时间超过了你的遗传学家的设定。</p><p>当 <b>强制基因发送</b> 启用时, 只要你有一个遗传学家，自动战斗将永远不会派出一组脆皮战斗，除非你是最大的人口，或者你已经达到了你的设置基因学计时器。</p>",
-				titles: ["不基因发送", "使用基因发送", "强制基因发送"]
+				description: "<p>当 <b>使用基因发送</b> 启用时, 只要你有一个遗传学家，自动战斗会自动派遣战士，如果他们的繁殖时间超过了你的遗传学家的设定。</p><p>当 <b>强制基因发送</b> 启用时, 只要你有一个遗传学家，自动战斗将永远不会派出一组脆皮战斗，除非你是最大的人口，或者你已经达到了你的设置基因学计时器。</p><p>最后, 如果你选择了 <b>等待基因发送</b> 只要你有一个遗传学家，自动战斗只会派遣战士当它们已经繁殖了足够长的时间，可以到达你的遗传基因辅助定时器。这保证了预期和遗传学家的水平，只要你的设置计时器，但可能导致没有士兵被发送一段时间，而你坐的完全人口。</p>",
+				titles: ["不基因发送", "使用基因发送", "强制基因发送", "等待基因发送"]
 			},
 			fireForJobs: {
 				enabled: 0,
@@ -1082,6 +1133,7 @@ var toReturn = {
 			description: "你的脆皮在虚空地图内获得额外的30％攻击力和生命，所有当前和未来的虚空地图都会获得“快速攻击”特效修正。",
 			name: "Void Power III",
 			onPurchase: function (clear) {
+				if(game.global.world > 1)
 				addMapModifier('Void', 'fa');
 			},
 			onRespec: function () {
@@ -1111,8 +1163,16 @@ var toReturn = {
 		},
 		liquification: {
 			get description () {
-				var text = (this.purchased) ? "这种掌握在增加 " : "掌握这将增加 ";
-				return "将你的液化奖励提高5％，就好像你已经完成了1个额外的尖塔。 您目前已完成 " + game.global.spiresCompleted + " 唯一尖塔" + ((game.global.spiresCompleted == 1) ? "" : "s") + ", 给你 " + (game.global.spiresCompleted * 5) + "% 达到你的最高区域 (通过区域" + Math.floor((game.global.spiresCompleted / 20) * (game.global.highestLevelCleared + 1)) + "). " + text + " 你的奖金 " + ((game.global.spiresCompleted + 1) * 5) + "% 达到你的最高区域 (通过区域" + Math.floor(((game.global.spiresCompleted + 1) / 20) * (game.global.highestLevelCleared + 1)) + ").";
+				var text = (this.purchased) ? "这种精通正在增加 " : "这种精通会增加 ";
+				var totalSpires = game.global.spiresCompleted;
+				var fluffyCount = Fluffy.isRewardActive("liquid");
+				var fluffyText = "Y";
+				if (fluffyCount > 0){
+					if (fluffyCount == 1) fluffyText = "计算你的蓬松奖励为尖塔的一半，";
+					else fluffyText = "计算你的两个蓬松奖金作为一个尖塔，"
+					totalSpires += (fluffyCount * 0.5);
+				}
+				return "将你的液化奖励提高5％，就好像你已经完成了1个额外的尖塔。" + fluffyText + " 您目前已完成 " + totalSpires + " 独特的尖塔" + ((totalSpires == 1) ? "" : "") + ", 给你 " + (totalSpires * 5) + "% 你达到的最高区域 (通过 Z" + Math.floor((totalSpires / 20) * (game.global.highestLevelCleared + 1)) + "). " + text + " 你的奖金 " + ((totalSpires + 1) * 5) + "% 你达到的最高区域 (通过 " + Math.floor(((totalSpires + 1) / 20) * (game.global.highestLevelCleared + 1)) + ").";
 			},
 			name: "Liquification I",
 			tier: 6,
@@ -1175,7 +1235,15 @@ var toReturn = {
 			icon: "align-justify"
 		},
 		voidSpecial: {
-			description: "使用您的传送门清除上次运行的每个100个区域后，获得1个免费的虚空地图。 来自虚空地图的氦气在上一次清除的每个区域也增加了0.25％。",
+			get description() {
+				var text = "使用您的传送门清除上次运行的每个100个区域后，获得1个免费的虚空地图。 来自虚空地图的氦气在上一次清除的每个区域也增加了0.25％。";
+				var amt = (game.global.lastPortal * 0.0025);
+				text += " 你到达了 Z" + game.global.lastPortal + " 是一个传送门, ";
+				if (this.purchased) text += " 获得了奖励 ";
+				else text += " 这将为你赢得奖金 ";
+				text +=  prettify(amt * 100) + "% 额外的氦气。"
+				return text;
+			},
 			name: "Void Specialization",
 			tier: 8,
 			purchased: false,
@@ -1201,7 +1269,14 @@ var toReturn = {
 				var text = (this.purchased) ? "这种掌握在增加 " : "掌握这将增加 ";
 				var totalSpires = game.global.spiresCompleted;
 				if (game.talents.liquification.purchased) totalSpires++;
-				return "将你的液化奖励提高5％，就好像你已经完成了1个额外的尖塔。 计算液化我，你现在已经完成了" + totalSpires + " 唯一尖塔" + ((totalSpires == 1) ? "" : "") + ", 给你 " + (totalSpires * 5) + "% 达到你的最高区域 (通过区域" + Math.floor((totalSpires / 20) * (game.global.highestLevelCleared + 1)) + "). " + text + " 你的奖金 " + ((totalSpires + 1) * 5) + "% 达到你的最高区域 (通过区域" + Math.floor(((totalSpires + 1) / 20) * (game.global.highestLevelCleared + 1)) + ").";
+				var fluffyCount = Fluffy.isRewardActive("liquid");
+				var fluffyText = "";
+				if (fluffyCount > 0){
+					if (fluffyCount == 1) fluffyText = " 你的蓬松奖金是尖塔的一半";
+					else fluffyText += " 和你的两个蓬松奖金作为另一个"
+					totalSpires += (fluffyCount * 0.5);
+				}
+				return "将你的液化奖励提高5％，就好像你已经完成了1个额外的尖塔。 计算液化我是一个塔尖。" + fluffyText + ", 你已经完成了相当于 " + totalSpires + " 唯一尖塔" + ((totalSpires == 1) ? "" : "") + ", 给你 " + (totalSpires * 5) + "% 达到你的最高区域 (通过区域Z" + Math.floor((totalSpires / 20) * (game.global.highestLevelCleared + 1)) + "). " + text + " 你的奖金 " + ((totalSpires + 1) * 5) + "% 达到你的最高区域 (通过区域 Z" + Math.floor(((totalSpires + 1) / 20) * (game.global.highestLevelCleared + 1)) + ").";
 			},
 			name: "Liquification II",
 			tier: 8,
@@ -1270,6 +1345,38 @@ var toReturn = {
 			additive: true,
 			additiveInc: 500,
 			modifier: 0.01
+		},
+		Capable: {
+			level: 0,
+			locked: true,
+			priceBase: 1e8,
+			heliumSpent: 0,
+			tooltip: "You can sense great power within Fluffy, but he'll need some training. Each level of Capable allows Fluffy to gain 1 level of experience. Respeccing to remove Capable will temporarily remove any bonuses associated with Fluffy's level and experience, but all exp will be saved until you add points back. Each level of Capable is 10x more expensive than the last, and buying the first level will allow Fluffy to take Portals with you.",
+			max: 10,
+			specialGrowth: 10,
+			onChange: function(){
+				Fluffy.handleBox();
+			}
+		},
+		Cunning: {
+			level: 0,
+			locked: true,
+			modifier: 0.25,
+			priceBase: 1e11,
+			heliumSpent: 0,
+			get tooltip(){
+				return "Fluffy demands more helium! Each level of Cunning will increase the final amount of experience Fluffy gains from each zone by " + Math.round(this.modifier * 100) + "% (additive)."
+			}
+		},
+		Curious: {
+			level: 0,
+			locked: true,
+			modifier: 30,
+			priceBase: 1e14,
+			heliumSpent: 0,
+			get tooltip() {
+				return "Fluffy is coming along, but he's coming along slowly. Each point of Curious will speed up Fluffy's progression by adding " + this.modifier + " exp to the base amount he gains per zone clear."
+			}
 		},
 		Overkill: {
 			level: 0,
@@ -1513,7 +1620,7 @@ var toReturn = {
 			unlockString: "have 30 total helium"
 		},
 		Metal: {
-			description: "调整传送门把你带到另一个现实，那里的矿工的概念不存在，迫使自己变得节俭与设备各具特色的战略。如果你在没有削弱挑战的情况下完成了愤怒的维度，矿工将重新解锁。",
+			description: "调整传送门把你带到另一个现实，那里的矿工的概念不存在，迫使自己变得节俭与设备各具特色的战略。如果你在没有削弱挑战的情况下完成了Dimension of Anger，矿工将重新解锁。",
 			completed: false,
 			filter: function () {
 				return (game.global.highestLevelCleared >= 24);
@@ -1547,7 +1654,7 @@ var toReturn = {
 			unlockString: "到达区域 25"
 		},
 		Size: {
-			description: "调整传送门，让你进入另一个现实，在那里脆皮越来越强大，迫使自己想出一个方法来建造更大的房屋。 你的脆皮会多收集50％的资源，但你的住房将少50％的脆皮。 如果您完成“愤怒的维度”，你的数据将恢复正常。",
+			description: "调整传送门，让你进入另一个现实，在那里脆皮越来越强大，迫使自己想出一个方法来建造更大的房屋。 你的脆皮会多收集50％的资源，但你的住房将少50％的脆皮。 如果您完成“Dimension of Anger”，你的数据将恢复正常。",
 			completed: false,
 			filter: function () {
 				return (game.global.world >= 35 || game.global.highestLevelCleared >= 34);
@@ -1763,7 +1870,7 @@ var toReturn = {
 			unlockString: "clear 'The Prison' at Zone 80"
 		},
 		Frugal: {
-			description: "Bring yourself to a dimension where Equipment is cheap but unable to be prestiged, in order to teach yourself better resource and equipment management. Completing <b>'愤怒的维度' (20)</b> with this challenge active will return missing books to maps, and your new skills in Frugality will permanently cause MegaBooks to increase gather speed by 60% instead of 50%.",
+			description: "Bring yourself to a dimension where Equipment is cheap but unable to be prestiged, in order to teach yourself better resource and equipment management. Completing <b>'Dimension of Anger' (20)</b> with this challenge active will return missing books to maps, and your new skills in Frugality will permanently cause MegaBooks to increase gather speed by 60% instead of 50%.",
 			completed: false,
 			filter: function () {
 				return (game.global.highestLevelCleared >= 99);
@@ -1828,7 +1935,7 @@ var toReturn = {
 			difficultyIncrease: 3
 		},
 		Coordinate: {
-			description: "Visit a dimension where Bad Guys are Coordinated but never fast, to allow you to study naturally evolved Coordination. Completing <b>'愤怒的维度' (20)</b> with this challenge active will cause all enemies to lose their Coordination.",
+			description: "Visit a dimension where Bad Guys are Coordinated but never fast, to allow you to study naturally evolved Coordination. Completing <b>'Dimension of Anger' (20)</b> with this challenge active will cause all enemies to lose their Coordination.",
 			completed: false,
 			allowSquared: true,
 			squaredDescription: "Visit a dimension where Bad Guys are Coordinated but never fast, chip 'em down!",
@@ -1841,7 +1948,7 @@ var toReturn = {
 			unlockString: "到达区域 120"
 		},
 		Crushed: {
-			description: "Journey to a dimension where the atmosphere is rich in helium, but Bad Guys have a 50% chance to Critical Strike for +400% damage unless your Block is as high as your current Health. Clearing <b>仿生仙境 (Z125)</b> will reward you with an additional 300% of all helium earned up to but not including Z125. This challenge is repeatable.",
+			description: "到大气中氦含量丰富的维度，但是坏家伙有50%的几率爆击+400%的伤害，除非你的格挡和你当前的生命值水平一样高。 清理 <b>仿生仙境 (Z125)</b> 将会给你额外的400%的氦，但不包括Z125。这个挑战是可重复的。",
 			completed: false,
 			filter: function () {
 				return (game.global.highestLevelCleared >= 124);
@@ -1867,11 +1974,11 @@ var toReturn = {
 			unlockString: "到达区域 130"
 		},
 		Nom: {
-			description: "Travel to a dimension where bad guys enjoy the taste of Trimp. Whenever a group of Trimps dies, the bad guy will eat them, gaining 25% (compounding) more attack damage and healing for 5% of their maximum health. The methane-rich atmosphere causes your Trimps to lose 5% of their total health after each attack, but the bad guys are too big and slow to attack first. Clearing <b>Zone 145</b> will reward you with an additional 300% of all helium earned up to that point. This is repeatable!",
+			description: "Travel to a dimension where bad guys enjoy the taste of Trimp. Whenever a group of Trimps dies, the bad guy will eat them, gaining 25% (compounding) more attack damage and healing for 5% of their maximum health. The methane-rich atmosphere causes your Trimps to lose 5% of their total health after each attack, but the bad guys are too big and slow to attack first. Clearing <b>Zone 145</b> will reward you with an additional 350% of all helium earned up to that point. This is repeatable!",
 			completed: false,
 			allowSquared: true,
 			squaredDescription: "Travel to a dimension where bad guys enjoy the taste of Trimp. Whenever a group of Trimps dies, the bad guy will eat them, gaining 25% (compounding) more attack damage and healing for 5% of their maximum health. The methane-rich atmosphere causes your Trimps to lose 5% of their total health after each attack, but the bad guys are too big and slow to attack first.",
-			heliumMultiplier: 3,
+			heliumMultiplier: 3.5,
 			filter: function () {
 				return (game.global.highestLevelCleared >= 144);
 			},
@@ -2270,6 +2377,17 @@ var toReturn = {
 			description: "将每轮的燃料消耗率降低0.1，从0.5降低到0.4",
 			cost: 1875,
 			owned: false
+		},
+		Supervision: {
+			description: "Gain the ability to pause the Dimensional Generator, opening up new strategic possibilities!",
+			cost: 2000,
+			owned: false,
+			onPurchase: function() {
+				var elem = document.getElementById('generatorWindow');
+				if (elem != null)
+					elem.innerHTML = getGeneratorHtml();
+				updateGeneratorInfo();
+			}
 		}
 	},
 	//Total 4448% after 4.6
@@ -2374,7 +2492,7 @@ var toReturn = {
 			},
 			progress: function () {
 				if (this.breakpoints.length > this.finished) return this.evaluate() + " / " + this.breakpoints[this.finished];
-				return this.evaluate() + " 总共";
+				return prettify(this.evaluate()) + " 总共";
 			},
 			breakpoints: [30, 70, 130, 200, 400, 777, 1000, 1500, 10000, 50000],//total zones according to stats
 			tiers: [2, 2, 3, 3, 3, 4, 4, 5, 7, 7],
@@ -2424,6 +2542,28 @@ var toReturn = {
 			tiers: [1, 2, 3, 4, 5, 6, 6, 7, 7, 7, 8, 8],
 			names: ["Cool", "Crisp", "Brisk", "Chilly", "Frosty", "Frigid", "Frozen", "Gelid", "Glacial", "Freaking Cold", "Arctic", "Absolute Zero"],
 			icon: "glyphicon glyphicon-oil",
+			newStuff: []
+		},
+		heliumHour: {
+			finished: 0,
+			title: "Helium Per Hour",
+			description: function (number) {
+				return "达到 " + prettify(this.breakpoints[number]) + " 氦每小时";
+			},
+			progress: function () {
+				if (this.breakpoints.length > this.finished) return prettify(Math.floor(this.evaluate() * 10000) / 10000) + " / " + prettify(this.breakpoints[this.finished]);
+				return prettify(this.evaluate()) + " total";
+			},
+			evaluate: function () {
+				return game.stats.heliumHour.value();
+			},
+			display: function () {
+				return (game.global.totalHeliumEarned > 0);
+			},
+			breakpoints: [10, 100, 1e3, 1e4, 1e5, 1e6, 1e7, 1e9, 1e11, 1e13, 1e15, 5e17],
+			tiers: [2, 3, 3, 4, 4, 5, 6, 7, 7, 8, 8, 9],
+			names: ["Coldlector", "Centelium", "Frosty Tanker", "Blimp Snatcher", "Squeaky Dasher", "Quick N Cool", "Hour Bender", "Acquired Frost", "Vacuum", "Levitator", "Soarer", "Cool Runnings"],
+			icon: "icomoon icon-cloudy2",
 			newStuff: []
 		},
 		totalHeirlooms: {
@@ -2798,8 +2938,10 @@ var toReturn = {
 		oneOffs: {
 			//Turns out this method of handling the feats does NOT scale well... adding stuff to the middle is a nightmare
 			finished: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-			title: "光辉事迹",
-			descriptions: ["抵达 Z30 with no respec and 60 or less He spent", "Have over 1M traps at once", "Die 50 times to a single Voidsnimp", "Beat Balance, never having more than 100 stacks", "Reach Zone 10 with 5 or fewer dead Trimps", "Reach exactly 1337 he/hr", "Attack 20 times without dying in Electricity", "Equip a magnificent or better Staff and Shield", "Reach Z60 with 1000 or fewer dead Trimps", "Reach Z120 without using manual research", "Reach Z75 without buying any housing", "Find an uncommon heirloom at Z146 or higher", "Spend over 250k total He on Wormholes", "Reach Z60 with rank III or lower equipment", "Kill an Improbability in one hit", "Beat a Lv 60+ Destructive Void Map with no deaths", "Beat Crushed without being crit past Z5", "Kill an enemy with 100 stacks of Nom", "Reach Z60 without hiring a single Trimp", "Complete a zone above 99 without falling below 150 stacks on Life", "Spend at least 10 minutes breeding an army with Geneticists", "Beat Toxicity, never having more than 400 stacks", "Own 100 of all housing buildings", "Overkill every possible world cell before Z60", "Complete Watch without entering maps or buying Nurseries", "Equip a Magmatic Staff and Shield", "Bring a world enemy's attack below 1", "Complete Lead with 1 or fewer Gigastations", "Complete Corrupted without Geneticists", "Complete The Spire with 0 deaths", "Overkill an Omnipotrimp", "Defeat a Healthy enemy with 200 stacks of wind", "Earn a Challenge<sup>2</sup> bonus of 2000%", "Complete a 仿生仙境 map 45 levels higher than your zone number", "Beat the Spire with no respec and less than 100M He Spent", "Defeat an enemy on Obliterated"],
+			title: "Feats",
+			get descriptions () {
+				return ["Reach Z30 with no respec and 60 or less He spent", "Have over " + prettify(1e6) + " traps at once", "Die 50 times to a single Voidsnimp", "Beat Balance, never having more than 100 stacks", "Reach Zone 10 with 5 or fewer dead Trimps", "Reach exactly 1337 he/hr", "Attack 20 times without dying in Electricity", "Equip a magnificent or better Staff and Shield", "Reach Z60 with 1000 or fewer dead Trimps", "Reach Z120 without using manual research", "Reach Z75 without buying any housing", "Find an uncommon heirloom at Z146 or higher", "Spend over " + prettify(250e3) + " total He on Wormholes", "Reach Z60 with rank III or lower equipment", "Kill an Improbability in one hit", "Beat a Lv 60+ Destructive Void Map with no deaths", "Beat Crushed without being crit past Z5", "Kill an enemy with 100 stacks of Nom", "Reach Z60 without hiring a single Trimp", "Complete a zone above 99 without falling below 150 stacks on Life", "Spend at least 10 minutes breeding an army with Geneticists", "Beat Toxicity, never having more than 400 stacks", "Own 100 of all housing buildings", "Overkill every possible world cell before Z60", "Complete Watch without entering maps or buying Nurseries", "Equip a Magmatic Staff and Shield", "Bring a world enemy's attack below 1", "Complete Lead with 1 or fewer Gigastations", "Complete Corrupted without Geneticists", "Complete The Spire with 0 deaths", "Overkill an Omnipotrimp", "Defeat a Healthy enemy with 200 stacks of wind", "Earn a Challenge<sup>2</sup> bonus of 2000%", "Complete a Bionic Wonderland map 45 levels higher than your zone number", "Beat the Spire with no respec and less than " + prettify(100e6) + " He Spent", "Defeat an enemy on Obliterated"];
+			},
 			tiers: [3, 3, 3, 3, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 8, 8, 8, 8],
 			description: function (number) {
 				return this.descriptions[number];
@@ -3065,11 +3207,31 @@ var toReturn = {
 			var soldiers = (game.portal.Coordinated.level) ? game.portal.Coordinated.currentSend : game.resources.trimps.maxSoldiers;
 			return "During a boring night while waiting to cross a particularly rough Magma river, you managed to teach your Trimps how to stack on each other to create some funny shapes. You almost feel bad for the first Snimp to come across " + prettify(soldiers) + " Trimps stuck together in the shape of a humongous Moongooseimp.";
 		},
-		w285: "You can finally see it, clear as day. No more than 15 zones in the distance stands a giant spire, even more menacing than the first. A loud, echoing voice booms from the tower, matching the tone and cadence of Druopitee himself. It's a little far away to hear perfectly, but it sounds like he's asking you nicely to please leave him be.",
-		w286: "You hear the voice again, and can tell there's definitely something weird about it - as if it was coming from a ghost or something. Though you suppose that makes sense, since you've already killed Druopitee.",
-		w290: "As you get closer and closer to the spire, the voice gets clearer and clearer. You can pick up notes of terror from whatever being is up there, as if he wants to just be left alone to destroy the world. You don't feel much sympathy though.",
-		w295: "You're now so close to this new spire that you can taste it, literally. These things are gross.",
-		w298: "The deranged spirit in the tower is now begging that you stay back. It obviously knows you destroyed the last tower and doesn't want you taking out another. Too bad, buddy. You're coming.",
+		get w285(){
+			if (game.global.spireRows >= 10)
+				return "You can finally see it, clear as day. No more than 15 zones in the distance stands a giant spire, even more menacing than the first. A loud, echoing voice booms from the tower, matching the tone and cadence of Druopitee himself. It's a little far away to hear perfectly, but it sounds like he's asking you nicely to please leave him be.";
+			return "Something feels wrong, but you can't quite figure out what. You eventually find a pebble in your shoe and everything seems much better!";
+		},
+		get w286() {
+			if (game.global.spireRows >= 10)
+				return "You hear the voice again, and can tell there's definitely something weird about it - as if it was coming from a ghost or something. Though you suppose that makes sense, since you've already killed Druopitee.";
+			return "You hear something rustling in a bush and get totally psyched up for something new and exciting. As you walk cautiously towards the bush, a Rabbimp quickly runs out and away."
+		},
+		get w290() {
+			if (game.global.spireRows >= 10)
+				return "As you get closer and closer to the spire, the voice gets clearer and clearer. You can pick up notes of terror from whatever being is up there, as if he wants to just be left alone to destroy the world. You don't feel much sympathy though.";
+			return "You trip over a rock and stumble a bit, but fix your footing before totally falling over. You glance around and it doesn't seem like any of the Trimps noticed!";
+		},
+		get w295() {
+			if (game.global.spireRows >= 10)
+				return "You're now so close to this new spire that you can taste it, literally. These things are gross.";
+			return "You wonder if you could get your scientists to invent chewing gum..."
+		},
+		get w298() {
+			if (game.global.spireRows >= 10)
+				return "The deranged spirit in the tower is now begging that you stay back. It obviously knows you destroyed the last tower and doesn't want you taking out another. Too bad, buddy. You're coming.";
+			return "A voice in the back of your mind tells you there should be something big soon, but you see nothing. Oh well."
+		},
 		get w303() {
 			if (game.global.spireRows >= 15) return "You're glad you have Fluffy around now. He seems to be getting along well with the other Trimps, and seems happy to have found others like him. He doesn't seem to be any smarter than a normal Trimp so you're sure you'll get some entertainment out of him.";
 			return "你希望有一只宠物。";
@@ -3497,7 +3659,21 @@ var toReturn = {
 			health: 1.4,
 			fast: false
 		},
+		//Honorary Imps
+		Kittimp: {
+			//Designed by K1d_5h31d0n
+			location: "Forest",
+			location2: "Mountain",
+			attack: 1,
+			health: 0.85,
+			fast: true,
+			loot: function (level) {
+				var amt = rewardResource("food", 0.5, level, true);
+				message("You hear nearby Kittimps running away in fear and decide to check out their former home. There, you find a prey pile with " + prettify(amt) + " food!", "Loot", "apple", null, 'primary');
+			}
+		},
 		Grimp: {
+			//Designed by Grabarz
 			location: "Forest",
 			attack: 1.1,
 			health: 1.5,
@@ -3507,7 +3683,35 @@ var toReturn = {
 				message("那个Grimp掉落了" + prettify(amt) + " 木头!", "Loot", "tree-deciduous", null, 'primary');
 			}
 		},
+		Golimp: {
+			//Designed by Syc_Golem
+			location: "Depths",
+			attack: 1.2,
+			health: 1.4,
+			fast: false,
+			loot: function (level) {
+				var random = Math.floor(Math.random() * 5);
+				var amt;
+				var res;
+				var icon;
+				var tag;
+				if (random === 0) {
+					amt = rewardResource("fragments", 1, level, true);
+					res = "fragments";
+					icon = "th";
+					tag = "secondary";
+				}
+				else {
+					amt = rewardResource("metal", 0.3, level, true);
+					res = "bars of metal";
+					icon = "*cubes";
+					tag = "primary";
+				}
+				message("The Golimp fell to pieces! You manage to grab " + prettify(amt) + " " + res + " before it begins pulling itself together.", "Loot", icon, null, tag);
+			}
+		},
 		Seirimp: {
+			//Designed by Seiyria
 			location: "Mountain",
 			attack: 1.15,
 			health: 1.4,
@@ -3535,32 +3739,6 @@ var toReturn = {
 			loot: function (level) {
 				var amt = rewardResource("metal", 0.2, level, true);
 				message("Moltimp为了感谢你的战斗，给了你 " + prettify(amt) + " 金属条! 然后就死了。", "Loot", "*cubes", null, 'primary');
-			}
-		},
-		Golimp: {
-			location: "Depths",
-			attack: 1.2,
-			health: 1.4,
-			fast: false,
-			loot: function (level) {
-				var random = Math.floor(Math.random() * 5);
-				var amt;
-				var res;
-				var icon;
-				var tag;
-				if (random === 0) {
-					amt = rewardResource("fragments", 1, level, true);
-					res = "fragments";
-					icon = "th";
-					tag = "secondary";
-				}
-				else {
-					amt = rewardResource("metal", 0.3, level, true);
-					res = "bars of metal";
-					icon = "*cubes";
-					tag = "primary";
-				}
-				message("Golimp摔成了碎片！你抓住了 " + prettify(amt) + " " + res + " 在它开始把自己拉到一起之前。", "Loot", icon, null, tag);
 			}
 		},
 		Lavimp: {
@@ -3658,7 +3836,7 @@ var toReturn = {
 			attack: 2,
 			health: 5,
 			fast: true,
-			loot: function (level) {
+			loot: function (level, fromFluffy) {
 				if (game.resources.helium.owned == 0) fadeIn("helium", 10);
 				var amt = (game.global.world >= 60) ? 10 : 2;
 				if (mutations.Magma.active()) amt *= 3;
@@ -3680,12 +3858,20 @@ var toReturn = {
 				if (game.talents.voidSpecial.purchased){
 					amt *= ((game.global.lastPortal * 0.0025) + 1);
 				}
+				if (fromFluffy) amt *= 1.5;
 				
 				if (game.global.runningChallengeSquared)
 					amt = 0;
 				else
 					amt = rewardResource("helium", amt, level, false, rewardPercent);
-				var msg = "Cthulimp and the map it came from crumble into the darkness. You find yourself instantly teleported to ";
+				game.stats.highestVoidMap.evaluate();
+				var msg = "Cthulimp and the map it came from crumble into the darkness. You find yourself instantly teleported to ";				
+				if (fromFluffy){
+					msg = "Before you even realized you were in a new Void Map, Fluffy snuck to the end and quickly stole all the loot.";
+					if (!game.global.runningChallengeSquared) msg += " You gained another " + prettify(amt) + " Helium!";
+					message(msg, "Loot", "oil", "helium", "helium");
+					return;
+				}
 				if (game.options.menu.repeatVoids.enabled && game.global.totalVoidMaps > 1){
 					msg += "下一个虚空地图";
 				}
@@ -3695,7 +3881,7 @@ var toReturn = {
 				if (game.global.runningChallengeSquared) msg += ".";
 				else msg += " with an extra " + prettify(amt) + " Helium!";
 				message(msg, "Loot", "oil", "helium", "helium");
-				game.stats.highestVoidMap.evaluate();
+				
 			}
 		},
 		Shadimp: {
@@ -3826,7 +4012,7 @@ var toReturn = {
 				var amt2 = rewardResource("food", 1, level, true);
 				message("Robotrimp discombobulated. Loot inspection reveals: " + prettify(amt1) + " wood and " + prettify(amt2) + " food. Splendiferous.", "Loot", "*cogs", null, 'primary');
 				if (game.global.challengeActive == "Crushed") {
-					var heliumAdded = (game.challenges.Crushed.heldHelium * 3);
+					var heliumAdded = (game.challenges.Crushed.heldHelium * 4);
 					message("You have completed the Crushed challenge! You have been rewarded with " + prettify(heliumAdded) + " Helium.", "Notices");
 					game.challenges.Crushed.heldHelium = 0;
 					game.global.challengeActive = "";
@@ -4103,8 +4289,13 @@ var toReturn = {
 				game.unlocks.impCount.TauntimpAdded += amt;
 				if (game.portal.Carpentry.level) amt *= Math.pow((1 + game.portal.Carpentry.modifier), game.portal.Carpentry.level);
 				if (game.portal.Carpentry_II.level > 0) amt *= (1 + (game.portal.Carpentry_II.modifier * game.portal.Carpentry_II.level));
-				message("这是一个不错的，温暖并且宽敞的死亡Tauntimp。 它大得足够容纳 " + prettify(amt) + " 脆皮在里面生活!", "Loot", "gift", "exotic", "exotic");
-
+				if (game.global.challengeActive != "Trapper"){
+					game.resources.trimps.owned += amt;
+					message("这是一个不错的，温暖并且宽敞的死亡Tauntimp。你发现了 " + prettify(amt) + " 脆皮在里面, 他们都似乎满足于留在那里！", "Loot", "gift", "exotic", "exotic");
+				}
+				else {
+					message("这是一个不错的，温暖并且宽敞的死亡Tauntimp。 它大得足够容纳 " + prettify(amt) + " 脆皮在里面生活!", "Loot", "gift", "exotic", "exotic");
+				}
 			}
 		},
 		Whipimp: {
@@ -4232,7 +4423,7 @@ var toReturn = {
 			health: 2,
 			fast: false,
 			loot: function () {
-				message("您的脆皮设法从Skeletimp中拉出1个完全保存的骨头！", "Loot", "italic", null, "secondary");
+				message("你的Trimps设法从Skeletimp中取出一块保存完好的骨头！", "Loot", "italic", null, "bone");
 				game.global.b++;
 				game.global.lastSkeletimp = new Date().getTime();
 				updateSkeleBtn();
@@ -4246,7 +4437,7 @@ var toReturn = {
 			health: 2.5,
 			fast: false,
 			loot: function () {
-				message("That was a pretty big Skeletimp. Your Trimps scavenged the remains and found 2 perfectly preserved bones!", "Loot", "italic", null, "secondary");
+				message("That was a pretty big Skeletimp. Your Trimps scavenged the remains and found 2 perfectly preserved bones!", "Loot", "italic", null, "bone");
 				game.global.b += 2;
 				game.global.lastSkeletimp  = new Date().getTime();
 				updateSkeleBtn();
@@ -4313,7 +4504,7 @@ var toReturn = {
 			},
 			Void: {
 				resourceType: "Any",
-				upgrade: ["AutoStorage", "Heirloom", "ImprovedAutoStorage"]
+				upgrade: ["AutoStorage", "Heirloom", "ImprovedAutoStorage", "MapAtZone"]
 			},
 			Star: {
 				resourceType: "Metal"
@@ -4434,6 +4625,25 @@ var toReturn = {
 				var text = "<p>From the void, an auspicious presence reaches out and fills your mind. You feel at peace with the world. It asks you what you desire most. Wait... hasn't this happened before? Last time you asked for your Trimps to be smart enough to manage storage structures on their own. You can make it better this time! You excitedly ask for your Trimps to waste less resources when managing resources on their own. The presence lets you know that it is done, then dissipates. You get serious déjà-vu while regretting not asking to go home.</p><p style='font-weight: bold'>From now on, storage facilities will be constructed instantly. If you collect more resources from one source than you can hold, the extra resources will be used to build new storage facilities without wasting any resources. You may not be home, but your Trimps are now quite talented!</p>";
 				tooltip('confirm', null, 'update', text, null, 'Auspicious Presence Part II', null, null, true);
 				enableImprovedAutoStorage();
+				createHeirloom();
+				message("You found an Heirloom!", "Loot", "*archive", null, "secondary");
+			}
+		},
+		MapAtZone: {
+			world: 225,
+			level: "last",
+			icon: "*eye4",
+			title: "Auspicious Presence Part III",
+			canRunOnce: true,
+			filterUpgrade: true,
+			specialFilter: function(world) {
+				return !game.global.canMapAtZone;
+			},
+			fire: function(){
+				var text = "<p>From the void, an auspicious presence reaches out and fills your mind. You feel at peace with the world. It asks you what you desire most. Wait... how many times has this happened now? You're fairly positive that there was something you regretted not asking last time, but you can't quite remember. You've asked for Trimps to be able to manage storage structures, and you've asked for them to be better at managing those structures. Even though you're content with your storage solutions, you suddenly realize the perfect request! You wish the Trimps would stop pushing so far through the zones while you're sleeping, so you ask for a way to tell the Trimps to stop fighting at a Zone of your choosing. The presence lets you know that it is done, then dissipates. As usual, you get serious déjà-vu while regretting not asking to go home.</p><p style='font-weight: bold'>From now on, you have access to the Map At Zone setting. This setting can be accessed through the Map Sidebar, Settings, or the 'Configure Maps' popup!</p>";
+				tooltip('confirm', null, 'update', text, null, 'Auspicious Presence Part III', null, null, true);
+				game.global.canMapAtZone = true;
+				addNewSetting("mapAtZone");
 				createHeirloom();
 				message("You found an Heirloom!", "Loot", "*archive", null, "secondary");
 			}
@@ -6149,6 +6359,36 @@ var toReturn = {
 				if (justStacks) return timeOnZone;
 				return 1 + ((((1 - Math.pow(boostMult, this.owned)) * boostMax)) * (Math.pow(expInc, timeOnZone) - 1));
 			}
+		},
+		Amalgamator: {
+			locked: 1,
+			owned: 0,
+			allowAutoFire: true,
+			get tooltip(){
+				return "Doubles your soldiers, doubles your health.";
+			},
+			cost: {
+				gems: [1e60, 1.01]
+			},
+			increase: "custom",
+			modifier: 1,
+			getBonusPercent: function (justStacks, forceTime) {
+				var boostMult = 0.9999;
+				var boostMax = 3;
+				var expInc = 1.2;
+				var timeOnZone;
+				if (typeof forceTime === 'undefined'){
+					var timeOnZone = new Date().getTime() - game.global.zoneStarted;
+					if (game.talents.magmamancer.purchased) timeOnZone += 300000;
+					timeOnZone = Math.floor(timeOnZone / 600000);
+					
+					if (timeOnZone > 12) timeOnZone = 12;
+					else if (timeOnZone <= 0) return 1;
+				}
+				else timeOnZone = forceTime;
+				if (justStacks) return timeOnZone;
+				return 1 + ((((1 - Math.pow(boostMult, this.owned)) * boostMax)) * (Math.pow(expInc, timeOnZone) - 1));
+			}			
 		}
 	},
 
@@ -6386,7 +6626,7 @@ var toReturn = {
 			},
 			fire: function () {
 				message("你制作了一张通往愤怒次元的地图！应该会很有趣！", "Notices");
-				createMap(20, "愤怒的维度", "Hell", 3, 100, 2.5, true, true);
+				createMap(20, "Dimension of Anger", "Hell", 3, 100, 2.5, true, true);
 			}
 		},
 		Gymystic: { //25
