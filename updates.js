@@ -4630,6 +4630,16 @@ function cntitle(tit){
         cntit="穿刺"
     }else if(what=="Fast"){
         cntit="快速"
+    }else if(what=="Save Map Settings"){
+        cntit="保存地图设置"
+    }else if(what=="Reset Map Settings"){
+        cntit="重置地图设置"
+    }else if(what=="Recycle All"){
+        cntit="回收所有"
+    }else if(what=="Map Preset"){
+        cntit="回收所有"
+    }else if(what=="Show/Hide Map Config"){
+        cntit="显示/隐藏地图设置"
     }else{
         cntit=tit
     }
