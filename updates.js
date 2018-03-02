@@ -809,8 +809,8 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 			if (!canAffordCoordinationTrimps()){
 				var nextCount = (game.portal.Coordinated.level) ? game.portal.Coordinated.currentSend : game.resources.trimps.maxSoldiers;
 				var amtToGo = Math.floor((nextCount * 3) - game.resources.trimps.realMax());
-				var s = (amtToGo == 1) ? "" : "s";
-				tooltipText += " <b>你需要足够的空间 " + prettify(nextCount * 3) + " 最大脆皮。 你很矮 " + prettify(Math.floor(amtToGo)) + " 脆皮" + s + "。</b>";
+				var s = (amtToGo == 1) ? "" : "";
+				tooltipText += " <b>您需要足够的空间容纳最多 " + prettify(nextCount * 3) + " 的脆皮。 你现在缺少 " + prettify(Math.floor(amtToGo)) + " 脆皮" + s + "。</b>";
 			}
 		}
 	}
