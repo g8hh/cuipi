@@ -21,7 +21,7 @@
 function newGame () {
 var toReturn = {
 	global: {
-		version: 4.7,
+		version: 4.71,
 		isBeta: false,
 		betaV: 0,
 		killSavesBelow: 0.13,
@@ -201,6 +201,7 @@ var toReturn = {
 		selectedMapPreset: 1,
 		genPaused: false,
 		canMapAtZone: false,
+		capTrimp: false,
 		mapPresets: {
 			p1: {
 				loot: 0,
@@ -453,7 +454,7 @@ var toReturn = {
 			tooltips: {
 				enabled: 1,
 				extraTags: "alerts",
-				description: "隐藏按钮工具提示，除非移动。",
+				description: "<p><b>显示工具提示<b> 将确保所有的工具提示都在鼠标经过它们的时候显示。</p><p><b>按住Shift键的工具提示</b> 默认会隐藏大部分提示，直到你按下Shift键。在解锁新事物时，请牢记这一设置，因为游戏的大部分内容都在工具提示中解释！</p>",
 				titles: ["隐藏工具提示", "显示工具提示"]
 			},
 			tooltipPosition: {
@@ -558,7 +559,8 @@ var toReturn = {
 				enabled: 0,
 				description: "Decide if you want to continue running the rest of your Void Maps after finishing one.",
 				titles: ["一个虚空地图", "完成全部虚空地图"],
-				locked: true
+				locked: true,
+				secondLocation: ['togglerepeatVoidsCM']
 			},
 			boneAlerts: {
 				enabled: 1,
