@@ -21,7 +21,7 @@
 function newGame () {
 var toReturn = {
 	global: {
-		version: 4.71,
+		version: 4.72,
 		isBeta: false,
 		betaV: 0,
 		killSavesBelow: 0.13,
@@ -2549,7 +2549,7 @@ var toReturn = {
 		},
 		heliumHour: {
 			finished: 0,
-			title: "Helium Per Hour",
+			title: "氦每小时",
 			description: function (number) {
 				return "达到 " + prettify(this.breakpoints[number]) + " 氦每小时";
 			},
@@ -5852,7 +5852,7 @@ var toReturn = {
 		},
 		easterEgg: {
 			world: -1,
-			locked: true,
+			locked: false,
 			level: [0, 99],
 			title: "Colored Egg",
 			icon: "*droplet",
