@@ -5734,7 +5734,7 @@ var toReturn = {
 			title: "Speedminer",
 			fire: function() {
 				if (game.global.challengeActive == "Metal"){
-					message("Your scientists stare blankly at you for a moment, then slowly and quietly place the new book on the shelves.", "Notices");
+					message("你的科学家茫然地盯着你看了一会儿，然后慢慢地静静地把新书放在书架上。", "Notices");
 					game.challenges.Metal.heldBooks++;
 					return;
 				}
@@ -5899,7 +5899,7 @@ var toReturn = {
 			repeat: 9,
 			fire: function (level) {
 				var amt = rewardResource("food", 0.5, level);
-				message("That guy just left " + prettify(amt) + " food on the ground! Sweet!", "Loot", "apple", null, 'primary');
+				message("那个家伙还在地上留下了 " + prettify(amt) + " 食物! 美味!", "Loot", "apple", null, 'primary');
 			}
 		},
 		groundLumber: {

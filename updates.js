@@ -1358,20 +1358,20 @@ function getTrimpPs() {
 	//Add job count
 	var breeding = trimps.owned - trimps.employed;
 	var currentCalc = breeding * base;
-	textString += "<tr><td class='bdTitle'>Breeding</td><td class='bdPercent'>" + prettify(breeding) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+	textString += "<tr><td class='bdTitle'>配种</td><td class='bdPercent'>" + prettify(breeding) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 	//Add Potency
 	if (game.upgrades.Potency.done > 0){
 		var potencyStrength = Math.pow(1.1, game.upgrades.Potency.done);
 		currentCalc *= potencyStrength;
 		potencyStrength = prettify((potencyStrength - 1) * 100) + "%";
-		textString += "<tr><td class='bdTitle'>Potency</td><td class='bdPercent'>+ " + potencyStrength + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+		textString += "<tr><td class='bdTitle'>繁殖效率</td><td class='bdPercent'>+ " + potencyStrength + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 	}
 	//Add Nurseries
 	if (game.buildings.Nursery.owned > 0){
 		var nurseryStrength = Math.pow(1.01, game.buildings.Nursery.owned);
 		currentCalc *= nurseryStrength;
 		nurseryStrength = prettify((nurseryStrength - 1) * 100) + "%";
-		textString += "<tr><td class='bdTitle'>Nurseries</td><td class='bdPercent'>+ " + nurseryStrength + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+		textString += "<tr><td class='bdTitle'>托儿所</td><td class='bdPercent'>+ " + nurseryStrength + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 	}
 	//Add Venimp
 	if (game.unlocks.impCount.Venimp > 0){
@@ -1390,7 +1390,7 @@ function getTrimpPs() {
 		var PheromonesStrength = (game.portal.Pheromones.level * game.portal.Pheromones.modifier);
 		currentCalc  *= (PheromonesStrength + 1);
 		PheromonesStrength = prettify(PheromonesStrength * 100) + "%";
-		textString += "<tr><td class='bdTitle'>Pheromones</td><td class='bdPercent'>+ " + PheromonesStrength + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+		textString += "<tr><td class='bdTitle'>信息素</td><td class='bdPercent'>+ " + PheromonesStrength + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 	}
 	//Add Geneticist
 	if (game.jobs.Geneticist.owned > 0) {
@@ -1872,7 +1872,7 @@ function getLootBd(what) {
 	if (game.global.mapsUnlocked) textString += '<li role="presentation" onclick="getLootBd(\'Fragments\')"><a href="#">Fragments</a></li><li role="presentation" onclick="getLootBd(\'Gems\')"><a href="#">Gems</a></li>';
 	if (game.global.world >= 20) textString += '<li role="presentation" onclick="getLootBd(\'Helium\')"><a href="#">Helium</a></li>';
 	textString += '</ul></div>';
-	textString +=  "<table class='bdTableSm table table-striped'><tbody><tr><td style='font-weight: bold; font-size: 1.1em'>" + what + "</td><td>基础</td><td>Amount</td><td>Line Total</td><td>Total</td></tr>";
+	textString +=  "<table class='bdTableSm table table-striped'><tbody><tr><td style='font-weight: bold; font-size: 1.1em'>" + what + "</td><td>基础</td><td>Amount</td><td>Line Total</td><td>总计</td></tr>";
 	var currentCalc = 0;
 	var percent = 0;
 	var amt = 0;
