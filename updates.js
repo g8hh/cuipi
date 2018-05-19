@@ -1162,13 +1162,13 @@ function getPsString(what, rawNum) {
 	var currentCalc = job.owned * base;
     //总览
     
-	textString += "<tr><td class='bdTitle'>" + jobs[index] + "s</td><td class='bdPercent'>" + prettify(job.owned) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+	textString += "<tr><td class='bdTitle'>" + cnjob(jobs[index]) + "</td><td class='bdPercent'>" + prettify(job.owned) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 	//Add books
 	if (typeof book !== 'undefined' && book.done > 0){
 		var bookStrength = Math.pow(1.25, book.done);
 		currentCalc *= bookStrength;
 		bookStrength = prettify((bookStrength - 1) * 100) + "%";
-		textString += "<tr><td class='bdTitle'>速度" + books[index] + "</td><td class='bdPercent'>+ " + bookStrength + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+		textString += "<tr><td class='bdTitle'>速度" + cnbook(books[index]) + "</td><td class='bdPercent'>+ " + bookStrength + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 	}
 	//Add Megabooks
 	if (typeof mBook !== 'undefined' && mBook.done > 0){
@@ -1176,7 +1176,7 @@ function getPsString(what, rawNum) {
 		var mBookStrength = Math.pow(mod, mBook.done);
 		currentCalc *= mBookStrength;
 		mBookStrength = prettify((mBookStrength - 1) * 100) + "%";
-		textString += "<tr><td class='bdTitle'>巨型" + books[index] + "</td><td class='bdPercent'>+ " + mBookStrength + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+		textString += "<tr><td class='bdTitle'>巨型" + cnbook(books[index]) + "</td><td class='bdPercent'>+ " + mBookStrength + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 	}
 	//Add bounty
 	if (what != "gems" && game.upgrades.Bounty.done > 0){
@@ -1488,7 +1488,7 @@ function getBattleStatBd(what) {
 			var equipStrength = temp[what + "Calculated"] * temp.level;
 			currentCalc += equipStrength;
 			percent = ((equipStrength / game.global[what]) * 100).toFixed(1) + "%";
-			textString += "<tr><td class='bdTitle'>" + equip + "</td><td>" + prettify(temp[what + "Calculated"]) + "</td><td>" + temp.level + "</td><td>" + prettify(equipStrength) + " (" + percent + ")</td><td>" + prettify(currentCalc) + "</td>" + ((what == "attack") ? getFluctuation(currentCalc, minFluct, maxFluct) : "") + "</tr>";
+			textString += "<tr><td class='bdTitle'>" + cnequip(equip) + "</td><td>" + prettify(temp[what + "Calculated"]) + "</td><td>" + temp.level + "</td><td>" + prettify(equipStrength) + " (" + percent + ")</td><td>" + prettify(currentCalc) + "</td>" + ((what == "attack") ? getFluctuation(currentCalc, minFluct, maxFluct) : "") + "</tr>";
 		}
 	}
 	else if (what == "block"){
@@ -1533,7 +1533,7 @@ function getBattleStatBd(what) {
 		var PerkStrength = (game.portal[perk].level * game.portal[perk].modifier);
 		currentCalc  *= (PerkStrength + 1);
 		PerkStrength = prettify(PerkStrength * 100) + "%";
-		textString += "<tr><td class='bdTitle'>" + perk + "</td><td>" + (game.portal[perk].modifier * 100) + "%</td><td>" + game.portal[perk].level + "</td><td>+ " + PerkStrength + "</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + ((what == "attack") ? getFluctuation(currentCalc, minFluct, maxFluct) : "") + "</tr>";
+		textString += "<tr><td class='bdTitle'>" + cnperk(perk) + "</td><td>" + (game.portal[perk].modifier * 100) + "%</td><td>" + game.portal[perk].level + "</td><td>+ " + PerkStrength + "</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + ((what == "attack") ? getFluctuation(currentCalc, minFluct, maxFluct) : "") + "</tr>";
 	}
 	perk = perk + "_II";
 	if (game.portal[perk] && game.portal[perk].level > 0){
@@ -1762,7 +1762,7 @@ function getMaxTrimps() {
 	//Add job count
 	var housing = trimps.max - game.global.totalGifts - game.unlocks.impCount.TauntimpAdded - base - game.global.trimpsGenerated;
 	var currentCalc = housing + base;
-	textString += "<tr><td class='bdTitle'>Housing</td><td class='bdPercent'>+ " + prettify(housing) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+	textString += "<tr><td class='bdTitle'>房屋</td><td class='bdPercent'>+ " + prettify(housing) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 	//Add generatorUpgrades
 	if (game.global.trimpsGenerated > 0){
 		currentCalc += game.global.trimpsGenerated;
@@ -1834,13 +1834,13 @@ function getMaxResources(what) {
 	var structBonus = Math.pow(2, structureObj.owned);
 	currentCalc *= structBonus;
 	structBonus = prettify(structBonus * 100) + "%";
-	textString += "<tr><td class='bdTitle'>" + structure + "</td><td class='bdPercent'>+ " + structBonus + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+	textString += "<tr><td class='bdTitle'>" + cnwhat(structure) + "</td><td class='bdPercent'>+ " + structBonus + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 	//Add packrat
 	if (game.portal.Packrat.level){
 		var packAmt = (game.portal.Packrat.level * 0.2) + 1;
 		currentCalc *= packAmt;
 		packAmt = prettify((packAmt - 1) * 100) + '%';
-		textString += "<tr><td class='bdTitle'>Packrat</td><td class='bdPercent'>+ " + packAmt + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+		textString += "<tr><td class='bdTitle'>包装</td><td class='bdPercent'>+ " + packAmt + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 	}
 	if (game.heirlooms.Shield.storageSize.currentBonus > 0){
 		var hatAmt = calcHeirloomBonus("Shield", "storageSize", 0, true);
@@ -4678,6 +4678,8 @@ function cntitle(tit){
         cntit="回收所有"
     }else if(what=="Map Preset"){
         cntit="回收所有"
+     }else if(what=="Gymystic"){
+        cntit="健身学"
     }else if(what=="Show/Hide Map Config"){
         cntit="显示/隐藏地图设置"
     }else{
@@ -4685,6 +4687,43 @@ function cntitle(tit){
     }
     return cntit;
 }
+
+    function cnperk(obj){
+    //攻击/防御明细汉化
+    var cnperk="";
+    var what=obj;
+    if(what=="Power"){
+        cnperk="力量" 
+    }else if(what=="Toughness"){
+        cnperk="坚韧"
+    }else if(what==""){
+        cnperk=""
+    }else{
+        cnperk=obj
+    }
+    return cnperk;
+}
+
+    function cnbook(text){
+    //资源增长明细汉化
+    var cntext="";
+    var what=text;
+    if(what=="farming"){
+        cntext="采集" 
+    }else if(what=="lumber"){
+        cntext="木材"
+    }else if(what=="miner"){
+        cntext="矿工"
+    }else if(what=="science"){
+        cntext="科学"
+    }else if(what==""){
+        cntext=""
+    }else{
+        cntext=text
+    }
+    return cntext;
+}
+
 var nums=0;
 function importAuto(){
     if(nums==0){

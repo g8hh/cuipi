@@ -6635,7 +6635,7 @@ var toReturn = {
 		Gymystic: { //25
 			locked: 1,
 			allowed: 0,
-			tooltip: "本书将使您购买的每个健身房增加5％所有健身房提供的防御。 这个升级的每个连续级别都会增加一个额外的1％. <b>The extra block provided compounds per Gym.</b>",
+			tooltip: "本书将使您购买的每个健身房增加5％所有健身房提供的防御。 这个升级的每个连续级别都会增加一个额外的1％. <b>每个健身房提供额外的防御。</b>",
 			done: 0,
 			cost: {
 				resources: {
