@@ -4284,7 +4284,7 @@ var toReturn = {
 			attack: 1,
 			health: 1,
 			fast: false,
-			dropDesc: "额外增加0.3%的现有的脆皮。",
+			dropDesc: "现有的脆皮最大值增加0.3%",
 			loot: function () {
 				var amt = Math.ceil(game.resources.trimps.max * 0.003);
 				game.resources.trimps.max += amt;
@@ -4308,7 +4308,7 @@ var toReturn = {
 			attack: 1,
 			health: 1,
 			fast: false,
-			dropDesc: "获得0.3%的脆皮资源生产速度",
+			dropDesc: "脆皮资源生产速度增加0.3%",
 			loot: function () {
 				game.unlocks.impCount.Whipimp++;
 				game.jobs.Farmer.modifier *= 1.003;
@@ -4330,7 +4330,7 @@ var toReturn = {
 			attack: 1,
 			health: 1,
 			fast: false,
-			dropDesc: "获得0.3%的脆皮繁殖速度",
+			dropDesc: "脆皮繁殖速度增加0.3%",
 			loot: function () {
 				game.unlocks.impCount.Venimp++;
 				var amt = Math.pow(1.003, game.unlocks.impCount.Venimp);
