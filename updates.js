@@ -809,7 +809,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
             var dwhat=cnwhat(what);
             dwhat += " X " + game.global.buyAmt;
         } 
-		tooltipText += " <b>(你需要花费 " + prettify(perkItem.heliumSpent + perkItem.heliumSpentTemp) + " 氦在这个附带福利上)</b>";
+		tooltipText += " <b>(你已经花费 " + prettify(perkItem.heliumSpent + perkItem.heliumSpentTemp) + " 氦在这个特权上)</b>";
 		what = what.replace("_", " ");
 	}
 	if (isItIn == "equipment"){
@@ -4678,8 +4678,12 @@ function cntitle(tit){
         cntit="回收所有"
     }else if(what=="Map Preset"){
         cntit="回收所有"
-     }else if(what=="Gymystic"){
+    }else if(what=="Gymystic"){
         cntit="健身学"
+    }else if(what=="Shieldblock"){
+        cntit="盾牌防御"
+    }else if(what=="Trapstorm"){
+        cntit="自动陷阱"
     }else if(what=="Show/Hide Map Config"){
         cntit="显示/隐藏地图设置"
     }else{

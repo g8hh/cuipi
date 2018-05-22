@@ -4228,7 +4228,7 @@ function displayCarriedHeirlooms(){
 		}
 		tempHtml += generateHeirloomIcon(game.global.heirloomsCarried[x], "Carried", x);
 	}
-	if (!tempHtml) tempHtml += "You are not carrying any Heirlooms";
+	if (!tempHtml) tempHtml += "你没有携带任何传家宝";
 	document.getElementById("carriedHeirloomsHere").innerHTML = tempHtml;
 }
 

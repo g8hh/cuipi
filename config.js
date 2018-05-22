@@ -3820,7 +3820,7 @@ var toReturn = {
 				if (game.global.world >= 21 && (game.global.totalPortals >= 1 || game.global.portalActive)){
 					if (game.resources.helium.owned == 0) fadeIn("helium", 10);
 					amt = rewardResource("helium", 1, level);
-					message("你已经可以提取了 " + prettify(amt) + " 那个守卫掉落了氦罐！", "Loot", "oil", "helium", "helium");
+					message("那个守卫掉落了氦罐！你从中提取了 " + prettify(amt) + " 氦气！", "Loot", "oil", "helium", "helium");
 					if (game.global.world >= 40 && game.global.challengeActive == "Balance") {
 						if (game.challenges.Balance.highestStacks <= 100) giveSingleAchieve("Underbalanced");
 						var reward = game.challenges.Balance.heldHelium;
@@ -3963,7 +3963,7 @@ var toReturn = {
 					game.global.challengeActive = "";
 					game.challenges.Trapper.abandon();
 					game.portal.Anticipation.locked = false;
-					message("你完成了 '捕手' 挑战! 你的脆皮现在还记得如何繁殖，而且你已经解锁了一个新的额外福利!", "Notices");
+					message("你完成了 '捕手' 挑战! 你的脆皮现在还记得如何繁殖，而且你已经解锁了一个新的特权!", "Notices");
 				}
 				if (game.global.challengeActive == "Meditate"){
 					game.global.challengeActive = "";
@@ -3986,7 +3986,7 @@ var toReturn = {
 					var reward = Math.floor(game.challenges.Electricity.heldHelium * 2);
 					if (game.global.challengeActive == "Electricity") message("你已经完成了电力挑战! 你获得了 " + prettify(reward) + " 氦, 你可以重复这个挑战。", "Notices");
 					else if (game.global.challengeActive == "Mapocalypse") {
-						message("你已经完成了Mapocalypse挑战! 你解锁了 '虹吸学' 额外福利,并且获得了 " + prettify(reward) + " 氦。", "Notices");
+						message("你已经完成了Mapocalypse挑战! 你解锁了 '虹吸学' 特权,并且获得了 " + prettify(reward) + " 氦。", "Notices");
 						if (game.portal.Siphonology.locked) addNewSetting('siphonologyMapLevel');
 						game.portal.Siphonology.locked = false;
 						game.challenges.Mapocalypse.abandon();
