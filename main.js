@@ -1710,7 +1710,7 @@ function activateClicked(){
 	if (game.global.kongBonusMode){
 		newText = "All set?";
 	}
-	else newText += "<div id='portalConfirmStory'>Are you sure you want to enter the portal? You will lose all progress other than the portal-compatible upgrades you've earned, such as Helium, Perks, Bones, and Exotic Imports. Who knows where or when it will send you.</div><br/>";
+	else newText += "<div id='portalConfirmStory'>你确定你想要进入传送门吗? 你将失去所有进度，除了你所获得的能通过传送门的升级，比如氦、特权、骨头以及Exotic Imports。谁知道这些东西将在哪里或是在何时才能给你。</div><br/>";
 
 	if (game.global.challengeActive == "Daily") newText += "<span class='dailyError portalError'>You still have the Daily challenge active! If you portal right now, your reward will be applied at the beginning of your next run. Alternatively, click 'Finish Daily' in the World or inside 'View Perks' to get the bonus now.</span>";
 	if (game.global.runningChallengeSquared) newText += "<div class='squaredError portalError'>" + getSquaredDescriptionInRun(true) + "</div>";
