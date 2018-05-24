@@ -809,7 +809,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
             var dwhat=cnwhat(what);
             dwhat += " X " + game.global.buyAmt;
         } 
-		tooltipText += " <b>(你已经花费 " + prettify(perkItem.heliumSpent + perkItem.heliumSpentTemp) + " 氦在这个特权上)</b>";
+		tooltipText += " <b>(你已经花费 " + prettify(perkItem.heliumSpent + perkItem.heliumSpentTemp) + " 氦在这个能力上)</b>";
 		what = what.replace("_", " ");
 	}
 	if (isItIn == "equipment"){
@@ -3622,7 +3622,7 @@ function displayPerksBtn(){
 	}
 	else {
 		btn.className = "btn btn-primary";
-		btn.innerHTML = "查看特权";
+		btn.innerHTML = "查看能力";
 	}
 }
 
@@ -4625,7 +4625,7 @@ function cntitle(tit){
     }else if(what=="Megamace"){
         cntit="巨型狼牙棒"
     }else if(what=="Hellishmet"){
-        cntit="地狱详见"
+        cntit="地狱头盔"
     }else if(what=="Supershield"){
         cntit="超级盾牌"
     }else if(what=="Dagadder"){
@@ -4633,7 +4633,7 @@ function cntitle(tit){
     }else if(what=="Bootboost"){
         cntit="增速靴"
     }else if(what=="Polierarm"){
-        cntit="波利肩"
+        cntit="更长武器"
     }else if(what=="Pantastic"){
         cntit="七分裤"
     }else if(what=="Axeidic"){
@@ -4684,6 +4684,8 @@ function cntitle(tit){
         cntit="盾牌防御"
     }else if(what=="Trapstorm"){
         cntit="自动陷阱"
+    }else if(what=="Blockmaster"){
+        cntit="防御大师"
     }else if(what=="Show/Hide Map Config"){
         cntit="显示/隐藏地图设置"
     }else{

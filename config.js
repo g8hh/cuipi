@@ -1385,7 +1385,7 @@ var toReturn = {
 			locked: true,
 			priceBase: 1000000,
 			heliumSpent: 0,
-			tooltip: "你已经完成了一个超凡脱俗的目标，那就是获得超杀，出类拔萃！每个等级的额外奖励将会允许你的超杀伤害的0.5%伤害下一个敌人。如果这个伤害杀死了下一个敌人，你就不会再穿过那间牢房了。最高30层。",
+			tooltip: "你已经完成了一个超凡脱俗的目标，那就是获得超额伤害(超出敌人生命值的伤害)，出类拔萃！每个等级的能力将会允许你的超额伤害的0.5%去伤害下一个敌人。如果这个伤害杀死了下一个敌人，你就不用再经过那个方块了。最高30层。",
 			max: 30
 		},
 		Resourceful: {
@@ -3963,7 +3963,7 @@ var toReturn = {
 					game.global.challengeActive = "";
 					game.challenges.Trapper.abandon();
 					game.portal.Anticipation.locked = false;
-					message("你完成了 '捕手' 挑战! 你的脆皮现在还记得如何繁殖，而且你已经解锁了一个新的特权!", "Notices");
+					message("你完成了 '捕手' 挑战! 你的脆皮现在还记得如何繁殖，而且你已经解锁了一个新的能力!", "Notices");
 				}
 				if (game.global.challengeActive == "Meditate"){
 					game.global.challengeActive = "";
@@ -3986,7 +3986,7 @@ var toReturn = {
 					var reward = Math.floor(game.challenges.Electricity.heldHelium * 2);
 					if (game.global.challengeActive == "Electricity") message("你已经完成了电力挑战! 你获得了 " + prettify(reward) + " 氦, 你可以重复这个挑战。", "Notices");
 					else if (game.global.challengeActive == "Mapocalypse") {
-						message("你已经完成了Mapocalypse挑战! 你解锁了 '虹吸学' 特权,并且获得了 " + prettify(reward) + " 氦。", "Notices");
+						message("你已经完成了Mapocalypse挑战! 你解锁了 '虹吸学' 能力,并且获得了 " + prettify(reward) + " 氦。", "Notices");
 						if (game.portal.Siphonology.locked) addNewSetting('siphonologyMapLevel');
 						game.portal.Siphonology.locked = false;
 						game.challenges.Mapocalypse.abandon();

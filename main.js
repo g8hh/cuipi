@@ -1025,7 +1025,7 @@ function portalClicked() {
 	document.getElementById("activatePortalBtn").innerHTML = "激活传送门";
 	document.getElementById("challengeSquaredBonusAmt").innerHTML = prettify(game.global.totalSquaredReward);
 	document.getElementById("challengeDescription").style.height = (game.global.sLevel >= 1) ? "19vw" : "22.5vw";
-	document.getElementById("challengeDescriptionPre").innerHTML = (game.global.sLevel >= 1) ? "别忘了带个挑战。<br/>" : '在使用传送门之前，还可以选择激活一个挑战。完成挑战会给你永久的奖励。您可以通过单击“查看特权”按钮随时放弃或查看进行的挑战。';
+	document.getElementById("challengeDescriptionPre").innerHTML = (game.global.sLevel >= 1) ? "别忘了带个挑战。<br/>" : '在使用传送门之前，还可以选择激活一个挑战。完成挑战会给你永久的奖励。您可以通过单击“查看能力”按钮随时放弃或查看进行的挑战。';
 	if (game.global.canRespecPerks) {
 		document.getElementById("respecPortalBtn").innerHTML = "天赋";
 		document.getElementById("respecPortalBtn").style.display = "inline-block";
@@ -1333,7 +1333,7 @@ function viewPortalUpgrades() {
 	document.getElementById("wrapper").style.display = "none";
 	swapClass("portalMk", "portalMkPreview", document.getElementById("portalWrapper"));
 	fadeIn("portalWrapper", 10);
-	document.getElementById("portalTitle").innerHTML = "查看特权";
+	document.getElementById("portalTitle").innerHTML = "查看能力";
 	document.getElementById("portalHelium").innerHTML = '<span id="portalHeliumOwned">' + prettify(parseInt(game.global.heliumLeftover, 10)) + '</span> 氦剩余';
 	document.getElementById("portalStory").innerHTML = "这些都是你的福利！你每运行一次可以重置他们。";
 	document.getElementById("totalHeliumSpent").innerHTML = prettify(countHeliumSpent());
@@ -1429,7 +1429,7 @@ function displayPortalUpgrades(fromTab){
 		if (game.options.menu.detailedPerks.enabled == 1) html += " detailed";
 		if (game.options.menu.smallPerks.enabled) html += (game.options.menu.smallPerks.enabled == 1) ? " smallPerk" : " tinyPerk";
 		if (portUpgrade.additive) html += " 附加的";
-        //特权汉化
+        //能力汉化
 		html += " 改变关闭";
 		html += '" id="' + what + '" onclick="buyPortalUpgrade(\'' + what + '\')"><span class="thingName">' + cntequan(what.replace('_', ' ')) + '</span>';
 
@@ -1647,7 +1647,7 @@ function respecPerks(){
 	document.getElementById("portalHeliumOwned").innerHTML = prettify(game.resources.helium.respecMax - game.resources.helium.totalSpentTemp);
 	document.getElementById("respecPortalBtn").style.display = "none";
 	document.getElementById("portalStory").innerHTML = "你每次运行只能替换一次。点击取消不会消耗这次使用。";
-	document.getElementById("portalTitle").innerHTML = "替换特权";
+	document.getElementById("portalTitle").innerHTML = "替换能力";
 	document.getElementById("ptabRemove").style.display = "table-cell";
 	document.getElementById("clearPerksBtn").style.display = "inline-block";
 	if (selectedPreset)
@@ -1710,7 +1710,7 @@ function activateClicked(){
 	if (game.global.kongBonusMode){
 		newText = "All set?";
 	}
-	else newText += "<div id='portalConfirmStory'>你确定你想要进入传送门吗? 你将失去所有进度，除了你所获得的能通过传送门的升级，比如氦、特权、骨头以及Exotic Imports。谁知道这些东西将在哪里或是在何时才能给你。</div><br/>";
+	else newText += "<div id='portalConfirmStory'>你确定你想要进入传送门吗? 你将失去所有进度，除了你所获得的能通过传送门的升级，比如氦、能力、骨头以及外来物种。谁知道这些东西将在哪里或是在何时才能给你。</div><br/>";
 
 	if (game.global.challengeActive == "Daily") newText += "<span class='dailyError portalError'>You still have the Daily challenge active! If you portal right now, your reward will be applied at the beginning of your next run. Alternatively, click 'Finish Daily' in the World or inside 'View Perks' to get the bonus now.</span>";
 	if (game.global.runningChallengeSquared) newText += "<div class='squaredError portalError'>" + getSquaredDescriptionInRun(true) + "</div>";
