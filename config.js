@@ -6659,7 +6659,7 @@ var toReturn = {
 				if (game.global.roboTrimpLevel >= 5)
 					cap += game.global.roboTrimpLevel - 4;
 				var cleared = (game.global.roboTrimpLevel - 4);
-				text += " <b>You have cleared " + cleared + " 仿生仙境" + ((cleared == 1) ? "" : "s") + " at 185 or higher, and your MagnetoShriek cell count cap will be " + cap + "</b>";
+				text += " <b>You have cleared " + cleared + " 仿生仙境" + ((cleared == 1) ? "" : "") + " at 185 or higher, and your MagnetoShriek cell count cap will be " + cap + "</b>";
 				return text;
 			}
 		},
