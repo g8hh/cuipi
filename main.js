@@ -1274,7 +1274,7 @@ function getSpecialSquaredRewards(challenge){
 
 function needAnS(number){
 	//this will save so many lines if I don't forget about it
-	return (number == 1) ? "" : "s";
+	return (number == 1) ? "" : "";
 }
 
 function getSquaredDescriptionInRun(hideDesc){
@@ -2616,7 +2616,7 @@ function calculateTimeToMax(resource, perSec, toNumber, fromGather) {
 	if (!isFinite(years)) return "很长时间";
 	if (toFill < 60) {
 		if (toFill < 1 && fromGather) return "";
-		return Math.floor(seconds) + " 秒" + ((Math.floor(seconds) == 1) ? "" : "s");
+		return Math.floor(seconds) + " 秒" + ((Math.floor(seconds) == 1) ? "" : "");
 	}
 	if (toFill < 3600) return minutes + " 分" + ((minutes == 1) ? "" : "") + " " + seconds + " 秒" + ((seconds == 1) ? "" : "");
 	if (toFill < 86400) return hours + " 时" + ((hours == 1) ? "" : "") + " " + minutes + " 分" + ((minutes == 1) ? "" : "");
@@ -6951,12 +6951,12 @@ function getRecycleValue(level) {
 }
 
 function updateMapCredits() {
-	var s = (game.challenges.Mapology.credits == 1) ? "" : "s"
+	var s = (game.challenges.Mapology.credits == 1) ? "" : ""
 	document.getElementById("mapCreditsLeft").innerHTML = game.challenges.Mapology.credits + " 地图信用" + s;
 }
 
 function messageMapCredits() {
-	var s = (game.challenges.Mapology.credits == 1) ? "" : "s"
+	var s = (game.challenges.Mapology.credits == 1) ? "" : ""
 	message("你还有 " + game.challenges.Mapology.credits + " 地图信用" + s + " 剩余！", "Notices");
 }
 
