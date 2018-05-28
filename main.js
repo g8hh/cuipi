@@ -4207,10 +4207,10 @@ function populateHeirloomWindow(){
 	hideHeirloomSelectButtons();
 	//Equipped hat
 	document.getElementById("ShieldEquipped").innerHTML = generateHeirloomIcon(game.global.ShieldEquipped, "Equipped");
-	document.getElementById("ShieldEquippedName").innerHTML = (typeof game.global.ShieldEquipped.name !== 'undefined') ? game.global.ShieldEquipped.name : "Nothing.";
+	document.getElementById("ShieldEquippedName").innerHTML = (typeof game.global.ShieldEquipped.name !== 'undefined') ? game.global.ShieldEquipped.name : "无.";
 	//Equipped staff
 	document.getElementById("StaffEquipped").innerHTML = generateHeirloomIcon(game.global.StaffEquipped, "Equipped");
-	document.getElementById("StaffEquippedName").innerHTML = (typeof game.global.StaffEquipped.name !== 'undefined') ? game.global.StaffEquipped.name : "Nothing.";
+	document.getElementById("StaffEquippedName").innerHTML = (typeof game.global.StaffEquipped.name !== 'undefined') ? game.global.StaffEquipped.name : "无.";
 	displayAddCarriedBtn();
 	displayCarriedHeirlooms();
 	displayExtraHeirlooms();
@@ -4246,7 +4246,7 @@ function displayAddCarriedBtn(){
 	}
 	elem.style.display = "inline-block";
 	var cost = getNextCarriedCost();
-	elem.innerHTML = "添加插槽 (" + cost + " Nu)";
+	elem.innerHTML = "添加插槽 (" + cost + " 虚空物质)";
 	if (game.global.nullifium < cost) swapClass("heirloomBtn", "heirloomBtnInactive", elem);
 	else swapClass("heirloomBtn", "heirloomBtnActive", elem);
 }
