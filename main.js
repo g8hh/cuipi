@@ -9007,7 +9007,7 @@ var dailyModifiers = {
 		},
 		large: {
             description: function (str) {
-                return "All housing can store " + prettify(100 - this.getMult(str) * 100) + "% fewer Trimps";
+                return "所有住房可贮存减少 " + prettify(100 - this.getMult(str) * 100) + "% 的脆皮";
             },
             getMult: function(str) {
                 return 1 - (0.01 * str);
@@ -9065,7 +9065,7 @@ var dailyModifiers = {
 		},
 		badHealth: {
 			description: function (str) {
-				return "Enemy health increased by " + prettify((this.getMult(str) * 100) - 100) + "%.";
+				return "敌人血量增加 " + prettify((this.getMult(str) * 100) - 100) + "%.";
 			},
 			getMult: function (str) {
 				return 1 + (0.2 * str);
@@ -9078,7 +9078,7 @@ var dailyModifiers = {
 		},
 		badMapStrength: {
             description: function (str) {
-                return "Enemy attack in maps increased by " + prettify((this.getMult(str) * 100) - 100) + "%.";
+                return "地图上的敌人攻击增加 " + prettify((this.getMult(str) * 100) - 100) + "%.";
             },
             getMult: function (str) {
                 return 1 + (0.3 * str);
@@ -9091,7 +9091,7 @@ var dailyModifiers = {
         },
         badMapHealth: {
             description: function (str) {
-                return "Enemy health in maps increased by " + prettify((this.getMult(str) * 100) - 100) + "%.";
+                return "地图上的敌人血量增加 " + prettify((this.getMult(str) * 100) - 100) + "%.";
             },
             getMult: function (str) {
                 return 1 + (0.3 * str);
@@ -9104,7 +9104,7 @@ var dailyModifiers = {
         },
 		crits: {
             description: function (str) {
-                return "Enemies have a 25% chance to crit for " + prettify(this.getMult(str) * 100) + "% of normal damage";
+                return "敌人有25%的机率产生重击，造成 " + prettify(this.getMult(str) * 100) + "% 的伤害";
             },
             getMult: function (str) {
                 return 1 + (0.5 * str);
@@ -9117,7 +9117,7 @@ var dailyModifiers = {
         },
         bogged: {
             description: function (str) {
-                return "Your Trimps lose " + prettify(this.getMult(str) * 100) + "% of their max health after each attack.";
+                return "你的脆皮在每次攻击后减少最大生命值的 " + prettify(this.getMult(str) * 100) + "% 血量.";
             },
             getMult: function (str) {
                 return 0.01 * str;
@@ -9131,7 +9131,7 @@ var dailyModifiers = {
         },
 		dysfunctional: {
             description: function (str) {
-                return "Your Trimps breed " + prettify(100 - (this.getMult(str) * 100)) + "% slower";
+                return "减少 " + prettify(100 - (this.getMult(str) * 100)) + "% 的脆皮繁殖速度";
             },
             getMult: function (str) {
                 return 1 - (str * 0.05);
@@ -9144,7 +9144,7 @@ var dailyModifiers = {
         },
 		oddTrimpNerf: {
             description: function (str) {
-                return "Trimps have " + prettify(100 - (this.getMult(str) * 100)) + "% less attack on odd numbered zones";
+                return "脆皮在奇数区域减少 " + prettify(100 - (this.getMult(str) * 100)) + "% 攻击";
             },
             getMult: function (str) {
                 return 1 - (str * 0.02);
@@ -9157,7 +9157,7 @@ var dailyModifiers = {
         },
         evenTrimpBuff: {
             description: function (str) {
-                return "Trimps have " + prettify((this.getMult(str) * 100) - 100) + "% more attack on even numbered zones";
+                return "脆皮在偶数区域增加 " + prettify((this.getMult(str) * 100) - 100) + "% 攻击";
             },
             getMult: function (str) {
                 return 1 + (str * 0.2);
@@ -9170,10 +9170,10 @@ var dailyModifiers = {
         },
 		karma: {
 			description: function (str) {
-				return 'Gain a stack after killing an enemy, increasing all non Helium loot by ' + prettify((this.getMult(str, 1) * 100) - 100) + '%. Stacks cap at ' + this.getMaxStacks(str) + ', and reset after clearing a zone.';
+				return '杀死敌人后获得一个stack , 每一层增加所有非氦掉落 ' + prettify((this.getMult(str, 1) * 100) - 100) + '%. Stacks 可以叠加 ' + this.getMaxStacks(str) + ' 层, 切换区域后重置.';
 			},
 			stackDesc: function (str, stacks){
-				return "Your Trimps are finding " + prettify((this.getMult(str, stacks) * 100) - 100) + "% more loot!";
+				return "你的脆皮额外找到 " + prettify((this.getMult(str, stacks) * 100) - 100) + "% 掉落!";
 			},
 			getMaxStacks: function (str) {
 				return Math.floor((str % 9) * 25) + 300;
@@ -9483,7 +9483,7 @@ function getCurrentDailyDescription(){
 		if (item == 'seed') continue;
 		returnText += "<li>" + dailyModifiers[item].description(daily[item].strength) + "</li>";
 	}
-	returnText += "</ul>Challenge has no end point, and grants an <u><b>additional "  + prettify(getDailyHeliumValue(countDailyWeight())) + "%</b></u> of all helium earned before finishing.";
+	returnText += "</ul>挑战没有终点，并在完成时获得<u><b>额外的"  + prettify(getDailyHeliumValue(countDailyWeight())) + "%</b></u>.";
 	return returnText;
 }
 
@@ -9749,7 +9749,7 @@ function getDailyChallenge(add, objectOnly, textOnly){
 	dailyObject.seed = dateSeed;
 	if (objectOnly) return dailyObject;
 	if (countDailyWeight(dailyObject) != currentWeight) console.log('mismatch, objectCount = ' + countDailyWeight(dailyObject) + ", current = " + currentWeight);
-	returnText += "</ul>Challenge has no end point, and grants an <u><b>additional "  + prettify(getDailyHeliumValue(currentWeight)) + "%</b></u> of all helium earned before finishing. <b>Can only be run once!</b> Reward does not count toward Bone Portals or affect best He/Hr stat.";
+	returnText += "</ul>挑战没有终点，并在完成时获得<u><b>额外的"  + prettify(getDailyHeliumValue(currentWeight)) + "%</b></u>氦. <b>只能运行一次!</b> 奖赏不计入骨头购买传送门数据，或影响最好的He/Hr统计.";
 	if (textOnly) return returnText;
 	nextDaily = returnText;
 	if (document.getElementById('specificChallengeDescription') != null) document.getElementById('specificChallengeDescription').innerHTML = returnText;
