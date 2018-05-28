@@ -1274,7 +1274,7 @@ function getSpecialSquaredRewards(challenge){
 
 function needAnS(number){
 	//this will save so many lines if I don't forget about it
-	return (number == 1) ? "" : "s";
+	return (number == 1) ? "" : "";
 }
 
 function getSquaredDescriptionInRun(hideDesc){
@@ -2616,7 +2616,7 @@ function calculateTimeToMax(resource, perSec, toNumber, fromGather) {
 	if (!isFinite(years)) return "很长时间";
 	if (toFill < 60) {
 		if (toFill < 1 && fromGather) return "";
-		return Math.floor(seconds) + " 秒" + ((Math.floor(seconds) == 1) ? "" : "s");
+		return Math.floor(seconds) + " 秒" + ((Math.floor(seconds) == 1) ? "" : "");
 	}
 	if (toFill < 3600) return minutes + " 分" + ((minutes == 1) ? "" : "") + " " + seconds + " 秒" + ((seconds == 1) ? "" : "");
 	if (toFill < 86400) return hours + " 时" + ((hours == 1) ? "" : "") + " " + minutes + " 分" + ((minutes == 1) ? "" : "");
@@ -6951,12 +6951,12 @@ function getRecycleValue(level) {
 }
 
 function updateMapCredits() {
-	var s = (game.challenges.Mapology.credits == 1) ? "" : "s"
+	var s = (game.challenges.Mapology.credits == 1) ? "" : ""
 	document.getElementById("mapCreditsLeft").innerHTML = game.challenges.Mapology.credits + " 地图信用" + s;
 }
 
 function messageMapCredits() {
-	var s = (game.challenges.Mapology.credits == 1) ? "" : "s"
+	var s = (game.challenges.Mapology.credits == 1) ? "" : ""
 	message("你还有 " + game.challenges.Mapology.credits + " 地图信用" + s + " 剩余！", "Notices");
 }
 
@@ -12032,34 +12032,34 @@ var Fluffy = {
 	},
 	rewardConfig: {
 		stickler: {
-			description: "Adds a 5% chance to earn the highest available heirloom tier, and subtracts a 5% chance from the lowest tier."
+			description: "增加5%最高级传家宝的掉落几率, 并降低5%最低级传家宝的掉落几率。"
 		},
 		purifier: {
-			description: "Corrupt and Healthy enemies in active Spires have a 50% chance to be missing their special ability."
+			description: "尖塔中的腐败和健康细胞有50%概率失去它们的特性。"
 		},
 		lucky: {
-			description: "When completing a map with a cache, you have a +25% chance to find a second cache."
+			description: "当完成地图获得一个隐藏奖励时, 你有25%概率找到第二个。"
 		},
 		overkiller: {
-			description: "Overkill can now reach one extra enemy."
+			description: "超杀有机会击中额外的一个敌人。"
 		},
 		helium: {
-			description: "Helium gain from all sources is increased by 25%."
+			description: "所有来源获得的氦提高25%"
 		},
 		void: {
-			description: "On completing a Void Map, if you have another Void Map of the same name, you'll receive 2.5x Helium and 2 Heirlooms. This will destroy the second Void Map."
+			description: "完成一个虚空地图时, 如果你有另一个同名的虚空地图, 你会获得2.5倍的氦和两个传家宝. 这会摧毁第二个虚空地图。"
 		},
 		eliminator: {
-			description: "Corrupt and Healthy enemies in active Spires no longer have any special abilities."
+			description: "尖塔中的腐败和健康细胞会失去它们的所有特性。"
 		},
 		liquid: {
-			description: "Adds 2.5% to your liquification bonus (half of a Spire)."
+			description: "增加2.5%的液化奖金。 (半个尖塔)。"
 		},
 		voidance: {
-			description: "Each Portal, start with 2 pairs of Void Maps that have the same name."
+			description: "使用传送门时, 会获得两对同名的虚空地图。"
 		},
 		dailies: {
-			description: "Adds 100% to the helium modifier of all Daily Challenges."
+			description: "所有日常挑战的氦气系数增加100%。"
 		}
 	}
 }
