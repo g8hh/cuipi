@@ -750,7 +750,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 	}
 	if (what == "Maps"){
 		if (!game.global.preMapsActive)
-		tooltipText = "前往地图室。 地图充满了好东西，对于每个最大级别的地图，您将清楚，您将获得该区域的20％叠加损伤加成（叠加多达10次）。(热键: M)";
+		tooltipText = "前往地图室。 地图充满了好东西，对于每个最大级别的地图，每打通一遍，您将获得该区域的20％叠加损伤加成（叠加多达10次）。(热键: M)";
 		else
 		tooltipText = "回到世界地图 (热键: M)";
 		costText = "";
@@ -1250,7 +1250,7 @@ function getPsString(what, rawNum) {
 	}
 	if (game.global.challengeActive == "Balance"){
 		currentCalc *= game.challenges.Balance.getGatherMult();
-		textString += "<tr><td class='bdTitle'>Strength (Balance)</td><td class='bdPercent'>+ " + game.challenges.Balance.getGatherMult(true) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+		textString += "<tr><td class='bdTitle'>增益 (平衡)</td><td class='bdPercent'>+ " + game.challenges.Balance.getGatherMult(true) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 	}
 	if (game.global.challengeActive == "Decay"){
 		currentCalc *= 10;
@@ -1605,7 +1605,7 @@ function getBattleStatBd(what) {
 	}
 	if (what == "health" && game.global.challengeActive == "Balance"){
 		currentCalc *= game.challenges.Balance.getHealthMult();
-		textString += "<tr style='color: red'><td class='bdTitle'>Weakness (Balance)</td><td>1%</td><td>" + game.challenges.Balance.balanceStacks + "</td><td>- " + game.challenges.Balance.getHealthMult(true) + "</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td></tr>";
+		textString += "<tr style='color: red'><td class='bdTitle'>虚弱 (平衡)</td><td>1%</td><td>" + game.challenges.Balance.balanceStacks + "</td><td>- " + game.challenges.Balance.getHealthMult(true) + "</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td></tr>";
 	}
 	if (what == "attack" && game.global.challengeActive == "Lead" && ((game.global.world % 2) == 1)){
 		currentCalc *= 1.5;

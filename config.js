@@ -1726,7 +1726,7 @@ var toReturn = {
 		Scientist: {
 			get description (){
 				var is5 = (game.global.highestLevelCleared >= 129 && game.global.sLevel >= 4);
-				return "Attempt modifying the portal to " + ((is5) ? "retain positive qualities from previous dimensions" : "harvest resources when travelling") + ". Until you perfect the technique, you will start with <b>_</b> science but will be unable to research or hire scientists" + ((is5) ? " and <b style='color: maroon'>all enemy damage will be 10X higher</b>" : "") + ". Choose your upgrades wisely! Clearing <b>'The Block' (11)</b> with this challenge active will cause you to * each time you use your portal."
+				return "尝试调整传送门来 " + ((is5) ? "retain positive qualities from previous dimensions" : "保留一些资源") + ". 在你完成这个挑战前，你开局便有<b>_</b>科学，但是不能研究或是雇佣科学家" + ((is5) ? " and <b style='color: maroon'>all enemy damage will be 10X higher</b>" : "") + ". 明智地选择你的升级吧！ 在挑战中清除 <b>'The Block' (11)</b> 能让你每次传送 * ."
 			},
 			mustRestart: true,
 			completed: false,

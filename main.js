@@ -10418,7 +10418,7 @@ function updateBalanceStacks(){
 	var stacks = game.challenges.Balance.balanceStacks;
 	if (stacks > 0) {
 		elem.style.display = "inline-block";
-		elem.innerHTML = ' <span class="badge antiBadge" onmouseover="tooltip(\'Unbalance\', \'customText\', event, \'你的脆皮的生命值减少' + game.challenges.Balance.getHealthMult(true) + '，但是所有脆皮的收集速度提高' + game.challenges.Balance.getGatherMult(true) + '。 在世界上杀死坏人你将获得一次叠加，在地图上杀死坏人将失去一次叠加。\');" onmouseout="tooltip(\'hide\')"><span id="balanceStack">' + stacks + '</span><span class="icomoon icon-balance-scale"></span></span>';
+		elem.innerHTML = ' <span class="badge antiBadge" onmouseover="tooltip(\'不平衡\', \'customText\', event, \'你的脆皮的生命值减少' + game.challenges.Balance.getHealthMult(true) + '，但是所有脆皮的收集速度提高' + game.challenges.Balance.getGatherMult(true) + '。 在世界上杀死敌人你将获得一次叠加，在地图上杀死敌人将失去一次叠加。\');" onmouseout="tooltip(\'hide\')"><span id="balanceStack">' + stacks + '</span><span class="icomoon icon-balance-scale"></span></span>';
 	}
 	else elem.style.display = "none";
 }
@@ -12758,9 +12758,9 @@ function cnstat(stat) {
     } else if (stat == "Wormholed Helium") {
         cnstat = "虫洞氦气"
     } else if (stat == "He/Hour this Run") {
-        cnstat = "他/小时运行了"
+        cnstat = "氦/小时运行了"
     } else if (stat == "Best He/Hr this Run") {
-        cnstat = "最好的，他/小时运行"
+        cnstat = "本轮游戏中最高的氦/小时"
     } else if (stat == "Highest Void Map Clear") {
         cnstat = "最高虚空地图清除"
     } else if (stat == "Golden Upgrades") {
@@ -12784,7 +12784,7 @@ function cnstat(stat) {
     } else if (stat == "Total Helium Earned") {
         cnstat = "获得总氦气"
     } else if (stat == "Best He/Hour all Runs") {
-        cnstat = "最好的他/小时全部运行"
+        cnstat = "所有轮游戏中最高的氦/小时"
     } else if (stat == "Planets Broken") {
         cnstat = "行星破碎"
     } else {
@@ -12969,6 +12969,8 @@ function cntequan(what){
         cntequan="平衡"
     }else if(temp=="Scientist V"){
         cntequan="科学家 V"
+    }else if(temp=="Scientist"){
+        cntequan="科学家"
     }else if(temp=="Looting II"){
         cntequan="劫掠 II"
     }else if(temp=="Carpentry II"){
