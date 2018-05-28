@@ -12056,7 +12056,7 @@ var Fluffy = {
 			description: "增加2.5%的液化奖金。 (半个尖塔)。"
 		},
 		voidance: {
-			description: "使用传送门时, 会获得两个同名的虚空地图。"
+			description: "使用传送门时, 会获得两对同名的虚空地图。"
 		},
 		dailies: {
 			description: "所有日常挑战的氦气系数增加100%。"
