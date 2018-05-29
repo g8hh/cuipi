@@ -11344,13 +11344,13 @@ function formatMinutesForDescriptions(number){
 	var text;
 	var minutes = Math.round(number % 60);
 	var hours = Math.floor(number / 60);
-	if (hours == 0) text = minutes + " 分钟" + ((minutes == 1) ? "" : "秒");
+	if (hours == 0) text = minutes + " 分钟" + ((minutes == 1) ? "" : "");
 	else if (minutes > 0) {
 		if (minutes < 10) minutes = "0" + minutes;
 		text = hours + ":" + minutes;
 	}
 	else {
-		var s = (hours > 1) ? "秒" : "";
+		var s = (hours > 1) ? "" : "";
 		text = hours + " 小时" + s;
 	}
 	return text;

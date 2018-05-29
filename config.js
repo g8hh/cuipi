@@ -2665,16 +2665,16 @@ var toReturn = {
 		},
 		blockTimed: {
 			finished: 0,
-			title: "Speed: The Block",
+			title: "速度: The Block",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
-				return "Clear The Block in less than " + number + " from start of run";
+				return "清除The Block地图用时少于" + number + "，从使用传送门开始计时。";
 			},
 			evaluate: function () {
 				return getMinutesThisPortal();
 			},
 			progress: function () {
-				return "Best run is " + formatMinutesForDescriptions(this.highest);
+				return "最好成绩是 " + formatMinutesForDescriptions(this.highest);
 			},
 			display: function () {
 				return (game.global.totalPortals >= 1 || this.finished >= 1);
@@ -2690,10 +2690,10 @@ var toReturn = {
 		},
 		wallTimed: {
 			finished: 0,
-			title: "Speed: The Wall",
+			title: "速度: The Wall",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
-				return "Clear The Wall in less than " + number + " from start of run";
+				return "清除The Wall地图用时少于" + number + "，从使用传送门开始计时。";
 			},
 			display: function () {
 				return (game.global.highestLevelCleared >= 10 && (game.global.totalPortals >= 1 || this.finished >= 1));
@@ -2702,7 +2702,7 @@ var toReturn = {
 				return getMinutesThisPortal();
 			},
 			progress: function () {
-				return "Best run is " + formatMinutesForDescriptions(this.highest);
+				return "最好成绩是 " + formatMinutesForDescriptions(this.highest);
 			},
 			highest: 0,
 			reverse: true,
@@ -2715,10 +2715,10 @@ var toReturn = {
 		},
 		angerTimed: {
 			finished: 0,
-			title: "Speed: Anger",
+			title: "速度: Anger",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
-				return "Clear DoA in less than " + number + " from start of run";
+				return "清除DoA地图用时少于" + number + "，从使用传送门开始计时。";
 			},
 			display: function () {
 				return (game.global.highestLevelCleared >= 14 && (game.global.totalPortals >= 1 || this.finished >= 1));
@@ -2727,7 +2727,7 @@ var toReturn = {
 				return getMinutesThisPortal();
 			},
 			progress: function () {
-				return "Best run is " + formatMinutesForDescriptions(this.highest);
+				return "最好成绩是 " + formatMinutesForDescriptions(this.highest);
 			},
 			highest: 0,
 			reverse: true,
@@ -2740,10 +2740,10 @@ var toReturn = {
 		},
 		doomTimed: {
 			finished: 0,
-			title: "Speed: Doom",
+			title: "速度: Doom",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
-				return "Clear ToD in less than " + number + " from start of run";
+				return "清除ToD地图用时少于" + number + "，从使用传送门开始计时。";
 			},
 			display: function () {
 				return (game.global.highestLevelCleared >= 19 && (game.global.totalPortals >= 1 || this.finished >= 1));
@@ -2752,7 +2752,7 @@ var toReturn = {
 				return getMinutesThisPortal();
 			},
 			progress: function () {
-				return "Best run is " + formatMinutesForDescriptions(this.highest);
+				return "最好成绩是 " + formatMinutesForDescriptions(this.highest);
 			},
 			highest: 0,
 			reverse: true,
@@ -2765,10 +2765,10 @@ var toReturn = {
 		},
 		prisonTimed: {
 			finished: 0,
-			title: "Speed: The Prison",
+			title: "速度: The Prison",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
-				return "Clear Prison in less than " + number + " from start of run";
+				return "清除Prison地图用时少于" + number + "，从使用传送门开始计时。";
 			},
 			display: function () {
 				return (game.global.highestLevelCleared >= 32 && (game.global.totalPortals >= 1 || this.finished >= 1));
@@ -2777,7 +2777,7 @@ var toReturn = {
 				return getMinutesThisPortal();
 			},
 			progress: function () {
-				return "Best run is " + formatMinutesForDescriptions(this.highest);
+				return "最好成绩是 " + formatMinutesForDescriptions(this.highest);
 			},
 			highest: 0,
 			reverse: true,
@@ -2790,10 +2790,10 @@ var toReturn = {
 		},
 		bionicTimed: {
 			finished: 0,
-			title: "Speed: Bionic",
+			title: "速度: Bionic",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
-				return "<span style='font-size: .8em'>Clear 仿生仙境 in less than " + number + " from start of run</span>";
+				return "<span style='font-size: .8em'>清除仿生仙境地图用时少于" + number + "，从使用传送门开始计时。</span>";
 			},
 			display: function () {
 				return (game.global.highestLevelCleared >= 79);
@@ -2802,7 +2802,7 @@ var toReturn = {
 				return getMinutesThisPortal();
 			},
 			progress: function () {
-				return "Best run is " + formatMinutesForDescriptions(this.highest);
+				return "最好成绩是 " + formatMinutesForDescriptions(this.highest);
 			},
 			highest: 0,
 			reverse: true,
@@ -2815,10 +2815,10 @@ var toReturn = {
 		},
 		starTimed: {
 			finished: 0,
-			title: "Speed: Star",
+			title: "速度: Star",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
-				return "<span style='font-size: .8em'>Clear Imploding Star in less than " + number + " from start of run</span>";
+				return "<span style='font-size: .8em'>清除Imploding Star地图用时少于" + number + "，从使用传送门开始计时。</span>";
 			},
 			display: function () {
 				return (game.global.highestLevelCleared >= 124);
@@ -2827,7 +2827,7 @@ var toReturn = {
 				return getMinutesThisPortal();
 			},
 			progress: function () {
-				return "Best run is " + formatMinutesForDescriptions(this.highest);
+				return "最好成绩是 " + formatMinutesForDescriptions(this.highest);
 			},
 			highest: 0,
 			reverse: true,
@@ -2840,10 +2840,10 @@ var toReturn = {
 		},
 		spireTimed: {
 			finished: 0,
-			title: "Speed: Spire",
+			title: "速度: 尖塔",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
-				return "<span style='font-size: .8em'>Clear the Spire in less than " + number + " from start of run</span>";
+				return "<span style='font-size: .8em'>清除尖塔用时少于" + number + "，从使用传送门开始计时。</span>";
 			},
 			display: function () {
 				return (game.global.highestLevelCleared >= 169);
@@ -2852,7 +2852,7 @@ var toReturn = {
 				return getMinutesThisPortal();
 			},
 			progress: function () {
-				return "Best run is " + formatMinutesForDescriptions(this.highest);
+				return "最好成绩是 " + formatMinutesForDescriptions(this.highest);
 			},
 			highest: 0,
 			reverse: true,
@@ -2865,10 +2865,10 @@ var toReturn = {
 		},
 		spire2Timed: {
 			finished: 0,
-			title: "Speed: Spire II",
+			title: "速度: 尖塔 II",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
-				return "<span style='font-size: .8em'>Clear Spire II in less than " + number + " from start of run</span>";
+				return "<span style='font-size: .8em'>清除尖塔II用时少于" + number + "，从使用传送门开始计时。</span>";
 			},
 			display: function () {
 				return (game.global.highestLevelCleared >= 269);
@@ -2877,7 +2877,7 @@ var toReturn = {
 				return getMinutesThisPortal();
 			},
 			progress: function () {
-				return "Best run is " + formatMinutesForDescriptions(this.highest);
+				return "最好成绩是 " + formatMinutesForDescriptions(this.highest);
 			},
 			highest: 0,
 			reverse: true,
@@ -2890,10 +2890,10 @@ var toReturn = {
 		},
 		spire3Timed: {
 			finished: 0,
-			title: "Speed: Spire III",
+			title: "速度: 尖塔 III",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
-				return "<span style='font-size: .8em'>Clear Spire III in less than " + number + " from start of run</span>";
+				return "<span style='font-size: .8em'>清除尖塔III用时少于" + number + "，从使用传送门开始计时。</span>";
 			},
 			display: function () {
 				return (game.global.highestLevelCleared >= 369);
@@ -2902,7 +2902,7 @@ var toReturn = {
 				return getMinutesThisPortal();
 			},
 			progress: function () {
-				return "Best run is " + formatMinutesForDescriptions(this.highest);
+				return "最好成绩是 " + formatMinutesForDescriptions(this.highest);
 			},
 			highest: 0,
 			reverse: true,
@@ -2915,10 +2915,10 @@ var toReturn = {
 		},
 		spire4Timed: {
 			finished: 0,
-			title: "Speed: Spire IV",
+			title: "速度: 尖塔 IV",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
-				return "<span style='font-size: .8em'>Clear Spire IV in less than " + number + " from start of run</span>";
+				return "<span style='font-size: .8em'>清除尖塔IV用时少于" + number + "，从使用传送门开始计时。</span>";
 			},
 			display: function () {
 				return (game.global.highestLevelCleared >= 469);
@@ -2927,7 +2927,7 @@ var toReturn = {
 				return getMinutesThisPortal();
 			},
 			progress: function () {
-				return "Best run is " + formatMinutesForDescriptions(this.highest);
+				return "最好成绩是 " + formatMinutesForDescriptions(this.highest);
 			},
 			highest: 0,
 			reverse: true,
