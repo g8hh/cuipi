@@ -11956,24 +11956,24 @@ var Fluffy = {
 		var savedLevel = Fluffy.getLevel(true);
 		var fluffyInfo = Fluffy.getExp();
 		var tooltipText = "<div style='width: 100%; font-size: 0.95em;'><div class='fluffyThird'>";
-		if (game.global.fluffyPrestige > 0 || this.currentLevel == this.rewards.length) tooltipText += "<span style='color: #740774'>Evolution " + game.global.fluffyPrestige + " </span>";
-		tooltipText += "Level " + fluffyInfo[0] + "</div><div class='fluffyThird'>";
+		if (game.global.fluffyPrestige > 0 || this.currentLevel == this.rewards.length) tooltipText += "<span style='color: #740774'>进化 " + game.global.fluffyPrestige + " </span>";
+		tooltipText += "等级 " + fluffyInfo[0] + "</div><div class='fluffyThird'>";
 		if (savedLevel >= Fluffy.rewards.length) {
-			tooltipText += "Max"
+			tooltipText += "最高等级"
 		}
 		else {
 			tooltipText += (Fluffy.canGainExp()) ? "<span>" : "<span class='red'>"
-			tooltipText += prettify(fluffyInfo[1]) + " / " + prettify(fluffyInfo[2]) + " exp";
+			tooltipText += prettify(fluffyInfo[1]) + " / " + prettify(fluffyInfo[2]) + " 经验";
 			tooltipText += "</span>";
 		}
-		tooltipText += "</div><div class='fluffyThird'>+" + prettify((Fluffy.getDamageModifier() - 1) * 100) + "% damage"
+		tooltipText += "</div><div class='fluffyThird'>+" + prettify((Fluffy.getDamageModifier() - 1) * 100) + "% 伤害"
 		tooltipText += "</div></div>";
 		if (!Fluffy.isMaxLevel()){
-			if (savedLevel > fluffyInfo[0]) tooltipText += "<span class='red'>- Fluffy's level and damage bonus are currently reduced. Fluffy will return to level " + savedLevel + " when points are placed back in Capable.</span>";
-			else if (!Fluffy.canGainExp()) tooltipText += "<span class='red'>- Fluffy needs " + ((game.portal.Capable.level == 0) ? " at least one point of Capable to gain any exp" + ((game.portal.Capable.locked) ? ". Complete Spire II to unlock Capable!" : "") : " more points in Capable to gain exp above level " + game.portal.Capable.level + ".") + "</span>";
+			if (savedLevel > fluffyInfo[0]) tooltipText += "<span class='red'>- Fluffy 的等级和伤害加成现在被降低了. Fluffy 会恢复等级 " + savedLevel + " 当 Capable 的等级足够时.</span>";
+			else if (!Fluffy.canGainExp()) tooltipText += "<span class='red'>- Fluffy 需要 " + ((game.portal.Capable.level == 0) ? " 最少一级 Capable 来获取经验" + ((game.portal.Capable.locked) ? ". 完成 尖塔 II 来解锁 Capable!" : "") : " 更高等级的Capable允许你的Fluffy升至更高的等级。 " + game.portal.Capable.level + "。") + "</span>";
 			else {
-				if (game.global.world < 301) tooltipText += "<span class='red'>- Fluffy cannot gain any experience from zones lower than 301</span>";
-				else tooltipText += "- Fluffy is earning " + prettify(Fluffy.getExpReward()) + " exp per zone. " + Fluffy.getFluff();
+				if (game.global.world < 301) tooltipText += "<span class='red'>- Fluffy 不能获得任何经验当区域低于301时。</span>";
+				else tooltipText += "- 当完成当前区域时，Fluffy 会获得 " + prettify(Fluffy.getExpReward()) + " 点经验。 " + Fluffy.getFluff();
 			}
 			
 		}
@@ -11983,9 +11983,9 @@ var Fluffy = {
 		//clicked
 
 		if (Fluffy.currentLevel == 10 && game.global.fluffyPrestige < Fluffy.prestigeRewards.length)
-			tooltipText += "<span class='fluffyEvolveText'>Fluffy is ready to Evolve! This will reset his damage bonus and most abilities back to level 0, but he will regrow to be stronger than ever. You can cancel this Evolution at any point to return to level 10.<br/><span class='btn btn-md btn-success' onclick='Fluffy.prestige(); Fluffy.refreshTooltip(true);'>Evolve!</span></span><br/>"
+			tooltipText += "<span class='fluffyEvolveText'>Fluffy 准备好进化了! 这将会重置它的伤害加成和所有特殊能力到等级0， 但是，他将会比以往任何时候都更加强大。你可以在任何时候取消这个进化，回到第10级。.<br/><span class='btn btn-md btn-success' onclick='Fluffy.prestige(); Fluffy.refreshTooltip(true);'>Evolve!</span></span><br/>"
 		if (Fluffy.canGainExp() && game.global.world >= 301) {
-			tooltipText += "- Fluffy's exp gain at the end of each zone is equal to: ";
+			tooltipText += "- Fluffy 在某个区域获得的经验遵从以下公式: ";
 			var fluffFormula = "<br/><span style='padding-left: 5em'>";
 			if (!game.portal.Curious.locked) fluffFormula += "(" + Fluffy.baseExp + " + (Curious * " + game.portal.Curious.modifier + ")) * (" + Fluffy.expGrowth + "^(Zone - 300)) * (1 + (Cunning * " + game.portal.Cunning.modifier + "))";
 			else if (!game.portal.Cunning.locked) fluffFormula += Fluffy.baseExp + " * (" + Fluffy.expGrowth + "^(Zone - 300)) * (1 + (Cunning * " + game.portal.Cunning.modifier + "))";
@@ -11999,7 +11999,7 @@ var Fluffy = {
 			tooltipText += fluffFormula;
 		}
 		if (game.global.fluffyPrestige > 0 && Fluffy.currentLevel < 10)
-			tooltipText += "<br/><span class='btn btn-sm btn-warning' onmousedown='cancelTooltip(); tooltip(\"confirm\", null, \"update\", \"You are about to abort Fluffy&#39;s Evolution. This will return you to level 10 on your last Evolution, but you will permanently lose all experience earned towards the current Evolution. Are you sure you want to abort?\", \"Fluffy.abortPrestige()\", \"Abort Evolution\")'>Abort Prestige</span>"
+			tooltipText += "<br/><span class='btn btn-sm btn-warning' onmousedown='cancelTooltip(); tooltip(\"confirm\", null, \"update\", \"你将中止Fluffy的进化。这将使你的Fluffy回到10级，但是你将永远失去本次进化中获得的所有经验。你确定要放弃吗？\", \"Fluffy.abortPrestige()\", \"Abort Evolution\")'>Abort Prestige</span>"
 		var xpBreakdownFill = (document.getElementById('fluffyExpBreakdown') ? document.getElementById('fluffyExpBreakdown').innerHTML : "");
 		tooltipText += "<div id='fluffyExpBreakdown'>" + xpBreakdownFill + "</div>";
 		tooltipText += "<table id='fluffyLevelBreakdown'><tbody><tr style='font-weight: bold; font-size: 1.25em; text-align: center;'><td style='padding: 0 1em'>Level</td><td>Ability</td><td style='padding: 0 1em'>+Damage</td></tr>";
