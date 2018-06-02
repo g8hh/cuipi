@@ -1704,7 +1704,7 @@ function activateClicked(){
 		if (challengeSquaredMode)
 			newText += " <span id='addChallenge' class='colorSquared'>You are about to run the <b style='font-size: 1.1em'>" + game.global.selectedChallenge + " Challenge<sup>2</sup></b></span><br/>";
 		else
-			newText += " <span id='addChallenge'>You are about to run the <b style='font-size: 1.1em'>" + game.global.selectedChallenge + " Challenge</b></span><br/>";
+			newText += " <span id='addChallenge'>你即将进行<b style='font-size: 1.1em'>" + cntequan(game.global.selectedChallenge) + "挑战</b></span><br/>";
 	}
 	else newText += " <span id='addChallenge'></span>";
 	if (game.global.kongBonusMode){
@@ -1721,8 +1721,8 @@ function activateClicked(){
 	if (game.global.world >= 230 && canAffordGeneratorUpgrade()){
 		newText += "<div class='magmiteError portalError'>You have " + prettify(game.global.magmite) + " Magmite, which is enough purchase an upgrade for your Dimensional Generator! If you portal now, " + ((game.permanentGeneratorUpgrades.Shielding.owned) ? "20" : "30") + "% of your Magmite will decay.</div>";
 	}
-	var btnText = "<div class='btn btn-info btn-lg' onclick='activatePortal()'>Let's do it.</div>&nbsp;<div class='btn btn-lg btn-warning' onclick='cancelTooltip()'>Wait, I'm not ready!</div>";
-	tooltip('Activate Portal', 'customText', 'update', newText, btnText);
+	var btnText = "<div class='btn btn-info btn-lg' onclick='activatePortal()'>就这么干。</div>&nbsp;<div class='btn btn-lg btn-warning' onclick='cancelTooltip()'>等等, 我还没准备好!</div>";
+	tooltip('运行传送门', 'customText', 'update', newText, btnText);
 	game.global.lockTooltip = true;
 	var tooltipElem = document.getElementById('tooltipDiv');
 	tooltipElem.style.left = "33.75%";
@@ -12953,7 +12953,7 @@ function cntequan(what){
     }else if(temp=="Toughness"){
         cntequan="坚韧"
     }else if(temp=="Looting"){
-        cntequan="抢劫"
+        cntequan="掠夺"
     }else if(temp=="Trumps"){
         cntequan="法宝"
     }else if(temp=="Discipline"){

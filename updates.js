@@ -801,9 +801,9 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		}
 	}
 	if (isItIn == "portal"){
-		var resAppend = (game.global.kongBonusMode) ? " Bonus Points" : " Helium Canisters";
+		var resAppend = (game.global.kongBonusMode) ? " Bonus Points" : "氦";
 		var perkItem = game.portal[what];
-		if (!perkItem.max || perkItem.max > perkItem.level + perkItem.levelTemp) costText = prettify(getPortalUpgradePrice(what)) + resAppend;
+		if (!perkItem.max || perkItem.max > perkItem.level + perkItem.levelTemp) costText = "需要"+prettify(getPortalUpgradePrice(what)) + resAppend;
 		else costText = "";
 		if (game.global.buyAmt > 1){
             var dwhat=cnwhat(what);
@@ -2009,7 +2009,7 @@ function getLootBd(what) {
 	if (game.portal.Looting_II.level){
 		amt = (1 + (game.portal.Looting_II.level * game.portal.Looting_II.modifier));
 		currentCalc *= amt;
-		textString += "<tr><td class='bdTitle'>抢劫 II (额外福利)</td><td>+ " + prettify(game.portal.Looting_II.modifier * 100) + "%</td><td>" + game.portal.Looting_II.level + "</td><td>+ " + prettify((amt - 1) * 100) + "%</td><td>" + prettify(currentCalc) + "</td></tr>";
+		textString += "<tr><td class='bdTitle'>掠夺 II (额外福利)</td><td>+ " + prettify(game.portal.Looting_II.modifier * 100) + "%</td><td>" + game.portal.Looting_II.level + "</td><td>+ " + prettify((amt - 1) * 100) + "%</td><td>" + prettify(currentCalc) + "</td></tr>";
 	}
 	if (game.unlocks.impCount.Magnimp && what != "Helium"){
 
@@ -4567,7 +4567,7 @@ function cntitle(tit){
     }else if(what=="Toughness"){
         cntit="坚韧"
     }else if(what=="Looting"){
-        cntit="抢劫"
+        cntit="掠夺"
     }else if(what=="Trumps"){
         cntit="法宝"
     }else if(what=="Custom"){

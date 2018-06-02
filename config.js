@@ -1422,7 +1422,7 @@ var toReturn = {
 			max: 3,
 			priceBase: 100000,
 			heliumSpent: 0,
-			tooltip: "使用替代维度中发现的策略从较低级别的地图虹吸地图奖励伤害堆栈。 对于虹吸学的每个级别，您将从比当前世界低一级的地图获得堆叠。 最多3个级别。",
+			tooltip: "使用替代维度中发现的策略从较低级别的地图虹吸地图伤害加成。 对于虹吸学的每个级别，您将可以从比当前区域低一级的地图获得伤害加成。 最多3个级别。",
 		},
 		Anticipation: {
 			level: 0,
@@ -1457,7 +1457,7 @@ var toReturn = {
 			priceBase: 75,
 			heliumSpent: 0,
 			max: 7,
-			tooltip: "Your experiences in the Dimension of Strong Things have taught you the value of taking your time. Every level of Meditation will increase your Trimps' gather speed by 1% for every 10 minutes spent on the same zone, up to 1 hour, even when offline. This bonus is reset after clearing the current zone. Maximum of 7 levels.",
+			tooltip: "你在挑战中的经历教会了你从容不迫。每级冥想将让你在当前区域内每过10分钟，脆皮的收集速度增加1%，最多叠1小时，离线时仍然生效。这个加成将会在打通当前区域后重置。最高7级。",
 			getBonusPercent: function (justStacks) {
 				var timeOnZone = new Date().getTime() - game.global.zoneStarted;
 				timeOnZone = Math.floor(timeOnZone / 600000);
