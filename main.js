@@ -1702,7 +1702,7 @@ function activateClicked(){
 	var newText = "";
 	if (game.global.selectedChallenge){
 		if (challengeSquaredMode)
-			newText += " <span id='addChallenge' class='colorSquared'>You are about to run the <b style='font-size: 1.1em'>" + game.global.selectedChallenge + " Challenge<sup>2</sup></b></span><br/>";
+			newText += " <span id='addChallenge' class='colorSquared'>你即将进行 <b style='font-size: 1.1em'>" + cntequan(game.global.selectedChallenge) + " 挑战<sup>2</sup></b></span><br/>";
 		else
 			newText += " <span id='addChallenge'>你即将进行<b style='font-size: 1.1em'>" + cntequan(game.global.selectedChallenge) + "挑战</b></span><br/>";
 	}
@@ -1716,7 +1716,7 @@ function activateClicked(){
 	if (game.global.runningChallengeSquared) newText += "<div class='squaredError portalError'>" + getSquaredDescriptionInRun(true) + "</div>";
 	if (game.global.heirloomsExtra.length){
 		var s = (game.global.heirloomsExtra.length > 1) ? "s" : "";
-		newText += "<div class='heirloomRecycleWarning portalError'>You have " + game.global.heirloomsExtra.length + " extra Heirloom" + s + ", which will be recycled for " + prettify(recycleAllExtraHeirlooms(true)) + " Nullifium if you portal now. Make sure you carry any that you want to save!</div>";
+		newText += "<div class='heirloomRecycleWarning portalError'>你拥有" + game.global.heirloomsExtra.length + "个额外传家宝。如果你现在传送，它们将会被回收成" + prettify(recycleAllExtraHeirlooms(true)) + "虚空物质。确保携带你想要的传家宝来保留它!</div>";
 	}
 	if (game.global.world >= 230 && canAffordGeneratorUpgrade()){
 		newText += "<div class='magmiteError portalError'>You have " + prettify(game.global.magmite) + " Magmite, which is enough purchase an upgrade for your Dimensional Generator! If you portal now, " + ((game.permanentGeneratorUpgrades.Shielding.owned) ? "20" : "30") + "% of your Magmite will decay.</div>";
@@ -12984,7 +12984,7 @@ function cntequan(what){
     }else if(temp=="Resourceful"){
         cntequan="足智多谋"
     }else if(temp=="Coordinated"){
-        cntequan="协作"
+        cntequan="协调"
     }else if(temp=="Siphonology"){
         cntequan="虹吸学"
     }else if(temp=="Anticipation"){

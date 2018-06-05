@@ -394,7 +394,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		tooltipText = "";
 		if (!textString)
 		tooltipText = "<p>单击以切换到挑战模式，迎接您的挑战!</p>";
-		tooltipText += "<p>在挑战<sup>2</sup> 模式中, you can re-run some challenges in order to earn a permanent attack, health, and Helium bonus for your Trimps. MOST Challenge<sup>2</sup>s will grant <b>" + squaredConfig.rewardEach + "% attack and health and " + prettify(squaredConfig.rewardEach / 10) + "% increased Helium for every " + squaredConfig.rewardFreq + " zones reached. Every " + squaredConfig.thresh + " zones, the attack and health bonus will increase by an additional 1%, and the Helium bonus will increase by 0.1%</b>. This bonus is additive with all available Challenge<sup>2</sup>s, and your highest zone reached for each challenge is saved and used.</p><p><b>No Challenge<sup>2</sup>s end at any specific zone</b>, they can only be completed by using your portal or abandoning through the 'View Perks' menu. However, <b>no Helium can drop, and no bonus Helium will be earned during or after the run</b>. Void Maps will still drop heirlooms, and all other currency can still be earned.</p><p>You are currently gaining " + prettify(game.global.totalSquaredReward) + "% extra attack and health, and are gaining " + prettify(game.global.totalSquaredReward / 10) + "% extra Helium thanks to your Challenge<sup>2</sup> bonus.</p>";
+		tooltipText += "<p>在挑战<sup>2</sup> 模式中, 你可以重新进行一些挑战，来为你的脆皮获取一个永久的攻击、生命、氦的加成。大多数的挑战<sup>2</sup>每打通<b>" + squaredConfig.rewardFreq + "个区域将会获得" + squaredConfig.rewardEach + "%的攻击和生命，以及" + prettify(squaredConfig.rewardEach / 10) + "%的氦。每 " + squaredConfig.thresh + " 个区域,攻击和生命的加成将额外加成1%,并且氦加成增加0.1%</b>。所有挑战<sup>2</sup>的加成是相加的, 而且你所达到的最高区域被记录且被换算为加成使用。</p><p><b>所有的挑战<sup>2</sup>都没有一个特定的截止区域</b>,它们只能通过使用传送门，或在“查看能力”页面中放弃挑战来结束。然而，<b>中途不会掉落氦，并且在挑战中及挑战后不会获得奖励氦</b>。虚空地图中仍然会掉落传家宝，所有其他的货币仍然可以获取。</p><p>由于挑战<sup>2</sup>加成，你现在已经得到了" + prettify(game.global.totalSquaredReward) + "%的额外攻击和生命，而且你已得到" + prettify(game.global.totalSquaredReward / 10) + "%的额外氦加成。</p>";
 		if (game.talents.headstart.purchased) tooltipText += "<p><b>Note that your Headstart mastery will be disabled during Challenge<sup>2</sup> runs.</b></p>";
 		costText = "";
 	}
@@ -719,7 +719,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		tooltipText = '<p>Your scientists have come a long way since you first crashed here, and can now purchase prestige upgrades automatically for you with hardly any catastrophic mistakes. They understand the word "No" and the following three commands: </p><p><b>AutoPrestige All</b> will always purchase the cheapest prestige available first.</p><p><b>Weapons Only</b> as you may be able to guess, will only purchase Weapon prestiges.</p><p><b>Weapons First</b> will only purchase Weapon prestiges unless the cheapest Armor prestige is less than 5% of the cost of the cheapest Weapon.</p>';
 	}
 	if (what == "AutoUpgrade"){
-		tooltipText = "Your scientists can finally handle some upgrades on their own! Toggling this on will cause most upgrades to be purchased automatically. Does not include equipment prestiges or upgrades that would trigger a confirmation popup.";
+		tooltipText = "你的科学家终于能自己处理一些升级了！把这个打开将能自动升级大部分的升级项。不包括装备进阶以及会弹出确认窗口的升级。";
 	}
 	if (what == "Recycle All"){
 		tooltipText = "回收所有在选定级别以下的地图。";
@@ -897,7 +897,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 			tooltipText = tipSplit[0] + prettify(toTip[tipSplit[1]]) + tipSplit[2];
 		}
 		if (isItIn == "buildings" && what.split(' ')[0] == "Warpstation" && game.global.lastWarp) {
-			tooltipText += "<b> You had " + game.global.lastWarp + " Warpstations when you purchased your last Gigastation (" + game.upgrades.Gigastation.done + ").</b>";
+			tooltipText += "<b>购买上一个千兆站时你拥有" + game.global.lastWarp + "个经纱站(" + game.upgrades.Gigastation.done + ").</b>";
 		}
 		if (typeof tooltipText.split('~') !== 'undefined') {
 			var percentIncrease = game.upgrades.Gymystic.done;
@@ -1382,7 +1382,7 @@ function getTrimpPs() {
 	}
 	if (game.global.brokenPlanet){
 		currentCalc /= 10;
-		textString += "<tr style='color: red'><td class='bdTitle'>Broken Planet</td><td class='bdPercent'>X 0.1</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+		textString += "<tr style='color: red'><td class='bdTitle'>破碎星球</td><td class='bdPercent'>X 0.1</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 
 	}
 	//Add pheromones
@@ -1397,7 +1397,7 @@ function getTrimpPs() {
 		var mult = Math.pow(.98, game.jobs.Geneticist.owned);
 		currentCalc *= mult;
 		var display = (mult > 0.0001) ? mult.toFixed(4) : mult.toExponential(3);
-		textString += "<tr style='color: red'><td class='bdTitle'>Geneticist</td><td class='bdPercent'>X  " + display + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+		textString += "<tr style='color: red'><td class='bdTitle'>遗传学家</td><td class='bdPercent'>X  " + display + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 	}
 	//Add quick trimps
 	if (game.unlocks.quickTrimps){
@@ -1556,7 +1556,7 @@ function getBattleStatBd(what) {
 		var geneticistStrength = Math.pow(1.01, calcedGenes);
 		currentCalc  *= geneticistStrength;
 		geneticistStrength = prettify((geneticistStrength * 100) - 100) + "%";
-		textString += "<tr><td class='bdTitle'>Geneticists</td><td>1%</td><td>" + prettify(calcedGenes) + "</td><td>+ " + geneticistStrength + "</td><td>" + prettify(currentCalc) + "</td></tr>";
+		textString += "<tr><td class='bdTitle'>遗传学家</td><td>1%</td><td>" + prettify(calcedGenes) + "</td><td>+ " + geneticistStrength + "</td><td>" + prettify(currentCalc) + "</td></tr>";
 	}
 	//Add Anticipation
 	var anticipation = game.portal.Anticipation;
@@ -1572,7 +1572,7 @@ function getBattleStatBd(what) {
 		var formStrength = 0.5;
 		if ((game.global.formation == 1 && what == "health") || (game.global.formation == 2 && what == "attack") || (game.global.formation == 3 && what == "block")) formStrength = 4;
 		currentCalc *= formStrength;
-		textString += "<tr><td class='bdTitle'>Formation</td><td></td><td></td><td>x " + formStrength + "</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + ((what == "attack") ? getFluctuation(currentCalc, minFluct, maxFluct) : "") + "</tr>";
+		textString += "<tr><td class='bdTitle'>阵型</td><td></td><td></td><td>x " + formStrength + "</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + ((what == "attack") ? getFluctuation(currentCalc, minFluct, maxFluct) : "") + "</tr>";
 
 	}
 	//Add Titimp
@@ -1662,7 +1662,7 @@ function getBattleStatBd(what) {
 	if (what != "block" && game.goldenUpgrades.Battle.currentBonus > 0){
 		amt = game.goldenUpgrades.Battle.currentBonus;
 		currentCalc *= 1 + amt;
-		textString += "<tr><td class='bdTitle'>黄金之战</td><td></td><td></td><td>+ " + prettify(amt * 100) + "%</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + ((what == "attack") ? getFluctuation(currentCalc, minFluct, maxFluct) : "") + "</tr>";
+		textString += "<tr><td class='bdTitle'>黄金升级</td><td></td><td></td><td>+ " + prettify(amt * 100) + "%</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + ((what == "attack") ? getFluctuation(currentCalc, minFluct, maxFluct) : "") + "</tr>";
 	}
 	if (what != "block" && game.talents.voidPower.purchased && game.global.voidBuff){
 		amt = (game.talents.voidPower2.purchased) ? ((game.talents.voidPower3.purchased) ? 65 : 35) : 15;
@@ -4336,6 +4336,8 @@ function cnjob(job){
         cnjob="探险者";
     }else if(what=="Magmamancer"){
         cnjob="巫师";
+    }else if(what=="Geneticist"){
+        cnjob="遗传学家";
     }else{
         cnjob=job;
     }
@@ -4702,8 +4704,8 @@ function cntitle(tit){
         cnperk="力量" 
     }else if(what=="Toughness"){
         cnperk="坚韧"
-    }else if(what==""){
-        cnperk=""
+    }else if(what=="Meditation"){
+        cnperk="冥想"
     }else{
         cnperk=obj
     }

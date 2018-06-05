@@ -1414,7 +1414,7 @@ var toReturn = {
 				if (overrideLevel) return newValue;
 				this.currentSend = newValue;
 			},
-			tooltip: "Use knowledge gained while studying Coordinated Bad Guys to reduce the amount of Trimps required per level of Coordination by 2% <b>of current amount (compounding)</b>, while keeping the stat bonus the same."
+			tooltip: "通过利用研究协同作战的敌人时所获得的知识，每级协作升级所需的脆皮数量减少<b>当前数量的</b>2%(每级叠乘0.98),同时保持协作的奖励效果不变。"
 		},
 		Siphonology: {
 			level: 0,
@@ -1790,7 +1790,7 @@ var toReturn = {
 			unlockString: "到达区域 45"
 		},
 		Decay: {
-			description: "Tweak the portal to bring you to an alternate reality, where added chaos will help you learn to create a peaceful place. You will gain 10x loot (excluding helium), 10x gathering, and 5x Trimp attack, but a stack of Decay will accumulate every second. Each stack of Decay reduces loot, gathering, and Trimp attack by 0.5% of the current amount. These stacks reset each time a Blimp is killed and cap at 999. Completing <b>Zone 55</b> with this challenge active will allow you to select the Gardens biome when creating maps, and all future Gardens maps created will gain +25% loot.",
+			description: "调整传送门，来把你带到另一个现实当中，在那里有更多的混乱，将帮助你学会创造一个和平的地方。你将获得10x的战利品(不包括氦)，10x的收集和5x的脆皮攻击，但是每一秒都会积累一层衰变。每层的衰变都会减少战利品、收集以及脆皮攻击当前值的0.5%。当你杀死Blimp(区域boss)时积累的衰变会重置，并且衰变最高叠999层。进行本挑战完成 <b>区域55</b>能让你在创造地图时选择花园地图，未来创建的所有花园地图将获得+25%的战利品。",
 			completed: false,
 			abandon: function () {
 				updateDecayStacks();
@@ -1803,12 +1803,12 @@ var toReturn = {
 			unlockString: "到达区域55",
 		},
 		Trimp: {
-			description: "调整传送门，让你进入一个维度，如果一次超过1次的战斗，脆皮会爆炸。 你将不能学习协调， 但是完成 <b>'The Block' (11)</b> 将教会你如何让你的脆皮存活更长时间。",
+			description: "调整传送门，让你进入一个维度，如果一次超过1次的战斗，脆皮会爆炸。 你将不能学习协作， 但是完成 <b>'The Block' (11)</b> 将教会你如何让你的脆皮存活更长时间。",
 			completed: false,
 			heldBooks: 0,
 			fireAbandon: true,
 			allowSquared: true,
-			squaredDescription: "调整传送门，让你进入一个维度，如果一次超过1次的战斗，脆皮会爆炸。你将无法学会协调。",
+			squaredDescription: "调整传送门，让你进入一个维度，如果一次超过1次的战斗，脆皮会爆炸。你将无法学会协作。",
 			replaceSquareThresh: 40,
 			replaceSquareReward: 3,
 			replaceSquareGrowth: 3,
@@ -3110,8 +3110,8 @@ var toReturn = {
 		w42: "这个世界看起来如此贫瘠。你觉得自己终于开始走在前面了，但你现在知道，这并不能让你感到舒服。",
 		w44: "白天和黑夜似乎都比以前更长了。是时间变慢了吗？啊！你跪倒在地，头痛欲裂，并有一种强烈的想使用传送门的渴望。几分钟后，这个感觉消退了，你也忘记了刚才发生了什么。我们刚才在讨论什么来着？",
 		w46: "回头望去，越过的山的痕迹越来越长。这个世界是平的，并充满了敌意。你希望你的脆皮们能更健谈一些。",
-		w48: "As your Trimps scavenge every last bit of helium from that Blimp, one of them begins freaking out. He runs around waving his little arms and making funny noises for a while, eats some dirt, then takes a little nap. You wonder if that's normal. Yeah... probably fine.",
-		w50: "It's been a long time since you've found any blueprints in the maps. You start to wonder where those things even come from.",
+		w48: "当脆皮们从Blimp身上提取最后一点氦时，其中一只开始发狂。他跑来跑去，挥舞着他的小胳膊，其中一段时间发出了有趣的声音，吃了一些泥土，然后就开始小睡。你很好奇他是否还正常。是的……可能他还算不错。.",
+		w50: "你很久没有在地图上找到蓝图了。你开始怀疑这些东西是从哪里来的。",
 		w51: "Your scientists have detected an anomaly at the end of Zone 59. They recommend that you stop doing whatever it is that you're doing.",
 		w53: "As you get closer to the anomaly, you start to notice more and more strange behaviour from your Trimps. Holes in your memory are starting to become noticeable as multiple existences blend into one. Trippy.",
 		w54: "As you get closer to the anomaly, you start to notice more and more strange behaviour from your Trimps. Holes in your memory are starting to become noticeable as multiple existences blend into one. Trippy.",
@@ -4723,7 +4723,7 @@ var toReturn = {
 			canRunOnce: true,
 			fire: function (level, fromGenerator) {
 				if (!this.canRunOnce) return;
-				var messageText = (fromGenerator) ? "The world feels a little bit less angry as you fire off your handy Portal Generator. You can tell that somewhere in some dimension, a Megablimp is no more. In front of you, " + ((game.global.runningChallengeSquared) ? "a green, shining box appears" : "45 helium and a green, shining box appear") + " on the ground. In tiny writing on the box, you can make out the words 'Time portal. THIS SIDE UP'." : "Don't ever let anyone tell you that you didn't just kill that Megablimp. Because you did. As he melts away into nothingness, you notice a green, shining box on the ground. In tiny writing on the box, you can make out the words 'Time portal. THIS SIDE UP'.";
+				var messageText = (fromGenerator) ? "The world feels a little bit less angry as you fire off your handy Portal Generator. You can tell that somewhere in some dimension, a Megablimp is no more. In front of you, " + ((game.global.runningChallengeSquared) ? "a green, shining box appears" : "45 helium and a green, shining box appear") + " on the ground. In tiny writing on the box, you can make out the words 'Time portal. THIS SIDE UP'." : "不要让任何人告诉你你刚才没有杀死那个Megablimp，因为你确实杀死它了。当它逐渐溶解消散时，你发现在地上有一个绿色的，发光的盒子。盒子上有一行小字，你能辨认出上面的字是“时间传送门。此端向上。”";
 				message(messageText, "Story");
 				game.global.portalActive = true;
 				fadeIn("portalBtn", 10);
@@ -4731,7 +4731,7 @@ var toReturn = {
 				fadeIn("helium", 10);
 				addHelium(45);
 				if (!fromGenerator){
-					message("<span class='glyphicon glyphicon-oil'></span> You were able to extract 45 Helium canisters from that Blimp! Now that you know how to do it, you'll be able to extract helium from normal Blimps.", "Story");
+					message("<span class='glyphicon glyphicon-oil'></span> 你从那个Blimp上提取到了45个氦!既然你知道了该如何得到氦，你现在就能从普通的Blimp身上提取出氦了。", "Story");
 				}
 				if (game.global.challengeActive == "Metal"){
 					game.global.challengeActive = "";
@@ -5792,7 +5792,7 @@ var toReturn = {
 			}
 		},
 		Coordination: {
-			message: "你会发现一本名为“协调”的古书。令人兴奋的。",
+			message: "你会发现一本名为“协作”的古书。令人兴奋的。",
 			world: -1,
 			level: 99,
 			get icon (){
@@ -6307,7 +6307,7 @@ var toReturn = {
 			locked: 1,
 			allowAutoFire: true,
 			owned: 0,
-			tooltip: "每个遗传学家都会将每个脆皮的生命状况提高1％（复合），但会降低婴儿脆皮生长2％（复合）的速度。",
+			tooltip: "每个遗传学家都会将每个脆皮的血量提高1％（复合），但会降低2％（复合）的脆皮繁殖速度。",
 			cost: {
 				food: [1000000000000000, 1.03],
 			},
@@ -6451,7 +6451,7 @@ var toReturn = {
 		Gigastation: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "Prestige your Warpstation, increasing the amount of Trimps it can house by 20% and the base cost by 75%. There's no turning back, learning these blueprints will make your previous model of Warpstation obsolete but functional, and you will keep all Trimps housed there. Learning this will build one new Warpstation. <b>Holding Ctrl will cause as many Warpstations as you currently own to be purchased immediately after Gigastation, if you can afford them.</b>",
+			tooltip: "使你的经纱站进阶，增加20%可居住的脆皮，基础价格增加75%。这是无法撤回的升级。升级后会废弃之前购买的经纱站，但它们仍然生效，所以你的脆皮仍然能住在那里。升级后会直接建造一个新的经纱站。<b>如果你买得起的话，按住Ctrl升级，将会在升级后购买与你现在数量等同的经纱站。</b>",
 			done: 0,
 			cost: {
 				resources: {
