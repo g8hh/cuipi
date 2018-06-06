@@ -1,4 +1,4 @@
-/*		Trimps
+﻿/*		Trimps
 		Copyright (C) 2016 Zach Hood
 
 		This program is free software: you can redistribute it and/or modify
@@ -166,8 +166,8 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 			costText = "Click for more detailed info"
 		}
 	}
-	if (what == "Scryer Formation"){
-		tooltipText = "<p>Trimps lose half of their attack, health and block but gain 2x resources from loot (not including Helium) and have a chance to find Dark Essence above Z180 in the world. This formation must be active for the entire fight to receive any bonus from enemies, and must be active for the entire map to earn a bonus from a Cache. (Hotkeys: S or 5)</p>";
+	if (what == "占卜师阵型"){
+		tooltipText = "<p>脆皮减少了一半的攻击、生命和阻挡，但是从掉落中获得了2倍资源(不包括氦气)，并且有机会在Z180以上的世界中找到黑暗精华。这个阵型必须在整个战斗中都处于激活状态的，才能从敌人那里得到奖励；并且必须在整个地图上都是活跃的，才能从地图隐藏奖励中获得奖励。(快捷键:S或5)</p>";
 		if (game.global.formation == 4){
 			if (!isScryerBonusActive()) tooltipText += "<p>You recently switched to Scryer and will <b>not</b> earn a bonus from this enemy.</p>";
 			else tooltipText += "<p>You will earn a bonus from this enemy!</p>";
@@ -549,7 +549,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		noExtraCheck = true;
 	}
 	if (what == "Mastery"){
-		tooltipText = "<p>Click to view your masteries.</p><p>You currently have " + prettify(game.global.essence) + "</b> Dark Essence.</p>"
+		tooltipText = "<p>点击这里查看你的专精。</p><p>你现在拥有 " + prettify(game.global.essence) + "</b> 黑暗精华。</p>"
 	}
 	if (what == "The Improbability"){
 		if (!game.options.menu.bigPopups.enabled) return;		

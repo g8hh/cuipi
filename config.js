@@ -1009,7 +1009,7 @@ var toReturn = {
 	},
 	talents: {
 		bionic: {
-			description: "<p>Automatically pick up each level of 仿生仙境 (BW) as you pass a BW zone. Will not work if you have already missed any BWs this run, or if you reach a zone higher than any BW you have ever cleared before.</p><p>In addition, give all current and future copies of 仿生仙境 the 'Fast Attacks' special modifier.</p>",
+			description: "<p>自动获取每一层仿生仙境(BW)地图当你超过BW的层数。如果您已经错过了本次运行的任何一个BW，或者您到达一个比您以前清除的任何BW都高的区域，则将无效。</p><p>另外,给所有当前和未来的副本仿生仙境的快速攻击的特殊的修饰符。</p>",
 			name: "Bionic Magnet",
 			onPurchase: function (clear) {
 				addMapModifier('Bionic', 'fa');
@@ -1036,35 +1036,35 @@ var toReturn = {
 			icon: "th-large",
 		},
 		housing: {
-			description: "Unlock Mansion, Hotel, Nursery, Resort, Gateway, Wormhole, and Collector automatically when passing the zone they drop at.",
+			description: "自动解锁房子、大厦、旅馆、娱乐场、出入口、虫洞和集电极，当通过他们降落的区域时。",
 			name: "Home Detector",
 			tier: 1,
 			purchased: false,
 			icon: "home"
 		},
 		turkimp: {
-			description: "Increases the bonus time from each Turkimp by 5 minutes, and increases the time cap by 10 minutes.",
+			description: "增加每一个Turkimp的奖励时间5分钟，最大奖励时间增加10分钟。",
 			name: "Turkimp Tamer I",
 			tier: 1,
 			purchased: false,
 			icon: "*spoon-knife"
 		},
 		voidPower: {
-			description: "Your Trimps gain 15% attack and health inside Void Maps.",
+			description: "你的脆皮在虚空地图中会获得15%的额外攻击力和血量。",
 			name: "Void Power I",
 			tier: 2,
 			purchased: false,
 			icon: "*heart5"
 		},
 		pierce: {
-			description: "Reduce the amount of enemy damage that can pierce block by 25%.",
+			description: "减少敌人25%的穿刺伤害。",
 			name: "Metallic Coat",
 			tier: 2,
 			purchased: false,
 			icon: "tint"
 		},
 		headstart: {
-			description: "腐败在5级时候开始，在区176。",
+			description: "腐败提早5个区域开始，即区域176。",
 			name: "Headstart I",
 			tier: 2,
 			purchased: false,
@@ -1086,7 +1086,7 @@ var toReturn = {
 			icon: "user",
 		},
 		turkimp2: {
-			description: "Increase the chance of finding a Turkimp by 33%.",
+			description: "找到Turkimp的机会增加33%。",
 			name: "Turkimp Tamer II",
 			tier: 2,
 			purchased: false,
@@ -1094,7 +1094,7 @@ var toReturn = {
 			icon: "*spoon-knife"
 		},
 		voidPower2: {
-			description: "Your Trimps gain an additional 20% attack and health inside Void Maps.",
+			description: "你的脆皮在虚空地图中会再获得20%的额外攻击力和血量。",
 			name: "Void Power II",
 			tier: 3,
 			purchased: false,
@@ -1102,14 +1102,14 @@ var toReturn = {
 			requires: "voidPower"
 		},
 		mapLoot: {
-			description: "Reduces the starting point of the Low Map Level Loot Penalty by 1 level. This allows you to earn the same amount of loot by doing a map at your current world number, or at your current world number minus 1.",
+			description: "降低低地图掠夺惩罚1级，这允许你在当前世界层数的地图或当前世界层数-1的地图中获得相同数量的战利品。",
 			name: "Map Reducer I",
 			tier: 3,
 			purchased: false,
 			icon: "*gift2"
 		},
 		headstart2: {
-			description: "Corruption begins an additional 10 levels earlier, at zone 166.",
+			description: "腐败提早10个区域开始，即区域166。",
 			name: "Headstart II",
 			tier: 3,
 			purchased: false,
@@ -1117,21 +1117,21 @@ var toReturn = {
 			requires: "headstart"
 		},
 		doubleBuild: {
-			description: "Stacked items in the Building Queue will be constructed two at a time.",
+			description: "在建筑队列中的多个建筑将被一次构造两个。",
 			name: "Double Build",
 			tier: 3,
 			purchased: false,
 			icon: "*hammer"
 		},
 		skeletimp: {
-			description: "Double the chance for a Megaskeletimp to appear instead of a Skeletimp.",
+			description: "Skeletimp进化为Megaskeletimp的概率变为原来的两倍。",
 			name: "King of Bones I",
 			tier: 3,
 			purchased: false,
 			icon: "italic",
 		},
 		hyperspeed: {
-			description: "Reduce the time in between fights and attacks by 100ms.",
+			description: "减少攻击间隔100ms。",
 			name: "Hyperspeed I",
 			tier: 4,
 			purchased: false,
@@ -1139,7 +1139,7 @@ var toReturn = {
 		},
 		blacksmith: {
 			get description () {
-				return "Each cleared zone through Z" + Math.floor((game.global.highestLevelCleared + 1) / 2) + " (half of your highest zone reached) will drop all available equipment prestiges from maps.";
+				return "每个清除的世界区域将直接掉落所有该等级的装备升级。直到区域 + Math.floor((game.global.highestLevelCleared + 1) / 2) + "（你最高区域的50％）";
 			},
 			name: "Blacksmithery I",
 			tier: 4,
@@ -1147,7 +1147,7 @@ var toReturn = {
 			icon: "*hammer2"
 		},
 		headstart3: {
-			description: "Corruption begins an additional 15 levels earlier, at zone 151.",
+			description: "腐败提早15个区域开始，即区域151。",
 			name: "Headstart III",
 			tier: 4,
 			purchased: false,
@@ -1156,8 +1156,8 @@ var toReturn = {
 		},
 		autoStructure: {
 			get description(){
-				 var text = "Unlock the AutoStructure tool, allowing you to automatically purchase structures. In addition, all housing and battle territory bonuses will come with ready-to-fight Trimps inside";
-				 if (game.global.highestLevelCleared >= 229) text += " (Not including the Dimensional Generator)";
+				 var text = "解锁自动建筑工具，允许您自动购买建筑。此外，所有的住房和战斗区域奖金将伴随准备好战斗的Trimps进入";
+				 if (game.global.highestLevelCleared >= 229) text += " (不包括维度发生器)";
 				 text += "!";
 				 return text;
 			},
@@ -1175,7 +1175,7 @@ var toReturn = {
 			}
 		},
 		turkimp3: {
-			description: "Increase the bonus resources gained while Well Fed from a Turkimp by 25%, from 50% to 75%.",
+			description: "增加Turkimp的奖励25%, 从 50% 到 75%.",
 			name: "Turkimp Tamer III",
 			tier: 4,
 			purchased: false,
@@ -1184,7 +1184,7 @@ var toReturn = {
 		},
 		hyperspeed2: {
 			get description(){
-				return "Reduce the time in between fights and attacks by an additional 100ms through Z" + Math.floor((game.global.highestLevelCleared + 1) * 0.5) + " (50% of your highest zone reached)";
+				return "减少战斗时间 100ms 直到 区域Z" + Math.floor((game.global.highestLevelCleared + 1) * 0.5) + "(你最高区域的50％)";
 			},
 			name: "Hyperspeed II",
 			tier: 5,
@@ -1193,7 +1193,7 @@ var toReturn = {
 		},
 		blacksmith2: {
 			get description () {
-				return "Each cleared zone through Z" + Math.floor((game.global.highestLevelCleared + 1) * 0.75) + " (75% of your highest zone reached) will drop all available equipment prestiges from maps.";
+				return "每个清除的世界区域将直接掉落所有该等级的装备升级。直到区域" + Math.floor((game.global.highestLevelCleared + 1) * 0.75) + " （你最高区域的75％）";
 			},
 			name: "Blacksmithery II",
 			requires: "blacksmith",
@@ -1202,14 +1202,14 @@ var toReturn = {
 			icon: "*hammer2"
 		},
 		magmaFlow: {
-			description: "Cause two extra Magma cells to appear on any zone that already has Magma.",
+			description: "增加两个额外的岩浆房间在任何已经有岩浆的区域。",
 			name: "Magma Flow",
 			tier: 5,
 			purchased: false,
 			icon: "*fire",
 		},
 		quickGen: {
-			description: "Increase the amount of speed that the Dimensional Generator gains per zone by 50%.",
+			description: "增加维度发生器生产房子的速度50%.",
 			name: "Quick Gen",
 			tier: 5,
 			purchased: false,
@@ -1240,7 +1240,7 @@ var toReturn = {
 		},
 		blacksmith3: {
 			get description () {
-				return "每个清除的区域通过区域" + Math.floor((game.global.highestLevelCleared + 1) * 0.9) + " （达到你最高区域的90％）将会从地图上掉落所有可用的装备声望。";
+				return "每个清除的世界区域将直接掉落所有该等级的装备升级。直到区域" + Math.floor((game.global.highestLevelCleared + 1) * 0.9) + "（你最高区域的90％）";
 			},
 			name: "Blacksmithery III",
 			requires: "blacksmith2",
@@ -1249,7 +1249,7 @@ var toReturn = {
 			icon: "*hammer2"
 		},
 		nature: {
-			description: "将您的令牌交易比率从10：5提高到10：6",
+			description: "将您的自然符记转换比率从10：5提高到10：6",
 			name: "Natural Diplomacy I",
 			tier: 6,
 			purchased: false,
@@ -1274,7 +1274,7 @@ var toReturn = {
 			icon: "*water"
 		},
 		turkimp4: {
-			description: "学习发展自己的土耳其人，增加奖金+ 100％，并永久提供奖金。",
+			description: "学习发展自己的Turkimp，增加奖励+ 100％，并永久提供奖金。",
 			name: "Turkimp Tamer IV",
 			tier: 6,
 			purchased: false,
@@ -1292,7 +1292,7 @@ var toReturn = {
 			}
 		},
 		magmamancer: {
-			description: "现在，岩浆喷浆机将会增加同样数量的金属增加。 此外，开始每个后岩浆区与5分钟的信用已经适用于你的岩浆机。",
+			description: "现在，巫师将会增加同样数量的攻击。 此外，开始每个区域后视为你已在本区域停留5分钟。",
 			name: "Magmamancermancy",
 			tier: 7,
 			purchased: false,
@@ -1307,7 +1307,7 @@ var toReturn = {
 			icon: "*gift2"
 		},
 		nature2: {
-			description: "将您的令牌交易比率从10：6增加到10：8",
+			description: "将您的自然符记转换比率从10：6增加到10：8",
 			name: "Natural Diplomacy II",
 			tier: 7,
 			purchased: false,
@@ -1315,14 +1315,14 @@ var toReturn = {
 			icon: "*tree3"
 		},
 		patience: {
-			description: "预计现在可以达到45堆。",
+			description: "预计BUFF现在可以达到45层。",
 			name: "Patience",
 			tier: 7,
 			purchased: false,
 			icon: "*clock2"
 		},
 		stillRowing: {
-			description: "在尖塔中增加50％的奖励，从2％的额外战利品增加到3％。",
+			description: "增肌50%的尖塔额外掉落奖励，从2％的额外奖励增加到3％。",
 			name: "Still Rowing I",
 			tier: 7,
 			purchased: false,
@@ -1330,11 +1330,11 @@ var toReturn = {
 		},
 		voidSpecial: {
 			get description() {
-				var text = "使用您的传送门清除上次运行的每个100个区域后，获得1个免费的虚空地图。 来自虚空地图的氦气在上一次清除的每个区域也增加了0.25％。";
+				var text = "通过传送门时，上次运行每清除100个区域，你将获得1个免费的虚空地图。 来自虚空地图的氦气增加上次完成区域数*0.25％。";
 				var amt = (game.global.lastPortal * 0.0025);
-				text += " 你到达了 Z" + game.global.lastPortal + " 是一个传送门, ";
+				text += " 你在上一个传送门中到达了 Z" + game.global.lastPortal + "，";
 				if (this.purchased) text += " 获得了奖励 ";
-				else text += " 这将为你赢得奖金 ";
+				else text += " 这将为你本次的虚空地图获得 ";
 				text +=  prettify(amt * 100) + "% 额外的氦气。"
 				return text;
 			},
@@ -1344,14 +1344,14 @@ var toReturn = {
 			icon: "*feed"
 		},
 		healthStrength: {
-			description: "你的脆皮在你当前区域内的每个健康细胞中获得15％的附加伤害。",
+			description: "你的脆皮根据当前区域内的健康细胞个数增加细胞数*15％的攻击力。",
 			name: "Strength in Health",
 			tier: 8,
 			purchased: false,
 			icon: "*aid-kit"
 		},
 		nature3: {
-			description: "增加5个级别的升级和堆栈转让的所有3个自然赋权，而不增加成本。",
+			description: "增加5个%的自然堆栈传递而不增加成本。",
 			name: "Natural Diplomacy III",
 			tier: 8,
 			purchased: false,
@@ -3121,7 +3121,7 @@ var toReturn = {
 		oneOffs: {
 			//Turns out this method of handling the feats does NOT scale well... adding stuff to the middle is a nightmare
 			finished: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-			title: "Feats",
+			title: "特殊成就",
 			get descriptions () {
 				return ["在购买赏金升级前完成愤怒的维度地图", "达到30关使用不超过60氦且中途不修改氦气分配", "同时拥有超过 " + prettify(1e6) + " 个陷阱", "死于单个 Voidsnimp 50次", "完成平衡挑战, 从不超过100层不平衡Debuff", "达到10关，阵亡不超过5个脆皮。", "准确地达到 1337 氦每小时", "在电流挑战中，攻击20次不死亡。", "装备一个magnificent或更高级别的传家宝盾牌和管理人员", "达到60关，阵亡不超过1000个脆皮。", "达到120层，不使用玩家自己研究。", "达到75关，不购买任何房子。", "在高于146的虚空地图找到一个罕见级别的传家宝。", "使用超过 " + prettify(250e3) + " 氦在虫洞上。", "达到60关并使用不高于阶段Ⅲ的装备。", "一击杀死一个Improbability。", "0死亡完成一个超过60级的虚空地图。", "在第5关后不被暴击的情况下完成一个粉碎挑战。", "击杀一个敌人在他100层Nom Buff时（名义挑战）。", "达到60层并且不雇佣任意一个工人。", "完成一个超过99关的区域且中途不低于150层生活buff。", "繁殖一支部队超过10分钟。", "完成毒性挑战，从不超过400层毒性buff。", "拥有每种人口建筑超过100个。", "在60关前超杀每一敌人。", "完成观察挑战，不进入地图且不购买托儿所。", "装备一个Magmatic级别的传家宝盾牌和管理人员。", "将一个世界上的敌人的攻击力降低到低于1。", "完成领导挑战切使用不超过一个千兆站。", "完成腐化挑战并且不使用遗传学家。", "完成一个尖塔并且0死亡。", "超杀一个Omnipotrimp", "战胜一个健康的细胞在超过200层风buff的情况下", "堆叠一个比你的攻击高1000倍的毒药效果", "获取超过2000%的挑战<sup>2</sup> 奖励", "完成一个高于你现在所处地图45级的仿生仙境地图。", "战胜一个尖塔使用不超过 " + prettify(100e6) + " 的氦气且中途不修改氦气分配。", "在Obliterated挑战中击败一个敌人。", "在区域1就找到一个合并者。", "连续10次红色暴击", "完成一个高于你现在所处地图200级的仿生仙境地图。", "在坐标挑战中完成尖塔II"];
 			},
