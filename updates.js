@@ -417,7 +417,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		costText = "";
 	}
 	if (what == "Repeat Map"){
-		tooltipText = "允许异形们自己找到回广场的路，一旦他们在没有你的帮助下完成过后。他们成长的如此之快！<br/><br/>如果您<b>不</ b>重复，地图结束后，您当前的脆皮组将不会被放弃。 （热键：R）";
+		tooltipText = "允许脆皮们自己找到回广场的路，一旦他们在没有你的帮助下完成过后。他们成长的如此之快！<br/><br/>如果您<b>不</ b>重复，地图结束后，您当前的脆皮组将不会被放弃。 （热键：R）";
 		costText = "";
 	}
 	if (what == "Challenge2"){
@@ -635,13 +635,13 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		elem.style.top = "25%";
 	}
 	if (what == "战斗"){
-		tooltipText = "你把这些可怜的异形们运送到战场上去遭受厄运。然而你会得到很酷的东西,他们会明白的。 (热键: F)";
+		tooltipText = "你把这些可怜的脆皮们运送到战场上去遭受厄运。然而你会得到很酷的东西,他们会明白的。 (热键: F)";
 		var currentSend = game.resources.trimps.getCurrentSend();
 		costText = (currentSend > 1) ? "" : "";
 		costText = prettify(currentSend) + " 脆皮" + costText;
 	}
 	if (what == "自动战斗"){
-		tooltipText = "允许这些异形们开始自己去战斗，当他们的小镇变得拥挤不堪的时候。(热键: A)";
+		tooltipText = "允许这些脆皮们开始自己去战斗，当他们的小镇变得拥挤不堪的时候。(热键: A)";
 		costText = "";
 	}
 	if (what == "New Achievements"){
@@ -782,7 +782,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 	}
 	if (what == "Fire Trimps"){
 		if (!game.global.firing)
-		tooltipText = "激活解雇模式，工作按钮将会变成红色并将会开始解雇异形们而不是雇佣他们。 被解雇的异形们将开始自我繁殖而不是工作， 但你不会得到任何资源的返还。";
+		tooltipText = "激活解雇模式，工作按钮将会变成红色并将会开始解雇脆皮们而不是雇佣他们。 被解雇的脆皮们将开始自我繁殖而不是工作， 但你不会得到任何资源的返还。";
 		else
 		tooltipText = "关闭解雇模式";
 		costText = "";

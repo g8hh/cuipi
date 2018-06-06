@@ -1522,7 +1522,7 @@ function activateKongBonus(oldWorld){
 	portalWrapper.style.backgroundColor = "black";
 	portalWrapper.style.color = "white";
 	document.getElementById("portalTitle").innerHTML = "测试奖励";
-	document.getElementById("portalStory").innerHTML = "非常感谢你帮助测试异形的beta版本。所有的支持和反馈是惊人的！这个版本仍然需要一些反馈和调整，在这之前它并不是是完美的,不过不会故意再次重置。所以享受吧! " + addText;
+	document.getElementById("portalStory").innerHTML = "非常感谢你帮助测试脆皮的beta版本。所有的支持和反馈是惊人的！这个版本仍然需要一些反馈和调整，在这之前它并不是是完美的,不过不会故意再次重置。所以享受吧! " + addText;
 	document.getElementById("portalHelium").innerHTML = '<span id="portalHeliumOwned">' + helium + '</span> Bonus Points';
 	document.getElementById("cancelPortalBtn").innerHTML = "不用谢";
 	document.getElementById("activatePortalBtn").innerHTML = "已完成";
@@ -1650,7 +1650,7 @@ function checkOfflineProgress(noTip){
 		}
 	}
 	if (textArray.length === 0) return;
-	textString = "当你离开时，你的异形生产了 ";
+	textString = "当你离开时，你的脆皮生产了 ";
 	for (var y = 0; y < textArray.length; y++){
 		textString += textArray[y];
 		if (y == textArray.length -2) textString += "和 ";
@@ -2510,7 +2510,7 @@ function fireMode(noChange) {
         elem.innerHTML = "解雇";
     }
     if (!noChange && !game.global.lockTooltip)
-		 tooltip("解雇异形", null, "update");
+		 tooltip("解雇脆皮", null, "update");
 }
 
 function setGather(what, updateOnly) {
