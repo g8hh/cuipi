@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-	<title>脆皮 4.72</title>
+	<title>脆皮 4.8</title>
 	<meta name="description" content="Trimps">
 	<meta name="author" content="Brownprobe">
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="fonts/icomoon/style.css">
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
-	<link rel="stylesheet" type="text/css" href="css/style.css?2" />
+	<link rel="stylesheet" type="text/css" href="css/style.css?3" />
 <!--
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -145,38 +145,24 @@
 						<div class="boostSpacer">
 						<div id="buyHeliumArea">
 							<div class="boneBtn boneBtnStateOn pointer noselect" id="heliumPurchaseBtn" onclick="tooltip('Confirm Purchase', null, 'update', 'You are about to purchase one Instant Portal for 100 bones. Your new helium will appear in the View Perks menu at the bottom of the screen. Is this what you wanted to do?', 'purchaseMisc(\'helium\')', 100)"> 
-								购买传送门 (100 骨头)
+								购买骨头传送门 (100 骨头)
 							</div>
 							<div class="miscDesc">
-								<b>+ <span id="heliumGainedMisc"></span> 氦 </b><br/>
-								自动获得氦等于你在最佳运行时所获得的量
+								<b><span id="heliumGainedMisc"></span></b><br/>
+								<span id="bonePortalDescription">自动获得氦等于你在最佳运行时所获得的量</span>
 							</div>
+						</div>
+						<div id="singleRunBonuses">
+
 						</div>
 						<div id="buyHeirloomArea">
 							<div class="boneBtn boneBtnStateOn pointer noselect" id="heirloomPurchaseBtn" onclick="tooltip('Confirm Purchase', null, 'update', 'You are about to purchase one Heirloom for 30 bones. This will be created at a random rarity, and will be just like completing a Void Map at your highest ever Zone reached. Are you sure?', 'purchaseMisc(\'heirloom\')', 30)"> 
 								购买传家宝 (30 骨头)
 							</div>
-							
 							<div class="miscDesc">
-							<div id="heirloomRarityMisc"></div>
-								根据最高的区域，获得一件传家宝<br>
+								<div id="heirloomRarityMisc"></div>
+								在上面的机会中，根据最高区域得到一个传家宝
 							</div>							
-						</div>
-						<div id="mapsMisc">
-							<div class="boneBtn boneBtnStateOn pointer noselect" id="mapsPurchaseBtn" onclick="tooltip('Confirm Purchase', null, 'update', 'You are about to purchase Golden Maps for 20 bones. All of your current and future maps will gain +100% loot added to their normal loot roll. Is this what you wanted to do?', 'purchaseMisc(\'maps\')', 20)">
-								购买黄金地图 (20 骨头)
-							</div>
-							<div class="miscDesc" id="goldMapsDesc">
-								你所有的当前和未来的地图将会得到 +100% 战利品<br/><b>直到你的下一个传送门</b>
-							</div>
-						</div>
-						<div id="trimpsMisc">
-							<div class="boneBtn boneBtnStateOn pointer noselect" id="trimpsPurchaseBtn" onclick="tooltip('Confirm Purchase', null, 'update', 'You are about to purchase Quick Trimps for 20 bones. All of your Trimps will create more Trimps twice as fast until the next time you use the Portal. Is this what you wanted to do?', 'purchaseMisc(\'trimps\')', 20)">
-								购买快速脆皮 (20 骨头)
-							</div>
-							<div class="miscDesc" id="quickTrimpsDesc">
-								所有脆皮繁殖速度 x2 <br/><b>当你进入下一个区域</b>
-							</div>
 						</div>
 					</div>
 				</div>
@@ -294,7 +280,7 @@
 					<br/>
 					<span class="ownedArea"><span id="heliumOwned">0</span></span>
 					<br/>
-					<span id="heliumPh" class="heliumPh"></span>
+					<span id="heliumPh" class="heliumPh hePhColorNormal"></span>
 					
 				</div>
 			</div>
@@ -394,7 +380,7 @@
 					<li role="presentation" id="jobsTab" style="visibility: hidden" onclick="filterTabs('jobs')" class="tabNotSelected buyTab"><a id="jobsA"><span id="jobsAlert" class="alert badge"></span>工作</a></li>
 					<li role="presentation" id="upgradesTab" style="visibility: hidden" onclick="filterTabs('upgrades')" class="tabNotSelected buyTab"><a id="upgradesA"><span id="upgradesAlert" class="alert badge"></span>升级</a></li>
 					<li role="presentation" id="equipmentTab" style="visibility: hidden" onclick="filterTabs('equipment')" class="tabNotSelected buyTab"><a id="equipmentA"><span id="equipmentAlert" class="alert badge"></span>装备</a></li>		
-					<li role="presentation" id="talentsTab"  style='display: none' onclick="filterTabs('talents')" class="tabNotSelected buyTab"><a id="talentA"><span id="talentsAlert" class="alert badge"></span>专精<span id="talentsEssenceTotal"></span></a></li>		
+					<li role="presentation" id="talentsTab"  style='display: none' onclick="filterTabs('talents')" class="tabNotSelected buyTab" onmouseover="tooltip('Mastery', null, event)" onmouseout="tooltip('hide')"><a id="talentA"><span id="talentsAlert" class="alert badge"></span>专精<span id="talentsEssenceTotal"></span></a></li>		
 					<li role="presentation" id="natureTab" style='display: none'  onclick="filterTabs('nature')" class="tabNotSelected buyTab empowerTabNone" onmouseover="tooltip('Empowerments of Nature', null, event)" onmouseout="tooltip('hide')"><a id="natureA">Nature</a></li>		
 				</ul>
 				</div>
@@ -614,7 +600,7 @@
 								<div class="row">
 									<div class="col-xs-9" style="padding-right: 5px">
 									<!-- Update in resetGame if adding to name -->
-										<div class="battleStatsTitle" id="goodGuyName">脆皮 (<span id="trimpsFighting">1</span>) <span id="anticipationSpan"></span> <span id="titimpBuff"></span> <span id="debuffSpan"></span></div>
+										<div class="battleStatsTitle" id="goodGuyName"><span id='realTrimpName'>脆皮</span>&nbsp;(<span id="trimpsFighting">1</span>) <span id="anticipationSpan"></span> <span id="titimpBuff"></span> <span id="debuffSpan"></span></div>
 									</div>
 									<div class="col-xs-3" style="padding-left: 5px;">
 										<div class="row" style="padding-right: 15px;">
@@ -639,7 +625,7 @@
 												</div>											
 											</div>
 											<div class="col-xs-3 fifth noPad">
-												<div class="formationBtn pointer formationStateDisabled" onclick="setFormation('4')" id="formation4" onmouseover="tooltip('占星阵型', 'customText', event, '脆皮减少了一半的攻击，生命和格挡，但是通过劫掠可以获得了2倍的资源(不包括氦)，并且有机会在世界里面，Z180以上的区域里面发现：黑暗精华。这种阵型必须在整个战斗中都是激活的，以获得任何额外的奖励。(热键: S or 5)')" onmouseout="tooltip('hide')">
+												<div class="formationBtn pointer formationStateDisabled" onclick="setFormation('4')" id="formation4" onmouseover="tooltip('Scryer Formation', null, event)" onmouseout="tooltip('hide')">
 													S
 												</div>											
 											</div>
@@ -648,7 +634,7 @@
 								</div>
 								<div class="row guyRow" id="goodGuyStatsRow">
 									<div id='damageDiv' class="col-xs-6 lbdHover pointer noselect bdHover" style="padding-right: 0" onclick="getBattleStatBd('attack')">
-										<span id="goodGuyAttack"></span> 攻击 <span id="critSpan"></span>
+										<span id="goodGuyAttack" class='attackColorNormal'></span> 攻击 <span id="critSpan"></span>
 									</div>
 									<div class="col-xs-4 noPad pointer noselect bdHover" id="blockDiv" style="visibility: hidden" onclick="getBattleStatBd('block')">
 										<span id="goodGuyBlock">0</span> 防御
@@ -1218,14 +1204,17 @@
 			<div class="col-xs-6">
 				<div id="selectedHeirloom"></div>
 				<div id="modBreakdown" style="display: none">
+					<div id="specialModDescription" style="display: none"></div>
 					<div class="row">
 						<div class="col-xs-6" id="modReplaceBox">
+							<div id="modCantReplace" style="display: none"></div>
 							<select id="modReplaceSelect"></select><br/>
 							<div id="modReplaceBtn" class="heirloomBtnActive heirBtn noselect" onclick="replaceMod()">替换</div>
 						</div>
 						<div class="col-xs-6" id="modUpgradeBox">
 							<div id="modUpgradeCost"></div>
-							<div id="modUpgradeBtn" class="heirloomBtnActive heirBtn noselect" onclick="upgradeMod()">升级</div>
+							<div id="modUpgradeBtn" class="heirloomBtnActive heirBtn noselect modUpgradeBtn" onclick="upgradeMod()">升级 x1<br/>&nbsp;</div>
+							<div id="modUpgradeBtn10" class="heirloomBtnActive heirBtn noselect modUpgradeBtn" onclick="upgradeMod(false, 10)">升级 x10<br/>&nbsp;</div>
 						</div>
 					</div>			
 				</div>
@@ -1278,9 +1267,9 @@
 <!--	<script src="https://zhaolinxu.github.io/AutoTrimps/AutoTrimps2.js" type="text/javascript" charset="utf-8"></script>-->
 <!--    <script src="../AutoTrimps/AutoTrimps2.js"></script>-->
 	<!--document.body.appendChild(document.createElement('script')).src='https://zhaolinxu.github.io/cuipi/AutoTrimps2.js';-->
-	<script type="text/javascript" src="config.js?3"></script>
-	<script type="text/javascript" src="updates.js?3"></script>
-	<script type="text/javascript" src="main.js?3"></script>
+	<script type="text/javascript" src="config.js?4"></script>
+	<script type="text/javascript" src="updates.js?4"></script>
+	<script type="text/javascript" src="main.js?4"></script>
 	
 </body>
 

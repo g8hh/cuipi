@@ -21,7 +21,7 @@
 function newGame () {
 var toReturn = {
 	global: {
-		version: 4.72,
+		version: 4.8,
 		isBeta: false,
 		betaV: 0,
 		killSavesBelow: 0.13,
@@ -199,9 +199,18 @@ var toReturn = {
 		fluffyExp: 0,
 		fluffyPrestige: 0,
 		selectedMapPreset: 1,
+		runFluffyExp: 0,
+		bestFluffyExp: 0,
+		runTokens: 0,
+		bestTokens: 0,
 		genPaused: false,
 		canMapAtZone: false,
 		capTrimp: false,
+		lastSoldierSentAt: new Date().getTime(),
+		supervisionSetting: 100,
+		canScryCache: false,
+		waitToScry: false,
+		waitToScryMaps: false,
 		mapPresets: {
 			p1: {
 				loot: 0,
@@ -414,6 +423,71 @@ var toReturn = {
 			level: 1,
 			retainLevel: 0,
 			tokens: 0
+		}
+	},
+	singleRunBonuses: {
+		goldMaps: {
+			name: "Golden Maps",
+			text: "+100% Map Loot",
+			cost: 20,
+			confirmation: "You are about to purchase Golden Maps for 20 bones. All of your current and future maps will gain +100% loot added to their normal loot roll <b>until your next Portal</b>. Is this what you wanted to do?", 
+			owned: false,
+			fire: function () {
+				game.unlocks.goldMaps = true;
+				for (var item in game.global.mapsOwnedArray){
+					game.global.mapsOwnedArray[item].loot = parseFloat(game.global.mapsOwnedArray[item].loot) + 1;
+					if (!game.global.mapsOwnedArray[item].noRecycle) document.getElementById(game.global.mapsOwnedArray[item].id).className += " goldMap";
+				}
+			}
+		},
+		quickTrimps: {
+			name: "Quick Trimps",
+			text: "+100% Breed Speed",
+			cost: 20,
+			confirmation: "You are about to purchase Quick Trimps for 20 bones. This will cause your Trimps to breed twice as fast <b>until your next Portal</b>. Is this what you wanted to do?",
+			owned: false,
+			fire: function () {
+				swapClass("psColor", "psColorOrange", document.getElementById("trimpsPs"));
+			},
+			reset: function () {
+				swapClass("psColor", "psColorWhite", document.getElementById("trimpsPs"));
+			},
+			load: function () {
+				this.fire();
+			}
+		},
+		sharpTrimps: {
+			name: "Sharp Trimps",
+			text: "+50% Trimp Damage",
+			cost: 25,
+			confirmation: "You are about to purchase Sharp Trimps for 25 bones. This will cause your Trimps to deal 50% more damage <b>until your next Portal</b>. Is this what you wanted to do?",
+			owned: false,
+			fire: function () {
+				swapClass("attackColor", "attackColorOrange", document.getElementById("goodGuyAttack"));
+			},
+			reset: function () {
+				swapClass("attackColor", "attackColorNormal", document.getElementById("goodGuyAttack"));
+			},
+			load: function () {
+				this.fire();
+			}
+
+		},
+		heliumy: {
+			name: "Heliumy",
+			text: "+25% Helium",
+			cost: 100,
+			confirmation: "You are about to purchase Heliumy for 100 bones. This will cause you to earn 25% more Helium from all sources <b>until your next Portal</b>. Is this what you wanted to do?",
+			owned: false,
+			fire: function () {
+				swapClass("hePhColor", "hePhColorOrange", document.getElementById("heliumPh"));
+			},
+			reset: function () {
+				swapClass("hePhColor", "hePhColorNormal", document.getElementById("heliumPh"));
+			},
+			load: function () {
+				this.fire();
+			}
 		}
 	},
 	options: {
@@ -731,9 +805,22 @@ var toReturn = {
 				extraTags: "other",
 				description: "When enabled, you will automatically abandon your Trimps in the World and enter the Map Chamber as soon as you hit your specified Zone number.",
 				get titles(){
-					return ["No Map At Zone", "Map At Z" + this.setZone];
+					var nextZone = "";
+					if (this.setZone.length == 1) nextZone = this.setZone;
+					else {
+						for (var x = 0; x < this.setZone.length; x++){
+							if (game.global.world < this.setZone[x]){
+								nextZone = this.setZone[x];
+								if (x < this.setZone.length - 1) nextZone += "+";
+								break;
+							}
+						}
+						if (nextZone == "") 
+							nextZone = this.setZone[0];
+					}
+					return ["No Map At Zone", "Map At Z" + nextZone];
 				},
-				setZone: 200,
+				setZone: [200],
 				secondLocation: ["togglemapAtZone2", "togglemapAtZoneCM"],
 				lockUnless: function () {
 					return game.global.canMapAtZone;
@@ -1068,7 +1155,12 @@ var toReturn = {
 			requires: "headstart2"
 		},
 		autoStructure: {
-			description: "Unlock the AutoStructure tool, allowing you to automatically purchase structures.",
+			get description(){
+				 var text = "Unlock the AutoStructure tool, allowing you to automatically purchase structures. In addition, all housing and battle territory bonuses will come with ready-to-fight Trimps inside";
+				 if (game.global.highestLevelCleared >= 229) text += " (Not including the Dimensional Generator)";
+				 text += "!";
+				 return text;
+			},
 			name: "AutoStructure",
 			tier: 4,
 			purchased: false,
@@ -1353,7 +1445,7 @@ var toReturn = {
 			locked: true,
 			priceBase: 1e8,
 			heliumSpent: 0,
-			tooltip: "You can sense great power within Fluffy, but he'll need some training. Each level of Capable allows Fluffy to gain 1 level of experience. Respeccing to remove Capable will temporarily remove any bonuses associated with Fluffy's level and experience, but all exp will be saved until you add points back. Each level of Capable is 10x more expensive than the last, and buying the first level will allow Fluffy to take Portals with you.",
+			tooltip: "You can sense great power within Fluffy, but he'll need some training. Each level of Capable allows Fluffy to gain 1 level of Experience. Respeccing to remove Capable will temporarily remove any bonuses associated with Fluffy's level and Experience, but all Exp will be saved until you add points back. Each level of Capable is 10x more expensive than the last, and buying the first level will allow Fluffy to take Portals with you.",
 			max: 10,
 			specialGrowth: 10,
 			onChange: function(){
@@ -1367,7 +1459,7 @@ var toReturn = {
 			priceBase: 1e11,
 			heliumSpent: 0,
 			get tooltip(){
-				return "Fluffy demands more helium! Each level of Cunning will increase the final amount of experience Fluffy gains from each zone by " + Math.round(this.modifier * 100) + "% (additive)."
+				return "Fluffy demands more helium! Each level of Cunning will increase the final amount of Experience Fluffy gains from each zone by " + Math.round(this.modifier * 100) + "% (additive)."
 			}
 		},
 		Curious: {
@@ -1377,7 +1469,7 @@ var toReturn = {
 			priceBase: 1e14,
 			heliumSpent: 0,
 			get tooltip() {
-				return "Fluffy is coming along, but he's coming along slowly. Each point of Curious will speed up Fluffy's progression by adding " + this.modifier + " exp to the base amount he gains per zone clear."
+				return "Fluffy is coming along, but he's coming along slowly. Each point of Curious will speed up Fluffy's progression by adding " + this.modifier + " Exp to the base amount he gains per zone clear."
 			}
 		},
 		Overkill: {
@@ -1699,7 +1791,7 @@ var toReturn = {
 				this.balanceStacks--;
 				if (this.balanceStacks < 0) this.balanceStacks = 0;
 				else {
-					game.global.soldierHealthMax *= 1.01;
+					game.global.soldierHealthMax /= 0.99;
 				}
 			},
 			abandon: function () {
@@ -1821,6 +1913,13 @@ var toReturn = {
 					game.upgrades.Coordination.allowed += game.challenges.Trimp.heldBooks - 1;
 				if (game.challenges.Trimp.heldBooks > 0)
 					unlockUpgrade("Coordination");
+				document.getElementById("realTrimpName").innerHTML = "Trimps";
+			},
+			start: function () {
+				document.getElementById("realTrimpName").innerHTML = "Trimp";
+			},
+			onLoad: function () {
+				this.start();
 			},
 			unlockString: "到达区域 60"
 		},
@@ -2271,7 +2370,7 @@ var toReturn = {
 			valueTotal: 0
 		},
 		decayedNurseries: {
-			title: "Nurseries Closed by Magma",
+			title: "Burned Nurseries",
 			display: function() {
 				return (this.value > 0 || this.valueTotal > 0);
 			},
@@ -2281,6 +2380,82 @@ var toReturn = {
 		zonesLiquified: {
 			title: "Zones Liquified",
 			display: function() {
+				return (this.value > 0 || this.valueTotal > 0)
+			},
+			value: 0,
+			valueTotal: 0
+		},
+		bestFluffyExp: {
+			get title () {
+				 if (game.global.statsMode == "current") return "Fluffy Exp This Run"
+				 return "Best Fluffy Exp"
+			},
+			display: function () {
+				return (this.value > 0 || this.valueTotal > 0)
+			},
+			value: 0,
+			valueTotal: 0,
+			noAdd: true,
+			keepHighest: true
+		},
+		fluffyExpHour: {
+			title: "Fluffy Exp/Hr this Run",
+			display: function () {
+				return (game.stats.bestFluffyExp.value > 0);
+			},
+			value: function () {
+				var timeThisPortal = new Date().getTime() - game.global.portalTime;
+				if (timeThisPortal < 1) return 0;
+				timeThisPortal /= 3600000;
+				return Math.floor(game.stats.bestFluffyExp.value / timeThisPortal);
+			}
+		},
+		bestFluffyExpHourThisRun: {
+			title: "Best Fluffy Exp/Hr this Run",
+			display: function () {
+				return (this.storedValue > 0);
+			},
+			storedValue: 0,
+			atZone: 0,
+			value: function () {
+				return prettify(game.stats.bestFluffyExpHourThisRun.storedValue) + ", Z:" + game.stats.bestFluffyExpHourThisRun.atZone;
+			},
+			evaluate: function () { //called from portalTime
+				var xpHr = game.stats.fluffyExpHour.value();
+				if (xpHr > this.storedValue){
+					this.storedValue = xpHr;
+					this.atZone = game.global.world;
+				}
+			},
+			onPortal: function () {
+				this.storedValue = 0;
+				this.atZone = 0;
+			},
+			noFormat: true
+		},
+		bestFluffyExpHour: {
+			title: "Best Fluffy Exp/Hr",
+			display: function () {
+				return (this.valueTotal > 0);
+			},
+			valueTotal: 0
+		},
+		bestTokens: {
+			get title () {
+				if (game.global.statsMode == "current") return "Tokens This Run"
+				return "Most Tokens";
+			},
+			display: function () {
+				return (this.value > 0 || this.valueTotal > 0)
+			},
+			value: 0,
+			valueTotal: 0,
+			noAdd: true,
+			keepHighest: true
+		},
+		amalgamators: {
+			title: "Amalgamators Befriended",
+			display: function () {
 				return (this.value > 0 || this.valueTotal > 0)
 			},
 			value: 0,
@@ -2382,7 +2557,7 @@ var toReturn = {
 			owned: false
 		},
 		Supervision: {
-			description: "Gain the ability to pause the Dimensional Generator, opening up new strategic possibilities!",
+			description: "Gain the ability to pause the Dimensional Generator by clicking the clock, <b>AND</b> add a Slider to your Generator window, allowing you to lower your maximum fuel capacity and gain greater control over Overclocker. Lowering your capacity below your stored amount of fuel will not waste any fuel, but the first time Overclocker is triggered, all extra fuel will be consumed.",
 			cost: 2000,
 			owned: false,
 			onPurchase: function() {
@@ -2391,6 +2566,11 @@ var toReturn = {
 					elem.innerHTML = getGeneratorHtml();
 				updateGeneratorInfo();
 			}
+		},
+		Simulacrum: {
+			description: "All new generated dimensions now come with copies of your Trimps inside them. Gone are the days of ramping up breeding to fill your dimensions with Trimps!",
+			cost: 2500,
+			owned: false
 		}
 	},
 	//Total 4448% after 4.6
@@ -2406,7 +2586,7 @@ var toReturn = {
 			},
 			progress: function () {
 				if (this.breakpoints.length > this.finished) return game.global.highestLevelCleared + " / " + this.breakpoints[this.finished];
-				return game.global.highestLevelCleared + " total";
+				return "Highest is " + game.global.highestLevelCleared;
 			},
 			evaluate: function () { return game.global.highestLevelCleared},
 			breakpoints: [2, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240, 250, 260, 270, 280, 290, 300, 350, 400, 450, 500],
@@ -2555,7 +2735,7 @@ var toReturn = {
 			},
 			progress: function () {
 				if (this.breakpoints.length > this.finished) return prettify(Math.floor(this.evaluate() * 10000) / 10000) + " / " + prettify(this.breakpoints[this.finished]);
-				return prettify(this.evaluate()) + " total";
+				return "Record of " + prettify(this.evaluate());
 			},
 			evaluate: function () {
 				return game.stats.heliumHour.value();
@@ -2587,9 +2767,9 @@ var toReturn = {
 			display: function () {
 				return (game.global.totalPortals >= 5);
 			},
-			breakpoints: [1, 10, 40, 100, 500, 1111, 2000, 5000],
-			tiers: [2, 2, 3, 3, 4, 5, 6, 7],
-			names: ["Finder", "Gatherer", "Accumulator", "Fancier", "Aficionado", "Devotee", "Connoisseur", "Expert"],
+			breakpoints: [1, 10, 40, 100, 500, 1111, 2000, 5000, 10000],
+			tiers: [2, 2, 3, 3, 4, 5, 6, 7, 8],
+			names: ["Finder", "Gatherer", "Accumulator", "Fancier", "Aficionado", "Devotee", "Connoisseur", "Expert", "Curator"],
 			icon: "icomoon icon-archive",
 			newStuff: []
 		},
@@ -2628,12 +2808,12 @@ var toReturn = {
 				if (this.breakpoints.length > this.finished) return prettify(this.evaluate()) + " / " + prettify(this.breakpoints[this.finished]);
 				return prettify(this.evaluate()) + " total";
 			},
-			breakpoints: [5e5, 1e6, 5e6, 2.5e7, 2e9, 1e12],
+			breakpoints: [5e5, 1e6, 5e6, 2.5e7, 2e9, 1e12, 1e15, 1e21],
 			display: function () {
 				return (game.global.highestLevelCleared >= 99);
 			},
-			tiers: [3, 4, 5, 6, 7, 8],
-			names: ["Daytermined", "Daydicated", "Daystiny", "Daylighted", "Daystroyer", "Daylusional"],
+			tiers: [3, 4, 5, 6, 7, 8, 8, 9],
+			names: ["Daytermined", "Daydicated", "Daystiny", "Daylighted", "Daystroyer", "Daylusional", "Dayrailed", "Daypocalyptic"],
 			icon: "icomoon icon-sun",
 			newStuff: []
 		},
@@ -2657,9 +2837,9 @@ var toReturn = {
 			},
 			earnable: true,
 			lastZone: 0,
-			breakpoints: [5, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500],
-			tiers: [1, 4, 5, 6, 7, 7, 7, 7, 8, 8, 8],
-			names: ["Sitter", "Watchdog", "Nanny", "Caretaker", "Supervisor", "Advocate", "Guardian", "Coddler", "Savior", "Defender", "Trimp Lover"],
+			breakpoints: [5, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 600],
+			tiers: [1, 4, 5, 6, 7, 7, 7, 7, 8, 8, 8, 9],
+			names: ["Sitter", "Watchdog", "Nanny", "Caretaker", "Supervisor", "Advocate", "Guardian", "Coddler", "Savior", "Defender", "Trimp Lover", "Righteous"],
 			icon: "glyphicon glyphicon-eye-open",
 			newStuff: [],
 		},
@@ -2857,9 +3037,9 @@ var toReturn = {
 			highest: 0,
 			reverse: true,
 			showAll: true,
-			breakpoints: [1300, 900, 500, 200, 175, 60],
-			tiers: [6, 6, 6, 7, 7, 7],
-			names: ["Spire Trialer", "Spire Rider", "Spire Strider", "Spire Glider", "Spire Flier", "Inspired"],
+			breakpoints: [1300, 900, 500, 200, 175, 60, 2],
+			tiers: [6, 6, 6, 7, 7, 7, 8],
+			names: ["Spire Trialer", "Spire Rider", "Spire Strider", "Spire Glider", "Spire Flier", "Inspired", "Spire Spirer"],
 			icon: "icomoon icon-alarmclock",
 			newStuff: []
 		},
@@ -2882,9 +3062,9 @@ var toReturn = {
 			highest: 0,
 			reverse: true,
 			showAll: true,
-			breakpoints: [500, 200, 120, 60],
-			tiers: [6, 7, 8, 8],
-			names: ["Toxic Treader", "Toxic Trotter", "Toxic Traveller", "Toxic Tempo"],
+			breakpoints: [500, 200, 120, 60, 10],
+			tiers: [6, 7, 8, 8, 9],
+			names: ["Toxic Treader", "Toxic Trotter", "Toxic Traveller", "Toxic Tempo", "Toxic Teleporter"],
 			icon: "icomoon icon-alarmclock",
 			newStuff: []
 		},
@@ -2932,9 +3112,9 @@ var toReturn = {
 			highest: 0,
 			reverse: true,
 			showAll: true,
-			breakpoints: [4320, 2880, 1440],
-			tiers: [8, 8, 9],
-			names: ["Windy Walker", "Zippy Zephyr", "Temporal Tempest"],
+			breakpoints: [4320, 2880, 1440, 300, 60],
+			tiers: [8, 8, 8, 8, 9],
+			names: ["Windy Walker", "Gusty Gait", "Breeze Breaker", "Zippy Zephyr", "Temporal Tempest"],
 			icon: "icomoon icon-alarmclock",
 			newStuff: []
 		},
@@ -2943,26 +3123,29 @@ var toReturn = {
 			finished: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
 			title: "Feats",
 			get descriptions () {
-				return ["达到30关使用不多于60氦且不修改", "同时拥有超过 " + prettify(1e6) + " 个陷阱", "死于单个 Voidsnimp 50次", "完成平衡挑战, 从不超过100层不平衡Debuff", "达到10关，阵亡不超过5个脆皮。", "准确地达到 1337 氦每小时", "在电流挑战中，攻击20次不死亡。", "装备一个magnificent或更高级别的传家宝盾牌和管理人员", "达到60关，阵亡不超过1000个脆皮。", "达到120层，不使用玩家自己研究。", "达到75关，不购买任何房子。", "在高于146的虚空地图找到一个罕见级别的传家宝。", "使用超过 " + prettify(250e3) + " 氦在虫洞上。", "达到60关并使用不高于阶段Ⅲ的装备。", "一击杀死一个Improbability。", "0死亡完成一个超过60级的虚空地图。", "在第5关后不被暴击的情况下完成一个粉碎挑战。", "击杀一个敌人在他100层Nom Buff时（名义挑战）。", "达到60层并且不雇佣任意一个工人。", "完成一个超过99关的区域且中途不低于150层生活buff。", "繁殖一支部队超过10分钟。", "完成毒性挑战，从不超过400层毒性buff。", "拥有每种人口建筑超过100个。", "在60关前超杀每一敌人。", "完成观察挑战，不进入地图且不购买托儿所。", "装备一个Magmatic级别的传家宝盾牌和管理人员。", "将一个世界上的敌人的攻击力降低到低于1。", "完成领导挑战切使用不超过一个千兆站。", "完成腐化挑战并且不使用遗传学家。", "完成一个尖塔并且0死亡。", "超杀一个Omnipotrimp", "战胜一个健康的细胞在超过200层风buff的情况下", "获取超过2000%的挑战<sup>2</sup>。", "完成一个高于你现在所处地图45级的仿生仙境地图。", "战胜一个尖塔使用不超过 " + prettify(100e6) + " 的氦气且中途不修改氦气分配。", "在Obliterated挑战中击败一个敌人。"];
+				return ["Complete the Dimension of Anger before buying Bounty", "Reach Z30 with no respec and 60 or less He spent", "Have over " + prettify(1e6) + " traps at once", "Die 50 times to a single Voidsnimp", "Beat Balance, never having more than 100 stacks", "Reach Zone 10 with 5 or fewer dead Trimps", "Reach exactly 1337 he/hr", "Attack 20 times without dying in Electricity", "Equip a magnificent or better Staff and Shield", "Reach Z60 with 1000 or fewer dead Trimps", "Reach Z120 without using manual research", "Reach Z75 without buying any housing", "Find an uncommon heirloom at Z146 or higher", "Spend over " + prettify(250e3) + " total He on Wormholes", "Reach Z60 with rank III or lower equipment", "Kill an Improbability in one hit", "Beat a Lv 60+ Destructive Void Map with no deaths", "Beat Crushed without being crit past Z5", "Kill an enemy with 100 stacks of Nom", "Reach Z60 without hiring a single Trimp", "Complete a zone above 99 without falling below 150 stacks on Life", "Spend at least 10 minutes breeding an army with Geneticists", "Beat Toxicity, never having more than 400 stacks", "Own 100 of all housing buildings", "Overkill every possible world cell before Z60", "Complete Watch without entering maps or buying Nurseries", "Equip a Magmatic Staff and Shield", "Bring a world enemy's attack below 1", "Complete Lead with 1 or fewer Gigastations", "Complete Corrupted without Geneticists", "Complete The Spire with 0 deaths", "Overkill an Omnipotrimp", "Defeat a Healthy enemy with 200 stacks of wind", "Build up a Poison debuff that's 1000x higher than your attack", "Earn a Challenge<sup>2</sup> bonus of 2000%", "Complete a Bionic Wonderland map 45 levels higher than your zone number", "Beat the Spire with no respec and less than " + prettify(100e6) + " He Spent", "Defeat an enemy on Obliterated", "Find an Amalgamator on Z1", "Get 10 Red Crits in a row", "Complete a Bionic Wonderland map 200 levels higher than your Zone number", "Complete Spire II on the Coordinate challenge"];
 			},
-			tiers: [3, 3, 3, 3, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 8, 8, 8, 8],
+			tiers: [2, 3, 3, 3, 3, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 7, 8, 8, 8, 8, 8, 8, 9, 9],
 			description: function (number) {
 				return this.descriptions[number];
 			},
-			filters: [29, 29, -1, 39, 59, -1, 79, 124, 59, 119, 74, -1, -1, 59, 59, 59, 124, 144, 59, 109, -1, 164, 59, -1, 179, 229, 245, 179, 189, 199, 229, 300, 65, 169, 199, 424],
+			filters: [19, 29, 29, -1, 39, 59, -1, 79, 124, 59, 119, 74, -1, -1, 59, 59, 59, 124, 144, 59, 109, -1, 164, 59, -1, 179, 229, 245, 179, 189, 199, 229, 300, 300, 65, 169, 199, 424, 349, -1, 324, 299],
 			icon: "icomoon icon-flag",
-			names: ["Underachiever", "Hoarder", "Needs Block", "Underbalanced", "Peacekeeper", "Elite Feat", "Grounded", "Swag", "Workplace Safety", "No Time for That", "Tent City", "Consolation Prize", "Holey", "Shaggy", "One-Hit Wonder", "Survivor", "Thick Skinned", "Great Host", "Unemployment", "Very Sneaky", "Extra Crispy", "Trimp is Poison", "Realtor", "Gotta Go Fast", "Grindless", "Swagmatic", "Brr", "Unsatisfied Customer", "Organic Trimps", "Invincible", "Mighty", "Mother Lode", "Challenged", "Bionic Sniper", "Nerfed", "Obliterate"],
+			names: ["Forgot Something", "Underachiever", "Hoarder", "Needs Block", "Underbalanced", "Peacekeeper", "Elite Feat", "Grounded", "Swag", "Workplace Safety", "No Time for That", "Tent City", "Consolation Prize", "Holey", "Shaggy", "One-Hit Wonder", "Survivor", "Thick Skinned", "Great Host", "Unemployment", "Very Sneaky", "Extra Crispy", "Trimp is Poison", "Realtor", "Gotta Go Fast", "Grindless", "Swagmatic", "Brr", "Unsatisfied Customer", "Organic Trimps", "Invincible", "Mighty", "Mother Lode", "Infected", "Challenged", "Bionic Sniper", "Nerfed", "Obliterate", "M'Algamator", "Critical Luck", "Bionic Nuker", "Hypercoordinated"],
 			newStuff: []
 		}
 	},
 
 	heirlooms: { //Basic layout for modifiers. Steps can be set specifically for each modifier, or else default steps will be used
 		//NOTE: currentBonus is the only thing that will persist!
-		values: [10, 20, 30, 50, 150, 300, 800, 2000],
-		defaultSteps: [[1, 2, 1], [2, 3, 1], [3, 6, 1], [6, 12, 1], [16, 40, 2], [32, 80, 4], [64, 160, 8], [128, 320, 16]],
-        rarityNames: ['Common', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Magnificent', 'Ethereal', '岩浆'],
-		rarities:[[7500,2500,-1,-1,-1,-1,-1, -1],[2000,6500,1500,-1,-1,-1,-1, -1],[500,4500,5000,-1,-1,-1,-1, -1],[-1,3200,4300,2500,-1,-1,-1, -1],[-1,1600,3300,5000,100,-1,-1, -1],[-1,820,2400,6500,200,80,-1, -1],[-1,410,1500,7500,400,160,30, -1],[-1,200,600,8000,800,320,80, -1],[-1,-1,-1,7600,1600,640,160, -1], [-1,-1,-1,3500,5000,1200, 300, -1], [-1, -1, -1, -1, 8000, 1570, 350, 80], [-1, -1, -1, -1, 6000, 3170, 680, 150], [-1, -1, -1, -1, 3000, 5000, 1650, 350]],
-		rarityBreakpoints: [41, 60, 80, 100, 125, 146, 166, 181, 201, 230, 300, 400],
+		values: [10, 20, 30, 50, 150, 300, 800, 2000, 5000],
+		slots: [1,2,2,3,3,4,4,5,5],
+		defaultSteps: [[1, 2, 1], [2, 3, 1], [3, 6, 1], [6, 12, 1], [16, 40, 2], [32, 80, 4], [64, 160, 8], [128, 320, 16], [256, 640, 32]],
+		rarityNames: ['Common', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Magnificent', 'Ethereal', 'Magmatic', 'Plagued'],
+		rarities:[[7500,2500,-1,-1,-1,-1,-1,-1,-1],[2000,6500,1500,-1,-1,-1,-1,-1,-1],[500,4500,5000,-1,-1,-1,-1,-1,-1],[-1,3200,4300,2500,-1,-1,-1,-1,-1],[-1,1600,3300,5000,100,-1,-1,-1,-1],[-1,820,2400,6500,200,80,-1,-1,-1],[-1,410,1500,7500,400,160,30,-1,-1],[-1,200,600,8000,800,320,80,-1,-1],[-1,-1,-1,7600,1600,640,160,-1,-1],[-1,-1,-1,3500,5000,1200,300,-1,-1],[-1,-1,-1,-1,8000,1570,350,80,-1],[-1,-1,-1,-1,6000,3170,680,150,-1],[-1,-1,-1,-1,3000,5000,1650,350,-1],[-1,-1,-1,-1,-1,4500,3000,2000,500]],
+		rarityBreakpoints:[41,60,80,100,125,146,166,181,201,230,300,400,500],
+		priceIncrease: [2, 1.5, 1.25, 1.19, 1.15, 1.12, 1.1, 1.06, 1.04],
+		canReplaceMods: [true, true, true, true, true, true, true, true, false],
 		Staff: {
 			metalDrop: {
 				name: "金属掉落加成",
@@ -3008,6 +3191,11 @@ var toReturn = {
 				name: "科学家效率",
 				currentBonus: 0,
 			},
+			FluffyExp: {
+				name: "Fluffy Exp",
+				currentBonus: 0,
+				steps: [-1, -1, -1, -1, -1, -1, -1, -1, [25, 50, 1]]
+			},
 			empty: {
 				name: "Empty",
 				currentBonus: 0,
@@ -3017,42 +3205,42 @@ var toReturn = {
 			playerEfficiency: {
 				name: "玩家效率",
 				currentBonus: 0,
-				steps: [[2,4,1],[4,8,1],[8,16,1],[16,32,2],[32,64,4],[64,128,8],[128,256,16], [256, 512, 32]]
+				steps: [[2,4,1],[4,8,1],[8,16,1],[16,32,2],[32,64,4],[64,128,8],[128,256,16],[256,512,32],[512,1024,64]]
 			},
 			trainerEfficiency: {
 				name: "培训师效率",
 				currentBonus: 0,
-				steps: [[1,5,1],[5,10,1],[10,20,1],[20,40,2],[40,60,2],[60,80,2],[80,100,2], [100, 120, 2]]
+				steps: [[1,5,1],[5,10,1],[10,20,1],[20,40,2],[40,60,2],[60,80,2],[80,100,2],[100,120,2],[120,140,2]]
 			},
 			storageSize: {
 				name: "存储上限",
 				currentBonus: 0,
-				steps: [[8,16,4],[16,32,4],[32,64,4],[64,128,4],[128,256,8],[256,512,16],[512,768,16],[768, 1024, 16]]
+				steps: [[8,16,4],[16,32,4],[32,64,4],[64,128,4],[128,256,8],[256,512,16],[512,768,16],[768,1024,16],[1024,1280,16]]
 			},
 			breedSpeed: {
 				name: "繁殖速度",
 				currentBonus: 0,
-				steps: [[1,2,1],[2,5,1],[5,10,1],[10,20,1],[70,100,3],[100,130,3],[130,160,3],[160, 190, 3]]
+				steps: [[1,2,1],[2,5,1],[5,10,1],[10,20,1],[70,100,3],[100,130,3],[130,160,3],[160,190,3],[190,220,3]]
 			},
 			trimpHealth: {
 				name: "脆皮生命",
 				currentBonus: 0,
-				steps: [[1,2,1],[2,6,1],[6,20,2],[20,40,2],[50,100,5],[100,150,5],[150,200,5],[200, 260, 6]]
+				steps: [[1,2,1],[2,6,1],[6,20,2],[20,40,2],[50,100,5],[100,150,5],[150,200,5],[200,260,6],[260,356,8]]
 			},
 			trimpAttack: {
 				name: "脆皮攻击",
 				currentBonus: 0,
-				steps: [[1,2,1],[2,6,1],[6,20,2],[20,40,2],[50,100,5],[100,150,5],[150,200,5],[200, 260, 6]]
+				steps: [[1,2,1],[2,6,1],[6,20,2],[20,40,2],[50,100,5],[100,150,5],[150,200,5],[200,260,6],[260,356,8]]
 			},
 			trimpBlock: {
 				name: "脆皮防御",
 				currentBonus: 0,
-				steps: [[1,2,1],[2,4,1],[4,7,1],[7,10,1],[28,40,1],[48,60,1],[68,80,1],[88, 100, 1]]
+				steps: [[1,2,1],[2,4,1],[4,7,1],[7,10,1],[28,40,1],[48,60,1],[68,80,1],[88,100,1],[108,120,1]]
 			},
 			critDamage: {
 				name: "暴击伤害, 附加的",
 				currentBonus: 0,
-				steps: [[10,20,5],[20,40,5],[40,60,5],[60,100,5],[100,200,10],[200,300,10],[300,400,10],[400, 500, 10]],
+				steps: [[10,20,5],[20,40,5],[40,60,5],[60,100,5],[100,200,10],[200,300,10],[300,400,10],[400,500,10],[500,650,15]],
 				filter: function () {
 					return (!game.portal.Relentlessness.locked);
 				}
@@ -3060,15 +3248,26 @@ var toReturn = {
 			critChance: {
 				name: "暴击几率, 附加的",
 				currentBonus: 0,
-				steps: [[0.2,0.6,0.2],[0.6,1.4,0.2],[1.4,2.6,0.2],[2.6,5,0.2],[5,7.4,0.2],[7.4,9.8,0.2],[9.8,12.2,0.2], [12.3, 15.9, 0.3]],
+				steps: [[0.2,0.6,0.2],[0.6,1.4,0.2],[1.4,2.6,0.2],[2.6,5,0.2],[5,7.4,0.2],[7.4,9.8,0.2],[9.8,12.2,0.2],[12.3,15.9,0.3],[20,30,0.5]],
 				filter: function () {
 					return (!game.portal.Relentlessness.locked);
-				}
+				},
+				max: [30,30,30,30,30,30,30,30,100]
 			},
 			voidMaps: {
 				name: "虚空地图掉落几率",
 				currentBonus: 0,
-				steps: [[0.5,1.5,0.5],[2.5,4,0.5],[5,7,0.5],[8,11,0.5],[12,16,0.5],[17,22,0.5],[24,30,0.5],[32, 38, 0.5]]
+				steps: [[0.5,1.5,0.5],[2.5,4,0.5],[5,7,0.5],[8,11,0.5],[12,16,0.5],[17,22,0.5],[24,30,0.5],[32,38,0.5],[40,50,0.25]],
+				max: [50,50,50,50,50,50,50,50,80]
+			},
+			plaguebringer: {
+				name: "Plaguebringer",
+				specialDescription: function (modifier) {
+					return modifier + "% of all non-lethal damage and nature stacks you afflict on your current enemy are copied onto the next enemy. Plaguebringer damage cannot bring an enemy below 5% health, but nature stacks will continue to accumulate."
+				},
+				currentBonus: 0,
+				steps: [-1, -1, -1, -1, -1, -1, -1, -1, [1, 15, 0.5]],
+				max: [0,0,0,0,0,0,0,0,75]
 			},
 			empty: {
 				name: "Empty",
@@ -3100,7 +3299,10 @@ var toReturn = {
 		w18: "似乎有一种奇怪的力量鼓励你继续前行。气氛变得有点，愤怒的感觉。 你的身体的一部分想转身回去,但其他大部分想继续前行。",
 		w19: "你回头看看你的王国，你拥有宝石、殖民地和领土。 你在想你的脆皮是不是已经在战斗中牺牲了。 沉思之后， 两个字从你的嘴里蹦了出来 “算了”",
 		w20: "你感觉到你离你的目标已经不远了。",
-		w22: "奇怪，天空看起来变的更黑了。你询问其中一只脆皮现在是什么时间，但是它都不知道什么是时钟。",
+		get w22 () {
+			if (game.global.challengeActive == "Trimp" && game.jobs.Amalgamator.owned > 0) return toZalgo("You hear a strange humming noise that seems to draw you towards it, though it also seems to come from no direction in particular. You can feel that it's being created by " + ((game.jobs.Amalgamator.owned == 1) ? "the" : "an") + " Amalgamator, though you've never heard such a sound before. It's both unsettling and enchanting, and the Universe seems to hate it.", 4, 1);
+			return "Strange, the sky seems to be getting darker. You ask one of your Trimps for the time, but he doesn't know what a clock is.";
+		},
 		w25: "你是个叛逆者。宇宙指引你进入那个传送门，但是你执意向前推进。你感觉……自己好像没有来过这里。",
 		w27: "似乎你越向前进，你知道的就越少。你仍然有使用传送门的冲动，但是这冲动已经开始减少了。",
 		w29: "你的脆皮创造了一首非常吸引人的战歌，这首歌一直萦绕在你的脑海中。但是他们没有一人在下一场战斗中活下来，而且其中大部分的脆皮你也记不得了。生活是真的艰难。",
@@ -3120,7 +3322,10 @@ var toReturn = {
 		w59: "There it is. The anomaly is at the end of the zone. You can see it but you don't know what you're seeing. Where did that... thing... come from?! This is highly Improbable.",
 		w60: "The ground instantly cracks and large plumes of green gas escape from the planet's core to the atmosphere. The planet feels different. Everything feels different. This Universe has grown unstable, the planet has broken. What have you done?",
 		w61: "Other than all the dead Trimps, that wasn't so bad.",
-		w65: "You feel more powerful than ever. The universe seems to be constantly adjusting itself to get rid of you, yet you rise against and persist. Something as tiny as you taking on an entire universe!",
+		get w65 () {
+			if (game.global.challengeActive == "Trimp" && game.jobs.Amalgamator.owned > 0) return toZalgo("The Universe seems even more upset than you expected here, but your Amalgamator" + ((game.jobs.Amalgamator.owned == 1) ? " doesn't" : "s don't") + " really seem to care. You walk towards " + ((game.jobs.Amalgamator.owned == 1) ? "it" : "one") + " to get a better look, but find yourself further away than you were.", 2, 2);
+			return "You feel more powerful than ever. The universe seems to be constantly adjusting itself to get rid of you, yet you rise against and persist. Something as tiny as you taking on an entire universe!";
+		},
 		w68: "You figure some entertainment wouldn't be awful, and decide to teach your Trimps how to play soccer. A few hours and zero progress later, you really regret that decision.",
 		w70: "The Improbabilities haven't seemed to slow down. You know you need to figure out a plan, but you don't know what to plan for.",
 		w72: "You slash through another Improbability with relative ease, but something isn't right. A sour smell hits your nose and in disgust, you whip around in search of the source. Oh, wait, it's just the Trimps.",
@@ -3131,7 +3336,10 @@ var toReturn = {
 		w87: "Bits and pieces of memories continue trickling back in as you continue to put distance between yourself and the source of Anger. You can almost see in your mind who you came here with. Where could they be...",
 		w90: "You decide to ask your scientists to come up with an extravagant machine that can scan your brain for old memories to see if there's anything helpful up there. They seem excited about a new project and quickly get to work.",
 		w92: "You hear a huge explosion from the science lab and realize that the brain scan machine will probably never be finished.",
-		w95: "Need some motivation? You can do it! Maybe.",
+		get w95 () {
+			if (game.global.challengeActive == "Trimp" && game.jobs.Amalgamator.owned > 0) return toZalgo(((game.jobs.Amalgamator.owned == 1) ? "The Amalgamator is" : "The Amalgamators are") + " starting to rapidly switch between different colors. It would be slightly entertaining if the fabric of existence wasn't falling apart around " + ((game.jobs.Amalgamator.owned == 1) ? "it." : "them."), 3, 2);
+			return "Need some motivation? You can do it! Maybe.";
+		},
 		w100: "You stop dead in your tracks. You remember who you came here with, and you remember that you are not happy with Captain Druopitee for bringing you here. You know he landed with you. You know the ship is still here. He's here.",
 		w105: "You call a meeting with all of your Trimps to explain the situation. After giving an extremely long, epic, and motivational speech but hearing no reaction from the crowd, you remember that your Trimps cannot understand you. Will you ever learn?",
 		w106: "How long have you been trapped on this planet? Months? Decades? Travelling through time sure screws up your chronological perception.",
@@ -3336,6 +3544,13 @@ var toReturn = {
 			},
 			soldiers: 0,
 			maxSoldiers: 1,
+			getCurrentSend: function () {
+				var amt = (game.portal.Coordinated.level) ? game.portal.Coordinated.currentSend : game.resources.trimps.maxSoldiers;
+				if (game.jobs.Amalgamator.owned > 0) {
+					amt *= game.jobs.Amalgamator.getPopulationMult();
+				}
+				return amt;
+			},
 			potency: 0.0085
 		},
 		science: {
@@ -3909,7 +4124,8 @@ var toReturn = {
 			health: 4,
 			fast: false,
 			loot: function (level) {
-				checkAchieve("angerTimed")
+				checkAchieve("angerTimed");
+				if (game.upgrades.Bounty.done == 0) giveSingleAchieve("Forgot Something");
 			}
 		},
 		Dragimp: {
@@ -4010,6 +4226,7 @@ var toReturn = {
 			loot: function (level) {
 				var mapLevel = game.global.mapsOwnedArray[getMapIndex(game.global.currentMapId)].level;
 				if (mapLevel >= game.global.world + 45) giveSingleAchieve("Bionic Sniper");
+				if (mapLevel >= game.global.world + 200) giveSingleAchieve("Bionic Nuker");
 				checkAchieve("bionicTimed");
 				var amt1 = rewardResource("wood", 1, level, true);
 				var amt2 = rewardResource("food", 1, level, true);
@@ -4287,16 +4504,14 @@ var toReturn = {
 			dropDesc: "现有的脆皮最大值增加0.3%",
 			loot: function () {
 				var amt = Math.ceil(game.resources.trimps.max * 0.003);
-				game.resources.trimps.max += amt;
 				game.unlocks.impCount.Tauntimp++;
 				game.unlocks.impCount.TauntimpAdded += amt;
-				if (game.portal.Carpentry.level) amt *= Math.pow((1 + game.portal.Carpentry.modifier), game.portal.Carpentry.level);
-				if (game.portal.Carpentry_II.level > 0) amt *= (1 + (game.portal.Carpentry_II.modifier * game.portal.Carpentry_II.level));
 				if (game.global.challengeActive != "Trapper"){
-					game.resources.trimps.owned += amt;
+					amt = addMaxHousing(amt, true);
 					message("这是一个不错的，温暖并且宽敞的死亡Tauntimp。你发现了 " + prettify(amt) + " 脆皮在里面, 他们都似乎满足于留在那里！", "Loot", "gift", "exotic", "exotic");
 				}
 				else {
+					amt = addMaxHousing(amt, false);
 					message("这是一个不错的，温暖并且宽敞的死亡Tauntimp。 它大得足够容纳 " + prettify(amt) + " 脆皮在里面生活!", "Loot", "gift", "exotic", "exotic");
 				}
 			}
@@ -5801,7 +6016,8 @@ var toReturn = {
 			title: "Coordination",
 			fire: function() {
 				if (game.global.challengeActive == "Trimp"){
-					message("你的科学家不认为尝试本书中的任何建议是一个非常聪明的想法。", "Notices");
+					if (!checkIfLiquidZone())
+						message("你的科学家不认为尝试本书中的任何建议是一个非常聪明的想法", "Notices");
 					game.challenges.Trimp.heldBooks ++;
 					return;
 				}
@@ -5884,10 +6100,8 @@ var toReturn = {
 			repeat: 45,
 			fire: function () {
 				var amt = 5 + (game.portal.Trumps.modifier * game.portal.Trumps.level);
-				game.resources.trimps.max += amt;
 				game.global.totalGifts += amt;
-				if (game.portal.Carpentry.level) amt *= Math.pow((1 + game.portal.Carpentry.modifier), game.portal.Carpentry.level);
-				if (game.portal.Carpentry_II.level > 0) amt *= (1 + (game.portal.Carpentry_II.modifier * game.portal.Carpentry_II.level));
+				amt = addMaxHousing(amt, game.talents.autoStructure.purchased);
 				message("你已经清除了足够的土地来容纳更多 " + prettify(amt) + " 的脆皮!", "Loot", "gift", null, "secondary");
 			}
 		},
@@ -6307,7 +6521,17 @@ var toReturn = {
 			locked: 1,
 			allowAutoFire: true,
 			owned: 0,
-			tooltip: "每个遗传学家都会将每个脆皮的血量提高1％（复合），但会降低2％（复合）的脆皮繁殖速度。",
+			get tooltip (){
+				var text = "<p>每个遗传学家都会将每个脆皮的血量提高1％（复合），但会降低2％（复合）的脆皮繁殖速度。</p>"
+				if (this.owned > 0) {
+					var breedMult = Math.pow(.98, game.jobs.Geneticist.owned);
+					var breedDisplay = (breedMult > 0.0001) ? breedMult.toFixed(4) : breedMult.toExponential(3);
+					var healthMult = Math.pow(1.01, this.owned);
+					var healthDisplay = prettify((healthMult * 100) - 100) + "%";
+					text += "<p>Owning " + prettify(this.owned) + " Geneticist" + ((this.owned == 1) ? "" : "s") + " multiplies your breed speed by " + breedDisplay + ", and adds " + healthDisplay + " Health.</p>";
+				}
+				return text;
+			},
 			cost: {
 				food: [1000000000000000, 1.03],
 			},
@@ -6368,30 +6592,45 @@ var toReturn = {
 			owned: 0,
 			allowAutoFire: true,
 			get tooltip(){
-				return "Doubles your soldiers, doubles your health.";
+				var ratio = this.getTriggerThresh();
+				var currentRatio = (game.resources.trimps.realMax() / game.resources.trimps.getCurrentSend());
+				var text = "<p>Amalgamators cannot be hired or fired manually. They are magical beings that could barely be considered Trimps anymore, and they will automatically show up to your town whenever your army size to total population ratio falls below <b>1:" + prettify(ratio) + "</b>. Completing Spires II through V will each divide this minimum ratio by 10. If your ratio ever rises above 1:" + prettify(1e3) + ", an Amalgamator will leave. Your current ratio is <b>1:" + prettify(currentRatio) + "</b>.</p><p>Amalgamators fuse some of your spare Trimps to other soldiers, greatly strengthening them. Each Amalgamator increases the amount of Trimps that must be sent into each battle by 1000x (compounding), increases health by 40x (compounding), and increases damage by 50% (additive).</p><p>In addition, having at least one Amalgamator will cause Anticipation stacks to increase based on when the last soldiers were sent, rather than being based on time spent actually breeding.</p>";
+				if (game.global.challengeActive == "Trimp"){
+					text += "<p><i>" + toZalgo("This particular Universe</b> seems to directly conflict with the Amalgamators, yet they're here and the Trimps they Amalgamate seem immune to the dimensional restrictions. Things are getting weird though.", 1, Math.ceil(game.global.world / 100)) + "</i></p>";
+				}
+				else
+					text += "<p><i>Some say the Amalgamators are a curse, some say they're a blessing. The Amalgamators themselves mostly just say \"Blerghhhh\".</i></p>";
+
+				return text;
 			},
 			cost: {
-				gems: [1e60, 1.01]
+				gems: [1, 1]
 			},
 			increase: "custom",
-			modifier: 1,
-			getBonusPercent: function (justStacks, forceTime) {
-				var boostMult = 0.9999;
-				var boostMax = 3;
-				var expInc = 1.2;
-				var timeOnZone;
-				if (typeof forceTime === 'undefined'){
-					var timeOnZone = new Date().getTime() - game.global.zoneStarted;
-					if (game.talents.magmamancer.purchased) timeOnZone += 300000;
-					timeOnZone = Math.floor(timeOnZone / 600000);
-					
-					if (timeOnZone > 12) timeOnZone = 12;
-					else if (timeOnZone <= 0) return 1;
-				}
-				else timeOnZone = forceTime;
-				if (justStacks) return timeOnZone;
-				return 1 + ((((1 - Math.pow(boostMult, this.owned)) * boostMax)) * (Math.pow(expInc, timeOnZone) - 1));
-			}			
+			populationModifier: 1000,
+			healthModifier: 40,
+			damageModifier: 0.5,
+			fireThresh: 1e3,
+			getTriggerThresh: function () {
+				var startPoint = 1e10;
+				var creditedSpires = game.global.lastSpireCleared;
+				if (creditedSpires < 2) return startPoint;
+				if (creditedSpires > 5) creditedSpires = 5;
+				var reduction = Math.pow(10, (creditedSpires - 1));
+				return (startPoint / reduction);
+			},
+			getFireThresh: function () {
+				return this.fireThresh;
+			},
+			getHealthMult: function () {
+				return Math.pow(this.healthModifier, this.owned);
+			},
+			getPopulationMult: function () {
+				return Math.pow(this.populationModifier, this.owned);
+			},
+			getDamageMult: function () {
+				return (this.owned * this.damageModifier) + 1;
+			}
 		}
 	},
 
@@ -6471,7 +6710,7 @@ var toReturn = {
 				game.buildings.Warpstation.cost.metal[0] *= 1.75;
 				game.buildings.Warpstation.purchased = 1;
 				game.buildings.Warpstation.owned = 1;
-				game.resources.trimps.max += game.buildings.Warpstation.increase.by;
+				addMaxHousing(game.buildings.Warpstation.increase.by, game.talents.autoStructure.purchased);
 				if ((ctrlPressed || heldCtrl) && oldAmt > 1) buyBuilding("Warpstation", false, false, oldAmt - 1);
 			}
 		},
@@ -7458,9 +7697,7 @@ var toReturn = {
 			Titimp: 0,
 			Chronoimp: 0,
 			Magnimp: 0
-		},
-		goldMaps: false,
-		quickTrimps: false
+		}
 	},
 	get workspaces () {
 		return Math.ceil(this.resources.trimps.realMax() / 2) - this.resources.trimps.employed;
