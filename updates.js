@@ -1,4 +1,4 @@
-﻿/*		Trimps
+/*		Trimps
 		Copyright (C) 2016 Zach Hood
 
 		This program is free software: you can redistribute it and/or modify
@@ -166,7 +166,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 			costText = "Click for more detailed info"
 		}
 	}
-	if (what == "占卜师阵型"){
+	if (what == "Scryer Formation"){
 		tooltipText = "<p>脆皮减少了一半的攻击、生命和阻挡，但是从掉落中获得了2倍资源(不包括氦气)，并且有机会在Z180以上的世界中找到黑暗精华。这个阵型必须在整个战斗中都处于激活状态的，才能从敌人那里得到奖励；并且必须在整个地图上都是活跃的，才能从地图隐藏奖励中获得奖励。(快捷键:S或5)</p>";
 		if (game.global.formation == 4){
 			if (!isScryerBonusActive()) tooltipText += "<p>You recently switched to Scryer and will <b>not</b> earn a bonus from this enemy.</p>";
