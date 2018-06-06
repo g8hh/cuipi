@@ -1531,7 +1531,7 @@ var toReturn = {
 			},
 			get tooltip(){
 				var time = game.talents.patience.purchased ? 45 : 30;
-				return "Use your experiences in understanding the attention span of Trimps to increase the damage dealt by all soldiers based on how long it took to get an army together. Increases damage by 2% per level per second up to " + time + " seconds. Maximum of 10 levels."
+				return "运用你对脆皮了解的经验，基于一支战斗队生产需要的时间来增加脆皮的伤害。每升一级，每秒繁殖时间增加2%伤害，上限为" + time + "秒。最高10级。"
 			}
 		},
 		Resilience: {
@@ -1540,7 +1540,7 @@ var toReturn = {
 			modifier: 0.1,
 			priceBase: 100,
 			heliumSpent: 0,
-			tooltip: "Use your acquired skills in Trimp strengthening to gain a 10% <b>compounding</b> increase to total Trimp health."
+			tooltip: "使用你在脆皮挑战中所获取的技能，每级脆皮总生命增长10%（<b>复合</b>）。"
 		},
 		Meditation: {
 			level: 0,

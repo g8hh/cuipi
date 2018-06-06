@@ -1316,23 +1316,23 @@ function getSquaredDescriptionInRun(hideDesc){
 	if (!hideDesc){
 		description = challenge.squaredDescription + " " + getSpecialSquaredRewards(challenge);
 	}
-	description += "<b>You are currently at Zone " + game.global.world;
-	var portalText = (game.global.viewingUpgrades) ? "abandon the challenge " : "use the portal ";
+	description += "<b>你现在位于区域" + game.global.world;
+	var portalText = (game.global.viewingUpgrades) ? "放弃挑战" : "使用传送门";
 	var dif = getIndividualSquaredReward(game.global.challengeActive, game.global.world) - getIndividualSquaredReward(game.global.challengeActive);
 	var highest = game.c2[game.global.challengeActive];
 	if (highest > 0){
 		if (dif >= 1){
-			description += ", <span class='greenText'>your previous highest for this challenge was Zone " + highest + ". If you " + portalText + "now, you'll add " + prettify(dif) + "% damage and health to your total Challenge<sup>2</sup> bonus, bringing it to " + prettify(dif + game.global.totalSquaredReward) + "%.</span>";
+			description += ", <span class='greenText'>你在这个挑战中，先前的最高区域为" + highest + "。如果你现在" + portalText + "，你将会增加" + prettify(dif) + "% 伤害和生命到你的总挑战<sup>2</sup> 加成中，你的总伤害和生命加成增长到" + prettify(dif + game.global.totalSquaredReward) + "%。</span>";
 		}
 		else {
-			description += ", <span class='redText'>your best for this challenge is Zone " + highest + ". If you " + portalText + "now, your total Challenge<sup>2</sup> attack and health bonus will stay at " + prettify(game.global.totalSquaredReward) + "%.</span>";
+			description += ", <span class='redText'>你在本挑战的最高区域为" + highest + "。如果你现在" + portalText + "，你的总挑战<sup>2</sup>攻击与生命加成仍然保持在" + prettify(game.global.totalSquaredReward) + "%。</span>";
 		}
 	}
 	else{
 		if (dif <= 0)
-			description += ". <span class='redText'>You'll need to reach at least Zone " + ((challenge.replaceSquareFreq) ? challenge.replaceSquareFreq : squaredConfig.rewardFreq) + " before you'll add anything to your current Challenge<sup>2</sup> attack and health bonus of " + prettify(game.global.totalSquaredReward) + "%.</span>";
+			description += ". <span class='redText'>你至少要到达区域" + ((challenge.replaceSquareFreq) ? challenge.replaceSquareFreq : squaredConfig.rewardFreq) + "才能获取任何挑战<sup>2</sup>加成。现在攻击与生命加成为" + prettify(game.global.totalSquaredReward) + "%。</span>";
 		else
-			description += ". <span class='greenText'>If you " + portalText + "now, you'll add " + prettify(dif) + "% to your Challenge<sup>2</sup> bonus, bringing the total attack and health increase to " + prettify(dif + game.global.totalSquaredReward) + "%.</span>";
+			description += ". <span class='greenText'>如果你现在" + portalText + "，你将会增加" + prettify(dif) + "%伤害和生命到你的总挑战<sup>2</sup>的加成中，你的总伤害和生命加成增长到" + prettify(dif + game.global.totalSquaredReward) + "%。</span>";
 		}
 	description += "</b>";
 	return description;
@@ -10773,7 +10773,7 @@ function updateAntiStacks(){
 	if (game.global.antiStacks > 0){
 		var number = ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier));
 		number = Math.floor(number * 100);
-		elem.innerHTML = '<span class="badge antiBadge" onmouseover="tooltip(\'Anticipation\', \'customText\', event, \'Your Trimps are dealing ' + number + '% extra damage for taking ' + game.global.antiStacks + ' seconds to populate.\')" onmouseout="tooltip(\'hide\')">' + game.global.antiStacks + '<span class="icomoon icon-target2"></span></span>';
+		elem.innerHTML = '<span class="badge antiBadge" onmouseover="tooltip(\'Anticipation\', \'customText\', event, \'你的脆皮获得了' + number + '% 的额外伤害，因为需要' + game.global.antiStacks + ' 秒来生产部队。\')" onmouseout="tooltip(\'hide\')">' + game.global.antiStacks + '<span class="icomoon icon-target2"></span></span>';
 	}
 	else elem.innerHTML = "";
 }
@@ -10785,7 +10785,7 @@ function updateTitimp(){
 		return;
 	}
 		var number = Math.floor(game.global.titimpLeft);
-		elem.innerHTML = '<span class="badge antiBadge" onmouseover="tooltip(\'Titimp\', \'customText\', event, \'Your Trimps are dealing double damage, thanks to the Titimp!\');" onmouseout="tooltip(\'hide\')">' + number + '<span class="icomoon icon-hammer"></span></span>';
+		elem.innerHTML = '<span class="badge antiBadge" onmouseover="tooltip(\'Titimp\', \'customText\', event, \'多亏了Titimp！你的脆皮攻击翻倍\');" onmouseout="tooltip(\'hide\')">' + number + '<span class="icomoon icon-hammer"></span></span>';
 }
 
 function updateNomStacks(number){

@@ -218,7 +218,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 	}
 	if (what == "Decay"){
 		var decayedAmt = ((1 - Math.pow(0.995, game.challenges.Decay.stacks)) * 100).toFixed(2);
-		tooltipText = "Things are quickly becoming tougher. Gathering, looting, and Trimp attack are reduced by " + decayedAmt + "%.";
+		tooltipText = "事情正在迅速变得困难起来。收集速度，战利品以及脆皮攻击已经减少了" + decayedAmt + "%.";
 		costText = "";
 	}
 	if (what == "Heirloom"){
@@ -4840,6 +4840,8 @@ function cntitle(tit){
         cntit="自动陷阱"
     }else if(what=="Blockmaster"){
         cntit="防御大师"
+    }else if(what=="Decay"){
+        cntit="衰变"
     }else if(what=="Show/Hide Map Config"){
         cntit="显示/隐藏地图设置"
     }else{
