@@ -1139,7 +1139,7 @@ var toReturn = {
 		},
 		blacksmith: {
 			get description () {
-				return "每个清除的世界区域将直接掉落所有该等级的装备升级。直到区域 + Math.floor((game.global.highestLevelCleared + 1) / 2) + "（你最高区域的50％）";
+				return "每个清除的世界区域将直接掉落所有该等级的装备升级。直到区域" + Math.floor((game.global.highestLevelCleared + 1) / 2) + "（你最高区域的50％）";
 			},
 			name: "Blacksmithery I",
 			tier: 4,
