@@ -4289,7 +4289,7 @@ function addCarried(confirmed){
 	var cost = getNextCarriedCost();
 	if (game.global.nullifium < cost) return;
 	if (!confirmed) {
-		tooltip('confirm', null, 'update', 'You are about to purchase 1 extra slot to carry Heirlooms through the Portal for ' + cost + ' Nullifium. Are you sure?' , 'addCarried(true)', 'Upgrade Carried Slots');
+		tooltip('confirm', null, 'update', '你正要花费' + cost + '虚空物质，来增加一个额外的传家宝携带栏，以携带传家宝通过传送门。你确定吗？' , 'addCarried(true)', '升级携带栏');
 		return;
 	}
 	game.global.nullifium -= cost;
@@ -4348,7 +4348,7 @@ function recycleHeirloom(confirmed){
 	if (game.global.selectedHeirloom[0] == -1 || game.global.selectedHeirloom[1] == "heirloomsCarried") return;
 	var value = Math.floor(getTotalHeirloomRefundValue(heirloom));
 	if (!confirmed) {
-		tooltip('confirm', null, 'update', '你正在回收 ' + heirloom.name + ' 去得到 ' + prettify(value) + ' Nullifium。 你确定吗?' , 'recycleHeirloom(true)', 'Recycle Heirloom');
+		tooltip('confirm', null, 'update', '你正在回收 ' + heirloom.name + ' 以得到 ' + prettify(value) + ' 虚空物质。 你确定吗?' , 'recycleHeirloom(true)', 'Recycle Heirloom');
 		return;
 	}
 	game.global.nullifium += value;
@@ -7132,7 +7132,7 @@ function mapsClicked(confirmed) {
         return;
     }
     if (game.global.fighting && !game.global.preMapsActive) {
-		message("Waiting to travel until your soldiers are finished.", "Notices");
+		message("待你的士兵牺牲后继续前往地图。", "Notices");
 
 		document.getElementById("mapsBtn").className = "btn btn-warning fightBtn shrinkBtnText";
 		document.getElementById("mapsBtnText").innerHTML = "Abandon Soldiers";
@@ -11034,11 +11034,11 @@ function showBones() {
 		}
 		else document.getElementById("buyHeirloomArea").style.display = "none";
 	}
-	updateImportButton("First, select an Imp", false);
+	updateImportButton("首先，选中一个外来物种", false);
 	var heliumGainedArea = document.getElementById("heliumGainedMisc");
 	var heDescElem = document.getElementById("bonePortalDescription");
-	var heText = "+ " + prettify(boostHe(true)) + " Helium";
-	var heDesc = "Automatically gain Helium";
+	var heText = "+ " + prettify(boostHe(true)) + " 氦";
+	var heDesc = "获取一次氦，";
 	if (game.stats.bestTokens.valueTotal >= 3) {
 		heDesc += (game.stats.bestFluffyExp.valueTotal > 0) ? ", " : " and ";
 		heDesc += "Nature Tokens";
@@ -11049,7 +11049,7 @@ function showBones() {
 		heText += ", " + prettify(game.stats.bestFluffyExp.valueTotal) + " Fluffy Exp";
 	}
 	else document.getElementById('boneBuyRow').style.height = "27vw";
-	heDesc += " equal to the amount you earned on your best run.";
+	heDesc += "其数量与你最好的一轮所获取的数量相同。";
 	if (game.stats.bestFluffyExp.valueTotal > 0){
 		if (Fluffy.getLevel() == 10) {
 			heDesc += "<br/><b>Fluffy is at Level 10 and will not gain Exp!";
@@ -11106,7 +11106,7 @@ function selectImp(name){
 	if (boneTemp.selectedImport) document.getElementById(boneTemp.selectedImport).className = "";
 	document.getElementById(name).className = "tealColor";
 	boneTemp.selectedImport = name;
-	updateImportButton("Buy " + name, true);
+	updateImportButton("购买 " + name, true);
 
 }
 
@@ -11401,7 +11401,7 @@ function purchaseSingleRunBonus(what){
 
 function displaySingleRunBonuses(){
 	var anyPortals = (game.global.totalPortals == 0);
-	var html = "<div class='boneBuyTitle'>Single Run Bonuses</div><div class='boneBuyDesc'>These all last until your next " + ((anyPortals) ? "soft reset" : "Portal") + ". Use them wisely!</div>";
+	var html = "<div class='boneBuyTitle'>单轮加成</div><div class='boneBuyDesc'>这些加成本轮生效，下一" + ((anyPortals) ? "soft reset" : "轮") + "停止。明智地使用它们!</div>";
 	for (var item in game.singleRunBonuses){
 		var bonus = game.singleRunBonuses[item];
 		html += "<div id='" + item + "SingleBonusBox' class='singleBonusBox'>";
@@ -11417,7 +11417,7 @@ function displaySingleRunBonuses(){
 				btnClass = 'boneBtnStateOff'
 			else 
 				btnClass = 'boneBtnStateOn';
-			btnText = bonus.name + " (" + bonus.cost + " bones)";
+			btnText = bonus.name + " (" + bonus.cost + " 骨头)";
 		}
 		html += "<div class='boneBtn " + btnClass + " pointer noselect' id='" + item + "PurchaseBtn'";
 		if (!bonus.owned && game.global.b >= bonus.cost)

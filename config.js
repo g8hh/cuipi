@@ -427,10 +427,10 @@ var toReturn = {
 	},
 	singleRunBonuses: {
 		goldMaps: {
-			name: "Golden Maps",
-			text: "+100% Map Loot",
+			name: "黄金地图",
+			text: "+100%地图战利品",
 			cost: 20,
-			confirmation: "You are about to purchase Golden Maps for 20 bones. All of your current and future maps will gain +100% loot added to their normal loot roll <b>until your next Portal</b>. Is this what you wanted to do?", 
+			confirmation: "你正在花费20骨头购买黄金地图。<b>在你的下一轮前</b>，你现在的和未来的所有地图战利品获得增加100%。这是你想要的吗？", 
 			owned: false,
 			fire: function () {
 				game.unlocks.goldMaps = true;
@@ -441,10 +441,10 @@ var toReturn = {
 			}
 		},
 		quickTrimps: {
-			name: "Quick Trimps",
-			text: "+100% Breed Speed",
+			name: "快速脆皮",
+			text: "+100%繁殖速度",
 			cost: 20,
-			confirmation: "You are about to purchase Quick Trimps for 20 bones. This will cause your Trimps to breed twice as fast <b>until your next Portal</b>. Is this what you wanted to do?",
+			confirmation: "你正在花费20骨头购买快速脆皮。这个将会<b>在你的下一轮前</b>使你的脆皮繁殖速度翻倍。这是你想要的吗？",
 			owned: false,
 			fire: function () {
 				swapClass("psColor", "psColorOrange", document.getElementById("trimpsPs"));
@@ -457,10 +457,10 @@ var toReturn = {
 			}
 		},
 		sharpTrimps: {
-			name: "Sharp Trimps",
-			text: "+50% Trimp Damage",
+			name: "锋利脆皮",
+			text: "+50%脆皮伤害",
 			cost: 25,
-			confirmation: "You are about to purchase Sharp Trimps for 25 bones. This will cause your Trimps to deal 50% more damage <b>until your next Portal</b>. Is this what you wanted to do?",
+			confirmation: "你正在花费25骨头购买锋利脆皮。这个将会<b>在你的下一轮前</b>使你的脆皮增加50%的伤害。这是你想要的吗？",
 			owned: false,
 			fire: function () {
 				swapClass("attackColor", "attackColorOrange", document.getElementById("goodGuyAttack"));
@@ -474,10 +474,10 @@ var toReturn = {
 
 		},
 		heliumy: {
-			name: "Heliumy",
-			text: "+25% Helium",
+			name: "高氦",
+			text: "+25%氦",
 			cost: 100,
-			confirmation: "You are about to purchase Heliumy for 100 bones. This will cause you to earn 25% more Helium from all sources <b>until your next Portal</b>. Is this what you wanted to do?",
+			confirmation: "你正要花费100骨头购买高氦。这个将会<b>在你的下一轮前</b>使你从所有来源获得的氦增加25%。这是你想要的吗？?",
 			owned: false,
 			fire: function () {
 				swapClass("hePhColor", "hePhColorOrange", document.getElementById("heliumPh"));
@@ -6528,7 +6528,7 @@ var toReturn = {
 					var breedDisplay = (breedMult > 0.0001) ? breedMult.toFixed(4) : breedMult.toExponential(3);
 					var healthMult = Math.pow(1.01, this.owned);
 					var healthDisplay = prettify((healthMult * 100) - 100) + "%";
-					text += "<p>Owning " + prettify(this.owned) + " Geneticist" + ((this.owned == 1) ? "" : "s") + " multiplies your breed speed by " + breedDisplay + ", and adds " + healthDisplay + " Health.</p>";
+					text += "<p>拥有" + prettify(this.owned) + " 遗传学家" + ((this.owned == 1) ? "" : "") + "使你的繁殖速度变为" + breedDisplay + "倍,并且增加" + healthDisplay + "的生命。</p>";
 				}
 				return text;
 			},
