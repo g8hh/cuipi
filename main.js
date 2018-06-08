@@ -1295,11 +1295,11 @@ function getSpecialSquaredRewards(challenge){
 		var reward = (challenge.replaceSquareReward) ? challenge.replaceSquareReward : squaredConfig.rewardEach;
 		var freq = (challenge.replaceSquareFreq) ? challenge.replaceSquareFreq : squaredConfig.rewardFreq;
 		var rewardIncrease = (challenge.replaceSquareGrowth) ? challenge.replaceSquareGrowth : squaredConfig.rewardGrowth;
-		description += "<span class='colorSquared'>This challenge issues rewards differently than most other Challenge<sup>2</sup>s.";
-		description += ((challenge.replaceSquareReward) ? "<b>" : "")  + " You will gain " + reward + "% attack and health, and " + prettify(reward / 10) + "% Helium" + ((challenge.replaceSquareReward) ? "</b>" : "");
-		description += ((challenge.replaceSquareFreq) ? "<b>" : "") + " for every " + freq + " zone" + needAnS(freq) + " reached." + ((challenge.replaceSquareFreq) ? "</b>" : "");
-		description += ((challenge.replaceSquareThresh) ? "<b>" : "") + " Every " + threshes + " zone" + needAnS(threshes) + " reached," + ((challenge.replaceSquareThresh) ? "</b>" : "");
-		description += ((challenge.replaceSquareGrowth) ? "<b>" : "") + " this bonus will increase by " + rewardIncrease + "% attack and health, and " + prettify(rewardIncrease / 10) + "% Helium.</span> " + ((challenge.replaceSquareGrowth) ? "</b>" : "");
+		description += "<span class='colorSquared'>本挑战的奖励分配与其他大多数的挑战<sup>2</sup>不同。";
+		description += ((challenge.replaceSquareFreq) ? "<b>" : "") + "每通过" + freq + "区域" + needAnS(freq) + "，" + ((challenge.replaceSquareFreq) ? "</b>" : "");        
+		description += ((challenge.replaceSquareReward) ? "<b>" : "")  + "你将获得" + reward + "%的攻击与生命, 以及" + prettify(reward / 10) + "%的氦获得。" + ((challenge.replaceSquareReward) ? "</b>" : "");
+		description += ((challenge.replaceSquareThresh) ? "<b>" : "") + " 每通过 " + threshes + "区域" + needAnS(threshes) + "，" + ((challenge.replaceSquareThresh) ? "</b>" : "");
+		description += ((challenge.replaceSquareGrowth) ? "<b>" : "") + "每次的奖励都会增加 " + rewardIncrease + "% 的攻击与生命,以及" + prettify(rewardIncrease / 10) + "%的氦获取。</span> " + ((challenge.replaceSquareGrowth) ? "</b>" : "");
 	}
 	return description;
 }

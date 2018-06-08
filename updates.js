@@ -789,7 +789,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 	}
 	if (what == "Maps"){
 		if (!game.global.preMapsActive)
-		tooltipText = "前往地图室。 地图充满了好东西，对于每个最大级别的地图，每打通一遍，您将获得该区域的20％叠加损伤加成（叠加多达10次）。(热键: M)";
+		tooltipText = "前往地图室，地图内充满了好东西。每打通一遍你能制作的最大级别的地图，你在打该区域时，便有20%的伤害加成。（最多叠加10次）。(热键: M)";
 		else
 		tooltipText = "回到世界地图 (热键: M)";
 		costText = "";
