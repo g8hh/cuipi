@@ -12394,10 +12394,10 @@ var Fluffy = {
 		tooltipText += "</div></div>";
 		if (!Fluffy.isMaxLevel()){
 			if (savedLevel > fluffyInfo[0]) tooltipText += "<span class='red'>- Fluffy的等级和伤害加成现在被降低了. Fluffy 会恢复等级 " + savedLevel + " 当 points are placed back in Capable.</span>";
-			else if (!Fluffy.canGainExp()) tooltipText += "<span class='red'>- Fluffy needs " + ((game.portal.Capable.level == 0) ? " at least one point of Capable to gain any Exp" + ((game.portal.Capable.locked) ? ". Complete Spire II to unlock Capable!" : "") : " more points in Capable to gain Exp above level " + game.portal.Capable.level + ".") + "</span>";
+			else if (!Fluffy.canGainExp()) tooltipText += "<span class='red'>- Fluffy 需要" + ((game.portal.Capable.level == 0) ? "至少一个Capable能力等级才能获取更多经验" + ((game.portal.Capable.locked) ? ". 必须完整通过尖塔II才能解锁Capable能力!" : "") : "更多的氦投入在Capable能力上超过等级" + game.portal.Capable.level + "为了获取更多经验.") + "</span>";
 			else {
-				if (game.global.world < 301) tooltipText += "<span class='red'>- Fluffy cannot gain any Experience from zones lower than 301</span>";
-				else tooltipText += "- Fluffy is earning " + prettify(Fluffy.getExpReward()) + " Exp per zone. " + Fluffy.getFluff();
+				if (game.global.world < 301) tooltipText += "<span class='red'>- Fluffy 无法获取经验，当区域低于301时</span>";
+				else tooltipText += "- Fluffy 可以获得" + prettify(Fluffy.getExpReward()) + "经验在完成当前区域. " + Fluffy.getFluff();
 			}
 			
 		}
