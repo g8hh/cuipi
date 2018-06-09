@@ -1422,8 +1422,8 @@ function getCurrentChallengePane(){
 		description = description.replace('_', getScientistInfo(sciLevel));
 		description = description.replace('*', getScientistInfo(sciLevel, true));
 	}
-	challengeText = "你获得了 ";
-	challengeText += (game.global.challengeActive == "Daily") ? formatDailySeedDate() + " " + game.global.challengeActive + " challenge active. " + description : game.global.challengeActive + " 积极挑战. \"" + description + "\"";
+	challengeText = "你正在进行";
+	challengeText += (game.global.challengeActive == "Daily") ? formatDailySeedDate() + " " + game.global.challengeActive + " challenge active. " + description : cntequan(game.global.challengeActive) + "挑战。 \"" + description + "\"";
 	return challengeText;
 }
 
@@ -7596,7 +7596,7 @@ function startFight() {
 	if (game.global.challengeActive == "Slow" || ((game.badGuys[cell.name].fast || cell.mutation == "Corruption") && game.global.challengeActive != "Coordinate" && game.global.challengeActive != "Nom"))
 		badName += ' <span class="badge badBadge" onmouseover="tooltip(\'Fast\', \'customText\', event, \'这个坏家伙速度非常快，并且会先攻击你\')" onmouseout="tooltip(\'hide\')"><span class="glyphicon glyphicon-forward"></span></span>';
 	if ((game.global.challengeActive == "Electricity" || game.global.challengeActive == "Mapocalypse")){
-		badName += ' <span class="badge badBadge" onmouseover="tooltip(\'Electric\', \'customText\', event, \'这个坏家伙是电动的，并且会给你的脆皮叠加负面\')" onmouseout="tooltip(\'hide\')"><span class="icomoon icon-power-cord"></span></span>';
+		badName += ' <span class="badge badBadge" onmouseover="tooltip(\'带电\', \'customText\', event, \'这个坏家伙是带电的，并且会给你的脆皮叠加减益效果\')" onmouseout="tooltip(\'hide\')"><span class="icomoon icon-power-cord"></span></span>';
 	}
 	document.getElementById("badGuyName").innerHTML = badName;
 	var corruptionStart = mutations.Corruption.start(true);
@@ -10751,8 +10751,8 @@ function updateElectricityStacks(tipOnly){
 	var elem = document.getElementById("debuffSpan");
 	if (game.challenges.Electricity.stacks > 0){
 		var number = game.challenges.Electricity.stacks * 10;
-		var addText = 'Your Trimps are dealing ' + number + '% less damage and taking ' + number + '% of their total health as damage per attack.';
-		elem.innerHTML = '<span class="badge trimpBadge" onmouseover="tooltip(\'Electrified\', \'customText\', event, \'' + addText + '\'); updateElectricityTip()" onmouseout="tooltip(\'hide\')">' + game.challenges.Electricity.stacks + '<span class="icomoon icon-power"></span></span>';
+		var addText = '脆皮的攻击减少' + number + '%，且每个回合扣除' + number + '%的最大生命值数额的生命';
+		elem.innerHTML = '<span class="badge trimpBadge" onmouseover="tooltip(\'通电\', \'customText\', event, \'' + addText + '\'); updateElectricityTip()" onmouseout="tooltip(\'hide\')">' + game.challenges.Electricity.stacks + '<span class="icomoon icon-power"></span></span>';
 		if (tipOnly){
 			document.getElementById('tipText').innerHTML = addText;
 			return;

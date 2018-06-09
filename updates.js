@@ -1443,7 +1443,7 @@ function getTrimpPs() {
 	//Add quick trimps
 	if (game.singleRunBonuses.quickTrimps.owned){
 		currentCalc *= 2;
-		textString += "<tr><td class='bdTitle'>Quick Trimps</td><td class='bdPercent'>+ 100%</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+		textString += "<tr><td class='bdTitle'>快速脆皮</td><td class='bdPercent'>+ 100%</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 	}
 	if (game.global.challengeActive == "Daily"){
 		var mult = 0;
@@ -1669,7 +1669,7 @@ function getBattleStatBd(what) {
 		var mult = (1 - (game.challenges.Electricity.stacks * 0.1));
 		currentCalc *= mult;
 
-		textString += "<tr style='color: red'><td class='bdTitle'>" + game.global.challengeActive + "</td><td>-10%</td><td>" + game.challenges.Electricity.stacks.toString() + "</td><td class='bdPercent'>x " + mult.toFixed(1) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>";
+		textString += "<tr style='color: red'><td class='bdTitle'>" + cntitle(game.global.challengeActive) + "</td><td>-10%</td><td>" + game.challenges.Electricity.stacks.toString() + "</td><td class='bdPercent'>x " + mult.toFixed(1) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>";
 	}
 	if (game.global.challengeActive == "Daily"){
 		var mult = 0;
@@ -1774,7 +1774,7 @@ function getBattleStatBd(what) {
 	}
 	if (what == "attack" && game.singleRunBonuses.sharpTrimps.owned){
 		currentCalc *= 1.5;
-		textString += "<tr><td class='bdTitle'>Sharp Trimps</td><td></td><td></td><td>+ 50%</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>"
+		textString += "<tr><td class='bdTitle'>锋利脆皮</td><td></td><td></td><td>+ 50%</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>"
 		
 	}
 	if (what == "attack"){
@@ -4844,6 +4844,8 @@ function cntitle(tit){
         cntit="衰变"
     }else if(what=="Show/Hide Map Config"){
         cntit="显示/隐藏地图设置"
+    }else if(what=="Electricity"){
+        cntit="电流"
     }else{
         cntit=tit
     }

@@ -1315,7 +1315,7 @@ var toReturn = {
 			icon: "*tree3"
 		},
 		patience: {
-			description: "预计BUFF现在可以达到45层。",
+			description: "预期现在可以达到45层。",
 			name: "Patience",
 			tier: 7,
 			purchased: false,
@@ -3320,7 +3320,7 @@ var toReturn = {
 		w56: "远处传来一阵响亮的隆隆声，然后一只脆皮伸出双手向你跑来，看起来他有些害怕。他可能只是想要一些武器和护甲！你递给他一些装备，他兴奋地接受了。",
 		w58: "一场巨大的风暴已经形成，白昼已经成为一种你几乎忘记的奢侈品。你的脆皮似乎想回家，但你很确定你们应该继续向前走，所以你们继续前行。你已经离异常现象非常近了。",
 		w59: "它……就在那里。那个异常现象，就在这个区域的尽头。你能看得见它，但是你不知道你正在看的这个东西究竟是什么。这个……东西……是从哪来的？！这个东西太无序了。",
-		w60: "地面瞬间裂开，大量的绿色气体从地球核心向大气中逸出。这个星球给人的感觉不同了。一切事物给人的感觉都不同了。这个宇宙正在变得不稳定，这个星球已经破碎。你都做了些什么？",
+		w60: "地面瞬间裂开，大量的绿色气体从星球核心向大气中逸出。这个星球给人的感觉不同了。一切事物给人的感觉都不同了。这个宇宙正在变得不稳定，这个星球已经破碎。你都做了些什么？",
 		w61: "除了那些死去的脆皮以外，情况还没有变得那么差。",
 		get w65 () {
 			if (game.global.challengeActive == "Trimp" && game.jobs.Amalgamator.owned > 0) return toZalgo("The Universe seems even more upset than you expected here, but your Amalgamator" + ((game.jobs.Amalgamator.owned == 1) ? " doesn't" : "s don't") + " really seem to care. You walk towards " + ((game.jobs.Amalgamator.owned == 1) ? "it" : "one") + " to get a better look, but find yourself further away than you were.", 2, 2);
