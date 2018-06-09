@@ -7135,7 +7135,7 @@ function mapsClicked(confirmed) {
 		message("待你的士兵牺牲后继续前往地图。", "Notices");
 
 		document.getElementById("mapsBtn").className = "btn btn-warning fightBtn shrinkBtnText";
-		document.getElementById("mapsBtnText").innerHTML = "Abandon Soldiers";
+		document.getElementById("mapsBtnText").innerHTML = "抛弃士兵";
 	}
     if (game.global.preMapsActive) {
         mapsSwitch();

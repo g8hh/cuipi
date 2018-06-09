@@ -3330,18 +3330,18 @@ var toReturn = {
 		w70: "无序似乎没有放慢速度。你明白你需要制定一个计划，但你不知道该计划什么。",
 		w72: "你相对轻松地击碎并通过了又一个无序，但却感到有些不对劲。一股酸味扑鼻而来，让你感到恶行。你转头去寻找气味的来源。噢，等等，那只是一只脆皮而已。",
 		w80: "你上一次制作地图是什么时候了？你有种感觉，你可能应该做张地图了。",
-		w82: "Whew, that was an exhilarating kill. You decide to reward your Trimps with some Improbability stew. It's pretty tasty.",
-		w83: "That stew was probably a bad idea. Anyone else feeling sick?",
-		w85: "An ancient and fuzzy memory just crept back into your head. You're not quite sure where it came from, but you know the memory is yours. You remember being on a ship, and seeing this planet from orbit. There was someone with you!",
-		w87: "Bits and pieces of memories continue trickling back in as you continue to put distance between yourself and the source of Anger. You can almost see in your mind who you came here with. Where could they be...",
-		w90: "You decide to ask your scientists to come up with an extravagant machine that can scan your brain for old memories to see if there's anything helpful up there. They seem excited about a new project and quickly get to work.",
-		w92: "You hear a huge explosion from the science lab and realize that the brain scan machine will probably never be finished.",
+		w82: "哇哦，刚才那场战斗真令人振奋。你决定赏给你的脆皮一些炖无序。那真的很好吃。",
+		w83: "现在觉得吃炖无序这个想法可能并不好。有人感觉难受吗？",
+		w85: "一段古老而模糊的记忆悄悄地回到你的脑海。你不确定这段记忆是从哪里来的，但你知道这是你的记忆。你记得你在一艘太空船上，从轨道上看着这个行星。当时有个人在你身边！",
+		w87: "当你继续和愤怒的源头保持距离的时候，零碎的记忆碎片仍在不断流回。你几乎能在脑海中看到是谁和你一起来到了这里。他们会在哪里……",
+		w90: "你决定去让你的科学家发明一种花费巨大的机器来扫描你的大脑，来找回过去的记忆，看看其中是否有有用的信息。他们似乎对这个新项目很兴奋，很快就开始工作了。",
+		w92: "你听到科学实验室中传来一阵巨大的爆炸声，你明白大脑扫描仪可能永远也无法完成了。",
 		get w95 () {
 			if (game.global.challengeActive == "Trimp" && game.jobs.Amalgamator.owned > 0) return toZalgo(((game.jobs.Amalgamator.owned == 1) ? "The Amalgamator is" : "The Amalgamators are") + " starting to rapidly switch between different colors. It would be slightly entertaining if the fabric of existence wasn't falling apart around " + ((game.jobs.Amalgamator.owned == 1) ? "it." : "them."), 3, 2);
-			return "Need some motivation? You can do it! Maybe.";
+			return "需要一些动力吗?你可以做到的!或许吧。";
 		},
-		w100: "You stop dead in your tracks. You remember who you came here with, and you remember that you are not happy with Captain Druopitee for bringing you here. You know he landed with you. You know the ship is still here. He's here.",
-		w105: "You call a meeting with all of your Trimps to explain the situation. After giving an extremely long, epic, and motivational speech but hearing no reaction from the crowd, you remember that your Trimps cannot understand you. Will you ever learn?",
+		w100: "你在前行中突然停了下来。你想起来了是谁和你一起来到这里，你也记起来了你当时并不喜欢德鲁普提船长把你带到这里。你知道他和你一起降落了。你明白太空船仍在这里。他就在这里。",
+		w105: "你叫来你所有的脆皮开了一次会，解释了一下现在的状况。在做了一段非常长的、史诗般的、振奋人心的演讲后，却没有听到任何脆皮们的回应，你明白你的脆皮们是无法理解你的。你有记得这个吗？",
 		w106: "How long have you been trapped on this planet? Months? Decades? Travelling through time sure screws up your chronological perception.",
 		w109: "Though you have no idea which direction your home planet is, you still believe the ship's GPS could get you home. Maybe Druopitee has the keys. You really want to find him.",
 		w115: "You just remembered what a taco was. You could really use a taco right now.",
