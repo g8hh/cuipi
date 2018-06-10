@@ -4736,6 +4736,12 @@ function cntitle(tit){
         cntit="力量 II"
     }else if(what=="Toughness II"){
         cntit="坚韧 II"
+    }else if(what=="Capable"){
+        cntit="能力"
+    }else if(what=="Cunning"){
+        cntit="狡猾"
+    }else if(what=="Curious"){
+        cntit="好奇"
     }else if(what=="Overkill"){
         cntit="超杀"
     }else if(what=="Resourceful"){

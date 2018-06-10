@@ -1395,7 +1395,7 @@ var toReturn = {
 			locked: true,
 			priceBase: 100000,
 			heliumSpent: 0,
-			tooltip: "Apply your skills at salvaging things from the Spire to increase all loot gained by 0.25% per level. The price for this perk increases additively, and each level will cost exactly 10000 more than the previous level.",
+			tooltip: "运用你的技能从尖塔打捞物品，每级增加0.25%的战利品。这种额外福利的价格会增加，每一级的价格将比上一等级高出10000氦。",
 			additive: true,
 			additiveInc: 10000,
 			modifier: 0.0025
@@ -1405,7 +1405,7 @@ var toReturn = {
 			locked: true,
 			priceBase: 100000,
 			heliumSpent: 0,
-			tooltip: "You've learned to look more objectively at the no longer mysterious building designs, allowing you to increase housing space by 0.25% per level. This multiplies on top of Carpentry I, but the bonus stacks additively. The price for this perk also increases additively, and each level will cost exactly 10000 more than the previous level.",
+			tooltip: "你已经学会了更加客观地看待不再神秘的建筑设计，每级增加0.25%的居住空间。这将在木工I的基础上面成倍增加，这种额外福利的价格会增加，每一级的价格将比上一等级高出10000氦。",
 			additive: true,
 			additiveInc: 10000,
 			modifier: 0.0025
@@ -1415,7 +1415,7 @@ var toReturn = {
 			locked: true,
 			priceBase: 50000,
 			heliumSpent: 0,
-			tooltip: "Corruption and impending doom are great motivators to work a bit harder! Increases Trimp gather speed by 1% per level. The price for this perk increases additively, and each level will cost exactly 1000 more than the previous level.",
+			tooltip: "腐败和即将到来的厄运是让你更加努力工作的巨大动力!每升一级增加脆皮的收集速度1%。这种额外福利的价格会增加，每一级的价格将比上一等级高出1000氦。",
 			additive: true,
 			additiveInc: 1000,
 			modifier: 0.01
@@ -1425,7 +1425,7 @@ var toReturn = {
 			locked: true,
 			priceBase: 20000,
 			heliumSpent: 0,
-			tooltip: "You find strength in the desire to some day return home. Anger your Trimps by making them listen to you talk about it all the time, increasing their damage by 1% per level. The price for this perk increases additively, and each level will cost exactly 500 more than the previous level.",
+			tooltip: "你在渴望回家的欲望中找到了力量。让你的脆皮们一直听你谈论它，激怒他们，使他们的伤害每等级增加1%。这种额外福利的价格会增加，每一级的价格将比上一等级高出500氦。",
 			additive: true,
 			additiveInc: 500,
 			modifier: 0.01
@@ -1435,7 +1435,7 @@ var toReturn = {
 			locked: true,
 			priceBase: 20000,
 			heliumSpent: 0,
-			tooltip: "当你记得你从哪里来的时候，你会感到更加踏实。将你的韧性扩展给你的脆皮，每级增加1%的生命。这种额外福利的价格会增加，而且每一层的价格将比之前的水平高出整整500美元。",
+			tooltip: "当你记得你从哪里来的时候，你会感到更加踏实。将你的韧性扩展给你的脆皮，每级增加1%的生命。这种额外福利的价格会增加，每一级的价格将比上一等级高出500氦。",
 			additive: true,
 			additiveInc: 500,
 			modifier: 0.01
@@ -1445,7 +1445,7 @@ var toReturn = {
 			locked: true,
 			priceBase: 1e8,
 			heliumSpent: 0,
-			tooltip: "You can sense great power within Fluffy, but he'll need some training. Each level of Capable allows Fluffy to gain 1 level of Experience. Respeccing to remove Capable will temporarily remove any bonuses associated with Fluffy's level and Experience, but all Exp will be saved until you add points back. Each level of Capable is 10x more expensive than the last, and buying the first level will allow Fluffy to take Portals with you.",
+			tooltip: "你可以在Fluffy中感受到巨大的力量，但他需要一些训练。 能力的每个级别都允许Fluffy获得1级的经验。 降低能力等级将暂时移除Fluffy的等级和经验以及相关的任何奖励，但所有的经验都将被保存，直到重新提升能力等级为止。 能力的每个级别比上一级贵10倍，购买第一级将允许Fluffy陪你一起传过传送门。",
 			max: 10,
 			specialGrowth: 10,
 			onChange: function(){
@@ -1459,7 +1459,7 @@ var toReturn = {
 			priceBase: 1e11,
 			heliumSpent: 0,
 			get tooltip(){
-				return "Fluffy demands more helium! Each level of Cunning will increase the final amount of Experience Fluffy gains from each zone by " + Math.round(this.modifier * 100) + "% (additive)."
+				return "蓬松需要更多的氦气！ 每个级别的狡猾将增加 " + Math.round(this.modifier * 100) + "%经验(线性)。"
 			}
 		},
 		Curious: {
@@ -1469,7 +1469,7 @@ var toReturn = {
 			priceBase: 1e14,
 			heliumSpent: 0,
 			get tooltip() {
-				return "Fluffy is coming along, but he's coming along slowly. Each point of Curious will speed up Fluffy's progression by adding " + this.modifier + " Exp to the base amount he gains per zone clear."
+				return "Fluffy 进步中, 但他进步的有点慢。 每一级的好奇都将加速Fluffy的发展。每级增加" + this.modifier + " 点每个区域的基础经验。"
 			}
 		},
 		Overkill: {

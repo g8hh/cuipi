@@ -13417,6 +13417,12 @@ function cntequan(what){
         cntequan="力量 II"
     }else if(temp=="Toughness II"){
         cntequan="坚韧 II"
+    }else if(temp=="Capable"){
+        cntequan="能力"
+    }else if(temp=="Cunning"){
+        cntequan="狡猾"
+    }else if(temp=="Curious"){
+        cntequan="好奇"
     }else if(temp=="Overkill"){
         cntequan="超杀"
     }else if(temp=="Resourceful"){
