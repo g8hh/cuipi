@@ -12396,8 +12396,8 @@ var Fluffy = {
 			if (savedLevel > fluffyInfo[0]) tooltipText += "<span class='red'>- Fluffy的等级和伤害加成现在被降低了. Fluffy 会恢复等级 " + savedLevel + " 当 points are placed back in Capable.</span>";
 			else if (!Fluffy.canGainExp()) tooltipText += "<span class='red'>- Fluffy needs " + ((game.portal.Capable.level == 0) ? " at least one point of Capable to gain any Exp" + ((game.portal.Capable.locked) ? ". Complete Spire II to unlock Capable!" : "") : " more points in Capable to gain Exp above level " + game.portal.Capable.level + ".") + "</span>";
 			else {
-				if (game.global.world < 301) tooltipText += "<span class='red'>- Fluffy cannot gain any Experience from zones lower than 301</span>";
-				else tooltipText += "- Fluffy is earning " + prettify(Fluffy.getExpReward()) + " Exp per zone. " + Fluffy.getFluff();
+				if (game.global.world < 301) tooltipText += "<span class='red'>- Fluffy 不能在区域301之前获得任何经验。</span>";
+				else tooltipText += "- Fluffy 在完成本区域后会获得 " + prettify(Fluffy.getExpReward()) + " 点经验。 " + Fluffy.getFluff();
 			}
 			
 		}
@@ -12409,7 +12409,7 @@ var Fluffy = {
 		if (Fluffy.currentLevel == 10 && game.global.fluffyPrestige < Fluffy.prestigeRewards.length)
 			tooltipText += "<span class='fluffyEvolveText'>Fluffy 准备好进化了! 这将会重置它的伤害加成和所有特殊能力到等级0， 但是，他将会比以往任何时候都更加强大。你可以在任何时候取消这个进化，回到第10级。.<br/><span class='btn btn-md btn-success' onclick='Fluffy.prestige(); Fluffy.refreshTooltip(true);'>Evolve!</span></span><br/>"
 		if (Fluffy.canGainExp() && game.global.world >= 301) {
-			tooltipText += "- Fluffy 在某个区域获得的经验遵从以下公式:: ";
+			tooltipText += "- Fluffy 在任一区域获得的经验遵从以下公式:: ";
 			var fluffFormula = "<br/><span style='padding-left: 5em'>";
 			if (!game.portal.Curious.locked) fluffFormula += "(" + Fluffy.baseExp + " + (Curious * " + game.portal.Curious.modifier + ")) * (" + Fluffy.expGrowth + "^(Zone - 300)) * (1 + (Cunning * " + game.portal.Cunning.modifier + "))";
 			else if (!game.portal.Cunning.locked) fluffFormula += Fluffy.baseExp + " * (" + Fluffy.expGrowth + "^(Zone - 300)) * (1 + (Cunning * " + game.portal.Cunning.modifier + "))";
@@ -12424,7 +12424,7 @@ var Fluffy = {
 			tooltipText += fluffFormula;
 		}
 		if (game.global.fluffyPrestige > 0 && Fluffy.currentLevel < 10)
-			tooltipText += "<br/><span class='btn btn-sm btn-warning' onmousedown='cancelTooltip(); tooltip(\"confirm\", null, \"update\", \"You are about to abort Fluffy&#39;s Evolution. This will return you to level 10 on your last Evolution, but you will permanently lose all Experience earned towards the current Evolution. Are you sure you want to abort?\", \"Fluffy.abortPrestige()\", \"Abort Evolution\")'>Abort Prestige</span>"
+			tooltipText += "<br/><span class='btn btn-sm btn-warning' onmousedown='cancelTooltip(); tooltip(\"confirm\", null, \"update\", \"你将中止Fluffy的进化。这将使你的Fluffy回到10级，但是你将永远失去本次进化中获得的所有经验。你确定要放弃吗？\", \"Fluffy.abortPrestige()\", \"Abort Evolution\")'>Abort Prestige</span>"
 		var xpBreakdownFill = (document.getElementById('fluffyExpBreakdown') ? document.getElementById('fluffyExpBreakdown').innerHTML : "");
 		tooltipText += "<div id='fluffyExpBreakdown'>" + xpBreakdownFill + "</div>";
 		tooltipText += "<table id='fluffyLevelBreakdown'><tbody><tr style='font-weight: bold; font-size: 1.25em; text-align: center;'><td style='padding: 0 1em'>Level</td><td>Ability</td><td style='padding: 0 1em'>+Damage</td></tr>";
@@ -12487,10 +12487,10 @@ var Fluffy = {
 			description: "所有日常挑战的氦气系数增加100%。"
 		},
 		critChance: {
-			description: "Gives your Trimps an additional 50% crit chance."
+			description: "给予你的脆皮额外50%暴击几率。Gives your Trimps an additional 50% crit chance."
 		},
 		megaCrit: {
-			description: "Adds +2x to your Mega Crit multiplier, increasing Orange crits to 7x and Red crits to 49x."
+			description: "增加2倍的Mega暴击倍数，增加橙色暴击至7倍，红色暴击至49倍。"
 		}
 	}
 }
@@ -13196,7 +13196,7 @@ function cnstat(stat) {
     } else if (stat == "Wormholed Helium") {
         cnstat = "虫洞氦气"
     } else if (stat == "He/Hour this Run") {
-        cnstat = "氦/小时运行了"
+        cnstat = "本次游戏氦/小时"
     } else if (stat == "Best He/Hr this Run") {
         cnstat = "本轮游戏中最高的氦/小时"
     } else if (stat == "Highest Void Map Clear") {
@@ -13208,9 +13208,9 @@ function cnstat(stat) {
     } else if (stat == "Daily Challenge Helium") {
         cnstat = "每日的挑战氦"
     } else if (stat == "World Cells Overkilled") {
-        cnstat = "世界单元格过于复杂"
+        cnstat = "超杀世界单元格敌人数量"
     } else if (stat == "Trimps from Generator") {
-        cnstat = "发电机生产的脆皮"
+        cnstat = "维度发生器生产的脆皮"
     } else if (stat == "Nurseries Closed by Magma") {
         cnstat = "由岩浆封闭的幼儿园"
     } else if (stat == "Zones Liquified") {

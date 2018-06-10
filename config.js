@@ -2476,7 +2476,7 @@ var toReturn = {
 			},
 			description: function(){
 				var burnRate = getFuelBurnRate();
-				return "Your Generator currently grants " + prettify(scaleNumberForBonusHousing(this.tickAtFuel(burnRate))) + " Max Trimps per tick at " + burnRate + " fuel (the amount of fuel needed to tick). Purchase this to increase the Generator's efficiency by 10% (additive)";
+				return "你的维度发生器现在会每个周期产生 " + prettify(scaleNumberForBonusHousing(this.tickAtFuel(burnRate))) + " 最大脆皮数并消耗 " + burnRate + " 燃料 (燃料消耗量)。 购买这个升级会提高维度发生器10%的效率（线性）";
 			}
 		},
 		Capacity: {
@@ -2492,7 +2492,7 @@ var toReturn = {
 				return this.baseIncrease + this.modifier;
 			},
 			description: function(){
-				return "Your Generator can currently store " + prettify(this.modifier) + " fuel. Purchase this to increase the fuel capacity by " + prettify(this.baseIncrease) + ". The more fuel you have in storage, the more housing you'll create per tick!";
+				return "你的维度发生器现在可以储存最多 " + prettify(this.modifier) + "点燃料。每次升级会增加 " + prettify(this.baseIncrease) + "点燃料最大库存. 你储存的燃料越多，你一次生产的房子越多！";
 			}
 		},
 		Supply: {
@@ -2510,7 +2510,7 @@ var toReturn = {
 			description: function(){
 				var currentAmt = this.modifier;
 				var maxZone = ((currentAmt - 0.2) / 0.01) + mutations.Magma.start();
-				return "The Magma at Zone " + mutations.Magma.start() + " contains 0.2 fuel per cell, and each zone after that can drop 0.01 more. Your generator can currently only harvest a max of " + prettify(this.modifier) + " per cell, meaning some fuel after Z" + prettify(maxZone) + " will be unharvestable. Purchase this upgrade to increase the amount you can harvest per cell by <b>0.02</b>, taking advantage of <b>2 extra zones</b>.";
+				return "从区域 " + mutations.Magma.start() + "开始，每个岩浆单元格掉落0.2燃料, 之后每个区域可以多掉落0.01燃料. 您的维度发生器目前每个单元格最多能获得" + prettify(this.modifier) + "点燃料, 这意味着在区域 Z" + prettify(maxZone) + "后每单元格掉落不再增加。 购买这个升级会增加每个单元格的燃料掉落上限<b>0.02</b>，达到最大掉落的区域+<b>2</b>。";
 			}
 		},
 		Overclocker: {
@@ -2527,37 +2527,37 @@ var toReturn = {
 				return this.modifier * (1 - this.baseIncrease);
 			},
 			description: function () {
-				var requires = "<p class='" + ((game.permanentGeneratorUpgrades.Hybridization.owned && game.permanentGeneratorUpgrades.Storage.owned) ? "green" : "red") + "'>Requires Hybridization and Storage.</p>";
-				var text = requires + "<p>The first level of this upgrade will cause the Dimensional Generator to overclock instead of wasting fuel whenever you find more fuel than you can store. Overclocking will cause an instant Generator tick at a base of 50% effectiveness.</p><p>Every upgrade purchased after the first will reduce the Overclocking penalty by 1%, compounding.</p>";
+				var requires = "<p class='" + ((game.permanentGeneratorUpgrades.Hybridization.owned && game.permanentGeneratorUpgrades.Storage.owned) ? "green" : "red") + "'>需要先解锁混合与存储。</p>";
+				var text = requires + "<p>超频的第一次升级会解锁解锁维度发生器的超频功能，从而减少燃料浪费，只要你找到的燃料多于可存储的燃料。超频会消耗超出部分的燃料，并产生50%的正常产量的脆皮空间。</p><p>每次升级会降低1％的超频产量惩罚（指数）。</p>";
 				if (this.upgrades > 0)
-					text += "<p>Your current Overclocker effectiveness is " + ((1 - this.modifier) * 100).toFixed(2) + "%. Next level, your Overclocker effectiveness will be " + ((1 - (this.modifier * (1 - this.baseIncrease))) * 100).toFixed(2) + "%.</p>";
+					text += "<p>你现在的超频效率是 " + ((1 - this.modifier) * 100).toFixed(2) + "%。下一等级, 你的超频效率会提高到 " + ((1 - (this.modifier * (1 - this.baseIncrease))) * 100).toFixed(2) + "%。</p>";
 				return text;
 			}
 		}
 	},
 	permanentGeneratorUpgrades: {
 		Hybridization: {
-			description: "Unlock the ability to switch your Dimensional Generator to Hybrid mode. Hybrid mode will automatically switch to Gain Fuel when fuel is below max, and Gain Mi when fuel is full.",
+			description: "这个升级解锁将您的维度发生器的混合模式。当燃料低于最大值时，混合模式将自动切换到获取燃料模式，当燃油充满时自动切换到获取Mi模式。",
 			cost: 300,
 			owned: false
 		},
 		Storage: {
-			description: "Unlock extra fuel storage. This storage will always be equal to your normal fuel cap and will only store extra fuel above your normal cap. Fuel in this extra storage does not increase generator Trimps/tick, but acts as nice padding to help prevent wasted fuel. Hybrid mode will attempt to fill your extra storage halfway.",
+			description: "解锁额外的燃料库存。 这个存储的大小等于你的普通燃料最大库存，原始最大库存存满后才会存入这个额外库存。这种额外储存的燃油不会增加维度发生器的每周期的脆皮上限产量，但是可以起到很好的填充作用，有效防止燃料的浪费。混合模式将尝试填充一半的额外存储空间。",
 			cost: 600,
 			owned: false
 		},
 		Shielding: {
-			description: "Reduce the amount of Magmite that decays after each portal by 10% (additive)",
+			description: "减少每次通过传送门以后的 Magmite 损失10%（从30%降低到20%）",
 			cost: 1050,
 			owned: false
 		},
 		Slowburn: {
-			description: "将每轮的燃料消耗率降低0.1，从0.5降低到0.4",
+			description: "将每轮的燃料消耗降低0.1（从0.5降低到0.4）",
 			cost: 1875,
 			owned: false
 		},
 		Supervision: {
-			description: "Gain the ability to pause the Dimensional Generator by clicking the clock, <b>AND</b> add a Slider to your Generator window, allowing you to lower your maximum fuel capacity and gain greater control over Overclocker. Lowering your capacity below your stored amount of fuel will not waste any fuel, but the first time Overclocker is triggered, all extra fuel will be consumed.",
+			description: "获得暂停维度发生器的能力，<b> 并且 </b>添加一个滑块到你的发生器窗口，让你可以降低最大燃料容量并获得对超频更好的控制。 将你的容量降低到你储存的燃料量以下不会浪费任何燃料，但是当超频第一次被触发时，所有超过上限的燃料将被消耗。",
 			cost: 2000,
 			owned: false,
 			onPurchase: function() {
@@ -2568,7 +2568,7 @@ var toReturn = {
 			}
 		},
 		Simulacrum: {
-			description: "All new generated dimensions now come with copies of your Trimps inside them. Gone are the days of ramping up breeding to fill your dimensions with Trimps!",
+			description: "现在，所有新生成的维度（最大脆皮数量）都会附带相同数量的脆皮。 用脆皮来增加繁殖时间已经过去了！",
 			cost: 2500,
 			owned: false
 		}
