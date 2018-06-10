@@ -218,7 +218,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 	}
 	if (what == "Decay"){
 		var decayedAmt = ((1 - Math.pow(0.995, game.challenges.Decay.stacks)) * 100).toFixed(2);
-		tooltipText = "Things are quickly becoming tougher. Gathering, looting, and Trimp attack are reduced by " + decayedAmt + "%.";
+		tooltipText = "事情正在迅速变得困难起来。收集速度，战利品以及脆皮攻击已经减少了" + decayedAmt + "%.";
 		costText = "";
 	}
 	if (what == "Heirloom"){
@@ -774,8 +774,8 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		noExtraCheck = true;
 	}
 	if (what == "PlayFab Conflict"){
-		tooltipText = "It looks like your save stored at PlayFab is further along than the save on your computer.<br/><b>Your save on PlayFab has earned " + prettify(textString) + " total Helium, defeated Zone " + attachFunction + ", and cleared " + prettify(numCheck) + " total Zones. The save on your computer only has " + prettify(game.global.totalHeliumEarned) + " total Helium, has defeated Zone " + game.global.highestLevelCleared + ", and cleared " + prettify(game.stats.zonesCleared.value + game.stats.zonesCleared.valueTotal) + " total Zones.</b><br/>Would you like to Download your save from PlayFab, Overwrite your online save with this one, or Cancel and do nothing?";
-		costText = "<span class='btn btn-primary' onclick='playFabFinishLogin(true)'>Download From PlayFab</span><span class='btn btn-warning' onclick='playFabFinishLogin(false)'>Overwrite PlayFab Save</span><span class='btn btn-danger' onclick='cancelPlayFab();'>取消</span>";
+		tooltipText = "看起来你在PlayFab上保存的存档比你电脑上的存档进度更远一些。<br/><b>你在PlayFab上的存档总共获得了" + prettify(textString) + "氦,打通区域" + attachFunction + ",并且总共清除了" + prettify(numCheck) + "区域。在你电脑上的存档总共只有" + prettify(game.global.totalHeliumEarned) + "氦，打通区域" + game.global.highestLevelCleared + ",并且总共清除" + prettify(game.stats.zonesCleared.value + game.stats.zonesCleared.valueTotal) + "区域。</b><br/>你想要从PlayFab上下载存档,还是要用你电脑的存档覆盖网络上的存档,或者是取消，什么都不做?";
+		costText = "<span class='btn btn-primary' onclick='playFabFinishLogin(true)'>从PlayFab下载存档</span><span class='btn btn-warning' onclick='playFabFinishLogin(false)'>用电脑存档覆盖PlayFab的存档</span><span class='btn btn-danger' onclick='cancelPlayFab();'>取消</span>";
 		game.global.lockTooltip = true;
 		elem.style.left = "33.75%";
 		elem.style.top = "25%";
@@ -789,7 +789,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 	}
 	if (what == "Maps"){
 		if (!game.global.preMapsActive)
-		tooltipText = "前往地图室。 地图充满了好东西，对于每个最大级别的地图，每打通一遍，您将获得该区域的20％叠加损伤加成（叠加多达10次）。(热键: M)";
+		tooltipText = "前往地图室，地图内充满了好东西。每打通一遍你能制作的最大级别的地图，你在打该区域时，便有20%的伤害加成。（最多叠加10次）。(热键: M)";
 		else
 		tooltipText = "回到世界地图 (热键: M)";
 		costText = "";
@@ -1297,7 +1297,7 @@ function getPsString(what, rawNum) {
 		textString += "<tr><td class='bdTitle'>明智 (衰变)</td><td class='bdPercent'>x 10</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 		var stackStr = Math.pow(0.995, game.challenges.Decay.stacks);
 		currentCalc *= stackStr;
-		textString += "<tr style='color: red'><td class='bdTitle'>Decay</td><td class='bdPercent'>x " + stackStr.toFixed(3) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+		textString += "<tr style='color: red'><td class='bdTitle'>衰变</td><td class='bdPercent'>x " + stackStr.toFixed(3) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 	}
 	if (game.global.challengeActive == "Watch"){
 		currentCalc /= 2;
@@ -1443,7 +1443,7 @@ function getTrimpPs() {
 	//Add quick trimps
 	if (game.singleRunBonuses.quickTrimps.owned){
 		currentCalc *= 2;
-		textString += "<tr><td class='bdTitle'>Quick Trimps</td><td class='bdPercent'>+ 100%</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+		textString += "<tr><td class='bdTitle'>快速脆皮</td><td class='bdPercent'>+ 100%</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 	}
 	if (game.global.challengeActive == "Daily"){
 		var mult = 0;
@@ -1588,7 +1588,7 @@ function getBattleStatBd(what) {
 		var resStrength = Math.pow(game.portal.Resilience.modifier + 1, game.portal.Resilience.level);
 		currentCalc *= resStrength;
 		resStrength = prettify((resStrength - 1) * 100) + "%";
-		textString += "<tr><td class='bdTitle'>Resilience</td><td>" + (game.portal.Resilience.modifier * 100) + "%</td><td>" + game.portal.Resilience.level + "</td><td>+ " + resStrength + "</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td></tr>";
+		textString += "<tr><td class='bdTitle'>弹力</td><td>" + (game.portal.Resilience.modifier * 100) + "%</td><td>" + game.portal.Resilience.level + "</td><td>+ " + resStrength + "</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td></tr>";
 	}
 	//Add Geneticist
 	var geneticist = game.jobs.Geneticist;
@@ -1605,7 +1605,7 @@ function getBattleStatBd(what) {
 		var antiStrength = ((anticipation.level * anticipation.modifier * game.global.antiStacks) + 1);
 		currentCalc *= antiStrength;
 		antiStrength = prettify((antiStrength - 1) * 100) + "%";
-		textString += "<tr><td class='bdTitle'>Anticipation</td><td>2% (X" + game.global.antiStacks + ")</td><td>" + prettify(anticipation.level) + "</td><td>+ " + antiStrength + "</td><td>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>";
+		textString += "<tr><td class='bdTitle'>预期</td><td>2% (X" + game.global.antiStacks + ")</td><td>" + prettify(anticipation.level) + "</td><td>+ " + antiStrength + "</td><td>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>";
 
 	}
 	//Add formations
@@ -1663,13 +1663,13 @@ function getBattleStatBd(what) {
 		textString += "<tr><td class='bdTitle'>明智 (衰变)</td><td></td><td></td><td class='bdPercent'>x 5</td><td class='bdNumber'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>";
 		var stackStr = Math.pow(0.995, game.challenges.Decay.stacks);
 		currentCalc *= stackStr;
-		textString += "<tr style='color: red'><td class='bdTitle'>Decay</td><td>x 0.995</td><td>" + game.challenges.Decay.stacks + "</td><td class='bdPercent'>x " + stackStr.toFixed(3) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>";
+		textString += "<tr style='color: red'><td class='bdTitle'>衰变</td><td>x 0.995</td><td>" + game.challenges.Decay.stacks + "</td><td class='bdPercent'>x " + stackStr.toFixed(3) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>";
 	}
 	if ((game.global.challengeActive == "Electricity" || game.global.challengeActive == "Mapocalypse") && what == "attack") {
 		var mult = (1 - (game.challenges.Electricity.stacks * 0.1));
 		currentCalc *= mult;
 
-		textString += "<tr style='color: red'><td class='bdTitle'>" + game.global.challengeActive + "</td><td>-10%</td><td>" + game.challenges.Electricity.stacks.toString() + "</td><td class='bdPercent'>x " + mult.toFixed(1) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>";
+		textString += "<tr style='color: red'><td class='bdTitle'>" + cntitle(game.global.challengeActive) + "</td><td>-10%</td><td>" + game.challenges.Electricity.stacks.toString() + "</td><td class='bdPercent'>x " + mult.toFixed(1) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>";
 	}
 	if (game.global.challengeActive == "Daily"){
 		var mult = 0;
@@ -1774,7 +1774,7 @@ function getBattleStatBd(what) {
 	}
 	if (what == "attack" && game.singleRunBonuses.sharpTrimps.owned){
 		currentCalc *= 1.5;
-		textString += "<tr><td class='bdTitle'>Sharp Trimps</td><td></td><td></td><td>+ 50%</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>"
+		textString += "<tr><td class='bdTitle'>锋利脆皮</td><td></td><td></td><td>+ 50%</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>"
 		
 	}
 	if (what == "attack"){
@@ -1787,7 +1787,7 @@ function getBattleStatBd(what) {
 			//From reduced crit chance daily or maybe other stuff later
 			critMult = 1;
 			critCalc = currentCalc;
-			textString += "<tr class='critRow'><td class='bdTitle'><span style='color: yellow;'>Crit!</span> Chance</td><td>0% (" + (critChance * 100).toFixed(1) + "% Total)</td><td class='bdTitle'><span style='color: yellow;'>Crit!</span> Damage</td><td>+ " + prettify((critMult - 1) * 100) + "%</td><td class='bdNumberSm'>" + prettify(critCalc) + "</td>" + getFluctuation(critCalc, minFluct, maxFluct) + "</tr>";
+			textString += "<tr class='critRow'><td class='bdTitle'><span style='color: yellow;'>暴击!</span> 几率</td><td>0% (" + (critChance * 100).toFixed(1) + "% Total)</td><td class='bdTitle'><span style='color: yellow;'>暴击!</span> 伤害</td><td>+ " + prettify((critMult - 1) * 100) + "%</td><td class='bdNumberSm'>" + prettify(critCalc) + "</td>" + getFluctuation(critCalc, minFluct, maxFluct) + "</tr>";
 			textString += "<tr class='critRow'><td class='bdTitle'><span style='color: cyan;'>Weak!</span> Chance</td><td>" + (Math.abs(critChance) * 100).toFixed(1) + "%</td><td class='bdTitle'><span style='color: cyan;'>Weak!</span> Damage</td><td>x 0.2</td><td class='bdNumberSm'>" + prettify(currentCalc * 0.2) + "</td>" + getFluctuation((currentCalc * 0.2), minFluct, maxFluct) + "</tr>";
 		}
 		else {
@@ -1797,9 +1797,9 @@ function getBattleStatBd(what) {
 				else if (critChance >= 1) thisCritChance = 1 - (critChance % 1);
 				else thisCritChance = critChance;
 				critCalc = currentCalc * critMult;
-				textString += "<tr class='critRow'><td class='bdTitle'><span style='color: yellow;'>Crit!</span> Chance</td><td>" + (thisCritChance * 100).toFixed(1) + "%";
+				textString += "<tr class='critRow'><td class='bdTitle'><span style='color: yellow;'>暴击!</span> 几率</td><td>" + (thisCritChance * 100).toFixed(1) + "%";
 				if (critChance > 1) textString += " (" + (critChance * 100).toFixed(1) + "% Total)";
-				textString += "</td><td class='bdTitle'><span style='color: yellow;'>Crit!</span> Damage</td><td>+ " + prettify((critMult - 1) * 100) + "%</td><td class='bdNumberSm'>" + prettify(critCalc) + "</td>" + getFluctuation(critCalc, minFluct, maxFluct) + "</tr>";
+				textString += "</td><td class='bdTitle'><span style='color: yellow;'>暴击!</span> 伤害</td><td>+ " + prettify((critMult - 1) * 100) + "%</td><td class='bdNumberSm'>" + prettify(critCalc) + "</td>" + getFluctuation(critCalc, minFluct, maxFluct) + "</tr>";
 			}
 			if (critChance > 1){
 				if (critChance >= 2) thisCritChance = 1 - (critChance % 1);
@@ -1807,14 +1807,14 @@ function getBattleStatBd(what) {
 				else thisCritChance = critChance - 1;
 				critMult = getMegaCritDamageMult(2);
 				critCalc = currentCalc * critMult * baseCritMult;
-				textString += "<tr class='critRow'><td class='bdTitle'><span style='color: orange;'>CRIT!</span> Chance</td><td>" + (thisCritChance * 100).toFixed(1) + "%</td><td class='bdTitle'><span style='color: orange;'>CRIT!</span> Damage</td><td><span style='color: yellow;'>Crit!</span> x " + prettify(critMult) + "</td><td class='bdNumberSm'>" + prettify(critCalc) + "</td>" + getFluctuation(critCalc, minFluct, maxFluct) + "</tr>";
+				textString += "<tr class='critRow'><td class='bdTitle'><span style='color: orange;'>暴击!</span> 几率</td><td>" + (thisCritChance * 100).toFixed(1) + "%</td><td class='bdTitle'><span style='color: orange;'>暴击!</span> 伤害</td><td><span style='color: yellow;'>Crit!</span> x " + prettify(critMult) + "</td><td class='bdNumberSm'>" + prettify(critCalc) + "</td>" + getFluctuation(critCalc, minFluct, maxFluct) + "</tr>";
 			}
 			if (critChance > 2){
 				if (critChance >= 3) thisCritChance = 1;
 				else thisCritChance = critChance - 2;
 				critMult = getMegaCritDamageMult(3);
 				critCalc = currentCalc * critMult * baseCritMult;
-				textString += "<tr class='critRow'><td class='bdTitle'><span style='color: red;'>CRIT!!</span> Chance</td><td>" + (thisCritChance * 100).toFixed(1) + "%</td><td class='bdTitle'><span style='color: red;'>CRIT!!</span> Damage</td><td><span style='color: yellow;'>Crit!</span> x " + prettify(critMult) + "</td><td class='bdNumberSm'>" + prettify(critCalc) + "</td>" + getFluctuation(critCalc, minFluct, maxFluct) + "</tr>";
+				textString += "<tr class='critRow'><td class='bdTitle'><span style='color: red;'>暴击!!</span> 几率</td><td>" + (thisCritChance * 100).toFixed(1) + "%</td><td class='bdTitle'><span style='color: red;'>暴击!!</span> 伤害</td><td><span style='color: yellow;'>Crit!</span> x " + prettify(critMult) + "</td><td class='bdNumberSm'>" + prettify(critCalc) + "</td>" + getFluctuation(critCalc, minFluct, maxFluct) + "</tr>";
 			}
 		}
 	}
@@ -4797,7 +4797,7 @@ function cntitle(tit){
     }else if(what=="Greatersword"){
         cntit="更大的剑"
     }else if(what=="Bestplate"){
-        cntit="最好的盘子"
+        cntit="更好的胸甲"
     }else if(what=="Speedexplorer"){
         cntit="探险家加速"
     }else if(what=="Gigastation"){
@@ -4840,8 +4840,12 @@ function cntitle(tit){
         cntit="自动陷阱"
     }else if(what=="Blockmaster"){
         cntit="防御大师"
+    }else if(what=="Decay"){
+        cntit="衰变"
     }else if(what=="Show/Hide Map Config"){
         cntit="显示/隐藏地图设置"
+    }else if(what=="Electricity"){
+        cntit="电流"
     }else{
         cntit=tit
     }

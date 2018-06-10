@@ -1295,11 +1295,11 @@ function getSpecialSquaredRewards(challenge){
 		var reward = (challenge.replaceSquareReward) ? challenge.replaceSquareReward : squaredConfig.rewardEach;
 		var freq = (challenge.replaceSquareFreq) ? challenge.replaceSquareFreq : squaredConfig.rewardFreq;
 		var rewardIncrease = (challenge.replaceSquareGrowth) ? challenge.replaceSquareGrowth : squaredConfig.rewardGrowth;
-		description += "<span class='colorSquared'>This challenge issues rewards differently than most other Challenge<sup>2</sup>s.";
-		description += ((challenge.replaceSquareReward) ? "<b>" : "")  + " You will gain " + reward + "% attack and health, and " + prettify(reward / 10) + "% Helium" + ((challenge.replaceSquareReward) ? "</b>" : "");
-		description += ((challenge.replaceSquareFreq) ? "<b>" : "") + " for every " + freq + " zone" + needAnS(freq) + " reached." + ((challenge.replaceSquareFreq) ? "</b>" : "");
-		description += ((challenge.replaceSquareThresh) ? "<b>" : "") + " Every " + threshes + " zone" + needAnS(threshes) + " reached," + ((challenge.replaceSquareThresh) ? "</b>" : "");
-		description += ((challenge.replaceSquareGrowth) ? "<b>" : "") + " this bonus will increase by " + rewardIncrease + "% attack and health, and " + prettify(rewardIncrease / 10) + "% Helium.</span> " + ((challenge.replaceSquareGrowth) ? "</b>" : "");
+		description += "<span class='colorSquared'>本挑战的奖励分配与其他大多数的挑战<sup>2</sup>不同。";
+		description += ((challenge.replaceSquareFreq) ? "<b>" : "") + "每通过" + freq + "区域" + needAnS(freq) + "，" + ((challenge.replaceSquareFreq) ? "</b>" : "");        
+		description += ((challenge.replaceSquareReward) ? "<b>" : "")  + "你将获得" + reward + "%的攻击与生命, 以及" + prettify(reward / 10) + "%的氦获得。" + ((challenge.replaceSquareReward) ? "</b>" : "");
+		description += ((challenge.replaceSquareThresh) ? "<b>" : "") + " 每通过 " + threshes + "区域" + needAnS(threshes) + "，" + ((challenge.replaceSquareThresh) ? "</b>" : "");
+		description += ((challenge.replaceSquareGrowth) ? "<b>" : "") + "每次的奖励都会增加 " + rewardIncrease + "% 的攻击与生命,以及" + prettify(rewardIncrease / 10) + "%的氦获取。</span> " + ((challenge.replaceSquareGrowth) ? "</b>" : "");
 	}
 	return description;
 }
@@ -1316,23 +1316,23 @@ function getSquaredDescriptionInRun(hideDesc){
 	if (!hideDesc){
 		description = challenge.squaredDescription + " " + getSpecialSquaredRewards(challenge);
 	}
-	description += "<b>You are currently at Zone " + game.global.world;
-	var portalText = (game.global.viewingUpgrades) ? "abandon the challenge " : "use the portal ";
+	description += "<b>你现在位于区域" + game.global.world;
+	var portalText = (game.global.viewingUpgrades) ? "放弃挑战" : "使用传送门";
 	var dif = getIndividualSquaredReward(game.global.challengeActive, game.global.world) - getIndividualSquaredReward(game.global.challengeActive);
 	var highest = game.c2[game.global.challengeActive];
 	if (highest > 0){
 		if (dif >= 1){
-			description += ", <span class='greenText'>your previous highest for this challenge was Zone " + highest + ". If you " + portalText + "now, you'll add " + prettify(dif) + "% damage and health to your total Challenge<sup>2</sup> bonus, bringing it to " + prettify(dif + game.global.totalSquaredReward) + "%.</span>";
+			description += ", <span class='greenText'>你在这个挑战中，先前的最高区域为" + highest + "。如果你现在" + portalText + "，你将会增加" + prettify(dif) + "% 伤害和生命到你的总挑战<sup>2</sup> 加成中，你的总伤害和生命加成增长到" + prettify(dif + game.global.totalSquaredReward) + "%。</span>";
 		}
 		else {
-			description += ", <span class='redText'>your best for this challenge is Zone " + highest + ". If you " + portalText + "now, your total Challenge<sup>2</sup> attack and health bonus will stay at " + prettify(game.global.totalSquaredReward) + "%.</span>";
+			description += ", <span class='redText'>你在本挑战的最高区域为" + highest + "。如果你现在" + portalText + "，你的总挑战<sup>2</sup>攻击与生命加成仍然保持在" + prettify(game.global.totalSquaredReward) + "%。</span>";
 		}
 	}
 	else{
 		if (dif <= 0)
-			description += ". <span class='redText'>You'll need to reach at least Zone " + ((challenge.replaceSquareFreq) ? challenge.replaceSquareFreq : squaredConfig.rewardFreq) + " before you'll add anything to your current Challenge<sup>2</sup> attack and health bonus of " + prettify(game.global.totalSquaredReward) + "%.</span>";
+			description += ". <span class='redText'>你至少要到达区域" + ((challenge.replaceSquareFreq) ? challenge.replaceSquareFreq : squaredConfig.rewardFreq) + "才能获取任何挑战<sup>2</sup>加成。现在攻击与生命加成为" + prettify(game.global.totalSquaredReward) + "%。</span>";
 		else
-			description += ". <span class='greenText'>If you " + portalText + "now, you'll add " + prettify(dif) + "% to your Challenge<sup>2</sup> bonus, bringing the total attack and health increase to " + prettify(dif + game.global.totalSquaredReward) + "%.</span>";
+			description += ". <span class='greenText'>如果你现在" + portalText + "，你将会增加" + prettify(dif) + "%伤害和生命到你的总挑战<sup>2</sup>的加成中，你的总伤害和生命加成增长到" + prettify(dif + game.global.totalSquaredReward) + "%。</span>";
 		}
 	description += "</b>";
 	return description;
@@ -1422,8 +1422,8 @@ function getCurrentChallengePane(){
 		description = description.replace('_', getScientistInfo(sciLevel));
 		description = description.replace('*', getScientistInfo(sciLevel, true));
 	}
-	challengeText = "你获得了 ";
-	challengeText += (game.global.challengeActive == "Daily") ? formatDailySeedDate() + " " + game.global.challengeActive + " challenge active. " + description : game.global.challengeActive + " 积极挑战. \"" + description + "\"";
+	challengeText = "你正在进行";
+	challengeText += (game.global.challengeActive == "Daily") ? formatDailySeedDate() + " " + game.global.challengeActive + " challenge active. " + description : cntequan(game.global.challengeActive) + "挑战。 \"" + description + "\"";
 	return challengeText;
 }
 
@@ -4289,7 +4289,7 @@ function addCarried(confirmed){
 	var cost = getNextCarriedCost();
 	if (game.global.nullifium < cost) return;
 	if (!confirmed) {
-		tooltip('confirm', null, 'update', 'You are about to purchase 1 extra slot to carry Heirlooms through the Portal for ' + cost + ' Nullifium. Are you sure?' , 'addCarried(true)', 'Upgrade Carried Slots');
+		tooltip('confirm', null, 'update', '你正要花费' + cost + '虚空物质，来增加一个额外的传家宝携带栏，以携带传家宝通过传送门。你确定吗？' , 'addCarried(true)', '升级携带栏');
 		return;
 	}
 	game.global.nullifium -= cost;
@@ -4348,7 +4348,7 @@ function recycleHeirloom(confirmed){
 	if (game.global.selectedHeirloom[0] == -1 || game.global.selectedHeirloom[1] == "heirloomsCarried") return;
 	var value = Math.floor(getTotalHeirloomRefundValue(heirloom));
 	if (!confirmed) {
-		tooltip('confirm', null, 'update', '你正在回收 ' + heirloom.name + ' 去得到 ' + prettify(value) + ' Nullifium。 你确定吗?' , 'recycleHeirloom(true)', 'Recycle Heirloom');
+		tooltip('confirm', null, 'update', '你正在回收 ' + heirloom.name + ' 以得到 ' + prettify(value) + ' 虚空物质。 你确定吗?' , 'recycleHeirloom(true)', 'Recycle Heirloom');
 		return;
 	}
 	game.global.nullifium += value;
@@ -7132,10 +7132,10 @@ function mapsClicked(confirmed) {
         return;
     }
     if (game.global.fighting && !game.global.preMapsActive) {
-		message("Waiting to travel until your soldiers are finished.", "Notices");
+		message("待你的士兵牺牲后继续前往地图。", "Notices");
 
 		document.getElementById("mapsBtn").className = "btn btn-warning fightBtn shrinkBtnText";
-		document.getElementById("mapsBtnText").innerHTML = "Abandon Soldiers";
+		document.getElementById("mapsBtnText").innerHTML = "抛弃士兵";
 	}
     if (game.global.preMapsActive) {
         mapsSwitch();
@@ -7596,7 +7596,7 @@ function startFight() {
 	if (game.global.challengeActive == "Slow" || ((game.badGuys[cell.name].fast || cell.mutation == "Corruption") && game.global.challengeActive != "Coordinate" && game.global.challengeActive != "Nom"))
 		badName += ' <span class="badge badBadge" onmouseover="tooltip(\'Fast\', \'customText\', event, \'这个坏家伙速度非常快，并且会先攻击你\')" onmouseout="tooltip(\'hide\')"><span class="glyphicon glyphicon-forward"></span></span>';
 	if ((game.global.challengeActive == "Electricity" || game.global.challengeActive == "Mapocalypse")){
-		badName += ' <span class="badge badBadge" onmouseover="tooltip(\'Electric\', \'customText\', event, \'这个坏家伙是电动的，并且会给你的脆皮叠加负面\')" onmouseout="tooltip(\'hide\')"><span class="icomoon icon-power-cord"></span></span>';
+		badName += ' <span class="badge badBadge" onmouseover="tooltip(\'带电\', \'customText\', event, \'这个坏家伙是带电的，并且会给你的脆皮叠加减益效果\')" onmouseout="tooltip(\'hide\')"><span class="icomoon icon-power-cord"></span></span>';
 	}
 	document.getElementById("badGuyName").innerHTML = badName;
 	var corruptionStart = mutations.Corruption.start(true);
@@ -10751,8 +10751,8 @@ function updateElectricityStacks(tipOnly){
 	var elem = document.getElementById("debuffSpan");
 	if (game.challenges.Electricity.stacks > 0){
 		var number = game.challenges.Electricity.stacks * 10;
-		var addText = 'Your Trimps are dealing ' + number + '% less damage and taking ' + number + '% of their total health as damage per attack.';
-		elem.innerHTML = '<span class="badge trimpBadge" onmouseover="tooltip(\'Electrified\', \'customText\', event, \'' + addText + '\'); updateElectricityTip()" onmouseout="tooltip(\'hide\')">' + game.challenges.Electricity.stacks + '<span class="icomoon icon-power"></span></span>';
+		var addText = '脆皮的攻击减少' + number + '%，且每个回合扣除' + number + '%的最大生命值数额的生命';
+		elem.innerHTML = '<span class="badge trimpBadge" onmouseover="tooltip(\'通电\', \'customText\', event, \'' + addText + '\'); updateElectricityTip()" onmouseout="tooltip(\'hide\')">' + game.challenges.Electricity.stacks + '<span class="icomoon icon-power"></span></span>';
 		if (tipOnly){
 			document.getElementById('tipText').innerHTML = addText;
 			return;
@@ -10773,7 +10773,7 @@ function updateAntiStacks(){
 	if (game.global.antiStacks > 0){
 		var number = ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier));
 		number = Math.floor(number * 100);
-		elem.innerHTML = '<span class="badge antiBadge" onmouseover="tooltip(\'Anticipation\', \'customText\', event, \'Your Trimps are dealing ' + number + '% extra damage for taking ' + game.global.antiStacks + ' seconds to populate.\')" onmouseout="tooltip(\'hide\')">' + game.global.antiStacks + '<span class="icomoon icon-target2"></span></span>';
+		elem.innerHTML = '<span class="badge antiBadge" onmouseover="tooltip(\'Anticipation\', \'customText\', event, \'你的脆皮获得了' + number + '% 的额外伤害，因为需要' + game.global.antiStacks + ' 秒来生产部队。\')" onmouseout="tooltip(\'hide\')">' + game.global.antiStacks + '<span class="icomoon icon-target2"></span></span>';
 	}
 	else elem.innerHTML = "";
 }
@@ -10785,7 +10785,7 @@ function updateTitimp(){
 		return;
 	}
 		var number = Math.floor(game.global.titimpLeft);
-		elem.innerHTML = '<span class="badge antiBadge" onmouseover="tooltip(\'Titimp\', \'customText\', event, \'Your Trimps are dealing double damage, thanks to the Titimp!\');" onmouseout="tooltip(\'hide\')">' + number + '<span class="icomoon icon-hammer"></span></span>';
+		elem.innerHTML = '<span class="badge antiBadge" onmouseover="tooltip(\'Titimp\', \'customText\', event, \'多亏了Titimp！你的脆皮攻击翻倍\');" onmouseout="tooltip(\'hide\')">' + number + '<span class="icomoon icon-hammer"></span></span>';
 }
 
 function updateNomStacks(number){
@@ -11034,11 +11034,11 @@ function showBones() {
 		}
 		else document.getElementById("buyHeirloomArea").style.display = "none";
 	}
-	updateImportButton("First, select an Imp", false);
+	updateImportButton("首先，选中一个外来物种", false);
 	var heliumGainedArea = document.getElementById("heliumGainedMisc");
 	var heDescElem = document.getElementById("bonePortalDescription");
-	var heText = "+ " + prettify(boostHe(true)) + " Helium";
-	var heDesc = "Automatically gain Helium";
+	var heText = "+ " + prettify(boostHe(true)) + " 氦";
+	var heDesc = "获取一次氦，";
 	if (game.stats.bestTokens.valueTotal >= 3) {
 		heDesc += (game.stats.bestFluffyExp.valueTotal > 0) ? ", " : " and ";
 		heDesc += "Nature Tokens";
@@ -11049,7 +11049,7 @@ function showBones() {
 		heText += ", " + prettify(game.stats.bestFluffyExp.valueTotal) + " Fluffy Exp";
 	}
 	else document.getElementById('boneBuyRow').style.height = "27vw";
-	heDesc += " equal to the amount you earned on your best run.";
+	heDesc += "其数量与你最好的一轮所获取的数量相同。";
 	if (game.stats.bestFluffyExp.valueTotal > 0){
 		if (Fluffy.getLevel() == 10) {
 			heDesc += "<br/><b>Fluffy is at Level 10 and will not gain Exp!";
@@ -11106,7 +11106,7 @@ function selectImp(name){
 	if (boneTemp.selectedImport) document.getElementById(boneTemp.selectedImport).className = "";
 	document.getElementById(name).className = "tealColor";
 	boneTemp.selectedImport = name;
-	updateImportButton("Buy " + name, true);
+	updateImportButton("购买 " + name, true);
 
 }
 
@@ -11401,7 +11401,7 @@ function purchaseSingleRunBonus(what){
 
 function displaySingleRunBonuses(){
 	var anyPortals = (game.global.totalPortals == 0);
-	var html = "<div class='boneBuyTitle'>Single Run Bonuses</div><div class='boneBuyDesc'>These all last until your next " + ((anyPortals) ? "soft reset" : "Portal") + ". Use them wisely!</div>";
+	var html = "<div class='boneBuyTitle'>单轮加成</div><div class='boneBuyDesc'>这些加成本轮生效，下一" + ((anyPortals) ? "soft reset" : "轮") + "停止。明智地使用它们!</div>";
 	for (var item in game.singleRunBonuses){
 		var bonus = game.singleRunBonuses[item];
 		html += "<div id='" + item + "SingleBonusBox' class='singleBonusBox'>";
@@ -11417,7 +11417,7 @@ function displaySingleRunBonuses(){
 				btnClass = 'boneBtnStateOff'
 			else 
 				btnClass = 'boneBtnStateOn';
-			btnText = bonus.name + " (" + bonus.cost + " bones)";
+			btnText = bonus.name + " (" + bonus.cost + " 骨头)";
 		}
 		html += "<div class='boneBtn " + btnClass + " pointer noselect' id='" + item + "PurchaseBtn'";
 		if (!bonus.owned && game.global.b >= bonus.cost)

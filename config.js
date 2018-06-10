@@ -427,10 +427,10 @@ var toReturn = {
 	},
 	singleRunBonuses: {
 		goldMaps: {
-			name: "Golden Maps",
-			text: "+100% Map Loot",
+			name: "黄金地图",
+			text: "+100%地图战利品",
 			cost: 20,
-			confirmation: "You are about to purchase Golden Maps for 20 bones. All of your current and future maps will gain +100% loot added to their normal loot roll <b>until your next Portal</b>. Is this what you wanted to do?", 
+			confirmation: "你正在花费20骨头购买黄金地图。<b>在你的下一轮前</b>，你现在的和未来的所有地图战利品获得增加100%。这是你想要的吗？", 
 			owned: false,
 			fire: function () {
 				game.unlocks.goldMaps = true;
@@ -441,10 +441,10 @@ var toReturn = {
 			}
 		},
 		quickTrimps: {
-			name: "Quick Trimps",
-			text: "+100% Breed Speed",
+			name: "快速脆皮",
+			text: "+100%繁殖速度",
 			cost: 20,
-			confirmation: "You are about to purchase Quick Trimps for 20 bones. This will cause your Trimps to breed twice as fast <b>until your next Portal</b>. Is this what you wanted to do?",
+			confirmation: "你正在花费20骨头购买快速脆皮。这个将会<b>在你的下一轮前</b>使你的脆皮繁殖速度翻倍。这是你想要的吗？",
 			owned: false,
 			fire: function () {
 				swapClass("psColor", "psColorOrange", document.getElementById("trimpsPs"));
@@ -457,10 +457,10 @@ var toReturn = {
 			}
 		},
 		sharpTrimps: {
-			name: "Sharp Trimps",
-			text: "+50% Trimp Damage",
+			name: "锋利脆皮",
+			text: "+50%脆皮伤害",
 			cost: 25,
-			confirmation: "You are about to purchase Sharp Trimps for 25 bones. This will cause your Trimps to deal 50% more damage <b>until your next Portal</b>. Is this what you wanted to do?",
+			confirmation: "你正在花费25骨头购买锋利脆皮。这个将会<b>在你的下一轮前</b>使你的脆皮增加50%的伤害。这是你想要的吗？",
 			owned: false,
 			fire: function () {
 				swapClass("attackColor", "attackColorOrange", document.getElementById("goodGuyAttack"));
@@ -474,10 +474,10 @@ var toReturn = {
 
 		},
 		heliumy: {
-			name: "Heliumy",
-			text: "+25% Helium",
+			name: "高氦",
+			text: "+25%氦",
 			cost: 100,
-			confirmation: "You are about to purchase Heliumy for 100 bones. This will cause you to earn 25% more Helium from all sources <b>until your next Portal</b>. Is this what you wanted to do?",
+			confirmation: "你正要花费100骨头购买高氦。这个将会<b>在你的下一轮前</b>使你从所有来源获得的氦增加25%。这是你想要的吗？?",
 			owned: false,
 			fire: function () {
 				swapClass("hePhColor", "hePhColorOrange", document.getElementById("heliumPh"));
@@ -639,7 +639,7 @@ var toReturn = {
 			boneAlerts: {
 				enabled: 1,
 				extraTags: "alerts",
-				description: "在“骨交易员”或“传家宝”菜单中不弹出确认提示。",
+				description: "在“骨法商人”或“传家宝”菜单中不弹出确认提示。",
 				titles: ["不确认骨头", "确认骨头"]
 			},
 			showAlerts: {
@@ -1315,7 +1315,7 @@ var toReturn = {
 			icon: "*tree3"
 		},
 		patience: {
-			description: "预计BUFF现在可以达到45层。",
+			description: "预期现在可以达到45层。",
 			name: "Patience",
 			tier: 7,
 			purchased: false,
@@ -1531,7 +1531,7 @@ var toReturn = {
 			},
 			get tooltip(){
 				var time = game.talents.patience.purchased ? 45 : 30;
-				return "Use your experiences in understanding the attention span of Trimps to increase the damage dealt by all soldiers based on how long it took to get an army together. Increases damage by 2% per level per second up to " + time + " seconds. Maximum of 10 levels."
+				return "运用你对脆皮了解的经验，基于一支战斗队生产需要的时间来增加脆皮的伤害。每升一级，每秒繁殖时间增加2%伤害，上限为" + time + "秒。最高10级。"
 			}
 		},
 		Resilience: {
@@ -1540,7 +1540,7 @@ var toReturn = {
 			modifier: 0.1,
 			priceBase: 100,
 			heliumSpent: 0,
-			tooltip: "Use your acquired skills in Trimp strengthening to gain a 10% <b>compounding</b> increase to total Trimp health."
+			tooltip: "使用你在脆皮挑战中所获取的技能，每级脆皮总生命增长10%（<b>复合</b>）。"
 		},
 		Meditation: {
 			level: 0,
@@ -1772,7 +1772,7 @@ var toReturn = {
 			unlockString: "到达区域 35"
 		},
 		Balance: {
-			description: "你的科学家发现了一个充满氦气的混沌空间。 所有敌人的生命值提高100％，世界上的敌人造成的伤害提高17％，地图上的敌人造成135％的伤害。 从6区开始，每当世界上的一个敌人被击毙时，你将获得一堆“不平衡”。 每当地图上的敌人被杀时，你将失去一堆不平衡。 每次不平衡叠加可以使你的生命值降低1％，但你的脆皮的收集速度提高1％。 不平衡只能叠加到250。在这个挑战激活的情况下，完成 <b>40区</b> 将额外获得100％的氦气。 这个挑战是可重复的！",
+			description: "你的科学家发现了一个充满氦气的混沌空间。 所有敌人的生命值提高100％，世界上的敌人造成的伤害提高17％，地图上的敌人造成135％的伤害。 从6区开始，每当世界上的一个敌人被击毙时，你将获得一层“不平衡”。 每当地图上的敌人被杀时，你将失去一层不平衡。 每次不平衡叠加可以使你的生命值降低1％，但你的脆皮的收集速度提高1％。 不平衡只能叠加到250。在这个挑战激活的情况下，完成 <b>40区</b> 将额外获得100％的氦气。 这个挑战是可重复的！",
 			completed: false,
 			filter: function () {
 				return (game.global.highestLevelCleared >= 39);
@@ -1808,7 +1808,7 @@ var toReturn = {
 				return ((this.balanceStacks * 0.01) + 1);
 			},
 			allowSquared: true,
-			squaredDescription: "你的科学家发现了一个充满氦气的混沌空间。 所有敌人的生命值提高100％，世界上的敌人造成的伤害提高17％，地图上的敌人造成135％的伤害。 从6区开始，每当世界上的一个敌人被击毙时，你将获得一堆“不平衡”。 每当地图上的敌人被杀时，你将失去一堆不平衡。 每次不平衡叠加可以使你的生命值降低1％，但你的脆皮的收集速度提高1％。 不平衡只能叠加到250。",
+			squaredDescription: "你的科学家发现了一个充满氦气的混沌空间。 所有敌人的生命值提高100％，世界上的敌人造成的伤害提高17％，地图上的敌人造成135％的伤害。 从6区开始，每当世界上的一个敌人被击毙时，你将获得一层“不平衡”。 每当地图上的敌人被杀时，你将失去一层不平衡。 每次不平衡叠加可以使你的生命值降低1％，但你的脆皮的收集速度提高1％。 不平衡只能叠加到250。",
 			highestStacks: 0,
 			fireAbandon: true,
 			heldHelium: 0,
@@ -1895,12 +1895,12 @@ var toReturn = {
 			unlockString: "到达区域55",
 		},
 		Trimp: {
-			description: "调整传送门，让你进入一个维度，如果一次超过1次的战斗，脆皮会爆炸。 你将不能学习协作， 但是完成 <b>'The Block' (11)</b> 将教会你如何让你的脆皮存活更长时间。",
+			description: "调整传送门，让你进入一个维度，如果有超过1只脆皮在同时战斗，他们会爆炸。 你将不能学习协作， 但是完成 <b>'The Block' (11)</b> 将教会你如何让你的脆皮存活更长时间。",
 			completed: false,
 			heldBooks: 0,
 			fireAbandon: true,
 			allowSquared: true,
-			squaredDescription: "调整传送门，让你进入一个维度，如果一次超过1次的战斗，脆皮会爆炸。你将无法学会协作。",
+			squaredDescription: "调整传送门，让你进入一个维度，如果有超过1只脆皮在同时战斗，他们会爆炸。你将无法学会协作。",
 			replaceSquareThresh: 40,
 			replaceSquareReward: 3,
 			replaceSquareGrowth: 3,
@@ -1951,7 +1951,7 @@ var toReturn = {
 			unlockString: "到达区域 70"
 		},
 		Electricity: {
-			description: "Use the keys you found in the Prison to bring your portal to an extremely dangerous dimension. In this dimension enemies will electrocute your Trimps, stacking a debuff with each attack that damages Trimps for 10% of total health per turn per stack, and reduces Trimp attack by 10% per stack. Clearing <b>'The Prison' (80)</b> will reward you with an additional 200% of all helium earned up to but not including Zone 80. This is repeatable!",
+			description: "使用你在监狱中找到的钥匙，将你传送至一个极其危险的维度。在这个维度中，敌人会电击你的脆皮，敌人对脆皮的每次攻击会叠加一个减益效果，每层效果会在每个回合对脆皮造成10%最大血量的伤害，并减少脆皮10%的伤害(死亡后效果重置)。清除 <b>'监狱' (80)</b>将会奖励你200%的你所获得的氦(不包括区域80及以上所获得)。这个挑战是可重复的！",
 			completed: false,
 			hasKey: false,
 			filter: function () {
@@ -3301,7 +3301,7 @@ var toReturn = {
 		w20: "你感觉到你离你的目标已经不远了。",
 		get w22 () {
 			if (game.global.challengeActive == "Trimp" && game.jobs.Amalgamator.owned > 0) return toZalgo("You hear a strange humming noise that seems to draw you towards it, though it also seems to come from no direction in particular. You can feel that it's being created by " + ((game.jobs.Amalgamator.owned == 1) ? "the" : "an") + " Amalgamator, though you've never heard such a sound before. It's both unsettling and enchanting, and the Universe seems to hate it.", 4, 1);
-			return "Strange, the sky seems to be getting darker. You ask one of your Trimps for the time, but he doesn't know what a clock is.";
+			return "奇怪，天空似乎变得更暗了。你询问其中一只脆皮现在是几点钟了，但是他都不知道什么是时钟。";
 		},
 		w25: "你是个叛逆者。宇宙指引你进入那个传送门，但是你执意向前推进。你感觉……自己好像没有来过这里。",
 		w27: "似乎你越向前进，你知道的就越少。你仍然有使用传送门的冲动，但是这冲动已经开始减少了。",
@@ -3314,34 +3314,34 @@ var toReturn = {
 		w46: "回头望去，越过的山的痕迹越来越长。这个世界是平的，并充满了敌意。你希望你的脆皮们能更健谈一些。",
 		w48: "当脆皮们从Blimp身上提取最后一点氦时，其中一只开始发狂。他跑来跑去，挥舞着他的小胳膊，其中一段时间发出了有趣的声音，吃了一些泥土，然后就开始小睡。你很好奇他是否还正常。是的……可能他还算不错。.",
 		w50: "你很久没有在地图上找到蓝图了。你开始怀疑这些东西是从哪里来的。",
-		w51: "Your scientists have detected an anomaly at the end of Zone 59. They recommend that you stop doing whatever it is that you're doing.",
-		w53: "As you get closer to the anomaly, you start to notice more and more strange behaviour from your Trimps. Holes in your memory are starting to become noticeable as multiple existences blend into one. Trippy.",
-		w54: "As you get closer to the anomaly, you start to notice more and more strange behaviour from your Trimps. Holes in your memory are starting to become noticeable as multiple existences blend into one. Trippy.",
-		w56: "A loud boom echoes in the distance, and one of your Trimps runs up to you with outstretched arms, looking quite frightened. He probably just wants some armor and weapons! You hand him some gear, and he accepts it with excitement.",
-		w58: "A huge storm has formed and daylight has become a luxury you have mostly forgotten about. Your Trimps seem to want to go back home, but you're pretty sure you're supposed to keep going this way, so you do. You're very close to the anomaly.",
-		w59: "There it is. The anomaly is at the end of the zone. You can see it but you don't know what you're seeing. Where did that... thing... come from?! This is highly Improbable.",
-		w60: "The ground instantly cracks and large plumes of green gas escape from the planet's core to the atmosphere. The planet feels different. Everything feels different. This Universe has grown unstable, the planet has broken. What have you done?",
-		w61: "Other than all the dead Trimps, that wasn't so bad.",
+		w51: "你的科学家预测在59区域的尽头会有一个异常现象。他们建议你停止做任何你正在做的事情。",
+		w53: "随着你越来越接近异常现象，你开始注意到越来越多脆皮的奇怪举动。当多种存在融合在一起时，你记忆中的漏洞开始变得明显。迷茫。",
+		w54: "随着你越来越接近异常现象，你开始注意到越来越多脆皮的奇怪举动。当多种存在融合在一起时，你记忆中的漏洞开始变得明显。迷茫。",
+		w56: "远处传来一阵响亮的隆隆声，然后一只脆皮伸出双手向你跑来，看起来他有些害怕。他可能只是想要一些武器和护甲！你递给他一些装备，他兴奋地接受了。",
+		w58: "一场巨大的风暴已经形成，白昼已经成为一种你几乎忘记的奢侈品。你的脆皮似乎想回家，但你很确定你们应该继续向前走，所以你们继续前行。你已经离异常现象非常近了。",
+		w59: "它……就在那里。那个异常现象，就在这个区域的尽头。你能看得见它，但是你不知道你正在看的这个东西究竟是什么。这个……东西……是从哪来的？！这个东西太无序了。",
+		w60: "地面瞬间裂开，大量的绿色气体从星球核心向大气中逸出。这个星球给人的感觉不同了。一切事物给人的感觉都不同了。这个宇宙正在变得不稳定，这个星球已经破碎。你都做了些什么？",
+		w61: "除了那些死去的脆皮以外，情况还没有变得那么差。",
 		get w65 () {
 			if (game.global.challengeActive == "Trimp" && game.jobs.Amalgamator.owned > 0) return toZalgo("The Universe seems even more upset than you expected here, but your Amalgamator" + ((game.jobs.Amalgamator.owned == 1) ? " doesn't" : "s don't") + " really seem to care. You walk towards " + ((game.jobs.Amalgamator.owned == 1) ? "it" : "one") + " to get a better look, but find yourself further away than you were.", 2, 2);
-			return "You feel more powerful than ever. The universe seems to be constantly adjusting itself to get rid of you, yet you rise against and persist. Something as tiny as you taking on an entire universe!";
+			return "你感觉自己比起过去更加强大了。这个宇宙似乎在不断地调整自己来摆脱你，但是你奋起反抗并坚持下去。你如此渺小，却对抗着整个宇宙！";
 		},
-		w68: "You figure some entertainment wouldn't be awful, and decide to teach your Trimps how to play soccer. A few hours and zero progress later, you really regret that decision.",
-		w70: "The Improbabilities haven't seemed to slow down. You know you need to figure out a plan, but you don't know what to plan for.",
-		w72: "You slash through another Improbability with relative ease, but something isn't right. A sour smell hits your nose and in disgust, you whip around in search of the source. Oh, wait, it's just the Trimps.",
-		w80: "When's the last time you made a map? You have a feeling you should probably do that.",
-		w82: "Whew, that was an exhilarating kill. You decide to reward your Trimps with some Improbability stew. It's pretty tasty.",
-		w83: "That stew was probably a bad idea. Anyone else feeling sick?",
-		w85: "An ancient and fuzzy memory just crept back into your head. You're not quite sure where it came from, but you know the memory is yours. You remember being on a ship, and seeing this planet from orbit. There was someone with you!",
-		w87: "Bits and pieces of memories continue trickling back in as you continue to put distance between yourself and the source of Anger. You can almost see in your mind who you came here with. Where could they be...",
-		w90: "You decide to ask your scientists to come up with an extravagant machine that can scan your brain for old memories to see if there's anything helpful up there. They seem excited about a new project and quickly get to work.",
-		w92: "You hear a huge explosion from the science lab and realize that the brain scan machine will probably never be finished.",
+		w68: "你觉得有一些娱乐活动会很不错，并决定教你的脆皮怎样踢足球。几个小时后，没有任何进展，你非常后悔当时的决定。",
+		w70: "无序似乎没有放慢速度。你明白你需要制定一个计划，但你不知道该计划什么。",
+		w72: "你相对轻松地击碎并通过了又一个无序，但却感到有些不对劲。一股酸味扑鼻而来，让你感到恶行。你转头去寻找气味的来源。噢，等等，那只是一只脆皮而已。",
+		w80: "你上一次制作地图是什么时候了？你有种感觉，你可能应该做张地图了。",
+		w82: "哇哦，刚才那场战斗真令人振奋。你决定赏给你的脆皮一些炖无序。那真的很好吃。",
+		w83: "现在觉得吃炖无序这个想法可能并不好。有人感觉难受吗？",
+		w85: "一段古老而模糊的记忆悄悄地回到你的脑海。你不确定这段记忆是从哪里来的，但你知道这是你的记忆。你记得你在一艘太空船上，从轨道上看着这个行星。当时有个人在你身边！",
+		w87: "当你继续和愤怒的源头保持距离的时候，零碎的记忆碎片仍在不断流回。你几乎能在脑海中看到是谁和你一起来到了这里。他们会在哪里……",
+		w90: "你决定去让你的科学家发明一种花费巨大的机器来扫描你的大脑，来找回过去的记忆，看看其中是否有有用的信息。他们似乎对这个新项目很兴奋，很快就开始工作了。",
+		w92: "你听到科学实验室中传来一阵巨大的爆炸声，你明白大脑扫描仪可能永远也无法完成了。",
 		get w95 () {
 			if (game.global.challengeActive == "Trimp" && game.jobs.Amalgamator.owned > 0) return toZalgo(((game.jobs.Amalgamator.owned == 1) ? "The Amalgamator is" : "The Amalgamators are") + " starting to rapidly switch between different colors. It would be slightly entertaining if the fabric of existence wasn't falling apart around " + ((game.jobs.Amalgamator.owned == 1) ? "it." : "them."), 3, 2);
-			return "Need some motivation? You can do it! Maybe.";
+			return "需要一些动力吗?你可以做到的!或许吧。";
 		},
-		w100: "You stop dead in your tracks. You remember who you came here with, and you remember that you are not happy with Captain Druopitee for bringing you here. You know he landed with you. You know the ship is still here. He's here.",
-		w105: "You call a meeting with all of your Trimps to explain the situation. After giving an extremely long, epic, and motivational speech but hearing no reaction from the crowd, you remember that your Trimps cannot understand you. Will you ever learn?",
+		w100: "你在前行中突然停了下来。你想起来了是谁和你一起来到这里，你也记起来了你当时并不喜欢德鲁普提船长把你带到这里。你知道他和你一起降落了。你明白太空船仍在这里。他就在这里。",
+		w105: "你叫来你所有的脆皮开了一次会，解释了一下现在的状况。在做了一段非常长的、史诗般的、振奋人心的演讲后，却没有听到任何脆皮们的回应，你明白你的脆皮们是无法理解你的。你有记得这个吗？",
 		w106: "How long have you been trapped on this planet? Months? Decades? Travelling through time sure screws up your chronological perception.",
 		w109: "Though you have no idea which direction your home planet is, you still believe the ship's GPS could get you home. Maybe Druopitee has the keys. You really want to find him.",
 		w115: "You just remembered what a taco was. You could really use a taco right now.",
@@ -6528,7 +6528,7 @@ var toReturn = {
 					var breedDisplay = (breedMult > 0.0001) ? breedMult.toFixed(4) : breedMult.toExponential(3);
 					var healthMult = Math.pow(1.01, this.owned);
 					var healthDisplay = prettify((healthMult * 100) - 100) + "%";
-					text += "<p>Owning " + prettify(this.owned) + " Geneticist" + ((this.owned == 1) ? "" : "s") + " multiplies your breed speed by " + breedDisplay + ", and adds " + healthDisplay + " Health.</p>";
+					text += "<p>拥有" + prettify(this.owned) + " 遗传学家" + ((this.owned == 1) ? "" : "") + "使你的繁殖速度变为" + breedDisplay + "倍,并且增加" + healthDisplay + "的生命。</p>";
 				}
 				return text;
 			},
