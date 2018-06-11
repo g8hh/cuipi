@@ -650,6 +650,9 @@ function load(saveString, autoLoad, fromPf) {
 		addNewFeats([0, 33, 38, 39, 40, 41]);
 		calculateAchievementBonus();
 	}
+	if (oldVersion < 4.801){
+		if (countPurchasedTalents() == 40) game.global.essence = 0;
+	}
 	//End compatibility
 	//Test server only
 	//End test server only
@@ -2124,7 +2127,7 @@ function canCommitCarpentry(){ //Uh, and Coordinated. This checks coordinated to
 	var error = document.getElementById("portalError");
 	error.innerHTML = "";
 	var good = true;
-	var soldiers = (game.portal.Coordinated.level || game.portal.Coordinated.levelTemp) ? game.portal.Coordinated.onChange(true) : game.resources.trimps.maxSoldiers;
+	var soldiers = game.resources.trimps.getCurrentSend(true);
     if (newMax < (soldiers * 2.4)) {
         error.innerHTML += "You do not have enough max Trimps with this Perk setup to sustain your Coordination. ";
 		error.style.display = "block";
@@ -7440,7 +7443,7 @@ function checkAmalgamate(){
 	var amalgJoinTexts = [
 		"A small black hole opens up in the sky and a shrill noise echoes across the town. A few moments later, an Amalgamator is standing in front of you. It looks around briefly, grabs a few Trimps, and runs off towards your soldiers.", 
 		"While out walking a Trimp, you suddenly find yourself teleported back to your ship, standing face to face with an Amalgamator. You introduce yourself but it doesn't seem up for conversation.",
-		"Suddenly, the largest rain drops you've ever seen start falling from the sky - each drop is at least 1000 times larger than normal. One particularly large drop hits the ground and an Amalgamator pops out! It sends out a quick telepathic greetings, then goes off to find your Trimps.",
+		"Suddenly, the largest rain drops you've ever seen start falling from the sky - each drop is at least 1000 times larger than normal. One particularly large drop hits the ground and an Amalgamator pops out! It sends out a quick telepathic greeting, then goes off to find your Trimps.",
 		"You're sitting down about to enjoy a rare dinner break, when an Amalgamator gets interested in your dimension and replaces the spacetime of your meal with itself. You really hope they don't do that again.",
 		"As you're helping your Trimps cross a deeper-than-average stream, you notice a column of bubbles coming up near your Trimps. A gurgling sound begins to grow from the source of the bubbles, and your Trimps start to get a little freaked out. Suddenly an Amalgamator bursts to the surface, spits some water at a Trimp, then teleports to your town."];
 	var amalgLeaveTexts = [
@@ -7543,13 +7546,13 @@ function startFight() {
     swapClass("cellColor", "cellColorCurrent", cellElem);
 	var badName;
 	var displayedName;
-	if ((cell.name == "Improbability" || cell.name == "Omnipotrimp") && game.global.spireActive){
+	if ((cell.name == "Improbability") && game.global.spireActive){
 		displayedName = "Druopitee";
 		if (game.global.challengeActive == "Coordinate") displayedName = "Druopitee and Pals";
 	}
 	else if (cell.name == "Omnipotrimp" && game.global.spireActive){
 		displayedName = "Echo of Druopitee";
-		if (game.global.challengeActive == "Coordinate") displayedName = "Echoes of Druopitee";
+		if (game.global.challengeActive == "Coordinate") displayedName = "Echoes of Druopitee and Pals";
 	}
 	else if (cell.name == "Improbability" && game.global.challengeActive == "Coordinate") {
 		displayedName = "Improbabilities";
@@ -12251,9 +12254,11 @@ var Fluffy = {
 	},
 	rewardExp: function(count){
 		if (!this.canGainExp()) return;
-		if (game.global.world < 301) return;
-		game.global.fluffyExp += this.getExpReward(true, count);
+		if (game.global.world < 301 && !count) return;
+		var reward = this.getExpReward(true, count);
+		game.global.fluffyExp += reward;
 		this.handleBox();
+		return reward;
 	},
 	getExpReward: function(givingExp, count) {
 		var reward = (this.baseExp + (game.portal.Curious.level * game.portal.Curious.modifier)) * Math.pow(this.expGrowth, game.global.world - 300) * (1 + (game.portal.Cunning.level * game.portal.Cunning.modifier));
@@ -12373,7 +12378,7 @@ var Fluffy = {
 				elem.innerHTML = this.specialModifierReason;
 				return;
 			case "staff":
-				elem.innerHTML = 'The bonus modifier applied from "Fluffy Exp" on a Plagued Staff. Currently ' + (1 + (game.heirlooms.Staff.FluffyExp.currentBonus / 100)) + '.';
+				elem.innerHTML = 'The bonus modifier applied from "Fluffy Exp" on a Plagued Staff. Currently ' + (1 + (game.heirlooms.Staff.FluffyExp.currentBonus / 100)).toFixed(2) + '.';
 		}
 	},
 	tooltip: function (big){
