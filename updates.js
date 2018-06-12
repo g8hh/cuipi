@@ -1763,13 +1763,13 @@ function getBattleStatBd(what) {
 	if (what == "health" && game.jobs.Amalgamator.owned > 0){
 		amt = game.jobs.Amalgamator.getHealthMult();
 		currentCalc *= amt;
-		textString += "<tr><td class='bdTitle'>Amalgamator</td><td>x " + prettify(game.jobs.Amalgamator.healthModifier) + "</td><td class='bdNumberSm'>" + prettify(game.jobs.Amalgamator.owned) + "</td><td class='bdNumberSm'>x " + prettify(amt) + "</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td></tr>";
+		textString += "<tr><td class='bdTitle'>合并者</td><td>x " + prettify(game.jobs.Amalgamator.healthModifier) + "</td><td class='bdNumberSm'>" + prettify(game.jobs.Amalgamator.owned) + "</td><td class='bdNumberSm'>x " + prettify(amt) + "</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td></tr>";
 	}
 
 	if (what == "attack" && game.jobs.Amalgamator.owned > 0){
 		amt = game.jobs.Amalgamator.getDamageMult();
 		currentCalc *= amt;
-		textString += "<tr><td class='bdTitle'>Amalgamator</td><td>+ " + prettify(game.jobs.Amalgamator.damageModifier * 100) + "%</td><td>" + game.jobs.Amalgamator.owned + "</td><td>+ " + prettify((amt -1 ) * 100) + "%</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>"
+		textString += "<tr><td class='bdTitle'>合并者</td><td>+ " + prettify(game.jobs.Amalgamator.damageModifier * 100) + "%</td><td>" + game.jobs.Amalgamator.owned + "</td><td>+ " + prettify((amt -1 ) * 100) + "%</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>"
 		
 	}
 	if (what == "attack" && game.singleRunBonuses.sharpTrimps.owned){
@@ -4490,6 +4490,8 @@ function cnjob(job){
         cnjob="巫师";
     }else if(what=="Geneticist"){
         cnjob="遗传学家";
+    }else if(what=="Amalgamator"){
+        cnjob="合并者";
     }else{
         cnjob=job;
     }
@@ -4700,8 +4702,10 @@ function cntitle(tit){
         cntit="探险家";
     }else if(what=="Magmamancer"){
         cntit="巫师";
+    }else if(what=="Amalgamator"){
+        cntit="合并者";
     }else if(what=="Fire Trimps"){
-        cntit="解雇脆皮"
+        cntit="解雇脆皮";
     }else if(what=="Gigastation"){
         cntit="千兆站";
     }else if(what=="Geneticistassist"){
@@ -4748,7 +4752,9 @@ function cntitle(tit){
         cntit="超杀"
     }else if(what=="Resourceful"){
         cntit="足智多谋"
-    }else if((what=="Coordinated") || what=="Coordination"){
+    }else if(what=="Coordinated"){
+        cntit="协调"
+    }else if(what=="Coordination"){
         cntit="协作"
     }else if(what=="Siphonology"){
         cntit="虹吸学"
