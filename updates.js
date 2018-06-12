@@ -213,7 +213,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 	}
 	if (what == "Switch Daily"){
 		var daysUntilReset = Math.floor(7 + textString);
-		tooltipText = "Click to view " + ((textString == 0) ? "today" : dayOfWeek(getDailyTimeString(textString, false, true))) + "s challenge, which resets in less than " + daysUntilReset + " day" + ((daysUntilReset == 1) ? "" : "s") + ".";
+		tooltipText = "点击查看" + ((textString == 0) ? "今天" : cntime(dayOfWeek(getDailyTimeString(textString, false, true)))) + "的挑战, 将在" + daysUntilReset + "天内重置" + ((daysUntilReset == 1) ? "" : "") + "。";
 		costText = "";
 	}
 	if (what == "Decay"){
@@ -1691,7 +1691,7 @@ function getBattleStatBd(what) {
 		if (typeof game.global.dailyChallenge.rampage !== 'undefined' && what == "attack"){
 			mult = dailyModifiers.rampage.getMult(game.global.dailyChallenge.rampage.strength, game.global.dailyChallenge.rampage.stacks);
 			currentCalc *= mult;
-			textString += "<tr><td class='bdTitle'>Rampage (日常)</td><td>x " + dailyModifiers.rampage.getMult(game.global.dailyChallenge.rampage.strength, 1).toFixed(3) + "</td><td>" + game.global.dailyChallenge.rampage.stacks + "</td><td class='bdPercent'>x " + mult.toFixed(3) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>";
+			textString += "<tr><td class='bdTitle'>暴怒 (日常)</td><td>x " + dailyModifiers.rampage.getMult(game.global.dailyChallenge.rampage.strength, 1).toFixed(3) + "</td><td>" + game.global.dailyChallenge.rampage.stacks + "</td><td class='bdPercent'>x " + mult.toFixed(3) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>";
 		}
 		if (typeof game.global.dailyChallenge.pressure !== 'undefined' && what == "health"){
 			mult = dailyModifiers.pressure.getMult(game.global.dailyChallenge.pressure.strength, game.global.dailyChallenge.pressure.stacks);
@@ -4874,6 +4874,8 @@ function cntitle(tit){
         cntit="专精"
     }else if(what=="Empowerments of Nature"){
         cntit="自然赋权"
+    }else if(what=="Switch Daily"){
+        cntit="选择日常挑战"
     }else{
         cntit=tit
     }
@@ -4916,6 +4918,30 @@ function cntitle(tit){
         cntext=text
     }
     return cntext;
+}
+
+function cntime(time) {
+    //汉化时间
+    var cntime = "";
+    var temp = time;
+    if (temp == "Monday") {
+        cntime = "周一";
+    } else if (temp == "Tuesday") {
+        cntime = "周二";
+    } else if (temp == "Wednesday") {
+        cntime = "周三";
+    } else if (temp == "Thursday") {
+        cntime = "周四";
+    } else if (temp == "Friday") {
+        cntime = "周五";
+    } else if (temp == "Saturday") {
+        cntime = "周六";
+    } else if(temp=="Sunday"){
+        cntime = "周日";   
+    } else {
+        return time;
+    }
+    return cntime;
 }
 
 var nums=0;

@@ -9259,7 +9259,7 @@ var dailyModifiers = {
         },
 		plague: { //Half of electricity
 			description: function (str) {
-                return "敌人的每次攻击叠加一个debuff，每回合每堆栈对脆皮造成 " + prettify(this.getMult(str, 1) * 100) + "% 总血量的伤害，直到脆皮死亡后重置。"
+                return "敌人的每次攻击叠加一个负面效果，每层效果在每回合对脆皮造成 " + prettify(this.getMult(str, 1) * 100) + "%总血量的伤害，直到脆皮死亡后重置。"
             },
             getMult: function (str, stacks) {
                 return 0.01 * str * stacks;
@@ -9278,7 +9278,7 @@ var dailyModifiers = {
         },
 		weakness: {
 			description: function (str) {
-				return "敌人会在每次攻击时叠加一次，减少脆皮攻击 " + prettify(100 - this.getMult(str, 1) * 100) + "% 每个堆栈。最高叠加9次，直到脆皮死亡后重置。";
+				return "敌人的每次攻击叠加一层负面效果，每层效果减少脆皮" + prettify(100 - this.getMult(str, 1) * 100) + "%的攻击。最高叠加9次，直到脆皮死亡后重置。";
 			},
 			getMult: function (str, stacks) {
 				return 1 - (0.01 * str * stacks);
@@ -9296,7 +9296,7 @@ var dailyModifiers = {
 		},
 		large: {
             description: function (str) {
-                return "所有住房可贮存减少 " + prettify(100 - this.getMult(str) * 100) + "% 的脆皮";
+                return "所有房屋的脆皮容量减少 " + prettify(100 - this.getMult(str) * 100) + "%。";
             },
             getMult: function(str) {
                 return 1 - (0.01 * str);
@@ -9395,7 +9395,7 @@ var dailyModifiers = {
         },
 		crits: {
             description: function (str) {
-                return "敌人有25%的机率产生重击，造成 " + prettify(this.getMult(str) * 100) + "% 的平砍伤害。";
+                return "敌人有25%的机率产生重击，为普通伤害的 " + prettify(this.getMult(str) * 100) + "%。";
             },
             getMult: function (str) {
                 return 1 + (0.5 * str);
@@ -9408,7 +9408,7 @@ var dailyModifiers = {
 		},
 		trimpCritChanceUp: {
 			description: function (str) {
-				return "Your Trimps have +" + prettify(this.getMult(str) * 100) + "% Crit Chance.";
+				return "脆皮的暴击概率增加" + prettify(this.getMult(str) * 100) + "%。";
 			},
 			getMult: function(str) {
 				return str / 10;
@@ -9422,7 +9422,7 @@ var dailyModifiers = {
 		},
 		trimpCritChanceDown: {
             description: function (str) {
-                return "Your Trimps have -" + prettify(this.getMult(str) * 100) + "% Crit Chance.";
+                return "脆皮的暴击概率减少" + prettify(this.getMult(str) * 100) + "%。";
             },
             getMult: function (str) {
                 return str / 10;
@@ -9490,10 +9490,10 @@ var dailyModifiers = {
         },
 		karma: {
 			description: function (str) {
-				return '杀死敌人后获得一个stack , 每一层增加所有非氦掉落 ' + prettify((this.getMult(str, 1) * 100) - 100) + '%. Stacks 可以叠加 ' + this.getMaxStacks(str) + ' 层, 切换区域后重置.';
+				return '每杀死一个敌人获得一层增益效果 , 每层效果增加所有非氦战利品掉落 ' + prettify((this.getMult(str, 1) * 100) - 100) + '%。最多叠加' + this.getMaxStacks(str) + '层, 打通区域后重置。';
 			},
 			stackDesc: function (str, stacks){
-				return "你的脆皮额外找到 " + prettify((this.getMult(str, stacks) * 100) - 100) + "% 掉落!";
+				return "你的脆皮额外找到 " + prettify((this.getMult(str, stacks) * 100) - 100) + "%的战利品!";
 			},
 			getMaxStacks: function (str) {
 				return Math.floor((str % 9) * 25) + 300;
@@ -9511,10 +9511,10 @@ var dailyModifiers = {
 		},
 		toxic: {
 			description: function (str) {
-				return "Gain a stack after killing an enemy, reducing breed speed by " + prettify(100 - (this.getMult(str, 1) * 100)) + '% (compounding). Stacks cap at ' + this.getMaxStacks(str) + ', and reset after clearing a zone.';
+				return "每杀死一个敌人叠一层减益效果,减少" + prettify(100 - (this.getMult(str, 1) * 100)) + '% (叠乘)的繁殖速度。最高叠' + this.getMaxStacks(str) + '层,每打通一个区域效果重置。';
 			},
 			stackDesc: function (str, stacks){
-				return "Your Trimps are breeding " + prettify(100 - (this.getMult(str, stacks) * 100)) + "% slower.";
+				return "脆皮的繁殖速度减缓了" + prettify(100 - (this.getMult(str, stacks) * 100)) + "%。";
 			},
 			getMaxStacks: function (str) {
 				return Math.floor((str % 9) * 25) + 300;
@@ -9532,12 +9532,12 @@ var dailyModifiers = {
 		},
 		bloodthirst: {
 			description: function (str) {
-				return "Enemies gain a stack of Bloodthirst whenever Trimps die. Every " + this.getFreq(str) + " stacks, enemies will heal to full and gain an additive 50% attack. Stacks cap at " + this.getMaxStacks(str) + " and reset after killing an enemy.";
+				return "当脆皮死后敌人叠加一层嗜血效果。每" + this.getFreq(str) + "层效果，敌人将回满生命，并获得50%的额外攻击。最高叠" + this.getMaxStacks(str) + "层，并在杀死敌人后重置效果。";
 			},
 			stackDesc: function (str, stacks) {
 				var freq = this.getFreq(str);
 				var max = this.getMaxStacks(str);
-				var text = "This bad guy";
+				var text = "这个敌人";
 				if (stacks < max) {
 					var next = (freq - (stacks % freq));
 					text += " will heal to full and gain attack in " + next + " stack" + ((next == 1) ? "" : "s") + ", " + ((stacks >= freq) ? "" : " and") + " gains 1 stack whenever Trimps die";
@@ -9569,11 +9569,11 @@ var dailyModifiers = {
 		},
 		explosive: {
 			description: function (str) {
-				var text = "Enemies instantly deal " + prettify(this.getMult(str) * 100) + "% of their attack damage when killed";
+				var text = "当敌人被杀死时，会瞬间造成相当于其攻击伤害" + prettify(this.getMult(str) * 100) + "%的伤害";
 				if (str > 15) {
-					text += " unless your block is as high as your maximum health";
+					text += "，除非你的防御和你的最大生命值一样高";
 				}
-				text += ".";
+				text += "。";
 				return text;
 			},
 			getMult: function (str) {
@@ -9593,7 +9593,7 @@ var dailyModifiers = {
 		},
 		slippery: {
 			description: function (str) {
-				return "Enemies have a " + prettify(this.getMult(str) * 100) + "% chance to dodge your attacks on " + ((str <= 15) ? "odd" : "even") + " zones.";
+				return "敌人有" + prettify(this.getMult(str) * 100) + "%的概率闪躲你的攻击，该效果会在" + ((str <= 15) ? "奇数" : "偶数") + "区域出现。";
 			},
 			getMult: function (str){
 				if (str > 15) str -= 15;
@@ -9607,10 +9607,10 @@ var dailyModifiers = {
 		},
 		rampage: {
 			description: function (str) {
-				return "Gain a stack after killing an enemy, increasing Trimp attack by " + prettify((this.getMult(str, 1) * 100) - 100) + '% (additive). Stacks cap at ' + this.getMaxStacks(str) + ', and reset when your Trimps die.';
+				return "每杀死一个敌人叠一层暴怒效果,每层暴怒脆皮的攻击增加" + prettify((this.getMult(str, 1) * 100) - 100) + '% (叠加)。最高叠' + this.getMaxStacks(str) + '层,当脆皮死后效果重置。';
 			},
 			stackDesc: function (str, stacks){
-				return "Your Trimps are dealing " + prettify((this.getMult(str, stacks) * 100) - 100) + "% more damage.";
+				return "你的脆皮增加了" + prettify((this.getMult(str, stacks) * 100) - 100) + "%伤害。";
 			},
 			getMaxStacks: function (str) {
 				return Math.floor((str % 10 + 1) * 10);
@@ -9631,10 +9631,10 @@ var dailyModifiers = {
 			description: function (str) {
 				var size = str % 5;
 				if (size == 0) size = "";
-				else size = "the first " + prettify(size * 2) + " rows of";
+				else size = "前" + prettify(size * 2) + "行";
 
 				var name = (str < 4) ? "Mutimps" : "Hulking Mutimps";
-				return "40% of bad guys in " + size + " the World will be mutated into " + name + ".";
+				return "世界上" + size + "的敌人将变异成" + name + "。";
 			},
 			getWeight: function (str) {
 				return (str / 10) * 1.5;
@@ -9651,13 +9651,13 @@ var dailyModifiers = {
 		empower: {
 			description: function (str) {
 				var s = (str == 1) ? "" : "s";
-				return "All enemies gain " + str + " stack" + s + " of Empower whenever your Trimps die in the World. Empower increases the attack and health of bad guys in the World by 0.2% per stack, can stack to 9999, and never resets.";
+				return "无论何时，当你的脆皮在世界中死亡，所有敌人会获得" + str + " 层赋能效果。每层赋能效果会使世界中的敌人增加0.2%的攻击与生命，最高可以叠9999层，此效果本轮永不重置";
 			},
 			getWeight: function (str) {
 				return (str / 6) * 2;
 			},
 			stackDesc: function (str, stacks){
-				return "This bad guy is Empowered and has " + prettify((this.getMult(str, stacks) * 100) - 100) + "% more health and attack.";
+				return "这个敌人已被赋能，且增加了" + prettify((this.getMult(str, stacks) * 100) - 100) + "%的攻击与生命值。";
 			},
 			stacksToAdd: function (str){
 				return str;
@@ -9676,7 +9676,7 @@ var dailyModifiers = {
 		},
 		pressure: {
 			description: function (str) {
-				return "Trimps gain a stack of Pressure every " + Math.round(this.timePerStack(str)) + " seconds. Each stack of pressure reduces Trimp health by 1%. Max of " + Math.round(this.getMaxStacks(str)) + " stacks, stacks reset after clearing a zone.";
+				return "每过" + Math.round(this.timePerStack(str)) + "秒脆皮们会叠一层压力效果。每层压力会减少脆皮1%的最大生命值。最高叠" + Math.round(this.getMaxStacks(str)) + "层,效果在打通区域后重置";
 			},
 			getWeight: function(str){
 				var time = (105 - this.timePerStack(str));
@@ -9721,7 +9721,7 @@ var dailyModifiers = {
 				updateDailyStacks('pressure');
 			},
 			stackDesc: function(str, stacks){
-				return "Your Trimps are under a lot of pressure. Maximum health is reduced by " + prettify((1 - this.getMult(str, stacks)) * 100) + "%.";
+				return "你的脆皮正处于巨大的压力当中。最大生命值已经减少" + prettify((1 - this.getMult(str, stacks)) * 100) + "%。";
 			},
 			getMaxStacks: function(str){
 				var thisStr = Math.floor(str % 4);
@@ -9734,7 +9734,7 @@ var dailyModifiers = {
 		mirrored: {
 			description: function (str) {
 				var reflectChance = this.getReflectChance(str);
-				return "Enemies have a" + (reflectChance.toString()[0] == '8' ? 'n' : '') + " " + prettify(reflectChance) + "% chance to reflect an attack, dealing " + prettify(this.getMult(str) * 100) + "% of damage taken back to your Trimps.";
+				return "敌人有" + (reflectChance.toString()[0] == '8' ? 'n' : '') + " " + prettify(reflectChance) + "%的概率反弹一次攻击，将此次伤害的" + prettify(this.getMult(str) * 100) + "%返还给你的脆皮。";
 			},
 			getReflectChance: function(str){
 				return (Math.ceil(str / 10)) * 10;
@@ -9772,7 +9772,7 @@ var dailyModifiers = {
 		},
 		metallicThumb: {
 			description: function (str) {
-				return "Equipment is " + prettify((1 - this.getMult(str)) * 100) + "% cheaper.";
+				return "装备的价格下降" + prettify((1 - this.getMult(str)) * 100) + "%。";
 			},
 			getWeight: function (str) {
 				return ((str + 3) / 26);
@@ -9959,7 +9959,7 @@ function getDailyTopText(add){
 			returnText += 'colorGrey';
 		else
 			returnText += 'colorSuccess';
-		returnText += "'>" + dayOfWeek(getDailyTimeString(dayIndex, false, true)).charAt(0);
+		returnText += "'>" + cntime(dayOfWeek(getDailyTimeString(dayIndex, false, true))).charAt(1);
 		if (!dayDone){
 			var heliumValue = getDailyHeliumValue(countDailyWeight(getDailyChallenge(dayIndex, true)));
 			returnText += "<br/>" + prettify(heliumValue) + "%";
@@ -9969,7 +9969,7 @@ function getDailyTopText(add){
 	}
 	returnText += "</div>";
 	//returnText += "<div style='text-align: left; padding: 10px;'><span class='btn btn-md btn-primary' onclick='lastAdd += 7; selectChallenge(\"Daily\");'>Test Server Only - Travel To Next Week</span></div>"
-	returnText += "<div class='row' style='margin: 0'><div class='col-xs-6 lowPad dailyTop' style='font-weight: bold'>" + dayOfWeek(getDailyTimeString(add, false, true)) + " " + getDailyTimeString(add, true) + "</div><div class='col-xs-6 dailyTop lowPad'>" + dayOfWeek(getDailyTimeString(1, false, true)) + " resets in <span id='dailyResetTimer'>00:00:00</span></div></div>";
+	returnText += "<div class='row' style='margin: 0'><div class='col-xs-6 lowPad dailyTop' style='font-weight: bold'>" + cntime(dayOfWeek(getDailyTimeString(add, false, true))) + " " + getDailyTimeString(add, true) + "</div><div class='col-xs-6 dailyTop lowPad'>" + cntime(dayOfWeek(getDailyTimeString(1, false, true))) + " 重置倒计时 <span id='dailyResetTimer'>00:00:00</span></div></div>";
 
 	if (checkedDayDone)
 		returnText += "<b class='redText'>你已经尝试过这个每日挑战！</b><br/><br/>";
@@ -10081,7 +10081,7 @@ function getDailyChallenge(add, objectOnly, textOnly){
 	dailyObject.seed = dateSeed;
 	if (objectOnly) return dailyObject;
 	if (countDailyWeight(dailyObject) != currentWeight) console.log('mismatch, objectCount = ' + countDailyWeight(dailyObject) + ", current = " + currentWeight);
-	returnText += "</ul>挑战没有终点，并在完成时获得<u><b>额外的"  + prettify(getDailyHeliumValue(currentWeight)) + "%</b></u>氦. <b>只能运行一次!</b> 奖赏不计入骨头购买传送门数据，或影响最好的He/Hr统计.";
+	returnText += "</ul>挑战没有终点，并在完成时获得<u><b>额外"  + prettify(getDailyHeliumValue(currentWeight)) + "%</b></u>的氦。 <b>只能运行一次!</b> 奖赏不计入骨头购买传送门数据，也不计入最好的氦/小时统计。";
 	if (textOnly) return returnText;
 	nextDaily = returnText;
 	if (document.getElementById('specificChallengeDescription') != null) document.getElementById('specificChallengeDescription').innerHTML = returnText;
@@ -13488,6 +13488,31 @@ function cntequan(what){
     }
     return cntequan;
 }
+
+function cntime(time) {
+    //汉化时间
+    var cntime = "";
+    var temp = time;
+    if (temp == "Monday") {
+        cntime = "周一";
+    } else if (temp == "Tuesday") {
+        cntime = "周二";
+    } else if (temp == "Wednesday") {
+        cntime = "周三";
+    } else if (temp == "Thursday") {
+        cntime = "周四";
+    } else if (temp == "Friday") {
+        cntime = "周五";
+    } else if (temp == "Saturday") {
+        cntime = "周六";
+    } else if(temp=="Sunday"){
+        cntime = "周日";   
+    } else {
+        return time;
+    }
+    return cntime;
+}
+
 
 load();
 displayPerksBtn();
