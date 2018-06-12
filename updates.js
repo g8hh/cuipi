@@ -4891,7 +4891,9 @@ function cntitle(tit){
     }else if(what=="Meditation"){
         cnperk="冥想"
     }else if(what=="Power II"){
-        cnperk="力量2"
+        cnperk="力量 II"
+    }else if(what=="Toughness II"){
+        cnperk="坚韧 II"
     }else{
         cnperk=obj
     }
