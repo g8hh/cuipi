@@ -5143,7 +5143,7 @@ function natureTooltip(event, doing, spending, convertTo){
 	var tipText = "";
 	var tipCost = 0;
 	if (doing == 'upgrade'){
-		tipTitle = "升级的授权 " + spending;
+		tipTitle = "升级 " + spending + " 的效果";
 		tipText = game.empowerments[spending].upgradeDescription();
 		tipCost = getNextNatureCost(spending);
 	}
@@ -5156,10 +5156,10 @@ function natureTooltip(event, doing, spending, convertTo){
 		tipCost = ctrlPressed ? Math.floor(game.empowerments[spending].tokens / 10) * 10 : 10;
 		var convertRate = (game.talents.nature.purchased) ? ((game.talents.nature2.purchased) ? 8 : 6) : 5;
 		tipText = "<p>交易 " + tipCost + " 令牌 " + spending + " 然后得到 " + (tipCost / 10 * convertRate) + " 令牌 " + convertTo + "。</p>";
-		if (!ctrlPressed) tipText += "<p><b>Hold Ctrl to convert as many tokens as you can afford!</b></p>";
+		if (!ctrlPressed) tipText += "<p><b>按住Ctrl键可以一次转换所有令牌。</b></p>";
 	}
 	else if (doing == 'stackTransfer'){
-		tipTitle = "升级 " + spending + " 堆栈传输率";
+		tipTitle = "升级 " + spending + " Debuff的传递比例";
 		var retainLevel = game.empowerments[spending].retainLevel;
 		var cap = 80;
 		if (game.talents.nature3.purchased){
@@ -5167,11 +5167,11 @@ function natureTooltip(event, doing, spending, convertTo){
 			cap += 5;
 		}
 		if (retainLevel >= cap){
-			tipText = "You are currently at the maximum level for Stack Transfer Rate, allowing <b>" + cap + "%</b> of your stacks to transfer.";
+			tipText = "您目前处于该Debuff传递比例的最高水平, 可以传递 <b>" + cap + "%</b> 的赋权Debuff。";
 			tipCost = 0;
 		}
 		else{
-			tipText = "Currently, a minimum of <b>" + prettify(getRetainModifier(spending) * 100) + "%</b> of your stacks transfer after you kill a bad guy during the Empowerment of " + spending + ". Each level of this upgrade will increase the transfer rate by <b>1%</b>, bringing you to <b>" + prettify((getRetainModifier(spending) + 0.01) * 100) + "%</b>. Maximum of " + ((game.talents.nature3.purchased) ? "85" : "80") + " levels.";
+			tipText = "现在，当你击败一个敌人后，<b>" + prettify(getRetainModifier(spending) * 100) + "%</b>的 " + spending + "的Debuff会传递给下一个敌人，升级会使这个传递比例增加 <b>1%</b>, 也就是会达到 <b>" + prettify((getRetainModifier(spending) + 0.01) * 100) + "%</b>。这个传递的最高等级是 " + ((game.talents.nature3.purchased) ? "85" : "80") + " 级。";
 			tipCost = getNextNatureCost(spending, true);
 		}
 	}

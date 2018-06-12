@@ -353,10 +353,10 @@ var toReturn = {
 	empowerments: {
 		Poison: {
 			description: function () {
-				return "When this Empowerment is active, each successful attack by your Trimps stacks a debuff on the enemy, causing it to take <b>" + this.formatModifier(this.getModifier()) + "%</b> of the damage you dealt every attack until it dies. Each attack by your Trimps will further add to the poison effect.";
+				return "当这个赋权激活时，你的脆皮的每次成功攻击会对敌人造成一个Debuff, 造成额外 <b>" + this.formatModifier(this.getModifier()) + "%</b> 伤害直到它死亡。你的脆皮每次攻击都会进一步增加毒性。";
 			},
 			upgradeDescription: function () {
-				return "Increases the percentage of damage that sticks to enemies as poison during the Empowerment of Poison by <b>" + this.formatModifier(this.baseModifier) + "%</b>. You currently poison for <b>" + this.formatModifier(this.getModifier()) + "%</b>, and next level will cause you to poison for <b>" + this.formatModifier(this.getModifier(1)) + "%</b>.";
+				return "增加毒药赋权期间，你对敌人造成的毒药Debuff的伤害增加 <b>" + this.formatModifier(this.baseModifier) + "%</b>，现在你的毒药伤害系数是 <b>" + this.formatModifier(this.getModifier()) + "%</b>, 下一级毒药伤害系数是 <b>" + this.formatModifier(this.getModifier(1)) + "%</b>。";
 			},
 			baseModifier: 0.01,
 			getModifier: function (change) {
@@ -375,10 +375,10 @@ var toReturn = {
 		},
 		Wind: {
 			description: function () {
-				return "当这个赋权活动时，你的脆皮的每次成功攻击会对敌人造成一个debuff，导致风向膨胀，并将额外资源砸到你的手中。 每个堆栈增加从所有来源获得的氦 <b>" + this.formatModifier(this.getModifier()) + "%</b> 并增加所获得的所有其他资源 <b>" + this.formatModifier(this.getModifier() * 10) + "%</b> 直到敌人死亡（最多200堆）。 氦气奖金不适用于地图。";
+				return "当这个赋权活动时，你的脆皮的每次成功攻击会对敌人造成一个Debuff，导致风向膨胀，并将额外资源砸到你的手中。 每个堆栈增加从所有来源获得的氦 <b>" + this.formatModifier(this.getModifier()) + "%</b> 并增加所获得的所有其他资源 <b>" + this.formatModifier(this.getModifier() * 10) + "%</b> 直到敌人死亡（最多200堆）。 氦气奖金不适用于地图。";
 			},
 			upgradeDescription: function () {
-				return "Increases the amount of extra Helium you find by <b>" + this.formatModifier(this.baseModifier) + "%</b> and non-Helium resources by <b>" + this.formatModifier(this.baseModifier * 10) + "%</b> per stack when the Empowerment of Wind is active. Your current bonus is <b>" + this.formatModifier(this.getModifier()) + "%</b> Helium, and next level will bring your bonus to <b>" + this.formatModifier(this.getModifier(1)) + "%</b> extra helium. Non-Helium resource gain is always 10x that of Helium, and the Helium bonus does not apply in maps.";
+				return "增加风赋权时每层风Debuff <b>" + this.formatModifier(this.baseModifier) + "%</b> 的氦收益和 <b>" + this.formatModifier(this.baseModifier * 10) + "%</b>的氦以外的资源收益。 你现在的 氦 奖励是每层buff <b>" + this.formatModifier(this.getModifier()) + "%</b>, 下一级的 氦 奖励是每层buff <b>" + this.formatModifier(this.getModifier(1)) + "%</b>。 氦以外的资源的奖励总是氦的奖励的10倍，而氦的奖励在地图中不生效。";
 			},
 			baseModifier: 0.001,
 			getModifier: function (change) {
@@ -401,10 +401,10 @@ var toReturn = {
 		},
 		Ice: {
 			description: function () {
-				return "When this Empowerment is active, enemies will be Chilled each time your Trimps attack. The Chill debuff stacks, reduces the damage that enemy deals by <b>" + this.formatModifier(this.getModifier()) + "%</b> (compounding) per stack, and increases the damage your Trimps deal to that enemy by the same amount (with diminishing returns, max of 100%) until it dies.";
+				return "当这个赋权活动时，你的脆皮的每次成功攻击都会使敌人被冰冻，冰冻的Debuff会叠加，每层Debuff会减少敌人 <b>" + this.formatModifier(this.getModifier()) + "%</b>的伤害 (复合) ，同时增加你的脆皮对敌人造成的伤害 (增加的百分比等于敌人减少的百分比，收益递减，最大100%)，直到敌人死亡。";
 			},
 			upgradeDescription: function () {
-				return "Reduces the enemy's damage dealt from each stack of Chilled when the Empowerment of Ice is active by <b>" + this.formatModifier(1 - this.baseModifier) + "%</b> (compounding), and increases the damage your Trimps deal to that enemy by the same amount (with diminishing returns, max of 100%). Your current bonus is <b>" + this.formatModifier(this.getModifier()) + "%</b>, and next level will bring your bonus to <b>" + this.formatModifier(this.getModifier(1)) + "%</b>.";
+				return "每一层冰冻Debuff使敌人造成的伤害额外降低<b>" + this.formatModifier(1 - this.baseModifier) + "%</b> (复合)，并增加你的脆皮相同百分比的伤害加成。(收益递减，最大100%). 你现在的冰冻效果是每层 <b>" + this.formatModifier(this.getModifier()) + "%</b>, 下一级的冰冻效果是每层 <b>" + this.formatModifier(this.getModifier(1)) + "%</b>。";
 			},
 			baseModifier: 0.01,
 			getModifier: function (change) {
@@ -3724,7 +3724,7 @@ var toReturn = {
 		},
 		Arbalest: {
 			locked: 1,
-			tooltip: "A powerful ranged weapon. Your Trimps can do some damage with this sucker. Adds $attackCalculated$ attack to each soldier per level",
+			tooltip: "一件强大的远程武器。你的脆皮可以用劲弩对敌人造成伤害。 每级给每个战士增加 $attackCalculated$ 攻击。",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -3737,7 +3737,7 @@ var toReturn = {
 		},
 		Gambeson: {
 			locked: 1,
-			tooltip: "在胸甲下穿着一件舒适厚实的棉服夹克。 你的脆皮认为他们太棒了！ 为每个级别的每名士兵增加$healthCalculated$生命。",
+			tooltip: "在胸甲下穿着一件舒适厚实的棉服夹克。 你的脆皮认为他们太棒了！ 每级给每个战士增加$healthCalculated$生命。",
 			modifier: 1,
 			level: 0,
 			cost: {

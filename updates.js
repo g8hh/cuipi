@@ -197,7 +197,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		var emp = game.empowerments[active];
 		if (typeof emp.description === 'undefined') return;
 		var lvlsLeft = ((5 - ((game.global.world - 1) % 5)) + (game.global.world - 1)) + 1;
-		tooltipText = "<p>The " + active + " Empowerment is currently active!</p><p>" + emp.description() + "</p><p>This Empowerment will end on Z" + lvlsLeft + ", at which point you'll be able to fight a " + getEmpowerment(null, true) + " enemy to earn a Token of " + active + ".</p>";
+		tooltipText = "<p>这个 " + active + " 赋权激活中！</p><p>" + emp.description() + "</p><p>这个自然赋权会结束于区域Z" + lvlsLeft + ", 在这个区域范围中，你将会碰到一个 " + getEmpowerment(null, true) + " 敌人并与他战斗，获胜后将获得若干个 " + active + "令牌。</p>";
 		costText = "";
 
 	}
@@ -653,7 +653,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 	}
 	if (what == "Upgrade Generator"){
 		tooltipText = getGeneratorUpgradeHtml();
-		costText = "<b style='color: red'>These upgrades persist through portal and cannot be refunded. Choose wisely! " + getMagmiteDecayAmt() + "% of your unspent Magmite will decay on portal.</b><br/><br/><div class='maxCenter'><span class='btn btn-info' onclick='cancelTooltip()'>关闭</span></div>";
+		costText = "<b style='color: red'>这些升级通过传送门以后依旧有效，不能退款。做出你明智的选择！ " + getMagmiteDecayAmt() + "% 的Magmite在通过传送门时会遗失。</b><br/><br/><div class='maxCenter'><span class='btn btn-info' onclick='cancelTooltip()'>关闭</span></div>";
 		game.global.lockTooltip = true;
 		elem.style.left = "33.75%";
 		elem.style.top = "25%";
