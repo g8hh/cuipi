@@ -11847,7 +11847,7 @@ function toggleAutoStructure(noChange, forceOff){
 	}
 	var color = (setting.enabled) ? "colorSuccess" : "colorDanger";
 	swapClass("color", color, btnElem);
-	var text = (setting.enabled) ? "AutoStructure On" : "AutoStructure Off";
+	var text = (setting.enabled) ? "打开自动建筑" : "关闭自动建筑";
 	document.getElementById('autoStructureText').innerHTML = text;
 }
 
@@ -11869,7 +11869,7 @@ function toggleAutoGolden(noChange){
 	}
 	var color = "settingBtn" + setting;
 	swapClass("settingBtn", color, btnElem);
-	var texts = ["自动金色关闭", "自动金色氦", "自动金色战斗", "自动金色虚空"];
+	var texts = ["自动金色升级关闭", "自动金色升级-氦", "自动金色升级-战斗", "自动金色升级-虚空"];
 	var text = texts[setting];
 	if (!noChange && setting != 0) text += ' <span id="autoGoldenTimeLeft">(4)</span>';
 	document.getElementById('autoGoldenText').innerHTML = text;
@@ -12005,7 +12005,7 @@ function toggleAutoUpgrades(noChange){
 var lastAutoPrestigeToggle = -1;
 var pantsMode = false;
 function toggleAutoPrestiges(noChange){
-	var autoPrestigeToggles = ["自动声望关闭", "全部自动声望", "只有武器", "武器优先"];
+	var autoPrestigeToggles = ["自动重铸关闭", "自动重铸所有装备", "只重铸武器", "优先重铸武器"];
 	if (pantsMode) autoPrestigeToggles.push("PANTS ONLY");
 	if (!noChange) {
 		game.global.autoPrestiges++;

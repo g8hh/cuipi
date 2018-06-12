@@ -270,7 +270,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		elem.style.top = "25%";
 	}
 	if (what == "Configure AutoStructure"){
-		tooltipText = "<p>Here you can choose which structures will be automatically purchased when AutoStructure is toggled on. Check a box to enable the automatic purchasing of that structure, set the dropdown to specify the cost-to-resource % that the structure should be purchased below, and set the 'Up To:' box to the maximum number of that structure you'd like purchased <b>(0&nbsp;for&nbsp;no&nbsp;limit)</b>. For example, setting the dropdown to 10% and the 'Up To:' box to 50 for 'House' will cause a House to be automatically purchased whenever the costs of the next house are less than 10% of your Food, Metal, and Wood, as long as you have less than 50 houses.</p><table id='autoStructureConfigTable'><tbody><tr>";
+		tooltipText = "<p>在这里，您可以选择在自动建筑打开时自动购买哪些建筑。勾选一个复选框来自动购买该建筑，设置下拉菜单来指定应该在下面购买该结构的成本对资源的百分比，并将“Up to:”框设置为您希望购买的该结构的最大数量(0没有限制)。例如，将下拉菜单设为10%，“最多”框设为“房子”，当下一套房子的价格低于你的食物、金属和木材的10%时，只要你的房子少于50套，你就会自动购买房子。</p><table id='autoStructureConfigTable'><tbody><tr>";
 		var count = 0;
 		for (var item in game.buildings){
 			var building = game.buildings[item];
@@ -297,11 +297,11 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		};
 	}
 	if (what == "AutoStructure"){
-		tooltipText = "<p>Your mastery of this world has enabled your Foremen to handle fairly complicated orders regarding which buildings should be built. Click the cog icon on the right side of this button to tell your Foremen what you want and when you want it, then click the left side of the button to tell them to start or stop.</p>";
+		tooltipText = "<p>你对这个世界的掌握使你的工头能够处理相当复杂的命令，关于哪些建筑应该建造的。点击按钮右侧的齿轮图标，告诉你的工头你什么时候想要什么建筑。点击按钮左侧，开启或者关闭该功能。</p>";
 		costText = "";
 	}
 	if (what == "AutoGolden"){
-		tooltipText = '<p>Thanks to your brilliant Scientists, you can designate Golden Upgrades to be purchased automatically! Toggle between: </p><p><b>自动黄金关闭</b> when you\'re not feeling particularly trusting.</p><p><b>AutoGolden Helium (' + game.goldenUpgrades.Helium.purchasedAt.length + '/' + Math.round(game.goldenUpgrades.Helium.currentBonus * 100) + '%)</b> when you\'re looking to boost your Perk game. 4/5 Trimps agree that this will increase your overall Helium earned, though none of the 5 really understood the question.</p><p><b>AutoGolden Battle (' + game.goldenUpgrades.Battle.purchasedAt.length + '/' + Math.round(game.goldenUpgrades.Battle.currentBonus * 100) + '%)</b> if your Trimps have a tendency to slack off when you turn your back.</p><p><b>AutoGolden Void (' + game.goldenUpgrades.Void.purchasedAt.length + '/' + Math.round(game.goldenUpgrades.Void.currentBonus * 100) + '%)</b> if you need some more purple in your life. This is your Trimps\' least favorite choice, but it\'s pretty lucrative so...</p><p>Please allow 4 seconds for Trimp retraining after clicking this button before any Golden Upgrades are automatically purchased, and don\'t forget to frequently thank your scientists! Seriously, they get moody.</p>';
+		tooltipText = '<p>感谢你杰出的科学家，你可以自动购买黄金升级！自动升级在以下几个选项间切换: </p><p><b>自动黄金升级关闭</b> <i>当你觉得不是特别可靠时。</i></p><p><b>自动黄金升级-氦 (' + game.goldenUpgrades.Helium.purchasedAt.length + '/' + Math.round(game.goldenUpgrades.Helium.currentBonus * 100) + '%)</b> <i>当你想要提升你的能力（指消耗氦的升级）时。五分之四的脆皮同意这将增加你的整体氦气，尽管没有一个脆皮真正理解这个问题。</i></p><p><b>自动黄金升级-战斗 (' + game.goldenUpgrades.Battle.purchasedAt.length + '/' + Math.round(game.goldenUpgrades.Battle.currentBonus * 100) + '%)</b> <i>当你的脆皮会在你转身的时候偷懒的时候。</i></p><p><b>自动黄金升级-虚空 (' + game.goldenUpgrades.Void.purchasedAt.length + '/' + Math.round(game.goldenUpgrades.Void.currentBonus * 100) + '%)</b> <i>如果你的生活中需要更多的紫色。这是脆皮最不喜欢的选择，但它的收益相当可观。</i></p><p>请在自动购买任何金色升级之前，点击此按钮后再等4秒。<i>并且不要忘记经常感谢您的科学家!说真的,它们喜怒无常。</i></p>';
 		costText = "";
 	}
 	if (what == "Unliving"){
@@ -755,7 +755,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		};
 	}
 	if (what == "AutoPrestige"){
-		tooltipText = '<p>Your scientists have come a long way since you first crashed here, and can now purchase prestige upgrades automatically for you with hardly any catastrophic mistakes. They understand the word "No" and the following three commands: </p><p><b>AutoPrestige All</b> will always purchase the cheapest prestige available first.</p><p><b>Weapons Only</b> as you may be able to guess, will only purchase Weapon prestiges.</p><p><b>Weapons First</b> will only purchase Weapon prestiges unless the cheapest Armor prestige is less than 5% of the cost of the cheapest Weapon.</p>';
+		tooltipText = '<p><i>自从您第一次在这里崩溃以来，您的科学家已经走了很长一段路，</i>现在可以自动为您购买装备重铸，<i>几乎不会犯任何灾难性的错误。</i>他们理解“No”这个单词和以下三个命令: </p><p><b>自动重铸所有装备</b> 总是会先购买最便宜的装备重铸</p><p><b>只重铸武器</b> 正如你所能猜到的，将只购买武器重铸。</p><p><b>优先重铸武器</b> 只会购买武器的重铸，除非最便宜的装甲重铸低于最便宜的武器重铸的5%。</p>';
 	}
 	if (what == "AutoUpgrade"){
 		tooltipText = "你的科学家终于能自己处理一些升级了！把这个打开将能自动升级大部分的升级项。不包括装备进阶以及会弹出确认窗口的升级。";
@@ -4700,6 +4700,8 @@ function cntitle(tit){
         cntit="探险家";
     }else if(what=="Magmamancer"){
         cntit="巫师";
+    }else if(what=="Fire Trimps"){
+        cntit="解雇脆皮"
     }else if(what=="Gigastation"){
         cntit="千兆站";
     }else if(what=="Geneticistassist"){
@@ -4816,6 +4818,16 @@ function cntitle(tit){
         cntit="最大"
     }else if(what=="AutoStorage"){
         cntit="自动存储"
+    }else if(what=="AutoStructure"){
+        cntit="自动建筑"
+    }else if(what=="Configure AutoStructure"){
+        cntit="自动建筑配置"
+    }else if(what=="AutoUpgrade"){
+        cntit="自动升级"
+    }else if(what=="AutoPrestige"){
+        cntit="自动重铸装备"
+    }else if(what=="AutoGolden"){
+        cntit="自动黄金升级"
     }else if(what=="Harmbalest"){
         cntit="伤害平衡"
     }else if(what=="GambesOP"){
@@ -4852,6 +4864,10 @@ function cntitle(tit){
         cntit="显示/隐藏地图设置"
     }else if(what=="Electricity"){
         cntit="电流"
+    }else if(what=="Mastery"){
+        cntit="专精"
+    }else if(what=="Empowerments of Nature"){
+        cntit="自然赋权"
     }else{
         cntit=tit
     }
