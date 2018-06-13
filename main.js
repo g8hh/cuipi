@@ -2325,6 +2325,7 @@ function rewardResource(what, baseAmt, level, checkMapLootScale, givePercentage)
 			amt = avgSec * 10 * baseAmt;
 	}
 	else if (what == "fragments"){
+		if (game.options.menu.useAverages.enabled && document.getElementById("fragmentsPs").style.opacity == 0) fadeIn("fragmentsPs", 10);
 		amt = Math.floor(Math.pow(1.15, game.global.world) * game.global.world * game.global.world * 0.02);
 		if (baseAmt > 1) {
 			amt *= baseAmt;
@@ -4245,9 +4246,11 @@ function populateHeirloomWindow(){
 	displayExtraHeirlooms();
 	document.getElementById("nullifiumCount").innerHTML = prettify(game.global.nullifium);
 	document.getElementById("recycleAllHeirloomsBtn").style.display = (game.global.heirloomsExtra.length) ? "inline-block" : "none";
-	var fidgetSpinners = document.getElementsByClassName('heirloomRare8');
-	for (var x = 0; x < fidgetSpinners.length; x++){
-		fidgetSpinners[x].style.animationDelay = "-" + ((new Date().getTime() / 1000) % 30).toFixed(1) + "s";
+	if (game.options.menu.showHeirloomAnimations.enabled){
+		var fidgetSpinners = document.getElementsByClassName('heirloomRare8');
+		for (var x = 0; x < fidgetSpinners.length; x++){
+			fidgetSpinners[x].style.animationDelay = "-" + ((new Date().getTime() / 1000) % 30).toFixed(1) + "s";
+		}
 	}
 }
 
@@ -4468,7 +4471,8 @@ function hideHeirloomSelectButtons(){
 function generateHeirloomIcon(heirloom, location, number){
 	if (typeof heirloom.name === 'undefined') return "<span class='icomoon icon-sad3'></span>";
 	var icon = (heirloom.type == "Shield") ? 'icomoon icon-shield3' : 'glyphicon glyphicon-grain';
-	var html = '<span class="heirloomThing heirloomRare' + heirloom.rarity;
+	var animated = (game.options.menu.showHeirloomAnimations.enabled) ? "animated " : "";
+	var html = '<span class="heirloomThing ' + animated + 'heirloomRare' + heirloom.rarity;
 	if (location == "Equipped") html += ' equipped';
 	var locText = "";
 	if (location == "Equipped") locText += '-1,\'' + heirloom.type + 'Equipped\'';
@@ -4492,7 +4496,8 @@ function displaySelectedHeirloom(modSelected, selectedIndex, fromTooltip, locati
 	if (fromPopup && !game.options.menu.voidPopups.enabled) return;
 	var heirloom = getSelectedHeirloom(locationOvr, indexOvr);
 	var icon = (heirloom.type == "Shield") ? 'icomoon icon-shield3' : 'glyphicon glyphicon-grain';
-	var html = '<div class="selectedHeirloomItem heirloomRare' + heirloom.rarity + '"><div class="row selectedHeirloomRow"><div class="col-xs-2 selectedHeirloomIcon" id="' + ((fromTooltip) ? 'tooltipHeirloomIcon' : 'selectedHeirloomIcon') + '"><span class="' + icon + '"></span></div><div class="col-xs-10"><span onclick="renameHeirloom(';
+	var animated = (game.options.menu.showHeirloomAnimations.enabled) ? "animated " : "";
+	var html = '<div class="selectedHeirloomItem ' + animated + 'heirloomRare' + heirloom.rarity + '"><div class="row selectedHeirloomRow"><div class="col-xs-2 selectedHeirloomIcon" id="' + ((fromTooltip) ? 'tooltipHeirloomIcon' : 'selectedHeirloomIcon') + '"><span class="' + icon + '"></span></div><div class="col-xs-10"><span onclick="renameHeirloom(';
 	if (fromPopup) html += 'false, true';
 	html += ')" id="selectedHeirloomTitle">' + heirloom.name + '</span> '
 	if (!fromTooltip) html += '<span id="renameContainer"></span>';
@@ -4523,7 +4528,7 @@ function displaySelectedHeirloom(modSelected, selectedIndex, fromTooltip, locati
 		return;
 	}
 	document.getElementById("selectedHeirloom").innerHTML = html;
-	if (heirloom.rarity == 8)
+	if (heirloom.rarity == 8 && animated)
 		document.getElementById('selectedHeirloomIcon').style.animationDelay = "-" + ((new Date().getTime() / 1000) % 30).toFixed(1) + "s";
 }
 
@@ -6190,6 +6195,8 @@ function scaleNumberForBonusHousing(num){
 	if (game.portal.Carpentry_II.level > 0) num = Math.floor(num * (1 + (game.portal.Carpentry_II.modifier * game.portal.Carpentry_II.level)));
 	if (game.global.challengeActive == "Daily" && typeof game.global.dailyChallenge.large !== "undefined")
 		num = Math.floor(num * dailyModifiers.large.getMult(game.global.dailyChallenge.large.strength));
+	if (game.global.challengeActive == "Size")
+		num *= 0.5;
 	return num;
 }
 
@@ -11440,6 +11447,23 @@ function successPurchaseFlavor(){
 function updateBones() {
 	document.getElementById("bonesOwned").innerHTML = prettify(game.global.b) + " " + ((game.global.b == 1) ? "骨头" : "骨头");
 	updateSkeleBtn();
+	displaySingleRunBonuses();
+	updateBoneBtnColors();
+}
+
+function updateBoneBtnColors(){
+	var prices = {
+		boostPurchaseBtn0: 20,
+		boostPurchaseBtn1: 40,
+		heliumPurchaseBtn: 100,
+		heirloomPurchaseBtn: 30
+	}
+	for (var item in prices){
+		var elem = document.getElementById(item);
+		if (!elem) continue;
+		var swapTo = game.global.b >= prices[item] ? "boneBtnStateOn" : "boneBtnStateOff";
+		swapClass("boneBtnState", swapTo, elem);
+	}
 }
 
 function boostHe(checkOnly) {
@@ -11455,7 +11479,6 @@ function boostHe(checkOnly) {
 		game.global.totalPortals++;
 		checkAchieve("portals", null, false, true);
 		displayPerksBtn();
-		document.getElementById("pastUpgradesBtn").style.border = "1px solid red";
 		return;
 	}
 	for (var x = 0; x < level; x++) {
@@ -11484,7 +11507,6 @@ function boostHe(checkOnly) {
 	checkAchieve("portals", null, false, true);
 	checkAchieve("totalHelium");
 	displayPerksBtn();
-	document.getElementById("pastUpgradesBtn").style.border = "1px solid red";
 }
 
 function countUnpurchasedImports(){
