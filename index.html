@@ -427,7 +427,7 @@
 											</div>
 										</div>
 										<div class="col-xs-3" style="padding-left: 5px">
-											<div id="autoStorageBtn" class="pointer noselect colorDanger autoUpgradeBtn" onmouseover="tooltip('AutoStorage', 'customText', event, 'Enabling this will cause your Trimps to automatically add a storage building to the queue if you reach max capacity. This will work on and offline if enabled.')" onmouseout="tooltip('hide')" onclick="toggleAutoStorage()">自动存储</div>
+											<div id="autoStorageBtn" class="pointer noselect colorDanger autoUpgradeBtn" onmouseover="tooltip('AutoStorage', 'customText', event, '启用此功能将使您的脆皮在资源达到最大容量时自动建造存储类建筑。如果启用，该功能在离线和在线时都能正常工作。')" onmouseout="tooltip('hide')" onclick="toggleAutoStorage()">自动存储</div>
 										</div>
 									</div>
 								</div>
@@ -1094,7 +1094,7 @@
 			<div class="btn btn-primary inPortalBtn" id="activatePortalBtn" onclick="activateClicked()">激活传送门</div>
 			<div class="btn btn-danger inPortalBtn" id="cancelPortalBtn" onclick="cancelTooltip(); cancelPortal()">取消</div>
 			<div class="btn btn-warning inPortalBtn" style="display: none" id="respecPortalBtn" onclick="respecPerks()" onmouseover="tooltip('Respec', null, event)" onmouseout="tooltip('hide')"></div>
-			<div class="btn btn-success inPortalBtn" style='display: none' id="swapToCurrentChallengeBtn" onclick="swapToCurrentChallenge()" onmouseover="tooltip('View Current Challenge', 'customText', event, 'Swap the Challenge Selection pane to instead display your current challenge, or vice versa')" onmouseout="tooltip('hide')">View Current Challenge</div>
+			<div class="btn btn-success inPortalBtn" style='display: none' id="swapToCurrentChallengeBtn" onclick="swapToCurrentChallenge()" onmouseover="tooltip('查看当前的挑战', 'customText', event, '将选择挑战窗口切换为当前挑战窗口, 反之亦然')" onmouseout="tooltip('hide')">View Current Challenge</div>
 			<div class="btn btn-warning inPortalBtn" style="display: none" id="clearPerksBtn" onclick="clearPerks()">清除所有</div>
 		</div>
 	</div>
@@ -1126,7 +1126,7 @@
 					</div>
 				</div>
 				<div id="achievementHelpContainer" style="display: none">
-					你可以通过做东西来获得成就。 每个成就将会提高您的异形可以造成的伤害数量，以后的成就会给予更大的奖励。 您可以通过将鼠标悬停在其上来了解有关成就的更多信息。
+					你可以通过做东西来获得成就。 每个成就将会提高您的脆皮可以造成的伤害数量，以后的成就会给予更大的奖励。 您可以通过将鼠标悬停在其上来了解有关成就的更多信息。
 				</div>
 			</div>
 			<div class="col-xs-1">
@@ -1161,8 +1161,8 @@
 		<div id="heirloomTitleBar" class="row"><div class="col-xs-5">传家宝 - 从未来的礼物给你过去</div><div class="col-xs-5" id="nullifiumContainer">你有 <span id="nullifiumCount"></span> 虚空物质</div><div class="col-xs-1"><div onclick="toggleHeirloomHelp()" class="pointer noselect colorPrimary heirBtn heirInfo">帮助</div></div><div class="col-xs-1"><div class="pointer noselect colorDanger heirBtn heirInfo" onclick="toggleHeirlooms()">关闭</div></div></div>
 		<div id="heirloomHelp" style="display: none">
 			传家宝是一种功能强大的物品，可以通过各种各样的奖励和各种各样的稀有物品掉落来获得。如果你完成了一个虚空地图，你将会获得一份传家宝，如果你在更高的区域完成了虚空地图，你就有更高的机会获得更好的稀有物品掉落。一旦你有了传家宝，你可以点击下面的图标来选择它。<br/><br/>
-			一旦你选择了一个传家宝，你可以在屏幕右边看到它的所有数据。<b>您可以单击一个属性来升级或替换它。</b> 用于升级和替换属性会消耗一些东西，例如： <b>Nullifium, 和 Nu,</b> 它们只能通过回收传家宝来获得。 您还可以单击该菜单上的传家宝名称来重命名它。<br/><br/>
-			当你使用它的时候，你只能带一些传家宝(除了两个你已经装备的) <b>任何在“临时”部分的传家宝将在通过传送门时会被回收变为Nullifium。</b>
+			一旦你选择了一个传家宝，你可以在屏幕右边看到它的所有数据。<b>您可以单击一个属性来升级或替换它。</b> 用于升级和替换属性会消耗一些东西，例如： <b>虚空物质,</b> 它们只能通过回收传家宝来获得。 您还可以单击该菜单上的传家宝名称来重命名它。<br/><br/>
+			当你使用它的时候，你只能带一些传家宝(除了两个你已经装备的) <b>任何在“临时”部分的传家宝将在通过传送门时会被回收变为虚空物质。</b>
 		</div>
 		<div class="row">
 			<div class="col-xs-6">

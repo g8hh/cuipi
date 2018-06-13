@@ -168,7 +168,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		}
 	}
 	if (what == "Scryer Formation"){
-		tooltipText = "<p>Trimps lose half of their attack, health and block but gain 2x resources from loot (not including Helium) and have a chance to find Dark Essence above Z180 in the world. This formation must be active for the entire fight to receive any bonus from enemies, and must be active for the entire map to earn a bonus from a Cache. (Hotkeys: S or 5)</p>";
+		tooltipText = "<p>脆皮减少了一半的攻击、生命和阻挡，但是从掉落中获得了2倍资源(不包括氦气)，并且有机会在Z180以上的世界中找到黑暗精华。这个阵型必须在整个战斗中都处于激活状态的，才能从敌人那里得到奖励；并且必须在整个地图上都是活跃的，才能从地图隐藏奖励中获得奖励。(快捷键:S或5)</p>";
 		if (game.global.formation == 4){
 			if (!isScryerBonusActive()) tooltipText += "<p>You recently switched to Scryer and will <b>not</b> earn a bonus from this enemy.</p>";
 			else tooltipText += "<p>You will earn a bonus from this enemy!</p>";
@@ -198,7 +198,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		var emp = game.empowerments[active];
 		if (typeof emp.description === 'undefined') return;
 		var lvlsLeft = ((5 - ((game.global.world - 1) % 5)) + (game.global.world - 1)) + 1;
-		tooltipText = "<p>The " + active + " Empowerment is currently active!</p><p>" + emp.description() + "</p><p>This Empowerment will end on Z" + lvlsLeft + ", at which point you'll be able to fight a " + getEmpowerment(null, true) + " enemy to earn a Token of " + active + ".</p>";
+		tooltipText = "<p>这个 " + active + " 赋权激活中！</p><p>" + emp.description() + "</p><p>这个自然赋权会结束于区域Z" + lvlsLeft + ", 在这个区域范围中，你将会碰到一个 " + getEmpowerment(null, true) + " 敌人并与他战斗，获胜后将获得若干个 " + active + "令牌。</p>";
 		costText = "";
 
 	}
@@ -214,12 +214,12 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 	}
 	if (what == "Switch Daily"){
 		var daysUntilReset = Math.floor(7 + textString);
-		tooltipText = "Click to view " + ((textString == 0) ? "today" : dayOfWeek(getDailyTimeString(textString, false, true))) + "s challenge, which resets in less than " + daysUntilReset + " day" + ((daysUntilReset == 1) ? "" : "s") + ".";
+		tooltipText = "点击查看" + ((textString == 0) ? "今天" : cntime(dayOfWeek(getDailyTimeString(textString, false, true)))) + "的挑战, 将在" + daysUntilReset + "天内重置" + ((daysUntilReset == 1) ? "" : "") + "。";
 		costText = "";
 	}
 	if (what == "Decay"){
 		var decayedAmt = ((1 - Math.pow(0.995, game.challenges.Decay.stacks)) * 100).toFixed(2);
-		tooltipText = "Things are quickly becoming tougher. Gathering, looting, and Trimp attack are reduced by " + decayedAmt + "%.";
+		tooltipText = "事情正在迅速变得困难起来。收集速度，战利品以及脆皮攻击已经减少了" + decayedAmt + "%.";
 		costText = "";
 	}
 	if (what == "Heirloom"){
@@ -271,7 +271,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		elem.style.top = "25%";
 	}
 	if (what == "Configure AutoStructure"){
-		tooltipText = "<p>Here you can choose which structures will be automatically purchased when AutoStructure is toggled on. Check a box to enable the automatic purchasing of that structure, set the dropdown to specify the cost-to-resource % that the structure should be purchased below, and set the 'Up To:' box to the maximum number of that structure you'd like purchased <b>(0&nbsp;for&nbsp;no&nbsp;limit)</b>. For example, setting the dropdown to 10% and the 'Up To:' box to 50 for 'House' will cause a House to be automatically purchased whenever the costs of the next house are less than 10% of your Food, Metal, and Wood, as long as you have less than 50 houses.</p><table id='autoStructureConfigTable'><tbody><tr>";
+		tooltipText = "<p>在这里，您可以选择在自动建筑打开时自动购买哪些建筑。勾选一个复选框来自动购买该建筑，设置下拉菜单来指定应该在下面购买该结构的成本对资源的百分比，并将“Up to:”框设置为您希望购买的该结构的最大数量(0没有限制)。例如，将下拉菜单设为10%，“最多”框设为“房子”，当下一套房子的价格低于你的食物、金属和木材的10%时，只要你的房子少于50套，你就会自动购买房子。</p><table id='autoStructureConfigTable'><tbody><tr>";
 		var count = 0;
 		for (var item in game.buildings){
 			var building = game.buildings[item];
@@ -298,11 +298,11 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		};
 	}
 	if (what == "AutoStructure"){
-		tooltipText = "<p>Your mastery of this world has enabled your Foremen to handle fairly complicated orders regarding which buildings should be built. Click the cog icon on the right side of this button to tell your Foremen what you want and when you want it, then click the left side of the button to tell them to start or stop.</p>";
+		tooltipText = "<p>你对这个世界的掌握使你的工头能够处理相当复杂的命令，关于哪些建筑应该建造的。点击按钮右侧的齿轮图标，告诉你的工头你什么时候想要什么建筑。点击按钮左侧，开启或者关闭该功能。</p>";
 		costText = "";
 	}
 	if (what == "AutoGolden"){
-		tooltipText = '<p>Thanks to your brilliant Scientists, you can designate Golden Upgrades to be purchased automatically! Toggle between: </p><p><b>自动黄金关闭</b> when you\'re not feeling particularly trusting.</p><p><b>AutoGolden Helium (' + game.goldenUpgrades.Helium.purchasedAt.length + '/' + Math.round(game.goldenUpgrades.Helium.currentBonus * 100) + '%)</b> when you\'re looking to boost your Perk game. 4/5 Trimps agree that this will increase your overall Helium earned, though none of the 5 really understood the question.</p><p><b>AutoGolden Battle (' + game.goldenUpgrades.Battle.purchasedAt.length + '/' + Math.round(game.goldenUpgrades.Battle.currentBonus * 100) + '%)</b> if your Trimps have a tendency to slack off when you turn your back.</p><p><b>AutoGolden Void (' + game.goldenUpgrades.Void.purchasedAt.length + '/' + Math.round(game.goldenUpgrades.Void.currentBonus * 100) + '%)</b> if you need some more purple in your life. This is your Trimps\' least favorite choice, but it\'s pretty lucrative so...</p><p>Please allow 4 seconds for Trimp retraining after clicking this button before any Golden Upgrades are automatically purchased, and don\'t forget to frequently thank your scientists! Seriously, they get moody.</p>';
+		tooltipText = '<p>感谢你杰出的科学家，你可以自动购买黄金升级！自动升级在以下几个选项间切换: </p><p><b>自动黄金升级关闭</b> <i>当你觉得不是特别可靠时。</i></p><p><b>自动黄金升级-氦 (' + game.goldenUpgrades.Helium.purchasedAt.length + '/' + Math.round(game.goldenUpgrades.Helium.currentBonus * 100) + '%)</b> <i>当你想要提升你的能力（指消耗氦的升级）时。五分之四的脆皮同意这将增加你的整体氦气，尽管没有一个脆皮真正理解这个问题。</i></p><p><b>自动黄金升级-战斗 (' + game.goldenUpgrades.Battle.purchasedAt.length + '/' + Math.round(game.goldenUpgrades.Battle.currentBonus * 100) + '%)</b> <i>当你的脆皮会在你转身的时候偷懒的时候。</i></p><p><b>自动黄金升级-虚空 (' + game.goldenUpgrades.Void.purchasedAt.length + '/' + Math.round(game.goldenUpgrades.Void.currentBonus * 100) + '%)</b> <i>如果你的生活中需要更多的紫色。这是脆皮最不喜欢的选择，但它的收益相当可观。</i></p><p>请在自动购买任何金色升级之前，点击此按钮后再等4秒。<i>并且不要忘记经常感谢您的科学家!说真的,它们喜怒无常。</i></p>';
 		costText = "";
 	}
 	if (what == "Unliving"){
@@ -418,7 +418,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		costText = "";
 	}
 	if (what == "Repeat Map"){
-		tooltipText = "允许异形们自己找到回广场的路，一旦他们在没有你的帮助下完成过后。他们成长的如此之快！<br/><br/>如果您<b>不</ b>重复，地图结束后，您当前的脆皮组将不会被放弃。 （热键：R）";
+		tooltipText = "允许脆皮们自己找到回广场的路，一旦他们在没有你的帮助下完成过后。他们成长的如此之快！<br/><br/>如果您<b>不</ b>重复，地图结束后，您当前的脆皮组将不会被放弃。 （热键：R）";
 		costText = "";
 	}
 	if (what == "Challenge2"){
@@ -550,7 +550,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		noExtraCheck = true;
 	}
 	if (what == "Mastery"){
-		tooltipText = "<p>Click to view your masteries.</p><p>You currently have " + prettify(game.global.essence) + "</b> Dark Essence.</p>"
+		tooltipText = "<p>点击这里查看你的专精。</p><p>你现在拥有 " + prettify(game.global.essence) + "</b> 黑暗精华。</p>"
 	}
 	if (what == "The Improbability"){
 		if (!game.options.menu.bigPopups.enabled) return;		
@@ -636,13 +636,13 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		elem.style.top = "25%";
 	}
 	if (what == "战斗"){
-		tooltipText = "你把这些可怜的异形们运送到战场上去遭受厄运。然而你会得到很酷的东西,他们会明白的。 (热键: F)";
+		tooltipText = "你把这些可怜的脆皮们运送到战场上去遭受厄运。然而你会得到很酷的东西,他们会明白的。 (热键: F)";
 		var currentSend = game.resources.trimps.getCurrentSend();
 		costText = (currentSend > 1) ? "" : "";
 		costText = prettify(currentSend) + " 脆皮" + costText;
 	}
 	if (what == "自动战斗"){
-		tooltipText = "允许这些异形们开始自己去战斗，当他们的小镇变得拥挤不堪的时候。(热键: A)";
+		tooltipText = "允许这些脆皮们开始自己去战斗，当他们的小镇变得拥挤不堪的时候。(热键: A)";
 		costText = "";
 	}
 	if (what == "New Achievements"){
@@ -654,7 +654,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 	}
 	if (what == "Upgrade Generator"){
 		tooltipText = getGeneratorUpgradeHtml();
-		costText = "<b style='color: red'>These upgrades persist through portal and cannot be refunded. Choose wisely! " + getMagmiteDecayAmt() + "% of your unspent Magmite will decay on portal.</b><br/><br/><div class='maxCenter'><span class='btn btn-info' onclick='cancelTooltip()'>关闭</span></div>";
+		costText = "<b style='color: red'>这些升级通过传送门以后依旧有效，不能退款。做出你明智的选择！ " + getMagmiteDecayAmt() + "% 的Magmite在通过传送门时会遗失。</b><br/><br/><div class='maxCenter'><span class='btn btn-info' onclick='cancelTooltip()'>关闭</span></div>";
 		game.global.lockTooltip = true;
 		elem.style.left = "33.75%";
 		elem.style.top = "25%";
@@ -756,7 +756,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		};
 	}
 	if (what == "AutoPrestige"){
-		tooltipText = '<p>Your scientists have come a long way since you first crashed here, and can now purchase prestige upgrades automatically for you with hardly any catastrophic mistakes. They understand the word "No" and the following three commands: </p><p><b>AutoPrestige All</b> will always purchase the cheapest prestige available first.</p><p><b>Weapons Only</b> as you may be able to guess, will only purchase Weapon prestiges.</p><p><b>Weapons First</b> will only purchase Weapon prestiges unless the cheapest Armor prestige is less than 5% of the cost of the cheapest Weapon.</p>';
+		tooltipText = '<p><i>自从您第一次在这里崩溃以来，您的科学家已经走了很长一段路，</i>现在可以自动为您购买装备重铸，<i>几乎不会犯任何灾难性的错误。</i>他们理解“No”这个单词和以下三个命令: </p><p><b>自动重铸所有装备</b> 总是会先购买最便宜的装备重铸</p><p><b>只重铸武器</b> 正如你所能猜到的，将只购买武器重铸。</p><p><b>优先重铸武器</b> 只会购买武器的重铸，除非最便宜的装甲重铸低于最便宜的武器重铸的5%。</p>';
 	}
 	if (what == "AutoUpgrade"){
 		tooltipText = "你的科学家终于能自己处理一些升级了！把这个打开将能自动升级大部分的升级项。不包括装备进阶以及会弹出确认窗口的升级。";
@@ -775,22 +775,22 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		noExtraCheck = true;
 	}
 	if (what == "PlayFab Conflict"){
-		tooltipText = "It looks like your save stored at PlayFab is further along than the save on your computer.<br/><b>Your save on PlayFab has earned " + prettify(textString) + " total Helium, defeated Zone " + attachFunction + ", and cleared " + prettify(numCheck) + " total Zones. The save on your computer only has " + prettify(game.global.totalHeliumEarned) + " total Helium, has defeated Zone " + game.global.highestLevelCleared + ", and cleared " + prettify(game.stats.zonesCleared.value + game.stats.zonesCleared.valueTotal) + " total Zones.</b><br/>Would you like to Download your save from PlayFab, Overwrite your online save with this one, or Cancel and do nothing?";
-		costText = "<span class='btn btn-primary' onclick='playFabFinishLogin(true)'>Download From PlayFab</span><span class='btn btn-warning' onclick='playFabFinishLogin(false)'>Overwrite PlayFab Save</span><span class='btn btn-danger' onclick='cancelPlayFab();'>取消</span>";
+		tooltipText = "看起来你在PlayFab上保存的存档比你电脑上的存档进度更远一些。<br/><b>你在PlayFab上的存档总共获得了" + prettify(textString) + "氦,打通区域" + attachFunction + ",并且总共清除了" + prettify(numCheck) + "区域。在你电脑上的存档总共只有" + prettify(game.global.totalHeliumEarned) + "氦，打通区域" + game.global.highestLevelCleared + ",并且总共清除" + prettify(game.stats.zonesCleared.value + game.stats.zonesCleared.valueTotal) + "区域。</b><br/>你想要从PlayFab上下载存档,还是要用你电脑的存档覆盖网络上的存档,或者是取消，什么都不做?";
+		costText = "<span class='btn btn-primary' onclick='playFabFinishLogin(true)'>从PlayFab下载存档</span><span class='btn btn-warning' onclick='playFabFinishLogin(false)'>用电脑存档覆盖PlayFab的存档</span><span class='btn btn-danger' onclick='cancelPlayFab();'>取消</span>";
 		game.global.lockTooltip = true;
 		elem.style.left = "33.75%";
 		elem.style.top = "25%";
 	}
 	if (what == "Fire Trimps"){
 		if (!game.global.firing)
-		tooltipText = "激活解雇模式，工作按钮将会变成红色并将会开始解雇异形们而不是雇佣他们。 被解雇的异形们将开始自我繁殖而不是工作， 但你不会得到任何资源的返还。";
+		tooltipText = "激活解雇模式，工作按钮将会变成红色并将会开始解雇脆皮们而不是雇佣他们。 被解雇的脆皮们将开始自我繁殖而不是工作， 但你不会得到任何资源的返还。";
 		else
 		tooltipText = "关闭解雇模式";
 		costText = "";
 	}
 	if (what == "Maps"){
 		if (!game.global.preMapsActive)
-		tooltipText = "前往地图室。 地图充满了好东西，对于每个最大级别的地图，每打通一遍，您将获得该区域的20％叠加损伤加成（叠加多达10次）。(热键: M)";
+		tooltipText = "前往地图室，地图内充满了好东西。每打通一遍你能制作的最大级别的地图，你在打该区域时，便有20%的伤害加成。（最多叠加10次）。(热键: M)";
 		else
 		tooltipText = "回到世界地图 (热键: M)";
 		costText = "";
@@ -1297,7 +1297,7 @@ function getPsString(what, rawNum) {
 		textString += "<tr><td class='bdTitle'>明智 (衰变)</td><td class='bdPercent'>x 10</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 		var stackStr = Math.pow(0.995, game.challenges.Decay.stacks);
 		currentCalc *= stackStr;
-		textString += "<tr style='color: red'><td class='bdTitle'>Decay</td><td class='bdPercent'>x " + stackStr.toFixed(3) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+		textString += "<tr style='color: red'><td class='bdTitle'>衰变</td><td class='bdPercent'>x " + stackStr.toFixed(3) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 	}
 	if (game.global.challengeActive == "Watch"){
 		currentCalc /= 2;
@@ -1443,7 +1443,7 @@ function getTrimpPs() {
 	//Add quick trimps
 	if (game.singleRunBonuses.quickTrimps.owned){
 		currentCalc *= 2;
-		textString += "<tr><td class='bdTitle'>Quick Trimps</td><td class='bdPercent'>+ 100%</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+		textString += "<tr><td class='bdTitle'>快速脆皮</td><td class='bdPercent'>+ 100%</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 	}
 	if (game.global.challengeActive == "Daily"){
 		var mult = 0;
@@ -1581,14 +1581,14 @@ function getBattleStatBd(what) {
 		var PerkStrength = (game.portal[perk].level * game.portal[perk].modifier);
 		currentCalc  *= (PerkStrength + 1);
 		PerkStrength = prettify(PerkStrength * 100) + "%";
-		textString += "<tr><td class='bdTitle'>" + perk.replace('_', ' ') + "</td><td>" + (game.portal[perk].modifier * 100) + "%</td><td>" + prettify(game.portal[perk].level) + "</td><td>+ " + PerkStrength + "</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + ((what == "attack") ? getFluctuation(currentCalc, minFluct, maxFluct) : "") + "</tr>";
+		textString += "<tr><td class='bdTitle'>" + cnperk(perk.replace('_', ' ')) + "</td><td>" + (game.portal[perk].modifier * 100) + "%</td><td>" + game.portal[perk].level + "</td><td>+ " + PerkStrength + "</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + ((what == "attack") ? getFluctuation(currentCalc, minFluct, maxFluct) : "") + "</tr>";
 	}
 	//Add resilience
 	if (what == "health" && game.portal.Resilience.level > 0){
 		var resStrength = Math.pow(game.portal.Resilience.modifier + 1, game.portal.Resilience.level);
 		currentCalc *= resStrength;
 		resStrength = prettify((resStrength - 1) * 100) + "%";
-		textString += "<tr><td class='bdTitle'>Resilience</td><td>" + (game.portal.Resilience.modifier * 100) + "%</td><td>" + game.portal.Resilience.level + "</td><td>+ " + resStrength + "</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td></tr>";
+		textString += "<tr><td class='bdTitle'>弹力</td><td>" + (game.portal.Resilience.modifier * 100) + "%</td><td>" + game.portal.Resilience.level + "</td><td>+ " + resStrength + "</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td></tr>";
 	}
 	//Add Geneticist
 	var geneticist = game.jobs.Geneticist;
@@ -1605,7 +1605,7 @@ function getBattleStatBd(what) {
 		var antiStrength = ((anticipation.level * anticipation.modifier * game.global.antiStacks) + 1);
 		currentCalc *= antiStrength;
 		antiStrength = prettify((antiStrength - 1) * 100) + "%";
-		textString += "<tr><td class='bdTitle'>Anticipation</td><td>2% (x" + game.global.antiStacks + ")</td><td>" + prettify(anticipation.level) + "</td><td>+ " + antiStrength + "</td><td>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>";
+		textString += "<tr><td class='bdTitle'>预期</td><td>2% (X" + game.global.antiStacks + ")</td><td>" + prettify(anticipation.level) + "</td><td>+ " + antiStrength + "</td><td>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>";
 
 	}
 	//Add formations
@@ -1663,13 +1663,13 @@ function getBattleStatBd(what) {
 		textString += "<tr><td class='bdTitle'>明智 (衰变)</td><td></td><td></td><td class='bdPercent'>x 5</td><td class='bdNumber'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>";
 		var stackStr = Math.pow(0.995, game.challenges.Decay.stacks);
 		currentCalc *= stackStr;
-		textString += "<tr style='color: red'><td class='bdTitle'>Decay</td><td>x 0.995</td><td>" + game.challenges.Decay.stacks + "</td><td class='bdPercent'>x " + stackStr.toFixed(3) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>";
+		textString += "<tr style='color: red'><td class='bdTitle'>衰变</td><td>x 0.995</td><td>" + game.challenges.Decay.stacks + "</td><td class='bdPercent'>x " + stackStr.toFixed(3) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>";
 	}
 	if ((game.global.challengeActive == "Electricity" || game.global.challengeActive == "Mapocalypse") && what == "attack") {
 		var mult = (1 - (game.challenges.Electricity.stacks * 0.1));
 		currentCalc *= mult;
 
-		textString += "<tr style='color: red'><td class='bdTitle'>" + game.global.challengeActive + "</td><td>-10%</td><td>" + game.challenges.Electricity.stacks.toString() + "</td><td class='bdPercent'>x " + mult.toFixed(1) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>";
+		textString += "<tr style='color: red'><td class='bdTitle'>" + cntitle(game.global.challengeActive) + "</td><td>-10%</td><td>" + game.challenges.Electricity.stacks.toString() + "</td><td class='bdPercent'>x " + mult.toFixed(1) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>";
 	}
 	if (game.global.challengeActive == "Daily"){
 		var mult = 0;
@@ -1691,7 +1691,7 @@ function getBattleStatBd(what) {
 		if (typeof game.global.dailyChallenge.rampage !== 'undefined' && what == "attack"){
 			mult = dailyModifiers.rampage.getMult(game.global.dailyChallenge.rampage.strength, game.global.dailyChallenge.rampage.stacks);
 			currentCalc *= mult;
-			textString += "<tr><td class='bdTitle'>Rampage (日常)</td><td>x " + dailyModifiers.rampage.getMult(game.global.dailyChallenge.rampage.strength, 1).toFixed(3) + "</td><td>" + game.global.dailyChallenge.rampage.stacks + "</td><td class='bdPercent'>x " + mult.toFixed(3) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>";
+			textString += "<tr><td class='bdTitle'>暴怒 (日常)</td><td>x " + dailyModifiers.rampage.getMult(game.global.dailyChallenge.rampage.strength, 1).toFixed(3) + "</td><td>" + game.global.dailyChallenge.rampage.stacks + "</td><td class='bdPercent'>x " + mult.toFixed(3) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>";
 		}
 		if (typeof game.global.dailyChallenge.pressure !== 'undefined' && what == "health"){
 			mult = dailyModifiers.pressure.getMult(game.global.dailyChallenge.pressure.strength, game.global.dailyChallenge.pressure.stacks);
@@ -1763,18 +1763,18 @@ function getBattleStatBd(what) {
 	if (what == "health" && game.jobs.Amalgamator.owned > 0){
 		amt = game.jobs.Amalgamator.getHealthMult();
 		currentCalc *= amt;
-		textString += "<tr><td class='bdTitle'>Amalgamator</td><td>x " + prettify(game.jobs.Amalgamator.healthModifier) + "</td><td class='bdNumberSm'>" + prettify(game.jobs.Amalgamator.owned) + "</td><td class='bdNumberSm'>x " + prettify(amt) + "</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td></tr>";
+		textString += "<tr><td class='bdTitle'>合并者</td><td>x " + prettify(game.jobs.Amalgamator.healthModifier) + "</td><td class='bdNumberSm'>" + prettify(game.jobs.Amalgamator.owned) + "</td><td class='bdNumberSm'>x " + prettify(amt) + "</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td></tr>";
 	}
 
 	if (what == "attack" && game.jobs.Amalgamator.owned > 0){
 		amt = game.jobs.Amalgamator.getDamageMult();
 		currentCalc *= amt;
-		textString += "<tr><td class='bdTitle'>Amalgamator</td><td>+ " + prettify(game.jobs.Amalgamator.damageModifier * 100) + "%</td><td>" + game.jobs.Amalgamator.owned + "</td><td>+ " + prettify((amt -1 ) * 100) + "%</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>"
+		textString += "<tr><td class='bdTitle'>合并者</td><td>+ " + prettify(game.jobs.Amalgamator.damageModifier * 100) + "%</td><td>" + game.jobs.Amalgamator.owned + "</td><td>+ " + prettify((amt -1 ) * 100) + "%</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>"
 		
 	}
 	if (what == "attack" && game.singleRunBonuses.sharpTrimps.owned){
 		currentCalc *= 1.5;
-		textString += "<tr><td class='bdTitle'>Sharp Trimps</td><td></td><td></td><td>+ 50%</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>"
+		textString += "<tr><td class='bdTitle'>锋利脆皮</td><td></td><td></td><td>+ 50%</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>"
 		
 	}
 	if (what == "attack"){
@@ -1787,7 +1787,7 @@ function getBattleStatBd(what) {
 			//From reduced crit chance daily or maybe other stuff later
 			critMult = 1;
 			critCalc = currentCalc;
-			textString += "<tr class='critRow'><td class='bdTitle'><span style='color: yellow;'>Crit!</span> Chance</td><td>0% (" + (critChance * 100).toFixed(1) + "% Total)</td><td class='bdTitle'><span style='color: yellow;'>Crit!</span> Damage</td><td>+ " + prettify((critMult - 1) * 100) + "%</td><td class='bdNumberSm'>" + prettify(critCalc) + "</td>" + getFluctuation(critCalc, minFluct, maxFluct) + "</tr>";
+			textString += "<tr class='critRow'><td class='bdTitle'><span style='color: yellow;'>暴击!</span> 几率</td><td>0% (" + (critChance * 100).toFixed(1) + "% Total)</td><td class='bdTitle'><span style='color: yellow;'>暴击!</span> 伤害</td><td>+ " + prettify((critMult - 1) * 100) + "%</td><td class='bdNumberSm'>" + prettify(critCalc) + "</td>" + getFluctuation(critCalc, minFluct, maxFluct) + "</tr>";
 			textString += "<tr class='critRow'><td class='bdTitle'><span style='color: cyan;'>Weak!</span> Chance</td><td>" + (Math.abs(critChance) * 100).toFixed(1) + "%</td><td class='bdTitle'><span style='color: cyan;'>Weak!</span> Damage</td><td>x 0.2</td><td class='bdNumberSm'>" + prettify(currentCalc * 0.2) + "</td>" + getFluctuation((currentCalc * 0.2), minFluct, maxFluct) + "</tr>";
 		}
 		else {
@@ -1797,9 +1797,9 @@ function getBattleStatBd(what) {
 				else if (critChance >= 1) thisCritChance = 1 - (critChance % 1);
 				else thisCritChance = critChance;
 				critCalc = currentCalc * critMult;
-				textString += "<tr class='critRow'><td class='bdTitle'><span style='color: yellow;'>Crit!</span> Chance</td><td>" + (thisCritChance * 100).toFixed(1) + "%";
+				textString += "<tr class='critRow'><td class='bdTitle'><span style='color: yellow;'>暴击!</span> 几率</td><td>" + (thisCritChance * 100).toFixed(1) + "%";
 				if (critChance > 1) textString += " (" + (critChance * 100).toFixed(1) + "% Total)";
-				textString += "</td><td class='bdTitle'><span style='color: yellow;'>Crit!</span> Damage</td><td>+ " + prettify((critMult - 1) * 100) + "%</td><td class='bdNumberSm'>" + prettify(critCalc) + "</td>" + getFluctuation(critCalc, minFluct, maxFluct) + "</tr>";
+				textString += "</td><td class='bdTitle'><span style='color: yellow;'>暴击!</span> 伤害</td><td>+ " + prettify((critMult - 1) * 100) + "%</td><td class='bdNumberSm'>" + prettify(critCalc) + "</td>" + getFluctuation(critCalc, minFluct, maxFluct) + "</tr>";
 			}
 			if (critChance > 1){
 				if (critChance >= 2) thisCritChance = 1 - (critChance % 1);
@@ -1807,14 +1807,14 @@ function getBattleStatBd(what) {
 				else thisCritChance = critChance - 1;
 				critMult = getMegaCritDamageMult(2);
 				critCalc = currentCalc * critMult * baseCritMult;
-				textString += "<tr class='critRow'><td class='bdTitle'><span style='color: orange;'>CRIT!</span> Chance</td><td>" + (thisCritChance * 100).toFixed(1) + "%</td><td class='bdTitle'><span style='color: orange;'>CRIT!</span> Damage</td><td><span style='color: yellow;'>Crit!</span> x " + prettify(critMult) + "</td><td class='bdNumberSm'>" + prettify(critCalc) + "</td>" + getFluctuation(critCalc, minFluct, maxFluct) + "</tr>";
+				textString += "<tr class='critRow'><td class='bdTitle'><span style='color: orange;'>暴击!</span> 几率</td><td>" + (thisCritChance * 100).toFixed(1) + "%</td><td class='bdTitle'><span style='color: orange;'>暴击!</span> 伤害</td><td><span style='color: yellow;'>Crit!</span> x " + prettify(critMult) + "</td><td class='bdNumberSm'>" + prettify(critCalc) + "</td>" + getFluctuation(critCalc, minFluct, maxFluct) + "</tr>";
 			}
 			if (critChance > 2){
 				if (critChance >= 3) thisCritChance = 1;
 				else thisCritChance = critChance - 2;
 				critMult = getMegaCritDamageMult(3);
 				critCalc = currentCalc * critMult * baseCritMult;
-				textString += "<tr class='critRow'><td class='bdTitle'><span style='color: red;'>CRIT!!</span> Chance</td><td>" + (thisCritChance * 100).toFixed(1) + "%</td><td class='bdTitle'><span style='color: red;'>CRIT!!</span> Damage</td><td><span style='color: yellow;'>Crit!</span> x " + prettify(critMult) + "</td><td class='bdNumberSm'>" + prettify(critCalc) + "</td>" + getFluctuation(critCalc, minFluct, maxFluct) + "</tr>";
+				textString += "<tr class='critRow'><td class='bdTitle'><span style='color: red;'>暴击!!</span> 几率</td><td>" + (thisCritChance * 100).toFixed(1) + "%</td><td class='bdTitle'><span style='color: red;'>暴击!!</span> 伤害</td><td><span style='color: yellow;'>Crit!</span> x " + prettify(critMult) + "</td><td class='bdNumberSm'>" + prettify(critCalc) + "</td>" + getFluctuation(critCalc, minFluct, maxFluct) + "</tr>";
 			}
 		}
 	}
@@ -4500,6 +4500,8 @@ function cnjob(job){
         cnjob="巫师";
     }else if(what=="Geneticist"){
         cnjob="遗传学家";
+    }else if(what=="Amalgamator"){
+        cnjob="合并者";
     }else{
         cnjob=job;
     }
@@ -4710,6 +4712,10 @@ function cntitle(tit){
         cntit="探险家";
     }else if(what=="Magmamancer"){
         cntit="巫师";
+    }else if(what=="Amalgamator"){
+        cntit="合并者";
+    }else if(what=="Fire Trimps"){
+        cntit="解雇脆皮";
     }else if(what=="Gigastation"){
         cntit="千兆站";
     }else if(what=="Geneticistassist"){
@@ -4746,11 +4752,19 @@ function cntitle(tit){
         cntit="力量 II"
     }else if(what=="Toughness II"){
         cntit="坚韧 II"
+    }else if(what=="Capable"){
+        cntit="能力"
+    }else if(what=="Cunning"){
+        cntit="狡猾"
+    }else if(what=="Curious"){
+        cntit="好奇"
     }else if(what=="Overkill"){
         cntit="超杀"
     }else if(what=="Resourceful"){
         cntit="足智多谋"
-    }else if((what=="Coordinated") || what=="Coordination"){
+    }else if(what=="Coordinated"){
+        cntit="协调"
+    }else if(what=="Coordination"){
         cntit="协作"
     }else if(what=="Siphonology"){
         cntit="虹吸学"
@@ -4807,7 +4821,7 @@ function cntitle(tit){
     }else if(what=="Greatersword"){
         cntit="更大的剑"
     }else if(what=="Bestplate"){
-        cntit="最好的盘子"
+        cntit="更好的胸甲"
     }else if(what=="Speedexplorer"){
         cntit="探险家加速"
     }else if(what=="Gigastation"){
@@ -4820,6 +4834,16 @@ function cntitle(tit){
         cntit="最大"
     }else if(what=="AutoStorage"){
         cntit="自动存储"
+    }else if(what=="AutoStructure"){
+        cntit="自动建筑"
+    }else if(what=="Configure AutoStructure"){
+        cntit="自动建筑配置"
+    }else if(what=="AutoUpgrade"){
+        cntit="自动升级"
+    }else if(what=="AutoPrestige"){
+        cntit="自动重铸装备"
+    }else if(what=="AutoGolden"){
+        cntit="自动黄金升级"
     }else if(what=="Harmbalest"){
         cntit="伤害平衡"
     }else if(what=="GambesOP"){
@@ -4850,8 +4874,18 @@ function cntitle(tit){
         cntit="自动陷阱"
     }else if(what=="Blockmaster"){
         cntit="防御大师"
+    }else if(what=="Decay"){
+        cntit="衰变"
     }else if(what=="Show/Hide Map Config"){
         cntit="显示/隐藏地图设置"
+    }else if(what=="Electricity"){
+        cntit="电流"
+    }else if(what=="Mastery"){
+        cntit="专精"
+    }else if(what=="Empowerments of Nature"){
+        cntit="自然赋权"
+    }else if(what=="Switch Daily"){
+        cntit="选择日常挑战"
     }else{
         cntit=tit
     }
@@ -4868,6 +4902,10 @@ function cntitle(tit){
         cnperk="坚韧"
     }else if(what=="Meditation"){
         cnperk="冥想"
+    }else if(what=="Power II"){
+        cnperk="力量 II"
+    }else if(what=="Toughness II"){
+        cnperk="坚韧 II"
     }else{
         cnperk=obj
     }
@@ -4892,6 +4930,30 @@ function cntitle(tit){
         cntext=text
     }
     return cntext;
+}
+
+function cntime(time) {
+    //汉化时间
+    var cntime = "";
+    var temp = time;
+    if (temp == "Monday") {
+        cntime = "周一";
+    } else if (temp == "Tuesday") {
+        cntime = "周二";
+    } else if (temp == "Wednesday") {
+        cntime = "周三";
+    } else if (temp == "Thursday") {
+        cntime = "周四";
+    } else if (temp == "Friday") {
+        cntime = "周五";
+    } else if (temp == "Saturday") {
+        cntime = "周六";
+    } else if(temp=="Sunday"){
+        cntime = "周日";   
+    } else {
+        return time;
+    }
+    return cntime;
 }
 
 var nums=0;

@@ -353,10 +353,10 @@ var toReturn = {
 	empowerments: {
 		Poison: {
 			description: function () {
-				return "When this Empowerment is active, each successful attack by your Trimps stacks a debuff on the enemy, causing it to take <b>" + this.formatModifier(this.getModifier()) + "%</b> of the damage you dealt every attack until it dies. Each attack by your Trimps will further add to the poison effect.";
+				return "当这个赋权激活时，你的脆皮的每次成功攻击会对敌人造成一个Debuff, 造成额外 <b>" + this.formatModifier(this.getModifier()) + "%</b> 伤害直到它死亡。你的脆皮每次攻击都会进一步增加毒性。";
 			},
 			upgradeDescription: function () {
-				return "Increases the percentage of damage that sticks to enemies as poison during the Empowerment of Poison by <b>" + this.formatModifier(this.baseModifier) + "%</b>. You currently poison for <b>" + this.formatModifier(this.getModifier()) + "%</b>, and next level will cause you to poison for <b>" + this.formatModifier(this.getModifier(1)) + "%</b>.";
+				return "增加毒药赋权期间，你对敌人造成的毒药Debuff的伤害增加 <b>" + this.formatModifier(this.baseModifier) + "%</b>，现在你的毒药伤害系数是 <b>" + this.formatModifier(this.getModifier()) + "%</b>, 下一级毒药伤害系数是 <b>" + this.formatModifier(this.getModifier(1)) + "%</b>。";
 			},
 			baseModifier: 0.01,
 			getModifier: function (change) {
@@ -375,10 +375,10 @@ var toReturn = {
 		},
 		Wind: {
 			description: function () {
-				return "当这个赋权活动时，你的脆皮的每次成功攻击会对敌人造成一个debuff，导致风向膨胀，并将额外资源砸到你的手中。 每个堆栈增加从所有来源获得的氦 <b>" + this.formatModifier(this.getModifier()) + "%</b> 并增加所获得的所有其他资源 <b>" + this.formatModifier(this.getModifier() * 10) + "%</b> 直到敌人死亡（最多200堆）。 氦气奖金不适用于地图。";
+				return "当这个赋权活动时，你的脆皮的每次成功攻击会对敌人造成一个Debuff，导致风向膨胀，并将额外资源砸到你的手中。 每个堆栈增加从所有来源获得的氦 <b>" + this.formatModifier(this.getModifier()) + "%</b> 并增加所获得的所有其他资源 <b>" + this.formatModifier(this.getModifier() * 10) + "%</b> 直到敌人死亡（最多200堆）。 氦气奖金不适用于地图。";
 			},
 			upgradeDescription: function () {
-				return "Increases the amount of extra Helium you find by <b>" + this.formatModifier(this.baseModifier) + "%</b> and non-Helium resources by <b>" + this.formatModifier(this.baseModifier * 10) + "%</b> per stack when the Empowerment of Wind is active. Your current bonus is <b>" + this.formatModifier(this.getModifier()) + "%</b> Helium, and next level will bring your bonus to <b>" + this.formatModifier(this.getModifier(1)) + "%</b> extra helium. Non-Helium resource gain is always 10x that of Helium, and the Helium bonus does not apply in maps.";
+				return "增加风赋权时每层风Debuff <b>" + this.formatModifier(this.baseModifier) + "%</b> 的氦收益和 <b>" + this.formatModifier(this.baseModifier * 10) + "%</b>的氦以外的资源收益。 你现在的 氦 奖励是每层buff <b>" + this.formatModifier(this.getModifier()) + "%</b>, 下一级的 氦 奖励是每层buff <b>" + this.formatModifier(this.getModifier(1)) + "%</b>。 氦以外的资源的奖励总是氦的奖励的10倍，而氦的奖励在地图中不生效。";
 			},
 			baseModifier: 0.001,
 			getModifier: function (change) {
@@ -401,10 +401,10 @@ var toReturn = {
 		},
 		Ice: {
 			description: function () {
-				return "When this Empowerment is active, enemies will be Chilled each time your Trimps attack. The Chill debuff stacks, reduces the damage that enemy deals by <b>" + this.formatModifier(this.getModifier()) + "%</b> (compounding) per stack, and increases the damage your Trimps deal to that enemy by the same amount (with diminishing returns, max of 100%) until it dies.";
+				return "当这个赋权活动时，你的脆皮的每次成功攻击都会使敌人被冰冻，冰冻的Debuff会叠加，每层Debuff会减少敌人 <b>" + this.formatModifier(this.getModifier()) + "%</b>的伤害 (复合) ，同时增加你的脆皮对敌人造成的伤害 (增加的百分比等于敌人减少的百分比，收益递减，最大100%)，直到敌人死亡。";
 			},
 			upgradeDescription: function () {
-				return "Reduces the enemy's damage dealt from each stack of Chilled when the Empowerment of Ice is active by <b>" + this.formatModifier(1 - this.baseModifier) + "%</b> (compounding), and increases the damage your Trimps deal to that enemy by the same amount (with diminishing returns, max of 100%). Your current bonus is <b>" + this.formatModifier(this.getModifier()) + "%</b>, and next level will bring your bonus to <b>" + this.formatModifier(this.getModifier(1)) + "%</b>.";
+				return "每一层冰冻Debuff使敌人造成的伤害额外降低<b>" + this.formatModifier(1 - this.baseModifier) + "%</b> (复合)，并增加你的脆皮相同百分比的伤害加成。(收益递减，最大100%). 你现在的冰冻效果是每层 <b>" + this.formatModifier(this.getModifier()) + "%</b>, 下一级的冰冻效果是每层 <b>" + this.formatModifier(this.getModifier(1)) + "%</b>。";
 			},
 			baseModifier: 0.01,
 			getModifier: function (change) {
@@ -427,10 +427,10 @@ var toReturn = {
 	},
 	singleRunBonuses: {
 		goldMaps: {
-			name: "Golden Maps",
-			text: "+100% Map Loot",
+			name: "黄金地图",
+			text: "+100%地图战利品",
 			cost: 20,
-			confirmation: "You are about to purchase Golden Maps for 20 bones. All of your current and future maps will gain +100% loot added to their normal loot roll <b>until your next Portal</b>. Is this what you wanted to do?", 
+			confirmation: "你正在花费20骨头购买黄金地图。<b>在你的下一轮前</b>，你现在的和未来的所有地图战利品获得增加100%。这是你想要的吗？", 
 			owned: false,
 			fire: function () {
 				game.unlocks.goldMaps = true;
@@ -441,10 +441,10 @@ var toReturn = {
 			}
 		},
 		quickTrimps: {
-			name: "Quick Trimps",
-			text: "+100% Breed Speed",
+			name: "快速脆皮",
+			text: "+100%繁殖速度",
 			cost: 20,
-			confirmation: "You are about to purchase Quick Trimps for 20 bones. This will cause your Trimps to breed twice as fast <b>until your next Portal</b>. Is this what you wanted to do?",
+			confirmation: "你正在花费20骨头购买快速脆皮。这个将会<b>在你的下一轮前</b>使你的脆皮繁殖速度翻倍。这是你想要的吗？",
 			owned: false,
 			fire: function () {
 				swapClass("psColor", "psColorOrange", document.getElementById("trimpsPs"));
@@ -457,10 +457,10 @@ var toReturn = {
 			}
 		},
 		sharpTrimps: {
-			name: "Sharp Trimps",
-			text: "+50% Trimp Damage",
+			name: "锋利脆皮",
+			text: "+50%脆皮伤害",
 			cost: 25,
-			confirmation: "You are about to purchase Sharp Trimps for 25 bones. This will cause your Trimps to deal 50% more damage <b>until your next Portal</b>. Is this what you wanted to do?",
+			confirmation: "你正在花费25骨头购买锋利脆皮。这个将会<b>在你的下一轮前</b>使你的脆皮增加50%的伤害。这是你想要的吗？",
 			owned: false,
 			fire: function () {
 				swapClass("attackColor", "attackColorOrange", document.getElementById("goodGuyAttack"));
@@ -474,10 +474,10 @@ var toReturn = {
 
 		},
 		heliumy: {
-			name: "Heliumy",
-			text: "+25% Helium",
+			name: "高氦",
+			text: "+25%氦",
 			cost: 100,
-			confirmation: "You are about to purchase Heliumy for 100 bones. This will cause you to earn 25% more Helium from all sources <b>until your next Portal</b>. Is this what you wanted to do?",
+			confirmation: "你正要花费100骨头购买高氦。这个将会<b>在你的下一轮前</b>使你从所有来源获得的氦增加25%。这是你想要的吗？?",
 			owned: false,
 			fire: function () {
 				swapClass("hePhColor", "hePhColorOrange", document.getElementById("heliumPh"));
@@ -639,7 +639,7 @@ var toReturn = {
 			boneAlerts: {
 				enabled: 1,
 				extraTags: "alerts",
-				description: "在“骨交易员”或“传家宝”菜单中不弹出确认提示。",
+				description: "在“骨法商人”或“传家宝”菜单中不弹出确认提示。",
 				titles: ["不确认骨头", "确认骨头"]
 			},
 			showAlerts: {
@@ -1019,7 +1019,7 @@ var toReturn = {
 	},
 	talents: {
 		bionic: {
-			description: "<p>Automatically pick up each level of 仿生仙境 (BW) as you pass a BW zone. Will not work if you have already missed any BWs this run, or if you reach a zone higher than any BW you have ever cleared before.</p><p>In addition, give all current and future copies of 仿生仙境 the 'Fast Attacks' special modifier.</p>",
+			description: "<p>自动获取每一层仿生仙境(BW)地图当你超过BW的层数。如果您已经错过了本次运行的任何一个BW，或者您到达一个比您以前清除的任何BW都高的区域，则将无效。</p><p>另外,给所有当前和未来的副本仿生仙境的快速攻击的特殊的修饰符。</p>",
 			name: "Bionic Magnet",
 			onPurchase: function (clear) {
 				addMapModifier('Bionic', 'fa');
@@ -1046,35 +1046,35 @@ var toReturn = {
 			icon: "th-large",
 		},
 		housing: {
-			description: "Unlock Mansion, Hotel, Nursery, Resort, Gateway, Wormhole, and Collector automatically when passing the zone they drop at.",
+			description: "自动解锁房子、大厦、旅馆、娱乐场、出入口、虫洞和集电极，当通过他们降落的区域时。",
 			name: "Home Detector",
 			tier: 1,
 			purchased: false,
 			icon: "home"
 		},
 		turkimp: {
-			description: "Increases the bonus time from each Turkimp by 5 minutes, and increases the time cap by 10 minutes.",
+			description: "增加每一个Turkimp的奖励时间5分钟，最大奖励时间增加10分钟。",
 			name: "Turkimp Tamer I",
 			tier: 1,
 			purchased: false,
 			icon: "*spoon-knife"
 		},
 		voidPower: {
-			description: "Your Trimps gain 15% attack and health inside Void Maps.",
+			description: "你的脆皮在虚空地图中会获得15%的额外攻击力和血量。",
 			name: "Void Power I",
 			tier: 2,
 			purchased: false,
 			icon: "*heart5"
 		},
 		pierce: {
-			description: "Reduce the amount of enemy damage that can pierce block by 25%.",
+			description: "减少敌人25%的穿刺伤害。",
 			name: "Metallic Coat",
 			tier: 2,
 			purchased: false,
 			icon: "tint"
 		},
 		headstart: {
-			description: "腐败在5级时候开始，在区176。",
+			description: "腐败提早5个区域开始，即区域176。",
 			name: "Headstart I",
 			tier: 2,
 			purchased: false,
@@ -1096,7 +1096,7 @@ var toReturn = {
 			icon: "user",
 		},
 		turkimp2: {
-			description: "Increase the chance of finding a Turkimp by 33%.",
+			description: "找到Turkimp的机会增加33%。",
 			name: "Turkimp Tamer II",
 			tier: 2,
 			purchased: false,
@@ -1104,7 +1104,7 @@ var toReturn = {
 			icon: "*spoon-knife"
 		},
 		voidPower2: {
-			description: "Your Trimps gain an additional 20% attack and health inside Void Maps.",
+			description: "你的脆皮在虚空地图中会再获得20%的额外攻击力和血量。",
 			name: "Void Power II",
 			tier: 3,
 			purchased: false,
@@ -1112,14 +1112,14 @@ var toReturn = {
 			requires: "voidPower"
 		},
 		mapLoot: {
-			description: "Reduces the starting point of the Low Map Level Loot Penalty by 1 level. This allows you to earn the same amount of loot by doing a map at your current world number, or at your current world number minus 1.",
+			description: "降低低地图掠夺惩罚1级，这允许你在当前世界层数的地图或当前世界层数-1的地图中获得相同数量的战利品。",
 			name: "Map Reducer I",
 			tier: 3,
 			purchased: false,
 			icon: "*gift2"
 		},
 		headstart2: {
-			description: "Corruption begins an additional 10 levels earlier, at zone 166.",
+			description: "腐败提早10个区域开始，即区域166。",
 			name: "Headstart II",
 			tier: 3,
 			purchased: false,
@@ -1127,21 +1127,21 @@ var toReturn = {
 			requires: "headstart"
 		},
 		doubleBuild: {
-			description: "Stacked items in the Building Queue will be constructed two at a time.",
+			description: "在建筑队列中的多个建筑将被一次构造两个。",
 			name: "Double Build",
 			tier: 3,
 			purchased: false,
 			icon: "*hammer"
 		},
 		skeletimp: {
-			description: "Double the chance for a Megaskeletimp to appear instead of a Skeletimp.",
+			description: "Skeletimp进化为Megaskeletimp的概率变为原来的两倍。",
 			name: "King of Bones I",
 			tier: 3,
 			purchased: false,
 			icon: "italic",
 		},
 		hyperspeed: {
-			description: "Reduce the time in between fights and attacks by 100ms.",
+			description: "减少攻击间隔100ms。",
 			name: "Hyperspeed I",
 			tier: 4,
 			purchased: false,
@@ -1149,7 +1149,7 @@ var toReturn = {
 		},
 		blacksmith: {
 			get description () {
-				return "Each cleared zone through Z" + Math.floor((game.global.highestLevelCleared + 1) / 2) + " (half of your highest zone reached) will drop all available equipment prestiges from maps.";
+				return "每个清除的世界区域将直接掉落所有该等级的装备升级。直到区域" + Math.floor((game.global.highestLevelCleared + 1) / 2) + "（你最高区域的50％）";
 			},
 			name: "Blacksmithery I",
 			tier: 4,
@@ -1157,7 +1157,7 @@ var toReturn = {
 			icon: "*hammer2"
 		},
 		headstart3: {
-			description: "Corruption begins an additional 15 levels earlier, at zone 151.",
+			description: "腐败提早15个区域开始，即区域151。",
 			name: "Headstart III",
 			tier: 4,
 			purchased: false,
@@ -1166,8 +1166,8 @@ var toReturn = {
 		},
 		autoStructure: {
 			get description(){
-				 var text = "Unlock the AutoStructure tool, allowing you to automatically purchase structures. In addition, all housing and battle territory bonuses will come with ready-to-fight Trimps inside";
-				 if (game.global.highestLevelCleared >= 229) text += " (Not including the Dimensional Generator)";
+				 var text = "解锁自动建筑工具，允许您自动购买建筑。此外，所有的住房和战斗区域奖金将伴随准备好战斗的Trimps进入";
+				 if (game.global.highestLevelCleared >= 229) text += " (不包括维度发生器)";
 				 text += "!";
 				 return text;
 			},
@@ -1185,7 +1185,7 @@ var toReturn = {
 			}
 		},
 		turkimp3: {
-			description: "Increase the bonus resources gained while Well Fed from a Turkimp by 25%, from 50% to 75%.",
+			description: "增加Turkimp的奖励25%, 从 50% 到 75%.",
 			name: "Turkimp Tamer III",
 			tier: 4,
 			purchased: false,
@@ -1194,7 +1194,7 @@ var toReturn = {
 		},
 		hyperspeed2: {
 			get description(){
-				return "Reduce the time in between fights and attacks by an additional 100ms through Z" + Math.floor((game.global.highestLevelCleared + 1) * 0.5) + " (50% of your highest zone reached)";
+				return "减少战斗时间 100ms 直到 区域Z" + Math.floor((game.global.highestLevelCleared + 1) * 0.5) + "(你最高区域的50％)";
 			},
 			name: "Hyperspeed II",
 			tier: 5,
@@ -1203,7 +1203,7 @@ var toReturn = {
 		},
 		blacksmith2: {
 			get description () {
-				return "Each cleared zone through Z" + Math.floor((game.global.highestLevelCleared + 1) * 0.75) + " (75% of your highest zone reached) will drop all available equipment prestiges from maps.";
+				return "每个清除的世界区域将直接掉落所有该等级的装备升级。直到区域" + Math.floor((game.global.highestLevelCleared + 1) * 0.75) + " （你最高区域的75％）";
 			},
 			name: "Blacksmithery II",
 			requires: "blacksmith",
@@ -1212,14 +1212,14 @@ var toReturn = {
 			icon: "*hammer2"
 		},
 		magmaFlow: {
-			description: "Cause two extra Magma cells to appear on any zone that already has Magma.",
+			description: "增加两个额外的岩浆房间在任何已经有岩浆的区域。",
 			name: "Magma Flow",
 			tier: 5,
 			purchased: false,
 			icon: "*fire",
 		},
 		quickGen: {
-			description: "Increase the amount of speed that the Dimensional Generator gains per zone by 50%.",
+			description: "增加维度发生器生产房子的速度50%.",
 			name: "Quick Gen",
 			tier: 5,
 			purchased: false,
@@ -1250,7 +1250,7 @@ var toReturn = {
 		},
 		blacksmith3: {
 			get description () {
-				return "每个清除的区域通过区域" + Math.floor((game.global.highestLevelCleared + 1) * 0.9) + " （达到你最高区域的90％）将会从地图上掉落所有可用的装备声望。";
+				return "每个清除的世界区域将直接掉落所有该等级的装备升级。直到区域" + Math.floor((game.global.highestLevelCleared + 1) * 0.9) + "（你最高区域的90％）";
 			},
 			name: "Blacksmithery III",
 			requires: "blacksmith2",
@@ -1259,7 +1259,7 @@ var toReturn = {
 			icon: "*hammer2"
 		},
 		nature: {
-			description: "将您的令牌交易比率从10：5提高到10：6",
+			description: "将您的自然符记转换比率从10：5提高到10：6",
 			name: "Natural Diplomacy I",
 			tier: 6,
 			purchased: false,
@@ -1284,7 +1284,7 @@ var toReturn = {
 			icon: "*water"
 		},
 		turkimp4: {
-			description: "学习发展自己的土耳其人，增加奖金+ 100％，并永久提供奖金。",
+			description: "学习发展自己的Turkimp，增加奖励+ 100％，并永久提供奖金。",
 			name: "Turkimp Tamer IV",
 			tier: 6,
 			purchased: false,
@@ -1302,7 +1302,7 @@ var toReturn = {
 			}
 		},
 		magmamancer: {
-			description: "现在，岩浆喷浆机将会增加同样数量的金属增加。 此外，开始每个后岩浆区与5分钟的信用已经适用于你的岩浆机。",
+			description: "现在，巫师将会增加同样数量的攻击。 此外，开始每个区域后视为你已在本区域停留5分钟。",
 			name: "Magmamancermancy",
 			tier: 7,
 			purchased: false,
@@ -1317,7 +1317,7 @@ var toReturn = {
 			icon: "*gift2"
 		},
 		nature2: {
-			description: "将您的令牌交易比率从10：6增加到10：8",
+			description: "将您的自然符记转换比率从10：6增加到10：8",
 			name: "Natural Diplomacy II",
 			tier: 7,
 			purchased: false,
@@ -1325,14 +1325,14 @@ var toReturn = {
 			icon: "*tree3"
 		},
 		patience: {
-			description: "预计现在可以达到45堆。",
+			description: "预期现在可以达到45层。",
 			name: "Patience",
 			tier: 7,
 			purchased: false,
 			icon: "*clock2"
 		},
 		stillRowing: {
-			description: "在尖塔中增加50％的奖励，从2％的额外战利品增加到3％。",
+			description: "增肌50%的尖塔额外掉落奖励，从2％的额外奖励增加到3％。",
 			name: "Still Rowing I",
 			tier: 7,
 			purchased: false,
@@ -1340,11 +1340,11 @@ var toReturn = {
 		},
 		voidSpecial: {
 			get description() {
-				var text = "使用您的传送门清除上次运行的每个100个区域后，获得1个免费的虚空地图。 来自虚空地图的氦气在上一次清除的每个区域也增加了0.25％。";
+				var text = "通过传送门时，上次运行每清除100个区域，你将获得1个免费的虚空地图。 来自虚空地图的氦气增加上次完成区域数*0.25％。";
 				var amt = (game.global.lastPortal * 0.0025);
-				text += " 你到达了 Z" + game.global.lastPortal + " 是一个传送门, ";
+				text += " 你在上一个传送门中到达了 Z" + game.global.lastPortal + "，";
 				if (this.purchased) text += " 获得了奖励 ";
-				else text += " 这将为你赢得奖金 ";
+				else text += " 这将为你本次的虚空地图获得 ";
 				text +=  prettify(amt * 100) + "% 额外的氦气。"
 				return text;
 			},
@@ -1354,14 +1354,14 @@ var toReturn = {
 			icon: "*feed"
 		},
 		healthStrength: {
-			description: "你的脆皮在你当前区域内的每个健康细胞中获得15％的附加伤害。",
+			description: "你的脆皮根据当前区域内的健康细胞个数增加细胞数*15％的攻击力。",
 			name: "Strength in Health",
 			tier: 8,
 			purchased: false,
 			icon: "*aid-kit"
 		},
 		nature3: {
-			description: "增加5个级别的升级和堆栈转让的所有3个自然赋权，而不增加成本。",
+			description: "增加5个%的自然堆栈传递而不增加成本。",
 			name: "Natural Diplomacy III",
 			tier: 8,
 			purchased: false,
@@ -1405,7 +1405,7 @@ var toReturn = {
 			locked: true,
 			priceBase: 100000,
 			heliumSpent: 0,
-			tooltip: "Apply your skills at salvaging things from the Spire to increase all loot gained by 0.25% per level. The price for this perk increases additively, and each level will cost exactly 10000 more than the previous level.",
+			tooltip: "运用你的技能从尖塔打捞物品，每级增加0.25%的战利品。这种额外福利的价格会增加，每一级的价格将比上一等级高出10000氦。",
 			additive: true,
 			additiveInc: 10000,
 			modifier: 0.0025
@@ -1415,7 +1415,7 @@ var toReturn = {
 			locked: true,
 			priceBase: 100000,
 			heliumSpent: 0,
-			tooltip: "You've learned to look more objectively at the no longer mysterious building designs, allowing you to increase housing space by 0.25% per level. This multiplies on top of Carpentry I, but the bonus stacks additively. The price for this perk also increases additively, and each level will cost exactly 10000 more than the previous level.",
+			tooltip: "你已经学会了更加客观地看待不再神秘的建筑设计，每级增加0.25%的居住空间。这将在木工I的基础上面成倍增加，这种额外福利的价格会增加，每一级的价格将比上一等级高出10000氦。",
 			additive: true,
 			additiveInc: 10000,
 			modifier: 0.0025
@@ -1425,7 +1425,7 @@ var toReturn = {
 			locked: true,
 			priceBase: 50000,
 			heliumSpent: 0,
-			tooltip: "Corruption and impending doom are great motivators to work a bit harder! Increases Trimp gather speed by 1% per level. The price for this perk increases additively, and each level will cost exactly 1000 more than the previous level.",
+			tooltip: "腐败和即将到来的厄运是让你更加努力工作的巨大动力!每升一级增加脆皮的收集速度1%。这种额外福利的价格会增加，每一级的价格将比上一等级高出1000氦。",
 			additive: true,
 			additiveInc: 1000,
 			modifier: 0.01
@@ -1435,7 +1435,7 @@ var toReturn = {
 			locked: true,
 			priceBase: 20000,
 			heliumSpent: 0,
-			tooltip: "You find strength in the desire to some day return home. Anger your Trimps by making them listen to you talk about it all the time, increasing their damage by 1% per level. The price for this perk increases additively, and each level will cost exactly 500 more than the previous level.",
+			tooltip: "你在渴望回家的欲望中找到了力量。让你的脆皮们一直听你谈论它，激怒他们，使他们的伤害每等级增加1%。这种额外福利的价格会增加，每一级的价格将比上一等级高出500氦。",
 			additive: true,
 			additiveInc: 500,
 			modifier: 0.01
@@ -1445,7 +1445,7 @@ var toReturn = {
 			locked: true,
 			priceBase: 20000,
 			heliumSpent: 0,
-			tooltip: "当你记得你从哪里来的时候，你会感到更加踏实。将你的韧性扩展给你的脆皮，每级增加1%的生命。这种额外福利的价格会增加，而且每一层的价格将比之前的水平高出整整500美元。",
+			tooltip: "当你记得你从哪里来的时候，你会感到更加踏实。将你的韧性扩展给你的脆皮，每级增加1%的生命。这种额外福利的价格会增加，每一级的价格将比上一等级高出500氦。",
 			additive: true,
 			additiveInc: 500,
 			modifier: 0.01
@@ -1455,7 +1455,7 @@ var toReturn = {
 			locked: true,
 			priceBase: 1e8,
 			heliumSpent: 0,
-			tooltip: "You can sense great power within Fluffy, but he'll need some training. Each level of Capable allows Fluffy to gain 1 level of Experience. Respeccing to remove Capable will temporarily remove any bonuses associated with Fluffy's level and Experience, but all Exp will be saved until you add points back. Each level of Capable is 10x more expensive than the last, and buying the first level will allow Fluffy to take Portals with you.",
+			tooltip: "你可以在Fluffy中感受到巨大的力量，但他需要一些训练。 能力的每个级别都允许Fluffy获得1级的经验。 降低能力等级将暂时移除Fluffy的等级和经验以及相关的任何奖励，但所有的经验都将被保存，直到重新提升能力等级为止。 能力的每个级别比上一级贵10倍，购买第一级将允许Fluffy陪你一起传过传送门。",
 			max: 10,
 			specialGrowth: 10,
 			onChange: function(){
@@ -1469,7 +1469,7 @@ var toReturn = {
 			priceBase: 1e11,
 			heliumSpent: 0,
 			get tooltip(){
-				return "Fluffy demands more helium! Each level of Cunning will increase the final amount of Experience Fluffy gains from each zone by " + Math.round(this.modifier * 100) + "% (additive)."
+				return "蓬松需要更多的氦气！ 每个级别的狡猾将增加 " + Math.round(this.modifier * 100) + "%经验(线性)。"
 			}
 		},
 		Curious: {
@@ -1479,7 +1479,7 @@ var toReturn = {
 			priceBase: 1e14,
 			heliumSpent: 0,
 			get tooltip() {
-				return "Fluffy is coming along, but he's coming along slowly. Each point of Curious will speed up Fluffy's progression by adding " + this.modifier + " Exp to the base amount he gains per zone clear."
+				return "Fluffy 进步中, 但他进步的有点慢。 每一级的好奇都将加速Fluffy的发展。每级增加" + this.modifier + " 点每个区域的基础经验。"
 			}
 		},
 		Overkill: {
@@ -1541,7 +1541,7 @@ var toReturn = {
 			},
 			get tooltip(){
 				var time = game.talents.patience.purchased ? 45 : 30;
-				return "Use your experiences in understanding the attention span of Trimps to increase the damage dealt by all soldiers based on how long it took to get an army together. Increases damage by 2% per level per second up to " + time + " seconds. Maximum of 10 levels."
+				return "运用你对脆皮了解的经验，基于一支战斗队生产需要的时间来增加脆皮的伤害。每升一级，每秒繁殖时间增加2%伤害，上限为" + time + "秒。最高10级。"
 			}
 		},
 		Resilience: {
@@ -1550,7 +1550,7 @@ var toReturn = {
 			modifier: 0.1,
 			priceBase: 100,
 			heliumSpent: 0,
-			tooltip: "Use your acquired skills in Trimp strengthening to gain a 10% <b>compounding</b> increase to total Trimp health."
+			tooltip: "使用你在脆皮挑战中所获取的技能，每级脆皮总生命增长10%（<b>复合</b>）。"
 		},
 		Meditation: {
 			level: 0,
@@ -1782,7 +1782,7 @@ var toReturn = {
 			unlockString: "到达区域 35"
 		},
 		Balance: {
-			description: "你的科学家发现了一个充满氦气的混沌空间。 所有敌人的生命值提高100％，世界上的敌人造成的伤害提高17％，地图上的敌人造成135％的伤害。 从6区开始，每当世界上的一个敌人被击毙时，你将获得一堆“不平衡”。 每当地图上的敌人被杀时，你将失去一堆不平衡。 每次不平衡叠加可以使你的生命值降低1％，但你的脆皮的收集速度提高1％。 不平衡只能叠加到250。在这个挑战激活的情况下，完成 <b>40区</b> 将额外获得100％的氦气。 这个挑战是可重复的！",
+			description: "你的科学家发现了一个充满氦气的混沌空间。 所有敌人的生命值提高100％，世界上的敌人造成的伤害提高17％，地图上的敌人造成135％的伤害。 从6区开始，每当世界上的一个敌人被击毙时，你将获得一层“不平衡”。 每当地图上的敌人被杀时，你将失去一层不平衡。 每次不平衡叠加可以使你的生命值降低1％，但你的脆皮的收集速度提高1％。 不平衡只能叠加到250。在这个挑战激活的情况下，完成 <b>40区</b> 将额外获得100％的氦气。 这个挑战是可重复的！",
 			completed: false,
 			filter: function () {
 				return (game.global.highestLevelCleared >= 39);
@@ -1818,7 +1818,7 @@ var toReturn = {
 				return ((this.balanceStacks * 0.01) + 1);
 			},
 			allowSquared: true,
-			squaredDescription: "你的科学家发现了一个充满氦气的混沌空间。 所有敌人的生命值提高100％，世界上的敌人造成的伤害提高17％，地图上的敌人造成135％的伤害。 从6区开始，每当世界上的一个敌人被击毙时，你将获得一堆“不平衡”。 每当地图上的敌人被杀时，你将失去一堆不平衡。 每次不平衡叠加可以使你的生命值降低1％，但你的脆皮的收集速度提高1％。 不平衡只能叠加到250。",
+			squaredDescription: "你的科学家发现了一个充满氦气的混沌空间。 所有敌人的生命值提高100％，世界上的敌人造成的伤害提高17％，地图上的敌人造成135％的伤害。 从6区开始，每当世界上的一个敌人被击毙时，你将获得一层“不平衡”。 每当地图上的敌人被杀时，你将失去一层不平衡。 每次不平衡叠加可以使你的生命值降低1％，但你的脆皮的收集速度提高1％。 不平衡只能叠加到250。",
 			highestStacks: 0,
 			fireAbandon: true,
 			heldHelium: 0,
@@ -1905,12 +1905,12 @@ var toReturn = {
 			unlockString: "到达区域55",
 		},
 		Trimp: {
-			description: "调整传送门，让你进入一个维度，如果一次超过1次的战斗，脆皮会爆炸。 你将不能学习协作， 但是完成 <b>'The Block' (11)</b> 将教会你如何让你的脆皮存活更长时间。",
+			description: "调整传送门，让你进入一个维度，如果有超过1只脆皮在同时战斗，他们会爆炸。 你将不能学习协作， 但是完成 <b>'The Block' (11)</b> 将教会你如何让你的脆皮存活更长时间。",
 			completed: false,
 			heldBooks: 0,
 			fireAbandon: true,
 			allowSquared: true,
-			squaredDescription: "调整传送门，让你进入一个维度，如果一次超过1次的战斗，脆皮会爆炸。你将无法学会协作。",
+			squaredDescription: "调整传送门，让你进入一个维度，如果有超过1只脆皮在同时战斗，他们会爆炸。你将无法学会协作。",
 			replaceSquareThresh: 40,
 			replaceSquareReward: 3,
 			replaceSquareGrowth: 3,
@@ -1961,7 +1961,7 @@ var toReturn = {
 			unlockString: "到达区域 70"
 		},
 		Electricity: {
-			description: "Use the keys you found in the Prison to bring your portal to an extremely dangerous dimension. In this dimension enemies will electrocute your Trimps, stacking a debuff with each attack that damages Trimps for 10% of total health per turn per stack, and reduces Trimp attack by 10% per stack. Clearing <b>'The Prison' (80)</b> will reward you with an additional 200% of all helium earned up to but not including Zone 80. This is repeatable!",
+			description: "使用你在监狱中找到的钥匙，将你传送至一个极其危险的维度。在这个维度中，敌人会电击你的脆皮，敌人对脆皮的每次攻击会叠加一个减益效果，每层效果会在每个回合对脆皮造成10%最大血量的伤害，并减少脆皮10%的伤害(死亡后效果重置)。清除 <b>'监狱' (80)</b>将会奖励你200%的你所获得的氦(不包括区域80及以上所获得)。这个挑战是可重复的！",
 			completed: false,
 			hasKey: false,
 			filter: function () {
@@ -1976,12 +1976,12 @@ var toReturn = {
 			heliumThrough: 79,
 			allowSquared: true,
 			attacksInARow: 0,
-			squaredDescription: "Use the keys you found in the Prison to bring your portal to an extremely dangerous dimension. In this dimension enemies will electrocute your Trimps, stacking a debuff with each attack that damages Trimps for 10% of total health per turn per stack, and reduces Trimp attack by 10% per stack.",
+			squaredDescription: "使用你在监狱中找到的钥匙，将你传送至一个极其危险的维度。在这个维度中，敌人会电击你的脆皮，敌人对脆皮的每次攻击会叠加一个减益效果，每层效果会在每个回合对脆皮造成10%最大血量的伤害，并减少脆皮10%的伤害(死亡后效果重置)。",
 			stacks: 0,
 			unlockString: "clear 'The Prison' at Zone 80"
 		},
 		Frugal: {
-			description: "Bring yourself to a dimension where Equipment is cheap but unable to be prestiged, in order to teach yourself better resource and equipment management. Completing <b>'Dimension of Anger' (20)</b> with this challenge active will return missing books to maps, and your new skills in Frugality will permanently cause MegaBooks to increase gather speed by 60% instead of 50%.",
+			description: "为了更好地掌握资源及装备管理，将你自己带入一个装备很便宜，但不能进阶的维度。在本挑战中完成<b>'愤怒维度' (20)</b>将在地图中返还锻造书，并且获得新技能节俭，将永久使50%加成的书变为60%加成的巨型书。",
 			completed: false,
 			filter: function () {
 				return (game.global.highestLevelCleared >= 99);
@@ -2486,7 +2486,7 @@ var toReturn = {
 			},
 			description: function(){
 				var burnRate = getFuelBurnRate();
-				return "Your Generator currently grants " + prettify(scaleNumberForBonusHousing(this.tickAtFuel(burnRate))) + " Max Trimps per tick at " + burnRate + " fuel (the amount of fuel needed to tick). Purchase this to increase the Generator's efficiency by 10% (additive)";
+				return "你的维度发生器现在会每个周期产生 " + prettify(scaleNumberForBonusHousing(this.tickAtFuel(burnRate))) + " 最大脆皮数并消耗 " + burnRate + " 燃料 (燃料消耗量)。 购买这个升级会提高维度发生器10%的效率（线性）";
 			}
 		},
 		Capacity: {
@@ -2502,7 +2502,7 @@ var toReturn = {
 				return this.baseIncrease + this.modifier;
 			},
 			description: function(){
-				return "Your Generator can currently store " + prettify(this.modifier) + " fuel. Purchase this to increase the fuel capacity by " + prettify(this.baseIncrease) + ". The more fuel you have in storage, the more housing you'll create per tick!";
+				return "你的维度发生器现在可以储存最多 " + prettify(this.modifier) + "点燃料。每次升级会增加 " + prettify(this.baseIncrease) + "点燃料最大库存. 你储存的燃料越多，你一次生产的房子越多！";
 			}
 		},
 		Supply: {
@@ -2520,7 +2520,7 @@ var toReturn = {
 			description: function(){
 				var currentAmt = this.modifier;
 				var maxZone = ((currentAmt - 0.2) / 0.01) + mutations.Magma.start();
-				return "The Magma at Zone " + mutations.Magma.start() + " contains 0.2 fuel per cell, and each zone after that can drop 0.01 more. Your generator can currently only harvest a max of " + prettify(this.modifier) + " per cell, meaning some fuel after Z" + prettify(maxZone) + " will be unharvestable. Purchase this upgrade to increase the amount you can harvest per cell by <b>0.02</b>, taking advantage of <b>2 extra zones</b>.";
+				return "从区域 " + mutations.Magma.start() + "开始，每个岩浆单元格掉落0.2燃料, 之后每个区域可以多掉落0.01燃料. 您的维度发生器目前每个单元格最多能获得" + prettify(this.modifier) + "点燃料, 这意味着在区域 Z" + prettify(maxZone) + "后每单元格掉落不再增加。 购买这个升级会增加每个单元格的燃料掉落上限<b>0.02</b>，达到最大掉落的区域+<b>2</b>。";
 			}
 		},
 		Overclocker: {
@@ -2537,37 +2537,37 @@ var toReturn = {
 				return this.modifier * (1 - this.baseIncrease);
 			},
 			description: function () {
-				var requires = "<p class='" + ((game.permanentGeneratorUpgrades.Hybridization.owned && game.permanentGeneratorUpgrades.Storage.owned) ? "green" : "red") + "'>Requires Hybridization and Storage.</p>";
-				var text = requires + "<p>The first level of this upgrade will cause the Dimensional Generator to overclock instead of wasting fuel whenever you find more fuel than you can store. Overclocking will cause an instant Generator tick at a base of 50% effectiveness.</p><p>Every upgrade purchased after the first will reduce the Overclocking penalty by 1%, compounding.</p>";
+				var requires = "<p class='" + ((game.permanentGeneratorUpgrades.Hybridization.owned && game.permanentGeneratorUpgrades.Storage.owned) ? "green" : "red") + "'>需要先解锁混合与存储。</p>";
+				var text = requires + "<p>超频的第一次升级会解锁解锁维度发生器的超频功能，从而减少燃料浪费，只要你找到的燃料多于可存储的燃料。超频会消耗超出部分的燃料，并产生50%的正常产量的脆皮空间。</p><p>每次升级会降低1％的超频产量惩罚（指数）。</p>";
 				if (this.upgrades > 0)
-					text += "<p>Your current Overclocker effectiveness is " + ((1 - this.modifier) * 100).toFixed(2) + "%. Next level, your Overclocker effectiveness will be " + ((1 - (this.modifier * (1 - this.baseIncrease))) * 100).toFixed(2) + "%.</p>";
+					text += "<p>你现在的超频效率是 " + ((1 - this.modifier) * 100).toFixed(2) + "%。下一等级, 你的超频效率会提高到 " + ((1 - (this.modifier * (1 - this.baseIncrease))) * 100).toFixed(2) + "%。</p>";
 				return text;
 			}
 		}
 	},
 	permanentGeneratorUpgrades: {
 		Hybridization: {
-			description: "Unlock the ability to switch your Dimensional Generator to Hybrid mode. Hybrid mode will automatically switch to Gain Fuel when fuel is below max, and Gain Mi when fuel is full.",
+			description: "这个升级解锁将您的维度发生器的混合模式。当燃料低于最大值时，混合模式将自动切换到获取燃料模式，当燃油充满时自动切换到获取Mi模式。",
 			cost: 300,
 			owned: false
 		},
 		Storage: {
-			description: "Unlock extra fuel storage. This storage will always be equal to your normal fuel cap and will only store extra fuel above your normal cap. Fuel in this extra storage does not increase generator Trimps/tick, but acts as nice padding to help prevent wasted fuel. Hybrid mode will attempt to fill your extra storage halfway.",
+			description: "解锁额外的燃料库存。 这个存储的大小等于你的普通燃料最大库存，原始最大库存存满后才会存入这个额外库存。这种额外储存的燃油不会增加维度发生器的每周期的脆皮上限产量，但是可以起到很好的填充作用，有效防止燃料的浪费。混合模式将尝试填充一半的额外存储空间。",
 			cost: 600,
 			owned: false
 		},
 		Shielding: {
-			description: "Reduce the amount of Magmite that decays after each portal by 10% (additive)",
+			description: "减少每次通过传送门以后的 Magmite 损失10%（从30%降低到20%）",
 			cost: 1050,
 			owned: false
 		},
 		Slowburn: {
-			description: "将每轮的燃料消耗率降低0.1，从0.5降低到0.4",
+			description: "将每轮的燃料消耗降低0.1（从0.5降低到0.4）",
 			cost: 1875,
 			owned: false
 		},
 		Supervision: {
-			description: "Gain the ability to pause the Dimensional Generator by clicking the clock, <b>AND</b> add a Slider to your Generator window, allowing you to lower your maximum fuel capacity and gain greater control over Overclocker. Lowering your capacity below your stored amount of fuel will not waste any fuel, but the first time Overclocker is triggered, all extra fuel will be consumed.",
+			description: "获得暂停维度发生器的能力，<b> 并且 </b>添加一个滑块到你的发生器窗口，让你可以降低最大燃料容量并获得对超频更好的控制。 将你的容量降低到你储存的燃料量以下不会浪费任何燃料，但是当超频第一次被触发时，所有超过上限的燃料将被消耗。",
 			cost: 2000,
 			owned: false,
 			onPurchase: function() {
@@ -2578,7 +2578,7 @@ var toReturn = {
 			}
 		},
 		Simulacrum: {
-			description: "All new generated dimensions now come with copies of your Trimps inside them. Gone are the days of ramping up breeding to fill your dimensions with Trimps!",
+			description: "现在，所有新生成的维度（最大脆皮数量）都会附带相同数量的脆皮。 用脆皮来增加繁殖时间已经过去了！",
 			cost: 2500,
 			owned: false
 		}
@@ -3131,9 +3131,9 @@ var toReturn = {
 		oneOffs: {
 			//Turns out this method of handling the feats does NOT scale well... adding stuff to the middle is a nightmare
 			finished: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-			title: "Feats",
+			title: "特殊成就",
 			get descriptions () {
-				return ["Complete the Dimension of Anger before buying Bounty", "Reach Z30 with no respec and 60 or less He spent", "Have over " + prettify(1e6) + " traps at once", "Die 50 times to a single Voidsnimp", "Beat Balance, never having more than 100 stacks", "Reach Zone 10 with 5 or fewer dead Trimps", "Reach exactly 1337 he/hr", "Attack 20 times without dying in Electricity", "Equip a magnificent or better Staff and Shield", "Reach Z60 with 1000 or fewer dead Trimps", "Reach Z120 without using manual research", "Reach Z75 without buying any housing", "Find an uncommon heirloom at Z146 or higher", "Spend over " + prettify(250e3) + " total He on Wormholes", "Reach Z60 with rank III or lower equipment", "Kill an Improbability in one hit", "Beat a Lv 60+ Destructive Void Map with no deaths", "Beat Crushed without being crit past Z5", "Kill an enemy with 100 stacks of Nom", "Reach Z60 without hiring a single Trimp", "Complete a zone above 99 without falling below 150 stacks on Life", "Spend at least 10 minutes breeding an army with Geneticists", "Beat Toxicity, never having more than 400 stacks", "Own 100 of all housing buildings", "Overkill every possible world cell before Z60", "Complete Watch without entering maps or buying Nurseries", "Equip a Magmatic Staff and Shield", "Bring a world enemy's attack below 1", "Complete Lead with 1 or fewer Gigastations", "Complete Corrupted without Geneticists", "Complete The Spire with 0 deaths", "Overkill an Omnipotrimp", "Defeat a Healthy enemy with 200 stacks of wind", "Build up a Poison debuff that's 1000x higher than your attack", "Earn a Challenge<sup>2</sup> bonus of 2000%", "Complete a Bionic Wonderland map 45 levels higher than your zone number", "Beat the Spire with no respec and less than " + prettify(100e6) + " He Spent", "Defeat an enemy on Obliterated", "Find an Amalgamator on Z1", "Get 10 Red Crits in a row", "Complete a Bionic Wonderland map 200 levels higher than your Zone number", "Complete Spire II on the Coordinate challenge"];
+				return ["在购买赏金升级前完成愤怒的维度地图", "达到30关使用不超过60氦且中途不修改氦气分配", "同时拥有超过 " + prettify(1e6) + " 个陷阱", "死于单个 Voidsnimp 50次", "完成平衡挑战, 从不超过100层不平衡Debuff", "达到10关，阵亡不超过5个脆皮。", "准确地达到 1337 氦每小时", "在电流挑战中，攻击20次不死亡。", "装备一个magnificent或更高级别的传家宝盾牌和管理人员", "达到60关，阵亡不超过1000个脆皮。", "达到120层，不使用玩家自己研究。", "达到75关，不购买任何房子。", "在高于146的虚空地图找到一个罕见级别的传家宝。", "使用超过 " + prettify(250e3) + " 氦在虫洞上。", "达到60关并使用不高于阶段Ⅲ的装备。", "一击杀死一个Improbability。", "0死亡完成一个超过60级的虚空地图。", "在第5关后不被暴击的情况下完成一个粉碎挑战。", "击杀一个敌人在他100层Nom Buff时（名义挑战）。", "达到60层并且不雇佣任意一个工人。", "完成一个超过99关的区域且中途不低于150层生活buff。", "繁殖一支部队超过10分钟。", "完成毒性挑战，从不超过400层毒性buff。", "拥有每种人口建筑超过100个。", "在60关前超杀每一敌人。", "完成观察挑战，不进入地图且不购买托儿所。", "装备一个Magmatic级别的传家宝盾牌和管理人员。", "将一个世界上的敌人的攻击力降低到低于1。", "完成领导挑战切使用不超过一个千兆站。", "完成腐化挑战并且不使用遗传学家。", "完成一个尖塔并且0死亡。", "超杀一个Omnipotrimp", "战胜一个健康的细胞在超过200层风buff的情况下", "堆叠一个比你的攻击高1000倍的毒药效果", "获取超过2000%的挑战<sup>2</sup> 奖励", "完成一个高于你现在所处地图45级的仿生仙境地图。", "战胜一个尖塔使用不超过 " + prettify(100e6) + " 的氦气且中途不修改氦气分配。", "在Obliterated挑战中击败一个敌人。", "在区域1就找到一个合并者。", "连续10次红色暴击", "完成一个高于你现在所处地图200级的仿生仙境地图。", "在坐标挑战中完成尖塔II"];
 			},
 			tiers: [2, 3, 3, 3, 3, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 7, 8, 8, 8, 8, 8, 8, 9, 9],
 			description: function (number) {
@@ -3311,7 +3311,7 @@ var toReturn = {
 		w20: "你感觉到你离你的目标已经不远了。",
 		get w22 () {
 			if (game.global.challengeActive == "Trimp" && game.jobs.Amalgamator.owned > 0) return toZalgo("You hear a strange humming noise that seems to draw you towards it, though it also seems to come from no direction in particular. You can feel that it's being created by " + ((game.jobs.Amalgamator.owned == 1) ? "the" : "an") + " Amalgamator, though you've never heard such a sound before. It's both unsettling and enchanting, and the Universe seems to hate it.", 4, 1);
-			return "Strange, the sky seems to be getting darker. You ask one of your Trimps for the time, but he doesn't know what a clock is.";
+			return "奇怪，天空似乎变得更暗了。你询问其中一只脆皮现在是几点钟了，但是他都不知道什么是时钟。";
 		},
 		w25: "你是个叛逆者。宇宙指引你进入那个传送门，但是你执意向前推进。你感觉……自己好像没有来过这里。",
 		w27: "似乎你越向前进，你知道的就越少。你仍然有使用传送门的冲动，但是这冲动已经开始减少了。",
@@ -3324,40 +3324,40 @@ var toReturn = {
 		w46: "回头望去，越过的山的痕迹越来越长。这个世界是平的，并充满了敌意。你希望你的脆皮们能更健谈一些。",
 		w48: "当脆皮们从Blimp身上提取最后一点氦时，其中一只开始发狂。他跑来跑去，挥舞着他的小胳膊，其中一段时间发出了有趣的声音，吃了一些泥土，然后就开始小睡。你很好奇他是否还正常。是的……可能他还算不错。.",
 		w50: "你很久没有在地图上找到蓝图了。你开始怀疑这些东西是从哪里来的。",
-		w51: "Your scientists have detected an anomaly at the end of Zone 59. They recommend that you stop doing whatever it is that you're doing.",
-		w53: "As you get closer to the anomaly, you start to notice more and more strange behaviour from your Trimps. Holes in your memory are starting to become noticeable as multiple existences blend into one. Trippy.",
-		w54: "As you get closer to the anomaly, you start to notice more and more strange behaviour from your Trimps. Holes in your memory are starting to become noticeable as multiple existences blend into one. Trippy.",
-		w56: "A loud boom echoes in the distance, and one of your Trimps runs up to you with outstretched arms, looking quite frightened. He probably just wants some armor and weapons! You hand him some gear, and he accepts it with excitement.",
-		w58: "A huge storm has formed and daylight has become a luxury you have mostly forgotten about. Your Trimps seem to want to go back home, but you're pretty sure you're supposed to keep going this way, so you do. You're very close to the anomaly.",
-		w59: "There it is. The anomaly is at the end of the zone. You can see it but you don't know what you're seeing. Where did that... thing... come from?! This is highly Improbable.",
-		w60: "The ground instantly cracks and large plumes of green gas escape from the planet's core to the atmosphere. The planet feels different. Everything feels different. This Universe has grown unstable, the planet has broken. What have you done?",
-		w61: "Other than all the dead Trimps, that wasn't so bad.",
+		w51: "你的科学家预测在59区域的尽头会有一个异常现象。他们建议你停止做任何你正在做的事情。",
+		w53: "随着你越来越接近异常现象，你开始注意到越来越多脆皮的奇怪举动。当多种存在融合在一起时，你记忆中的漏洞开始变得明显。迷茫。",
+		w54: "随着你越来越接近异常现象，你开始注意到越来越多脆皮的奇怪举动。当多种存在融合在一起时，你记忆中的漏洞开始变得明显。迷茫。",
+		w56: "远处传来一阵响亮的隆隆声，然后一只脆皮伸出双手向你跑来，看起来他有些害怕。他可能只是想要一些武器和护甲！你递给他一些装备，他兴奋地接受了。",
+		w58: "一场巨大的风暴已经形成，白昼已经成为一种你几乎忘记的奢侈品。你的脆皮似乎想回家，但你很确定你们应该继续向前走，所以你们继续前行。你已经离异常现象非常近了。",
+		w59: "它……就在那里。那个异常现象，就在这个区域的尽头。你能看得见它，但是你不知道你正在看的这个东西究竟是什么。这个……东西……是从哪来的？！这个东西太无序了。",
+		w60: "地面瞬间裂开，大量的绿色气体从星球核心向大气中逸出。这个星球给人的感觉不同了。一切事物给人的感觉都不同了。这个宇宙正在变得不稳定，这个星球已经破碎。你都做了些什么？",
+		w61: "除了那些死去的脆皮以外，情况还没有变得那么差。",
 		get w65 () {
 			if (game.global.challengeActive == "Trimp" && game.jobs.Amalgamator.owned > 0) return toZalgo("The Universe seems even more upset than you expected here, but your Amalgamator" + ((game.jobs.Amalgamator.owned == 1) ? " doesn't" : "s don't") + " really seem to care. You walk towards " + ((game.jobs.Amalgamator.owned == 1) ? "it" : "one") + " to get a better look, but find yourself further away than you were.", 2, 2);
-			return "You feel more powerful than ever. The universe seems to be constantly adjusting itself to get rid of you, yet you rise against and persist. Something as tiny as you taking on an entire universe!";
+			return "你感觉自己比起过去更加强大了。这个宇宙似乎在不断地调整自己来摆脱你，但是你奋起反抗并坚持下去。你如此渺小，却对抗着整个宇宙！";
 		},
-		w68: "You figure some entertainment wouldn't be awful, and decide to teach your Trimps how to play soccer. A few hours and zero progress later, you really regret that decision.",
-		w70: "The Improbabilities haven't seemed to slow down. You know you need to figure out a plan, but you don't know what to plan for.",
-		w72: "You slash through another Improbability with relative ease, but something isn't right. A sour smell hits your nose and in disgust, you whip around in search of the source. Oh, wait, it's just the Trimps.",
-		w80: "When's the last time you made a map? You have a feeling you should probably do that.",
-		w82: "Whew, that was an exhilarating kill. You decide to reward your Trimps with some Improbability stew. It's pretty tasty.",
-		w83: "That stew was probably a bad idea. Anyone else feeling sick?",
-		w85: "An ancient and fuzzy memory just crept back into your head. You're not quite sure where it came from, but you know the memory is yours. You remember being on a ship, and seeing this planet from orbit. There was someone with you!",
-		w87: "Bits and pieces of memories continue trickling back in as you continue to put distance between yourself and the source of Anger. You can almost see in your mind who you came here with. Where could they be...",
-		w90: "You decide to ask your scientists to come up with an extravagant machine that can scan your brain for old memories to see if there's anything helpful up there. They seem excited about a new project and quickly get to work.",
-		w92: "You hear a huge explosion from the science lab and realize that the brain scan machine will probably never be finished.",
+		w68: "你觉得有一些娱乐活动会很不错，并决定教你的脆皮怎样踢足球。几个小时后，没有任何进展，你非常后悔当时的决定。",
+		w70: "无序似乎没有放慢速度。你明白你需要制定一个计划，但你不知道该计划什么。",
+		w72: "你相对轻松地击碎并通过了又一个无序，但却感到有些不对劲。一股酸味扑鼻而来，让你感到恶行。你转头去寻找气味的来源。噢，等等，那只是一只脆皮而已。",
+		w80: "你上一次制作地图是什么时候了？你有种感觉，你可能应该做张地图了。",
+		w82: "哇哦，刚才那场战斗真令人振奋。你决定赏给你的脆皮一些炖无序。那真的很好吃。",
+		w83: "现在觉得吃炖无序这个想法可能并不好。有人感觉难受吗？",
+		w85: "一段古老而模糊的记忆悄悄地回到你的脑海。你不确定这段记忆是从哪里来的，但你知道这是你的记忆。你记得你在一艘太空船上，从轨道上看着这个行星。当时有个人在你身边！",
+		w87: "当你继续和愤怒的源头保持距离的时候，零碎的记忆碎片仍在不断流回。你几乎能在脑海中看到是谁和你一起来到了这里。他们会在哪里……",
+		w90: "你决定去让你的科学家发明一种花费巨大的机器来扫描你的大脑，来找回过去的记忆，看看其中是否有有用的信息。他们似乎对这个新项目很兴奋，很快就开始工作了。",
+		w92: "你听到科学实验室中传来一阵巨大的爆炸声，你明白大脑扫描仪可能永远也无法完成了。",
 		get w95 () {
 			if (game.global.challengeActive == "Trimp" && game.jobs.Amalgamator.owned > 0) return toZalgo(((game.jobs.Amalgamator.owned == 1) ? "The Amalgamator is" : "The Amalgamators are") + " starting to rapidly switch between different colors. It would be slightly entertaining if the fabric of existence wasn't falling apart around " + ((game.jobs.Amalgamator.owned == 1) ? "it." : "them."), 3, 2);
-			return "Need some motivation? You can do it! Maybe.";
+			return "需要一些动力吗?你可以做到的!或许吧。";
 		},
-		w100: "You stop dead in your tracks. You remember who you came here with, and you remember that you are not happy with Captain Druopitee for bringing you here. You know he landed with you. You know the ship is still here. He's here.",
-		w105: "You call a meeting with all of your Trimps to explain the situation. After giving an extremely long, epic, and motivational speech but hearing no reaction from the crowd, you remember that your Trimps cannot understand you. Will you ever learn?",
-		w106: "How long have you been trapped on this planet? Months? Decades? Travelling through time sure screws up your chronological perception.",
-		w109: "Though you have no idea which direction your home planet is, you still believe the ship's GPS could get you home. Maybe Druopitee has the keys. You really want to find him.",
-		w115: "You just remembered what a taco was. You could really use a taco right now.",
-		w120: "Your stamina is quickly dwindling. Trying to keep up with so many more extra Trimps each zone is beginning to wear you down. You'll need to practice fighting with stronger, smaller groups to succeed.",
-		w123: "Woah, you have a lot of Trimps right now. You hadn't really stopped to think about just how many individual Trimps you have directly under your control in a while. Neat!",
-		w125: "You smell metal and gears, and suddenly feel like you should run a map.",
+		w100: "你在前行中突然停了下来。你想起来了是谁和你一起来到这里，你也记起来了你当时并不喜欢德鲁普提船长把你带到这里。你知道他和你一起降落了。你明白太空船仍在这里。他就在这里。",
+		w105: "你叫来你所有的脆皮开了一次会，解释了一下现在的状况。在做了一段非常长的、史诗般的、振奋人心的演讲后，却没有听到任何脆皮们的回应，你明白你的脆皮们是无法理解你的。你有记得这个吗？",
+		w106: "你在这个星球上被困多久了？几个月？几十年？多次穿梭时间确实扰乱了你的时间观念。",
+		w109: "虽然你不知道你的母星在什么方位，你仍然相信这艘太空船的GPS可以带你回家。也许德鲁普提船长有这艘船的钥匙。你真的想找到他。",
+		w115: "你刚刚想起了什么是墨西哥卷。你现在可以自己做墨西哥卷吃了。",
+		w120: "你的耐力正快速下降。每个区域都让如此多额外脆皮加入军队让你感觉非常疲惫。为了成功，你需要训练一只更强的、更小型化的部队。",
+		w123: "哇，你现在有这么多的脆皮。你没有真正地停下一会来思考有多少脆皮直接被你领导。简单！",
+		w125: "你感觉到了金属和装备的气息，突然觉得自己应该打打地图。",
 		w130: "You decide to sit down and take a breather, when suddenly a Trimp comes waddle-galloping towards you holding a piece of paper. Hurriedly scrawled on the paper is a drawing of a strange weapon and piece of armor, along with numbers that seem to be dimensional coordinates. You would ask where he found it, but you know better by now.",
 		w132: "You can't stop thinking about where that Trimp found the coordinates for the Slow dimension. Why can't whatever is helping you just come out and help you?",
 		w135: "Ugh, your back is getting sore. It seems like travelling back in time does not reverse the ageing process for the traveller. Bummer.",
@@ -3734,7 +3734,7 @@ var toReturn = {
 		},
 		Arbalest: {
 			locked: 1,
-			tooltip: "A powerful ranged weapon. Your Trimps can do some damage with this sucker. Adds $attackCalculated$ attack to each soldier per level",
+			tooltip: "一件强大的远程武器。你的脆皮可以用劲弩对敌人造成伤害。 每级给每个战士增加 $attackCalculated$ 攻击。",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -3747,7 +3747,7 @@ var toReturn = {
 		},
 		Gambeson: {
 			locked: 1,
-			tooltip: "在胸甲下穿着一件舒适厚实的棉服夹克。 你的脆皮认为他们太棒了！ 为每个级别的每名士兵增加$healthCalculated$生命。",
+			tooltip: "在胸甲下穿着一件舒适厚实的棉服夹克。 你的脆皮认为他们太棒了！ 每级给每个战士增加$healthCalculated$生命。",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -6538,7 +6538,7 @@ var toReturn = {
 					var breedDisplay = (breedMult > 0.0001) ? breedMult.toFixed(4) : breedMult.toExponential(3);
 					var healthMult = Math.pow(1.01, this.owned);
 					var healthDisplay = prettify((healthMult * 100) - 100) + "%";
-					text += "<p>Owning " + prettify(this.owned) + " Geneticist" + ((this.owned == 1) ? "" : "s") + " multiplies your breed speed by " + breedDisplay + ", and adds " + healthDisplay + " Health.</p>";
+					text += "<p>拥有" + prettify(this.owned) + " 遗传学家" + ((this.owned == 1) ? "" : "") + "使你的繁殖速度变为" + breedDisplay + "倍,并且增加" + healthDisplay + "的生命。</p>";
 				}
 				return text;
 			},
@@ -6604,12 +6604,12 @@ var toReturn = {
 			get tooltip(){
 				var ratio = this.getTriggerThresh();
 				var currentRatio = (game.resources.trimps.realMax() / game.resources.trimps.getCurrentSend());
-				var text = "<p>Amalgamators cannot be hired or fired manually. They are magical beings that could barely be considered Trimps anymore, and they will automatically show up to your town whenever your total population to army size ratio rises above <b>" + prettify(ratio) + ":1</b>. Completing Spires II through V will each divide this ratio by 10. If your ratio ever falls below " + prettify(1e3) + ":1, an Amalgamator will leave. Your current ratio is <b>" + prettify(currentRatio) + ":1</b>.</p><p>Amalgamators fuse some of your spare Trimps to other soldiers, greatly strengthening them. Each Amalgamator increases the amount of Trimps that must be sent into each battle by 1000x (compounding), increases health by 40x (compounding), and increases damage by 50% (additive).</p><p>In addition, having at least one Amalgamator will cause Anticipation stacks to increase based on when the last soldiers were sent, rather than being based on time spent actually breeding.</p>";
+				var text = "<p>合并者不能手动雇佣或解雇合并者。他们是不可思议的生物，几乎不能再被认为是脆皮了。当你的军队规模占总人口的比例低于 <b>1:" + prettify(ratio) + "</b>时，他们会自动出现在你的城镇。完成尖塔 II到V时，每一个尖塔都将使这个比例增大到原来的10倍。 如果现在这一比率大于 1:" + prettify(1e3) + ", 一个合并者就会离开。 你现在的比率是 <b>1:" + prettify(currentRatio) + "</b>.</p><p>合并者会融合一些空闲的脆皮到其他士兵中,大大加强他们的战斗力。每个合并者会增加出战脆皮的数量1000倍(指数),增加血量40倍(指数),增加伤害50%(线性)。</p><p>另外，当至少有一个合并者时，预期的增益将基于最后一支部队被派遣，而不是基于实际繁殖的时间。</p>";
 				if (game.global.challengeActive == "Trimp"){
 					text += "<p><i>" + toZalgo("This particular Universe</b> seems to directly conflict with the Amalgamators, yet they're here and the Trimps they Amalgamate seem immune to the dimensional restrictions. Things are getting weird though.", 1, Math.ceil(game.global.world / 100)) + "</i></p>";
 				}
 				else
-					text += "<p><i>Some say the Amalgamators are a curse, some say they're a blessing. The Amalgamators themselves mostly just say \"Blerghhhh\".</i></p>";
+					text += "<p><i>有人说合并者是诅咒，有人说他们是祝福，合并者他们自己大多只是说：“Blerghhhh”。</i></p>";
 
 				return text;
 			},

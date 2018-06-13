@@ -1298,11 +1298,11 @@ function getSpecialSquaredRewards(challenge){
 		var reward = (challenge.replaceSquareReward) ? challenge.replaceSquareReward : squaredConfig.rewardEach;
 		var freq = (challenge.replaceSquareFreq) ? challenge.replaceSquareFreq : squaredConfig.rewardFreq;
 		var rewardIncrease = (challenge.replaceSquareGrowth) ? challenge.replaceSquareGrowth : squaredConfig.rewardGrowth;
-		description += "<span class='colorSquared'>This challenge issues rewards differently than most other Challenge<sup>2</sup>s.";
-		description += ((challenge.replaceSquareReward) ? "<b>" : "")  + " You will gain " + reward + "% attack and health, and " + prettify(reward / 10) + "% Helium" + ((challenge.replaceSquareReward) ? "</b>" : "");
-		description += ((challenge.replaceSquareFreq) ? "<b>" : "") + " for every " + freq + " zone" + needAnS(freq) + " reached." + ((challenge.replaceSquareFreq) ? "</b>" : "");
-		description += ((challenge.replaceSquareThresh) ? "<b>" : "") + " Every " + threshes + " zone" + needAnS(threshes) + " reached," + ((challenge.replaceSquareThresh) ? "</b>" : "");
-		description += ((challenge.replaceSquareGrowth) ? "<b>" : "") + " this bonus will increase by " + rewardIncrease + "% attack and health, and " + prettify(rewardIncrease / 10) + "% Helium.</span> " + ((challenge.replaceSquareGrowth) ? "</b>" : "");
+		description += "<span class='colorSquared'>本挑战的奖励分配与其他大多数的挑战<sup>2</sup>不同。";
+		description += ((challenge.replaceSquareFreq) ? "<b>" : "") + "每通过" + freq + "区域" + needAnS(freq) + "，" + ((challenge.replaceSquareFreq) ? "</b>" : "");        
+		description += ((challenge.replaceSquareReward) ? "<b>" : "")  + "你将获得" + reward + "%的攻击与生命, 以及" + prettify(reward / 10) + "%的氦获得。" + ((challenge.replaceSquareReward) ? "</b>" : "");
+		description += ((challenge.replaceSquareThresh) ? "<b>" : "") + " 每通过 " + threshes + "区域" + needAnS(threshes) + "，" + ((challenge.replaceSquareThresh) ? "</b>" : "");
+		description += ((challenge.replaceSquareGrowth) ? "<b>" : "") + "每次的奖励都会增加 " + rewardIncrease + "% 的攻击与生命,以及" + prettify(rewardIncrease / 10) + "%的氦获取。</span> " + ((challenge.replaceSquareGrowth) ? "</b>" : "");
 	}
 	return description;
 }
@@ -1319,23 +1319,23 @@ function getSquaredDescriptionInRun(hideDesc){
 	if (!hideDesc){
 		description = challenge.squaredDescription + " " + getSpecialSquaredRewards(challenge);
 	}
-	description += "<b>You are currently at Zone " + game.global.world;
-	var portalText = (game.global.viewingUpgrades) ? "abandon the challenge " : "use the portal ";
+	description += "<b>你现在位于区域" + game.global.world;
+	var portalText = (game.global.viewingUpgrades) ? "放弃挑战" : "使用传送门";
 	var dif = getIndividualSquaredReward(game.global.challengeActive, game.global.world) - getIndividualSquaredReward(game.global.challengeActive);
 	var highest = game.c2[game.global.challengeActive];
 	if (highest > 0){
 		if (dif >= 1){
-			description += ", <span class='greenText'>your previous highest for this challenge was Zone " + highest + ". If you " + portalText + "now, you'll add " + prettify(dif) + "% damage and health to your total Challenge<sup>2</sup> bonus, bringing it to " + prettify(dif + game.global.totalSquaredReward) + "%.</span>";
+			description += ", <span class='greenText'>你在这个挑战中，先前的最高区域为" + highest + "。如果你现在" + portalText + "，你将会增加" + prettify(dif) + "% 伤害和生命到你的总挑战<sup>2</sup> 加成中，你的总伤害和生命加成增长到" + prettify(dif + game.global.totalSquaredReward) + "%。</span>";
 		}
 		else {
-			description += ", <span class='redText'>your best for this challenge is Zone " + highest + ". If you " + portalText + "now, your total Challenge<sup>2</sup> attack and health bonus will stay at " + prettify(game.global.totalSquaredReward) + "%.</span>";
+			description += ", <span class='redText'>你在本挑战的最高区域为" + highest + "。如果你现在" + portalText + "，你的总挑战<sup>2</sup>攻击与生命加成仍然保持在" + prettify(game.global.totalSquaredReward) + "%。</span>";
 		}
 	}
 	else{
 		if (dif <= 0)
-			description += ". <span class='redText'>You'll need to reach at least Zone " + ((challenge.replaceSquareFreq) ? challenge.replaceSquareFreq : squaredConfig.rewardFreq) + " before you'll add anything to your current Challenge<sup>2</sup> attack and health bonus of " + prettify(game.global.totalSquaredReward) + "%.</span>";
+			description += ". <span class='redText'>你至少要到达区域" + ((challenge.replaceSquareFreq) ? challenge.replaceSquareFreq : squaredConfig.rewardFreq) + "才能获取任何挑战<sup>2</sup>加成。现在攻击与生命加成为" + prettify(game.global.totalSquaredReward) + "%。</span>";
 		else
-			description += ". <span class='greenText'>If you " + portalText + "now, you'll add " + prettify(dif) + "% to your Challenge<sup>2</sup> bonus, bringing the total attack and health increase to " + prettify(dif + game.global.totalSquaredReward) + "%.</span>";
+			description += ". <span class='greenText'>如果你现在" + portalText + "，你将会增加" + prettify(dif) + "%伤害和生命到你的总挑战<sup>2</sup>的加成中，你的总伤害和生命加成增长到" + prettify(dif + game.global.totalSquaredReward) + "%。</span>";
 		}
 	description += "</b>";
 	return description;
@@ -1425,8 +1425,8 @@ function getCurrentChallengePane(){
 		description = description.replace('_', getScientistInfo(sciLevel));
 		description = description.replace('*', getScientistInfo(sciLevel, true));
 	}
-	challengeText = "你获得了 ";
-	challengeText += (game.global.challengeActive == "Daily") ? formatDailySeedDate() + " " + game.global.challengeActive + " challenge active. " + description : game.global.challengeActive + " 积极挑战. \"" + description + "\"";
+	challengeText = "你正在进行";
+	challengeText += (game.global.challengeActive == "Daily") ? formatDailySeedDate() + " " + game.global.challengeActive + " challenge active. " + description : cntequan(game.global.challengeActive) + "挑战。 \"" + description + "\"";
 	return challengeText;
 }
 
@@ -1525,7 +1525,7 @@ function activateKongBonus(oldWorld){
 	portalWrapper.style.backgroundColor = "black";
 	portalWrapper.style.color = "white";
 	document.getElementById("portalTitle").innerHTML = "测试奖励";
-	document.getElementById("portalStory").innerHTML = "非常感谢你帮助测试异形的beta版本。所有的支持和反馈是惊人的！这个版本仍然需要一些反馈和调整，在这之前它并不是是完美的,不过不会故意再次重置。所以享受吧! " + addText;
+	document.getElementById("portalStory").innerHTML = "非常感谢你帮助测试脆皮的beta版本。所有的支持和反馈是惊人的！这个版本仍然需要一些反馈和调整，在这之前它并不是是完美的,不过不会故意再次重置。所以享受吧! " + addText;
 	document.getElementById("portalHelium").innerHTML = '<span id="portalHeliumOwned">' + helium + '</span> Bonus Points';
 	document.getElementById("cancelPortalBtn").innerHTML = "不用谢";
 	document.getElementById("activatePortalBtn").innerHTML = "已完成";
@@ -1653,7 +1653,7 @@ function checkOfflineProgress(noTip){
 		}
 	}
 	if (textArray.length === 0) return;
-	textString = "当你离开时，你的异形生产了 ";
+	textString = "当你离开时，你的脆皮生产了 ";
 	for (var y = 0; y < textArray.length; y++){
 		textString += textArray[y];
 		if (y == textArray.length -2) textString += "和 ";
@@ -2514,7 +2514,7 @@ function fireMode(noChange) {
         elem.innerHTML = "解雇";
     }
     if (!noChange && !game.global.lockTooltip)
-		 tooltip("解雇异形", null, "update");
+		 tooltip("解雇脆皮", null, "update");
 }
 
 function setGather(what, updateOnly) {
@@ -4295,7 +4295,7 @@ function addCarried(confirmed){
 	var cost = getNextCarriedCost();
 	if (game.global.nullifium < cost) return;
 	if (!confirmed) {
-		tooltip('confirm', null, 'update', 'You are about to purchase 1 extra slot to carry Heirlooms through the Portal for ' + cost + ' Nullifium. Are you sure?' , 'addCarried(true)', 'Upgrade Carried Slots');
+		tooltip('confirm', null, 'update', '你正要花费' + cost + '虚空物质，来增加一个额外的传家宝携带栏，以携带传家宝通过传送门。你确定吗？' , 'addCarried(true)', '升级携带栏');
 		return;
 	}
 	game.global.nullifium -= cost;
@@ -4354,7 +4354,7 @@ function recycleHeirloom(confirmed){
 	if (game.global.selectedHeirloom[0] == -1 || game.global.selectedHeirloom[1] == "heirloomsCarried") return;
 	var value = Math.floor(getTotalHeirloomRefundValue(heirloom));
 	if (!confirmed) {
-		tooltip('confirm', null, 'update', '你正在回收 ' + heirloom.name + ' 去得到 ' + prettify(value) + ' Nullifium。 你确定吗?' , 'recycleHeirloom(true)', 'Recycle Heirloom');
+		tooltip('confirm', null, 'update', '你正在回收 ' + heirloom.name + ' 以得到 ' + prettify(value) + ' 虚空物质。 你确定吗?' , 'recycleHeirloom(true)', 'Recycle Heirloom');
 		return;
 	}
 	game.global.nullifium += value;
@@ -5151,7 +5151,7 @@ function natureTooltip(event, doing, spending, convertTo){
 	var tipText = "";
 	var tipCost = 0;
 	if (doing == 'upgrade'){
-		tipTitle = "升级的授权 " + spending;
+		tipTitle = "升级 " + spending + " 的效果";
 		tipText = game.empowerments[spending].upgradeDescription();
 		tipCost = getNextNatureCost(spending);
 	}
@@ -5164,10 +5164,10 @@ function natureTooltip(event, doing, spending, convertTo){
 		tipCost = ctrlPressed ? Math.floor(game.empowerments[spending].tokens / 10) * 10 : 10;
 		var convertRate = (game.talents.nature.purchased) ? ((game.talents.nature2.purchased) ? 8 : 6) : 5;
 		tipText = "<p>交易 " + tipCost + " 令牌 " + spending + " 然后得到 " + (tipCost / 10 * convertRate) + " 令牌 " + convertTo + "。</p>";
-		if (!ctrlPressed) tipText += "<p><b>Hold Ctrl to convert as many tokens as you can afford!</b></p>";
+		if (!ctrlPressed) tipText += "<p><b>按住Ctrl键可以一次转换所有令牌。</b></p>";
 	}
 	else if (doing == 'stackTransfer'){
-		tipTitle = "升级 " + spending + " 堆栈传输率";
+		tipTitle = "升级 " + spending + " Debuff的传递比例";
 		var retainLevel = game.empowerments[spending].retainLevel;
 		var cap = 80;
 		if (game.talents.nature3.purchased){
@@ -5175,11 +5175,11 @@ function natureTooltip(event, doing, spending, convertTo){
 			cap += 5;
 		}
 		if (retainLevel >= cap){
-			tipText = "You are currently at the maximum level for Stack Transfer Rate, allowing <b>" + cap + "%</b> of your stacks to transfer.";
+			tipText = "您目前处于该Debuff传递比例的最高水平, 可以传递 <b>" + cap + "%</b> 的赋权Debuff。";
 			tipCost = 0;
 		}
 		else{
-			tipText = "Currently, a minimum of <b>" + prettify(getRetainModifier(spending) * 100) + "%</b> of your stacks transfer after you kill a bad guy during the Empowerment of " + spending + ". Each level of this upgrade will increase the transfer rate by <b>1%</b>, bringing you to <b>" + prettify((getRetainModifier(spending) + 0.01) * 100) + "%</b>. Maximum of " + ((game.talents.nature3.purchased) ? "85" : "80") + " levels.";
+			tipText = "现在，当你击败一个敌人后，<b>" + prettify(getRetainModifier(spending) * 100) + "%</b>的 " + spending + "的Debuff会传递给下一个敌人，升级会使这个传递比例增加 <b>1%</b>, 也就是会达到 <b>" + prettify((getRetainModifier(spending) + 0.01) * 100) + "%</b>。这个传递的最高等级是 " + ((game.talents.nature3.purchased) ? "85" : "80") + " 级。";
 			tipCost = getNextNatureCost(spending, true);
 		}
 	}
@@ -7142,10 +7142,10 @@ function mapsClicked(confirmed) {
         return;
     }
     if (game.global.fighting && !game.global.preMapsActive) {
-		message("Waiting to travel until your soldiers are finished.", "Notices");
+		message("待你的士兵牺牲后继续前往地图。", "Notices");
 
 		document.getElementById("mapsBtn").className = "btn btn-warning fightBtn shrinkBtnText";
-		document.getElementById("mapsBtnText").innerHTML = "Abandon Soldiers";
+		document.getElementById("mapsBtnText").innerHTML = "抛弃士兵";
 	}
     if (game.global.preMapsActive) {
         mapsSwitch();
@@ -7606,7 +7606,7 @@ function startFight() {
 	if (game.global.challengeActive == "Slow" || ((game.badGuys[cell.name].fast || cell.mutation == "Corruption") && game.global.challengeActive != "Coordinate" && game.global.challengeActive != "Nom"))
 		badName += ' <span class="badge badBadge" onmouseover="tooltip(\'Fast\', \'customText\', event, \'这个坏家伙速度非常快，并且会先攻击你\')" onmouseout="tooltip(\'hide\')"><span class="glyphicon glyphicon-forward"></span></span>';
 	if ((game.global.challengeActive == "Electricity" || game.global.challengeActive == "Mapocalypse")){
-		badName += ' <span class="badge badBadge" onmouseover="tooltip(\'Electric\', \'customText\', event, \'这个坏家伙是电动的，并且会给你的脆皮叠加负面\')" onmouseout="tooltip(\'hide\')"><span class="icomoon icon-power-cord"></span></span>';
+		badName += ' <span class="badge badBadge" onmouseover="tooltip(\'带电\', \'customText\', event, \'这个坏家伙是带电的，并且会给你的脆皮叠加减益效果\')" onmouseout="tooltip(\'hide\')"><span class="icomoon icon-power-cord"></span></span>';
 	}
 	document.getElementById("badGuyName").innerHTML = badName;
 	var corruptionStart = mutations.Corruption.start(true);
@@ -9269,7 +9269,7 @@ var dailyModifiers = {
         },
 		plague: { //Half of electricity
 			description: function (str) {
-                return "敌人的每次攻击叠加一个debuff，每回合每堆栈对脆皮造成 " + prettify(this.getMult(str, 1) * 100) + "% 总血量的伤害，直到脆皮死亡后重置。"
+                return "敌人的每次攻击叠加一个负面效果，每层效果在每回合对脆皮造成 " + prettify(this.getMult(str, 1) * 100) + "%总血量的伤害，直到脆皮死亡后重置。"
             },
             getMult: function (str, stacks) {
                 return 0.01 * str * stacks;
@@ -9288,7 +9288,7 @@ var dailyModifiers = {
         },
 		weakness: {
 			description: function (str) {
-				return "敌人会在每次攻击时叠加一次，减少脆皮攻击 " + prettify(100 - this.getMult(str, 1) * 100) + "% 每个堆栈。最高叠加9次，直到脆皮死亡后重置。";
+				return "敌人的每次攻击叠加一层负面效果，每层效果减少脆皮" + prettify(100 - this.getMult(str, 1) * 100) + "%的攻击。最高叠加9次，直到脆皮死亡后重置。";
 			},
 			getMult: function (str, stacks) {
 				return 1 - (0.01 * str * stacks);
@@ -9306,7 +9306,7 @@ var dailyModifiers = {
 		},
 		large: {
             description: function (str) {
-                return "所有住房可贮存减少 " + prettify(100 - this.getMult(str) * 100) + "% 的脆皮";
+                return "所有房屋的脆皮容量减少 " + prettify(100 - this.getMult(str) * 100) + "%。";
             },
             getMult: function(str) {
                 return 1 - (0.01 * str);
@@ -9405,7 +9405,7 @@ var dailyModifiers = {
         },
 		crits: {
             description: function (str) {
-                return "敌人有25%的机率产生重击，造成 " + prettify(this.getMult(str) * 100) + "% 的平砍伤害。";
+                return "敌人有25%的机率产生重击，为普通伤害的 " + prettify(this.getMult(str) * 100) + "%。";
             },
             getMult: function (str) {
                 return 1 + (0.5 * str);
@@ -9418,7 +9418,7 @@ var dailyModifiers = {
 		},
 		trimpCritChanceUp: {
 			description: function (str) {
-				return "Your Trimps have +" + prettify(this.getMult(str) * 100) + "% Crit Chance.";
+				return "脆皮的暴击概率增加" + prettify(this.getMult(str) * 100) + "%。";
 			},
 			getMult: function(str) {
 				return str / 10;
@@ -9432,7 +9432,7 @@ var dailyModifiers = {
 		},
 		trimpCritChanceDown: {
             description: function (str) {
-                return "Your Trimps have -" + prettify(this.getMult(str) * 100) + "% Crit Chance.";
+                return "脆皮的暴击概率减少" + prettify(this.getMult(str) * 100) + "%。";
             },
             getMult: function (str) {
                 return str / 10;
@@ -9500,10 +9500,10 @@ var dailyModifiers = {
         },
 		karma: {
 			description: function (str) {
-				return '杀死敌人后获得一个stack , 每一层增加所有非氦掉落 ' + prettify((this.getMult(str, 1) * 100) - 100) + '%. Stacks 可以叠加 ' + this.getMaxStacks(str) + ' 层, 切换区域后重置.';
+				return '每杀死一个敌人获得一层增益效果 , 每层效果增加所有非氦战利品掉落 ' + prettify((this.getMult(str, 1) * 100) - 100) + '%。最多叠加' + this.getMaxStacks(str) + '层, 打通区域后重置。';
 			},
 			stackDesc: function (str, stacks){
-				return "你的脆皮额外找到 " + prettify((this.getMult(str, stacks) * 100) - 100) + "% 掉落!";
+				return "你的脆皮额外找到 " + prettify((this.getMult(str, stacks) * 100) - 100) + "%的战利品!";
 			},
 			getMaxStacks: function (str) {
 				return Math.floor((str % 9) * 25) + 300;
@@ -9521,10 +9521,10 @@ var dailyModifiers = {
 		},
 		toxic: {
 			description: function (str) {
-				return "Gain a stack after killing an enemy, reducing breed speed by " + prettify(100 - (this.getMult(str, 1) * 100)) + '% (compounding). Stacks cap at ' + this.getMaxStacks(str) + ', and reset after clearing a zone.';
+				return "每杀死一个敌人叠一层减益效果,减少" + prettify(100 - (this.getMult(str, 1) * 100)) + '% (叠乘)的繁殖速度。最高叠' + this.getMaxStacks(str) + '层,每打通一个区域效果重置。';
 			},
 			stackDesc: function (str, stacks){
-				return "Your Trimps are breeding " + prettify(100 - (this.getMult(str, stacks) * 100)) + "% slower.";
+				return "脆皮的繁殖速度减缓了" + prettify(100 - (this.getMult(str, stacks) * 100)) + "%。";
 			},
 			getMaxStacks: function (str) {
 				return Math.floor((str % 9) * 25) + 300;
@@ -9542,12 +9542,12 @@ var dailyModifiers = {
 		},
 		bloodthirst: {
 			description: function (str) {
-				return "Enemies gain a stack of Bloodthirst whenever Trimps die. Every " + this.getFreq(str) + " stacks, enemies will heal to full and gain an additive 50% attack. Stacks cap at " + this.getMaxStacks(str) + " and reset after killing an enemy.";
+				return "当脆皮死后敌人叠加一层嗜血效果。每" + this.getFreq(str) + "层效果，敌人将回满生命，并获得50%的额外攻击。最高叠" + this.getMaxStacks(str) + "层，并在杀死敌人后重置效果。";
 			},
 			stackDesc: function (str, stacks) {
 				var freq = this.getFreq(str);
 				var max = this.getMaxStacks(str);
-				var text = "This bad guy";
+				var text = "这个敌人";
 				if (stacks < max) {
 					var next = (freq - (stacks % freq));
 					text += " will heal to full and gain attack in " + next + " stack" + ((next == 1) ? "" : "s") + ", " + ((stacks >= freq) ? "" : " and") + " gains 1 stack whenever Trimps die";
@@ -9579,11 +9579,11 @@ var dailyModifiers = {
 		},
 		explosive: {
 			description: function (str) {
-				var text = "Enemies instantly deal " + prettify(this.getMult(str) * 100) + "% of their attack damage when killed";
+				var text = "当敌人被杀死时，会瞬间造成相当于其攻击伤害" + prettify(this.getMult(str) * 100) + "%的伤害";
 				if (str > 15) {
-					text += " unless your block is as high as your maximum health";
+					text += "，除非你的防御和你的最大生命值一样高";
 				}
-				text += ".";
+				text += "。";
 				return text;
 			},
 			getMult: function (str) {
@@ -9603,7 +9603,7 @@ var dailyModifiers = {
 		},
 		slippery: {
 			description: function (str) {
-				return "Enemies have a " + prettify(this.getMult(str) * 100) + "% chance to dodge your attacks on " + ((str <= 15) ? "odd" : "even") + " zones.";
+				return "敌人有" + prettify(this.getMult(str) * 100) + "%的概率闪躲你的攻击，该效果会在" + ((str <= 15) ? "奇数" : "偶数") + "区域出现。";
 			},
 			getMult: function (str){
 				if (str > 15) str -= 15;
@@ -9617,10 +9617,10 @@ var dailyModifiers = {
 		},
 		rampage: {
 			description: function (str) {
-				return "Gain a stack after killing an enemy, increasing Trimp attack by " + prettify((this.getMult(str, 1) * 100) - 100) + '% (additive). Stacks cap at ' + this.getMaxStacks(str) + ', and reset when your Trimps die.';
+				return "每杀死一个敌人叠一层暴怒效果,每层暴怒脆皮的攻击增加" + prettify((this.getMult(str, 1) * 100) - 100) + '% (叠加)。最高叠' + this.getMaxStacks(str) + '层,当脆皮死后效果重置。';
 			},
 			stackDesc: function (str, stacks){
-				return "Your Trimps are dealing " + prettify((this.getMult(str, stacks) * 100) - 100) + "% more damage.";
+				return "你的脆皮增加了" + prettify((this.getMult(str, stacks) * 100) - 100) + "%伤害。";
 			},
 			getMaxStacks: function (str) {
 				return Math.floor((str % 10 + 1) * 10);
@@ -9641,10 +9641,10 @@ var dailyModifiers = {
 			description: function (str) {
 				var size = str % 5;
 				if (size == 0) size = "";
-				else size = "the first " + prettify(size * 2) + " rows of";
+				else size = "前" + prettify(size * 2) + "行";
 
 				var name = (str < 4) ? "Mutimps" : "Hulking Mutimps";
-				return "40% of bad guys in " + size + " the World will be mutated into " + name + ".";
+				return "世界上" + size + "的敌人将变异成" + name + "。";
 			},
 			getWeight: function (str) {
 				return (str / 10) * 1.5;
@@ -9661,13 +9661,13 @@ var dailyModifiers = {
 		empower: {
 			description: function (str) {
 				var s = (str == 1) ? "" : "s";
-				return "All enemies gain " + str + " stack" + s + " of Empower whenever your Trimps die in the World. Empower increases the attack and health of bad guys in the World by 0.2% per stack, can stack to 9999, and never resets.";
+				return "无论何时，当你的脆皮在世界中死亡，所有敌人会获得" + str + " 层赋能效果。每层赋能效果会使世界中的敌人增加0.2%的攻击与生命，最高可以叠9999层，此效果本轮永不重置";
 			},
 			getWeight: function (str) {
 				return (str / 6) * 2;
 			},
 			stackDesc: function (str, stacks){
-				return "This bad guy is Empowered and has " + prettify((this.getMult(str, stacks) * 100) - 100) + "% more health and attack.";
+				return "这个敌人已被赋能，且增加了" + prettify((this.getMult(str, stacks) * 100) - 100) + "%的攻击与生命值。";
 			},
 			stacksToAdd: function (str){
 				return str;
@@ -9686,7 +9686,7 @@ var dailyModifiers = {
 		},
 		pressure: {
 			description: function (str) {
-				return "Trimps gain a stack of Pressure every " + Math.round(this.timePerStack(str)) + " seconds. Each stack of pressure reduces Trimp health by 1%. Max of " + Math.round(this.getMaxStacks(str)) + " stacks, stacks reset after clearing a zone.";
+				return "每过" + Math.round(this.timePerStack(str)) + "秒脆皮们会叠一层压力效果。每层压力会减少脆皮1%的最大生命值。最高叠" + Math.round(this.getMaxStacks(str)) + "层,效果在打通区域后重置";
 			},
 			getWeight: function(str){
 				var time = (105 - this.timePerStack(str));
@@ -9731,7 +9731,7 @@ var dailyModifiers = {
 				updateDailyStacks('pressure');
 			},
 			stackDesc: function(str, stacks){
-				return "Your Trimps are under a lot of pressure. Maximum health is reduced by " + prettify((1 - this.getMult(str, stacks)) * 100) + "%.";
+				return "你的脆皮正处于巨大的压力当中。最大生命值已经减少" + prettify((1 - this.getMult(str, stacks)) * 100) + "%。";
 			},
 			getMaxStacks: function(str){
 				var thisStr = Math.floor(str % 4);
@@ -9744,7 +9744,7 @@ var dailyModifiers = {
 		mirrored: {
 			description: function (str) {
 				var reflectChance = this.getReflectChance(str);
-				return "Enemies have a" + (reflectChance.toString()[0] == '8' ? 'n' : '') + " " + prettify(reflectChance) + "% chance to reflect an attack, dealing " + prettify(this.getMult(str) * 100) + "% of damage taken back to your Trimps.";
+				return "敌人有" + (reflectChance.toString()[0] == '8' ? 'n' : '') + " " + prettify(reflectChance) + "%的概率反弹一次攻击，将此次伤害的" + prettify(this.getMult(str) * 100) + "%返还给你的脆皮。";
 			},
 			getReflectChance: function(str){
 				return (Math.ceil(str / 10)) * 10;
@@ -9782,7 +9782,7 @@ var dailyModifiers = {
 		},
 		metallicThumb: {
 			description: function (str) {
-				return "Equipment is " + prettify((1 - this.getMult(str)) * 100) + "% cheaper.";
+				return "装备的价格下降" + prettify((1 - this.getMult(str)) * 100) + "%。";
 			},
 			getWeight: function (str) {
 				return ((str + 3) / 26);
@@ -9969,7 +9969,7 @@ function getDailyTopText(add){
 			returnText += 'colorGrey';
 		else
 			returnText += 'colorSuccess';
-		returnText += "'>" + dayOfWeek(getDailyTimeString(dayIndex, false, true)).charAt(0);
+		returnText += "'>" + cntime(dayOfWeek(getDailyTimeString(dayIndex, false, true))).charAt(1);
 		if (!dayDone){
 			var heliumValue = getDailyHeliumValue(countDailyWeight(getDailyChallenge(dayIndex, true)));
 			returnText += "<br/>" + prettify(heliumValue) + "%";
@@ -9979,7 +9979,7 @@ function getDailyTopText(add){
 	}
 	returnText += "</div>";
 	//returnText += "<div style='text-align: left; padding: 10px;'><span class='btn btn-md btn-primary' onclick='lastAdd += 7; selectChallenge(\"Daily\");'>Test Server Only - Travel To Next Week</span></div>"
-	returnText += "<div class='row' style='margin: 0'><div class='col-xs-6 lowPad dailyTop' style='font-weight: bold'>" + dayOfWeek(getDailyTimeString(add, false, true)) + " " + getDailyTimeString(add, true) + "</div><div class='col-xs-6 dailyTop lowPad'>" + dayOfWeek(getDailyTimeString(1, false, true)) + " resets in <span id='dailyResetTimer'>00:00:00</span></div></div>";
+	returnText += "<div class='row' style='margin: 0'><div class='col-xs-6 lowPad dailyTop' style='font-weight: bold'>" + cntime(dayOfWeek(getDailyTimeString(add, false, true))) + " " + getDailyTimeString(add, true) + "</div><div class='col-xs-6 dailyTop lowPad'>" + cntime(dayOfWeek(getDailyTimeString(1, false, true))) + " 重置倒计时 <span id='dailyResetTimer'>00:00:00</span></div></div>";
 
 	if (checkedDayDone)
 		returnText += "<b class='redText'>你已经尝试过这个每日挑战！</b><br/><br/>";
@@ -10091,7 +10091,7 @@ function getDailyChallenge(add, objectOnly, textOnly){
 	dailyObject.seed = dateSeed;
 	if (objectOnly) return dailyObject;
 	if (countDailyWeight(dailyObject) != currentWeight) console.log('mismatch, objectCount = ' + countDailyWeight(dailyObject) + ", current = " + currentWeight);
-	returnText += "</ul>挑战没有终点，并在完成时获得<u><b>额外的"  + prettify(getDailyHeliumValue(currentWeight)) + "%</b></u>氦. <b>只能运行一次!</b> 奖赏不计入骨头购买传送门数据，或影响最好的He/Hr统计.";
+	returnText += "</ul>挑战没有终点，并在完成时获得<u><b>额外"  + prettify(getDailyHeliumValue(currentWeight)) + "%</b></u>的氦。 <b>只能运行一次!</b> 奖赏不计入骨头购买传送门数据，也不计入最好的氦/小时统计。";
 	if (textOnly) return returnText;
 	nextDaily = returnText;
 	if (document.getElementById('specificChallengeDescription') != null) document.getElementById('specificChallengeDescription').innerHTML = returnText;
@@ -10761,8 +10761,8 @@ function updateElectricityStacks(tipOnly){
 	var elem = document.getElementById("debuffSpan");
 	if (game.challenges.Electricity.stacks > 0){
 		var number = game.challenges.Electricity.stacks * 10;
-		var addText = 'Your Trimps are dealing ' + number + '% less damage and taking ' + number + '% of their total health as damage per attack.';
-		elem.innerHTML = '<span class="badge trimpBadge" onmouseover="tooltip(\'Electrified\', \'customText\', event, \'' + addText + '\'); updateElectricityTip()" onmouseout="tooltip(\'hide\')">' + game.challenges.Electricity.stacks + '<span class="icomoon icon-power"></span></span>';
+		var addText = '脆皮的攻击减少' + number + '%，且每个回合扣除' + number + '%的最大生命值数额的生命';
+		elem.innerHTML = '<span class="badge trimpBadge" onmouseover="tooltip(\'通电\', \'customText\', event, \'' + addText + '\'); updateElectricityTip()" onmouseout="tooltip(\'hide\')">' + game.challenges.Electricity.stacks + '<span class="icomoon icon-power"></span></span>';
 		if (tipOnly){
 			document.getElementById('tipText').innerHTML = addText;
 			return;
@@ -10783,7 +10783,7 @@ function updateAntiStacks(){
 	if (game.global.antiStacks > 0){
 		var number = ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier));
 		number = Math.floor(number * 100);
-		elem.innerHTML = '<span class="badge antiBadge" onmouseover="tooltip(\'Anticipation\', \'customText\', event, \'Your Trimps are dealing ' + number + '% extra damage for taking ' + game.global.antiStacks + ' seconds to populate.\')" onmouseout="tooltip(\'hide\')">' + game.global.antiStacks + '<span class="icomoon icon-target2"></span></span>';
+		elem.innerHTML = '<span class="badge antiBadge" onmouseover="tooltip(\'Anticipation\', \'customText\', event, \'你的脆皮获得了' + number + '% 的额外伤害，因为需要' + game.global.antiStacks + ' 秒来生产部队。\')" onmouseout="tooltip(\'hide\')">' + game.global.antiStacks + '<span class="icomoon icon-target2"></span></span>';
 	}
 	else elem.innerHTML = "";
 }
@@ -10795,7 +10795,7 @@ function updateTitimp(){
 		return;
 	}
 		var number = Math.floor(game.global.titimpLeft);
-		elem.innerHTML = '<span class="badge antiBadge" onmouseover="tooltip(\'Titimp\', \'customText\', event, \'Your Trimps are dealing double damage, thanks to the Titimp!\');" onmouseout="tooltip(\'hide\')">' + number + '<span class="icomoon icon-hammer"></span></span>';
+		elem.innerHTML = '<span class="badge antiBadge" onmouseover="tooltip(\'Titimp\', \'customText\', event, \'多亏了Titimp！你的脆皮攻击翻倍\');" onmouseout="tooltip(\'hide\')">' + number + '<span class="icomoon icon-hammer"></span></span>';
 }
 
 function updateNomStacks(number){
@@ -11044,11 +11044,11 @@ function showBones() {
 		}
 		else document.getElementById("buyHeirloomArea").style.display = "none";
 	}
-	updateImportButton("First, select an Imp", false);
+	updateImportButton("首先，选中一个外来物种", false);
 	var heliumGainedArea = document.getElementById("heliumGainedMisc");
 	var heDescElem = document.getElementById("bonePortalDescription");
-	var heText = "+ " + prettify(boostHe(true)) + " Helium";
-	var heDesc = "Automatically gain Helium";
+	var heText = "+ " + prettify(boostHe(true)) + " 氦";
+	var heDesc = "获取一次氦，";
 	if (game.stats.bestTokens.valueTotal >= 3) {
 		heDesc += (game.stats.bestFluffyExp.valueTotal > 0) ? ", " : " and ";
 		heDesc += "Nature Tokens";
@@ -11059,7 +11059,7 @@ function showBones() {
 		heText += ", " + prettify(game.stats.bestFluffyExp.valueTotal) + " Fluffy Exp";
 	}
 	else document.getElementById('boneBuyRow').style.height = "27vw";
-	heDesc += " equal to the amount you earned on your best run.";
+	heDesc += "其数量与你最好的一轮所获取的数量相同。";
 	if (game.stats.bestFluffyExp.valueTotal > 0){
 		if (Fluffy.getLevel() == 10) {
 			heDesc += "<br/><b>Fluffy is at Level 10 and will not gain Exp!";
@@ -11116,7 +11116,7 @@ function selectImp(name){
 	if (boneTemp.selectedImport) document.getElementById(boneTemp.selectedImport).className = "";
 	document.getElementById(name).className = "tealColor";
 	boneTemp.selectedImport = name;
-	updateImportButton("Buy " + name, true);
+	updateImportButton("购买 " + name, true);
 
 }
 
@@ -11411,7 +11411,7 @@ function purchaseSingleRunBonus(what){
 
 function displaySingleRunBonuses(){
 	var anyPortals = (game.global.totalPortals == 0);
-	var html = "<div class='boneBuyTitle'>Single Run Bonuses</div><div class='boneBuyDesc'>These all last until your next " + ((anyPortals) ? "soft reset" : "Portal") + ". Use them wisely!</div>";
+	var html = "<div class='boneBuyTitle'>单轮加成</div><div class='boneBuyDesc'>这些加成本轮生效，下一" + ((anyPortals) ? "soft reset" : "轮") + "停止。明智地使用它们!</div>";
 	for (var item in game.singleRunBonuses){
 		var bonus = game.singleRunBonuses[item];
 		html += "<div id='" + item + "SingleBonusBox' class='singleBonusBox'>";
@@ -11427,7 +11427,7 @@ function displaySingleRunBonuses(){
 				btnClass = 'boneBtnStateOff'
 			else 
 				btnClass = 'boneBtnStateOn';
-			btnText = bonus.name + " (" + bonus.cost + " bones)";
+			btnText = bonus.name + " (" + bonus.cost + " 骨头)";
 		}
 		html += "<div class='boneBtn " + btnClass + " pointer noselect' id='" + item + "PurchaseBtn'";
 		if (!bonus.owned && game.global.b >= bonus.cost)
@@ -11872,7 +11872,7 @@ function toggleAutoStructure(noChange, forceOff){
 	}
 	var color = (setting.enabled) ? "colorSuccess" : "colorDanger";
 	swapClass("color", color, btnElem);
-	var text = (setting.enabled) ? "AutoStructure On" : "AutoStructure Off";
+	var text = (setting.enabled) ? "打开自动建筑" : "关闭自动建筑";
 	document.getElementById('autoStructureText').innerHTML = text;
 }
 
@@ -11894,7 +11894,7 @@ function toggleAutoGolden(noChange){
 	}
 	var color = "settingBtn" + setting;
 	swapClass("settingBtn", color, btnElem);
-	var texts = ["自动金色关闭", "自动金色氦", "自动金色战斗", "自动金色虚空"];
+	var texts = ["自动金色升级关闭", "自动金色升级-氦", "自动金色升级-战斗", "自动金色升级-虚空"];
 	var text = texts[setting];
 	if (!noChange && setting != 0) text += ' <span id="autoGoldenTimeLeft">(4)</span>';
 	document.getElementById('autoGoldenText').innerHTML = text;
@@ -12030,7 +12030,7 @@ function toggleAutoUpgrades(noChange){
 var lastAutoPrestigeToggle = -1;
 var pantsMode = false;
 function toggleAutoPrestiges(noChange){
-	var autoPrestigeToggles = ["自动声望关闭", "全部自动声望", "只有武器", "武器优先"];
+	var autoPrestigeToggles = ["自动重铸关闭", "自动重铸所有装备", "只重铸武器", "优先重铸武器"];
 	if (pantsMode) autoPrestigeToggles.push("PANTS ONLY");
 	if (!noChange) {
 		game.global.autoPrestiges++;
@@ -12423,8 +12423,8 @@ var Fluffy = {
 			if (savedLevel > fluffyInfo[0]) tooltipText += "<span class='red'>- Fluffy的等级和伤害加成现在被降低了. Fluffy 会恢复等级 " + savedLevel + " 当 points are placed back in Capable.</span>";
 			else if (!Fluffy.canGainExp()) tooltipText += "<span class='red'>- Fluffy needs " + ((game.portal.Capable.level == 0) ? " at least one point of Capable to gain any Exp" + ((game.portal.Capable.locked) ? ". Complete Spire II to unlock Capable!" : "") : " more points in Capable to gain Exp above level " + game.portal.Capable.level + ".") + "</span>";
 			else {
-				if (game.global.world < 301) tooltipText += "<span class='red'>- Fluffy cannot gain any Experience from zones lower than 301</span>";
-				else tooltipText += "- Fluffy is earning " + prettify(Fluffy.getExpReward()) + " Exp per zone. " + Fluffy.getFluff();
+				if (game.global.world < 301) tooltipText += "<span class='red'>- Fluffy 不能在区域301之前获得任何经验。</span>";
+				else tooltipText += "- Fluffy 在完成本区域后会获得 " + prettify(Fluffy.getExpReward()) + " 点经验。 " + Fluffy.getFluff();
 			}
 			
 		}
@@ -12436,7 +12436,7 @@ var Fluffy = {
 		if (Fluffy.currentLevel == 10 && game.global.fluffyPrestige < Fluffy.prestigeRewards.length)
 			tooltipText += "<span class='fluffyEvolveText'>Fluffy 准备好进化了! 这将会重置它的伤害加成和所有特殊能力到等级0， 但是，他将会比以往任何时候都更加强大。你可以在任何时候取消这个进化，回到第10级。.<br/><span class='btn btn-md btn-success' onclick='Fluffy.prestige(); Fluffy.refreshTooltip(true);'>Evolve!</span></span><br/>"
 		if (Fluffy.canGainExp() && game.global.world >= 301) {
-			tooltipText += "- Fluffy 在某个区域获得的经验遵从以下公式:: ";
+			tooltipText += "- Fluffy 在任一区域获得的经验遵从以下公式:: ";
 			var fluffFormula = "<br/><span style='padding-left: 5em'>";
 			if (!game.portal.Curious.locked) fluffFormula += "(" + Fluffy.baseExp + " + (Curious * " + game.portal.Curious.modifier + ")) * (" + Fluffy.expGrowth + "^(Zone - 300)) * (1 + (Cunning * " + game.portal.Cunning.modifier + "))";
 			else if (!game.portal.Cunning.locked) fluffFormula += Fluffy.baseExp + " * (" + Fluffy.expGrowth + "^(Zone - 300)) * (1 + (Cunning * " + game.portal.Cunning.modifier + "))";
@@ -12451,7 +12451,7 @@ var Fluffy = {
 			tooltipText += fluffFormula;
 		}
 		if (game.global.fluffyPrestige > 0 && Fluffy.currentLevel < 10)
-			tooltipText += "<br/><span class='btn btn-sm btn-warning' onmousedown='cancelTooltip(); tooltip(\"confirm\", null, \"update\", \"You are about to abort Fluffy&#39;s Evolution. This will return you to level 10 on your last Evolution, but you will permanently lose all Experience earned towards the current Evolution. Are you sure you want to abort?\", \"Fluffy.abortPrestige()\", \"Abort Evolution\")'>Abort Prestige</span>"
+			tooltipText += "<br/><span class='btn btn-sm btn-warning' onmousedown='cancelTooltip(); tooltip(\"confirm\", null, \"update\", \"你将中止Fluffy的进化。这将使你的Fluffy回到10级，但是你将永远失去本次进化中获得的所有经验。你确定要放弃吗？\", \"Fluffy.abortPrestige()\", \"Abort Evolution\")'>Abort Prestige</span>"
 		var xpBreakdownFill = (document.getElementById('fluffyExpBreakdown') ? document.getElementById('fluffyExpBreakdown').innerHTML : "");
 		tooltipText += "<div id='fluffyExpBreakdown'>" + xpBreakdownFill + "</div>";
 		tooltipText += "<table id='fluffyLevelBreakdown'><tbody><tr style='font-weight: bold; font-size: 1.25em; text-align: center;'><td style='padding: 0 1em'>Level</td><td>Ability</td><td style='padding: 0 1em'>+Damage</td></tr>";
@@ -12514,10 +12514,10 @@ var Fluffy = {
 			description: "所有日常挑战的氦气系数增加100%。"
 		},
 		critChance: {
-			description: "Gives your Trimps an additional 50% crit chance."
+			description: "给予你的脆皮额外50%暴击几率。Gives your Trimps an additional 50% crit chance."
 		},
 		megaCrit: {
-			description: "Adds +2x to your Mega Crit multiplier, increasing Orange crits to 7x and Red crits to 49x."
+			description: "增加2倍的Mega暴击倍数，增加橙色暴击至7倍，红色暴击至49倍。"
 		}
 	}
 }
@@ -13223,7 +13223,7 @@ function cnstat(stat) {
     } else if (stat == "Wormholed Helium") {
         cnstat = "虫洞氦气"
     } else if (stat == "He/Hour this Run") {
-        cnstat = "氦/小时运行了"
+        cnstat = "本次游戏氦/小时"
     } else if (stat == "Best He/Hr this Run") {
         cnstat = "本轮游戏中最高的氦/小时"
     } else if (stat == "Highest Void Map Clear") {
@@ -13235,9 +13235,9 @@ function cnstat(stat) {
     } else if (stat == "Daily Challenge Helium") {
         cnstat = "每日的挑战氦"
     } else if (stat == "World Cells Overkilled") {
-        cnstat = "世界单元格过于复杂"
+        cnstat = "超杀世界单元格敌人数量"
     } else if (stat == "Trimps from Generator") {
-        cnstat = "发电机生产的脆皮"
+        cnstat = "维度发生器生产的脆皮"
     } else if (stat == "Nurseries Closed by Magma") {
         cnstat = "由岩浆封闭的幼儿园"
     } else if (stat == "Zones Liquified") {
@@ -13444,6 +13444,12 @@ function cntequan(what){
         cntequan="力量 II"
     }else if(temp=="Toughness II"){
         cntequan="坚韧 II"
+    }else if(temp=="Capable"){
+        cntequan="能力"
+    }else if(temp=="Cunning"){
+        cntequan="狡猾"
+    }else if(temp=="Curious"){
+        cntequan="好奇"
     }else if(temp=="Overkill"){
         cntequan="超杀"
     }else if(temp=="Resourceful"){
@@ -13509,6 +13515,31 @@ function cntequan(what){
     }
     return cntequan;
 }
+
+function cntime(time) {
+    //汉化时间
+    var cntime = "";
+    var temp = time;
+    if (temp == "Monday") {
+        cntime = "周一";
+    } else if (temp == "Tuesday") {
+        cntime = "周二";
+    } else if (temp == "Wednesday") {
+        cntime = "周三";
+    } else if (temp == "Thursday") {
+        cntime = "周四";
+    } else if (temp == "Friday") {
+        cntime = "周五";
+    } else if (temp == "Saturday") {
+        cntime = "周六";
+    } else if(temp=="Sunday"){
+        cntime = "周日";   
+    } else {
+        return time;
+    }
+    return cntime;
+}
+
 
 load();
 displayPerksBtn();
