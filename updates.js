@@ -206,8 +206,8 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		var value = getDailyHeliumValue(countDailyWeight()) / 100;
 		var reward = game.resources.helium.owned + game.stats.spentOnWorms.value;
 		if (reward > 0) reward = Math.floor(reward * value);
-		tooltipText = "Clicking <b>Finish</b> below will end your daily challenge and you will be unable to attempt it again. You will earn <b>" + prettify(reward) + " extra Helium!</b>";
-		costText = '<div class="maxCenter"><div id="confirmTooltipBtn" class="btn btn-info" onclick="abandonChallenge(); cancelTooltip()">Finish</div><div class="btn btn-danger" onclick="cancelTooltip()">Cancel</div></div>';
+		tooltipText = "点击下方的<b>完成</b>将会中止你的日常挑战，你将不能再次运行本挑战。你将获得<b>" + prettify(reward) + "额外氦！</b>";
+		costText = '<div class="maxCenter"><div id="confirmTooltipBtn" class="btn btn-info" onclick="abandonChallenge(); cancelTooltip()">完成</div><div class="btn btn-danger" onclick="cancelTooltip()">取消</div></div>';
 		game.global.lockTooltip = true;
 		elem.style.left = "33.75%";
 		elem.style.top = "25%";
@@ -1638,11 +1638,11 @@ function getBattleStatBd(what) {
 	//Add challenges
 	if (what == "health" && game.global.challengeActive == "Life"){
 		currentCalc *= game.challenges.Life.getHealthMult();
-		textString += "<tr><td class='bdTitle'>Unliving (Life)</td><td>10%</td><td>" + game.challenges.Life.stacks + "</td><td>+ " + game.challenges.Life.getHealthMult(true) + "</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td></tr>";
+		textString += "<tr><td class='bdTitle'>亡灵化 (生命挑战)</td><td>10%</td><td>" + game.challenges.Life.stacks + "</td><td>+ " + game.challenges.Life.getHealthMult(true) + "</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td></tr>";
 	}
 	if (what == "attack" && game.global.challengeActive == "Life"){
 		currentCalc *= game.challenges.Life.getHealthMult();
-		textString += "<tr><td class='bdTitle'>Unliving (Life)</td><td></td><td></td><td>+ " + game.challenges.Life.getHealthMult(true) + "</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>";
+		textString += "<tr><td class='bdTitle'>亡灵化(生命挑战)</td><td></td><td></td><td>+ " + game.challenges.Life.getHealthMult(true) + "</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>";
 	}
 	if (what == "health" && game.global.challengeActive == "Balance"){
 		currentCalc *= game.challenges.Balance.getHealthMult();
@@ -2046,7 +2046,7 @@ function getLootBd(what) {
 				}
 				else {
 					currentCalc *= 5;
-					textString += "<tr><td class='bdTitle'>非概率奖金</td><td></td><td></td><td>x 5</td><td>" + prettify(currentCalc) + "</td></tr>";
+					textString += "<tr><td class='bdTitle'>无序加成</td><td></td><td></td><td>x 5</td><td>" + prettify(currentCalc) + "</td></tr>";
 				}
 			}
 

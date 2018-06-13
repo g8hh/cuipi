@@ -1231,13 +1231,13 @@ function getScientistInfo(number, reward){
 			return (reward) ? "启动5个谷仓，5个棚屋，5个锻造，T2装备解锁。" : 8000;
 		}
 		case 3: {
-			return (reward) ? "以完整的脆皮和200%的玩家效率开始" : 1500;
+			return (reward) ? "以完整的脆皮和200%的手动效率开始" : 1500;
 		}
 		case 4: {
-			return (reward) ? "earn two levels of each prestige upgrade per map, unlock AutoPrestiges, and your Warpstations will build instantly, skipping the queue" : 70;
+			return (reward) ? "打一次地图可以获得两个等级的锻造书, 解锁自动进阶,并且你的经纱站将被迅速建好,跳过了建造队列的过程" : 70;
 		}
 		case 5: {
-			return (reward) ? "permanently increase all helium found by 0.5% to the power of your current zone number. You'll also start with 1000% player efficiency and 50 Barns, Sheds, and Forges" : 1500;
+			return (reward) ? "永久增加氦获得，倍数随层数增加，增加后变为\'(1+0.005)^层数\'倍。开始时将拥有1000%的手动效率，以及谷仓、窝棚、锻造室各50个" : 1500;
 		}
 	}
 }
@@ -13487,7 +13487,7 @@ function cntequan(what){
     }else if(temp=="Frugal"){
         cntequan="节俭"
     }else if(temp=="Life"){
-        cntequan="生活"
+        cntequan="生命"
     }else if(temp=="Nom"){
         cntequan="名义"
     }else if(temp=="Lead"){
@@ -13499,7 +13499,7 @@ function cntequan(what){
     }else if(temp=="Mapology"){
         cntequan="地图学"
     }else if(temp=="Coordinate"){
-        cntequan="坐标"
+        cntequan="协同"
     }else if(temp=="Crushed"){
         cntequan="粉碎"
     }else if(temp=="Toxicity"){
