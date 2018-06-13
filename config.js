@@ -21,7 +21,7 @@
 function newGame () {
 var toReturn = {
 	global: {
-		version: 4.8,
+		version: 4.802,
 		isBeta: false,
 		betaV: 0,
 		killSavesBelow: 0.13,
@@ -944,6 +944,15 @@ var toReturn = {
 				},
 				titles: ["动态按Ctrl键", "始终按Ctrl键"]
 			},
+			showHeirloomAnimations: {
+				enabled: 1,
+				extraTags: "performance",
+				description: "Enable/Disable animations on Heirlooms.",
+				lockUnless: function () {
+					return (game.global.highestLevelCleared >= 499);
+				},
+				titles: ["No Heirloom Animations", "Heirloom Animations"]
+			},
 			hotkeys: {
 				enabled: 1,
 				extraTags: "other",
@@ -976,6 +985,7 @@ var toReturn = {
 						game.global.zoneStarted += dif;
 						game.global.mapStarted += dif;
 						game.global.lastGeneratorTick += dif;
+						game.global.lastSoldierSentAt += dif;
 						this.timeAtPause = 0;
 						game.global.time = 0;
 						game.global.lastOnline = now;
@@ -2208,6 +2218,14 @@ var toReturn = {
 			value: 0,
 			valueTotal: 0
 		},
+		gemsCollected: {
+			title: "Gems Collected",
+			value: 0,
+			valueTotal: 0,
+			display: function () {
+				return ((this.value + this.valueTotal) > 0)
+			}
+		},
 		mapsCleared: {
 			title: "清理地图",
 			value: 0,
@@ -2218,6 +2236,7 @@ var toReturn = {
 			value: 0,
 			valueTotal: 0
 		},
+<<<<<<< HEAD
 		gemsCollected: {
 			title: "收集宝石",
 			value: 0,
@@ -2226,6 +2245,8 @@ var toReturn = {
 				return ((this.value + this.valueTotal) > 0)
 			}
 		},
+=======
+>>>>>>> master-en
 		trimpsFired: {
 			title: "解雇脆皮",
 			value: 0,
@@ -2234,6 +2255,7 @@ var toReturn = {
 			//Open maybe 10/21/16ish
 			display: function () {return false;}
 		},
+<<<<<<< HEAD
 		highestLevel: {
 			title: "最高区域",
 			valueTotal: function () {
@@ -2258,10 +2280,20 @@ var toReturn = {
 				return game.global.totalHeliumEarned;
 			}
 		},
+=======
+>>>>>>> master-en
 		spentOnWorms: {
 			title: "蠕虫氦气",
 			display: function () {
 				return ((this.value + this.valueTotal) > 0)
+			},
+			value: 0,
+			valueTotal: 0
+		},
+		goldenUpgrades: {
+			title: "Golden Upgrades",
+			display: function () {
+				return (this.value > 0 || this.valueTotal > 0);
 			},
 			value: 0,
 			valueTotal: 0
@@ -2302,6 +2334,15 @@ var toReturn = {
 			},
 			noFormat: true
 		},
+		totalHelium: {
+			title: "Total Helium Earned",
+			display: function () {
+				return (game.global.totalHeliumEarned > 0);
+			},
+			valueTotal: function () {
+				return game.global.totalHeliumEarned;
+			}
+		},
 		bestHeliumHour: {
 			title: "Best He/Hour all Runs",
 			display: function () {
@@ -2309,11 +2350,12 @@ var toReturn = {
 			},
 			valueTotal: 0
 		},
-		planetsBroken: {
-			title: "Planets Broken",
+		dailyBonusHelium: {
+			title: "Daily Challenge Helium",
 			display: function () {
-				return (this.valueTotal > 0);
+				return (this.value >0 || this.valueTotal > 0);
 			},
+			value: 0,
 			valueTotal: 0
 		},
 		highestVoidMap: {
@@ -2329,26 +2371,10 @@ var toReturn = {
 				if (game.global.world > this.valueTotal) this.valueTotal = game.global.world;
 			}
 		},
-		goldenUpgrades: {
-			title: "Golden Upgrades",
-			display: function () {
-				return (this.value > 0 || this.valueTotal > 0);
-			},
-			value: 0,
-			valueTotal: 0
-		},
 		totalHeirlooms: { //added from createHeirloom to value
 			title: "Heirlooms Found",
 			display: function () {
 				return (this.value > 0 || this.valueTotal > 0);
-			},
-			value: 0,
-			valueTotal: 0
-		},
-		dailyBonusHelium: {
-			title: "Daily Challenge Helium",
-			display: function () {
-				return (this.value >0 || this.valueTotal > 0);
 			},
 			value: 0,
 			valueTotal: 0
@@ -2380,6 +2406,27 @@ var toReturn = {
 		zonesLiquified: {
 			title: "Zones Liquified",
 			display: function() {
+				return (this.value > 0 || this.valueTotal > 0)
+			},
+			value: 0,
+			valueTotal: 0
+		},
+		bestTokens: {
+			get title () {
+				if (game.global.statsMode == "current") return "Tokens This Run"
+				return "Most Tokens";
+			},
+			display: function () {
+				return (this.value > 0 || this.valueTotal > 0)
+			},
+			value: 0,
+			valueTotal: 0,
+			noAdd: true,
+			keepHighest: true
+		},
+		amalgamators: {
+			title: "Amalgamators Befriended",
+			display: function () {
 				return (this.value > 0 || this.valueTotal > 0)
 			},
 			value: 0,
@@ -2440,27 +2487,28 @@ var toReturn = {
 			},
 			valueTotal: 0
 		},
-		bestTokens: {
-			get title () {
-				if (game.global.statsMode == "current") return "Tokens This Run"
-				return "Most Tokens";
-			},
-			display: function () {
-				return (this.value > 0 || this.valueTotal > 0)
-			},
-			value: 0,
-			valueTotal: 0,
-			noAdd: true,
-			keepHighest: true
+		highestLevel: {
+			title: "Highest Zone",
+			valueTotal: function () {
+				return game.global.highestLevelCleared + 1;
+			}
 		},
-		amalgamators: {
-			title: "Amalgamators Befriended",
+		totalPortals: {
+			title: "Total Portals Used",
 			display: function () {
-				return (this.value > 0 || this.valueTotal > 0)
+				return (game.global.totalPortals > 0);
 			},
-			value: 0,
+			valueTotal: function () {
+				return game.global.totalPortals;
+			}
+		},
+		planetsBroken: {
+			title: "Planets Broken",
+			display: function () {
+				return (this.valueTotal > 0);
+			},
 			valueTotal: 0
-		}
+		},
 	},
 	generatorUpgrades: {
 		Efficiency: {
@@ -3415,7 +3463,7 @@ var toReturn = {
 		w270: "This planet is really freaking big. You feel like you've been walking around it for years and still haven't seen everything there is to offer. Shouldn't there be another spire around here or something?",
 		w277: "It's starting to smell purple again. You must be getting close to another spire.",
 		get w283() {
-			var soldiers = (game.portal.Coordinated.level) ? game.portal.Coordinated.currentSend : game.resources.trimps.maxSoldiers;
+			var soldiers = game.resources.trimps.getCurrentSend();
 			return "During a boring night while waiting to cross a particularly rough Magma river, you managed to teach your Trimps how to stack on each other to create some funny shapes. You almost feel bad for the first Snimp to come across " + prettify(soldiers) + " Trimps stuck together in the shape of a humongous Moongooseimp.";
 		},
 		get w285(){
@@ -3544,8 +3592,8 @@ var toReturn = {
 			},
 			soldiers: 0,
 			maxSoldiers: 1,
-			getCurrentSend: function () {
-				var amt = (game.portal.Coordinated.level) ? game.portal.Coordinated.currentSend : game.resources.trimps.maxSoldiers;
+			getCurrentSend: function (checkLevelTemp) {
+				var amt = (game.portal.Coordinated.level) ? ((checkLevelTemp) ? game.portal.Coordinated.onChange(true) : game.portal.Coordinated.currentSend) : game.resources.trimps.maxSoldiers;
 				if (game.jobs.Amalgamator.owned > 0) {
 					amt *= game.jobs.Amalgamator.getPopulationMult();
 				}
@@ -6594,7 +6642,11 @@ var toReturn = {
 			get tooltip(){
 				var ratio = this.getTriggerThresh();
 				var currentRatio = (game.resources.trimps.realMax() / game.resources.trimps.getCurrentSend());
+<<<<<<< HEAD
 				var text = "<p>合并者不能手动雇佣或解雇合并者。他们是不可思议的生物，几乎不能再被认为是脆皮了。当你的军队规模占总人口的比例低于 <b>1:" + prettify(ratio) + "</b>时，他们会自动出现在你的城镇。完成尖塔 II到V时，每一个尖塔都将使这个比例增大到原来的10倍。 如果现在这一比率大于 1:" + prettify(1e3) + ", 一个合并者就会离开。 你现在的比率是 <b>1:" + prettify(currentRatio) + "</b>.</p><p>合并者会融合一些空闲的脆皮到其他士兵中,大大加强他们的战斗力。每个合并者会增加出战脆皮的数量1000倍(指数),增加血量40倍(指数),增加伤害50%(线性)。</p><p>另外，当至少有一个合并者时，预期的增益将基于最后一支部队被派遣，而不是基于实际繁殖的时间。</p>";
+=======
+				var text = "<p>Amalgamators cannot be hired or fired manually. They are magical beings that could barely be considered Trimps anymore, and they will automatically show up to your town whenever your total population to army size ratio rises above <b>" + prettify(ratio) + ":1</b>. Completing Spires II through V will each divide this ratio by 10. If your ratio ever falls below " + prettify(1e3) + ":1, an Amalgamator will leave. Your current ratio is <b>" + prettify(currentRatio) + ":1</b>.</p><p>Amalgamators fuse some of your spare Trimps to other soldiers, greatly strengthening them. Each Amalgamator increases the amount of Trimps that must be sent into each battle by 1000x (compounding), increases health by 40x (compounding), and increases damage by 50% (additive).</p><p>In addition, having at least one Amalgamator will cause Anticipation stacks to increase based on when the last soldiers were sent, rather than being based on time spent actually breeding.</p>";
+>>>>>>> master-en
 				if (game.global.challengeActive == "Trimp"){
 					text += "<p><i>" + toZalgo("This particular Universe</b> seems to directly conflict with the Amalgamators, yet they're here and the Trimps they Amalgamate seem immune to the dimensional restrictions. Things are getting weird though.", 1, Math.ceil(game.global.world / 100)) + "</i></p>";
 				}

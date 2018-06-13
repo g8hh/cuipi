@@ -33,6 +33,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 	if (game.global.lockTooltip && isItIn && event == 'update') return;
 	var elem = document.getElementById("tooltipDiv");
 	swapClass("tooltipExtra", "tooltipExtraNone", elem);
+	document.getElementById('tipText').className = "";
 	var ondisplay = null; // if non-null, called after the tooltip is displayed
 	openTooltip = null;
 	if (what == "hide"){
@@ -1200,9 +1201,14 @@ function getPsString(what, rawNum) {
 	textString += "<tr><td class='bdTitle'>基础</td><td class='bdPercent'></td><td class='bdNumber'>" + prettify(base) + "</td></tr>";
 	//Add job count
 	var currentCalc = job.owned * base;
+<<<<<<< HEAD
     //总览
     
 	textString += "<tr><td class='bdTitle'>" + cnjob(jobs[index]) + "</td><td class='bdPercent'>" + prettify(job.owned) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+=======
+	var s = job.owned == 1 ? "" : "s";
+	textString += "<tr><td class='bdTitle'>" + jobs[index] + s + "</td><td class='bdPercent'>" + prettify(job.owned) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+>>>>>>> master-en
 	//Add books
 	if (typeof book !== 'undefined' && book.done > 0){
 		var bookStrength = Math.pow(1.25, book.done);
@@ -1423,7 +1429,11 @@ function getTrimpPs() {
 	}
 	if (game.global.brokenPlanet){
 		currentCalc /= 10;
+<<<<<<< HEAD
 		textString += "<tr style='color: red'><td class='bdTitle'>破碎星球</td><td class='bdPercent'>X 0.1</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+=======
+		textString += "<tr style='color: red'><td class='bdTitle'>Broken Planet</td><td class='bdPercent'>x 0.1</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+>>>>>>> master-en
 
 	}
 	//Add pheromones
@@ -1438,7 +1448,11 @@ function getTrimpPs() {
 		var mult = Math.pow(.98, game.jobs.Geneticist.owned);
 		currentCalc *= mult;
 		var display = (mult > 0.0001) ? mult.toFixed(4) : mult.toExponential(3);
+<<<<<<< HEAD
 		textString += "<tr style='color: red'><td class='bdTitle'>遗传学家</td><td class='bdPercent'>X  " + display + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+=======
+		textString += "<tr style='color: red'><td class='bdTitle'>Geneticist</td><td class='bdPercent'>x  " + display + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+>>>>>>> master-en
 	}
 	//Add quick trimps
 	if (game.singleRunBonuses.quickTrimps.owned){
@@ -1450,22 +1464,38 @@ function getTrimpPs() {
 		if (typeof game.global.dailyChallenge.dysfunctional !== 'undefined'){
 			mult = dailyModifiers.dysfunctional.getMult(game.global.dailyChallenge.dysfunctional.strength);
 			currentCalc *= mult;
+<<<<<<< HEAD
 			textString += "<tr style='color: red'><td class='bdTitle'>功能失调 (日常)</td><td class='bdPercent'>X  " + mult.toFixed(3) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>"
+=======
+			textString += "<tr style='color: red'><td class='bdTitle'>Dysfunctional (Daily)</td><td class='bdPercent'>x  " + mult.toFixed(3) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>"
+>>>>>>> master-en
 		}
 		if (typeof game.global.dailyChallenge.toxic !== 'undefined'){
 			mult = dailyModifiers.toxic.getMult(game.global.dailyChallenge.toxic.strength, game.global.dailyChallenge.toxic.stacks);
 			currentCalc *= mult;
+<<<<<<< HEAD
 			textString += "<tr style='color: red'><td class='bdTitle'>毒物 (日常)</td><td class='bdPercent'>X  " + mult.toFixed(3) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>"
+=======
+			textString += "<tr style='color: red'><td class='bdTitle'>Toxic (Daily)</td><td class='bdPercent'>x  " + mult.toFixed(3) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>"
+>>>>>>> master-en
 		}
 	}
 	if (game.global.challengeActive == "Toxicity" && game.challenges.Toxicity.stacks > 0){
 		var potencyMod = Math.pow(game.challenges.Toxicity.stackMult, game.challenges.Toxicity.stacks);
 		currentCalc *= potencyMod;
+<<<<<<< HEAD
 		textString += "<tr style='color: red'><td class='bdTitle'>有毒空气</td><td class='bdPercent'>X  " + potencyMod.toFixed(3) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>"
 	}
 	if (game.global.voidBuff == "slowBreed"){
 		currentCalc *= 0.2;
 		textString += "<tr style='color: red'><td class='bdTitle'>虚空气体</td><td class='bdPercent'>X  0.2</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>"
+=======
+		textString += "<tr style='color: red'><td class='bdTitle'>Toxic Air</td><td class='bdPercent'>x  " + potencyMod.toFixed(3) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>"
+	}
+	if (game.global.voidBuff == "slowBreed"){
+		currentCalc *= 0.2;
+		textString += "<tr style='color: red'><td class='bdTitle'>Void Gas</td><td class='bdPercent'>x  0.2</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>"
+>>>>>>> master-en
 	}
 	var heirloomBonus = calcHeirloomBonus("Shield", "breedSpeed", 0, true);
 	if (heirloomBonus > 0){
@@ -1581,7 +1611,11 @@ function getBattleStatBd(what) {
 		var PerkStrength = (game.portal[perk].level * game.portal[perk].modifier);
 		currentCalc  *= (PerkStrength + 1);
 		PerkStrength = prettify(PerkStrength * 100) + "%";
+<<<<<<< HEAD
 		textString += "<tr><td class='bdTitle'>" + cnperk(perk.replace('_', ' ')) + "</td><td>" + (game.portal[perk].modifier * 100) + "%</td><td>" + game.portal[perk].level + "</td><td>+ " + PerkStrength + "</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + ((what == "attack") ? getFluctuation(currentCalc, minFluct, maxFluct) : "") + "</tr>";
+=======
+		textString += "<tr><td class='bdTitle'>" + perk.replace('_', ' ') + "</td><td>" + (game.portal[perk].modifier * 100) + "%</td><td>" + prettify(game.portal[perk].level) + "</td><td>+ " + PerkStrength + "</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + ((what == "attack") ? getFluctuation(currentCalc, minFluct, maxFluct) : "") + "</tr>";
+>>>>>>> master-en
 	}
 	//Add resilience
 	if (what == "health" && game.portal.Resilience.level > 0){
@@ -1605,7 +1639,11 @@ function getBattleStatBd(what) {
 		var antiStrength = ((anticipation.level * anticipation.modifier * game.global.antiStacks) + 1);
 		currentCalc *= antiStrength;
 		antiStrength = prettify((antiStrength - 1) * 100) + "%";
+<<<<<<< HEAD
 		textString += "<tr><td class='bdTitle'>预期</td><td>2% (X" + game.global.antiStacks + ")</td><td>" + prettify(anticipation.level) + "</td><td>+ " + antiStrength + "</td><td>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>";
+=======
+		textString += "<tr><td class='bdTitle'>Anticipation</td><td>2% (x" + game.global.antiStacks + ")</td><td>" + prettify(anticipation.level) + "</td><td>+ " + antiStrength + "</td><td>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>";
+>>>>>>> master-en
 
 	}
 	//Add formations
@@ -1820,6 +1858,7 @@ function getBattleStatBd(what) {
 	}
 	textString += "</tbody></table>";
 	game.global.lockTooltip = false;
+	document.getElementById('tipText').className = "";
 	tooltip('confirm', null, 'update', textString, "getBattleStatBd('" + what + "')", name, "Refresh", true);
 	if (what == "attack" || what == "health"){
 		verticalCenterTooltip(true);
@@ -1890,13 +1929,21 @@ function getMaxTrimps() {
 	//Add Size Challenge
 	if (game.global.challengeActive == "Size"){
 		currentCalc = Math.floor(currentCalc / 2);
+<<<<<<< HEAD
 		textString += "<tr style='color: red'><td class='bdTitle'>巨大的</td><td class='bdPercent'>X 0.5</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+=======
+		textString += "<tr style='color: red'><td class='bdTitle'>Huge</td><td class='bdPercent'>x 0.5</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+>>>>>>> master-en
 	}
 	if (game.global.challengeActive == "Daily"){
 		if (typeof game.global.dailyChallenge.large !== 'undefined'){
 			var mult = dailyModifiers.large.getMult(game.global.dailyChallenge.large.strength);
 			currentCalc = Math.floor(currentCalc * mult);
+<<<<<<< HEAD
 			textString += "<tr style='color: red'><td class='bdTitle'>强大 (日常)</td><td class='bdPercent'>X " + mult.toFixed(2) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+=======
+			textString += "<tr style='color: red'><td class='bdTitle'>Large (Daily)</td><td class='bdPercent'>x " + mult.toFixed(2) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+>>>>>>> master-en
 		}
 	}
 	textString += "</tbody></table>";
@@ -1989,17 +2036,22 @@ function getLootBd(what) {
 				amt = avgSec * 5;
 			amt = (amt * .8) + ((amt * .002) * (cell + 1));
 			currentCalc = amt;
+			textString += "<tr><td class='bdTitle'>Base</td><td></td><td></td><td>" + prettify(amt) + "</td><td>" + prettify(currentCalc) + "</td></tr>";
 			if ((game.talents.turkimp4.purchased || game.global.turkimpTimer > 0) && (game.global.playerGathering == "food" || game.global.playerGathering == "metal" || game.global.playerGathering == "wood")){
 				//Average the bonus out amongst all 3 resources. I can't remember why turkimp3 is 1.249 instead of 1.25 but at this point I'm too scared to change it
-				var tBonus = 1.166;
+				tBonus = 1.166;
 				if (game.talents.turkimp4.purchased) tBonus = 1.333;
 				else if (game.talents.turkimp3.purchased) tBonus = 1.249;
-				amt *= tBonus;
+				currentCalc *= tBonus;
+				textString += "<tr><td class='bdTitle'>Turkimp</td><td></td><td></td><td>+ " + prettify((tBonus - 1) * 100) + "%</td><td>" + prettify(currentCalc) + "</td></tr>";
 			}
+<<<<<<< HEAD
 			textString += "<tr><td class='bdTitle'>基础</td><td></td><td></td><td>" + prettify(amt) + "</td><td>" + prettify(currentCalc) + "</td></tr>";
+=======
+>>>>>>> master-en
 			amt = game.resources.trimps.realMax() * 0.16;
 			currentCalc *= amt;
-			textString += "<tr><td class='bdTitle'>Trimps</td><td>0.16</td><td>x " + prettify(game.resources.trimps.realMax()) + "</td><td>x " + prettify(amt) + "</td><td>" + prettify(currentCalc) + "</td></tr>";
+			textString += "<tr><td class='bdTitle'>Trimps</td><td>0.16</td><td>" + prettify(game.resources.trimps.realMax()) + "</td><td>x " + prettify(amt) + "</td><td>" + prettify(currentCalc) + "</td></tr>";
 			break;
 		case "Gems":
 			level = (level - 400) * 1.35;
@@ -2040,22 +2092,38 @@ function getLootBd(what) {
 			if (baseAmt >= 5){
 				if (mutations.Magma.active()){
 					currentCalc *= 15;
+<<<<<<< HEAD
 					textString += "<tr><td class='bdTitle'>综合奖金</td><td></td><td></td><td>X 15</td><td>" + prettify(currentCalc) + "</td></tr>";
 				}
 				else {
 					currentCalc *= 5;
 					textString += "<tr><td class='bdTitle'>非概率奖金</td><td></td><td></td><td>X 5</td><td>" + prettify(currentCalc) + "</td></tr>";
+=======
+					textString += "<tr><td class='bdTitle'>Omnipotrimp Bonus</td><td></td><td></td><td>x 15</td><td>" + prettify(currentCalc) + "</td></tr>";
+				}
+				else {
+					currentCalc *= 5;
+					textString += "<tr><td class='bdTitle'>Improbability Bonus</td><td></td><td></td><td>x 5</td><td>" + prettify(currentCalc) + "</td></tr>";
+>>>>>>> master-en
 				}
 			}
 
 			if (baseAmt >= 10){
 				currentCalc *= 2;
+<<<<<<< HEAD
 				textString += "<tr><td class='bdTitle'>腐败奖金</td><td></td><td></td><td>X 2</td><td>" + prettify(currentCalc) + "</td></tr>";
+=======
+				textString += "<tr><td class='bdTitle'>Corruption Bonus</td><td></td><td></td><td>x 2</td><td>" + prettify(currentCalc) + "</td></tr>";
+>>>>>>> master-en
 			}
 			if (game.global.sLevel >= 5){
 				amt = Math.pow(1.005, game.global.world);
 				currentCalc *= amt;
+<<<<<<< HEAD
 				textString += "<tr><td class='bdTitle'>科学家 V</td><td></td><td></td><td>X " + prettify(amt) + "</td><td>" + prettify(currentCalc) + "</td></tr>";
+=======
+				textString += "<tr><td class='bdTitle'>Scientist V</td><td></td><td></td><td>x " + prettify(amt) + "</td><td>" + prettify(currentCalc) + "</td></tr>";
+>>>>>>> master-en
 			}
 			if (game.goldenUpgrades.Helium.currentBonus > 0){
 				amt = game.goldenUpgrades.Helium.currentBonus;
@@ -2064,7 +2132,11 @@ function getLootBd(what) {
 			}
 			if (game.global.voidBuff) {
 				currentCalc *= 2;
+<<<<<<< HEAD
 				textString += "<tr><td class='bdTitle'>虚空地图</td><td></td><td></td><td>X 2</td><td>" + prettify(currentCalc) + "</td></tr>";
+=======
+				textString += "<tr><td class='bdTitle'>Void Map</td><td></td><td></td><td>x 2</td><td>" + prettify(currentCalc) + "</td></tr>";
+>>>>>>> master-en
 			}
 			var fluffyBonus = Fluffy.isRewardActive("helium");
 			if (fluffyBonus > 0){
@@ -2087,7 +2159,7 @@ function getLootBd(what) {
 				//-20% loot compounding for each level below world
 				amt = Math.pow(0.8, (compareLv - world));
 				currentCalc *= amt;
-				textString += "<tr style='color: red'><td class='bdTitle'>Low Map Level</td><td>-20%</td><td>x " + (compareLv - world) + "</td><td>" + prettify(amt * 100) + "%</td><td>" + prettify(currentCalc) + "</td></tr>";
+				textString += "<tr style='color: red'><td class='bdTitle'>Low Map Level</td><td>-20%</td><td>" + (compareLv - world) + "</td><td>x " + prettify(amt) + "</td><td>" + prettify(currentCalc) + "</td></tr>";
 
 			}
 		}
@@ -2098,12 +2170,20 @@ function getLootBd(what) {
 	if (game.portal.Looting.level){
 		amt = (1 + (game.portal.Looting.level * game.portal.Looting.modifier));
 		currentCalc *= amt;
+<<<<<<< HEAD
 		textString += "<tr><td class='bdTitle'>搜括 (额外福利)</td><td>+ 5%</td><td>" + game.portal.Looting.level + "</td><td>+ " + prettify((amt - 1) * 100) + "%</td><td>" + prettify(currentCalc) + "</td></tr>";
+=======
+		textString += "<tr><td class='bdTitle'>Looting (perk)</td><td>+ 5%</td><td>" + game.portal.Looting.level + "</td><td>+ " + prettify((amt - 1) * 100) + "%</td><td>" + prettify(Math.floor(currentCalc)) + "</td></tr>";
+>>>>>>> master-en
 	}
 	if (game.portal.Looting_II.level){
 		amt = (1 + (game.portal.Looting_II.level * game.portal.Looting_II.modifier));
 		currentCalc *= amt;
+<<<<<<< HEAD
 		textString += "<tr><td class='bdTitle'>掠夺 II (额外福利)</td><td>+ " + prettify(game.portal.Looting_II.modifier * 100) + "%</td><td>" + game.portal.Looting_II.level + "</td><td>+ " + prettify((amt - 1) * 100) + "%</td><td>" + prettify(currentCalc) + "</td></tr>";
+=======
+		textString += "<tr><td class='bdTitle'>Looting II (perk)</td><td>+ " + prettify(game.portal.Looting_II.modifier * 100) + "%</td><td>" + prettify(game.portal.Looting_II.level) + "</td><td>+ " + prettify((amt - 1) * 100) + "%</td><td>" + prettify(currentCalc) + "</td></tr>";
+>>>>>>> master-en
 	}
 	if (game.unlocks.impCount.Magnimp && what != "Helium"){
 
@@ -2171,7 +2251,11 @@ function getLootBd(what) {
 	}
 	if (what != "Helium" && isScryerBonusActive()){
 		currentCalc *= 2;
+<<<<<<< HEAD
 		textString += "<tr><td class='bdTitle'>队形</td><td></td><td></td><td>X 2</td><td>" + prettify(currentCalc) + "</td></tr>";
+=======
+		textString += "<tr><td class='bdTitle'>Formation</td><td></td><td></td><td>x 2</td><td>" + prettify(currentCalc) + "</td></tr>";
+>>>>>>> master-en
 	}
 	var heirloomBonus = 0;
 	if (what == "Food/Wood/Metal"){
@@ -2258,7 +2342,7 @@ function getLootBd(what) {
 		else {
 			percent++;
 			currentCalc *= percent;
-			textString += "<tr class='corruptedCalcRow'><td class='bdTitle'>Corruption Value</td><td>" + corrVal + "%</td><td>" + corruptedCells + "</td><td>X " + prettify(percent) + "</td><td>" + prettify(currentCalc) + "</td></tr>";
+			textString += "<tr class='corruptedCalcRow'><td class='bdTitle'>Corruption Value</td><td>" + corrVal + "%</td><td>" + corruptedCells + "</td><td>x " + prettify(percent) + "</td><td>" + prettify(currentCalc) + "</td></tr>";
 		}
 	}
 	textString += "</tbody></table>";
@@ -2276,8 +2360,9 @@ function prettify(number) {
 	var numberTmp = number;
 	if (!isFinite(number)) return "<span class='icomoon icon-infinity'></span>";
 	if (number >= 1000 && number < 10000) return Math.floor(number);
-	if (number === 0) return prettifySub(0);
+	if (number == 0) return prettifySub(0);
 	if (number < 0) return "-" + prettify(-number);
+	if (number < 0.005) return (+number).toExponential(2);
 
 	var base = Math.floor(Math.log(number)/Math.log(1000));
 	if (base <= 0) return prettifySub(number);
@@ -3363,9 +3448,16 @@ function updatePs(jobObj, trimps, jobName){ //trimps is true/false, send PS as f
 			if (game.global.challengeActive == "Decay"){
 				psText *= 10 * (Math.pow(0.995, game.challenges.Decay.stacks));
 			}
-			if (game.global.challengeActive == "Daily" && typeof game.global.dailyChallenge.famine !== 'undefined' && increase != "fragments" && increase != "science"){
-				psText *= dailyModifiers.famine.getMult(game.global.dailyChallenge.famine.strength);
+			if (game.global.challengeActive == "Daily"){
+				if (typeof game.global.dailyChallenge.famine !== 'undefined' && increase != "fragments" && increase != "science"){
+					psText *= dailyModifiers.famine.getMult(game.global.dailyChallenge.famine.strength);
+				}
+				if (typeof game.global.dailyChallenge.dedication !== 'undefined'){
+					psText *= dailyModifiers.dedication.getMult(game.global.dailyChallenge.dedication.strength);
+				}
 			}
+			if (typeof game.global.dailyChallenge.dedication !== 'undefined')
+					psText *= dailyModifiers.dedication.getMult(game.global.dailyChallenge.dedication.strength);
 			if (game.global.challengeActive == "Watch") psText /= 2;
 			if (game.global.challengeActive == "Lead" && ((game.global.world % 2) == 1)) psText *= 2;
 			if (jobName != "Explorer" && getEmpowerment() == "Wind"){

@@ -650,6 +650,9 @@ function load(saveString, autoLoad, fromPf) {
 		addNewFeats([0, 33, 38, 39, 40, 41]);
 		calculateAchievementBonus();
 	}
+	if (oldVersion < 4.801){
+		if (countPurchasedTalents() == 40) game.global.essence = 0;
+	}
 	//End compatibility
 	//Test server only
 	//End test server only
@@ -2124,7 +2127,7 @@ function canCommitCarpentry(){ //Uh, and Coordinated. This checks coordinated to
 	var error = document.getElementById("portalError");
 	error.innerHTML = "";
 	var good = true;
-	var soldiers = (game.portal.Coordinated.level || game.portal.Coordinated.levelTemp) ? game.portal.Coordinated.onChange(true) : game.resources.trimps.maxSoldiers;
+	var soldiers = game.resources.trimps.getCurrentSend(true);
     if (newMax < (soldiers * 2.4)) {
         error.innerHTML += "You do not have enough max Trimps with this Perk setup to sustain your Coordination. ";
 		error.style.display = "block";
@@ -2322,6 +2325,7 @@ function rewardResource(what, baseAmt, level, checkMapLootScale, givePercentage)
 			amt = avgSec * 10 * baseAmt;
 	}
 	else if (what == "fragments"){
+		if (game.options.menu.useAverages.enabled && document.getElementById("fragmentsPs").style.opacity == 0) fadeIn("fragmentsPs", 10);
 		amt = Math.floor(Math.pow(1.15, game.global.world) * game.global.world * game.global.world * 0.02);
 		if (baseAmt > 1) {
 			amt *= baseAmt;
@@ -4242,9 +4246,11 @@ function populateHeirloomWindow(){
 	displayExtraHeirlooms();
 	document.getElementById("nullifiumCount").innerHTML = prettify(game.global.nullifium);
 	document.getElementById("recycleAllHeirloomsBtn").style.display = (game.global.heirloomsExtra.length) ? "inline-block" : "none";
-	var fidgetSpinners = document.getElementsByClassName('heirloomRare8');
-	for (var x = 0; x < fidgetSpinners.length; x++){
-		fidgetSpinners[x].style.animationDelay = "-" + ((new Date().getTime() / 1000) % 30).toFixed(1) + "s";
+	if (game.options.menu.showHeirloomAnimations.enabled){
+		var fidgetSpinners = document.getElementsByClassName('heirloomRare8');
+		for (var x = 0; x < fidgetSpinners.length; x++){
+			fidgetSpinners[x].style.animationDelay = "-" + ((new Date().getTime() / 1000) % 30).toFixed(1) + "s";
+		}
 	}
 }
 
@@ -4465,7 +4471,8 @@ function hideHeirloomSelectButtons(){
 function generateHeirloomIcon(heirloom, location, number){
 	if (typeof heirloom.name === 'undefined') return "<span class='icomoon icon-sad3'></span>";
 	var icon = (heirloom.type == "Shield") ? 'icomoon icon-shield3' : 'glyphicon glyphicon-grain';
-	var html = '<span class="heirloomThing heirloomRare' + heirloom.rarity;
+	var animated = (game.options.menu.showHeirloomAnimations.enabled) ? "animated " : "";
+	var html = '<span class="heirloomThing ' + animated + 'heirloomRare' + heirloom.rarity;
 	if (location == "Equipped") html += ' equipped';
 	var locText = "";
 	if (location == "Equipped") locText += '-1,\'' + heirloom.type + 'Equipped\'';
@@ -4489,7 +4496,8 @@ function displaySelectedHeirloom(modSelected, selectedIndex, fromTooltip, locati
 	if (fromPopup && !game.options.menu.voidPopups.enabled) return;
 	var heirloom = getSelectedHeirloom(locationOvr, indexOvr);
 	var icon = (heirloom.type == "Shield") ? 'icomoon icon-shield3' : 'glyphicon glyphicon-grain';
-	var html = '<div class="selectedHeirloomItem heirloomRare' + heirloom.rarity + '"><div class="row selectedHeirloomRow"><div class="col-xs-2 selectedHeirloomIcon" id="' + ((fromTooltip) ? 'tooltipHeirloomIcon' : 'selectedHeirloomIcon') + '"><span class="' + icon + '"></span></div><div class="col-xs-10"><span onclick="renameHeirloom(';
+	var animated = (game.options.menu.showHeirloomAnimations.enabled) ? "animated " : "";
+	var html = '<div class="selectedHeirloomItem ' + animated + 'heirloomRare' + heirloom.rarity + '"><div class="row selectedHeirloomRow"><div class="col-xs-2 selectedHeirloomIcon" id="' + ((fromTooltip) ? 'tooltipHeirloomIcon' : 'selectedHeirloomIcon') + '"><span class="' + icon + '"></span></div><div class="col-xs-10"><span onclick="renameHeirloom(';
 	if (fromPopup) html += 'false, true';
 	html += ')" id="selectedHeirloomTitle">' + heirloom.name + '</span> '
 	if (!fromTooltip) html += '<span id="renameContainer"></span>';
@@ -4520,7 +4528,7 @@ function displaySelectedHeirloom(modSelected, selectedIndex, fromTooltip, locati
 		return;
 	}
 	document.getElementById("selectedHeirloom").innerHTML = html;
-	if (heirloom.rarity == 8)
+	if (heirloom.rarity == 8 && animated)
 		document.getElementById('selectedHeirloomIcon').style.animationDelay = "-" + ((new Date().getTime() / 1000) % 30).toFixed(1) + "s";
 }
 
@@ -6187,6 +6195,8 @@ function scaleNumberForBonusHousing(num){
 	if (game.portal.Carpentry_II.level > 0) num = Math.floor(num * (1 + (game.portal.Carpentry_II.modifier * game.portal.Carpentry_II.level)));
 	if (game.global.challengeActive == "Daily" && typeof game.global.dailyChallenge.large !== "undefined")
 		num = Math.floor(num * dailyModifiers.large.getMult(game.global.dailyChallenge.large.strength));
+	if (game.global.challengeActive == "Size")
+		num *= 0.5;
 	return num;
 }
 
@@ -7440,7 +7450,7 @@ function checkAmalgamate(){
 	var amalgJoinTexts = [
 		"A small black hole opens up in the sky and a shrill noise echoes across the town. A few moments later, an Amalgamator is standing in front of you. It looks around briefly, grabs a few Trimps, and runs off towards your soldiers.", 
 		"While out walking a Trimp, you suddenly find yourself teleported back to your ship, standing face to face with an Amalgamator. You introduce yourself but it doesn't seem up for conversation.",
-		"Suddenly, the largest rain drops you've ever seen start falling from the sky - each drop is at least 1000 times larger than normal. One particularly large drop hits the ground and an Amalgamator pops out! It sends out a quick telepathic greetings, then goes off to find your Trimps.",
+		"Suddenly, the largest rain drops you've ever seen start falling from the sky - each drop is at least 1000 times larger than normal. One particularly large drop hits the ground and an Amalgamator pops out! It sends out a quick telepathic greeting, then goes off to find your Trimps.",
 		"You're sitting down about to enjoy a rare dinner break, when an Amalgamator gets interested in your dimension and replaces the spacetime of your meal with itself. You really hope they don't do that again.",
 		"As you're helping your Trimps cross a deeper-than-average stream, you notice a column of bubbles coming up near your Trimps. A gurgling sound begins to grow from the source of the bubbles, and your Trimps start to get a little freaked out. Suddenly an Amalgamator bursts to the surface, spits some water at a Trimp, then teleports to your town."];
 	var amalgLeaveTexts = [
@@ -7543,13 +7553,13 @@ function startFight() {
     swapClass("cellColor", "cellColorCurrent", cellElem);
 	var badName;
 	var displayedName;
-	if ((cell.name == "Improbability" || cell.name == "Omnipotrimp") && game.global.spireActive){
+	if ((cell.name == "Improbability") && game.global.spireActive){
 		displayedName = "Druopitee";
 		if (game.global.challengeActive == "Coordinate") displayedName = "Druopitee and Pals";
 	}
 	else if (cell.name == "Omnipotrimp" && game.global.spireActive){
 		displayedName = "Echo of Druopitee";
-		if (game.global.challengeActive == "Coordinate") displayedName = "Echoes of Druopitee";
+		if (game.global.challengeActive == "Coordinate") displayedName = "Echoes of Druopitee and Pals";
 	}
 	else if (cell.name == "Improbability" && game.global.challengeActive == "Coordinate") {
 		displayedName = "Improbabilities";
@@ -11437,6 +11447,23 @@ function successPurchaseFlavor(){
 function updateBones() {
 	document.getElementById("bonesOwned").innerHTML = prettify(game.global.b) + " " + ((game.global.b == 1) ? "骨头" : "骨头");
 	updateSkeleBtn();
+	displaySingleRunBonuses();
+	updateBoneBtnColors();
+}
+
+function updateBoneBtnColors(){
+	var prices = {
+		boostPurchaseBtn0: 20,
+		boostPurchaseBtn1: 40,
+		heliumPurchaseBtn: 100,
+		heirloomPurchaseBtn: 30
+	}
+	for (var item in prices){
+		var elem = document.getElementById(item);
+		if (!elem) continue;
+		var swapTo = game.global.b >= prices[item] ? "boneBtnStateOn" : "boneBtnStateOff";
+		swapClass("boneBtnState", swapTo, elem);
+	}
 }
 
 function boostHe(checkOnly) {
@@ -11452,7 +11479,6 @@ function boostHe(checkOnly) {
 		game.global.totalPortals++;
 		checkAchieve("portals", null, false, true);
 		displayPerksBtn();
-		document.getElementById("pastUpgradesBtn").style.border = "1px solid red";
 		return;
 	}
 	for (var x = 0; x < level; x++) {
@@ -11481,7 +11507,6 @@ function boostHe(checkOnly) {
 	checkAchieve("portals", null, false, true);
 	checkAchieve("totalHelium");
 	displayPerksBtn();
-	document.getElementById("pastUpgradesBtn").style.border = "1px solid red";
 }
 
 function countUnpurchasedImports(){
@@ -12251,9 +12276,11 @@ var Fluffy = {
 	},
 	rewardExp: function(count){
 		if (!this.canGainExp()) return;
-		if (game.global.world < 301) return;
-		game.global.fluffyExp += this.getExpReward(true, count);
+		if (game.global.world < 301 && !count) return;
+		var reward = this.getExpReward(true, count);
+		game.global.fluffyExp += reward;
 		this.handleBox();
+		return reward;
 	},
 	getExpReward: function(givingExp, count) {
 		var reward = (this.baseExp + (game.portal.Curious.level * game.portal.Curious.modifier)) * Math.pow(this.expGrowth, game.global.world - 300) * (1 + (game.portal.Cunning.level * game.portal.Cunning.modifier));
@@ -12373,7 +12400,7 @@ var Fluffy = {
 				elem.innerHTML = this.specialModifierReason;
 				return;
 			case "staff":
-				elem.innerHTML = 'The bonus modifier applied from "Fluffy Exp" on a Plagued Staff. Currently ' + (1 + (game.heirlooms.Staff.FluffyExp.currentBonus / 100)) + '.';
+				elem.innerHTML = 'The bonus modifier applied from "Fluffy Exp" on a Plagued Staff. Currently ' + (1 + (game.heirlooms.Staff.FluffyExp.currentBonus / 100)).toFixed(2) + '.';
 		}
 	},
 	tooltip: function (big){
