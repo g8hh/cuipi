@@ -9644,7 +9644,7 @@ var dailyModifiers = {
 				else size = "前" + prettify(size * 2) + "行";
 
 				var name = (str < 4) ? "Mutimps" : "Hulking Mutimps";
-				return "世界上" + size + "的敌人将变异成" + name + "。";
+				return "世界上" + size + "的敌人将有40%概率变异成" + name + "。";
 			},
 			getWeight: function (str) {
 				return (str / 10) * 1.5;

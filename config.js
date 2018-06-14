@@ -1267,16 +1267,16 @@ var toReturn = {
 		},
 		liquification: {
 			get description () {
-				var text = (this.purchased) ? "这种精通正在增加 " : "这种精通会增加 ";
+				var text = (this.purchased) ? "这个精通将增加" : "这个精通将增加";
 				var totalSpires = game.global.spiresCompleted;
 				var fluffyCount = Fluffy.isRewardActive("liquid");
 				var fluffyText = "Y";
 				if (fluffyCount > 0){
-					if (fluffyCount == 1) fluffyText = "计算你的蓬松奖励为尖塔的一半，";
-					else fluffyText = "计算你的两个蓬松奖金作为一个尖塔，"
+					if (fluffyCount == 1) fluffyText = "将你的Fluffy的特殊能力视为完成了半个尖塔。";
+					else fluffyText = "将你的Fluffy的两个特殊能力视为完成了一个尖塔。"
 					totalSpires += (fluffyCount * 0.5);
 				}
-				return "将你的液化奖励提高5％，就好像你已经完成了1个额外的尖塔。" + fluffyText + " 您目前已完成 " + totalSpires + " 独特的尖塔" + ((totalSpires == 1) ? "" : "") + ", 给你 " + (totalSpires * 5) + "% 你达到的最高区域 (通过 Z" + Math.floor((totalSpires / 20) * (game.global.highestLevelCleared + 1)) + "). " + text + " 你的奖金 " + ((totalSpires + 1) * 5) + "% 你达到的最高区域 (通过 " + Math.floor(((totalSpires + 1) / 20) * (game.global.highestLevelCleared + 1)) + ").";
+				return "将你的液化奖励提高5％，就好像你已经完成了1个额外的尖塔。" + fluffyText + " 您目前已完成了相当于 " + totalSpires + " 个尖塔" + ((totalSpires == 1) ? "" : "") + ", 将基于你所达到的最高区域(Z" + (game.global.highestLevelCleared +1) + ")，液化其中 " + (totalSpires * 5) + "% 的区域 (Z" + Math.floor((totalSpires / 20) * (game.global.highestLevelCleared + 1)) + ")。 " + text + "你的液化奖励到 " + ((totalSpires + 1) * 5) + "%的最高区域（Z" + Math.floor(((totalSpires + 1) / 20) * (game.global.highestLevelCleared + 1)) + "）。";
 			},
 			name: "Liquification I",
 			tier: 6,
@@ -1332,7 +1332,7 @@ var toReturn = {
 			icon: "*clock2"
 		},
 		stillRowing: {
-			description: "增肌50%的尖塔额外掉落奖励，从2％的额外奖励增加到3％。",
+			description: "增肌50%的尖塔额外掉落奖励，从2％每行的额外奖励增加到3％。",
 			name: "Still Rowing I",
 			tier: 7,
 			purchased: false,
@@ -1361,7 +1361,7 @@ var toReturn = {
 			icon: "*aid-kit"
 		},
 		nature3: {
-			description: "增加5个%的自然堆栈传递而不增加成本。",
+			description: "增加5个%自然赋权传递率而不增加成本。",
 			name: "Natural Diplomacy III",
 			tier: 8,
 			purchased: false,
@@ -1370,17 +1370,17 @@ var toReturn = {
 		},
 		liquification2: {
 			get description () {
-				var text = (this.purchased) ? "这种掌握在增加 " : "掌握这将增加 ";
+				var text = (this.purchased) ? "这个精通将增加" : "这个精通将增加";
 				var totalSpires = game.global.spiresCompleted;
 				if (game.talents.liquification.purchased) totalSpires++;
 				var fluffyCount = Fluffy.isRewardActive("liquid");
 				var fluffyText = "";
 				if (fluffyCount > 0){
-					if (fluffyCount == 1) fluffyText = " 你的蓬松奖金是尖塔的一半";
-					else fluffyText += " 和你的两个蓬松奖金作为另一个"
+					if (fluffyCount == 1) fluffyText = "将你的Fluffy的特殊能力视为完成了半个尖塔。";
+					else fluffyText += " 将你的Fluffy的两个特殊能力视为完成了一个尖塔。"
 					totalSpires += (fluffyCount * 0.5);
 				}
-				return "将你的液化奖励提高5％，就好像你已经完成了1个额外的尖塔。 计算液化我是一个塔尖。" + fluffyText + ", 你已经完成了相当于 " + totalSpires + " 唯一尖塔" + ((totalSpires == 1) ? "" : "") + ", 给你 " + (totalSpires * 5) + "% 达到你的最高区域 (通过区域Z" + Math.floor((totalSpires / 20) * (game.global.highestLevelCleared + 1)) + "). " + text + " 你的奖金 " + ((totalSpires + 1) * 5) + "% 达到你的最高区域 (通过区域 Z" + Math.floor(((totalSpires + 1) / 20) * (game.global.highestLevelCleared + 1)) + ").";
+				return "将你的液化奖励提高5％，就好像你已经完成了1个额外的尖塔。" + fluffyText + "你已经完成了相当于 " + totalSpires + " 个尖塔" + ((totalSpires == 1) ? "" : "") + ", 将基于你所达到的最高区域(Z" + (game.global.highestLevelCleared +1) + ")，液化其中 " + (totalSpires * 5) + "% 的区域 (Z" + Math.floor((totalSpires / 20) * (game.global.highestLevelCleared + 1)) + ")。 " + text + "你的液化奖励到 " + ((totalSpires + 1) * 5) + "%的最高区域（Z" + Math.floor(((totalSpires + 1) / 20) * (game.global.highestLevelCleared + 1)) + "）。";
 			},
 			name: "Liquification II",
 			tier: 8,
@@ -1389,7 +1389,7 @@ var toReturn = {
 			icon: "*water"
 		},
 		stillRowing2: {
-			description: "你的脆皮现在将获得等于他们从每个尖塔行清除的2倍的掠夺奖金。",
+			description: "你的脆皮现在将获得等同于尖塔额外掉落奖励2倍的攻击加成。",
 			name: "Still Rowing II",
 			tier: 8,
 			purchased: false,
