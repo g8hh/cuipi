@@ -621,9 +621,9 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 	}
 	if (what == "MagnetoShriek"){
 		var shriekValue = ((1 - game.mapUnlocks.roboTrimp.getShriekValue()) * 100).toFixed(1);
-		tooltipText = "你的宠物机器人看起来很有天赋，它扭曲了某些坏人周围的磁场，尤其是不可能的能力。你可以每隔5个区域就激活这个能力，让你的脆皮减少受到 " + shriekValue + "% 的攻击伤害，这必须在每次冷却后重新启动。";
+		tooltipText = "你的机械脆皮宠物似乎擅长于在你与敌人间扭曲出一个磁力护盾，尤其是无序。你可以每隔5个区域就激活这个能力，来让你的脆皮减少受到来自无序 " + shriekValue + "% 的攻击伤害，这技能必须在每次冷却后重新启动。";
 		tooltipText += "<span id='roboTrimpTooltipActive' style='font-weight: bold'><br/><br/>";
-		tooltipText += (game.global.useShriek) ? "MagnetoShriek is currently active and will fire on the next Improbability." : "MagnetoShriek is NOT active and will not fire.";
+		tooltipText += (game.global.useShriek) ? "磁力护盾正在运行，将在下一个无序后过热。" : "磁力护盾没有开启，也不会过热。";
 		tooltipText += "</span>";
 		costText = "";
 		//elem.style.top = "55%";
@@ -1633,7 +1633,7 @@ function getBattleStatBd(what) {
 		var roboTrimpMod = 0.2 * game.global.roboTrimpLevel;
 		currentCalc *= (1 + roboTrimpMod);
 		roboTrimpMod *= 100;
-		textString += "<tr><td class='bdTitle'><span class='icomoon icon-chain'></span> RoboTrimp <span class='icomoon icon-chain'></span></td><td>20%</td><td>" + game.global.roboTrimpLevel + "</td><td>+ " + prettify(roboTrimpMod) + "%</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>";
+		textString += "<tr><td class='bdTitle'><span class='icomoon icon-chain'></span> 机械脆皮 <span class='icomoon icon-chain'></span></td><td>20%</td><td>" + game.global.roboTrimpLevel + "</td><td>+ " + prettify(roboTrimpMod) + "%</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>";
 	}
 	//Add challenges
 	if (what == "health" && game.global.challengeActive == "Life"){
@@ -4886,6 +4886,12 @@ function cntitle(tit){
         cntit="自然赋权"
     }else if(what=="Switch Daily"){
         cntit="选择日常挑战"
+    }else if(what=="Empower"){
+        cntit="赋能"
+    }else if(what=="Pressure"){
+        cntit="压力"
+    }else if(what=="MagnetoShriek"){
+        cntit="磁力护盾"
     }else{
         cntit=tit
     }

@@ -9744,7 +9744,7 @@ var dailyModifiers = {
 		mirrored: {
 			description: function (str) {
 				var reflectChance = this.getReflectChance(str);
-				return "敌人有" + (reflectChance.toString()[0] == '8' ? 'n' : '') + " " + prettify(reflectChance) + "%的概率反弹一次攻击，将此次伤害的" + prettify(this.getMult(str) * 100) + "%返还给你的脆皮。";
+				return "敌人有" + (reflectChance.toString()[0] == '8' ? '' : '') + " " + prettify(reflectChance) + "%的概率反弹一次攻击，将此次伤害的" + prettify(this.getMult(str) * 100) + "%返还给你的脆皮。";
 			},
 			getReflectChance: function(str){
 				return (Math.ceil(str / 10)) * 10;
@@ -13489,7 +13489,7 @@ function cntequan(what){
     }else if(temp=="Life"){
         cntequan="生命"
     }else if(temp=="Nom"){
-        cntequan="名义"
+        cntequan="美味"
     }else if(temp=="Lead"){
         cntequan="领导"
     }else if(temp=="Watch"){

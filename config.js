@@ -2049,7 +2049,7 @@ var toReturn = {
 			description: "为了学习从自然中进化而来的协作模式，造访一个敌人会协作作战，但永不先攻的维度。带有本挑战完成<b>'愤怒维度' (20)</b>将使敌人失去协作效果。",
 			completed: false,
 			allowSquared: true,
-			squaredDescription: "Visit a dimension where Bad Guys are Coordinated but never fast, chip 'em down!",
+			squaredDescription: "造访一个敌人会协作作战，但永不先攻的维度, 打败他们!",
 			replaceSquareFreq: 3,
 			replaceSquareThresh: 30,
 			filter: function () {
@@ -2075,20 +2075,20 @@ var toReturn = {
 			unlockString: "到达区域 125"
 		},
 		Slow: {
-			description: "Legends tell of a dimension inhabited by incredibly fast bad guys, where blueprints exist for a powerful yet long forgotten weapon and piece of armor. All bad guys will attack first in this dimension, but clearing <b>Zone 120</b> with this challenge active will forever-after allow you to create these new pieces of equipment.",
+			description: "传说中这个维度里居住着极其迅速的敌人，这里还有着一个强大而被遗忘的武器及护甲蓝图。在这个维度中所有敌人都先攻，但是带有本挑战清除<b>区域120</b> 将永久能够制造这些新装备。",
 			completed: false,
 			allowSquared: true,
-			squaredDescription: "Legends tell of a dimension inhabited by incredibly fast bad guys, and you seem to want to go there to prove something. All bad guys will attack first in this dimension, watch your health!",
+			squaredDescription: "传说中这个维度里居住着极其迅速的敌人，你似乎想来这里证明些什么。这个维度中所有敌人都先攻，注意你的生命值！",
 			filter: function () {
 				return (game.global.highestLevelCleared >= 129);
 			},
 			unlockString: "到达区域 130"
 		},
 		Nom: {
-			description: "Travel to a dimension where bad guys enjoy the taste of Trimp. Whenever a group of Trimps dies, the bad guy will eat them, gaining 25% (compounding) more attack damage and healing for 5% of their maximum health. The methane-rich atmosphere causes your Trimps to lose 5% of their total health after each attack, but the bad guys are too big and slow to attack first. Clearing <b>Zone 145</b> will reward you with an additional 350% of all helium earned up to that point. This is repeatable!",
+			description: "传送到一个敌人喜欢吃脆皮的维度。每当一队脆皮死亡，敌人将会吃掉他们，增加25%(叠乘)的伤害，并恢复最大生命值5%的血量。富含甲烷的大气使你的脆皮每次攻击后血量都会减少最大生命值的5%。但是敌人由于体型过大，行动迟缓，无法先攻。清除<b>区域145</b>b>将奖励你350%的你所获得的氦(不包括区域145及以上所获得)。这个挑战是可重复的！",
 			completed: false,
 			allowSquared: true,
-			squaredDescription: "Travel to a dimension where bad guys enjoy the taste of Trimp. Whenever a group of Trimps dies, the bad guy will eat them, gaining 25% (compounding) more attack damage and healing for 5% of their maximum health. The methane-rich atmosphere causes your Trimps to lose 5% of their total health after each attack, but the bad guys are too big and slow to attack first.",
+			squaredDescription: "传送到一个敌人觉得脆皮美味，喜欢吃脆皮的维度。每当一队脆皮死亡，敌人将会吃掉他们，并增加25%(叠乘)的伤害以及血量恢复最大生命值的5%。富含甲烷的大气使你的脆皮每次攻击后血量都会减少最大生命值的5%。但是敌人由于体型过大，行动迟缓，无法先攻。",
 			heliumMultiplier: 3.5,
 			filter: function () {
 				return (game.global.highestLevelCleared >= 144);
@@ -2098,14 +2098,14 @@ var toReturn = {
 			unlockString: "到达区域 145"
 		},
 		Mapology: {
-			description: "Travel to a dimension where maps are scarce, in an attempt to learn to be more resourceful. You will earn one map Credit for each World Zone you clear, and it costs 1 credit to run 1 map. Completing <b>Zone 100</b> with this challenge active will return you to your original dimension. Double prestige from Scientist IV will not work during this challenge.",
+			description: "为了学习如何变得更足智多谋，传送至一个地图稀缺的维度。每清除一个世界区域你将会获得一个地图点数，并且每运行一次地图都会失去一个地图点数。带有这个挑战完成<b>区域100</b>将带你返回原来的维度。科学家IV的二倍锻造书奖励在本挑战中无效。",
 			completed: false,
 			filter: function () {
 				return (game.global.highestLevelCleared >= 149);
 			},
 			fireAbandon: true,
 			allowSquared: true,
-			squaredDescription: "Travel to a dimension where maps are scarce, in an attempt to learn to be more resourceful. You will earn one map Credit for each World Zone you clear, and it costs 1 credit to run 1 map. <b>The mastery Blacksmithery will not function while this challenge is active.</b>",
+			squaredDescription: "为了学习如何变得更足智多谋，传送至一个地图稀缺的维度。每清除一个世界区域你将会获得一个地图点数，并且每运行一次地图都会失去一个地图点数。<b>The mastery Blacksmithery will not function while this challenge is active.</b>",
 			abandon: function (){
 				document.getElementById("mapCreditsLeft").innerHTML = "";
 			},
@@ -2117,7 +2117,7 @@ var toReturn = {
 			unlockString: "到达区域 150"
 		},
 		Toxicity: {
-			description: "Travel to a dimension rich in helium, but also rich in toxic bad guys. All bad guys have 5x attack and 2x health. Each time you attack a bad guy, your Trimps lose 5% of their health, and toxins are released into the air which reduce the breeding speed of your Trimps by 0.3% (of the current amount), but also increase all resources obtained by 0.15%, stacking up to 1500 times. These stacks will reset when you clear a zone. Completing <b>Zone 165</b> with this challenge active will reward you with an additional 200% of all helium earned up to that point. This is repeatable!",
+			description: "传送至一个富含氦，同时也有大量毒性敌人的维度。所有的敌人都有5倍攻击和2倍生命值。每次你攻击敌人，你的脆皮都会损失最大生命值5%的血量，而且使毒素释放到大气中，减少你脆皮0.3%(当前的)的繁殖速度，但也会增加所有资源获取0.15%，最多叠1500层。当你清除一个区域后效果重置。带有本挑战完成<b>区域165</b>将奖励你350%的你所获得的氦(不包括区域165及以上所获得)。这个挑战是可重复的！",
 			completed: false,
 			filter: function () {
 				return (game.global.highestLevelCleared >= 164);
@@ -2131,7 +2131,7 @@ var toReturn = {
 			stackMult: 0.997,
 			lootMult: 0.15,
 			allowSquared: true,
-			squaredDescription: "Travel to a dimension filled with the glory that comes from killing toxic bad guys. All bad guys have 5x attack and 2x health. Each time you attack a bad guy, your Trimps lose 5% of their health, and toxins are released into the air which reduce the breeding speed of your Trimps by 0.3% (of the current amount), but also increase all loot found by 0.15%, stacking up to 1500 times. These stacks will reset when you clear a zone.",
+			squaredDescription: "传送至一个富含氦，同时也有大量毒性敌人的维度。所有的敌人都有5倍攻击和2倍生命值。每次你攻击敌人，你的脆皮都会损失最大生命值5%的血量，而且使毒素释放到大气中，减少你脆皮0.3%(当前的)的繁殖速度，但也会增加所有资源获取0.15%，最多叠1500层。当你清除一个区域后效果重置。",
 			unlockString: "到达区域 165"
 		},
 		Devastation: {
@@ -3133,7 +3133,7 @@ var toReturn = {
 			finished: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
 			title: "特殊成就",
 			get descriptions () {
-				return ["在购买赏金升级前完成愤怒的维度地图", "达到30关使用不超过60氦且中途不修改氦气分配", "同时拥有超过 " + prettify(1e6) + " 个陷阱", "死于单个 Voidsnimp 50次", "完成平衡挑战, 从不超过100层不平衡Debuff", "达到10关，阵亡不超过5个脆皮。", "准确地达到 1337 氦每小时", "在电流挑战中，攻击20次不死亡。", "装备一个magnificent或更高级别的传家宝盾牌和管理人员", "达到60关，阵亡不超过1000个脆皮。", "达到120层，不使用玩家自己研究。", "达到75关，不购买任何房子。", "在高于146的虚空地图找到一个罕见级别的传家宝。", "使用超过 " + prettify(250e3) + " 氦在虫洞上。", "达到60关并使用不高于阶段Ⅲ的装备。", "一击杀死一个Improbability。", "0死亡完成一个超过60级的虚空地图。", "在第5关后不被暴击的情况下完成一个粉碎挑战。", "击杀一个敌人在他100层Nom Buff时（名义挑战）。", "达到60层并且不雇佣任意一个工人。", "完成一个超过99关的区域且中途不低于150层生活buff。", "繁殖一支部队超过10分钟。", "完成毒性挑战，从不超过400层毒性buff。", "拥有每种人口建筑超过100个。", "在60关前超杀每一敌人。", "完成观察挑战，不进入地图且不购买托儿所。", "装备一个Magmatic级别的传家宝盾牌和管理人员。", "将一个世界上的敌人的攻击力降低到低于1。", "完成领导挑战切使用不超过一个千兆站。", "完成腐化挑战并且不使用遗传学家。", "完成一个尖塔并且0死亡。", "超杀一个Omnipotrimp", "战胜一个健康的细胞在超过200层风buff的情况下", "堆叠一个比你的攻击高1000倍的毒药效果", "获取超过2000%的挑战<sup>2</sup> 奖励", "完成一个高于你现在所处地图45级的仿生仙境地图。", "战胜一个尖塔使用不超过 " + prettify(100e6) + " 的氦气且中途不修改氦气分配。", "在Obliterated挑战中击败一个敌人。", "在区域1就找到一个合并者。", "连续10次红色暴击", "完成一个高于你现在所处地图200级的仿生仙境地图。", "在坐标挑战中完成尖塔II"];
+				return ["在购买赏金升级前完成愤怒的维度地图", "达到30关使用不超过60氦且中途不修改氦气分配", "同时拥有超过 " + prettify(1e6) + " 个陷阱", "死于单个 Voidsnimp 50次", "完成平衡挑战, 从不超过100层不平衡Debuff", "达到10关，阵亡不超过5个脆皮。", "准确地达到 1337 氦每小时", "在电流挑战中，攻击20次不死亡。", "装备一个magnificent或更高级别的传家宝盾牌和管理人员", "达到60关，阵亡不超过1000个脆皮。", "达到120层，不使用玩家自己研究。", "达到75关，不购买任何房子。", "在高于146的虚空地图找到一个罕见级别的传家宝。", "使用超过 " + prettify(250e3) + " 氦在虫洞上。", "达到60关并使用不高于阶段Ⅲ的装备。", "一击杀死一个Improbability。", "0死亡完成一个超过60级的虚空地图。", "在第5关后不被暴击的情况下完成一个粉碎挑战。", "击杀一个敌人在他100层Nom Buff时（美味挑战）。", "达到60层并且不雇佣任意一个工人。", "完成一个超过99关的区域且中途不低于150层生活buff。", "繁殖一支部队超过10分钟。", "完成毒性挑战，从不超过400层毒性buff。", "拥有每种人口建筑超过100个。", "在60关前超杀每一敌人。", "完成观察挑战，不进入地图且不购买托儿所。", "装备一个Magmatic级别的传家宝盾牌和管理人员。", "将一个世界上的敌人的攻击力降低到低于1。", "完成领导挑战切使用不超过一个千兆站。", "完成腐化挑战并且不使用遗传学家。", "完成一个尖塔并且0死亡。", "超杀一个Omnipotrimp", "战胜一个健康的细胞在超过200层风buff的情况下", "堆叠一个比你的攻击高1000倍的毒药效果", "获取超过2000%的挑战<sup>2</sup> 奖励", "完成一个高于你现在所处地图45级的仿生仙境地图。", "战胜一个尖塔使用不超过 " + prettify(100e6) + " 的氦气且中途不修改氦气分配。", "在Obliterated挑战中击败一个敌人。", "在区域1就找到一个合并者。", "连续10次红色暴击", "完成一个高于你现在所处地图200级的仿生仙境地图。", "在坐标挑战中完成尖塔II"];
 			},
 			tiers: [2, 3, 3, 3, 3, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 7, 8, 8, 8, 8, 8, 8, 9, 9],
 			description: function (number) {
@@ -3358,13 +3358,13 @@ var toReturn = {
 		w120: "你的耐力正快速下降。每个区域都让如此多额外脆皮加入军队让你感觉非常疲惫。为了成功，你需要训练一只更强的、更小型化的部队。",
 		w123: "哇，你现在有这么多的脆皮。你没有真正地停下一会来思考有多少脆皮直接被你领导。简单！",
 		w125: "你感觉到了金属和装备的气息，突然觉得自己应该打打地图。",
-		w130: "You decide to sit down and take a breather, when suddenly a Trimp comes waddle-galloping towards you holding a piece of paper. Hurriedly scrawled on the paper is a drawing of a strange weapon and piece of armor, along with numbers that seem to be dimensional coordinates. You would ask where he found it, but you know better by now.",
-		w132: "You can't stop thinking about where that Trimp found the coordinates for the Slow dimension. Why can't whatever is helping you just come out and help you?",
-		w135: "Ugh, your back is getting sore. It seems like travelling back in time does not reverse the ageing process for the traveller. Bummer.",
-		w136: "One of your scientists has informed you that his team was able to successfully create a cure for a non-existent disease. He explains that it's best to be prepared. You sigh heavily.",
-		w137: "One of your scientists has informed you that an outbreak of a new disease was detected in the laboratory. You go to check on your scientists, and it's quite obvious that they're faking it for attention. You sigh heavily.",
-		w138: "You spot another scientist running full speed towards you. He hurriedly informs you that they discovered a new dimension near Zone 35 that is occupied by gigantic Trimps. You sigh heavily.",
-		w139: "Another scientist is coming. You sigh heavily. He says something dumb. You decide to ignore the scientists for a little bit.",
+		w130: "你决定坐下来休息一会，突然一个脆皮摇摇摆摆地快速向你走来，手里拿着一张纸。这张纸上潦草地画着一个奇怪的武器和一种护甲，以及看起来像维度坐标一样的数字。你本来还想问他在哪里找到这个的，但看了坐标后你已经了解了。",
+		w132: "你一直在想那只脆皮究竟从哪里找到迟钝维度坐标的。为什么那些想帮助你的东西不直接跳出来帮助你呢？",
+		w135: "阿，你的背开始疼了。似乎通过传送回溯时间并不能逆转你衰老的过程。难受。",
+		w136: "你的一位科学家告诉你，他的团队已经研究出一种治愈疗法，能够治愈一种不存在的疾病。他解释说要防患于未然。你沉重的叹了口气。",
+		w137: "你的一位科学家告诉你，在实验室中检测到了一种新疾病的爆发。你去向你的科学家核实情况，很明显他们是为了引起注意而假装的。你沉重的叹了口气。",
+		w138: "你看到另一个科学家正全速向你跑来。他迅速地表示他们在区域35附近发现了一个新的维度，被巨大的脆皮所占领。你沉重的叹了口气",
+		w139: "另一个科学家过来了。你沉重的叹了口气。他也说了些愚蠢的话。你决定暂时忽略科学家们所说的话。",
 		w140: "It sure is calm and peaceful now. You watch a Falcimp turn a few circles in the sky. You wouldn't mind having wings, but overall you're pretty happy with your species.",
 		w143: "There's a scientist jumping around trying to get your attention. There's nothing interesting in the sky so you pretend to be fascinated with a rock. The scientist can see you're busy and waits patiently.",
 		w145: "Your Scientists are not making it easy to ignore them. You not-so-calmly ask what they want. One of them explains that they discovered a new dimension with lots of extra helium. You'll probably check it out, but you won't tell them that.",
@@ -4787,7 +4787,7 @@ var toReturn = {
 				if (bionicTier - 1 == game.global.roboTrimpLevel) {
 					if (game.global.roboTrimpLevel == 0){
 						cancelTooltip();
-						var text = "There seems to be a small RoboTrimp that you appear to have orphaned. You decide to take him with you, since you're pretty good at training stuff. He deals <b>20%</b> extra damage for you, and has a special ability. You can learn more about the special ability by hovering over the new <span class='icomoon icon-chain'></span> icon by your soldiers.<br/><br/>You also found a map to a more powerful version of the 仿生仙境. You would bet there's another RoboTrimp who needs 'rescuing' in there.";
+						var text = "你接近了一个孤立着的小机械脆皮。因为你很擅长训练别人，所以你决定带着他一起走。他增加你<b>20%</b>的额外伤害，而且有特殊的能力。你可以通过鼠标悬停在新的<span class='icomoon icon-chain'></span>图标上来了解更多有关特殊能力的信息。<br/><br/>你同时发现了一张加强版的仿生仙境地图。你相信那里有另一只机械脆皮正需要'拯救'。";
 						if (game.options.menu.tooltips.enabled == 0) text += '<br/><br/><b>Just a heads up</b>: You have tooltips disabled, so you will need to hold shift when you mouse over the <span class="icomoon icon-chain"></span> to read about it.';
 						tooltip('confirm', null, 'update', text, null, 'RoboTrimp');
 						game.global.roboTrimpLevel = 1;
@@ -4963,31 +4963,31 @@ var toReturn = {
 					game.challenges.Metal.abandon();
 					game.portal.Artisanistry.locked = false;
 					game.challenges.Metal.completed = true;
-					message("You have completed the <b>Metal Challenge!</b> You have unlocked a new perk, and Miners have returned to your game.", "Notices");
+					message("你已经完成了<b>金属挑战!</b>你解锁了一个新能力,在本轮中可以重新雇佣矿工", "Notices");
 				}
 				if (game.global.challengeActive == "Size"){
 					game.global.challengeActive = "";
 					game.challenges.Size.abandon();
 					game.challenges.Size.completed = true;
 					game.portal.Carpentry.locked = false;
-					message("You have completed the <b>Size Challenge!</b> You have unlocked a new perk, and your Trimps have been reduced down to their normal size.", "Notices");
+					message("你已经完成了<b>尺寸挑战!</b>你解锁了一个新能力, 你的脆皮也缩小回原来的尺寸。", "Notices");
 				}
 				if (game.global.challengeActive == "Discipline"){
 					game.global.challengeActive = "";
 					game.challenges.Discipline.completed = true;
 					game.portal.Range.locked = false;
-					message("You have completed the <b>Discipline Challenge!</b> You have unlocked a new perk, and your Trimps have regained their Discipline.", "Notices");
+					message("你已经完成了<b>纪律挑战!</b>你解锁了一个新能力,你的脆皮也重新变得有纪律。", "Notices");
 				}
 				if (game.global.challengeActive == "Frugal"){
 					game.global.challengeActive = "";
 					game.global.frugalDone = true;
 					game.challenges.Frugal.abandon();
-					message("You have completed the 'Frugal' challenge! You can once again find equipment upgrades in maps, and Megabooks now increase gather rates by an extra 10%!", "Notices");
+					message("你已经完成了'Frugal'挑战!你现在可以一次获得2级锻造书，巨型书也多增加10%收集速度!", "Notices");
 				}
 				if (game.global.challengeActive == "Coordinate"){
 					game.global.challengeActive = "";
 					game.portal.Coordinated.locked = false;
-					message("You have completed the 'Coordinate' challenge! The Bad Guys on this world no longer fight together, and have regained their speed. You have unlocked the 'Coordinated' perk!", "Notices");
+					message("你已经完成了'协同'挑战!本世界敌人不再协同作战,但又可以先攻. 你解锁了'协调'能力!", "Notices");
 				}
 			}
 		},
@@ -5012,7 +5012,7 @@ var toReturn = {
 					game.global.challengeActive = "";
 					game.challenges.Trimp.abandon();
 					game.portal.Resilience.locked = false;
-					message("You have completed the <b>Trimp Challenge!</b> You have unlocked the 'Resilience' perk, and your Trimps can fight together again.", "Notices");
+					message("你已经完成了<b>脆皮挑战!</b>你解锁了'弹性'能力,你的脆皮又能协同作战了。", "Notices");
 				}
 			}
 		},
