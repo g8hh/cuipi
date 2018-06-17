@@ -308,11 +308,11 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 	if (what == "Unliving"){
 		var stacks = game.challenges.Life.stacks;
 		var mult = game.challenges.Life.getHealthMult(true);
-		if (stacks > 130) tooltipText = "Your Trimps are looking quite dead, which is very healthy in this dimension. You're doing a great job!";
-		else if (stacks > 75) tooltipText = "Your Trimps are starting to look more lively and slow down, but at least they're still fairly pale.";
-		else if (stacks > 30) tooltipText = "The bad guys in this dimension seem to be way more dead than your Trimps!";
-		else tooltipText = "Your Trimps look perfectly normal and healthy now, which is not what you want in this dimension.";
-		tooltipText += " <b>Trimp attack and health increased by " + mult + ".</b>";
+		if (stacks > 130) tooltipText = "你的脆皮看起来快要死了，在这个维度是健康的表现。你维持的很好！";
+		else if (stacks > 75) tooltipText = "你的脆皮看起来更有生机，但速度变得更慢，但至少他们仍然面色苍白。";
+		else if (stacks > 30) tooltipText = "这个维度中的敌人看起来比你的脆皮死灵化程度更深!";
+		else tooltipText = "你的脆皮看起来非常正常和健康，这不是你在这个维度中想要的状态。";
+		tooltipText += " <b>脆皮的攻击和生命值都增加" + mult + "。</b>";
 		costText = "";
 	}
 	if (what == "AutoGolden Unlocked"){
@@ -1788,7 +1788,7 @@ function getBattleStatBd(what) {
 			critMult = 1;
 			critCalc = currentCalc;
 			textString += "<tr class='critRow'><td class='bdTitle'><span style='color: yellow;'>暴击!</span> 几率</td><td>0% (" + (critChance * 100).toFixed(1) + "% Total)</td><td class='bdTitle'><span style='color: yellow;'>暴击!</span> 伤害</td><td>+ " + prettify((critMult - 1) * 100) + "%</td><td class='bdNumberSm'>" + prettify(critCalc) + "</td>" + getFluctuation(critCalc, minFluct, maxFluct) + "</tr>";
-			textString += "<tr class='critRow'><td class='bdTitle'><span style='color: cyan;'>Weak!</span> Chance</td><td>" + (Math.abs(critChance) * 100).toFixed(1) + "%</td><td class='bdTitle'><span style='color: cyan;'>Weak!</span> Damage</td><td>x 0.2</td><td class='bdNumberSm'>" + prettify(currentCalc * 0.2) + "</td>" + getFluctuation((currentCalc * 0.2), minFluct, maxFluct) + "</tr>";
+			textString += "<tr class='critRow'><td class='bdTitle'><span style='color: cyan;'>虚弱!</span> 几率</td><td>" + (Math.abs(critChance) * 100).toFixed(1) + "%</td><td class='bdTitle'><span style='color: cyan;'>虚弱!</span> 伤害</td><td>x 0.2</td><td class='bdNumberSm'>" + prettify(currentCalc * 0.2) + "</td>" + getFluctuation((currentCalc * 0.2), minFluct, maxFluct) + "</tr>";
 		}
 		else {
 			if (critChance > 0){
@@ -4892,6 +4892,8 @@ function cntitle(tit){
         cntit="压力"
     }else if(what=="MagnetoShriek"){
         cntit="磁力护盾"
+    }else if(what=="Unliving"){
+        cntit="亡灵化"
     }else{
         cntit=tit
     }

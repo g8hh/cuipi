@@ -7575,7 +7575,7 @@ function startFight() {
 		displayedName = "<span class='Mutimp'>" + displayedName + "</span>";
 	}
 	if (mutations.Living.active()){
-		badName = "<span id='livingMutationContainer'" + ((cell.mutation == "Living") ? " class='badNameMutation Living'" : "") + "><span id='livingMutationName'>" + ((cell.mutation == "Living") ? "Living " : "") + "</span>" + displayedName + "</span>";
+		badName = "<span id='livingMutationContainer'" + ((cell.mutation == "Living") ? " class='badNameMutation Living'" : "") + "><span id='livingMutationName'>" + ((cell.mutation == "Living") ? "复活 " : "") + "</span>" + displayedName + "</span>";
 	}
 	else if (cell.vm && visualMutations[cell.vm].highlightMob && (displayedName == visualMutations[cell.vm].highlightMob)){
 		var tempName = (cell.mutation) ? mutations[cell.mutation].namePrefix + " " + displayedName : displayedName;
@@ -9550,13 +9550,13 @@ var dailyModifiers = {
 				var text = "这个敌人";
 				if (stacks < max) {
 					var next = (freq - (stacks % freq));
-					text += " will heal to full and gain attack in " + next + " stack" + ((next == 1) ? "" : "s") + ", " + ((stacks >= freq) ? "" : " and") + " gains 1 stack whenever Trimps die";
+					text += "再叠" + next + "层嗜血后回满生命并增加攻击" + ((next == 1) ? "" : "") + ", " + ((stacks >= freq) ? "" : "") + "当脆皮死亡后增加一层";
 				}
 				if (stacks >= freq){
-					if (stacks < max) text += ", and";
-					text += " currently has " + prettify((this.getMult(str, stacks) * 100) - 100) + "% more attack";
+					if (stacks < max) text += ",";
+					text += "现在已经增加" + prettify((this.getMult(str, stacks) * 100) - 100) + "%的攻击";
 				}
-				text += ".";
+				text += "。";
 				return text;
 			},
 			getMaxStacks: function (str) {

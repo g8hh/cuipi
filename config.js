@@ -1978,7 +1978,7 @@ var toReturn = {
 			attacksInARow: 0,
 			squaredDescription: "使用你在监狱中找到的钥匙，将你传送至一个极其危险的维度。在这个维度中，敌人会电击你的脆皮，敌人对脆皮的每次攻击会叠加一个减益效果，每层效果会在每个回合对脆皮造成10%最大血量的伤害，并减少脆皮10%的伤害(死亡后效果重置)。",
 			stacks: 0,
-			unlockString: "clear 'The Prison' at Zone 80"
+			unlockString: "在区域80清除'监狱'"
 		},
 		Frugal: {
 			description: "为了更好地掌握资源及装备管理，将你自己带入一个装备很便宜，但不能进阶的维度。在本挑战中完成<b>'愤怒维度' (20)</b>将在地图中返还锻造书，并且获得新技能节俭，将永久使50%加成的书变为60%加成的巨型书。",
@@ -2003,7 +2003,7 @@ var toReturn = {
 			unlockString: "到达区域 100"
 		},
 		Life: {
-			description: "探索一个通常充满亡灵生物的维度，但这个维度目前正被一种快速移动的病毒所干扰，这种病毒可以使亡灵生物复活。这个维度中所有敌人都有500%的额外攻击，1000%的额外生命值。攻击一个普通的亡灵敌人将使脆皮获得1层亡灵化，每层亡灵化将提高脆皮10%(叠加)的攻击和生命值。最高叠150层，且攻击一个复活敌人将移除5层的亡灵化。完成<b>区域110</b>将奖励你400%的你所获得的氦(不包括区域110及以上所获得)。这个挑战是可重复的！",
+			description: "探索一个通常充满亡灵生物的维度，但这个维度目前正被一种快速移动的病毒所干扰，这种病毒可以使亡灵生物复活。这个维度中所有敌人都有500%的额外攻击，1000%的额外生命值。攻击一个普通的亡灵敌人将使脆皮获得1层亡灵化，每层亡灵化将提高脆皮10%(叠加)的攻击和生命值。最高叠150层，且攻击一个复活敌人将移除5层的亡灵化。完成<b>区域110</b>将奖励你400%的你所获得的氦。这个挑战是可重复的！",
 			completed: false,
 			filter: function () {
 				return (game.global.highestLevelCleared >= 109)
@@ -2059,7 +2059,7 @@ var toReturn = {
 			unlockString: "到达区域 120"
 		},
 		Crushed: {
-			description: "到大气中氦含量丰富的维度，但是坏家伙有50%的几率爆击+400%的伤害，除非你的格挡和你当前的生命值水平一样高。 清理 <b>仿生仙境 (Z125)</b> 将会给你额外的400%的氦，但不包括Z125。这个挑战是可重复的。",
+			description: "到一个大气中氦含量丰富的维度，但是敌人有50%的几率产生+400%伤害的暴击，除非你的格挡和你当前的生命值水平一样高。清理 <b>仿生仙境 (Z125)</b> 将会给你额外的400%的氦，但不包括Z125。这个挑战是可重复的。",
 			completed: false,
 			filter: function () {
 				return (game.global.highestLevelCleared >= 124);
@@ -2085,7 +2085,7 @@ var toReturn = {
 			unlockString: "到达区域 130"
 		},
 		Nom: {
-			description: "传送到一个敌人喜欢吃脆皮的维度。每当一队脆皮死亡，敌人将会吃掉他们，增加25%(叠乘)的伤害，并恢复最大生命值5%的血量。富含甲烷的大气使你的脆皮每次攻击后血量都会减少最大生命值的5%。但是敌人由于体型过大，行动迟缓，无法先攻。清除<b>区域145</b>b>将奖励你350%的你所获得的氦(不包括区域145及以上所获得)。这个挑战是可重复的！",
+			description: "传送到一个敌人喜欢吃脆皮的维度。每当一队脆皮死亡，敌人将会吃掉他们，增加25%(叠乘)的伤害，并恢复最大生命值5%的血量。富含甲烷的大气使你的脆皮每次攻击后血量都会减少最大生命值的5%。但是敌人由于体型过大，行动迟缓，无法先攻。清除<b>区域145</b>将奖励你350%的你所获得的氦。这个挑战是可重复的！",
 			completed: false,
 			allowSquared: true,
 			squaredDescription: "传送到一个敌人觉得脆皮美味，喜欢吃脆皮的维度。每当一队脆皮死亡，敌人将会吃掉他们，并增加25%(叠乘)的伤害以及血量恢复最大生命值的5%。富含甲烷的大气使你的脆皮每次攻击后血量都会减少最大生命值的5%。但是敌人由于体型过大，行动迟缓，无法先攻。",
@@ -2105,7 +2105,7 @@ var toReturn = {
 			},
 			fireAbandon: true,
 			allowSquared: true,
-			squaredDescription: "为了学习如何变得更足智多谋，传送至一个地图稀缺的维度。每清除一个世界区域你将会获得一个地图点数，并且每运行一次地图都会失去一个地图点数。<b>The mastery Blacksmithery will not function while this challenge is active.</b>",
+			squaredDescription: "为了学习如何变得更足智多谋，传送至一个地图稀缺的维度。每清除一个世界区域你将会获得一个地图点数，并且每运行一次地图都会失去一个地图点数。<b>在进行本挑战时黑锻炼专精无法使用。</b>",
 			abandon: function (){
 				document.getElementById("mapCreditsLeft").innerHTML = "";
 			},
@@ -2135,7 +2135,7 @@ var toReturn = {
 			unlockString: "到达区域 165"
 		},
 		Devastation: {
-			description: "Travel to a harsh dimension where Trimps are penalized for the mistakes of previous generations. If your army is killed at any point, any overkill damage will be applied 750% to the next group of Trimps to fight. Completing <b>Imploding Star (Zone 170)</b> will return the world to normal.",
+			description: "传送至一个严酷的维度，在这里脆皮会因为前一组人的失误而受到惩罚。如果你的队伍在任何时候被杀，其超额的伤害将会对下一个脆皮队伍产生750%的伤害效果。完成<b>爆炸之心(区域170)</b>将会返回正常的世界。",
 			completed: false,
 			filter: function () {
 				return (game.global.highestLevelCleared >= 169);
@@ -2145,12 +2145,12 @@ var toReturn = {
 			unlockString: "到达区域 170"
 		},
 		Watch: {
-			description: "Travel to a strange dimension where life is easier but harder at the same time. At the end of each World Zone any available equipment upgrades will drop, and any unassigned Trimps will be split evenly amongst Farmer, Lumberjack, and Miner. However, resource production and drops from all sources will be halved, and all enemies will deal 25% more damage. Completing <b>Zone 180</b> with this challenge active will reward you with an additional 200% of all helium earned up to that point.",
+			description: "传送至一个奇怪的维度，在这里既有好事也有坏事。在打通每个世界区域时，都会掉落任何可用的装备升级，同时所有未分配的脆皮都将平均分配给农民、伐木工以及矿工。但是，资源的生产以及从任何来源的掉落都会减半，所有敌人都会增加25%伤害。带有本挑战完成<b>区域180</b>将奖励你200%的你所获得的氦。",
 			filter: function () {
 				return (game.global.highestLevelCleared >= 179);
 			},
 			allowSquared: true,
-			squaredDescription: "Travel to a strange dimension where life is easier but harder at the same time. At the end of each World Zone any available equipment upgrades will drop, and any unassigned Trimps will be split evenly amongst Farmer, Lumberjack, and Miner. However, resource production and drops from all sources will be halved, and all enemies will deal 25% more damage. Relax and let the Trimps figure it out for themselves, you know you want to.",
+			squaredDescription: "传送至一个奇怪的维度，在这里既有好事也有坏事。在打通每个世界区域时，都会掉落任何可用的装备升级，同时所有未分配的脆皮都将平均分配给农民、伐木工以及矿工。但是，资源的生产以及从任何来源的掉落都会减半，所有敌人都会增加25%伤害。休息一下让脆皮自己解决问题吧，你知道你也想这样做。",
 			heliumMultiplier: 2,
 			heldHelium: 0,
 			heliumThrough: 180,
@@ -2158,7 +2158,7 @@ var toReturn = {
 			enteredMap: false
 		},
 		Lead: {
-			description: "Travel to a dimension where life is easier or harder depending on the time. Odd numbered zones will cause double resources to be earned from all sources, and will give your Trimps 50% extra attack. Starting an even numbered zone will cause all enemies to gain 200 stacks of <b>Momentum</b>. Clearing a World cell will cause 1 stack to be lost, and each stack will increase the enemy's damage and health by 4%, and block pierce by 0.1%. If your Trimps attack without killing their target, they will lose 0.03% of their health per enemy stack. Completing <b>Zone 180</b> with this challenge active will reward you with an additional 300% of all helium earned up to that point.",
+			description: "传送至一个由时间决定难度的维度。在奇数区域将使各种来源的资源加倍，并给脆皮50%的额外攻击。开始一个奇数区域的时候将使敌人获得200层的<b>动量</b>效果。在世界中清除一个房间将会移除一层动量效果，每层效果使敌人伤害和生命值增加4%，穿刺增加0.1%。如果你的脆皮攻击但没有杀死敌人，每层动能效果将会使脆皮将会损失最大生命值0.03%的血量。带有本挑战完成<b>区域180</b>将奖励你300%的你所获得的氦。",
 			filter: function () {
 				return (game.global.highestLevelCleared >= 179);
 			},
@@ -2166,7 +2166,7 @@ var toReturn = {
 			stacks: 0,
 			heldHelium: 0,
 			allowSquared: true,
-			squaredDescription: "Travel to a dimension where life is easier or harder depending on the time. Odd numbered zones will cause double resources to be earned from all sources, and will give your Trimps 50% extra attack. Starting an even numbered zone will cause all enemies to gain 200 stacks of <b>Momentum</b>. Clearing a World cell will cause 1 stack to be lost, and each stack will increase the enemy's damage and health by 4%, and block pierce by 0.1%. If your Trimps attack without killing their target, they will lose 0.03% of their health per enemy stack.",
+			squaredDescription: "传送至一个由时间决定难度的维度。在奇数区域将使各种来源的资源加倍，并给脆皮50%的额外攻击。开始一个奇数区域的时候将使敌人获得200层的<b>动量</b>效果。在世界中清除一个房间将会移除一层动量效果，每层效果使敌人伤害和生命值增加4%，穿刺增加0.1%。如果你的脆皮攻击但没有杀死敌人，每层动能效果将会使脆皮将会损失最大生命值0.03%的血量。",
 			heliumThrough: 180,
 			unlockString: "到达区域 180",
 			fireAbandon: true,
@@ -2175,7 +2175,7 @@ var toReturn = {
 			}
 		},
 		Corrupted: {
-			get description(){ return "Travel to a dimension where enemies have 3X attack and Corruption runs rampant, beginning at Z60. The Corruption in this dimension grants helium, but 50% less than normal. Improbabilities and Void Maps will still not gain strength or double reward until Z" + mutations.Corruption.start(true) + ". Completing <b>Zone 190</b> with this challenge active will reward you with an extra 200% helium earned from any source up to that point, and will instantly transport you back to your normal dimension."},
+			get description(){ return "传送至一个敌人有3x攻击，并腐化猖獗的维度，腐化从60区域开始。在这个维度中腐化给予氦，但比正常世界少50%。在区域" + mutations.Corruption.start(true) + "前无序及虚空地图不会因腐化而变得更强，也不会因此有双倍奖励。带有本挑战完成<b>区域190</b>将奖励你200%的你所获得的氦，也会让你立刻回到原来的维度。"},
 			filter: function () {
 				return (game.global.highestLevelCleared >= 189);
 			},
@@ -2188,7 +2188,7 @@ var toReturn = {
 		Obliterated: {
 			get squaredDescription() {
 				var num = prettify(1e12);
-				return "Against your better judgement, travel to a dimension that's simply just not very friendly. Liquimps are unable to liquify, enemies have " + num + "x attack and health and equipment is " + num + "x more expensive. Every 10 zones, enemy attack and health will increase by another 10x."
+				return "与你最好的判断相反，传送至一个对你非常不友好的维度。Liquimps将无法液化, 敌人有" + num + "x倍的攻击和生命，装备的的价格变为" + num + "倍。每10个区域，敌人的攻击和生命都会再增加10倍。"
 			},
 			filter: function () {
 				return (game.global.highestLevelCleared >= 424);
@@ -4754,7 +4754,7 @@ var toReturn = {
 			world: 125,
 			level: "last",
 			icon: "*chain",
-			title: "RoboTrimp",
+			title: "机械脆皮",
 			canRunWhenever: true,
 			filterUpgrade: true,
 			specialFilter: function (world) {
@@ -4824,14 +4824,14 @@ var toReturn = {
 			world: 75,
 			level: "last",
 			icon: "*eye4",
-			title: "Auspicious Presence",
+			title: "吉祥的存在",
 			canRunOnce: true,
 			filterUpgrade: true,
 			specialFilter: function(world) {
 				return !game.global.autoStorageAvailable;
 			},
 			fire: function(){
-				var text = "From the void, an auspicious presence reaches out and fills your mind. You feel at peace with the world. It asks you what you desire most, and without a second thought you reply that you wish your Trimps were smart enough to manage storage structures on their own. The presence lets you know that it is done, then dissipates. You instantly regret not asking to go home.";
+				var text = "在虚空中，一个吉祥的存在延伸出来并充满你的脑海。你感觉整个世界都非常和平。它询问你你最渴望的是什么，然后瞬间读取到了你的思想，说你想要脆皮足够聪明来自我管理仓库。这个存在告诉你愿望已经完成了，然后就消失了。你突然后悔没有要求回家。";
 				tooltip('confirm', null, 'update', text, null, 'Auspicious Presence');
 				game.global.autoStorageAvailable = true;
 				document.getElementById("autoStorageBtn").style.display = "block";
