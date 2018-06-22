@@ -3543,7 +3543,7 @@ function unlockMap(what) { //what here is the array index
 	}
 	else if (item.noRecycle) btnClass += getUniqueColor(item);
 	var elem = document.getElementById(loc);
-	if (game.options.menu.extraStats.enabled) elem.innerHTML = '<div' + tooltip + ' class="' + btnClass + '" id="' + item.id + '" onclick="selectMap(\'' + item.id + '\')"><div class="onMapIcon"><span class="' + getMapIcon(item) + '"></span></div><div class="thingName onMapName">' + item.name + '</div><br/><span class="thingOwned mapLevel">等级 ' + level + ((item.bonus) ? getMapSpecTag(item.bonus) : '') + '</span><br/><span class="onMapStats"><span class="icomoon icon-gift2"></span>' + Math.floor(item.loot * 100) + '% </span><span class="icomoon icon-cube2"></span>' + item.size + ' <span class="icon icon-warning"></span>' + Math.floor(item.difficulty * 100) + '%</div>' + elem.innerHTML;
+	if (game.options.menu.extraStats.enabled) elem.innerHTML = '<div' + tooltip + ' class="' + btnClass + '" id="' + item.id + '" onclick="selectMap(\'' + item.id + '\')"><div class="onMapIcon"><span class="' + getMapIcon(item) + '"></span></div><div class="thingName onMapName">' + cnmap(item.name) + '</div><br/><span class="thingOwned mapLevel">等级 ' + level + ((item.bonus) ? getMapSpecTag(item.bonus) : '') + '</span><br/><span class="onMapStats"><span class="icomoon icon-gift2"></span>' + Math.floor(item.loot * 100) + '% </span><span class="icomoon icon-cube2"></span>' + item.size + ' <span class="icon icon-warning"></span>' + Math.floor(item.difficulty * 100) + '%</div>' + elem.innerHTML;
 	else elem.innerHTML = '<div' + tooltip + ' class="' + btnClass + '" id="' + item.id + '" onclick="selectMap(\'' + item.id + '\')"><span class="thingName">' + item.name + '</span><br/><span class="thingOwned mapLevel">Level ' + level + ((item.bonus) ? getMapSpecTag(item.bonus) : '') + '</span></div>' + elem.innerHTML;
 	if (item.id == game.global.currentMapId) swapClass("mapElement", "mapElementSelected", document.getElementById(item.id));
 	//onmouseover="tooltip(\'' + item.id + '\',\'maps\',event)" onmouseout="tooltip(\'hide\')"
@@ -4894,6 +4894,8 @@ function cntitle(tit){
         cntit="磁力护盾"
     }else if(what=="Unliving"){
         cntit="亡灵化"
+    }else if(what=="Bloodthirst"){
+        cntit="嗜血"
     }else{
         cntit=tit
     }
@@ -4962,6 +4964,30 @@ function cntime(time) {
         return time;
     }
     return cntime;
+}
+
+    function cnmap(map) {
+    //汉化地图
+    var cnmap = "";
+    var temp = map;
+    if (temp == "Dimension of Anger") {
+        cnmap = "愤怒维度";
+    } else if (temp == "The Prison") {
+        cnmap = "监狱";
+    } else if (temp == "Bionic Wonderland") {
+        cnmap = "仿生仙境";
+    } else if (temp == "The Block") {
+        cnmap = "障碍区";
+    } else if (temp == "The Wall") {
+        cnmap = "高墙";
+    } else if (temp == "Trimple Of Doom") {
+        cnmap = "末日之神殿";
+    } else if(temp=="Imploding Star"){
+        cnmap = "爆炸之星";   
+    } else {
+        return map;
+    }
+    return cnmap;
 }
 
 var nums=0;

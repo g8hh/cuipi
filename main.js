@@ -7089,12 +7089,12 @@ function getRecycleValue(level) {
 
 function updateMapCredits() {
 	var s = (game.challenges.Mapology.credits == 1) ? "" : ""
-	document.getElementById("mapCreditsLeft").innerHTML = game.challenges.Mapology.credits + " 地图信用" + s;
+	document.getElementById("mapCreditsLeft").innerHTML = game.challenges.Mapology.credits + " 地图点数" + s;
 }
 
 function messageMapCredits() {
 	var s = (game.challenges.Mapology.credits == 1) ? "" : ""
-	message("你还有 " + game.challenges.Mapology.credits + " 地图信用" + s + " 剩余！", "Notices");
+	message("你还剩余" + game.challenges.Mapology.credits + " 地图点数！", "Notices");
 }
 
 function mapsClicked(confirmed) {
@@ -7257,7 +7257,7 @@ function toggleMapGridHtml(on, currentMapObj){
 	var worldNumElem = document.getElementById("worldNumber");
 	worldNumElem.style.display = 'inline';
 	worldNumElem.innerHTML = "<br/>等级: " + currentMapObj.level;
-	document.getElementById("worldName").innerHTML = currentMapObj.name;
+	document.getElementById("worldName").innerHTML = cnmap(currentMapObj.name);
 }
 
 function clearMapDescription(){
@@ -7314,7 +7314,7 @@ function selectMap(mapId, force) {
     }else{
         mapname=map.name
     }
-    document.getElementById("selectedMapName").innerHTML = mapname;
+    document.getElementById("selectedMapName").innerHTML = cnmap(mapname);
 
 	document.getElementById("mapStatsSize").innerHTML = (Math.floor(map.size));
 	document.getElementById("mapStatsDifficulty").innerHTML = Math.floor(map.difficulty * 100) + "%";
@@ -13539,6 +13539,31 @@ function cntime(time) {
     }
     return cntime;
 }
+
+    function cnmap(map) {
+    //汉化地图
+    var cnmap = "";
+    var temp = map;
+    if (temp == "Dimension of Anger") {
+        cnmap = "愤怒维度";
+    } else if (temp == "The Prison") {
+        cnmap = "监狱";
+    } else if (temp == "Bionic Wonderland") {
+        cnmap = "仿生仙境";
+    } else if (temp == "The Block") {
+        cnmap = "障碍区";
+    } else if (temp == "The Wall") {
+        cnmap = "高墙";
+    } else if (temp == "Trimple Of Doom") {
+        cnmap = "末日之神殿";
+    } else if(temp=="Imploding Star"){
+        cnmap = "爆炸之星";   
+    } else {
+        return map;
+    }
+    return cnmap;
+}
+
 
 
 load();

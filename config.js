@@ -1496,7 +1496,7 @@ var toReturn = {
 			modifier: 0.05,
 			priceBase: 50000,
 			heliumSpent: 0,
-			tooltip: "在有限的地图上花时间教会了你如何变得更足智多谋。每级都能让你 <b>比当前的成本</b> 少花5%的资源，在所有结构。"
+			tooltip: "经历了对地图的限制教会了你如何变得更足智多谋。每级都能让你在购买所有建筑物时 <b>比当前的成本</b> 少花5%的资源。"
 		},
 		Coordinated: {
 			level: 0,
@@ -1828,7 +1828,7 @@ var toReturn = {
 		Scientist: {
 			get description (){
 				var is5 = (game.global.highestLevelCleared >= 129 && game.global.sLevel >= 4);
-				return "尝试调整传送门来 " + ((is5) ? "从之前的维度中保留一些好处" : "保留一些资源") + "。在你完成这个挑战前，你开局便有<b>_</b>科学，但是不能研究或是雇佣科学家" + ((is5) ? " 并且<b style='color: maroon'>所有敌人的伤害都会提高10倍</b>" : "") + "。 明智地选择你的升级吧！ 在挑战中清除 <b>'The Block' (11)</b> 能让你每次传送 * 。"
+				return "尝试调整传送门来 " + ((is5) ? "从之前的维度中保留一些好处" : "保留一些资源") + "。在你完成这个挑战前，你开局便有<b>_</b>科学，但是不能研究或是雇佣科学家" + ((is5) ? " 并且<b style='color: maroon'>所有敌人的伤害都会提高10倍</b>" : "") + "。 明智地选择你的升级吧！ 在挑战中清除 <b>'障碍区' (11)</b> 能让你每次传送 * 。"
 			},
 			mustRestart: true,
 			completed: false,
@@ -1905,7 +1905,7 @@ var toReturn = {
 			unlockString: "到达区域55",
 		},
 		Trimp: {
-			description: "调整传送门，让你进入一个维度，如果有超过1只脆皮在同时战斗，他们会爆炸。 你将不能学习协作， 但是完成 <b>'The Block' (11)</b> 将教会你如何让你的脆皮存活更长时间。",
+			description: "调整传送门，让你进入一个维度，如果有超过1只脆皮在同时战斗，他们会爆炸。 你将不能学习协作， 但是完成 <b>'障碍区' (11)</b> 将教会你如何让你的脆皮存活更长时间。",
 			completed: false,
 			heldBooks: 0,
 			fireAbandon: true,
@@ -2855,10 +2855,10 @@ var toReturn = {
 		},
 		blockTimed: {
 			finished: 0,
-			title: "速度: The Block",
+			title: "速度: 障碍区",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
-				return "清除The Block地图用时少于" + number + "，从使用传送门开始计时。";
+				return "清除障碍区地图用时少于" + number + "，从使用传送门开始计时。";
 			},
 			evaluate: function () {
 				return getMinutesThisPortal();
@@ -2880,10 +2880,10 @@ var toReturn = {
 		},
 		wallTimed: {
 			finished: 0,
-			title: "速度: The Wall",
+			title: "速度: 高墙",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
-				return "清除The Wall地图用时少于" + number + "，从使用传送门开始计时。";
+				return "清除高墙地图用时少于" + number + "，从使用传送门开始计时。";
 			},
 			display: function () {
 				return (game.global.highestLevelCleared >= 10 && (game.global.totalPortals >= 1 || this.finished >= 1));
@@ -2905,10 +2905,10 @@ var toReturn = {
 		},
 		angerTimed: {
 			finished: 0,
-			title: "速度: Anger",
+			title: "速度: 愤怒维度",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
-				return "清除DoA地图用时少于" + number + "，从使用传送门开始计时。";
+				return "清除愤怒维度地图用时少于" + number + "，从使用传送门开始计时。";
 			},
 			display: function () {
 				return (game.global.highestLevelCleared >= 14 && (game.global.totalPortals >= 1 || this.finished >= 1));
@@ -2930,10 +2930,10 @@ var toReturn = {
 		},
 		doomTimed: {
 			finished: 0,
-			title: "速度: Doom",
+			title: "速度: 末日神殿",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
-				return "清除ToD地图用时少于" + number + "，从使用传送门开始计时。";
+				return "清除末日神殿地图用时少于" + number + "，从使用传送门开始计时。";
 			},
 			display: function () {
 				return (game.global.highestLevelCleared >= 19 && (game.global.totalPortals >= 1 || this.finished >= 1));
@@ -2955,10 +2955,10 @@ var toReturn = {
 		},
 		prisonTimed: {
 			finished: 0,
-			title: "速度: The Prison",
+			title: "速度: 监狱",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
-				return "清除Prison地图用时少于" + number + "，从使用传送门开始计时。";
+				return "清除监狱地图用时少于" + number + "，从使用传送门开始计时。";
 			},
 			display: function () {
 				return (game.global.highestLevelCleared >= 32 && (game.global.totalPortals >= 1 || this.finished >= 1));
@@ -2980,7 +2980,7 @@ var toReturn = {
 		},
 		bionicTimed: {
 			finished: 0,
-			title: "速度: Bionic",
+			title: "速度: 仿生仙境",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
 				return "<span style='font-size: .8em'>清除仿生仙境地图用时少于" + number + "，从使用传送门开始计时。</span>";
@@ -3005,10 +3005,10 @@ var toReturn = {
 		},
 		starTimed: {
 			finished: 0,
-			title: "速度: Star",
+			title: "速度: 爆炸之星",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
-				return "<span style='font-size: .8em'>清除Imploding Star地图用时少于" + number + "，从使用传送门开始计时。</span>";
+				return "<span style='font-size: .8em'>清除爆炸之星地图用时少于" + number + "，从使用传送门开始计时。</span>";
 			},
 			display: function () {
 				return (game.global.highestLevelCleared >= 124);
@@ -3133,7 +3133,7 @@ var toReturn = {
 			finished: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
 			title: "特殊成就",
 			get descriptions () {
-				return ["在购买赏金升级前完成愤怒的维度地图", "达到30关使用不超过60氦且中途不修改氦气分配", "同时拥有超过 " + prettify(1e6) + " 个陷阱", "死于单个 Voidsnimp 50次", "完成平衡挑战, 从不超过100层不平衡Debuff", "达到10关，阵亡不超过5个脆皮。", "准确地达到 1337 氦每小时", "在电流挑战中，攻击20次不死亡。", "装备一个magnificent或更高级别的传家宝盾牌和管理人员", "达到60关，阵亡不超过1000个脆皮。", "达到120层，不使用玩家自己研究。", "达到75关，不购买任何房子。", "在高于146的虚空地图找到一个罕见级别的传家宝。", "使用超过 " + prettify(250e3) + " 氦在虫洞上。", "达到60关并使用不高于阶段Ⅲ的装备。", "一击杀死一个Improbability。", "0死亡完成一个超过60级的虚空地图。", "在第5关后不被暴击的情况下完成一个粉碎挑战。", "击杀一个敌人在他100层Nom Buff时（美味挑战）。", "达到60层并且不雇佣任意一个工人。", "完成一个超过99关的区域且中途不低于150层生活buff。", "繁殖一支部队超过10分钟。", "完成毒性挑战，从不超过400层毒性buff。", "拥有每种人口建筑超过100个。", "在60关前超杀每一敌人。", "完成观察挑战，不进入地图且不购买托儿所。", "装备一个Magmatic级别的传家宝盾牌和管理人员。", "将一个世界上的敌人的攻击力降低到低于1。", "完成领导挑战切使用不超过一个千兆站。", "完成腐化挑战并且不使用遗传学家。", "完成一个尖塔并且0死亡。", "超杀一个Omnipotrimp", "战胜一个健康的细胞在超过200层风buff的情况下", "堆叠一个比你的攻击高1000倍的毒药效果", "获取超过2000%的挑战<sup>2</sup> 奖励", "完成一个高于你现在所处地图45级的仿生仙境地图。", "战胜一个尖塔使用不超过 " + prettify(100e6) + " 的氦气且中途不修改氦气分配。", "在Obliterated挑战中击败一个敌人。", "在区域1就找到一个合并者。", "连续10次红色暴击", "完成一个高于你现在所处地图200级的仿生仙境地图。", "在坐标挑战中完成尖塔II"];
+				return ["在购买赏金升级前完成愤怒的维度地图", "达到30关使用不超过60氦且中途不修改氦气分配", "同时拥有超过 " + prettify(1e6) + " 个陷阱", "死于单个 Voidsnimp 50次", "完成平衡挑战, 从不超过100层不平衡Debuff", "达到10关，阵亡不超过5个脆皮。", "准确地达到 1337 氦每小时", "在电流挑战中，攻击20次不死亡。", "装备一个magnificent或更高级别的传家宝盾牌和管理人员", "达到60关，阵亡不超过1000个脆皮。", "达到120层，不使用玩家自己研究。", "达到75关，不购买任何房子。", "在高于146的虚空地图找到一个罕见级别的传家宝。", "使用超过 " + prettify(250e3) + " 氦在虫洞上。", "达到60关并使用不高于阶段Ⅲ的装备。", "一击杀死一无序。", "0死亡完成一个超过60级的虚空地图。", "在第5关后不被暴击的情况下完成一个粉碎挑战。", "击杀一个敌人在他100层Nom Buff时（美味挑战）。", "达到60层并且不雇佣任意一个工人。", "完成一个超过99关的区域且中途不低于150层生活buff。", "繁殖一支部队超过10分钟。", "完成毒性挑战，从不超过400层毒性buff。", "拥有每种人口建筑超过100个。", "在60关前超杀每一敌人。", "完成观察挑战，不进入地图且不购买托儿所。", "装备一个Magmatic级别的传家宝盾牌和管理人员。", "将一个世界上的敌人的攻击力降低到低于1。", "完成领导挑战切使用不超过一个千兆站。", "完成腐化挑战并且不使用遗传学家。", "完成一个尖塔并且0死亡。", "超杀一个Omnipotrimp", "战胜一个健康的细胞在超过200层风buff的情况下", "堆叠一个比你的攻击高1000倍的毒药效果", "获取超过2000%的挑战<sup>2</sup> 奖励", "完成一个高于你现在所处地图45级的仿生仙境地图。", "战胜一个尖塔使用不超过 " + prettify(100e6) + " 的氦气且中途不修改氦气分配。", "在Obliterated挑战中击败一个敌人。", "在区域1就找到一个合并者。", "连续10次红色暴击", "完成一个高于你现在所处地图200级的仿生仙境地图。", "在坐标挑战中完成尖塔II"];
 			},
 			tiers: [2, 3, 3, 3, 3, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 7, 8, 8, 8, 8, 8, 8, 9, 9],
 			description: function (number) {
@@ -3365,10 +3365,10 @@ var toReturn = {
 		w137: "你的一位科学家告诉你，在实验室中检测到了一种新疾病的爆发。你去向你的科学家核实情况，很明显他们是为了引起注意而假装的。你沉重的叹了口气。",
 		w138: "你看到另一个科学家正全速向你跑来。他迅速地表示他们在区域35附近发现了一个新的维度，被巨大的脆皮所占领。你沉重的叹了口气",
 		w139: "另一个科学家过来了。你沉重的叹了口气。他也说了些愚蠢的话。你决定暂时忽略科学家们所说的话。",
-		w140: "It sure is calm and peaceful now. You watch a Falcimp turn a few circles in the sky. You wouldn't mind having wings, but overall you're pretty happy with your species.",
-		w143: "There's a scientist jumping around trying to get your attention. There's nothing interesting in the sky so you pretend to be fascinated with a rock. The scientist can see you're busy and waits patiently.",
+		w140: "现在这里确实平静祥和。你看到一只Falcimp在空中转了几个圈。你不会介意拥有翅膀，但总的来说你对自己的种族很满意。",
+		w143: "有个科学家围着你跳来跳去，想引起你的注意。天空中没有什么有趣的东西，所以你假装被石头吸引住了。科学家看到你很忙，耐心等待。",
 		w145: "Your Scientists are not making it easy to ignore them. You not-so-calmly ask what they want. One of them explains that they discovered a new dimension with lots of extra helium. You'll probably check it out, but you won't tell them that.",
-		w150: "Wow. These structures are getting expensive. There's probably a dimension for that...",
+		w150: "哇哦。这些建筑物变得越来越贵了。或许有个维度能解决这个问题……",
 		w153: "You remember a person from your past. From your old life. There's someone you need to get back to. You'll make it back.",
 		w156: "You watch in amazement as a Trimp grabs on to one of those weird tree things and swings around by its arms. These things are getting pretty strong.",
 		w157: "You watch in less amazement as a Trimp tries to take a bite out of a very large rock. These things are not getting much smarter.",
@@ -5264,7 +5264,7 @@ var toReturn = {
 			fire: function () {
 				message("你找到了一个地图通往映射到仿生仙境。 听起来很有趣！", "Story");
 				game.global.bionicOwned++;
-				createMap(125, "仿生仙境", "Bionic", 3, 100, 2.6, true);
+				createMap(125, "Bionic Wonderland", "Bionic", 3, 100, 2.6, true);
 			}
 		},
 		ImplodingStar: {
