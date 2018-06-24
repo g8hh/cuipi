@@ -21,7 +21,7 @@
 function newGame () {
 var toReturn = {
 	global: {
-		version: 4.802,
+		version: 4.81,
 		isBeta: false,
 		betaV: 0,
 		killSavesBelow: 0.13,
@@ -1561,7 +1561,7 @@ var toReturn = {
 			max: 7,
 			tooltip: "你在挑战中的经历教会了你从容不迫。每级冥想将让你在当前区域内每过10分钟，脆皮的收集速度增加1%，最多叠1小时，离线时仍然生效。这个加成将会在打通当前区域后重置。最高7级。",
 			getBonusPercent: function (justStacks) {
-				var timeOnZone = new Date().getTime() - game.global.zoneStarted;
+				var timeOnZone = getGameTime() - game.global.zoneStarted;
 				timeOnZone = Math.floor(timeOnZone / 600000);
 				if (timeOnZone > 6) timeOnZone = 6;
 				else if (timeOnZone <= 0) return 0;
@@ -2745,7 +2745,7 @@ var toReturn = {
 			},
 			progress: function () {
 				if (this.breakpoints.length > this.finished) return prettify(Math.floor(this.evaluate() * 10000) / 10000) + " / " + prettify(this.breakpoints[this.finished]);
-				return "Record of " + prettify(this.evaluate());
+				return "Currently at " + prettify(this.evaluate());
 			},
 			evaluate: function () {
 				return game.stats.heliumHour.value();
@@ -6553,7 +6553,7 @@ var toReturn = {
 			owned: 0,
 			allowAutoFire: true,
 			get tooltip(){
-				var timeOnZone = Math.floor((new Date().getTime() - game.global.zoneStarted) / 60000);
+				var timeOnZone = Math.floor((getGameTime() - game.global.zoneStarted) / 60000);
 				if (game.talents.magmamancer.purchased) timeOnZone += 5;
 				var bonus = (this.getBonusPercent() - 1) * 100;
 				var timeStr;
@@ -6568,10 +6568,10 @@ var toReturn = {
 				var currentMag = (((1 - Math.pow(0.9999, this.owned)) * 3));
 				var nextMag = (((1 - Math.pow(0.9999, this.owned + 1)) * 3));
 				var nextBonus = (1 - (currentMag / nextMag)) * 100;
-				var textString = "<p>训练一名巫师，将镐头和宝石还有岩浆混合在一起，形成每个区域独特的岩石。你有越多的巫师，你在一个区域花的时间越长，你的脆皮就能收集到的金属就越多!</p><p>你在这个区域中每花费十分钟（上限2小时）, 你的巫师的增益就会提高20% (指数增长). 你现在的增益是 <b>" + prettify(bonus) + "%</b>, 你已经在该区域中停留了 " + timeStr + ".</p>";
+				var textString = "<p>训练一名巫师，将镐头和宝石还有岩浆混合在一起，形成每个区域独特的岩石。你有越多的巫师，你在一个区域花的时间越长，你的脆皮就能收集到的金属就越多!</p><p>你在这个区域中每花费十分钟（上限2小时）, 你的巫师的增益就会提高20% (指数增长). 你现在的增益是 <b>" + prettify(bonus) + "%</b>, and " + ((game.talents.magmamancer.purchased) ? "counting your Magmamancermancy Mastery " : "") + "你已经在该区域中停留了 " + timeStr + ".</p>";
 				if (this.owned > 0) textString += "<p>你的下一个岩浆法师将增加总奖励 " + prettify(nextBonus) + "% (复利, 按住Ctrl键查看公式)</p>";
 				else textString += "<p>培训了你的第一个岩浆法师之后，你的金属奖励将会是 " + prettify((nextMag * (Math.pow(1.2, this.getBonusPercent(true)) - 1)) * 100) + "%. (按住Ctrl键查看公式)</p>";
-				if (ctrlPressed) textString += "<b><p>M = 巫师数量. T = 在这个区域中的时间（每10分钟为1个单位，向下取整）.</p><p>金属/秒 *= 1 + (((1 - (0.9999 ^ M)) * 3) * ((1.2 ^ T) - 1))</p><b>";
+				if (ctrlPressed) textString += "<b><p>M = 巫师数量。T = 在这个区域中的时间（每10分钟为1个单位，向下取整）.</p><p>金属/秒 *= 1 + (((1 - (0.9999 ^ M)) * 3) * ((1.2 ^ T) - 1))</p><b>";
 				return textString;
 			},
 			cost: {
@@ -6585,7 +6585,7 @@ var toReturn = {
 				var expInc = 1.2;
 				var timeOnZone;
 				if (typeof forceTime === 'undefined'){
-					var timeOnZone = new Date().getTime() - game.global.zoneStarted;
+					var timeOnZone = getGameTime() - game.global.zoneStarted;
 					if (game.talents.magmamancer.purchased) timeOnZone += 300000;
 					timeOnZone = Math.floor(timeOnZone / 600000);
 					
@@ -6604,13 +6604,12 @@ var toReturn = {
 			get tooltip(){
 				var ratio = this.getTriggerThresh();
 				var currentRatio = (game.resources.trimps.realMax() / game.resources.trimps.getCurrentSend());
-				var text = "<p>合并者不能手动雇佣或解雇合并者。他们是不可思议的生物，几乎不能再被认为是脆皮了。当你的军队规模占总人口的比例低于 <b>1:" + prettify(ratio) + "</b>时，他们会自动出现在你的城镇。完成尖塔 II到V时，每一个尖塔都将使这个比例增大到原来的10倍。 如果现在这一比率大于 1:" + prettify(1e3) + ", 一个合并者就会离开。 你现在的比率是 <b>1:" + prettify(currentRatio) + "</b>.</p><p>合并者会融合一些空闲的脆皮到其他士兵中,大大加强他们的战斗力。每个合并者会增加出战脆皮的数量1000倍(指数),增加血量40倍(指数),增加伤害50%(线性)。</p><p>另外，当至少有一个合并者时，预期的增益将基于最后一支部队被派遣，而不是基于实际繁殖的时间。</p>";
+				var text = "<p>合并者不能手动雇佣或解雇合并者。他们是不可思议的生物，几乎不能再被认为是脆皮了。当你的军队规模占总人口的比例低于 <b>" + prettify(ratio) + ":1</b>。他们会自动出现在你的城镇。完成尖塔 II到V时，每一个尖塔都将使这个比例增大到原来的10倍。 如果现在这一比率大于 1: " + prettify(1e3) + ", 一个合并者就会离开。 你现在的比率是 <b>" + prettify(currentRatio) + ":1</b>. At your current army size, you need <b>" + prettify(ratio * game.resources.trimps.getCurrentSend()) + "</b> total Trimps to trigger the next Amalgamator.</p></p><p>合并者会融合一些空闲的脆皮到其他士兵中,大大加强他们的战斗力。每个合并者会增加出战脆皮的数量1000倍(指数),增加血量40倍(指数),增加伤害50%(线性)。</p><p>另外，当至少有一个合并者时，预期的增益将基于最后一支部队被派遣，而不是基于实际繁殖的时间。</p>";
 				if (game.global.challengeActive == "Trimp"){
 					text += "<p><i>" + toZalgo("This particular Universe</b> seems to directly conflict with the Amalgamators, yet they're here and the Trimps they Amalgamate seem immune to the dimensional restrictions. Things are getting weird though.", 1, Math.ceil(game.global.world / 100)) + "</i></p>";
 				}
 				else
 					text += "<p><i>有人说合并者是诅咒，有人说他们是祝福，合并者他们自己大多只是说：“Blerghhhh”。</i></p>";
-
 				return text;
 			},
 			cost: {

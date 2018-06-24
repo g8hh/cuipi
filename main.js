@@ -2196,6 +2196,8 @@ function cancelPortal(keep){
 	}
 	game.global.viewingUpgrades = false;
 	game.global.respecActive = false;
+	if (!keep)
+		game.global.selectedChallenge = "";
 	resetPresets();
 	document.getElementById("clearPerksBtn").style.display = "none";
 	document.getElementById("respecPortalBtn").style.display = "none";
@@ -4016,17 +4018,9 @@ function getRandomMapValue(what) { //sliders only. what can be loot, size or dif
 	var advValue = getMapSliderValue(what);
 	if (advValue > 9) advValue = 9;
 	else if (advValue < 0) advValue = 0;
-	var min;
-	var max;
-	if (advValue > 0){
-		var minMax = getMapMinMax(what, advValue);
-		min = minMax[0];
-		max = minMax[1];
-	}
-	else{
-		min = amt - range;
-		max = amt + range;
-	}
+	var minMax = getMapMinMax(what, advValue);
+	var min = minMax[0];
+	var max = minMax[1];
 	if (checkPerfectChecked()) {
 		if (what == "loot") return max;
 		return min;
@@ -4323,6 +4317,12 @@ function displayExtraHeirlooms(){
 	var s = (extraExtraText > 1) ? "" : "";
 	document.getElementById("extraHeirloomsText").innerHTML = " - " + extraExtraText + " 传家宝" + s + ", 回收可以得到 " + recycleAllExtraHeirlooms(true) + " Nu 在传送门";
 	document.getElementById("recycleAllHeirloomsBtn").style.display = (game.global.heirloomsExtra.length) ? "inline-block" : "none";
+	if (game.options.menu.showHeirloomAnimations.enabled){
+		var fidgetSpinners = document.getElementById("extraHeirloomsHere").getElementsByClassName('heirloomRare8');
+		for (var x = 0; x < fidgetSpinners.length; x++){
+			fidgetSpinners[x].style.animationDelay = "-" + ((new Date().getTime() / 1000) % 30).toFixed(1) + "s";
+		}
+	}
 }
 
 function selectHeirloom(number, location, elem){
@@ -4765,7 +4765,13 @@ function replaceMod(confirmed){
 	mod[2] = steps[1];
 	mod[3] = 0;
 	if (!game.heirlooms.canReplaceMods[heirloom.rarity]) {
-		heirloom.mods.sort(function(a, b){return a[0] > b[0]});
+		heirloom.mods.sort(function(a, b){
+			a = a[0].toLowerCase();
+			b = b[0].toLowerCase();
+			if (a == "empty") return 1;
+			if (b == "empty" || b > a) return -1;
+			return a > b
+		})
 		var newIndex = heirloom.mods.indexOf(mod);
 		if (newIndex >= 0) selectedMod = newIndex;
 	}
@@ -4855,6 +4861,10 @@ function createHeirloom(zone, fromBones){
 	//{name: "", type: "", rarity: #, mods: [[ModName, value, createdStepsFromCap, upgradesPurchased, seed]]}
 	var buildHeirloom = {name: name, type: type, repSeed: getRandomIntSeeded(seed++, 1, 10e6), rarity: rarity, mods: []};
 	var x = 0;
+	if (!game.heirlooms.canReplaceMods[rarity]){
+		x++;
+		buildHeirloom.mods.push(["empty", 0, 0, 0, getRandomIntSeeded(seed++, 0, 1000)]);
+	}
 	for (x; x < slots; x++){
 		var roll = getRandomIntSeeded(seed++, 0, eligible.length);
 		var thisMod = eligible[roll];
@@ -4979,7 +4989,7 @@ function getRandomMapName() {
 
 function buildMapGrid(mapId) {
 	if (game.global.formation == 4) game.global.canScryCache = true;
-	game.global.mapStarted = new Date().getTime();
+	game.global.mapStarted = getGameTime();
     var map = game.global.mapsOwnedArray[getMapIndex(mapId)];
     var array = [];
 	var imports = [];
@@ -5200,6 +5210,7 @@ function rewardToken(empowerment){
 	if (game.global.buyTab == "nature")
 		updateNatureInfoSpans();
 	game.stats.bestTokens.value += tokens;
+	return tokens;
 }
 
 function updateNatureInfoSpans(){
@@ -7005,6 +7016,7 @@ function easterEggClicked(){
 
 function fightManual() {
 	if (game.options.menu.pauseGame.enabled) return;
+	if (game.global.time < 1000) return;
     battle(true);
 }
 
@@ -7780,14 +7792,14 @@ function startFight() {
 	var currentSend = game.resources.trimps.getCurrentSend();
     if (game.global.soldierHealth <= 0) {
 		game.global.battleCounter = 0;
-		if (cell.name == "Voidsnimp" && !game.achievements.oneOffs.finished[2]) {
+		if (cell.name == "Voidsnimp" && !game.achievements.oneOffs.finished[game.achievements.oneOffs.names.indexOf("Needs Block")]) {
 			if (!cell.killCount) cell.killCount = 1;
 			else cell.killCount++;
 			if (cell.killCount >= 50) giveSingleAchieve("Needs Block");
 		}
 		if (game.global.realBreedTime >= 600000 && game.jobs.Geneticist.owned >= 1) giveSingleAchieve("Extra Crispy");
 		if (game.portal.Anticipation.level){
-			game.global.antiStacks = (game.jobs.Amalgamator.owned > 0) ? Math.floor((new Date().getTime() - game.global.lastSoldierSentAt) / 1000) : Math.floor(game.global.lastBreedTime / 1000);
+			game.global.antiStacks = (game.jobs.Amalgamator.owned > 0) ? Math.floor((getGameTime() - game.global.lastSoldierSentAt) / 1000) : Math.floor(game.global.lastBreedTime / 1000);
 			if (game.talents.patience.purchased){
 				if (game.global.antiStacks >= 45)
 					game.global.antiStacks = 45;
@@ -7795,7 +7807,7 @@ function startFight() {
 			else if (game.global.antiStacks >= 30) game.global.antiStacks = 30;
 			updateAntiStacks();
 		}
-		game.global.lastSoldierSentAt = new Date().getTime();
+		game.global.lastSoldierSentAt = getGameTime();
 		game.global.lastBreedTime = 0;
 		game.global.realBreedTime = 0;
 		if ((game.global.challengeActive == "Electricity" || game.global.challengeActive == "Mapocalypse")) {
@@ -7888,7 +7900,7 @@ function startFight() {
 		if (game.global.challengeActive == "Lead") manageLeadStacks();
     }
 	else {
-		if (game.global.challengeActive == "Lead") manageLeadStacks(!game.global.mapsActive && madeBadGuy);
+		if (game.global.challengeActive == "Lead") manageLeadStacks();
 
 		//Check differences in equipment, apply perks, bonuses, and formation
 		if (game.global.difs.health !== 0) {
@@ -8183,9 +8195,8 @@ function calculateDamage(number, buildString, isTrimp, noCheckAchieve, cell) { /
 		}
 		//Keep ice last for achievements
 		if (getEmpowerment() == "Ice"){
-
 			number *= game.empowerments.Ice.getCombatModifier();
-			if (number < 1 && !game.global.mapsActive) giveSingleAchieve("Brr");
+			if (number >= 0 && number < 1 && !game.global.mapsActive) giveSingleAchieve("Brr");
 		}
 	}
 	if (minFluct > 1) minFluct = 1;
@@ -8195,17 +8206,17 @@ function calculateDamage(number, buildString, isTrimp, noCheckAchieve, cell) { /
     var max = Math.ceil(number + (number * maxFluct));
     if (buildString) {
 		if (isTrimp) {
-			if (!noCheckAchieve) checkAchieve("damage", max);
-			else return max;
-		}
-		var critChance = getPlayerCritChance();
-		if (critChance >= 1){
-			var critDamage = getPlayerCritDamageMult();
-			number *= critDamage;
-			if (critChance >= 3) number *= getMegaCritDamageMult(3);
-			else if (critChance >= 2) number *= getMegaCritDamageMult(2);
-			min = Math.floor(number * (1 - minFluct));
-			max = Math.ceil(number + (number * maxFluct));
+			if (noCheckAchieve) return max;
+			var critChance = getPlayerCritChance();
+			if (critChance >= 1){
+				var critDamage = getPlayerCritDamageMult();
+				number *= critDamage;
+				if (critChance >= 3) number *= getMegaCritDamageMult(3);
+				else if (critChance >= 2) number *= getMegaCritDamageMult(2);
+				min = Math.floor(number * (1 - minFluct));
+				max = Math.ceil(number + (number * maxFluct));
+			}
+			checkAchieve("damage", max);
 		}
 		return prettify(min) + "-" + prettify(max);
     }
@@ -8426,7 +8437,8 @@ function rewardLiquidZone(){
 	var metal = game.resources.metal.owned;
 	var helium = game.resources.helium.owned;
 	var fragments = game.resources.fragments.owned;
-	var trimpsCount = game.resources.trimps.realMax(); 
+	var trimpsCount = game.resources.trimps.realMax();
+	var tokText;
 	var trackedImps = {
 		Feyimp: 0,
 		Magnimp: 0,
@@ -8459,6 +8471,12 @@ function rewardLiquidZone(){
 			}
 		}
 		if (cell.mutation && typeof mutations[cell.mutation].reward !== 'undefined') mutations[cell.mutation].reward(cell.corrupted);
+		if (cell.empowerment){
+			var tokReward = rewardToken(cell.empowerment);
+			if (game.global.messages.Loot.token && game.global.messages.Loot.enabled){
+				tokText = "<span class='message empoweredCell" + cell.empowerment + "'>Found " + prettify(tokReward) + " Token" + ((tokReward == 1) ? "" : "s") + " of " + cell.empowerment + "!</span>";
+			}
+		}
 		if (typeof game.badGuys[cell.name].loot !== 'undefined') game.badGuys[cell.name].loot(cell.level);
 		if (typeof trackedImps[cell.name] !== 'undefined'){
 			trackedImps[cell.name]++;
@@ -8517,10 +8535,17 @@ function rewardLiquidZone(){
 		bones = "Found a " + bones + "!<br/>";
 		text += bones;
 	}
+	if (tokText != null){
+		text += tokText + "<br/>";
+	}
 	if (text){
 		text = "You liquified a Liquimp!<br/>" + text;
 		text = text.slice(0, -5);
 		message(text, "Notices", "star", "LiquimpMessage");
+	}
+	if (game.global.challengeActive == "Lead"){
+		game.challenges.Lead.stacks -= 100;
+		manageLeadStacks();
 	}
 	game.stats.zonesLiquified.value++;
 	nextWorld();
@@ -8604,7 +8629,7 @@ function nextWorld() {
 	if (game.worldText["w" + game.global.world]) message(game.worldText["w" + game.global.world], "Story");
 	if (game.global.canMagma) checkAchieve("zones");
 
-	game.global.zoneStarted = new Date().getTime();
+	game.global.zoneStarted = getGameTime();
 
 	if (game.global.challengeActive == "Mapology") {
 		game.challenges.Mapology.credits++;
@@ -8623,7 +8648,7 @@ function nextWorld() {
 		assignExtraWorkers()
 	}
 	if (game.global.challengeActive == "Lead"){
-		if ((game.global.world % 2) == 0) game.challenges.Lead.stacks = game.challenges.Lead.stacks = 201;
+		if ((game.global.world % 2) == 0) game.challenges.Lead.stacks = 200;
 		manageLeadStacks();
 	}
 	if (game.global.challengeActive == "Decay"){
@@ -10200,6 +10225,7 @@ function fight(makeUp) {
 		}
 
 		//Challenge Shenanigans
+		if (game.global.challengeActive == "Lead" && cell.name != "Liquimp") manageLeadStacks(!game.global.mapsActive);
 		if (game.global.challengeActive == "Balance" && game.global.world >= 6){
 			if (game.global.mapsActive) game.challenges.Balance.removeStack();
 			else game.challenges.Balance.addStack();
@@ -10919,6 +10945,7 @@ function restoreGrid(){
 
 function setFormation(what) {
 	if (what) {
+		if (game.options.menu.pauseGame.enabled) return;
 		what = parseInt(what, 10);
 		swapClass("formationState", "formationStateDisabled", document.getElementById("formation" + game.global.formation));
 		if (what == 4 && game.global.formation != 4){
@@ -11394,6 +11421,8 @@ function purchaseMisc(what){
 }
 
 function purchaseSingleRunBonus(what){
+	if (what == "heliumy" && game.global.runningChallengeSquared) return;
+	if (what == "quickTrimps" && game.global.challengeActive == "Trapper") return;
 	var bonus = game.singleRunBonuses[what];
 	if (!bonus) return;
 	if (bonus.owned) return;
@@ -11423,14 +11452,24 @@ function displaySingleRunBonuses(){
 			 btnText = 'Active!';
 		}
 		else {
-			if (game.global.b < bonus.cost)
-				btnClass = 'boneBtnStateOff'
-			else 
-				btnClass = 'boneBtnStateOn';
-			btnText = bonus.name + " (" + bonus.cost + " 骨头)";
+			if (item == "heliumy" && game.global.runningChallengeSquared){
+				btnClass = 'boneBtnStateOff';
+				btnText = "Disabled on C<sup>2</sup>";
+			}
+			else if (item == "quickTrimps" && game.global.challengeActive == "Trapper"){
+				btnClass = 'boneBtnStateOff';
+				btnText = "Disabled on Trapper";
+			}
+			else{
+				if (game.global.b < bonus.cost)
+					btnClass = 'boneBtnStateOff'
+				else 
+					btnClass = 'boneBtnStateOn';
+				btnText = bonus.name + " (" + bonus.cost + " 骨头)";
+			}
 		}
 		html += "<div class='boneBtn " + btnClass + " pointer noselect' id='" + item + "PurchaseBtn'";
-		if (!bonus.owned && game.global.b >= bonus.cost)
+		if (btnClass == 'boneBtnStateOn')
 			html += " onclick='tooltip(\"Confirm Purchase\", null, \"update\", \"" + bonus.confirmation + "\", \"purchaseSingleRunBonus(&#39;" + item + "&#39;)\", 20)'>" + btnText + "</div>";
 		else
 			html += ">" + btnText + "</div>";
@@ -11783,7 +11822,7 @@ function updateTurkimpTime() {
 
 function formatMinutesForDescriptions(number){
 	var text;
-	var minutes = Math.round(number % 60);
+	var minutes = Math.floor(number % 60);
 	var hours = Math.floor(number / 60);
 	if (hours == 0) text = minutes + " 分钟" + ((minutes == 1) ? "" : "");
 	else if (minutes > 0) {
@@ -11814,7 +11853,7 @@ function formatSecondsForDescriptions(number){
 }
 
 function getMinutesThisPortal(){
-	var timeSince = new Date().getTime() - game.global.portalTime;
+	var timeSince = getGameTime() - game.global.portalTime;
 	timeSince /= 1000;
 	return Math.floor(timeSince / 60);
 }
@@ -13029,6 +13068,10 @@ function runEverySecond(){
 	updatePortalTimer();
 }
 
+function getGameTime(){
+	return game.global.start + game.global.time;
+}
+
 
 function gameTimeout() {
 	if (game.options.menu.pauseGame.enabled) return;
@@ -13074,8 +13117,7 @@ function runGameLoop(makeUp, now) {
 }
 function updatePortalTimer(justGetTime) {
 	if (game.global.portalTime < 0) return;
-	var timeSince = new Date().getTime() - game.global.portalTime;
-	if (game.options.menu.pauseGame.enabled) timeSince -= new Date().getTime() - game.options.menu.pauseGame.timeAtPause;
+	var timeSince = getGameTime() - game.global.portalTime;
 	timeSince /= 1000;
 	var days = Math.floor(timeSince / 86400);
 	var hours = Math.floor( timeSince / 3600) % 24;
