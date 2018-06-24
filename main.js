@@ -1231,13 +1231,13 @@ function getScientistInfo(number, reward){
 			return (reward) ? "启动5个谷仓，5个棚屋，5个锻造，T2装备解锁。" : 8000;
 		}
 		case 3: {
-			return (reward) ? "以完整的脆皮和200%的玩家效率开始" : 1500;
+			return (reward) ? "以完整的脆皮和200%的手动效率开始" : 1500;
 		}
 		case 4: {
-			return (reward) ? "earn two levels of each prestige upgrade per map, unlock AutoPrestiges, and your Warpstations will build instantly, skipping the queue" : 70;
+			return (reward) ? "打一次地图可以获得两个等级的锻造书, 解锁自动进阶,并且你的经纱站将被迅速建好,跳过了建造队列的过程" : 70;
 		}
 		case 5: {
-			return (reward) ? "permanently increase all helium found by 0.5% to the power of your current zone number. You'll also start with 1000% player efficiency and 50 Barns, Sheds, and Forges" : 1500;
+			return (reward) ? "永久增加氦获得，倍数随层数增加，增加后变为\'(1+0.005)^层数\'倍。开始时将拥有1000%的手动效率，以及谷仓、窝棚、锻造室各50个" : 1500;
 		}
 	}
 }
@@ -7089,12 +7089,12 @@ function getRecycleValue(level) {
 
 function updateMapCredits() {
 	var s = (game.challenges.Mapology.credits == 1) ? "" : ""
-	document.getElementById("mapCreditsLeft").innerHTML = game.challenges.Mapology.credits + " 地图信用" + s;
+	document.getElementById("mapCreditsLeft").innerHTML = game.challenges.Mapology.credits + " 地图点数" + s;
 }
 
 function messageMapCredits() {
 	var s = (game.challenges.Mapology.credits == 1) ? "" : ""
-	message("你还有 " + game.challenges.Mapology.credits + " 地图信用" + s + " 剩余！", "Notices");
+	message("你还剩余" + game.challenges.Mapology.credits + " 地图点数！", "Notices");
 }
 
 function mapsClicked(confirmed) {
@@ -7257,7 +7257,7 @@ function toggleMapGridHtml(on, currentMapObj){
 	var worldNumElem = document.getElementById("worldNumber");
 	worldNumElem.style.display = 'inline';
 	worldNumElem.innerHTML = "<br/>等级: " + currentMapObj.level;
-	document.getElementById("worldName").innerHTML = currentMapObj.name;
+	document.getElementById("worldName").innerHTML = cnmap(currentMapObj.name);
 }
 
 function clearMapDescription(){
@@ -7314,7 +7314,7 @@ function selectMap(mapId, force) {
     }else{
         mapname=map.name
     }
-    document.getElementById("selectedMapName").innerHTML = mapname;
+    document.getElementById("selectedMapName").innerHTML = cnmap(mapname);
 
 	document.getElementById("mapStatsSize").innerHTML = (Math.floor(map.size));
 	document.getElementById("mapStatsDifficulty").innerHTML = Math.floor(map.difficulty * 100) + "%";
@@ -7575,7 +7575,7 @@ function startFight() {
 		displayedName = "<span class='Mutimp'>" + displayedName + "</span>";
 	}
 	if (mutations.Living.active()){
-		badName = "<span id='livingMutationContainer'" + ((cell.mutation == "Living") ? " class='badNameMutation Living'" : "") + "><span id='livingMutationName'>" + ((cell.mutation == "Living") ? "Living " : "") + "</span>" + displayedName + "</span>";
+		badName = "<span id='livingMutationContainer'" + ((cell.mutation == "Living") ? " class='badNameMutation Living'" : "") + "><span id='livingMutationName'>" + ((cell.mutation == "Living") ? "复活 " : "") + "</span>" + displayedName + "</span>";
 	}
 	else if (cell.vm && visualMutations[cell.vm].highlightMob && (displayedName == visualMutations[cell.vm].highlightMob)){
 		var tempName = (cell.mutation) ? mutations[cell.mutation].namePrefix + " " + displayedName : displayedName;
@@ -9550,13 +9550,13 @@ var dailyModifiers = {
 				var text = "这个敌人";
 				if (stacks < max) {
 					var next = (freq - (stacks % freq));
-					text += " will heal to full and gain attack in " + next + " stack" + ((next == 1) ? "" : "s") + ", " + ((stacks >= freq) ? "" : " and") + " gains 1 stack whenever Trimps die";
+					text += "再叠" + next + "层嗜血后回满生命并增加攻击" + ((next == 1) ? "" : "") + ", " + ((stacks >= freq) ? "" : "") + "当脆皮死亡后增加一层";
 				}
 				if (stacks >= freq){
-					if (stacks < max) text += ", and";
-					text += " currently has " + prettify((this.getMult(str, stacks) * 100) - 100) + "% more attack";
+					if (stacks < max) text += ",";
+					text += "现在已经增加" + prettify((this.getMult(str, stacks) * 100) - 100) + "%的攻击";
 				}
-				text += ".";
+				text += "。";
 				return text;
 			},
 			getMaxStacks: function (str) {
@@ -9644,7 +9644,7 @@ var dailyModifiers = {
 				else size = "前" + prettify(size * 2) + "行";
 
 				var name = (str < 4) ? "Mutimps" : "Hulking Mutimps";
-				return "世界上" + size + "的敌人将变异成" + name + "。";
+				return "世界上" + size + "的敌人将有40%概率变异成" + name + "。";
 			},
 			getWeight: function (str) {
 				return (str / 10) * 1.5;
@@ -9744,7 +9744,7 @@ var dailyModifiers = {
 		mirrored: {
 			description: function (str) {
 				var reflectChance = this.getReflectChance(str);
-				return "敌人有" + (reflectChance.toString()[0] == '8' ? 'n' : '') + " " + prettify(reflectChance) + "%的概率反弹一次攻击，将此次伤害的" + prettify(this.getMult(str) * 100) + "%返还给你的脆皮。";
+				return "敌人有" + (reflectChance.toString()[0] == '8' ? '' : '') + " " + prettify(reflectChance) + "%的概率反弹一次攻击，将此次伤害的" + prettify(this.getMult(str) * 100) + "%返还给你的脆皮。";
 			},
 			getReflectChance: function(str){
 				return (Math.ceil(str / 10)) * 10;
@@ -13487,9 +13487,9 @@ function cntequan(what){
     }else if(temp=="Frugal"){
         cntequan="节俭"
     }else if(temp=="Life"){
-        cntequan="生活"
+        cntequan="生命"
     }else if(temp=="Nom"){
-        cntequan="名义"
+        cntequan="美味"
     }else if(temp=="Lead"){
         cntequan="领导"
     }else if(temp=="Watch"){
@@ -13499,7 +13499,7 @@ function cntequan(what){
     }else if(temp=="Mapology"){
         cntequan="地图学"
     }else if(temp=="Coordinate"){
-        cntequan="坐标"
+        cntequan="协同"
     }else if(temp=="Crushed"){
         cntequan="粉碎"
     }else if(temp=="Toxicity"){
@@ -13539,6 +13539,31 @@ function cntime(time) {
     }
     return cntime;
 }
+
+    function cnmap(map) {
+    //汉化地图
+    var cnmap = "";
+    var temp = map;
+    if (temp == "Dimension of Anger") {
+        cnmap = "愤怒维度";
+    } else if (temp == "The Prison") {
+        cnmap = "监狱";
+    } else if (temp == "Bionic Wonderland") {
+        cnmap = "仿生仙境";
+    } else if (temp == "The Block") {
+        cnmap = "障碍区";
+    } else if (temp == "The Wall") {
+        cnmap = "高墙";
+    } else if (temp == "Trimple Of Doom") {
+        cnmap = "末日之神殿";
+    } else if(temp=="Imploding Star"){
+        cnmap = "爆炸之星";   
+    } else {
+        return map;
+    }
+    return cnmap;
+}
+
 
 
 load();
