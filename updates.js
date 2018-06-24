@@ -426,7 +426,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		tooltipText = "";
 		if (!textString)
 		tooltipText = "<p>单击以切换到挑战模式，迎接您的挑战!</p>";
-		tooltipText += "<p>在挑战<sup>2</sup> 模式中, 你可以重新进行一些挑战，来为你的脆皮获取一个永久的攻击、生命、氦的加成。大多数的挑战<sup>2</sup>每打通<b>" + squaredConfig.rewardFreq + "个区域将会获得" + squaredConfig.rewardEach + "%的攻击和生命，以及" + prettify(squaredConfig.rewardEach / 10) + "%的氦。每 " + squaredConfig.thresh + " 个区域,攻击和生命的加成将额外加成1%,并且氦加成增加0.1%</b>。所有挑战<sup>2</sup>的加成是相加的, 而且你所达到的最高区域被记录且被换算为加成使用。</p><p><b>所有的挑战<sup>2</sup>都没有一个特定的截止区域</b>,它们只能通过使用传送门，或在“查看能力”页面中放弃挑战来结束。然而，<b>中途不会掉落氦，并且在挑战中及挑战后不会获得奖励氦</b>。虚空地图中仍然会掉落传家宝，所有其他的货币仍然可以获取。</p><p>由于挑战<sup>2</sup>加成，你现在已经得到了" + prettify(game.global.totalSquaredReward) + "%的额外攻击和生命，而且你已得到" + prettify(game.global.totalSquaredReward / 10) + "%的额外氦加成。</p>";
+		tooltipText += "<p>在挑战<sup>2</sup> 模式中, 你可以重新进行一些挑战，来为你的脆皮获取一个永久的攻击、生命、氦的加成。大多数的挑战<sup>2</sup>每打通<b>" + squaredConfig.rewardFreq + "个区域将会获得" + squaredConfig.rewardEach + "%的攻击和生命，以及" + prettify(squaredConfig.rewardEach / 10) + "%的氦。每 " + squaredConfig.thresh + " 个区域,每次奖励的攻击和生命的加成将额外增加1%,并且氦加成增加0.1%</b>。所有挑战<sup>2</sup>的加成是相加的, 而且你所达到的最高区域被记录且被换算为加成使用。</p><p><b>所有的挑战<sup>2</sup>都没有一个特定的截止区域</b>,它们只能通过使用传送门，或在“查看能力”页面中放弃挑战来结束。然而，<b>中途不会掉落氦，并且在挑战中及挑战后不会获得奖励氦</b>。虚空地图中仍然会掉落传家宝，所有其他的货币仍然可以获取。</p><p>由于挑战<sup>2</sup>加成，你现在已经得到了" + prettify(game.global.totalSquaredReward) + "%的额外攻击和生命，而且你已得到" + prettify(game.global.totalSquaredReward / 10) + "%的额外氦加成。</p>";
 		if (game.talents.headstart.purchased) tooltipText += "<p><b>Note that your Headstart mastery will be disabled during Challenge<sup>2</sup> runs.</b></p>";
 		costText = "";
 	}
@@ -669,12 +669,12 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		costText = "";
 	}
 	if (what == "Toxic" && isItIn != "dailyStack"){
-		tooltipText = "This bad guy is toxic. You will obtain " + (game.challenges.Toxicity.lootMult * game.challenges.Toxicity.stacks).toFixed(1) + "% more resources! Oh, also, this bad guy has 5x attack, 2x health, your Trimps will lose 5% health each time they attack, and the toxic air is causing your Trimps to breed " + (100 - (Math.pow(game.challenges.Toxicity.stackMult, game.challenges.Toxicity.stacks) * 100)).toFixed(2) + "% slower. These stacks will reset after clearing the zone.";
+		tooltipText = "这个敌人带有毒性。你将多获得" + (game.challenges.Toxicity.lootMult * game.challenges.Toxicity.stacks).toFixed(1) + "%的资源!噢,这个敌人也有5倍的攻击，2倍的防御，你的脆皮每次攻击将会损失5%最大生命值的血量，有毒的空气使脆皮的繁殖速度减少" + (100 - (Math.pow(game.challenges.Toxicity.stackMult, game.challenges.Toxicity.stacks) * 100)).toFixed(2) + "%。这些效果将在清除一个区域后重置。";
 		costText = "";
 	}
 	if (what == "Momentum"){
 		var stacks = game.challenges.Lead.stacks;
-		tooltipText = "This bad guy has " + prettify(stacks * 4) + "% more damage and health, pierces an additional " + (stacks * 0.1).toFixed(1) + "% block, and each attack that does not kill it will cause your Trimps to lose " + (stacks * 0.03).toFixed(2) + "% of their health.";
+		tooltipText = "这个敌人的攻击和血量都增加" + prettify(stacks * 4) + "%,额外多穿刺" + (stacks * 0.1).toFixed(1) + "%的防御,并且脆皮每次攻击不杀死它将会扣除脆皮" + (stacks * 0.03).toFixed(2) + "%最大生命值的血量。";
 		costText = "";
 	}
 	if (what == "Custom"){
@@ -4151,8 +4151,8 @@ function toggleSetting(setting, elem, fromPortal, updateOnly, backwards){
 		displayAchievements();
 		var fluff = [
 			[", 更好的取得更多的成就", ", 你会做一些更多的成就更好", " 但是你希望你有更多的成就"],
-			[", your achievement game shows promise", " 在你成就的道路上", ", thanks to your achievements"],
-			[", thanks to your bounty of achievements", ", must be all those achievements", ", you are one with the achievements", " and you water your achievements daily"],
+			[", your achievement game shows promise", "，在你成就的道路上", ",多亏了你的成就"],
+			[",多亏了你大量的成就", ", must be all those achievements", ", you are one with the achievements", " and you water your achievements daily"],
 			[", your Trimps are mighty impressed", ", your achievements are mind blowing", ". You wake up, achieve, then sleep", ", you have achievement in your blood"],
 			[", your achievements are beyond mortal comprehension", ", 脆皮远播告诉你的成就的故事", ", you have achieved achievement", ", everything you touch turns to achievement"],
 			[", 你的成就已经取得成就", ", 你的成就的消息传遍了整个银河系。", ", achievements bend to your will", ", your achievements transcend reality"],
@@ -4265,11 +4265,11 @@ function toggleSetting(setting, elem, fromPortal, updateOnly, backwards){
 			elem.innerHTML = "";
 			return false;
 		}
-		var html = "You will find one Golden Upgrade every " + freq + " zones.";
-		if (tier < tiers.length) html += " Frequency increases at " + tiers[tier] + "% bonus damage.";
+		var html = "你每过" + freq + "区域将获得一个金色升级。";
+		if (tier < tiers.length) html += "当成就增加" + tiers[tier] + "%的额外伤害时获得金色升级的频率增加。";
 		else {
 			var count = countExtraAchievementGoldens();
-			html += " Start with 1 additional free Golden Upgrade after each Portal for every 500% earned above 2000%. Currently gaining " + count + " extra Golden Upgrade" + ((count == 1) ? "" : "s") + ".";
+			html += "在额外伤害超过2000%后，每增加500%额外伤害，在传送后刚开局都会给一个额外的金色升级。现在能够获得" + count + "个额外金色升级" + ((count == 1) ? "" : "") + "。";
 		}
 		elem.innerHTML = html;
 	}
