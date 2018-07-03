@@ -21,7 +21,7 @@
 function newGame () {
 var toReturn = {
 	global: {
-		version: 4.81,
+		version: 4.812,
 		isBeta: false,
 		betaV: 0,
 		killSavesBelow: 0.13,
@@ -3454,7 +3454,7 @@ var toReturn = {
 			return "A voice in the back of your mind tells you there should be something big soon, but you see nothing. Oh well."
 		},
 		get w303() {
-			if (game.global.spireRows >= 15) return "You're glad you have Fluffy around now. He seems to be getting along well with the other Trimps, and seems happy to have found others like him. He doesn't seem to be any smarter than a normal Trimp so you're sure you'll get some entertainment out of him.";
+			if (game.global.spireRows >= 15 || game.portal.Capable.level > 0) return "You're glad you have Fluffy around now. He seems to be getting along well with the other Trimps, and seems happy to have found others like him. He doesn't seem to be any smarter than a normal Trimp so you're sure you'll get some entertainment out of him.";
 			return "你希望有一只宠物。";
 		},
 		get w315(){
@@ -3464,7 +3464,7 @@ var toReturn = {
 		w340: "Watch your step, there's some Magma on the ground over there.",
 		w350: "If Druopitee has really immortalized himself in an infinite amount of Spires, you might be here for a while.",
 		get w360(){
-			if (game.global.spireRows >= 15) return "You attempt to put Fluffy through your rigorous Scientist training program, but he doesn't want to. He wouldn't have any trouble, but he doesn't want the label. You still couldn't be happier to have the little guy around!";
+			if (game.global.spireRows >= 15 || game.portal.Capable.level > 0) return "You attempt to put Fluffy through your rigorous Scientist training program, but he doesn't want to. He wouldn't have any trouble, but he doesn't want the label. You still couldn't be happier to have the little guy around!";
 			return "You really feel like something is missing from your life. Everything feels hollow and sad.";
 		},
 		w375: "Should be coming up on another Spire zone soon. You stop and sit beside a beautiful Magma river and wonder what kinds of crazy stuff could be waiting for you up there. Then you realize it's probably just another Spire, so you get up and keep moving.",
@@ -3484,7 +3484,7 @@ var toReturn = {
 		get w415(){
 			if (game.global.lastSpireCleared == 3) return "The Healthy mutation is starting to spread nicely now. The bad guys hurt quite a bit more, but you're pretty sure you're doing the right thing which kinda makes you feel good.";
 			if (game.global.lastSpireCleared == 2) return "It seems like the Healthy mutation has stopped spreading. That's alright though, some other version of you will probably take care of it.";
-			if (game.global.spireRows >= 15) return "The land sure looks terrible and corrupted, but at least you have Fluffy.";
+			if (game.global.spireRows >= 15 || game.portal.Capable.level > 0) return "The land sure looks terrible and corrupted, but at least you have Fluffy.";
 			return "What do you have against Fluffy?";
 		},
 		w430: "The Trimps tried tying two Turkimps to this tall tree, then the Turkimps thrashed those three trillion Trimps, throwing the Trimps tumbling towards the tall tree. The Trimps truly tried. Those Turkimps though... they tough.",
@@ -4516,13 +4516,16 @@ var toReturn = {
 				var amt = Math.ceil(game.resources.trimps.max * 0.003);
 				game.unlocks.impCount.Tauntimp++;
 				game.unlocks.impCount.TauntimpAdded += amt;
+				amt = (game.global.challengeActive == "Trapper") ? addMaxHousing(amt, false) : addMaxHousing(amt, true);
+				var msg = "这是一个不错的，温暖并且宽敞的死亡Tauntimp。";
 				if (game.global.challengeActive != "Trapper"){
-					amt = addMaxHousing(amt, true);
-					message("这是一个不错的，温暖并且宽敞的死亡Tauntimp。你发现了 " + prettify(amt) + " 脆皮在里面, 他们都似乎满足于留在那里！", "Loot", "gift", "exotic", "exotic");
+					msg += "你发现了 ";
+					if (amt == 1) msg += prettify(amt) + " 脆皮在里面，它看起来很无聊。";
+					else msg += prettify(amt) + " 脆皮在里面, 他们都似乎满足于留在那里！";
+					message(msg, "Loot", "gift", "exotic", "exotic");
 				}
 				else {
-					amt = addMaxHousing(amt, false);
-					message("这是一个不错的，温暖并且宽敞的死亡Tauntimp。 它大得足够容纳 " + prettify(amt) + " 脆皮在里面生活!", "Loot", "gift", "exotic", "exotic");
+					message(msg + " 这个房间大得足够容纳 " + prettify(amt) + " 脆皮" + ((amt == 1) ? "" : "") + " 在里面生活" + ((amt == 1) ? ", 虽然它会很孤独。" : "!"), "Loot", "gift", "exotic", "exotic");
 				}
 			}
 		},
@@ -6613,7 +6616,6 @@ var toReturn = {
 				return text;
 			},
 			cost: {
-				gems: [1, 1]
 			},
 			increase: "custom",
 			populationModifier: 1000,
