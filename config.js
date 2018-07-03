@@ -1724,7 +1724,7 @@ var toReturn = {
 			unlockString: "have 30 total helium"
 		},
 		Metal: {
-			description: "调整传送门把你带到另一个现实，那里的矿工的概念不存在，迫使自己变得节俭与设备各具特色的战略。如果你在没有削弱挑战的情况下完成了Dimension of Anger，矿工将重新解锁。",
+			description: "调整传送门把你带到另一个现实，那里的矿工的概念不存在，迫使自己变得节俭与设备各具特色的战略。如果你在没有削弱挑战的情况下完成了愤怒维度，矿工将重新解锁。",
 			completed: false,
 			filter: function () {
 				return (game.global.highestLevelCleared >= 24);
@@ -1758,7 +1758,7 @@ var toReturn = {
 			unlockString: "到达区域 25"
 		},
 		Size: {
-			description: "调整传送门，让你进入另一个现实，在那里脆皮越来越强大，迫使自己想出一个方法来建造更大的房屋。 你的脆皮会多收集50％的资源，但你的住房将少50％的脆皮。 如果您完成“Dimension of Anger”，你的数据将恢复正常。",
+			description: "调整传送门，让你进入另一个现实，在那里脆皮越来越强大，迫使自己想出一个方法来建造更大的房屋。 你的脆皮会多收集50％的资源，但你的住房将少50％的脆皮。 如果您完成“愤怒维度”，你的数据将恢复正常。",
 			completed: false,
 			filter: function () {
 				return (game.global.world >= 35 || game.global.highestLevelCleared >= 34);
@@ -2117,7 +2117,7 @@ var toReturn = {
 			unlockString: "到达区域 150"
 		},
 		Toxicity: {
-			description: "传送至一个富含氦，同时也有大量毒性敌人的维度。所有的敌人都有5倍攻击和2倍生命值。每次你攻击敌人，你的脆皮都会损失最大生命值5%的血量，而且使毒素释放到大气中，减少你脆皮0.3%(当前的)的繁殖速度，但也会增加所有资源获取0.15%，最多叠1500层。当你清除一个区域后效果重置。带有本挑战完成<b>区域165</b>将奖励你350%的你所获得的氦(不包括区域165及以上所获得)。这个挑战是可重复的！",
+			description: "传送至一个富含氦，同时也有大量毒性敌人的维度。所有的敌人都有5倍攻击和2倍生命值。每次你攻击敌人，你的脆皮都会损失最大生命值5%的血量，而且使毒素释放到大气中，减少你脆皮0.3%(当前的)的繁殖速度，但也会增加所有资源获取0.15%，最多叠1500层。当你清除一个区域后效果重置。带有本挑战完成<b>区域165</b>将奖励你200%的你所获得的氦(不包括区域165及以上所获得)。这个挑战是可重复的！",
 			completed: false,
 			filter: function () {
 				return (game.global.highestLevelCleared >= 164);
@@ -3367,17 +3367,17 @@ var toReturn = {
 		w139: "另一个科学家过来了。你沉重的叹了口气。他也说了些愚蠢的话。你决定暂时忽略科学家们所说的话。",
 		w140: "现在这里确实平静祥和。你看到一只Falcimp在空中转了几个圈。你不会介意拥有翅膀，但总的来说你对自己的种族很满意。",
 		w143: "有个科学家围着你跳来跳去，想引起你的注意。天空中没有什么有趣的东西，所以你假装被石头吸引住了。科学家看到你很忙，耐心等待。",
-		w145: "Your Scientists are not making it easy to ignore them. You not-so-calmly ask what they want. One of them explains that they discovered a new dimension with lots of extra helium. You'll probably check it out, but you won't tell them that.",
+		w145: "你的科学家很吵，想忽视它们可真不容易。你暴躁地问他们到底想要干什么。其中一个科学家表示他们发现了一个有大量额外氦的新维度。你可能会去看看，但你不会告诉他们。",
 		w150: "哇哦。这些建筑物变得越来越贵了。或许有个维度能解决这个问题……",
-		w153: "You remember a person from your past. From your old life. There's someone you need to get back to. You'll make it back.",
-		w156: "You watch in amazement as a Trimp grabs on to one of those weird tree things and swings around by its arms. These things are getting pretty strong.",
-		w157: "You watch in less amazement as a Trimp tries to take a bite out of a very large rock. These things are not getting much smarter.",
+		w153: "你回想起你过去遇到的一个人。在你曾经的生活中。你需要去找一个人。你会让他回来的。",
+		w156: "你惊讶地看着一只脆皮抓着他们其中一个奇怪树状的东西摆来摆去。他们似乎变得更聪明了。",
+		w157: "你并不那么惊讶地看着一只脆皮试图对着岩石咬一大口。他们并没有变得更聪明。",
 		w159: "That's quite a sunset. You know once you finally make it out of here, you'll definitely never forget the sights. Unless, of course, you do.",
 		w160: "A small horde of Trimps comes running up towards you, making excited sounding noises. One of them walks to the front of the loud congregation and proudly holds up a boot, slightly larger but the same style as your own. It must be Druopitee's, confirmation that you're heading the right direction. You reward the Trimp who found it with some food and a few pats on the head, then send the boot to the lab to look for any further clues. You wonder why he took his boot off.",
 		w163: "Your scientists have informed you that half of the boot is now lost in another dimension, thanks to an 'important' test. The results were inconclusive. You ask them to please leave the remaining half in our current dimension, and they look disappointed.",
 		w165: "What's this now?! You found a little green piece of metal. Your scientists tell you that it came from a toxic dimension, but that it is also from a dimension rich in helium. They let you know that they can tune your portal to travel to the dimension it originated from, should you want to check it out.",
-		w166: "That last Improbability seemed like a nice guy.",
-		w168: "Hopefully spaceships don't rust.",
+		w166: "那个无序看起来是个不错的家伙。",
+		w168: "希望太空船没有生锈。",
 		w170: "You reach the top of an incredibly large mountain. You can see at least 50 zones sprawled out before you. About 30 zones away, you can see a gigantic spire. It looks like architecture from your home world. You hope it's not a mirage...",
 		w172: "Something smells purple. That's probably not good.",
 		w174: "Strange smells continue to swell around you. Judging by changes in wind direction, the smells are coming from the spire. You still can't describe it other than purple.",

@@ -4896,6 +4896,8 @@ function cntitle(tit){
         cntit="亡灵化"
     }else if(what=="Bloodthirst"){
         cntit="嗜血"
+    }else if(what=="Scryer Formation"){
+        cntit="占卜者阵型"
     }else{
         cntit=tit
     }

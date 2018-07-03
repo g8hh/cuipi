@@ -7581,7 +7581,7 @@ function startFight() {
 		displayedName += "s";
 	}
 	else {
-		displayedName = cell.name.replace('_', ' ');
+		displayedName = cntime(cell.name.replace('_', ' '));
 	}
 	if (displayedName == "Mutimp" || displayedName == "Hulking Mutimp"){
 		displayedName = "<span class='Mutimp'>" + displayedName + "</span>";
@@ -7594,7 +7594,7 @@ function startFight() {
 		badName = "<span class='badNameMutation " + cell.vm + "'>" + tempName + "</span>";
 	}
 	else if (cell.mutation) {
-		badName = "<span class='badNameMutation " + cell.mutation + "'>" + mutations[cell.mutation].namePrefix + " " + displayedName + "</span>";
+		badName = "<span class='badNameMutation " + cell.mutation + "'>" + cntime(mutations[cell.mutation].namePrefix) + " " + displayedName + "</span>";
 	}
 	else if (cell.vm && visualMutations[cell.vm].namePrefix){
 		badName = "<span class='badNameMutation " + cell.vm + "'>" + visualMutations[cell.vm].namePrefix + " " + displayedName + "</span>"
@@ -13559,7 +13559,7 @@ function cntequan(what){
 }
 
 function cntime(time) {
-    //汉化时间
+    //汉化时间（加上怪名）
     var cntime = "";
     var temp = time;
     if (temp == "Monday") {
@@ -13575,8 +13575,13 @@ function cntime(time) {
     } else if (temp == "Saturday") {
         cntime = "周六";
     } else if(temp=="Sunday"){
-        cntime = "周日";   
+        cntime = "周日"; 
+    } else if(temp=="Improbability"){
+        cntime = "无序"; 
+    } else if(temp=="Corrupt"){
+        cntime = "腐败"; 
     } else {
+        console.log("测试"+time)
         return time;
     }
     return cntime;
