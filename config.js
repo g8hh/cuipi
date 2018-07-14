@@ -3307,7 +3307,7 @@ var toReturn = {
 		w16: "你是认真的吗？又一个守卫！",
 		w17: "你爬上一个巨大的悬崖，俯瞰着一片新的区域。红色的泥土，烧焦的地面，一片荒芜。 那是一头龙在飞来飞去吗？！",
 		w18: "似乎有一种奇怪的力量鼓励你继续前行。气氛变得有点，愤怒的感觉。 你的身体的一部分想转身回去,但其他大部分想继续前行。",
-		w19: "你回头看看你的王国，你拥有宝石、殖民地和领土。 你在想你的脆皮是不是已经在战斗中牺牲了。 沉思之后， 两个字从你的嘴里蹦了出来 “算了”",
+		w19: "你回头看看你的王国，你拥有宝石、殖民地和领土。 你在想你的脆皮是不是已经在战斗中牺牲了。 沉思之后，两个字从你的嘴里蹦了出来 “算了”",
 		w20: "你感觉到你离你的目标已经不远了。",
 		get w22 () {
 			if (game.global.challengeActive == "Trimp" && game.jobs.Amalgamator.owned > 0) return toZalgo("You hear a strange humming noise that seems to draw you towards it, though it also seems to come from no direction in particular. You can feel that it's being created by " + ((game.jobs.Amalgamator.owned == 1) ? "the" : "an") + " Amalgamator, though you've never heard such a sound before. It's both unsettling and enchanting, and the Universe seems to hate it.", 4, 1);
@@ -3372,52 +3372,52 @@ var toReturn = {
 		w153: "你回想起你过去遇到的一个人。在你曾经的生活中。你需要去找一个人。你会让他回来的。",
 		w156: "你惊讶地看着一只脆皮抓着他们其中一个奇怪树状的东西摆来摆去。他们似乎变得更聪明了。",
 		w157: "你并不那么惊讶地看着一只脆皮试图对着岩石咬一大口。他们并没有变得更聪明。",
-		w159: "That's quite a sunset. You know once you finally make it out of here, you'll definitely never forget the sights. Unless, of course, you do.",
-		w160: "A small horde of Trimps comes running up towards you, making excited sounding noises. One of them walks to the front of the loud congregation and proudly holds up a boot, slightly larger but the same style as your own. It must be Druopitee's, confirmation that you're heading the right direction. You reward the Trimp who found it with some food and a few pats on the head, then send the boot to the lab to look for any further clues. You wonder why he took his boot off.",
-		w163: "Your scientists have informed you that half of the boot is now lost in another dimension, thanks to an 'important' test. The results were inconclusive. You ask them to please leave the remaining half in our current dimension, and they look disappointed.",
-		w165: "What's this now?! You found a little green piece of metal. Your scientists tell you that it came from a toxic dimension, but that it is also from a dimension rich in helium. They let you know that they can tune your portal to travel to the dimension it originated from, should you want to check it out.",
+		w159: "太阳下山了。你知道，一旦你最终走出这里，你绝对不会忘记这里的风景。当然，除非你刻意忘记。",
+		w160: "一小群脆皮发出激动的声音朝你跑来。其中一只走在最前面，自豪地递来一只靴子。这个靴子有点大，但是和你的是一种款式的。这靴子一定是德鲁普提船长的，证明了你在向正确的方向前进。你奖励发现靴子的脆皮一些食物并拍拍它的头，之后便把靴子送到实验室，去寻找更多线索。你很奇怪，他为什么要脱下靴子呢？",
+		w163: "你的科学家告诉你，由于一项“重要的”测试，现在有一半的靴子丢在了另一个维度。结果仍然是不确定的。你请他们把剩下一半靴子好好地留在这个维度，他们看起来好像有些失望。",
+		w165: "这个是什么?! 你发现了一个小块的绿色金属。你的科学家告诉你这个东西来源于一个带有毒性、但氦量丰富的维度。他们表示如果你想去那里看看，他们可以调节传送门让你到达那个维度。",
 		w166: "那个无序看起来是个不错的家伙。",
 		w168: "希望太空船没有生锈。",
-		w170: "You reach the top of an incredibly large mountain. You can see at least 50 zones sprawled out before you. About 30 zones away, you can see a gigantic spire. It looks like architecture from your home world. You hope it's not a mirage...",
-		w172: "Something smells purple. That's probably not good.",
-		w174: "Strange smells continue to swell around you. Judging by changes in wind direction, the smells are coming from the spire. You still can't describe it other than purple.",
-		w175: "Your Trimps seem happy. They're not used to having a purpose, and having one seems to positively affect them! You call a Trimp over and ask him how he's doing, then you remember that he can't talk.",
-		w178: "You're still not quite sure what that smell is. You feel slightly more powerful, and you fear that your enemies may feel the same way.",
+		w170: "你登上了一座极其巨大的高山的顶峰。你能看到至少有50个区域在你的前方延伸。大约在30个区域远的地方，你可以看到一个巨大的尖塔。它看起来就像你家乡的建筑。你希望这不是海市蜃楼……",
+		w172: "周围有种气味，闻起来让你只能想到紫色。这可能不是一个好兆头。",
+		w174: "这种奇怪的气味仍然在你周围不断扩大。从风向的变化来看，这个气味来源于尖塔。除了紫色，你仍然无法用其他文字来形容这个味道。",
+		w175: "你的脆皮看起来很开心。它们不曾有过目标，现在有一个目标似乎对它们有着正面的影响！你叫来一只脆皮，问他感觉怎么样，然后你才想起来他不能说话。",
+		w178: "你仍然不能确定这种气味究竟是什么。你感觉自己略微变强了一些，你担心你的敌人是不是也会这么觉得。",
 		get w180 () {
-		if (game.global.challengeActive != "Corrupted") return "After clearing out the previous zone, you decide to take a day hike to the top of another gigantic mountain to try to find more info about the smell. As you reach the top, your jaw drops. Clear as day, a healthy amount of purple goo is pouring into the atmosphere from the top of the spire. You can see the zones in front of you beginning to change. This really can't be good.";
-		return "After clearing out the previous zone, you decide to take a day hike to the top of another gigantic mountain to try to find more info about the smell. As you reach the top, your jaw drops. Clear as day, a healthy amount of purple goo is pouring into the atmosphere from the top of the spire. This must be what's causing all of this Corruption you've been trudging through. The planet seems pretty heavily Corrupted already, you wonder if you're too late.";
+		if (game.global.challengeActive != "Corrupted") return "在清理完之前的区域后，你决定花一天时间登上另一座极其巨大高山的顶峰，去寻找有关这个味道的信息。当你登上顶峰时，你惊得下巴都要掉了下来。你清清楚楚地看到，大量的紫色物质从塔尖的顶端倾泻到大气中。你看到你面前的区域开始改变。这真的不是好事情。";
+		return "在清理完之前的区域后，你决定花一天时间登上另一座极其巨大高山的顶峰，去寻找有关这个味道的信息。当你登上顶峰时，你惊得下巴都要掉了下来。你清清楚楚地看到，大量的紫色物质从塔尖的顶端倾泻到大气中。这一定就是导致你一路上遇到的腐败的原因。这个星球似乎已经被严重腐化了，你怀疑你是否已经来得太晚了。";
 		},
-		w182: "Well, there's not really much doubt about it anymore. Some sort of intelligence is intentionally making life more difficult for you and your Trimps. You take this as a sign that you're pretty important, why else would something risk destroying an entire planet to stop you? Your parents would be so proud.",
+		w182: "好吧，对于这个已经没有疑问了。某种有智能的东西有意让你和你的脆皮遇到更多的困难。你觉得这代表着你是很重要的，为什么其他的某种东西会冒着毁灭整个星球的危险来阻止你?你的父母会为你自豪的。",
 		get w184 () {
-				return "The corruption seems to be more pronounced the closer you get to the Spire. Looks like there's " + mutations.Corruption.cellCount() + " of em now."
+				return "越接近尖塔，腐化现象就变得越明显。看起来这个区域有" + mutations.Corruption.cellCount() + "个腐化房间。"
 			},
-		w185: "You have trouble putting into words exactly what the Corruption does to the creatures on this planet. They seem to be stripped of all natural abilities and given powers that you didn't know could exist in the primary dimension.",
-		w187: "None of these corrupted enemies seem to have eyes, so you decide to see if you can get away with flipping one off. As it reacts by roaring and stomping around in a rage, you realize that these things are powerful enough not to need eyes to observe the world. What <i>are</i> these?!",
-		w190: "You awaken from your sleep in a cold sweat to a frantic and terrified noise from the back of the cave where you were sleeping. With urgency, you run to the source of the noise to make sure your Trimps are okay. As you reach the back, you see a handful of Trimps trying to use a small and very angry Snimp as a musical instrument. You put some sand in your ears and go back to sleep.",
-		w193: "The corruption continues to thicken as you near the Spire. You're beginning to grow accustomed to the smell of the Spire, and really don't mind it anymore. It reminds you of blueberries. Evil blueberries.",
-		w198: "You're so close to the source of corruption that you can taste it, and it doesn't taste good.",
+		w185: "你很难准确地用语言表达腐化对这个星球上的生物的影响。它们似乎被剥夺了所有的自然能力，并赋予了某种可以存在于主维度中的，你不知道的力量。 ",
+		w187: "这些被腐化的敌人似乎都没有眼睛，所以你想通过从一只旁边快速过去来试试能否躲过它们。当它愤怒地咆哮并跺脚时，你明白这些敌人已经足够强大，不再需要眼睛来观察这个世界。究竟<i>这些东西</i>是什么?!",
+		w190: "从你睡觉的洞穴后面传来一阵狂乱而又令人恐惧的声音，使你从梦中惊醒，浑身冒着冷汗。你急忙地跑向噪音的源头，想确保你的脆皮是否还好。当你到那里时，你发现一小部分脆皮试图用一只很小但是非常生气的Snimp来作为乐器。你在耳朵中塞了些沙子，回去睡觉了。",
+		w193: "当你靠近尖塔时，腐化继续加剧。你开始习惯了从尖塔中散发出的气味，并且不再介意它了。它让你想起蓝莓。邪恶的蓝莓。",
+		w198: "你是如此接近腐化的源头，以至于你都可以尝到它的味道，但它并不好吃。",
 		get w205 () {
 			if (game.global.spireRows < 10)
-				return "You look back at The Spire and feel kinda bad that there's still a ton of Corruption coming out of it, but you'll get him some time.";
-			return "You don't miss Druopitee too much. You don't remember all that much to miss, but the point stands.";
+				return "当你回头看尖塔时，仍然有很多腐败的东西从塔尖上冒出来，你觉得很失落，但你总有一天会打败他的。";
+			return "你并不是很怀念德鲁普提。重点在于，你没有那么多记忆可供你怀念。";
 		},
 		get w210 () {
 			if (game.global.spireRows < 10)
-				return "It smells extra corrupt. That Spire can't be healthy for the environment.";
-			return "There's still Corruption, but it feels less threatening. You feel more at peace with the planet and feel like you're on track to repairing it. Surely nothing else terrible will happen any time soon.";
+				return "闻起来腐化的程度更高了。那座尖塔对环境肯定不好。";
+			return "腐化仍然存在，但是已经没那么有威胁性了。你在这个星球上感到更加平静，并觉得自己在不断修复它。你确信已经没有什么好害怕的了。";
 		},
 		get w220 () {
 			if (game.global.spireRows < 10)
-				return "Your Trimps seem content. They kinda wish that spire wasn't still pumping purple stuff into their world, but they don't mind too much.";
-			return "Your Trimps seem content. You taught some basic puppetry to them and they've been putting on some great shows with defeated Snimps.";
+				return "你的脆皮看起来很满足。它们有点希望那座尖塔不要再向他们世界释放紫色的东西了，但是它们没那么介意。Y";
+			return "你的脆皮看起来很满足。你教给他们一些基本的木偶戏，然后它们和被打败的Snimps一起上演了一场精彩的演出。";
 		},
-		w225: "You wake up in a sweat after a good night's sleep in a cool, dark cave. You dreamt that you were overheating, though that's never really been a problem before. Oh well, strange dreams and memories haven't really indicated anything important before, it's probably nothing.",
-		w231: "It's pretty hot.",
-		w235: "The heat intensifies as you move further and further through the zones. Instinct says to turn away from the heat, but that wouldn't be any fun.",
+		w225: "你在一个凉爽、黑暗的洞穴一觉醒来后全身都是汗。你梦到你非常的热，尽管在过去温度从未成为一个问题。好吧，奇怪的梦和之前的记忆也没有真正表明什么重要的东西，可能没有什么事。",
+		w231: "这里非常热。",
+		w235: "热量随着你穿过区域而逐渐增强。你的本能告诉你要原理这些热量，但是那样就无法前进了。",
 		get w245 () {
 			if (game.jobs.Magmamancer.owned > 0)
 				return "Your Magmamancers have figured out how to make little fountains in the Magma around the base. You like the effect.";
-			return "You remember Magmamancers as being pretty cool.";
+			return "你记得法师们是非常酷的。";
 		},
 		w251: "You asked that Omnipotrimp nicely not to explode after you killed it, but it exploded anyways. Pretty rude.",
 		w255: "Your Trimps continue to lose strength as you press through the zones, but they seem to be adapting well in spirits. It seems like each generation likes the heat more and more.",
@@ -4951,7 +4951,7 @@ var toReturn = {
 			canRunOnce: true,
 			fire: function (level, fromGenerator) {
 				if (!this.canRunOnce) return;
-				var messageText = (fromGenerator) ? "The world feels a little bit less angry as you fire off your handy Portal Generator. You can tell that somewhere in some dimension, a Megablimp is no more. In front of you, " + ((game.global.runningChallengeSquared) ? "a green, shining box appears" : "45 helium and a green, shining box appear") + " on the ground. In tiny writing on the box, you can make out the words 'Time portal. THIS SIDE UP'." : "不要让任何人告诉你你刚才没有杀死那个Megablimp，因为你确实杀死它了。当它逐渐溶解消散时，你发现在地上有一个绿色的，发光的盒子。盒子上有一行小字，你能辨认出上面的字是“时间传送门。此端向上。”";
+				var messageText = (fromGenerator) ? "当你启动你的传送门时，这个世界就不会那么愤怒了。你明白，在某个维度的某个地方，Megablimp已经不复存在。在你面前, " + ((game.global.runningChallengeSquared) ? "一个绿色闪耀的盒子出现" : "45 氦以及一个绿色闪耀的盒子出现") + "在地面上。盒子上有一行小字，你可以认清那行字是“时间传送门。此面向上”。" : "不要让任何人告诉你你刚才没有杀死那个Megablimp，因为你确实杀死它了。当它逐渐溶解消散时，你发现在地上有一个绿色的，发光的盒子。盒子上有一行小字，你能辨认出上面的字是“时间传送门。此端向上。”";
 				message(messageText, "Story");
 				game.global.portalActive = true;
 				fadeIn("portalBtn", 10);

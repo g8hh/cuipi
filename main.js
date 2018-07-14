@@ -4171,22 +4171,22 @@ var voidBuffConfig = {
 		doubleAttack: {
 			icon: 'icomoon icon-pushpin',
 			text: '这个坏家伙攻击两次，一次在你之前，一次在你之后。',
-			title: 'Void Attack',
+			title: '虚空攻击',
 		},
 		slowBreed: {
 			icon: 'icomoon icon-cloudy2',
 			text: '这张地图将脆皮的繁殖速度降低了80％。',
-			title: 'Void Gas',
+			title: '虚空气体',
 		},
 		getCrit: {
 			icon: 'icomoon icon-heart6',
 			text: '这个坏家伙有25％的几率对你造成400％的额外伤害。',
-			title: 'Void Strength',
+			title: '虚空力量',
 		},
 		bleed: {
 			icon: "icomoon icon-drop",
 			text: '每次当这个坏家伙攻击时，你就会失去 <b>当前</b> 20％的生命。',
-			title: 'Void Bleed',
+			title: '虚空流血',
 		}
 }
 
@@ -5469,9 +5469,9 @@ var mutations = {
 				text = mutText[0].toUpperCase() + mutText.substring(1);
 			}
 			else {
-				text = "All corrupted enemies currently deal " + prettify(this.statScale(3)) + "X damage and have " + prettify(this.statScale(10)) + "X health. In addition, " + mutText;
+				text = "所有腐化敌人现在拥有" + prettify(this.statScale(3)) + "倍攻击并拥有" + prettify(this.statScale(10)) + "倍生命值。此外，" + mutText;
 			}
-			text += " It will also drop " + ((game.global.challengeActive == "Corrupted") ? "7.5%" : "15%") + " of the helium you would normally get from completing this zone.";
+			text += "它也会掉落你在该区域所得氦的" + ((game.global.challengeActive == "Corrupted") ? "7.5%" : "15%") + "。";
 			return text;
 		},
 		effects: ['corruptDbl', 'corruptBleed', 'corruptStrong', 'corruptTough', 'corruptDodge', 'corruptCrit'],
@@ -5921,57 +5921,57 @@ var mutations = {
 var mutationEffects = {
 	corruptDbl: {
 		icon: 'icomoon icon-pushpin',
-		text: '这个坏家伙攻击两次，一次在你之前，一次在你之后。',
+		text: '这个敌人攻击两次，一次在你之前，一次在你之后。',
 		title: 'Corrupted Stamina'
 	},
 	corruptCrit: {
 		icon: 'icomoon icon-heart6',
-		text: '这个坏家伙有25％的几率对你造成400％的额外伤害。',
+		text: '这个敌人有25％的几率对你造成400％的额外伤害。',
 		title: 'Corrupted Precision'
 	},
 	corruptBleed: {
 		icon: "icomoon icon-drop",
-		text: '每次当这个坏家伙攻击时，你就会失去 <b>当前</b> 20％的生命。',
+		text: '每次当这个敌人攻击时，你就会失去<b>当前</b>生命值的20％。',
 		title: 'Corrupted Sharpness'
 	},
 	corruptStrong: {
 		icon: 'icomoon icon-hammer',
-		text: 'this bad guy has an additional 2x attack.',
+		text: '这个敌人有额外的2倍攻击。',
 		title: 'Corrupted Strength'
 	},
 	corruptTough: {
 		icon: 'icomoon icon-shield2',
-		text: 'this bad guy has an additional 5x health.',
+		text: '这个敌人有额外的5倍生命值。',
 		title: 'Corrupted Toughness'
 	},
 	corruptDodge: {
 		icon: 'icomoon icon-air',
-		text: 'this bad guy has a 30% chance to dodge your attacks.',
+		text: '这个敌人有30%的几率闪躲你的攻击。',
 		title: 'Corrupted Agility'
 	},
 	healthyDbl: {
 		icon: 'icomoon icon-pushpin',
-		text: 'this bad guy attacks twice for 1.5x damage - once before you, and once again after you.',
+		text: '这个敌人以1.5倍伤害攻击你两次，一次在你之前，一次在你之后。',
 		title: 'Healthy and Tireless'
 	},
 	healthyCrit: {
 		icon: 'icomoon icon-heart6',
-		text: 'this bad guy has a 25% chance to crit you for 600% extra damage.',
+		text: '这个敌人有25%的概率以600%的额外伤害对你暴击。',
 		title: 'Healthy and Precise'
 	},
 	healthyBleed: {
 		icon: "icomoon icon-drop",
-		text: 'every time this bad guy attacks, you will lose an additional 30% of your <b>current</b> health.',
+		text: '每次这个敌人攻击时，你都会损失你<b>当前</b>生命值的30%。',
 		title: 'Healthy and Sharp'
 	},
 	healthyStrong: {
 		icon: 'icomoon icon-hammer',
-		text: 'this bad guy has an additional 2.5x attack.',
+		text: '这个敌人有额外2.5倍的伤害。',
 		title: 'Healthy and Strong'
 	},
 	healthyTough: {
 		icon: 'icomoon icon-shield2',
-		text: 'this bad guy has an additional 7.5x health.',
+		text: '这个敌人有额外7.5倍的生命值。',
 		title: 'Healthy and Tough'
 	},
 	none: {
@@ -6587,13 +6587,13 @@ function setVoidCorruptionIcon(regularMap){
 		attackScale = (mutations.Corruption.statScale(3));
 		healthScale = (mutations.Corruption.statScale(10));
 	}
-	var text = "This " + ((regularMap) ? "map" : "Void Map") + " has become unstable due to Corruption. Enemy attack increased by " + prettify(attackScale) + "X, and health increased by " + prettify(healthScale) + "X.";
+	var text = "这个 " + ((regularMap) ? "地图" : "虚空地图") + "因为腐化而变得不稳定。敌人的攻击增长" + prettify(attackScale) + "倍,生命值增长" + prettify(healthScale) + "倍。";
 	var title = "";
 	if (!regularMap){
-		text += " Helium at the end of the map is now double what you would earn from a World zone, including Corrupted cells!";
-		title = "Void Corruption";
+		text += "地图末尾的氦现在变为你在世界区域赚得的两倍，包括腐化房间！";
+		title = "虚空腐化";
 	}
-	else title = "Map Corruption";
+	else title = "地图腐化";
 	document.getElementById('corruptionBuff').innerHTML = '<span class="badge badBadge voidBadge" onmouseover="tooltip(\'' + title + '\', \'customText\', event, \'' + text + '\')" onmouseout="tooltip(\'hide\')"><span class="glyphicon glyphicon-plus"></span></span>&nbsp;';
 }
 
@@ -8860,13 +8860,13 @@ function getSpireStats(cellNum, name, what){
 function deadInSpire(){
 	game.global.spireDeaths++;
 	if (game.global.spireDeaths >= 10) {
-		message("You're not yet ready. Maybe you'll be of use in the next lifetime.", "Story");
+		message("你还没准备好。也许你下次能够完成它。", "Story");
 		endSpire();
 		return;
 	}
 	var s = (game.global.spireDeaths > 1) ? "s" : "";
 	var has = (game.global.spireDeaths > 1) ? "have" : "has";
-	message(game.global.spireDeaths + " group" + s + " of Trimps " + has + " perished in the Spire.", "Notices");
+	message(game.global.spireDeaths + " 组脆皮在尖塔中已被击败。", "Notices");
 }
 
 function endSpire(cancelEarly){
@@ -9051,24 +9051,24 @@ function rewardSpire1(level){
 	var text = "";
 	switch(level){
 		case 10:
-			text = "The voice booms again, and sounds as if it is coming from the walls themselves.<br/><br/><span class='spirePoem'>It has been forever, yet now we meet,<br/>I'm not surprised you don't remember me.<br/>I believe it is I who you currently seek,<br/>Lifetimes ago I was Druopitee.</span>";
-			if (game.portal.Toughness_II.locked) text += "<br/>You're glad you remembered his name correctly! You feel tougher as memories begin to flood back, and <b>unlocked Toughness II</b>!";
+			text = "一阵低沉的声音响起，这声音似乎来源于墙壁本身。<br/><br/><span class='spirePoem'>像是经过了永远,如今相遇于同一轨迹,<br/>我并不奇怪你已经把我忘记。<br/>我相信我就是你所寻觅,<br/>我就是过去的德鲁普提。</span>";
+			if (game.portal.Toughness_II.locked) text += "<br/>你很高兴你正确地记得他的名字！当记忆开始恢复的时候让你感觉自己变得更加坚韧，并且<b>解锁 韧性II</b>!";
 			message(text, "Story");
 			game.portal.Toughness_II.locked = false;
 			break;
 		case 20:
-			message("<span class='spirePoem'>On our planet you and I studied time,<br/>We realized Warp Speed could affect that line.<br/>I took our work in a ship of my own design,<br/>To test the effects of our new paradigm.</span><br/>Oh yeah. That's where you knew him from! Wait doesn't he owe you some money? You feel fair taking a vial of <b>40 Nullifium</b> from a research table.", "Story");
+			message("<span class='spirePoem'>在母星上我们共同研究时间,<br/>我们发现曲速可以影响时间线。<br/>我将成果安置在我的飞船之间,<br/>来测试新范式能做出什么改变。</span><br/>噢，是的。那里就是你认识他的地方！等等，他不是还欠你些钱吗？你从研究桌上取走了<b>40虚空物质</b>，你感觉很公平。", "Story");
 			game.global.nullifium += 40;
 			break;
 		case 30:
-			text += "<span class='spirePoem'>My tests made other dimensions appear,<br/>I found this planet in one and flew here.<br/>There were hordes of enemies, if that wasn't clear,<br/>The finding was huge but the threat severe.</span><br/>Ah, so you're in a different dimension than your friends and family, comforting.";
-			if (game.portal.Power_II.locked) text += " Your desire to go home some day causes strength to flow through you, and you <b>unlocked Power II</b>!";
+			text += "<span class='spirePoem'>那测试使其他维度出现,<br/>某维度中，我发现这星球并飞来这边。<br/>如果不清理，大量敌人在此露面,<br/>在这里发现巨大，但威胁仍然未变。</span><br/>啊，所以你和你的朋友和家人处在一个不同的维度，真是令人安心。";
+			if (game.portal.Power_II.locked) text += " 你想要某天回家的愿望让你充满了力量,并且你<b>解锁了 力量II</b>!";
 			message(text, "Story");
 			game.portal.Power_II.locked = false;
 			break;
 		case 40:
 
-			text = "<span class='spirePoem'>To stay safe, I built many large towers.<br/>I'd climb up, and I'd peer out for hours.<br/>I searched for lifetimes, my mind became devoured,<br/>then one day I found a way to gain power.</span><br/>Dammit Druopitee. This is all going to end up being his fault, isn't it? ";
+			text = "<span class='spirePoem'>为了安全，我建造许多尖塔。<br/>爬到顶峰，数小时向外观察。<br/>多年研究，意识被吞噬变化,<br/>突然一天，找到变强的方法。</span><br/>该死的德鲁普提。归根结底这一切都是他的错，不是吗? ";
 			if (!game.global.runningChallengeSquared){
 				amt = giveHeliumReward(15);
 				text += "你帮助自己充满容器，使用 " + prettify(amt) + " 氦, 当你听到更多的消息时，他会比你更感激你。";
@@ -9078,49 +9078,49 @@ function rewardSpire1(level){
 			message(text, "Story");
 			break;
 		case 50:
-			text = "<span class='spirePoem'>经过多年的观察，<br/>我终于找到了我的救赎。<br/>一种能引起巨大变异的空气化学物质。,<br/>腐败是我的新发明。</span><br/>是的,完全是他的错。";
-			if (game.portal.Motivation_II.locked) text += "Your desire to stop him is so strong that you've <b>你想要阻止他的欲望是如此强烈，以至于你解锁了 动力 II。</b>!"
+			text = "<span class='spirePoem'>经过多年观察的帮助，<br/>我找到了我的救赎。<br/>空气传播诱导变异的化学产物,<br/>腐化便是我新的造物。</span><br/>是的,完全是他的错。";
+			if (game.portal.Motivation_II.locked) text += "你想要阻止他的欲望是如此强烈，以至于你解锁了<b>动机 II</b>!"
 			message(text, "Story");
 			game.portal.Motivation_II.locked = false;
 			break;
 		case 60:
 			game.global.nullifium += 60;
-			message("<span class='spirePoem'>I pumped Corruption up from my spires,<br/>I watched as it spread outward like wildfires.<br/>They now bowed to me, their brains freshly rewired,<br/>I had almost all that I desired.</span><br/>You feel like anyone willing to pump something called 'Corruption' into a planet's atmosphere probably qualifies as a supervillain. You feel no remorse taking another vial filled with <b>60 Nullifium</b>!", "Story");
+			message("<span class='spirePoem'>我将腐化从尖塔抽出,<br/>看着它像野火蔓延飞速。<br/>它们臣服于我，无数意识连接成束,<br/>我几乎已拥有所要全部。</span><br/>你觉得任何想要把叫做“腐化”的东西注入大气层的人都能叫做超级恶棍。你拿走一个小瓶，其中装着<b>60虚空物质</b>!你觉得你不会后悔。", "Story");
 			break;
 		case 70:
-			message("<span class='spirePoem'>But Trimps, who in numbers are tough as stone,<br/>weren't changed and I couldn't control them alone.<br/>So I got in my ship and I went to our home,<br/>I brought you here to the native Trimp Zones.</span><br/>You don't remember that, but are pretty sure you weren't OK with it. Kidnapping definitely justifies taking this research <b>Heirloom</b> you just found. ", "Story");
+			message("<span class='spirePoem'>但是脆皮，像岩石般顽固,<br/>从不改变，无法独自收服。<br/>驾驶飞船，回到母星船库,<br/>将你带至，脆皮生活之处。</span><br/>你不记得这些，但你很确定你对这件事很不满。他绑架了你，所以你拿走刚发现的研究用<b>传家宝</b>也是合理的。 ", "Story");
 			createHeirloom(201);
 			break;
 		case 80:
-			text = "<span class='spirePoem'>You disliked my plan and had to be forced,<br/>so I wiped your mind and plotted your course.<br/>I came up with plans for equipment and resorts,<br/>I wrote all I knew and left you reports.</span><br/>Oh HE wrote those? Now that you think about it, you can see a lot of ways the designs could be improved";
-			text += (game.portal.Carpentry_II.locked) ? ", and <b>unlocked Carpentry II</b>!" : ".";
+			text = "<span class='spirePoem'>你不满我的计划，我只好强迫,<br/>我抹去你的记忆，规划你的路程经过。<br/>思索出有关装备与帮助的举措,<br/>我写下一切计划，向你诉说。</span><br/>噢，他写下了这些？现在你再想想，你能看到很多方法来改进这个计划。";
+			text += (game.portal.Carpentry_II.locked) ? ", 并 <b>解锁木工 II</b>!" : "。";
 			message(text, "Story");
 			game.portal.Carpentry_II.locked = false;
 			break;
 		case 90:
-			text = "<span class='spirePoem'>Your Trimps grew strong while I watched and waited,<br/>Their loyalty can not be debated.<br/>You knew not of my plan, yet participated,<br/>Now bow to me or be terminated.</span><br/>Yeah you don't really feel too much like bowing and probably won't be doing that.";
+			text = "<span class='spirePoem'>当我观察等待，脆皮不断飞跃,<br/>它们非常忠诚，这无法否决。<br/>你不知我的计划，但仍然参与入列,<br/>现在选择臣服，或是选择毁灭。</span><br/>你不太喜欢臣服，你也不会对他臣服。";
 			if (!game.global.runningChallengeSquared){
 				amt = giveHeliumReward(30);
-				text += " You did however find " + prettify(amt) + " more Helium just sitting around, which you feel no qualms about taking.";
+				text += "你发现有" + prettify(amt) + "氦散落在周围，你会毫不犹豫地使用它们。";
 			}
 			message(text, "Story");
 			break;
 		case 100:
 			if (game.global.spireDeaths == 0) giveSingleAchieve("Invincible");
 
-			text = "Druopitee collapses to the floor. You were hoping he'd be a little more sane, but whatever. You shut down the corruption device and hope the planet will repair itself soon, then you rummage through his stuff and find keys, surely for the ship!";
+			text = "德鲁普提瘫倒在地板上。你希望他能恢复理智。不管怎样，你关闭了腐化装置，并希望这星球能够不久后自我恢复，然后你在他的物品中翻找，找到了一把钥匙，这一定是飞船的钥匙！";
 			if (!game.global.runningChallengeSquared){
 				amt = giveHeliumReward(100);
-				text += " You also find a massive stockpile of <b>" + prettify(amt) + " Helium</b>.";
+				text += "你同时发现了<b>" + prettify(amt) + "氦</b>。";
 			}
-			if (game.portal.Looting_II.locked) text += " Your skills at salvaging things from this Spire have helped you <b>unlock Looting II</b>.";
+			if (game.portal.Looting_II.locked) text += "你在尖塔中寻找东西的技巧帮助你<b>解锁掠夺 II</b>.";
 			if (game.global.spiresCompleted < 1){
-				text += " You notice a small timeworn chest in the back of the room, where Druopitee had been storing the Skeletimp bones that he had collected over many timelines. You open it and find <b>20 Perfect Skeletimp Bones!</b>. You can tell though that these bones won't be here next time. Your Portal has also modified itself to now Liquify zones equal to 5% of your highest Zone reached. You're not quite sure what that means, but you're excited to find out! "
+				text += "你注意到在房间后面有一个破旧的小箱子，里面有德鲁普提在许多时间线中收集到的Skeletimp的骨头。你打开它然后找到了<b>20个完美的Skeletimp骨头!</b>。你明白你下次再来时这些骨头便不会再出现了。你的传送门也发生了改变，现在能够液化你所到最高区域的5%的区域。你不太明白这意味着什么，但是你对这个发现还是很兴奋! "
 				game.global.b += 20;
 				updateSkeleBtn();
 				game.global.spiresCompleted = 1;
 			}
-			text += " You've helped the Trimps establish a legendary population and economy, and have brought down the man responsible for the chaos in this world. You could leave now and the Universe will forever be better because you existed. Trimps will erect statues of you as long as their civilization survives. But you know there are still other spires out there, pumping Corruption into the planet. Maybe the statues would be bigger if you stayed and helped out?";
+			text += "你帮助脆皮建立了能够流传于世的人口和经济，并且已经击败了使这个世界混乱的人。你现在可以离开，因为你的存在，这个宇宙永远都会变得更好。只要脆皮的文明存在，它们就会为你竖起一座雕像。但是你知道世界上仍然存在其他的尖塔，将腐化释放到这个星球上。如果你留下来并且帮助解决这些问题，或许你的雕像能更大一些？";
 			message(text, "Story");
 			game.portal.Looting_II.locked = false;
 			checkAchieve("spireTimed");
