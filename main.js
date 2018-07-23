@@ -653,6 +653,12 @@ function load(saveString, autoLoad, fromPf) {
 	if (oldVersion < 4.801){
 		if (countPurchasedTalents() == 40) game.global.essence = 0;
 	}
+	if (oldVersion < 4.813){
+		//Fix for people who haven't played since the 2016 Trimpmas event, with the old style TrimpmasSnow.
+		for (var x = 0; x < game.global.gridArray.length; x++){
+			if (game.global.gridArray[x].mutation == "TrimpmasSnow") delete game.global.gridArray[x].mutation;
+		}
+	}
 	//End compatibility
 	//Test server only
 	//End test server only
@@ -5827,7 +5833,7 @@ var mutations = {
 						var dif = game.global.magmaFuel - cap;
 						if (dif <= 0) dif = 0;
 						amt -= dif;
-						if (amt <= 0) amt = 0;
+						if (amt <= 0.001) amt = 0;
 						text = "You earned " + prettify(amt) + " fuel! (" + prettify(dif) + " destroyed, not enough capacity)";
 						game.global.magmaFuel = cap;
 					}
@@ -7180,7 +7186,6 @@ function mapsSwitch(updateOnly, fromRecycle) {
             game.global.preMapsActive = false;
 		} 
 		else game.global.preMapsActive = true;
-		resetEmpowerStacks();
 	}
 	if (!updateOnly)
 		game.global.mapExtraBonus = "";
@@ -7222,6 +7227,7 @@ function mapsSwitch(updateOnly, fromRecycle) {
 	}
 	else if (game.global.mapsActive) {
 		//Switching to maps
+		resetEmpowerStacks();
 		if (game.global.formation != 4) game.global.waitToScryMaps = true;
 		if (game.global.usingShriek) {
 			disableShriek();
@@ -7239,6 +7245,7 @@ function mapsSwitch(updateOnly, fromRecycle) {
 	} 
 	else {
 		//Switching to world
+		resetEmpowerStacks();
 		if (game.global.formation != 4) game.global.waitToScry = true;
 		if (game.global.lastClearedCell == 98 && game.global.useShriek && !game.global.usingShriek)
 			activateShriek();
@@ -8879,7 +8886,8 @@ function endSpire(cancelEarly){
 	document.getElementById('grid').className = "";
 	if (game.global.lastClearedCell == 98) {
 		var elem = document.getElementById("badGuyName");
-		elem.innerHTML = elem.innerHTML.replace("Druopitee", "Improbability");
+		if (cell.name == "Omnipotrimp") elem.innerHTML = elem.innerHTML.replace("Echo of Druopitee", "Omnipotrimp");
+		else elem.innerHTML = elem.innerHTML.replace("Druopitee", "Improbability");
 	}
 	clearSpireMetals();
 	setNonMapBox();
