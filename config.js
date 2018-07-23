@@ -353,10 +353,10 @@ var toReturn = {
 	empowerments: {
 		Poison: {
 			description: function () {
-				return "当这个赋权激活时，你的脆皮的每次成功攻击会对敌人造成一个Debuff, 造成额外 <b>" + this.formatModifier(this.getModifier()) + "%</b> 伤害直到它死亡。你的脆皮每次攻击都会进一步增加毒性。";
+				return "当这个赋权激活时，你的脆皮的每次成功攻击会给敌人叠加一个毒药负面效果,使你伤害的<b>" + this.formatModifier(this.getModifier()) + "%</b>叠入毒药效果中。每个回合毒药效果都会扣除敌人相应的生命，直到它死亡。你的脆皮每次攻击都会进一步叠加毒药效果。";
 			},
 			upgradeDescription: function () {
-				return "增加毒药赋权期间，你对敌人造成的毒药Debuff的伤害增加 <b>" + this.formatModifier(this.baseModifier) + "%</b>，现在你的毒药伤害系数是 <b>" + this.formatModifier(this.getModifier()) + "%</b>, 下一级毒药伤害系数是 <b>" + this.formatModifier(this.getModifier(1)) + "%</b>。";
+				return "毒药赋权期间，你每次攻击对敌人叠加的毒药效果增加<b>" + this.formatModifier(this.baseModifier) + "%</b>，现在你的毒药伤害系数是<b>" + this.formatModifier(this.getModifier()) +"%</b>, 下一级毒药伤害系数是<b>" + this.formatModifier(this.getModifier(1)) + "%</b>。";
 			},
 			baseModifier: 0.01,
 			getModifier: function (change) {
@@ -375,10 +375,10 @@ var toReturn = {
 		},
 		Wind: {
 			description: function () {
-				return "当这个赋权活动时，你的脆皮的每次成功攻击会对敌人造成一个Debuff，导致风向膨胀，并将额外资源砸到你的手中。 每个堆栈增加从所有来源获得的氦 <b>" + this.formatModifier(this.getModifier()) + "%</b> 并增加所获得的所有其他资源 <b>" + this.formatModifier(this.getModifier() * 10) + "%</b> 直到敌人死亡（最多200堆）。 氦气奖金不适用于地图。";
+				return "当这个赋权激活时，你的脆皮的每次成功攻击会对敌人叠加一个负面效果，导致大风刮来，并将额外的资源砸到你的手中。每层风效果增加<b>" + this.formatModifier(this.getModifier()) + "%所有来源获得的氦，</b>并增加<b>" + this.formatModifier(this.getModifier() * 10) + "%所有其他资源</b>，直到敌人死亡（最多200层）。氦气奖励不适用于地图。";
 			},
 			upgradeDescription: function () {
-				return "增加风赋权时每层风Debuff <b>" + this.formatModifier(this.baseModifier) + "%</b> 的氦收益和 <b>" + this.formatModifier(this.baseModifier * 10) + "%</b>的氦以外的资源收益。 你现在的 氦 奖励是每层buff <b>" + this.formatModifier(this.getModifier()) + "%</b>, 下一级的 氦 奖励是每层buff <b>" + this.formatModifier(this.getModifier(1)) + "%</b>。 氦以外的资源的奖励总是氦的奖励的10倍，而氦的奖励在地图中不生效。";
+				return "在风赋权激活时，每层风效果多增加<b>" + this.formatModifier(this.baseModifier) + "%</b>的氦收益和<b>" + this.formatModifier(this.baseModifier * 10) + "%</b>的氦以外的资源收益。 你现在的氦奖励是每层效果增加<b>" + this.formatModifier(this.getModifier()) + "%</b>, 下一级的氦奖励是每层效果增加<b>" + this.formatModifier(this.getModifier(1)) + "%</b>。氦以外的资源的奖励总是氦的奖励的10倍，而氦的奖励在地图中不生效。";
 			},
 			baseModifier: 0.001,
 			getModifier: function (change) {
@@ -401,10 +401,10 @@ var toReturn = {
 		},
 		Ice: {
 			description: function () {
-				return "当这个赋权活动时，你的脆皮的每次成功攻击都会使敌人被冰冻，冰冻的Debuff会叠加，每层Debuff会减少敌人 <b>" + this.formatModifier(this.getModifier()) + "%</b>的伤害 (复合) ，同时增加你的脆皮对敌人造成的伤害 (增加的百分比等于敌人减少的百分比，收益递减，最大100%)，直到敌人死亡。";
+				return "当这个赋权活动时，你的脆皮的每次成功攻击都会使敌人被冰冻，冰冻的负面效果会叠加，每层冰冻效果会减少敌人<b>" + this.formatModifier(this.getModifier()) + "%</b>的伤害(叠乘) ，同时增加你的脆皮对敌人造成的伤害(增加的百分比等于敌人减少的百分比，收益递减，最大100%)，直到敌人死亡。";
 			},
 			upgradeDescription: function () {
-				return "每一层冰冻Debuff使敌人造成的伤害额外降低<b>" + this.formatModifier(1 - this.baseModifier) + "%</b> (复合)，并增加你的脆皮相同百分比的伤害加成。(收益递减，最大100%). 你现在的冰冻效果是每层 <b>" + this.formatModifier(this.getModifier()) + "%</b>, 下一级的冰冻效果是每层 <b>" + this.formatModifier(this.getModifier(1)) + "%</b>。";
+				return "每一层冰冻效果使敌人造成的伤害额外降低<b>" + this.formatModifier(1 - this.baseModifier) + "%</b> (复合)，并增加你的脆皮相同百分比的伤害加成。(收益递减，最大100%). 你现在的冰冻效果是每层 <b>" + this.formatModifier(this.getModifier()) + "%</b>, 下一级的冰冻效果是每层 <b>" + this.formatModifier(this.getModifier(1)) + "%</b>。";
 			},
 			baseModifier: 0.01,
 			getModifier: function (change) {
@@ -6440,7 +6440,7 @@ var toReturn = {
 			AP: true,
 			get tooltip () {
 				if (mutations.Magma.active())
-					return "<p>岩浆一般是不利于健康的幼儿园环境。 各苗圃仍会增加脆皮每秒从1％（配混）繁殖，但作为岩浆移近您的活性苗圃的10％将关闭每个区域。 安全第一！</p><p>你总共已经购买托儿所" + prettify(this.purchased) + "个</p>";
+					return "<p>岩浆一般是不利于健康的托儿所环境。 每个托儿所仍会增加脆皮每秒1％（叠乘）繁殖速度，但你每通过一个区域，由于距离岩浆更近，都会关闭你10%的托儿所。 安全第一！</p><p>你总共已经购买托儿所" + prettify(this.purchased) + "个</p>";
 				return "构建一个宝石托儿所，脆皮宝宝可以更快地成长。 繁殖率每秒增加1％（复合）。";
 
 			},

@@ -5133,7 +5133,7 @@ function updateEmpowerCosts(){
 
 function checkAndFormatTokens(tokenCost, empowerment){
 	var canAfford = (game.empowerments[empowerment].tokens >= tokenCost);
-	return "<span class='" + ((canAfford) ? "green" : "red") + "'>" + prettify(tokenCost) + "&nbsp;令牌</span>";
+	return "<span class='" + ((canAfford) ? "green" : "red") + "'>" + prettify(tokenCost) + "&nbsp;符记</span>";
 }
 
 function getRetainModifier(empowerment){
@@ -5173,11 +5173,11 @@ function natureTooltip(event, doing, spending, convertTo){
 		tipTitle = "转换 " + spending + " 为 " + convertTo;
 		tipCost = ctrlPressed ? Math.floor(game.empowerments[spending].tokens / 10) * 10 : 10;
 		var convertRate = (game.talents.nature.purchased) ? ((game.talents.nature2.purchased) ? 8 : 6) : 5;
-		tipText = "<p>交易 " + tipCost + " 令牌 " + spending + " 然后得到 " + (tipCost / 10 * convertRate) + " 令牌 " + convertTo + "。</p>";
+		tipText = "<p>花费" + tipCost+spending + "符记交易得到 " + (tipCost / 10 * convertRate) + convertTo + "符记。</p>";
 		if (!ctrlPressed) tipText += "<p><b>按住Ctrl键可以一次转换所有令牌。</b></p>";
 	}
 	else if (doing == 'stackTransfer'){
-		tipTitle = "升级 " + spending + " Debuff的传递比例";
+		tipTitle = "升级 " + spending + " 效果的传递比例";
 		var retainLevel = game.empowerments[spending].retainLevel;
 		var cap = 80;
 		if (game.talents.nature3.purchased){
@@ -5185,16 +5185,16 @@ function natureTooltip(event, doing, spending, convertTo){
 			cap += 5;
 		}
 		if (retainLevel >= cap){
-			tipText = "您目前处于该Debuff传递比例的最高水平, 可以传递 <b>" + cap + "%</b> 的赋权Debuff。";
+			tipText = "您目前处于该效果传递比例的最高水平, 可以传递 <b>" + cap + "%</b> 的赋权Debuff。";
 			tipCost = 0;
 		}
 		else{
-			tipText = "现在，当你击败一个敌人后，<b>" + prettify(getRetainModifier(spending) * 100) + "%</b>的 " + spending + "的Debuff会传递给下一个敌人，升级会使这个传递比例增加 <b>1%</b>, 也就是会达到 <b>" + prettify((getRetainModifier(spending) + 0.01) * 100) + "%</b>。这个传递的最高等级是 " + ((game.talents.nature3.purchased) ? "85" : "80") + " 级。";
+			tipText = "现在，当你击败一个敌人后，<b>" + prettify(getRetainModifier(spending) * 100) + "%</b>的 " + spending + "的效果会传递给下一个敌人，升级会使这个传递比例增加 <b>1%</b>, 也就是会达到 <b>" + prettify((getRetainModifier(spending) + 0.01) * 100) + "%</b>。这个传递的最高等级是 " + ((game.talents.nature3.purchased) ? "85" : "80") + " 级。";
 			tipCost = getNextNatureCost(spending, true);
 		}
 	}
 	if (tipCost == 0) tipCost = "";
-	else tipCost = (game.empowerments[spending].tokens < tipCost) ? "<span class='red'>" + prettify(tipCost) + " 令牌 " + spending + "</span>" : "<span class='green'>" + prettify(tipCost) + " 令牌 " + spending + "</span>";
+	else tipCost = (game.empowerments[spending].tokens < tipCost) ? "<span class='red'>" + prettify(tipCost) + spending +"符记"+"</span>" : "<span class='green'>" + prettify(tipCost) + " 符记 " + spending + "</span>";
 	tooltip(tipTitle, 'customText', event, tipText, tipCost, null, null, null, null, true);
 	tooltipUpdateFunction = function () {natureTooltip(event, doing, spending, convertTo)}
 }
@@ -5206,7 +5206,7 @@ function displayNature(){
 function rewardToken(empowerment){
 	var tokens = Math.floor((game.global.world - 241) / 15) + 1;
 	game.empowerments[empowerment].tokens += tokens;
-	message("你找到了 " + prettify(tokens) + " 令牌" + ((tokens == 1) ? "" : "") + " of " + empowerment + "!", "Loot", "*medal2", "empoweredCell" + empowerment, 'token');
+	message("你找到了 " + prettify(tokens) + " 符记" + ((tokens == 1) ? "" : "") + " of " + empowerment + "!", "Loot", "*medal2", "empoweredCell" + empowerment, 'token');
 	if (game.global.buyTab == "nature")
 		updateNatureInfoSpans();
 	game.stats.bestTokens.value += tokens;
@@ -7566,7 +7566,7 @@ function startFight() {
 	var badName;
 	var displayedName;
 	if ((cell.name == "Improbability") && game.global.spireActive){
-		displayedName = "Druopitee";
+		displayedName = "德鲁普提";
 		if (game.global.challengeActive == "Coordinate") displayedName = "Druopitee and Pals";
 	}
 	else if (cell.name == "Omnipotrimp" && game.global.spireActive){
@@ -7610,7 +7610,7 @@ function startFight() {
 		badName += " (" + prettify(badCoord) + ")";
 	}
 	if (cell.name == "Omnipotrimp" && game.global.world % 5 == 0 && !game.global.spireActive){
-		badName += ' <span class="badge badBadge Magma" onmouseover="tooltip(\'Superheated\', \'customText\', event, \'This Omnipotrimp is Superheated, and will explode on death.\')" onmouseout="tooltip(\'hide\')"><span class="icomoon icon-fire2"></span></span>';
+		badName += ' <span class="badge badBadge Magma" onmouseover="tooltip(\'Superheated\', \'customText\', event, \'这个Omnipotrimp是过热的,并且会在死亡时爆炸\')" onmouseout="tooltip(\'hide\')"><span class="icomoon icon-fire2"></span></span>';
 	}
 	if (game.global.brokenPlanet && !game.global.mapsActive){
 		badName += ' <span class="badge badBadge" onmouseover="tooltip(\'Pierce\', \'customText\', event, \'这个坏家伙造成的伤害包含 ' + prettify(getPierceAmt() * 100) + '% 的穿透伤害。\')" onmouseout="tooltip(\'hide\')"><span class="glyphicon glyphicon-tint"></span></span>';

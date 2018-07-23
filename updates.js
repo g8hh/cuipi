@@ -198,7 +198,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		var emp = game.empowerments[active];
 		if (typeof emp.description === 'undefined') return;
 		var lvlsLeft = ((5 - ((game.global.world - 1) % 5)) + (game.global.world - 1)) + 1;
-		tooltipText = "<p>这个 " + active + " 赋权激活中！</p><p>" + emp.description() + "</p><p>这个自然赋权会结束于区域Z" + lvlsLeft + ", 在这个区域范围中，你将会碰到一个 " + getEmpowerment(null, true) + " 敌人并与他战斗，获胜后将获得若干个 " + active + "令牌。</p>";
+		tooltipText = "<p>这个 " + active + " 赋权激活中！</p><p>" + emp.description() + "</p><p>这个自然赋权会结束于区域" + lvlsLeft + ", 在这个区域范围中，你将会碰到一个 " + getEmpowerment(null, true) + " 敌人并与他战斗，获胜后将获得若干个 " + active + "符记。</p>";
 		costText = "";
 
 	}
@@ -324,7 +324,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 
 	}
 	if (what == "Poisoned"){
-		tooltipText = "This enemy is harmed by the Empowerment of Poison, and is taking " + prettify(game.empowerments.Poison.currentDebuffPower) + " extra damage per turn.";
+		tooltipText = "这个敌人被毒赋权伤害,每个回合多受到" + prettify(game.empowerments.Poison.currentDebuffPower) + " 的额外伤害。";
 		costText = "";
 	}
 	if (what == "Chilled"){
@@ -332,8 +332,8 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		costText = "";
 	}
 	if (what == "Breezy"){
-		var heliumText = (!game.global.mapsActive)? "increasing all Helium gained by " + prettify(game.empowerments.Wind.getCombatModifier() * 100) + "% and all other" : "increasing all non-Helium ";
-		tooltipText = "There is a rather large amount of Wind swelling around this enemy, " + heliumText + " resources by " + prettify(game.empowerments.Wind.getCombatModifier() * 1000) + "%.";
+		var heliumText = (!game.global.mapsActive)? "增加" + prettify(game.empowerments.Wind.getCombatModifier() * 100) + "%所有氦的获取，以及" : "增加";
+		tooltipText = "这个敌人周围有大风刮来, " + heliumText + prettify(game.empowerments.Wind.getCombatModifier() * 1000) + "%的非氦资源获取。";
 		costText = "";
 	}
 	if (what == "Perk Preset"){
@@ -544,7 +544,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		else if (talent.purchased)
 			costText = "<span style='color: green'>已购买</span>";
 		else if (game.global.essence < nextTalCost && prettify(game.global.essence) != prettify(nextTalCost))
-			costText = "<span style='color: red'>" + prettify(nextTalCost) + " 黑暗精华 (使用战利品赚取更多)</span>";
+			costText = "<span style='color: red'>" + prettify(nextTalCost) + " 黑暗精华 (使用占卜者阵型赚取更多)</span>";
 		else costText = prettify(nextTalCost) + " 黑暗精华";
 		what = talent.name;
 		noExtraCheck = true;
@@ -1147,7 +1147,7 @@ function messageConfigHover(what, event){
 			title = "热门";
 			break;
 		case 'Loottoken':
-			text = "自然令牌日志。";
+			text = "自然符记日志。";
 			title = "Token";
 			break;
 		case 'Lootcache':
