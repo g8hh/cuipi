@@ -460,8 +460,7 @@ function load(saveString, autoLoad, fromPf) {
 		game.buildings.Wormhole.increase.by = 1500;
 	}
 	if (oldVersion < 2.81 && typeof game.global.lootAvgs !== 'undefined'){
-		game.global.lootAvgs.fragments = [0];
-		game.global.lootAvgs.fragmentsTotal = 0;
+		game.global.lootAvgs.fragments = {average:0, accumulator: 0}
 	}
 	if (oldVersion < 2.9){
 		if (game.options.menu.showFullBreed.enabled == 2) game.options.menu.showFullBreed.enabled = 1;
@@ -659,6 +658,26 @@ function load(saveString, autoLoad, fromPf) {
 			if (game.global.gridArray[x].mutation == "TrimpmasSnow") delete game.global.gridArray[x].mutation;
 		}
 	}
+	if (oldVersion < 4.814) {
+		if (oldVersion > 2.8){
+			var resources = ['food', 'wood', 'metal', 'gems', 'fragments'];
+			var newAvgs = {};
+			for (var x = 0; x < resources.length; x++) {
+				var res = resources[x];
+				newAvgs[res] = {
+					accumulator: 0,
+					average: game.global.lootAvgs[res].reduce(function(a, b) {
+						return a + b;
+					}, 0)
+					/ (game.global.lootAvgs[res].length || 1)
+				};
+			}
+			game.global.lootAvgs = newAvgs;
+		}
+		game.settings.ewma_alpha = 0.05;
+		game.settings.ewma_ticks = 10;
+	}
+
 	//End compatibility
 	//Test server only
 	//End test server only
@@ -788,6 +807,10 @@ function load(saveString, autoLoad, fromPf) {
 	if (game.global.autoUpgradesAvailable){
 		document.getElementById("autoUpgradeBtn").style.display = "block";
 		toggleAutoUpgrades(true);
+	}
+	if (game.global.sLevel >= 4){
+		document.getElementById("autoPrestigeBtn").style.display = "block";
+		toggleAutoPrestiges(true);
 	}
 	if (game.global.autoStorageAvailable){
 		document.getElementById("autoStorageBtn").style.display = "block";
@@ -1284,6 +1307,7 @@ function abandonChallenge(restart){
 	}
 	if (challengeName != "Daily")
 		message("Your challenge has been abandoned.", "Notices");
+	refreshMaps();
 }
 
 function checkChallengeSquaredAllowed(){
@@ -2485,29 +2509,40 @@ function getMaxForResource(what){
 	return newMax;
 }
 
+// Exponentially weighted moving average is less jumpy than a normal
+// moving average, so we can include jestimps.
+// https://en.wikipedia.org/wiki/Moving_average
+//
+// Averaging smoothness is controlled by `game.settings.ewma_alpha`,
+// which should be between 0 and 1 (exclusive). Lower values provide
+// more smoothness, higher values have less lag. Default value of 0.05
+//
+// The time between average updates is now controlled by
+// `game.settings.ewma_ticks`, which is the number of ticks between
+// updates. The default value is 10, i.e. every 1 second.
+
 function addAvg(what, number) {
 	var avgA = game.global.lootAvgs[what];
-	if (typeof avgA === 'undefined' || typeof game.global.lootAvgs[what + "Total"] === 'undefined') return;
-	avgA[avgA.length - 1] += number;
-	game.global.lootAvgs[what + "Total"] += number;
+	if (typeof avgA === 'undefined') return;
+	avgA.accumulator += number;
 }
 
 function getAvgLootSecond(what) {
 	var avgA = game.global.lootAvgs[what];
-	if (typeof avgA === 'undefined' || typeof game.global.lootAvgs[what + "Total"] === 'undefined') return 0;
-	return (game.global.lootAvgs[what + "Total"] / avgA.length / 3);
+	if (typeof avgA === 'undefined') return 0;
+	return game.global.lootAvgs[what].average;
 }
 
 function curateAvgs() {
 	for (var what in game.global.lootAvgs) {
-		if (!Array.isArray(game.global.lootAvgs[what])) continue;
-		var avgA = game.global.lootAvgs[what];
-		while (avgA.length >= 60) {
-			game.global.lootAvgs[what + "Total"] -= avgA[0];
-			if (game.global.lootAvgs[what + "Total"] <= 0) game.global.lootAvgs[what + "Total"] = 0;
-			avgA.splice(0, 1);
-		}
-		avgA.push(0);
+            if (typeof game.global.lootAvgs[what] !== 'object') continue;
+            var avgA = game.global.lootAvgs[what];
+            avgA.average = avgA.average * (1 - game.settings.ewma_alpha)
+                         + avgA.accumulator
+                           * game.settings.ewma_alpha
+                           / game.settings.ewma_ticks
+                           * game.settings.speed;
+            avgA.accumulator = 0;
 	}
 }
 
@@ -3414,7 +3449,7 @@ function breed() {
 	var remainingTime = timeRemaining;
 	timeRemaining += " 秒";
 		//Display full breed time if desired
-	var totalTimeText = totalTime.toFixed(1);
+	var totalTimeText = Math.ceil(totalTime * 10) / 10;
 	if (game.options.menu.showFullBreed.enabled){
 		fullBreed = totalTimeText + " 秒";
 		timeRemaining += " / " + fullBreed;
@@ -4907,8 +4942,8 @@ function getRandomBySteps(steps, mod, fromBones){
 		var possible = ((steps[1] - steps[0]) / steps[2]);
 		var roll = getRandomIntSeeded(seed, 0, possible + 1);
 		var result = steps[0] + (roll * steps[2]);
-		result = Math.floor(result * 100) / 100;
-		return ([result, (possible - roll)]);
+		result = Math.round(result * 100) / 100;
+		return ([result, Math.round(possible - roll)]);
 }
 
 function getHeirloomZoneBreakpoint(zone){
@@ -6459,8 +6494,8 @@ function generatorTick(fromOverclock){
 function addMaxHousing(amt, giveTrimps){
 	var wasFull = (game.resources.trimps.owned == game.resources.trimps.realMax());
 	game.resources.trimps.max += amt;
-	if (game.global.challengeActive == "Trapper") return amt;
 	amt = scaleNumberForBonusHousing(amt);
+	if (game.global.challengeActive == "Trapper") return amt;
 	if (!giveTrimps) return amt;
 	if (wasFull){
 		game.resources.trimps.owned = game.resources.trimps.realMax();
@@ -7419,7 +7454,8 @@ function battleCoordinator(makeUp) {
 function battle(force) {
 	var trimps = game.resources.trimps;
 	var trimpsMax = trimps.realMax();
-    if (game.global.fighting) return;
+	if (game.global.fighting) return;
+	if (game.global.soldierHealth <= 0) document.getElementById('critSpan').innerHTML = "";
     if ((game.global.switchToMaps || game.global.switchToWorld) && trimps.soldiers === 0) {
         mapsSwitch();
         return;
@@ -8730,7 +8766,7 @@ function nextWorld() {
 		//Without Hiring Anything
 		var jobCount = 0;
 		for (var job in game.jobs) jobCount += game.jobs[job].owned; //Dragimp adds 1
-		if (jobCount - game.jobs.Dragimp.owned == 0 && game.stats.trimpsFired.value == 0) giveSingleAchieve("Unemployment");
+		if (jobCount - game.jobs.Dragimp.owned - game.jobs.Amalgamator.owned == 0 && game.stats.trimpsFired.value == 0) giveSingleAchieve("Unemployment");
 	}
 	else if (game.global.world == 65) checkChallengeSquaredAllowed();
 	else if (game.global.world == 75 && checkHousing(true) == 0) giveSingleAchieve("Tent City");
@@ -10489,7 +10525,6 @@ function fight(makeUp) {
 	var thisKillsTheTrimp = function() {
 		impOverkill -= game.global.soldierHealth;
 		game.global.soldierHealth = 0;
-		critTier = 0;
 	};
 	var thisKillsTheBadGuy = function() {
 		cell.health = 0;
@@ -10816,7 +10851,9 @@ function updateAntiStacks(){
 	if (game.global.antiStacks > 0){
 		var number = ((game.global.antiStacks * game.portal.Anticipation.level * game.portal.Anticipation.modifier));
 		number = Math.floor(number * 100);
-		elem.innerHTML = '<span class="badge antiBadge" onmouseover="tooltip(\'Anticipation\', \'customText\', event, \'你的脆皮获得了' + number + '% 的额外伤害，因为需要' + game.global.antiStacks + ' 秒来生产部队。\')" onmouseout="tooltip(\'hide\')">' + game.global.antiStacks + '<span class="icomoon icon-target2"></span></span>';
+		var verb = game.jobs.Amalgamator.owned > 0 ? "prepare" : "populate";
+		var s = game.global.antiStacks == 1 ? '' : '';
+		elem.innerHTML = '<span class="badge antiBadge" onmouseover="tooltip(\'Anticipation\', \'customText\', event, \'你的脆皮获得了 ' + number + '% 的额外伤害，因为需要 ' + game.global.antiStacks + ' 秒' + s + ' 来生产 ' + verb + '.\')" onmouseout="tooltip(\'hide\')">' + game.global.antiStacks + '<span class="icomoon icon-target2"></span></span>';
 	}
 	else elem.innerHTML = "";
 }
@@ -11438,8 +11475,8 @@ function purchaseSingleRunBonus(what){
 		return;
 	}
 	game.global.b -= bonus.cost;
-	if (bonus.fire) bonus.fire();
 	bonus.owned = true;
+	if (bonus.fire) bonus.fire();
 	updateBones();
 	successPurchaseFlavor();
 	displaySingleRunBonuses();
@@ -12057,20 +12094,11 @@ function toggleAutoUpgrades(noChange){
 	if (game.global.autoUpgrades){
 		swapClass("color", "colorSuccess", elem);
 		elem.innerHTML = "打开自动升级";
-
 	}
 	else {
 		swapClass("color", "colorDanger", elem);
 		elem.innerHTML = "关闭自动升级";
 	}
-	if (game.global.autoUpgrades && game.global.sLevel >= 4){
-		document.getElementById("autoPrestigeBtn").style.display = "block";
-	}
-	else {
-		game.global.autoPrestiges = 0;
-		document.getElementById("autoPrestigeBtn").style.display = "none";
-	}
-	toggleAutoPrestiges(true);
 }
 
 var lastAutoPrestigeToggle = -1;
@@ -12090,7 +12118,7 @@ function toggleAutoPrestiges(noChange){
 
 function autoUpgrades() {
 	autoGoldenUpgrades();
-	if (!game.global.autoUpgrades) return;
+	if (!game.global.autoUpgrades && !game.global.autoPrestiges) return;
 	if (game.options.menu.pauseGame.enabled == 1) return;
 	var timerCheck = (lastAutoPrestigeToggle == -1 || (new Date().getTime() - lastAutoPrestigeToggle >= 2000));
 	if (timerCheck) lastAutoPrestigeToggle = -1;
@@ -12106,6 +12134,7 @@ function autoUpgrades() {
 			equipmentAvailable[type].push(item);
 			continue;
 		}
+		if (!game.global.autoUpgrades) continue;
 		if ((!boughtUpgrade || game.global.gridArray[0].name == "Liquimp") && autoBuyUpgrade(item)){
 			if (game.global.autoPrestiges != 0 && timerCheck)
 				boughtUpgrade = true;
@@ -13039,8 +13068,8 @@ function gameLoop(makeUp, now) {
 			mutations.Living.change();
 		}
 	}
-	//every 3 seconds
-	if (loops % 30 == 0){
+	//loot averages
+	if (loops % game.settings.ewma_ticks == 0){
 		if (game.options.menu.useAverages.enabled) curateAvgs();
 	}
 

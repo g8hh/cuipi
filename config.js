@@ -21,7 +21,7 @@
 function newGame () {
 var toReturn = {
 	global: {
-		version: 4.813,
+		version: 4.814,
 		isBeta: false,
 		betaV: 0,
 		killSavesBelow: 0.13,
@@ -241,16 +241,11 @@ var toReturn = {
 			}
 		},
 		lootAvgs: {
-			food: [0],
-			foodTotal: 0,
-			wood: [0],
-			woodTotal: 0,
-			metal: [0],
-			metalTotal: 0,
-			gems: [0],
-			gemsTotal: 0,
-			fragments: [0],
-			fragmentsTotal: 0
+			food: {average:0, accumulator: 0},
+			wood: {average:0, accumulator: 0},
+			metal: {average:0, accumulator: 0},
+			gems: {average:0, accumulator: 0},
+			fragments: {average:0, accumulator: 0},
 		},
 		menu: {
 			buildings: true,
@@ -434,10 +429,7 @@ var toReturn = {
 			owned: false,
 			fire: function () {
 				game.unlocks.goldMaps = true;
-				for (var item in game.global.mapsOwnedArray){
-					game.global.mapsOwnedArray[item].loot = parseFloat(game.global.mapsOwnedArray[item].loot) + 1;
-					if (!game.global.mapsOwnedArray[item].noRecycle) document.getElementById(game.global.mapsOwnedArray[item].id).className += " goldMap";
-				}
+				refreshMaps();
 			}
 		},
 		quickTrimps: {
@@ -710,8 +702,10 @@ var toReturn = {
 				titles: ["不平均", "平均"],
 				onToggle: function () {
 					for (var item in game.global.lootAvgs){
-						if (Array.isArray(game.global.lootAvgs[item])) game.global.lootAvgs[item] = [0];
-						else game.global.lootAvgs[item] = 0;
+						game.global.lootAvgs[item] = {
+							average: 0,
+							accumulator: 0
+						};
 					}
 				}
 			},
@@ -1859,7 +1853,7 @@ var toReturn = {
 						game.buildings.Warpstation.craftTime = 0;
 						addNewSetting('forceQueue');
 					}
-					if (game.global.autoUpgrades) document.getElementById("autoPrestigeBtn").style.display = "block";
+					document.getElementById("autoPrestigeBtn").style.display = "block";
 				}
 			},
 			start: function () {
@@ -3512,6 +3506,8 @@ var toReturn = {
 		speed: 10,
 		speedTemp: 0,
 		slowdown: false,
+                ewma_alpha: 0.05,
+                ewma_ticks: 10, // 1 second
 	},
 
 	resources: {
@@ -4222,6 +4218,7 @@ var toReturn = {
 					addHelium(reward);
 					game.challenges.Electricity.stacks = 0;
 					updateElectricityStacks();
+					refreshMaps();
 				}
 			}
 		},
@@ -4326,6 +4323,7 @@ var toReturn = {
 					game.global.challengeActive = "";
 					game.portal.Overkill.locked = false;
 					addNewSetting('overkillColor');
+					refreshMaps();
 				}
 			}
 		},
@@ -4581,8 +4579,8 @@ var toReturn = {
 				var item = eligible[roll];
 				var amt = simpleSeconds(item, 45);
 				amt = scaleToCurrentMap(amt);
-				addResCheckMax(item, amt);
-				message("那个Jestimp给了你 " + prettify(amt) + " " + cnresourcetype(item) + "!", "Loot", "*dice", "exotic", "exotic");
+				addResCheckMax(item, amt, null, null, true);
+				message("那个Jestimp给了你 " + prettify(amt) + " " + item + "!", "Loot", "*dice", "exotic", "exotic");
 				game.unlocks.impCount.Jestimp++;
 			}
 		},
@@ -5253,7 +5251,6 @@ var toReturn = {
 			title: "The Prison",
 			fire: function () {
 				game.global.mapsUnlocked = true;
-				unlockMapStuff();
 				createMap(80, "The Prison", "Prison", 2.6, 100, 2.6, true);
 				message("你找到了监狱！ 你对进去有一个不好的感觉...", "Story");
 			}
@@ -7051,7 +7048,7 @@ var toReturn = {
 					}
 				},
 				fire: function () {
-					game.resources.trimps.max += ((game.buildings.Hut.owned) * game.buildings.Hut.increase.by);
+					addMaxHousing(game.buildings.Hut.owned * game.buildings.Hut.increase.by, game.talents.autoStructure.purchased);
 					game.buildings.Hut.increase.by *= 2;
 				}
 			},
@@ -7068,7 +7065,7 @@ var toReturn = {
 					}
 				},
 				fire: function () {
-					game.resources.trimps.max += ((game.buildings.House.owned) * game.buildings.House.increase.by);
+					addMaxHousing(game.buildings.House.owned * game.buildings.House.increase.by, game.talents.autoStructure.purchased);
 					game.buildings.House.increase.by *= 2;
 				}
 			},
@@ -7085,7 +7082,7 @@ var toReturn = {
 					}
 				},
 				fire: function () {
-					game.resources.trimps.max += ((game.buildings.Mansion.owned) * game.buildings.Mansion.increase.by);
+					addMaxHousing(game.buildings.Mansion.owned * game.buildings.Mansion.increase.by, game.talents.autoStructure.purchased);
 					game.buildings.Mansion.increase.by *= 2;
 				}
 			},
@@ -7102,7 +7099,7 @@ var toReturn = {
 					}
 				},
 				fire: function () {
-					game.resources.trimps.max += ((game.buildings.Hotel.owned) * game.buildings.Hotel.increase.by);
+					addMaxHousing(game.buildings.Hotel.owned * game.buildings.Hotel.increase.by, game.talents.autoStructure.purchased);
 					game.buildings.Hotel.increase.by *= 2;
 				}
 			},
@@ -7119,7 +7116,7 @@ var toReturn = {
 					}
 				},
 				fire: function () {
-					game.resources.trimps.max += ((game.buildings.Resort.owned) * game.buildings.Resort.increase.by);
+					addMaxHousing(game.buildings.Resort.owned * game.buildings.Resort.increase.by, game.talents.autoStructure.purchased);
 					game.buildings.Resort.increase.by *= 2;
 				}
 			},

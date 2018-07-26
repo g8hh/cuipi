@@ -703,16 +703,26 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		elem.style.top = "25%";
 	}
 	if (what == "导出"){
+		var saveText = save(true);
 		if (textString){
-			tooltipText = textString + "<br/><br/><textarea id='exportArea' spellcheck='false' style='width: 100%' rows='5'>" + save(true) + "</textarea>";
+			tooltipText = textString + "<br/><br/><textarea id='exportArea' spellcheck='false' style='width: 100%' rows='5'>" + saveText + "</textarea>";
 			what = "感谢!";
 		}
 		else
-		tooltipText = "这是你的存档的字符串，有很多像这样的，但这一串是只属于你的。找个安全的地方保存起来，这样下次你玩的时候就能节省很多时间了。 <br/><br/><textarea spellcheck='false' id='exportArea' style='width: 100%' rows='5'>" + save(true) + "</textarea>";
+		tooltipText = "这是你的存档的字符串，有很多像这样的，但这一串是只属于你的。找个安全的地方保存起来，这样下次你玩的时候就能节省很多时间了。<br/><br/><textarea spellcheck='false' id='exportArea' style='width: 100%' rows='5'>" + saveText + "</textarea>";
 		costText = "<div class='maxCenter'><div id='confirmTooltipBtn' class='btn btn-info' onclick='cancelTooltip()'>知道了</div>";
 		if (document.queryCommandSupported('copy')){
 			costText += "<div id='clipBoardBtn' class='btn btn-success'>复制到粘贴板</div>";
 		}
+		costText += "<a id='downloadLink' target='_blank' download='Trimps Save P" + game.global.totalPortals + " Z" + game.global.world + ".txt', href=";
+		if (Blob !== null) {
+			var blob = new Blob([saveText], {type: 'text/plain'});
+			var uri = URL.createObjectURL(blob);
+			costText += uri;
+		} else {
+			costText += 'data:text/plain,' + encodeURIComponent(saveText);
+		}
+		costText += " ><div class='btn btn-danger' id='downloadBtn'>Download as File</div></a>";
 		costText += "</div>";
 		ondisplay = tooltips.handleCopyButton();
 		game.global.lockTooltip = true;
@@ -1348,7 +1358,7 @@ function getPsString(what, rawNum) {
 	//Add Loot	ALWAYS LAST
 	if (game.options.menu.useAverages.enabled){
 		var avg = getAvgLootSecond(what);
-		if (avg > 0) {
+		if (avg > 0.001) {
 			currentCalc += avg;
 			textString += "<tr><td class='bdTitle'>平均战利品</td><td class='bdPercent'>+ " + prettify(avg) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 		}
@@ -1696,7 +1706,7 @@ function getBattleStatBd(what) {
 		if (typeof game.global.dailyChallenge.pressure !== 'undefined' && what == "health"){
 			mult = dailyModifiers.pressure.getMult(game.global.dailyChallenge.pressure.strength, game.global.dailyChallenge.pressure.stacks);
 			currentCalc *= mult;
-			textString += "<tr style='color: red'><td class='bdTitle'>压力 (日常)</td><td>" + formatMultAsPercent(mul) + "</td><td></td><td class='bdPercent'>" + formatMultAsPercent(mult) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+			textString += "<tr style='color: red'><td class='bdTitle'>压力 (日常)</td><td>" + formatMultAsPercent(mult) + "</td><td></td><td class='bdPercent'>" + formatMultAsPercent(mult) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 		}
 	}
 	//Add golden battle
@@ -2725,7 +2735,10 @@ function resetGame(keepPortal) {
 		if (sLevel >= 1) applyS1();
 		if (sLevel >= 2) applyS2();
 		if (sLevel >= 3) applyS3();
-		if (sLevel >= 4) game.buildings.Warpstation.craftTime = 0;
+		if (sLevel >= 4) {
+			game.buildings.Warpstation.craftTime = 0;
+			document.getElementById("autoPrestigeBtn").style.display = "block";
+		}
 		if (sLevel >= 5) applyS5();
 		if (game.global.autoUpgradesAvailable) document.getElementById("autoUpgradeBtn").style.display = "block";
 		if (game.global.autoStorageAvailable) {
@@ -3500,6 +3513,15 @@ function refreshMaps(){
 }
 
 function getUniqueColor(item){
+	if (!game.global.runningChallengeSquared) {
+		if (item.name == "The Prison" && game.global.challengeActive == "Electricity")
+			return " noRecycle";
+		if (item.name == "The Prison" && game.global.challengeActive == "Mapocalypse")
+			return " noRecycle";
+		if (item.name == "Imploding Star" && game.global.challengeActive == "Devastation")
+			return " noRecycle";
+	}
+
 	if (item.location && game.mapConfig.locations[item.location].upgrade){
 			var upgrade = game.mapConfig.locations[item.location].upgrade;
 			upgrade = (typeof upgrade === 'object') ? upgrade[0] : upgrade;
@@ -4206,7 +4228,7 @@ function toggleSetting(setting, elem, fromPortal, updateOnly, backwards){
 				for (var job in game.jobs) {
 					jobCount += game.jobs[job].owned;
 				}
-				return (game.global.world < 60 && jobCount - game.jobs.Dragimp.owned == 0 && game.stats.trimpsFired.value == 0);
+				return (game.global.world < 60 && jobCount - game.jobs.Dragimp.owned - game.jobs.Amalgamator.owned == 0 && game.stats.trimpsFired.value == 0);
 			},
 			Trimp_is_Poison: function () {
 				return (game.global.challengeActive == "Toxicity" && game.challenges.Toxicity.highestStacks <= 400);
@@ -4428,8 +4450,8 @@ var tooltips = {};
  */
 tooltips.showError = function (textString) {
 	var tooltip = "<p>嗯，这很尴尬。脆皮遇到了一个错误。尝试刷新页面。</p>";
-	tooltip += "<p>It would be awesome if you post the following to the <a href='reddit.com/r/Trimps/'>trimps subreddit</a> or email it to trimpsgame@gmail.com</p>";
-	tooltip += "Note: Saving has been disabled.<br/><br/><textarea id='exportArea' spellcheck='false' style='width: 100%' rows='5'>";
+	tooltip += "<p>如果你把下面的内容贴在网站上就太棒了 <a href='https://reddit.com/r/Trimps/'>trimps subreddit</a> 或者发邮件给 trimpsgame@gmail.com</p>";
+	tooltip += "注意：保存已被禁用。<br/><br/><textarea id='exportArea' spellcheck='false' style='width: 100%' rows='5'>";
 	var bugReport = "--BEGIN ERROR STACK--\n";
 	bugReport += textString + '\n';
 	bugReport += "--END ERROR STACK--\n\n";
