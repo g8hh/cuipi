@@ -3304,7 +3304,7 @@ var toReturn = {
 		w19: "你回头看看你的王国，你拥有宝石、殖民地和领土。 你在想你的脆皮是不是已经在战斗中牺牲了。 沉思之后，两个字从你的嘴里蹦了出来 “算了”",
 		w20: "你感觉到你离你的目标已经不远了。",
 		get w22 () {
-			if (game.global.challengeActive == "Trimp" && game.jobs.Amalgamator.owned > 0) return toZalgo("You hear a strange humming noise that seems to draw you towards it, though it also seems to come from no direction in particular. You can feel that it's being created by " + ((game.jobs.Amalgamator.owned == 1) ? "the" : "an") + " Amalgamator, though you've never heard such a sound before. It's both unsettling and enchanting, and the Universe seems to hate it.", 4, 1);
+			if (game.global.challengeActive == "Trimp" && game.jobs.Amalgamator.owned > 0) return toZalgo("你听到一种奇怪的哼唱声，似乎在吸引你靠近它，尽管你也分辨不出它是来源于哪个方向。你能感觉到这个声音是由" + ((game.jobs.Amalgamator.owned == 1) ? "" : "") + "合并者发出的,即使你从来没有听到过这个声音。它既令人不安又迷人，宇宙似乎很讨厌它。", 4, 1);
 			return "奇怪，天空似乎变得更暗了。你询问其中一只脆皮现在是几点钟了，但是他都不知道什么是时钟。";
 		},
 		w25: "你是个叛逆者。宇宙指引你进入那个传送门，但是你执意向前推进。你感觉……自己好像没有来过这里。",
@@ -3327,7 +3327,7 @@ var toReturn = {
 		w60: "地面瞬间裂开，大量的绿色气体从星球核心向大气中逸出。这个星球给人的感觉不同了。一切事物给人的感觉都不同了。这个宇宙正在变得不稳定，这个星球已经破碎。你都做了些什么？",
 		w61: "除了那些死去的脆皮以外，情况还没有变得那么差。",
 		get w65 () {
-			if (game.global.challengeActive == "Trimp" && game.jobs.Amalgamator.owned > 0) return toZalgo("The Universe seems even more upset than you expected here, but your Amalgamator" + ((game.jobs.Amalgamator.owned == 1) ? " doesn't" : "s don't") + " really seem to care. You walk towards " + ((game.jobs.Amalgamator.owned == 1) ? "it" : "one") + " to get a better look, but find yourself further away than you were.", 2, 2);
+			if (game.global.challengeActive == "Trimp" && game.jobs.Amalgamator.owned > 0) return toZalgo("这个宇宙似乎比你想象中更混乱，但是你的合并者" + ((game.jobs.Amalgamator.owned == 1) ? "" : "们") + "并不介意。你走向" + ((game.jobs.Amalgamator.owned == 1) ? "它" : "其中一只") + "来看的更清楚一点, 但是你发现你距离它更远了。", 2, 2);
 			return "你感觉自己比起过去更加强大了。这个宇宙似乎在不断地调整自己来摆脱你，但是你奋起反抗并坚持下去。你如此渺小，却对抗着整个宇宙！";
 		},
 		w68: "你觉得有一些娱乐活动会很不错，并决定教你的脆皮怎样踢足球。几个小时后，没有任何进展，你非常后悔当时的决定。",
@@ -3341,7 +3341,7 @@ var toReturn = {
 		w90: "你决定去让你的科学家发明一种花费巨大的机器来扫描你的大脑，来找回过去的记忆，看看其中是否有有用的信息。他们似乎对这个新项目很兴奋，很快就开始工作了。",
 		w92: "你听到科学实验室中传来一阵巨大的爆炸声，你明白大脑扫描仪可能永远也无法完成了。",
 		get w95 () {
-			if (game.global.challengeActive == "Trimp" && game.jobs.Amalgamator.owned > 0) return toZalgo(((game.jobs.Amalgamator.owned == 1) ? "The Amalgamator is" : "The Amalgamators are") + " starting to rapidly switch between different colors. It would be slightly entertaining if the fabric of existence wasn't falling apart around " + ((game.jobs.Amalgamator.owned == 1) ? "it." : "them."), 3, 2);
+			if (game.global.challengeActive == "Trimp" && game.jobs.Amalgamator.owned > 0) return toZalgo(((game.jobs.Amalgamator.owned == 1) ? "" : "") + "合并者开始在不同颜色间快速切换。如果它周围的东西没有四分五裂的话，就很迷人了。" + ((game.jobs.Amalgamator.owned == 1) ? "" : ""), 3, 2);
 			return "需要一些动力吗?你可以做到的!或许吧。";
 		},
 		w100: "你在前行中突然停了下来。你想起来了是谁和你一起来到这里，你也记起来了你当时并不喜欢德鲁普提船长把你带到这里。你知道他和你一起降落了。你明白太空船仍在这里。他就在这里。",
@@ -3402,101 +3402,101 @@ var toReturn = {
 		},
 		get w220 () {
 			if (game.global.spireRows < 10)
-				return "你的脆皮看起来很满足。它们有点希望那座尖塔不要再向他们世界释放紫色的东西了，但是它们没那么介意。Y";
+				return "你的脆皮看起来很满足。它们有点希望那座尖塔不要再向他们世界释放紫色的东西了，但是它们没那么介意。";
 			return "你的脆皮看起来很满足。你教给他们一些基本的木偶戏，然后它们和被打败的Snimps一起上演了一场精彩的演出。";
 		},
 		w225: "你在一个凉爽、黑暗的洞穴一觉醒来后全身都是汗。你梦到你非常的热，尽管在过去温度从未成为一个问题。好吧，奇怪的梦和之前的记忆也没有真正表明什么重要的东西，可能没有什么事。",
 		w231: "这里非常热。",
-		w235: "热量随着你穿过区域而逐渐增强。你的本能告诉你要原理这些热量，但是那样就无法前进了。",
+		w235: "热量随着你穿过区域而逐渐增强。你的本能告诉你要远离这些热量，但是那样就无法前进了。",
 		get w245 () {
 			if (game.jobs.Magmamancer.owned > 0)
-				return "Your Magmamancers have figured out how to make little fountains in the Magma around the base. You like the effect.";
+				return "你的法师们想出一个办法，能够在基地周围的岩浆中制造喷泉。你喜欢这个效果。";
 			return "你记得法师们是非常酷的。";
 		},
-		w251: "You asked that Omnipotrimp nicely not to explode after you killed it, but it exploded anyways. Pretty rude.",
-		w255: "Your Trimps continue to lose strength as you press through the zones, but they seem to be adapting well in spirits. It seems like each generation likes the heat more and more.",
+		w251: "你和气地请求那只Omnipotrimp在你杀死它后不要自爆，但是它还是自爆了。真是粗鲁。",
+		w255: "在你不断穿过这些区域的途中，你的脆皮在不断失去力量，但是它们精神上似乎适应得很好。似乎每一代脆皮都越来越喜欢高温了。",
 		w265: "你决心修复这个星球，尽管你觉得还不可能。 无论哪种方式，你都知道你正在获得力量，你的脆皮会跟随你。",
-		w270: "This planet is really freaking big. You feel like you've been walking around it for years and still haven't seen everything there is to offer. Shouldn't there be another spire around here or something?",
-		w277: "It's starting to smell purple again. You must be getting close to another spire.",
+		w270: "这个星球真是大得吓人。你感觉你在这个星球上行走了许多年，却还没有看完这个星球上所有的东西。这附近不应该有座尖塔或什么东西的吗？",
+		w277: "又能闻到一种紫色的东西了。你必须接近另一座尖塔。",
 		get w283() {
 			var soldiers = game.resources.trimps.getCurrentSend();
-			return "During a boring night while waiting to cross a particularly rough Magma river, you managed to teach your Trimps how to stack on each other to create some funny shapes. You almost feel bad for the first Snimp to come across " + prettify(soldiers) + " Trimps stuck together in the shape of a humongous Moongooseimp.";
+			return "在一个无聊的夜晚，你们正在等待跨越一条非常汹涌的岩浆河。你计划着要教会你的脆皮通过相互叠起来，变成一种有趣的形状。" + prettify(soldiers) + "个脆皮叠起来而形成了巨大的Moongooseimp，你就要为第一个遇到它的Snimp而感到难过了。";
 		},
 		get w285(){
 			if (game.global.spireRows >= 10)
-				return "You can finally see it, clear as day. No more than 15 zones in the distance stands a giant spire, even more menacing than the first. A loud, echoing voice booms from the tower, matching the tone and cadence of Druopitee himself. It's a little far away to hear perfectly, but it sounds like he's asking you nicely to please leave him be.";
-			return "Something feels wrong, but you can't quite figure out what. You eventually find a pebble in your shoe and everything seems much better!";
+				return "你终于可以看到了它，在你的视野中十分清晰。在不超过15个区域的距离中矗立着一个巨大的尖塔，这一座甚至比你遇到的第一座更具威胁性。一个巨大的、回响着的声音从尖塔涌出，语调和节律都和德鲁普提一致。你离得有点远，听不太清楚，但是似乎他在请你离开他。";
+			return "你感觉哪里有些不对劲，但你却不知道到底是哪里有问题。你最后在你的鞋子中发现了一颗鹅卵石，然后一切似乎都变得更好了一些!";
 		},
 		get w286() {
 			if (game.global.spireRows >= 10)
-				return "You hear the voice again, and can tell there's definitely something weird about it - as if it was coming from a ghost or something. Though you suppose that makes sense, since you've already killed Druopitee.";
-			return "You hear something rustling in a bush and get totally psyched up for something new and exciting. As you walk cautiously towards the bush, a Rabbimp quickly runs out and away."
+				return "你再一次听到了那个声音，并且你敢说这其中一定有古怪-这个声音是来自于鬼魂或者是什么东西。你的推测是有道理的，因为你亲手杀死了德鲁普提。";
+			return "你听到灌木丛中有什么东西在沙沙作响，并为这种新的东西而完全激动起来。当你小心地走向灌木丛时，一只Rabbimp迅速跑出来并远去了。"
 		},
 		get w290() {
 			if (game.global.spireRows >= 10)
-				return "As you get closer and closer to the spire, the voice gets clearer and clearer. You can pick up notes of terror from whatever being is up there, as if he wants to just be left alone to destroy the world. You don't feel much sympathy though.";
-			return "You trip over a rock and stumble a bit, but fix your footing before totally falling over. You glance around and it doesn't seem like any of the Trimps noticed!";
+				return "随着你距离尖塔越来越近，那个声音也越来越清晰。无论那上面是什么生物，你可以从他那听到恐怖的声音，好像他想独自毁灭世界一样。但你对他并没有什么同情心。";
+			return "你被岩石绊了一下并蹒跚地走了两步，但在完全摔倒前稳定了脚步。你环顾四周，似乎没有脆皮注意到你的失误！";
 		},
 		get w295() {
 			if (game.global.spireRows >= 10)
-				return "You're now so close to this new spire that you can taste it, literally. These things are gross.";
-			return "You wonder if you could get your scientists to invent chewing gum..."
+				return "你现在距离这座新尖塔非常的近，你都可以尝到它，真正地品尝到。这些东西令人作呕。";
+			return "你想知道你的科学家能否发明出口香糖……"
 		},
 		get w298() {
 			if (game.global.spireRows >= 10)
-				return "The deranged spirit in the tower is now begging that you stay back. It obviously knows you destroyed the last tower and doesn't want you taking out another. Too bad, buddy. You're coming.";
-			return "A voice in the back of your mind tells you there should be something big soon, but you see nothing. Oh well."
+				return "尖塔上那个疯狂的意志在恳求你退后。很明显，他知道你摧毁了上一座尖塔，而且不希望你再摧毁一座。很不幸的是，你来了。";
+			return "你内心深处的声音告诉你，应该很快就会有大事发生，但你什么也没有看到。噢，好吧。"
 		},
 		get w303() {
-			if (game.global.spireRows >= 15 || game.portal.Capable.level > 0) return "You're glad you have Fluffy around now. He seems to be getting along well with the other Trimps, and seems happy to have found others like him. He doesn't seem to be any smarter than a normal Trimp so you're sure you'll get some entertainment out of him.";
+			if (game.global.spireRows >= 15 || game.portal.Capable.level > 0) return "你很高兴现在有蓬松陪伴着你。他似乎和其他脆皮相处的很好，而且似乎很高兴找到了和他一样精神正常的生命。他看起来比其他的脆皮聪明不了多少，所以你确信你可以从他身上发现不少乐趣。";
 			return "你希望有一只宠物。";
 		},
 		get w315(){
-			if (game.global.lastSpireCleared == 2) return "These healthy spots of land seem to be increasing as the Spire pumps more and more into the air! Hopefully that's a good thing. You ask Fluffy what he thinks and he nods in approval.";
-			return "Geeze, this Corruption is starting to look pretty nasty. Those Spires need to fall soon...";
+			if (game.global.lastSpireCleared == 2) return "随着尖塔向空气喷射的越来越多，陆地上的健康地点似乎也变得越来越多！希望这是一件好事。你问：蓬松，你怎么看？蓬松点点头表示同意。";
+			return "天啊，这种腐化现象开始变得相当严重。需要赶紧摧毁那些尖塔……";
 		},
-		w340: "Watch your step, there's some Magma on the ground over there.",
-		w350: "If Druopitee has really immortalized himself in an infinite amount of Spires, you might be here for a while.",
+		w340: "注意脚下，那里有一些岩浆。",
+		w350: "如果德鲁普提真的在无限数量的尖塔中永生，你可能要在这里多待一段时间。",
 		get w360(){
-			if (game.global.spireRows >= 15 || game.portal.Capable.level > 0) return "You attempt to put Fluffy through your rigorous Scientist training program, but he doesn't want to. He wouldn't have any trouble, but he doesn't want the label. You still couldn't be happier to have the little guy around!";
-			return "You really feel like something is missing from your life. Everything feels hollow and sad.";
+			if (game.global.spireRows >= 15 || game.portal.Capable.level > 0) return "你试图让蓬松参与严格的科学家训练计划，但是他并不想参加。他不会有任何问题，但他不想要这个标签。有这个小东西跟在身边，你还是开心不起来。";
+			return "你确实地觉得你的生活中缺少了什么。感觉一切都是空虚和悲伤。";
 		},
-		w375: "Should be coming up on another Spire zone soon. You stop and sit beside a beautiful Magma river and wonder what kinds of crazy stuff could be waiting for you up there. Then you realize it's probably just another Spire, so you get up and keep moving.",
-		w385: "Some familiar Spirish odors begin hitting your nostrils again and you sneeze, hilariously startling a few billion Trimps. Never gets old.",
+		w375: "应该很快就要到另一个尖塔的区域了。你停下来，坐在一条美丽的岩浆河旁，并思考前方会有怎样疯狂的事物在等待着你。不久后你明白前方可能只是另一个尖塔而已，所以你站起身，继续前进。",
+		w385: "一股熟悉的尖塔的气味再次直击你的鼻腔，你打了个喷嚏，如此滑稽，让你的脆皮们感到惊讶。年轻的心不会变老。",
 		get w390(){
-			if (game.global.lastSpireCleared == 2) return "You can finally see the next Spire in the distance, a thick purple cloud boiling out of the top. Hard to believe there's an infinite amount of these things, how big even is this planet?";
-			return "Weird, you feel like you should be able to see the next Spire by now, but it's not there. Maybe you should have checked the other Spires a bit more thoroughly.";
+			if (game.global.lastSpireCleared == 2) return "你终于可以看到远处的下一个塔尖，一团紫色的厚云从塔顶滚滚展开。很难相信这里有如此多的腐化，这个星球有多大?";
+			return "很奇怪，你觉得你现在应该能看到下一个塔尖，但它不在那里。也许你应该更彻底地检查一下之前的塔尖。";
 		},
 		get w395(){
-			if (game.global.lastSpireCleared == 2) return "Ahh, that gross old taste of Spire. You'll never get used to that. Most of your Trimps are trying to stay under trees, but Fluffy is running around with his tongue out as if he was trying to catch snowflakes.";
-			return "Did you leave the oven on? Oh yeah, you don't have an oven. Now you wonder what an oven even is. Oh well.";
+			if (game.global.lastSpireCleared == 2) return "啊，又是那股令人作呕的尖塔味道。你永远也无法习惯这个味道。你大多数的脆皮都试图坐在树下，但是蓬松在跑来跑去，并将舌头伸出来，就像在追赶雪花一样。";
+			return "你把烤箱打开了吗?噢，你没有烤箱。现在你甚至想知道什么是烤箱。哦，好吧。";
 		},
 		get w405(){
-			if (game.global.lastSpireCleared == 3) return "It really seemed like you weakened Druopitee back there. Maybe you'll be able to at least shut off any last conscious parts of him with just one more Spire?";
+			if (game.global.lastSpireCleared == 3) return "似乎在刚才你真的把德鲁普提削弱了。或许只要再来一个尖塔，你就能关闭他所有的意识部分？";
 			return "你无法摆脱这种感觉，就像你忘记了做一些事情一样。";
 		},
 		get w415(){
-			if (game.global.lastSpireCleared == 3) return "The Healthy mutation is starting to spread nicely now. The bad guys hurt quite a bit more, but you're pretty sure you're doing the right thing which kinda makes you feel good.";
-			if (game.global.lastSpireCleared == 2) return "It seems like the Healthy mutation has stopped spreading. That's alright though, some other version of you will probably take care of it.";
-			if (game.global.spireRows >= 15 || game.portal.Capable.level > 0) return "The land sure looks terrible and corrupted, but at least you have Fluffy.";
-			return "What do you have against Fluffy?";
+			if (game.global.lastSpireCleared == 3) return "健康变异现在已经传播得很好了。敌人的攻击变得更强，但是你很确定你做的是正确的事情，这让你感觉很好。";
+			if (game.global.lastSpireCleared == 2) return "看起来健康的突变已经停止扩散。不过没关系，其他时间上的你可能会解决这个问题。";
+			if (game.global.spireRows >= 15 || game.portal.Capable.level > 0) return "这片土地看起来确实很可怕而且腐化严重，但至少你有蓬松。";
+			return "你对蓬松有什么不满吗?";
 		},
-		w430: "The Trimps tried tying two Turkimps to this tall tree, then the Turkimps thrashed those three trillion Trimps, throwing the Trimps tumbling towards the tall tree. The Trimps truly tried. Those Turkimps though... they tough.",
-		w440: "Wow, you've gotten pretty far. You would have never guessed there'd be this many zones out there, but here you are.",
-		w450: "It's just about time for another Spire, don't you think?",
-		w460: "This part of the world seems to be at a much higher elevation than any other part that you've been at. The air is strangely clear, and you can see more of the planet sprawled out around you than ever before. It feels good to see everything you're fighting for and feel like it's worth it.",
-		w470: "This part of the world seems to be at a really low elevation, and lots of Corruption is building up in it. Gross.",
+		w430: "脆皮们试图将两个Turkimps绑在这棵高高的树上，然后Turkimps打败了脆皮们，并将脆皮摔向那棵树。脆皮们真的很累。那个Turkimps真的很强硬。",
+		w440: "哇哦，您出已经走了很远了。你曾经完全想不到这里有如此多的区域，但是现在你已经抵达了如此远的地方。",
+		w450: "是时候快要遇到另一个尖塔了，你不这样认为吗？",
+		w460: "世界的这一部分似乎比你去过的任何其他地方都要高得多。空气出奇的清新，你可以看到天空中许多的行星围绕着你，比以往任何时候都要多。看到你为之奋斗的一切让你感觉很好，觉得非常值得。",
+		w470: "这个地区的海拔似乎很低，而且腐化程度也在不断增加。令人恶心。",
 		get w485(){
-			if (game.global.lastSpireCleared == 3) return "Once again, you can taste the Spire, it must just be over that next hill now. Fluffy seems excited.";
-			return "Hey! Is that... oh, nope, just some dirt.";
+			if (game.global.lastSpireCleared == 3) return "又一次，你可以尝到尖塔的味道，那座尖塔一定就在下一座山丘的背后。蓬松似乎很激动。";
+			return "嘿！这个是……噢，不是，这只是一些泥土。";
 		},
 		get w495(){
-			if (game.global.lastSpireCleared == 3) return "It's time. He's weak. You've got this. Time to make this planet Healthy again.";
-			return "You're feeling rather itchy today. You ask some Trimps to scratch your back but they don't really want to.";
+			if (game.global.lastSpireCleared == 3) return "是时候了。他很虚弱。你明白这点。是时候让这个星球恢复健康了。";
+			return "你今天觉得很痒。你让一些脆皮抓抓你的后背，但他们并不想这么做。";
 		},
 		get w505(){
-			if (game.global.lastSpireCleared == 4) return "Well you've totally 100% eradicated Druopitee's consciousness, now you figure it's just time to clear the rest of his brainless Echoes out of the Spires. There may not be anything new and exciting to see <b>yet</b>, but bragging rights are always nice.";
-			return "Druopitee is just over there getting stronger, someone should really do something about him.";
+			if (game.global.lastSpireCleared == 4) return "现在你已经完全地、100%地消灭了德鲁普提的意识，你觉得是时候去清除尖塔上剩下的，他的无脑控制的回声了。也许<b>现在暂时</b>看不到什么任何新的、令人激动的东西了，但是能让人吹嘘也是很好的。";
+			return "德鲁普提就在那里变得越来越强大，必须有人对他做点什么。";
 		}
 	},
 	trimpDeathTexts: ["不再是", "化为尘土", "入土为安", "断气", "翘辫子了", "蒸发", "需要更多的装甲", "爆炸", "融化了", "摔死了", "游冥河", "脖子扭断", "忘了穿装备", "嘶哑的", "死了", "不会跟着你再次战斗", "死了。 瘸", "落后了", "魔脉"],
