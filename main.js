@@ -5963,32 +5963,32 @@ var mutationEffects = {
 	corruptDbl: {
 		icon: 'icomoon icon-pushpin',
 		text: '这个敌人攻击两次，一次在你之前，一次在你之后。',
-		title: 'Corrupted Stamina'
+		title: '腐化耐力'
 	},
 	corruptCrit: {
 		icon: 'icomoon icon-heart6',
 		text: '这个敌人有25％的几率对你造成400％的额外伤害。',
-		title: 'Corrupted Precision'
+		title: '腐化精准'
 	},
 	corruptBleed: {
 		icon: "icomoon icon-drop",
 		text: '每次当这个敌人攻击时，你就会失去<b>当前</b>生命值的20％。',
-		title: 'Corrupted Sharpness'
+		title: '腐化锋利'
 	},
 	corruptStrong: {
 		icon: 'icomoon icon-hammer',
 		text: '这个敌人有额外的2倍攻击。',
-		title: 'Corrupted Strength'
+		title: '腐化力量'
 	},
 	corruptTough: {
 		icon: 'icomoon icon-shield2',
 		text: '这个敌人有额外的5倍生命值。',
-		title: 'Corrupted Toughness'
+		title: '腐化坚韧'
 	},
 	corruptDodge: {
 		icon: 'icomoon icon-air',
 		text: '这个敌人有30%的几率闪躲你的攻击。',
-		title: 'Corrupted Agility'
+		title: '腐化敏捷'
 	},
 	healthyDbl: {
 		icon: 'icomoon icon-pushpin',
@@ -6190,18 +6190,18 @@ function updateGeneratorInfo(){
 	if (game.permanentGeneratorUpgrades.Hybridization.owned) document.getElementById('generatorHybridBtn').style.display = 'inline';
 	updateGeneratorFuel();
 	document.getElementById('generatorTrimpsPs').innerHTML = prettify(scaleNumberForBonusHousing(nextTickAmount));
-	document.getElementById('upgradeMagmiteTotal').innerHTML = prettify(game.global.magmite) + " Mi";
+	document.getElementById('upgradeMagmiteTotal').innerHTML = prettify(game.global.magmite) + " 岩浆岩";
 }
 
 function getGeneratorHtml(getContainer){
 	var html = "";
 	if (getContainer)
 	html += "<div class='thing generatorState' id='generatorWindow'>"
-	html += "<div id='genTitleContainer'> <div id='generatorTitle'>维度发生器</div><div><span id='generatorActiveBtn' onclick='changeGeneratorState(1)' class='workBtn pointer noselect colorDanger hoverColor'>获得燃料</span> <span onclick='changeGeneratorState(0)' id='generatorPassiveBtn' class='workBtn pointer noselect colorPrimary hoverColor'>获得MI</span> <span onclick='changeGeneratorState(2)' id='generatorHybridBtn' class='workBtn pointer noselect colorTeal hoverColor' style='display: none'>混合</span></div> <div id='generatorUpgradeBtn' onclick='tooltip(\"Upgrade Generator\", null, \"update\")'class='workBtn pointer noselect colorDark hoverColor'>升级 (<span id='upgradeMagmiteTotal'></span>)</div></div><div id='genGaugeContainer'><div class='row'><div class='col-xs-4'><div id='fuelContainer'><div id='fuelBar'></div><div id='fuelStorageBar'></div><div id='fuelGlass'></div><div id='fuelOwnedText'>燃料<br/><span id='generatorFuelOwned'>0</span> / <span id='generatorFuelMax'>0</span></div></div></div>"
+	html += "<div id='genTitleContainer'> <div id='generatorTitle'>维度发生器</div><div><span id='generatorActiveBtn' onclick='changeGeneratorState(1)' class='workBtn pointer noselect colorDanger hoverColor'>获得燃料</span> <span onclick='changeGeneratorState(0)' id='generatorPassiveBtn' class='workBtn pointer noselect colorPrimary hoverColor'>获得岩浆岩</span> <span onclick='changeGeneratorState(2)' id='generatorHybridBtn' class='workBtn pointer noselect colorTeal hoverColor' style='display: none'>混合</span></div> <div id='generatorUpgradeBtn' onclick='tooltip(\"Upgrade Generator\", null, \"update\")'class='workBtn pointer noselect colorDark hoverColor'>升级 (<span id='upgradeMagmiteTotal'></span>)</div></div><div id='genGaugeContainer'><div class='row'><div class='col-xs-4'><div id='fuelContainer'><div id='fuelBar'></div><div id='fuelStorageBar'></div><div id='fuelGlass'></div><div id='fuelOwnedText'>燃料<br/><span id='generatorFuelOwned'>0</span> / <span id='generatorFuelMax'>0</span></div></div></div>"
 	if (game.permanentGeneratorUpgrades.Supervision.owned)
 		html += "<div class='col-xs-4 hasSlider' id='generatorProducingColumn'><div id='generatorProducingContainer'>Producing<br/><span id='generatorTrimpsPs'>0</span><br/>Housing/Tick</div><div id='generatorSliderBox'><input id='generatorSlider' onchange='saveSupervisionSetting()' type='range' min='1' max='100' value='" + game.global.supervisionSetting + "' /></div></div>";
 	else
-		html += "<div class='col-xs-4' id='generatorProducingColumn'><div id='generatorProducingContainer'>Producing<br/><span id='generatorTrimpsPs'>0</span><br/>Housing/Tick</div></div>";
+		html += "<div class='col-xs-4' id='generatorProducingColumn'><div id='generatorProducingContainer'>生产<br/><span id='generatorTrimpsPs'>0</span><br/>人口上限/次</div></div>";
 	html += "<div class='col-xs-4'><div id='generatorTickContainer' onclick='pauseGenerator()' onmouseover='updatePauseBtn(true)' onmouseout='updatePauseBtn(false)'" + ((game.permanentGeneratorUpgrades.Supervision.owned) ? " style='cursor: pointer'" : "") + "> <div id='generatorRadialContainer' class='radial-progress'> <div class='radial-progress-circle'> <div class='radial-progress-arrow static''></div></div><div id='generatorRadial' class='radial-progress-circle'> <div class='radial-progress-arrow mobile'></div> </div> <div id='clockKnob' class='radial-progress-knob generatorState'></div></div><span id='generatorNextTick' style='pointer-events: none;'>0</span></div></div></div></div>";
 	if (getContainer) html += "</div>";
 	return html;
@@ -6289,15 +6289,15 @@ function buyPermanentGeneratorUpgrade(item){
 
 function getGeneratorUpgradeHtml(){
 		var tooltipText = "<div id='generatorUpgradeTooltip'>";
-		tooltipText += "<div class='generatorUpgradeTitle'>Multi Upgrades</div>";
+		tooltipText += "<div class='generatorUpgradeTitle'>多次升级项</div>";
 		for (var item in game.generatorUpgrades){
 			tooltipText += "<div class='thing pointer noselect thingColor' onclick='showGeneratorUpgradeInfo(\"" + item + "\")' id='generatorUpgrade" + item + "'></div>";
 		}
-		tooltipText += "<div class='generatorUpgradeTitle'>One and Done Upgrades</div>";
+		tooltipText += "<div class='generatorUpgradeTitle'>单次升级项</div>";
 		for (var item in game.permanentGeneratorUpgrades){
 			tooltipText += "<div class='thing pointer noselect thingColor permGenUpgrade' onclick='showGeneratorUpgradeInfo(\"" + item + "\", true)' id='generatorUpgrade" + item + "'></div>";
 		}
-		tooltipText += "<br/><div id='generatorUpgradeDescription' class='noselect'><b>Click an upgrade to learn more about it!</b><br/></div>";
+		tooltipText += "<br/><div id='generatorUpgradeDescription' class='noselect'><b>点击一项升级来了解更多!</b><br/></div>";
 		tooltipText += "</div>";
 		return tooltipText;
 }
@@ -6309,7 +6309,7 @@ function updateGeneratorUpgradeHtml(){
 		if (elem == null) continue;
 		var upgrade = game.generatorUpgrades[item];
 		var cost = upgrade.cost();
-		var text = item + "<br/>" + upgrade.upgrades;
+		var text = cngen(item) + "<br/>" + upgrade.upgrades;
 		elem.innerHTML = text;
 		var state = (game.global.magmite >= cost) ? "CanAfford" : "CanNotAfford";
 		if (item == "Overclocker" && (!game.permanentGeneratorUpgrades.Hybridization.owned || !game.permanentGeneratorUpgrades.Storage.owned))
@@ -6321,8 +6321,8 @@ function updateGeneratorUpgradeHtml(){
 		if (elem == null) continue;
 		var upgrade = game.permanentGeneratorUpgrades[item];
 		var cost = upgrade.cost;
-		var text = item + "<br/>";
-		text += (upgrade.owned) ? "Done" : prettify(cost) + " Mi";
+		var text = cngen(item) + "<br/>";
+		text += (upgrade.owned) ? "已完成" : prettify(cost) + " 岩浆岩";
 		elem.innerHTML = text;
 		var state;
 		if (upgrade.owned)
@@ -6332,7 +6332,7 @@ function updateGeneratorUpgradeHtml(){
 		swapClass('thingColor', 'thingColor' + state, elem);
 	}
 	var magmiteElem = document.getElementById('magmiteOwned');
-	if (magmiteElem != null) magmiteElem.innerHTML = "Magmite: " + prettify(game.global.magmite) + "<br/>";
+	if (magmiteElem != null) magmiteElem.innerHTML = "岩浆岩: " + prettify(game.global.magmite) + "<br/>";
 	if (document.getElementById('magmiteCost') != null && lastViewedDGUpgrade)
 		showGeneratorUpgradeInfo(lastViewedDGUpgrade[0], lastViewedDGUpgrade[1]);
 }
@@ -6369,10 +6369,10 @@ function showGeneratorUpgradeInfo(item, permanent){
 	var text;
 	if (permanent && game.permanentGeneratorUpgrades[item].owned){
 		color = "Grey";
-		text = "Done";
+		text = "已完成";
 	}
-	else text = "Buy: " + prettify(cost) + " Magmite";
-	elem.innerHTML = "<div id='generatorUpgradeName'>" + item + "</div><div onclick='buyGeneratorUpgrade(\"" + item + "\")' id='magmiteCost' class='pointer noSelect hoverColor color" + color + "'>" + text + "</div>" + description + "<br/>";
+	else text = "购买: " + prettify(cost) + " 岩浆岩";
+	elem.innerHTML = "<div id='generatorUpgradeName'>" + cngen(item) + "</div><div onclick='buyGeneratorUpgrade(\"" + item + "\")' id='magmiteCost' class='pointer noSelect hoverColor color" + color + "'>" + text + "</div>" + description + "<br/>";
 	lastViewedDGUpgrade = [item, permanent];
 	verticalCenterTooltip();
 }
@@ -13647,7 +13647,35 @@ function cntime(time) {
     return cnmap;
 }
 
-
+    function cngen(text) {
+    //汉化维度发生器升级标题
+    var cngen = "";
+    var temp = text;
+    if (temp == "Efficiency") {
+        cngen = "效率";
+    } else if (temp == "Capacity") {
+        cngen = "容量";
+    } else if (temp == "Supply") {
+        cngen = "供给";
+    } else if (temp == "Overclocker") {
+        cngen = "超频";
+    } else if (temp == "Hybridization") {
+        cngen = "混合";
+    } else if (temp == "Storage") {
+        cngen = "存储";
+    } else if (temp=="Shielding"){
+        cngen = "屏障";   
+    } else if (temp=="Slowburn"){
+        cngen = "缓慢燃烧";   
+    } else if (temp=="Supervision"){
+        cngen = "管理";   
+    } else if (temp=="Simulacrum"){
+        cngen = "复制";   
+    } else {
+        return text;
+    }
+    return cngen;
+}
 
 load();
 displayPerksBtn();

@@ -654,7 +654,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 	}
 	if (what == "Upgrade Generator"){
 		tooltipText = getGeneratorUpgradeHtml();
-		costText = "<b style='color: red'>这些升级通过传送门以后依旧有效，不能退款。做出你明智的选择！ " + getMagmiteDecayAmt() + "% 的Magmite在通过传送门时会遗失。</b><br/><br/><div class='maxCenter'><span class='btn btn-info' onclick='cancelTooltip()'>关闭</span></div>";
+		costText = "<b style='color: red'>这些升级通过传送门以后依旧有效，不能退款。做出你明智的选择！ " + getMagmiteDecayAmt() + "% 的岩浆岩在通过传送门时会遗失。</b><br/><br/><div class='maxCenter'><span class='btn btn-info' onclick='cancelTooltip()'>关闭</span></div>";
 		game.global.lockTooltip = true;
 		elem.style.left = "33.75%";
 		elem.style.top = "25%";
