@@ -6606,7 +6606,7 @@ var toReturn = {
 				var currentRatio = (game.resources.trimps.realMax() / game.resources.trimps.getCurrentSend());
 				var text = "<p>合并者不能手动雇佣或解雇合并者。他们是不可思议的生物，几乎不能再被认为是脆皮了。当你的军队规模占总人口的比例低于 <b>" + prettify(ratio) + ":1</b>。他们会自动出现在你的城镇。完成尖塔 II到V时，每一个尖塔都将使这个比例增大到原来的10倍。 如果现在这一比率大于 1: " + prettify(1e3) + ", 一个合并者就会离开。 你现在的比率是 <b>" + prettify(currentRatio) + ":1</b>. At your current army size, you need <b>" + prettify(ratio * game.resources.trimps.getCurrentSend()) + "</b> total Trimps to trigger the next Amalgamator.</p></p><p>合并者会融合一些空闲的脆皮到其他士兵中,大大加强他们的战斗力。每个合并者会增加出战脆皮的数量1000倍(指数),增加血量40倍(指数),增加伤害50%(线性)。</p><p>另外，当至少有一个合并者时，预期的增益将基于最后一支部队被派遣，而不是基于实际繁殖的时间。</p>";
 				if (game.global.challengeActive == "Trimp"){
-					text += "<p><i>" + toZalgo("This particular Universe seems to directly conflict with the Amalgamators, yet they're here and the Trimps they Amalgamate seem immune to the dimensional restrictions. Things are getting weird though.", 1, Math.ceil(game.global.world / 100)) + "</i></p>";
+					text += "<p><i>" + toZalgo("这个特殊的宇宙似乎与合并者有直接的冲突，但他们在这里，他们合并的三分体似乎对空间限制免疫。事情变得越来越奇怪了。", 1, Math.ceil(game.global.world / 100)) + "</i></p>";
 				}
 				else
 					text += "<p><i>有人说合并者是诅咒，有人说他们是祝福，合并者他们自己大多只是说：“Blerghhhh”。</i></p>";
