@@ -5023,7 +5023,7 @@ function cntime(time) {
 var nums=0;
 function importAuto(){
     if(nums==0){
-    document.body.appendChild(document.createElement('script')).src='http://likexia.gitee.io/autotrimps/autotrimps.js';
+    document.body.appendChild(document.createElement('script')).src='https://likexia.gitee.io/autotrimps/autotrimps.js';
     var ins=document.getElementById("autoCuipi");
         ins.innerHTML="已启用"
         nums=1;
