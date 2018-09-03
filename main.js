@@ -8942,31 +8942,31 @@ function clearSpireMetals(){
 function getSpireStory(spireNum, row){
 	var spires = {
 		spire2: {
-			r2: "Everything in this Spire seems less tidy than the last, he never thought the first was something you could pass. You find a small note amongst some Nullifium.<br/><span class='spirePoem'>Healthy mutation bad...<br/>Slows delirium</span>Well that doesn't really sound like a bad thing. ",
-			r4: "As you near the halfway point without too much strife, the Spire itself seems to become alive. You don't know what could be activating it since Druopitee is dead, so you keep your head down and you watch where you tread.<br/><br/>There's also some little containers floating a tiny bit off the ground, so you go check em out. " ,
-			r6: "A humming vibration suddenly fills the air, and a voice booms from the walls. <span class='spirePoem'>There is a piece of me in every last Spire<br/>I will ensure that Corruption is never retired<br/>Though your resolve is something that I admire<br/>Your little plan will surely backfire<br/></span>So it seems like all of the Spires are actually sentient thanks to Druopitee. You're just glad the narrator isn't trying to do the poetry anymore. Hey wait...<br/><br/>",
-			r7: "<span class='spirePoem'>I see you found my notes on my Healthy mutation<br/>I bet you even think it could be your salvation<br/>Improving this world must be quite the temptation<br/>But your journey will surely end in frustration</span>Well, you definitely want to get your hands on some of that Healthy mutation now. ",
-			r8: "Nothing here but a bunch of boxes, so you decide to rummage through them. ",
-			r9: "<span class='spirePoem'>Even if you were able, which you surely are not<br/>A Healthier world would not hasten your trot<br/>For there's strength in Health and you would be distraught<br/>At the difficult challenge you yourself had wrought</span>It sounds like he's trying to tell you that the Healthy mutation would make your enemies even stronger. Still seems like releasing it would be the right thing to do, though. ",
-			r10: "As the Echo of Druopitee falls, you notice a large tank of some brown looking liquid, and you see pipes and tubes running from it to the top of the Spire. A label on the tank seems to indicate that this is the Healthy mutation and that you shouldn't touch it. But you know that what you want and what Druopitee wants are different things, so you start turning all the nozzles you can find. A fine brown mist begins to spout from the top of the Spire and you can tell that the world is finally healing. Now you just hope he was lying about this making the enemies stronger... "
+			r2: "这座尖塔的一切似乎都没有上一座整洁，他从没想过你能通过第一座尖塔。你在一些虚空物质中发现了一张小纸条。<br/><span class='spirePoem'>健康变异是糟糕的...<br/>它减缓了生物的狂乱</span>嗯，这听起来不是一件坏事。",
+			r4: "你逐渐接近了尖塔的中部，没有太多的敌人，此时尖塔似乎有了生命。德鲁普提已死，你不知道是什么将它激活，所以你低下头，看看脚下。<br/><br/>有一些小容器漂浮在地面上，距离地面只有很小的距离，你要去检查一下它们。" ,
+			r6: "空气中突然充满了嗡嗡的震动声，从墙壁中传来了低沉有力的声音。<span class='spirePoem'>每一个尖塔中都有一部分我<br/>我将确保腐化永远传播<br/>即使我对你的决心敬佩甚颇<br/>你的小小计划必会将自己打破<br/></span>似乎所有尖塔都被德鲁普提赋予了知觉。你很高兴讲述者不再念诗了。嘿，等等……<br/><br/>",
+			r7: "<span class='spirePoem'>我看到你找到我健康变异的笔记<br/>我读你将其作为你的计划所依<br/>拯救这个世界确实令人着迷<br/>但是你的旅途必然结束于失意</span>好吧，你现在确实想接触一些有关健康变异的东西。",
+			r8: "这里什么都没有，只有一堆盒子，所以你决定翻翻它们。 ",
+			r9: "<span class='spirePoem'>你觉得自己可以，但其实并不<br/>一个健康世界不会加速你的脚步<br/>健康的力量会令你厌恶<br/>未来的更多困难是你自己所筑</span>这个声音似乎试图告诉你，健康变异会使你的敌人拥有更强的力量。尽管如此，释放它仍然是一件正确的事情。",
+			r10: "在德鲁普提的回响倒下时，你注意到一个装着棕色液体的大罐子，你看到许多管道从罐子连接到到塔顶。罐子上的标签表明这个是健康突变，并且你不应该触碰它。但是你知道你需要什么，与德鲁普提所要是完全不同的，所以你打开了所有你能找到的喷嘴。一缕细细的棕色薄雾从塔尖开始喷出来，你可以看出世界终于开始复原了。现在你只希望健康突变令敌人强大只是一个谎言……"
 		},
 		spire3: {
-			r2: "There seems to be a pattern here of each spire looking considerably more trashed than the one before it. The walls feel cold and the vibration inside is very faint. Nobody's watching you, so you dig around looking for some stuff to take. ",
-			r4: "The vibrations within the walls grow stronger with each step you take towards the top. The air has become noticeably warmer, and you expect the walls to start talking to you again soon. ",
-			r6: "<span class='spirePoem'>WHAT<br/>WHO<br/>How...</span>That didn't seem very coherent. It seems like destroying his Echo in the last Spire has made some sort of impact. ",
-			r7: "<span class='spirePoem'>I see that you're attempting some planetary healing<br/>Leaving me steaming in an unappealing feeling<br/>Your freewheeling and stealing has just reached the ceiling<br/>Now commence kneeling or be sent off reeling</span>At least he's gained enough consciousness back to continue with the threats. You know that now is not the time to back down. ",
-			r8: "<span class='spirePoem'>It's obvious that you want the Corruption to slow<br/>So I'll point out something you might not yet know<br/>My Spires are infinite, there is no plateau<br/>You are doomed and you've been so since long long ago</span>His Spires might be infinite, but it's not possible for his consciousness to be. You decide you'll worry about the rest of the spires once you've beaten Druopitee into nothingness. ",
-			r9: "<span class='spirePoem'>Still you climb on, won't your strength ever waver?<br/>You're determined to be this planet's true savior?<br/>Stop to reconsider, we could be something greater<br/>Or continue your path as a time traveling slaver</span>Slaver?! Your Trimps all know that they're free to leave whenever they want. He's just trying to get under your skin! ",
-			r10: "Well, that's one Druopitee and two Echoes of Druopitee down now. He says that he has infinite Spires and infinite versions of himself, but you could tell at the end there that his Echoes are losing power. You might be able to knock the sentience out of all of his Spires by just clearing one more! You set your sights 100 zones forward, turn some more nozzles to spread some more Health around the world, you take your helium, spit on the floor of the Spire, and move on. "
+			r2: "每座尖塔似乎都有一个图案，每个图案都比上一座的要废弃得多。墙壁很冷，内部的震动非常微弱。没有人在看你，所以你在周围挖掘，想找到一些材料。 ",
+			r4: "墙壁内的振动随着你走向顶部的每一步而变得更加强烈。空气明显变暖了，你认为墙壁能很快开始和你说话。 ",
+			r6: "<span class='spirePoem'>什么<br/>谁<br/>如何...</span>这听起来不是很连贯。似乎你在上一座尖塔摧毁的回响已经产生了某种影响。",
+			r7: "<span class='spirePoem'>我看到你在试图将星球治好<br/>让我在不适感中倍受煎熬<br/>你的随心所欲与偷窃行为已达到最高<br/>现在跪下臣服或是被我打爆</span>至少他已经恢复了足够的意识继续面对威胁。你知道现在不是退让的时候。",
+			r8: "<span class='spirePoem'>明显你想要使腐化减慢<br/>所以我指出你可能还未知的事件<br/>我的尖塔没有终止，它数量无限<br/>你必将失败，这早已预言</span>他的尖塔可能是无限的，但他的意识是不可能的。你决定一旦你打败了德鲁普提所有的意识，你再考虑剩下的塔尖。",
+			r9: "<span class='spirePoem'>你还在攀爬，你的力量不会变弱？<br/>你已决定将此星球拯救于灾祸？<br/>停下来想想，我们可以有更宏伟的杰作<br/>或者像一个奴隶，继续旅行于时间枷锁</span>奴隶?! 你的脆皮们都明白只要他们愿意，随时可以离开。他只是想惹你生气！！ ",
+			r10: "很好，现在已经打倒了一个德鲁普提和两个德鲁普提的回响。他说他拥有无数的尖塔，也有无数个版本的他，但是在刚才你可以看出他的回响最后失去了力量。你可能只需要再清理一座尖塔就能够使所有尖塔中的他都失去意识！你的目光看向前方的100区域，打开更多喷嘴，向世界各地散布更多的健康，你拿走了氦，在尖塔的地上吐了一口唾沫，然后继续前进。 "
 		},
 		spire4: {
-			r2: "As you guessed before you even stepped in, this Spire is in even worse condition than the one before. The air is colder, the walls are more still, and there's a feeling of vacancy. Might as well look for stuff to take! ",
-			r4: "You wonder if the Echo of Druopitee will even be able to speak anymore. You know he'll be at the top waiting, just like the infinite other Spires, but maybe he'll just leave you be this time. ",
-			r6: "The Spire is warming up again. Maybe Druopitee will make his final appearance soon. ",
-			r7: "<span class='spirePoem'>Please just go around, there's nothing to see<br/>Why is my demise something you must guarantee?<br/>I beg you once more, please hear my plea<br/>We could rule for all time, just you and me</span>No thanks, Druopitee. It's kinda nice to see him scared though! ",
-			r8: "<span class='spirePoem'>Well here is something I wouldn't normally say<br/>Since it seems like you won't be going away<br/>Each of my Echoes you slay makes my mind decay<br/>I may not be able to communicate after today</span>Yes, that was becoming pretty obvious. His mind must really be decaying fast if he thought this admission would be anything other than motivating. ",
-			r9: "<span class='spirePoem'>Why don't you care that you're making things harder?<br/>To repair the planet you'd give enemies armor?<br/>When I brought you here, I thought you'd be smarter<br/>But it seems like there's no room left to barter</span>No, there's not. You're almost there. ",
-			r10: "As this third Echo of Druopitee falls, the Spire suddenly feels twice as cold. Druopitee told you that he placed infinite versions of himself in infinite Spires, but his will should no longer be conscious in any of them. You turn another set of knobs to release some more of the Healthy mutation into the world, and you figure there's nothing better to do than to keep looking for more to release. You just wouldn't be surprised to not hear from Druopitee again, at least not in this timeline. "
+			r2: "正如你在踏进尖塔之前就猜到的那样，这个塔尖的状况比之前的更差。空气更冷，墙壁更安静，有一种空虚的感觉。或许你可以拿走一些东西!",
+			r4: "你想知道德鲁普提的回响是否还能说话。你知道他会在尖塔的顶端等待着你，就像其他无数的尖塔一样，但是可能这次之后他就会永远的离开你了。",
+			r6: "尖塔又在警告你了。可能德鲁普提一会就会再来一次最后的现身。",
+			r7: "<span class='spirePoem'>请转身离开，这里没什么可看<br/>为何我的死亡就是你的期盼?<br/>我再次求你，请听我的宏愿<br/>永久的时间中，你我统治各半</span>不了，谢谢, 德鲁普提。 看到他这么害怕可真高兴! ",
+			r8: "<span class='spirePoem'>接下来是我平常未说之言<br/>因为你似乎不会折返<br/>你杀死的每一个回响都使我的思想腐烂<br/>今天之后我可能就不会交谈</span>是的，这已经很明显了。如果他认为这样的承认除了激励人之外，还能有什么意义的话，那么他的头脑肯定正在迅速腐坏。 ",
+			r9: "<span class='spirePoem'>为何你不在意你使事情更加困难?<br/>为了修复这个星球，你使敌人更加强悍?<br/>我带你来这时, 我以为你聪明能干<br/>但是现在似乎已经没有余地可谈</span>不，是无法谈的，你就在那里了。 ",
+			r10: "当第三个德鲁普提的回响倒下时，尖塔突然变冷了两倍。德鲁普提曾经和你说在无限的尖塔中有无限个版本的他，但是其他的他应该不会再有意识了。你转动另一组旋钮，向世界释放更多的健康突变，你觉得再没有什么事能比寻找并释放更多健康突变更好的了。不能再次听到德鲁普提的话，你并不感到惊讶，至少不会在这个时间线。 "
 		}
 	}
 	var spire = spires['spire' + spireNum];
@@ -8989,21 +8989,21 @@ function giveSpireReward(level){
 		case(20):
 			var nuReward = 200 * Math.pow(2, spireWorld - 2);
 			game.global.nullifium += nuReward;
-			message(getSpireStory(spireWorld, 2) + "你找到了 " + nuReward + " Nullifium!", "Story");
+			message(getSpireStory(spireWorld, 2) + "你找到了 " + nuReward + " 虚空物质!", "Story");
 			break;
 		case(40):
 			if (!game.global.runningChallengeSquared){
 				amt = giveHeliumReward(15);
-				message(getSpireStory(spireWorld, 4) + "You help yourself to a container filled with " + prettify(amt) + " Helium!", "Story");
+				message(getSpireStory(spireWorld, 4) + "你装走了 " + prettify(amt) + " 氦!", "Story");
 			}
 			break;
 		case(50):
 			if (spireWorld == 2){
 				if (game.portal.Capable.level > 0){
-					message("Out of the corner of your eye, you notice a creature who doesn't seem like he belongs. You walk up closer and notice that it's Fluffy! You turn around expecting to see your other Fluffy, but there is only one. You turn back as he waves at you in recognition, you feel a bit lightheaded, but you've had weirder things happen on this planet. You decide to keep moving up the Spire with your new old friend.", "Story");					
+					message("在你视野的角落，你发现了一个生物，似乎不属于德鲁普提。你走近一看，发现它是蓬松！你转过身，想看到你的另一只蓬松，但是这里只有这一只。你回过头，它正在挥手致意，你感觉有点头晕，但是你在这个星球上已经见到了更奇怪的事情。你决定和这个新的老朋友继续向尖塔高处前进。", "Story");					
 				}
 				else {
-					message("Out of the corner of your eye, you notice a creature who doesn't seem like he belongs. You walk up closer and notice that it's a Trimp! Only this Trimp is purple instead of blue, obviously a result of some experiments by Druopitee. You let him know not to worry, and that you'll keep him safe. You name him Fluffy, and vow to never let any harm come to him. <b>Gained 1 Trimp!</b>", "Story");
+					message("在你视野的角落，你发现了一个生物，似乎不属于德鲁普提。你走近一看，发现它是一只脆皮！只有这一只脆皮是紫色的，而不是蓝色的，显然这是德鲁普提实验的产物，你让它明白已经没有什么好害怕的了，你会保证它的安全。你将它命名为蓬松，并且发誓不会让它受到任何伤害。 <b>获得 1 脆皮!</b>", "Story");
 					//I know that adding 1 trimp doesn't do anything at all, but I'm no liar (on purpose)
 					game.resources.trimps.owned++;
 				}
@@ -9013,18 +9013,18 @@ function giveSpireReward(level){
 				//Spire III+
 				var fluffReward = Fluffy.rewardExp(2);
 				if (fluffReward)
-					message("Fluffy suddenly drops to all of his extremities and begins closely inspecting the walls. After a few moments he chooses a location and smashes a hole in it, then pulls a small book out of said hole. Without even opening it up, he eats the book and gains " + prettify(fluffReward) + " experience! What a magnificent creature.", "Story");
+					message("蓬松突然四肢着地，开始仔细观察墙壁。过了一会儿，他选定了一个地方，在上面砸了一个洞，然后从洞里拿出了一本小书。他甚至没有把书打开，就把书吃掉了，并且获得 " + prettify(fluffReward) + " 经验!多么华丽的生物。", "Story");
 			}
 			break;
 		case(60):
 			var nuReward = 300 * Math.pow(2, spireWorld - 2);
 			game.global.nullifium += nuReward;
-			message(getSpireStory(spireWorld, 6) + "你找到了 " + nuReward + " Nullifium!</span>", "Story");
+			message(getSpireStory(spireWorld, 6) + "你找到了 " + nuReward + " 虚空物质!</span>", "Story");
 			break;
 		case(70):			
 			var heirloomLevel = 400;
 			if (spireWorld > 3) heirloomLevel = ((spireWorld + 1) * 100);
-			message(getSpireStory(spireWorld, 7) + "You found a Z" + heirloomLevel + " Heirloom!", "Story");
+			message(getSpireStory(spireWorld, 7) + "你找到了区域" + heirloomLevel + "级别的传家宝!", "Story");
 			createHeirloom(heirloomLevel);
 			break;
 		case(80):
@@ -9033,14 +9033,14 @@ function giveSpireReward(level){
 			game.empowerments.Wind.tokens += tokReward;
 			game.empowerments.Ice.tokens += tokReward;
 			game.stats.bestTokens.value += (tokReward * 3);
-			message(getSpireStory(spireWorld, 8) + "你找到了 " + tokReward + " of each type of Nature Token!", "Story");
+			message(getSpireStory(spireWorld, 8) + "你找到了" + tokReward + "个各种类型的自然符记!", "Story");
 			if (game.global.buyTab == "nature")
 				updateNatureInfoSpans();
 			break;
 		case(90):
 			if (!game.global.runningChallengeSquared){
 				amt = giveHeliumReward(30);
-				message(getSpireStory(spireWorld, 9) + "You figure you'll help yourself to another container filled with " + prettify(amt) + " Helium!", "Story");
+				message(getSpireStory(spireWorld, 9) + "你找到另一个容器，里面有 " + prettify(amt) + " 氦!", "Story");
 			}
 			break;
 		case(100):
@@ -9048,23 +9048,23 @@ function giveSpireReward(level){
 			var text = getSpireStory(spireWorld, 10);
 			if (!game.global.runningChallengeSquared){
 				var amt = giveHeliumReward(100);
-				text += " You find a large stockpile of <b>" + prettify(amt) + " Helium</b>.";
+				text += " 你发现了 <b>" + prettify(amt) + " 氦</b>.";
 			}
 			if (game.global.spiresCompleted < spireWorld){
 				game.global.spiresCompleted = spireWorld;
 				game.global.b += 20;
-				text += " For your first time killing this Echo in any timeline, you have permanently added another 5% to your Liquification bonus and earned <b>20 bones!</b>"
+				text += " 这是你第一次在任何时间线上消灭这个回响，你已经永久地增加了5%的液化奖金，并赢得了<b>20个骨头！</b>"
 				switch (spireWorld){
 					case 2: 
-						text += " You have also unlocked the <b>Capable</b> perk!";
+						text += " 你也解锁了 <b>能力</b> 能力!";
 						game.portal.Capable.locked = false;
 						break;
 					case 3:
-						text += " You have also unlocked the <b>Cunning</b> perk!"
+						text += " 你也解锁了 <b>狡猾</b> 能力!"
 						game.portal.Cunning.locked = false;
 						break;
 					case 4:
-						text += " You have also unlocked the <b>Curious</b> perk!"
+						text += " 你也解锁了 <b>好奇</b> 能力!"
 						game.portal.Curious.locked = false;
 						break;
 				}
@@ -9085,7 +9085,7 @@ function giveSpireReward(level){
 			amt = 0.5;
 			amt *= Math.pow(1.01, level);
 			amt = giveHeliumReward(amt);
-			message("As you're leaving, you find " + prettify(amt) + " helium!", "Loot", "oil", "helium", "helium");
+			message("在你离开时，你找到了 " + prettify(amt) + " 氦!", "Loot", "oil", "helium", "helium");
 			return;				
 	}
 }
@@ -12496,7 +12496,7 @@ var Fluffy = {
 		tooltipText += "</div></div>";
 		if (!Fluffy.isMaxLevel()){
 			if (savedLevel > fluffyInfo[0]) tooltipText += "<span class='red'>- Fluffy的等级和伤害加成现在被降低了. Fluffy 会恢复等级 " + savedLevel + " 当 points are placed back in Capable.</span>";
-			else if (!Fluffy.canGainExp()) tooltipText += "<span class='red'>- Fluffy needs " + ((game.portal.Capable.level == 0) ? " at least one point of Capable to gain any Exp" + ((game.portal.Capable.locked) ? ". Complete Spire II to unlock Capable!" : "") : " more points in Capable to gain Exp above level " + game.portal.Capable.level + ".") + "</span>";
+			else if (!Fluffy.canGainExp()) tooltipText += "<span class='red'>- 蓬松需要" + ((game.portal.Capable.level == 0) ? "至少一级的能力来获取经验" + ((game.portal.Capable.locked) ? ". 完成尖塔II来解锁能力！" : "") : "更高级别的能力来获取经验并超过等级" + game.portal.Capable.level + ".") + "</span>";
 			else {
 				if (game.global.world < 301) tooltipText += "<span class='red'>- Fluffy 不能在区域301之前获得任何经验。</span>";
 				else tooltipText += "- Fluffy 在完成本区域后会获得 " + prettify(Fluffy.getExpReward()) + " 点经验。 " + Fluffy.getFluff();
