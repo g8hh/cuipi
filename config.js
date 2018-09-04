@@ -2053,7 +2053,7 @@ var toReturn = {
 			unlockString: "到达区域 120"
 		},
 		Crushed: {
-			description: "到一个大气中氦含量丰富的维度，但是敌人有50%的几率产生+400%伤害的暴击，除非你的格挡和你当前的生命值水平一样高。清理 <b>仿生仙境 (Z125)</b> 将会给你额外的400%的氦，但不包括Z125。这个挑战是可重复的。",
+			description: "到一个大气中氦含量丰富的维度，但是敌人有50%的几率产生+400%伤害的暴击，除非你的防御超过最大生命值。清理 <b>仿生仙境 (Z125)</b> 将会给你额外的400%的氦，但不包括Z125。这个挑战是可重复的。",
 			completed: false,
 			filter: function () {
 				return (game.global.highestLevelCleared >= 124);

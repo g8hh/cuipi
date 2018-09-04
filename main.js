@@ -9649,7 +9649,7 @@ var dailyModifiers = {
 			description: function (str) {
 				var text = "当敌人被杀死时，会瞬间造成相当于其攻击伤害" + prettify(this.getMult(str) * 100) + "%的伤害";
 				if (str > 15) {
-					text += "，除非你的防御和你的最大生命值一样高";
+					text += "，除非你的防御和超过最大生命值";
 				}
 				text += "。";
 				return text;
