@@ -21,7 +21,7 @@
 function newGame () {
 var toReturn = {
 	global: {
-		version: 4.814,
+		version: 4.91,
 		isBeta: false,
 		betaV: 0,
 		killSavesBelow: 0.13,
@@ -132,6 +132,7 @@ var toReturn = {
 		voidBuff: "",
 		lastVoidMap: 0,
 		voidSeed: Math.floor(Math.random() * 1000000),
+		scrySeed: Math.floor(Math.random() * 1000000),
 		heirloomSeed: Math.floor(Math.random() * 1000000),
 		heirloomBoneSeed: Math.floor(Math.random() * 1000000),
 		eggSeed: Math.floor(Math.random() * 1000000),
@@ -188,6 +189,7 @@ var toReturn = {
 		firstCustomExact: -1,
 		autoGolden: -1,
 		autoStructureSetting: {enabled: false},
+		autoJobsSetting: {enabled: false},
 		passive: true,
 		spiresCompleted: 0,
 		lastSpireCleared: 0,
@@ -211,6 +213,8 @@ var toReturn = {
 		canScryCache: false,
 		waitToScry: false,
 		waitToScryMaps: false,
+		freeTalentRespecs: 3,
+		genStateConfig: [],
 		mapPresets: {
 			p1: {
 				loot: 0,
@@ -219,7 +223,8 @@ var toReturn = {
 				biome: "Random",
 				specMod: "0",
 				perf: false,
-				extra: 0
+				extra: 0,
+				offset: 'd'
 			},
 			p2: {
 				loot: 0,
@@ -228,7 +233,8 @@ var toReturn = {
 				biome: "Random",
 				specMod: "0",
 				perf: false,
-				extra: 0				
+				extra: 0,
+				offset: 'd'	
 			},
 			p3: {
 				loot: 0,
@@ -237,7 +243,8 @@ var toReturn = {
 				biome: "Random",
 				specMod: "0",
 				perf: false,
-				extra: 0
+				extra: 0,
+				offset: 'd'
 			}
 		},
 		lootAvgs: {
@@ -707,6 +714,7 @@ var toReturn = {
 							accumulator: 0
 						};
 					}
+					document.getElementById('gemsPs').style.display = 'block';
 				}
 			},
 			voidPopups: {
@@ -820,15 +828,6 @@ var toReturn = {
 					return game.global.canMapAtZone;
 				}
 			},
-			siphonologyMapLevel: {
-				enabled: 0,
-				extraTags: "qol",
-				description: "When entering the Maps screen, by default the Level Selector starts at your current world number. Toggling this setting on will force this number to default to your minimum Siphonology level instead.",
-				titles: ["Use World Number", "Use Siphonology Level"],
-				lockUnless: function () {
-					return (!game.portal.Siphonology.locked)
-				}
-			},
 			timestamps: {
 				enabled: 0,
 				extraTags: "qol",
@@ -887,7 +886,11 @@ var toReturn = {
 			generatorStart: {
 				enabled: 0,
 				extraTags: "general",
-				description: "Choose what mode the Dimensional Generator should start each run on. <b>Default Generator</b> will continue with whatever setting you were using at the end of your last run. <b>The Rest of The Settings<b> are named by what mode will be set to active at the start of each run.",
+				get description(){
+					var text = "<p>Choose what mode the Dimensional Generator should start each run on. <b>Default Generator</b> will continue with whatever setting you were using at the end of your last run. <b>The Rest of The Settings<b> are named by what mode will be set to active at the start of each run.</p>";
+					if (game.permanentGeneratorUpgrades.Supervision.owned) text += "<p><b>Hold Ctrl while clicking to open the Generator State Configuration menu</b></p>";
+					return text;
+				},
 				get titles () {
 					var arr = ["Default Generator", "Gain Fuel", "Gain Mi"];
 					if (game.permanentGeneratorUpgrades.Hybridization.owned) arr.push("Hybrid");
@@ -895,7 +898,8 @@ var toReturn = {
 				},
 				lockUnless: function () {
 					return (game.global.highestLevelCleared >= 229);
-				}
+				},
+				secondLocation: ["togglegeneratorStartPopup"]
 			},
 //			showSnow: {
 //				enabled: 1,
@@ -970,6 +974,7 @@ var toReturn = {
 						this.timeAtPause = new Date().getTime();
 						if (game.options.menu.autoSave.enabled == 1) save(false, true);
 						swapClass("timer", "timerPaused", document.getElementById("portalTimer"));
+						handlePauseMessage(true);
 					}
 					else if (this.timeAtPause) {
 						var now = new Date().getTime();
@@ -984,8 +989,8 @@ var toReturn = {
 						game.global.time = 0;
 						game.global.lastOnline = now;
 						game.global.start = now;
-						setTimeout(gameTimeout, (100));
 						swapClass("timer", "timerNotPaused", document.getElementById("portalTimer"));
+						handlePauseMessage(false);
 					}
 				},
 				locked: true
@@ -1012,9 +1017,16 @@ var toReturn = {
 		}
 	},
 	talents: {
+		portal: {
+			description: "Unlock Portal immediately after clearing Z20.",
+			name: "Portal Generator",
+			tier: 1,
+			purchased: false,
+			icon: "eye-open",
+		},
 		bionic: {
 			description: "<p>自动获取每一层仿生仙境(BW)地图当你超过BW的层数。如果您已经错过了本次运行的任何一个BW，或者您到达一个比您以前清除的任何BW都高的区域，则将无效。</p><p>另外,给所有当前和未来的副本仿生仙境的快速攻击的特殊的修饰符。</p>",
-			name: "Bionic Magnet",
+			name: "Bionic Magnet I",
 			onPurchase: function (clear) {
 				addMapModifier('Bionic', 'fa');
 			},
@@ -1024,13 +1036,6 @@ var toReturn = {
 			tier: 1,
 			purchased: false,
 			icon: "magnet"
-		},
-		portal: {
-			description: "打开Z20后马上打开传送门。",
-			name: "Portal Generator",
-			tier: 1,
-			purchased: false,
-			icon: "eye-open",
 		},
 		bounty: {
 			description: "在清理Z15后马上解锁赏金。",
@@ -1052,6 +1057,13 @@ var toReturn = {
 			tier: 1,
 			purchased: false,
 			icon: "*spoon-knife"
+		},
+		explorers: {
+			description: "Automatically picks up SpeedExplorer books when you pass their zone.",
+			name: "Explorer Aura I",
+			tier: 1,
+			purchased: false,
+			icon: "*map-signs"
 		},
 		voidPower: {
 			description: "你的脆皮在虚空地图中会获得15%的额外攻击力和血量。",
@@ -1097,6 +1109,15 @@ var toReturn = {
 			requires: "turkimp",
 			icon: "*spoon-knife"
 		},
+		scry: {
+			get description(){
+				return "When fighting Corrupted " + ((game.global.spiresCompleted >= 2) ? "or Healthy " : "") + "cells in Scryer Formation, grants 50% more Dark Essence and doubles your attack.";
+			},
+			name: "Scryhard I",
+			tier: 2,
+			purchased: false,
+			icon: "*spinner9"
+		},
 		voidPower2: {
 			description: "你的脆皮在虚空地图中会再获得20%的额外攻击力和血量。",
 			name: "Void Power II",
@@ -1133,6 +1154,13 @@ var toReturn = {
 			tier: 3,
 			purchased: false,
 			icon: "italic",
+		},
+		daily: {
+			description: "Gain +50% attack when running a Daily Challenge.",
+			name: "Legs for Days",
+			tier: 3,
+			purchased: false,
+			icon: "*calendar4"
 		},
 		hyperspeed: {
 			description: "减少攻击间隔100ms。",
@@ -1174,7 +1202,6 @@ var toReturn = {
 				toggleAutoStructure(true);
 			},
 			onRespec: function () {
-				game.global.autoStructureSetting.enabled = false;
 				toggleAutoStructure(true, true);
 			}
 		},
@@ -1186,6 +1213,19 @@ var toReturn = {
 			requires: "turkimp2",
 			icon: "*spoon-knife"
 		},
+		autoJobs: {
+			description: "Unlock the Job Automator, the envy of Human Resourceimps across the Universe.",
+			name: "AutoJobs",
+			tier: 4,
+			purchased: false,
+			icon: "*group",
+			onPurchase: function () {
+				toggleAutoJobs(true);
+			},
+			onRespec: function () {
+				toggleAutoJobs(true, true);
+			}
+		},
 		hyperspeed2: {
 			get description(){
 				return "减少战斗时间 100ms 直到 区域Z" + Math.floor((game.global.highestLevelCleared + 1) * 0.5) + "(你最高区域的50％)";
@@ -1193,6 +1233,7 @@ var toReturn = {
 			name: "Hyperspeed II",
 			tier: 5,
 			purchased: false,
+			requires: "hyperspeed",
 			icon: "fast-forward"
 		},
 		blacksmith2: {
@@ -1226,6 +1267,14 @@ var toReturn = {
 			purchased: false,
 			icon: "italic",
 			requires: "skeletimp"
+		},
+		explorers2: {
+			description: "Start with an extra SpeedExplorer book after each Portal.",
+			name: "Explorer Aura II",
+			tier: 5,
+			purchased: false,
+			requires: "explorers",
+			icon: "*map-signs"
 		},
 		voidPower3: {
 			description: "你的脆皮在虚空地图内获得额外的30％攻击力和生命，所有当前和未来的虚空地图都会获得“快速攻击”特效修正。",
@@ -1295,6 +1344,14 @@ var toReturn = {
 
 			}
 		},
+		scry2: {
+			description: "Complete an entire Void Map in Scryer Formation to earn an additional 50% Helium.",
+			name: "Scryhard II",
+			tier: 6,
+			purchased: false,
+			icon: "*spinner9",
+			requires: "scry"
+		},
 		magmamancer: {
 			description: "现在，巫师将会增加同样数量的攻击。 此外，开始每个区域后视为你已在本区域停留5分钟。",
 			name: "Magmamancermancy",
@@ -1318,31 +1375,39 @@ var toReturn = {
 			requires: "nature",
 			icon: "*tree3"
 		},
-		patience: {
-			description: "预期现在可以达到45层。",
-			name: "Patience",
+		deciBuild: {
+			description: "建筑队列构造10。此外，如果需要的话，通过自动jian'zao添加到队列中的建筑物每次增加10个。",
+			name: "Deca Build",
 			tier: 7,
 			purchased: false,
-			icon: "*clock2"
+			icon: "*hammer",
+			requires: "doubleBuild"
 		},
 		stillRowing: {
-			description: "增肌50%的尖塔额外掉落奖励，从2％每行的额外奖励增加到3％。",
+			description: "连续完成一个完整的尖顶增加50%掠夺奖励,从2％每行的额外奖励增加到3％。",
 			name: "Still Rowing I",
 			tier: 7,
 			purchased: false,
 			icon: "align-justify"
 		},
+		patience: {
+			description: "Anticipation can now reach 45 stacks.",
+			name: "Patience",
+			tier: 7,
+			purchased: false,
+			icon: "*clock2"
+		},
 		voidSpecial: {
 			get description() {
-				var text = "通过传送门时，上次运行每清除100个区域，你将获得1个免费的虚空地图。 来自虚空地图的氦气增加上次完成区域数*0.25％。";
+				var text = "<p>通过传送门时，上次运行每清除100个区域，你将获得1个免费的虚空地图。 来自虚空地图的氦气增加上次完成区域数*0.25％。</p>";
 				var amt = (game.global.lastPortal * 0.0025);
-				text += " 你在上一个传送门中到达了 Z" + game.global.lastPortal + "，";
+				text += "<p>你在上一个传送门中到达了 Z" + game.global.lastPortal + ", ";
 				if (this.purchased) text += " 获得了奖励 ";
 				else text += " 这将为你本次的虚空地图获得 ";
-				text +=  prettify(amt * 100) + "% 额外的氦气。"
+				text +=  prettify(amt * 100) + "% 额外的氦气和 " + Math.floor(game.global.lastPortal / 100) + " 虚空地图。</p>"
 				return text;
 			},
-			name: "Void Specialization",
+			name: "Void Specialization I",
 			tier: 8,
 			purchased: false,
 			icon: "*feed"
@@ -1390,6 +1455,77 @@ var toReturn = {
 			requires: "stillRowing",
 			icon: "align-justify"
 		},
+		amalg: {
+			description: "Causes the 50% damage bonus from each Amalgamator to be compounding rather than additive.",
+			name: "Amalgagreater",
+			tier: 8,
+			purchased: false,
+			icon: "scale"
+		},
+		voidSpecial2: {
+			get description(){
+				 var text = "<p>Gain a second Void Map per 100 zones cleared last run, but the first one is earned at Z50 (then 150, 250 etc). In addition, if Fluffy's level 6 bonus is active, this allows Fluffy to stack 1 additional Void Map, adding another 50% Helium bonus to the stack.</p>";
+				 text += "<p>You reached <b>Z" + game.global.lastPortal + "</b> last Portal,";
+				 if (this.purchased) text += " earning you a bonus of ";
+				 else text += " which would earn you a bonus of ";
+				 var maps = Math.floor((game.global.lastPortal + 50) / 100);
+				 text += maps + " more Void Maps (" + (maps + Math.floor((game.global.lastPortal) / 100)) + " including Void Specialization I).</p>"
+				 return text;
+			},
+			name: "Void Specialization II",
+			tier: 9,
+			purchased: false,
+			icon: "*feed",
+			requires: "voidSpecial"
+		},
+		bionic2: {
+			description: "Adds Prestigious to Bionic Wonderland maps. This will make every Bionic Wonderland have two Prestige upgrades, including your first run that normally just has a RoboTrimp upgrade. In addition, gain +50% attack whenever you're in a map that is higher than your current World.",
+			name: "Bionic Magnet II",
+			tier: 9,
+			purchased: false,
+			onPurchase: function () {
+				refreshMaps();
+			},
+			afterRespec: function () {
+				refreshMaps();
+			},
+			icon: "magnet"
+		},
+		fluffyExp: {
+			get description(){
+				return "Fluffy gains +25% more Exp per zone for each completed Evolution. Fluffy has Evolved " + game.global.fluffyPrestige + " time" + needAnS(game.global.fluffyPrestige) + ", " + ((this.purchased) ? "earning" : "which would earn") + " you a bonus of +" + prettify(game.global.fluffyPrestige * 25) + "% Exp.";
+			},
+			name: "Flufffocus",
+			tier: 9,
+			purchased: false,
+			icon: "*library"
+		},
+		fluffyAbility: {
+			description: "Gain one extra Fluffy ability. This works as if Fluffy Evolved, but doesn't increase Fluffy's damage bonus.",
+			name: "Flufffinity",
+			tier: 9,
+			purchased: false,
+			icon: "*infinity"
+		},
+		overkill: {
+			description: "Allows you to Overkill yet another cell.",
+			name: "Excessive",
+			tier: 9,
+			purchased: false,
+			icon: "*fighter-jet"
+		},
+		crit: {
+			get description(){
+				var text = "<p>Adds +1 to your MegaCrit modifier, and adds 50% of your Shield Heirloom's Crit Chance to your Crit Chance again.</p>";
+				if (game.heirlooms.Shield.critChance.currentBonus > 0) text += "<p>Your Shield currently has a bonus of " + game.heirlooms.Shield.critChance.currentBonus + "%, so this Mastery " + ((this.purchased) ? "is giving you" : "would give you") + " +" + (game.heirlooms.Shield.critChance.currentBonus / 2) + "% additional Crit Chance.</p>";
+				else text += "<p>However, you do not currently have Crit Chance on your Shield.</p>";
+				return text;
+			},
+			name: "Charged Crits",
+			tier: 9,
+			purchased: false,
+			icon: "*power"
+		}
 		//don't forget to add new talent tier to getHighestTalentTier()
 	},
 	//portal
@@ -1474,6 +1610,18 @@ var toReturn = {
 			heliumSpent: 0,
 			get tooltip() {
 				return "Fluffy 进步中, 但他进步的有点慢。 每一级的好奇都将加速Fluffy的发展。每级增加" + this.modifier + " 点每个区域的基础经验。"
+			}
+		},
+		Classy: {
+			level: 0,
+			locked: true,
+			modifier: 2,
+			priceBase: 1e17,
+			heliumSpent: 0,
+			max: 50,
+			get tooltip() {
+				var level = (this.levelTemp) ? this.level + this.levelTemp : this.level;
+				return "Reduce the zone that Fluffy can start earning Experience at by " + this.modifier + "." + " With " + level + " level" + needAnS(level) + " in Classy, Fluffy will start earning Experience at Z" + (301 - (level * this.modifier)) + ".";
 			}
 		},
 		Overkill: {
@@ -1860,6 +2008,8 @@ var toReturn = {
 				document.getElementById("scienceCollectBtn").style.display = "none";
 				game.resources.science.owned = getScientistInfo(getScientistLevel());
 				game.global.autoUpgrades = false;
+				game.global.autoPrestiges = 0;
+				toggleAutoPrestiges(true);
 				toggleAutoUpgrades(true);
 			},
 			onLoad: function () {
@@ -2561,7 +2711,7 @@ var toReturn = {
 			owned: false
 		},
 		Supervision: {
-			description: "获得通过点击表盘来暂停维度发生器的能力，<b> 并且 </b>添加一个滑块到你的发生器窗口，让你可以降低最大燃料容量并获得对超频更好的控制。 将你的容量降低到你储存的燃料量以下不会浪费任何燃料，但是当超频第一次被触发时，所有超过上限的燃料将被消耗。",
+			description: "<p>Gain 3 Automation/Micromanagement tools for your Generator!</p><ul><li>Gain the ability to pause the Dimensional Generator by clicking the clock.</li><li>Get a sweet button to configure specific zones to switch Generator states at. You'll also gain the ability to Ctrl + Click the Generator Start setting in the Settings menu to open up the same interface.</li><li>Add a Slider to your Generator window, allowing you to lower your maximum fuel capacity and gain greater control over Overclocker. Lowering your capacity below your stored amount of fuel will not waste any fuel, but the first time Overclocker is triggered, all extra fuel will be consumed.</li></ul>",
 			cost: 2000,
 			owned: false,
 			onPurchase: function() {
@@ -3091,9 +3241,9 @@ var toReturn = {
 			highest: 0,
 			reverse: true,
 			showAll: true,
-			breakpoints: [480, 240, 120, 80],
-			tiers: [6, 7, 8, 8],
-			names: ["Chillin", "Arctic Accelerator", "Rimy Runner", "Subzero Sprinter"],
+			breakpoints: [480, 240, 120, 80, 20],
+			tiers: [6, 7, 8, 8, 9],
+			names: ["Chillin", "Arctic Accelerator", "Rimy Runner", "Subzero Sprinter", "Frigid and Furious"],
 			icon: "icomoon icon-alarmclock",
 			newStuff: []
 		},
@@ -3124,18 +3274,18 @@ var toReturn = {
 		},
 		oneOffs: {
 			//Turns out this method of handling the feats does NOT scale well... adding stuff to the middle is a nightmare
-			finished: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-			title: "特殊成就",
+			finished: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+			title: "Feats",
 			get descriptions () {
-				return ["在购买赏金升级前完成愤怒的维度地图", "达到30关使用不超过60氦且中途不修改氦气分配", "同时拥有超过 " + prettify(1e6) + " 个陷阱", "死于单个 Voidsnimp 50次", "完成平衡挑战, 从不超过100层不平衡Debuff", "达到10关，阵亡不超过5个脆皮。", "准确地达到 1337 氦每小时", "在电流挑战中，攻击20次不死亡。", "装备一个magnificent或更高级别的传家宝盾牌和管理人员", "达到60关，阵亡不超过1000个脆皮。", "达到120层，不使用玩家自己研究。", "达到75关，不购买任何房子。", "在高于146的虚空地图找到一个罕见级别的传家宝。", "使用超过 " + prettify(250e3) + " 氦在虫洞上。", "达到60关并使用不高于阶段Ⅲ的装备。", "一击杀死一无序。", "0死亡完成一个超过60级的虚空地图。", "在第5关后不被暴击的情况下完成一个粉碎挑战。", "击杀一个敌人在他100层Nom Buff时（美味挑战）。", "达到60层并且不雇佣任意一个工人。", "完成一个超过99关的区域且中途不低于150层生活buff。", "繁殖一支部队超过10分钟。", "完成毒性挑战，从不超过400层毒性buff。", "拥有每种人口建筑超过100个。", "在60关前超杀每一敌人。", "完成观察挑战，不进入地图且不购买托儿所。", "装备一个Magmatic级别的传家宝盾牌和管理人员。", "将一个世界上的敌人的攻击力降低到低于1。", "完成领导挑战切使用不超过一个千兆站。", "完成腐化挑战并且不使用遗传学家。", "完成一个尖塔并且0死亡。", "超杀一个Omnipotrimp", "战胜一个健康的细胞在超过200层风buff的情况下", "堆叠一个比你的攻击高1000倍的毒药效果", "获取超过2000%的挑战<sup>2</sup> 奖励", "完成一个高于你现在所处地图45级的仿生仙境地图。", "战胜一个尖塔使用不超过 " + prettify(100e6) + " 的氦气且中途不修改氦气分配。", "在Obliterated挑战中击败一个敌人。", "在区域1就找到一个合并者。", "连续10次红色暴击", "完成一个高于你现在所处地图200级的仿生仙境地图。", "在协同挑战中完成尖塔II"];
+				return ["在购买赏金升级前完成愤怒的维度地图", "达到30关使用不超过60氦且中途不修改氦气分配", "同时拥有超过 " + prettify(1e6) + " 个陷阱", "死于单个 Voidsnimp 50次", "完成平衡挑战, 从不超过100层不平衡Debuff", "达到10关，阵亡不超过5个脆皮。", "准确地达到 1337 氦每小时", "在电流挑战中，攻击20次不死亡。","攻击20次，不会在电中死亡", "制作一个完美地图", "装备一个magnificent或更高级别的传家宝盾牌和管理人员", "达到60关，阵亡不超过1000个脆皮。", "达到120层，不使用玩家自己研究。", "达到75关，不购买任何房子。", "在高于146的虚空地图找到一个罕见级别的传家宝。", "使用超过 " + prettify(250e3) + " 氦在虫洞上。", "达到60关并使用不高于阶段Ⅲ的装备。", "一击杀死一无序。", "0死亡完成一个超过60级的虚空地图。", "在第5关后不被暴击的情况下完成一个粉碎挑战。", "击杀一个敌人在他100层Nom Buff时（美味挑战）。", "用5个或更少的战役来摧毁这个星球", "达到60层并且不雇佣任意一个工人。", "完成一个超过99关的区域且中途不低于150层生活buff。", "繁殖一支部队超过10分钟。", "完成毒性挑战，从不超过400层毒性buff。", "拥有每种人口建筑超过100个。", "在60关前超杀每一敌人。", "完成观察挑战，不进入地图且不购买托儿所。", "以100次或更少的失败战斗完成引线", "装备一个Magmatic级别的传家宝盾牌和管理人员。", "将一个世界上的敌人的攻击力降低到低于1。", "完成领导挑战切使用不超过一个千兆站。", "完成腐化挑战并且不使用遗传学家。", "完成一个尖塔并且0死亡。", "超杀一个Omnipotrimp", "战胜一个健康的细胞在超过200层风buff的情况下", "堆叠一个比你的攻击高1000倍的毒药效果", "获取超过2000%的挑战<sup>2</sup> 奖励", "完成一个高于你现在所处地图45级的仿生仙境地图。", "战胜一个尖塔使用不超过 " + prettify(100e6) + " 的氦气且中途不修改氦气分配。", "在Obliterated挑战中击败一个敌人。", "在区域1就找到一个合并者。", "连续10次红色暴击", "在科学家V挑战赛上击败Z75", "完成一个高于你现在所处地图200级的仿生仙境地图。", "在协同挑战中完成尖塔II", "完成尖塔II消耗 " + prettify(1e9) + " 或更少的氦。", "在Obliterated上击败Imploding Star"];
 			},
-			tiers: [2, 3, 3, 3, 3, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 7, 8, 8, 8, 8, 8, 8, 9, 9],
+			tiers: [2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 7, 8, 8, 8, 8, 8, 8, 8, 9, 9, 9, 9],
 			description: function (number) {
 				return this.descriptions[number];
 			},
-			filters: [19, 29, 29, -1, 39, 59, -1, 79, 124, 59, 119, 74, -1, -1, 59, 59, 59, 124, 144, 59, 109, -1, 164, 59, -1, 179, 229, 245, 179, 189, 199, 229, 300, 300, 65, 169, 199, 424, 349, -1, 324, 299],
+			filters: [19, 29, 29, -1, 39, 59, -1, 79, -1, 124, 59, 119, 74, -1, -1, 59, 59, 59, 124, 144, 59, 59, 109, -1, 164, 59, -1, 179, 179, 229, 245, 179, 189, 199, 229, 299, 299, 65, 169, 199, 424, 349, -1, 129, 324, 299, 299, 424],
 			icon: "icomoon icon-flag",
-			names: ["Forgot Something", "Underachiever", "Hoarder", "Needs Block", "Underbalanced", "Peacekeeper", "Elite Feat", "Grounded", "Swag", "Workplace Safety", "No Time for That", "Tent City", "Consolation Prize", "Holey", "Shaggy", "One-Hit Wonder", "Survivor", "Thick Skinned", "Great Host", "Unemployment", "Very Sneaky", "Extra Crispy", "Trimp is Poison", "Realtor", "Gotta Go Fast", "Grindless", "Swagmatic", "Brr", "Unsatisfied Customer", "Organic Trimps", "Invincible", "Mighty", "Mother Lode", "Infected", "Challenged", "Bionic Sniper", "Nerfed", "Obliterate", "M'Algamator", "Critical Luck", "Bionic Nuker", "Hypercoordinated"],
+			names: ["Forgot Something", "Underachiever", "Hoarder", "Needs Block", "Underbalanced", "Peacekeeper", "Elite Feat", "Grounded", "Maptastic", "Swag", "Workplace Safety", "No Time for That", "Tent City", "Consolation Prize", "Holey", "Shaggy", "One-Hit Wonder", "Survivor", "Thick Skinned", "Great Host", "Unbroken", "Unemployment", "Very Sneaky", "Extra Crispy", "Trimp is Poison", "Realtor", "Gotta Go Fast", "Grindless", "Leadership", "Swagmatic", "Brr", "Unsatisfied Customer", "Organic Trimps", "Invincible", "Mighty", "Mother Lode", "Infected", "Challenged", "Bionic Sniper", "Nerfed", "Obliterate", "M'Algamator", "Critical Luck", "AntiScience", "Bionic Nuker", "Hypercoordinated", "Nerfeder", "Imploderated"],
 			newStuff: []
 		}
 	},
@@ -4060,7 +4210,7 @@ var toReturn = {
 			attack: 2,
 			health: 5,
 			fast: true,
-			loot: function (level, fromFluffy) {
+			loot: function (level, fromFluffy, fluffyCount) {
 				if (game.resources.helium.owned == 0) fadeIn("helium", 10);
 				var amt = (game.global.world >= 60) ? 10 : 2;
 				if (mutations.Magma.active()) amt *= 3;
@@ -4082,17 +4232,31 @@ var toReturn = {
 				if (game.talents.voidSpecial.purchased){
 					amt *= ((game.global.lastPortal * 0.0025) + 1);
 				}
-				if (fromFluffy) amt *= 1.5;
+				if (fromFluffy){
+					 amt *= (1 + (0.5 * fluffyCount));
+					amt *= fluffyCount;
+				}
+
+				if (game.talents.scry2.purchased && game.global.canScryCache) amt *= 1.5;
+
+				//Void map helium modifiers above here
 				
 				if (game.global.runningChallengeSquared)
 					amt = 0;
 				else
 					amt = rewardResource("helium", amt, level, false, rewardPercent);
+				
 				game.stats.highestVoidMap.evaluate();
 				var msg = "Cthulimp and the map it came from crumble into the darkness. You find yourself instantly teleported to ";				
-				if (fromFluffy){
+				if (fromFluffy && fluffyCount == 1){
 					msg = "Before you even realized you were in a new Void Map, Fluffy snuck to the end and quickly stole all the loot.";
 					if (!game.global.runningChallengeSquared) msg += " You gained another " + prettify(amt) + " Helium!";
+					message(msg, "Loot", "oil", "helium", "helium");
+					return;
+				}
+				else if (fromFluffy){
+					msg = "Before you even realize what's happening, Fluffy has entered and cleared the remaining " + fluffyCount + " Void Maps and quickly stole all the loot!";
+					if (!game.global.runningChallengeSquared) msg += " After earning a bonus on each of +" + prettify(50 * fluffyCount) + "% Helium, you've earned an additional " + prettify(amt) + " Helium!";
 					message(msg, "Loot", "oil", "helium", "helium");
 					return;
 				}
@@ -4209,7 +4373,6 @@ var toReturn = {
 					if (game.global.challengeActive == "Electricity") message("你已经完成了电力挑战! 你获得了 " + prettify(reward) + " 氦, 你可以重复这个挑战。", "Notices");
 					else if (game.global.challengeActive == "Mapocalypse") {
 						message("你已经完成了Mapocalypse挑战! 你解锁了 '虹吸学' 能力,并且获得了 " + prettify(reward) + " 氦。", "Notices");
-						if (game.portal.Siphonology.locked) addNewSetting('siphonologyMapLevel');
 						game.portal.Siphonology.locked = false;
 						game.challenges.Mapocalypse.abandon();
 					}
@@ -4325,6 +4488,9 @@ var toReturn = {
 					addNewSetting('overkillColor');
 					refreshMaps();
 				}
+				if (game.global.challengeActive == "Obliterated"){
+					giveSingleAchieve("Imploderated")
+				}
 			}
 		},
 		Fusimp: {
@@ -4389,6 +4555,7 @@ var toReturn = {
 					var challenge = game.global.challengeActive;
 					if (game.global.challengeActive == "Watch" && !game.challenges.Watch.enteredMap && game.buildings.Nursery.purchased == 0) giveSingleAchieve("Grindless");
 					if (game.global.challengeActive == "Lead" && game.upgrades.Gigastation.done <= 1) giveSingleAchieve("Unsatisfied Customer");
+					if (game.global.challengeActive == "Lead" && game.stats.battlesLost.value <= 100) giveSingleAchieve("Leadership");
 					if (game.global.challengeActive == "Corrupted" && !game.challenges.Corrupted.hiredGenes && game.jobs.Geneticist.owned == 0) giveSingleAchieve("Organic Trimps");
 					if (game.global.challengeActive == "Toxicity" && game.challenges.Toxicity.highestStacks <= 400) giveSingleAchieve("Trimp is Poison");
 					if (game.global.challengeActive == "Life"){
@@ -4593,7 +4760,7 @@ var toReturn = {
 			fast: false,
 			dropDesc: "+100% 攻击在本地图中",
 			loot: function () {
-				var timeRemaining = parseInt(game.global.titimpLeft);
+				var timeRemaining = parseInt(game.global.titimpLeft, 10);
 				if (timeRemaining > 0) {
 					timeRemaining += 30;
 					if (timeRemaining > 45) timeRemaining = 45;
@@ -4780,7 +4947,7 @@ var toReturn = {
 			},
 			fire: function (fromTalent) {
 				var level = game.global.mapsOwnedArray[getMapIndex(game.global.currentMapId)].level;
-				var bionicTier = parseInt(((level - 125) / 15)) + 1;
+				var bionicTier = parseInt(((level - 125) / 15), 10) + 1;
 				if (bionicTier == game.global.bionicOwned) {
 					this.createMap(bionicTier);
 				}
@@ -5203,18 +5370,24 @@ var toReturn = {
 			icon: "book",
 			title: "A well-hidden book",
 			next: 10,
-			fire: function () {
-				if (!getCurrentMapObject() || !getCurrentMapObject().level) return;
-				var mapLevel = getCurrentMapObject().level;
+			fire: function (unused, fromAuto) {
+				var mapLevel;
+				if (!fromAuto){
+					if (!getCurrentMapObject() || !getCurrentMapObject().level) return;
+					var mapLevel = getCurrentMapObject().level;
+				}
+				else{
+					mapLevel = game.global.world;
+				}
 				var booksNeeded = Math.floor((mapLevel - this.next) / 10);
 				if (booksNeeded > 0){
 					for (var x = 0; x < booksNeeded; x++) {
 						unlockUpgrade("Speedexplorer");
 						this.next += 10;
 					}
+					var copy = (booksNeeded == 1) ? "copy" : booksNeeded + " copies";
+					message("The " + copy + " of 'Speedexplorer' under these bushes will certainly be useful!", "Unlocks", null, null, 'repeated', convertUnlockIconToSpan(this));
 				}
-				var copy = (booksNeeded == 1) ? "copy" : booksNeeded + " copies";
-				message("The " + copy + " of 'Speedexplorer' under these bushes will certainly be useful!", "Unlocks", null, null, 'repeated', convertUnlockIconToSpan(this));
 			}
 		},
 		TheBlock: {
@@ -6604,7 +6777,7 @@ var toReturn = {
 			get tooltip(){
 				var ratio = this.getTriggerThresh();
 				var currentRatio = (game.resources.trimps.realMax() / game.resources.trimps.getCurrentSend());
-				var text = "<p>合并者不能手动雇佣或解雇合并者。他们是不可思议的生物，几乎不能再被认为是脆皮了。当你的军队规模占总人口的比例低于 <b>" + prettify(ratio) + ":1</b>。他们会自动出现在你的城镇。完成尖塔 II到V时，每一个尖塔都将使这个比例增大到原来的10倍。 如果现在这一比率大于 1: " + prettify(1e3) + ", 一个合并者就会离开。 你现在的比率是 <b>" + prettify(currentRatio) + ":1</b>. At your current army size, you need <b>" + prettify(ratio * game.resources.trimps.getCurrentSend()) + "</b> total Trimps to trigger the next Amalgamator.</p></p><p>合并者会融合一些空闲的脆皮到其他士兵中,大大加强他们的战斗力。每个合并者会增加出战脆皮的数量1000倍(指数),增加血量40倍(指数),增加伤害50%(线性)。</p><p>另外，当至少有一个合并者时，预期的增益将基于最后一支部队被派遣，而不是基于实际繁殖的时间。</p>";
+				var text = "<p>合并者不能手动雇佣或解雇合并者。他们是不可思议的生物，几乎不能再被认为是脆皮了。当你的军队规模占总人口的比例低于 <b>" + prettify(ratio) + ":1</b>。他们会自动出现在你的城镇。完成尖塔 II到V时，每一个尖塔都将使这个比例增大到原来的10倍。 如果现在这一比率大于 <b>" + prettify(ratio) + ":1</b>. 通过V完成塔尖II，每一个都将这个比例除以10。如果你的比率低于 " + prettify(1e3) + ":1, 一个合并者将离开。你目前的比率是 <b>" + prettify(currentRatio) + ":1</b>. 在你目前的军队规模,你所需要的 <b>" + prettify(ratio * game.resources.trimps.getCurrentSend()) + "</b> 总脆皮触发下一个合并者。</p></p><p>合并者会融合一些空闲的脆皮到其他士兵中,大大加强他们的战斗力。每个合并者会增加出战脆皮的数量1000倍(指数),增加血量40倍(指数),增加伤害50% " + ((game.talents.amalg.purchased) ? "(复利)" : "(增加)") + ".</p><p>另外，当至少有一个合并者时，预期的增益将基于最后一支部队被派遣，而不是基于实际繁殖的时间。</p>";
 				if (game.global.challengeActive == "Trimp"){
 					text += "<p><i>" + toZalgo("这个特殊的宇宙似乎与合并者有直接的冲突，但他们在这里，他们合并的三分体似乎对空间限制免疫。事情变得越来越奇怪了。", 1, Math.ceil(game.global.world / 100)) + "</i></p>";
 				}
@@ -6637,6 +6810,7 @@ var toReturn = {
 				return Math.pow(this.populationModifier, this.owned);
 			},
 			getDamageMult: function () {
+				if (game.talents.amalg.purchased) return Math.pow((1 + this.damageModifier), this.owned);
 				return (this.owned * this.damageModifier) + 1;
 			}
 		}
@@ -6746,6 +6920,10 @@ var toReturn = {
 				if (game.global.slowDone) {
 					unlockEquipment("Gambeson");
 					unlockEquipment("Arbalest");
+				}
+				if (game.talents.autoJobs.purchased){
+					unlockJob("Lumberjack");
+					buyAutoJobs(true);
 				}
 			}
 		},
