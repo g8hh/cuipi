@@ -21,7 +21,7 @@
 function newGame () {
 var toReturn = {
 	global: {
-		version: 4.91,
+		version: 4.911,
 		isBeta: false,
 		betaV: 0,
 		killSavesBelow: 0.13,
@@ -2995,7 +2995,7 @@ var toReturn = {
 			tiers: [1, 4, 5, 6, 7, 7, 7, 7, 8, 8, 8, 9],
 			names: ["Sitter", "Watchdog", "Nanny", "Caretaker", "Supervisor", "Advocate", "Guardian", "Coddler", "Savior", "Defender", "Trimp Lover", "Righteous"],
 			icon: "glyphicon glyphicon-eye-open",
-			newStuff: [],
+			newStuff: []
 		},
 		blockTimed: {
 			finished: 0,
@@ -3015,6 +3015,7 @@ var toReturn = {
 			},
 			highest: 0,
 			reverse: true,
+			timed: true,
 			showAll: true,
 			breakpoints: [480, 240, 120, 60],//In minutes
 			tiers: [1, 1, 2, 2],
@@ -3040,6 +3041,7 @@ var toReturn = {
 			},
 			highest: 0,
 			reverse: true,
+			timed: true,
 			showAll: true,
 			breakpoints: [480, 240, 120, 60],//In minutes
 			tiers: [2, 2, 2, 3],
@@ -3065,6 +3067,7 @@ var toReturn = {
 			},
 			highest: 0,
 			reverse: true,
+			timed: true,
 			showAll: true,
 			breakpoints: [480, 240, 120, 60, 1],//In minutes
 			tiers: [2, 2, 3, 3, 8],
@@ -3090,6 +3093,7 @@ var toReturn = {
 			},
 			highest: 0,
 			reverse: true,
+			timed: true,
 			showAll: true,
 			breakpoints: [480, 240, 120, 60],//In minutes
 			tiers: [2, 3, 3, 4],
@@ -3115,6 +3119,7 @@ var toReturn = {
 			},
 			highest: 0,
 			reverse: true,
+			timed: true,
 			showAll: true,
 			breakpoints: [480, 360, 240, 180, 150, 120, 105, 90, 10], //In minutes
 			tiers: [3, 4, 4, 5, 5, 5, 6, 6, 8],
@@ -3140,6 +3145,7 @@ var toReturn = {
 			},
 			highest: 0,
 			reverse: true,
+			timed: true,
 			showAll: true,
 			breakpoints: [1440, 1200, 720, 480, 210, 150], //In minutes
 			tiers: [4, 4, 5, 5, 6, 6],
@@ -3165,6 +3171,7 @@ var toReturn = {
 			},
 			highest: 0,
 			reverse: true,
+			timed: true,
 			showAll: true,
 			breakpoints: [1680, 1080, 390, 180, 150, 50, 5], //In minutes
 			tiers: [5, 5, 5, 6, 6, 7, 8],
@@ -3190,6 +3197,7 @@ var toReturn = {
 			},
 			highest: 0,
 			reverse: true,
+			timed: true,
 			showAll: true,
 			breakpoints: [1300, 900, 500, 200, 175, 60, 2],
 			tiers: [6, 6, 6, 7, 7, 7, 8],
@@ -3215,6 +3223,7 @@ var toReturn = {
 			},
 			highest: 0,
 			reverse: true,
+			timed: true,
 			showAll: true,
 			breakpoints: [500, 200, 120, 60, 10],
 			tiers: [6, 7, 8, 8, 9],
@@ -3240,6 +3249,7 @@ var toReturn = {
 			},
 			highest: 0,
 			reverse: true,
+			timed: true,
 			showAll: true,
 			breakpoints: [480, 240, 120, 80, 20],
 			tiers: [6, 7, 8, 8, 9],
@@ -3265,6 +3275,7 @@ var toReturn = {
 			},
 			highest: 0,
 			reverse: true,
+			timed: true,
 			showAll: true,
 			breakpoints: [4320, 2880, 1440, 300, 60],
 			tiers: [8, 8, 8, 8, 9],
