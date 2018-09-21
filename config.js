@@ -2025,7 +2025,7 @@ var toReturn = {
 			}
 		},
 		Meditate: {
-			description: "访问一个更强大的维度，试图学习如何更好地训练你的脆皮。 所有的敌人将拥有+100%的生命和+50%的攻击，但是你的脆皮收集速度将会提高25%。 完成 <b>'Trimple of Doom' (33)</b> 后将返回正常的世界。",
+			description: "访问一个更强大的维度，试图学习如何更好地训练你的脆皮。 所有的敌人将拥有+100%的生命和+50%的攻击，但是你的脆皮收集速度将会提高25%。 完成 <b>'末日之神殿' (33)</b> 后将返回正常的世界。",
 			completed: false,
 			filter: function () {
 				return (game.global.highestLevelCleared >= 44);
@@ -2078,7 +2078,7 @@ var toReturn = {
 			unlockString: "到达区域 60"
 		},
 		Trapper: {
-			description: "旅行到一个地方，在那里，脆皮拒绝在人工饲养的环境中繁殖，为你自己学习如何利用繁殖率较低的新环境。 清理 <b>'Trimple Of Doom' (33)</b> 有了这个挑战，你的繁殖率就会恢复到正常水平。",
+			description: "旅行到一个地方，在那里，脆皮拒绝在人工饲养的环境中繁殖，为你自己学习如何利用繁殖率较低的新环境。 清理 <b>'末日之神殿' (33)</b> 有了这个挑战，你的繁殖率就会恢复到正常水平。",
 			completed: false,
 			heldBooks: 0,
 			fireAbandon: true,
