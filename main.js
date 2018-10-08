@@ -415,7 +415,7 @@ function load(saveString, autoLoad, fromPf) {
 	if (oldVersion < 2.3){
 		if (game.global.highestLevelCleared >= 80) game.global.prisonClear++;
 		if (game.global.world >= 70) {
-			message("欢迎来到 2.3! 因为你现在已经70岁了，你已经自动开启了新的挑战——“猎人”和新工作——“遗传学家”", "Notices");
+			message("欢迎来到 2.3! 截止现在你已经达到区域70了，你已经自动开启了新的挑战——“猎人”和新工作——“遗传学家”", "Notices");
 			unlockJob("Geneticist");
 		}
 		else if (game.global.highestLevelCleared >= 69){
@@ -579,7 +579,7 @@ function load(saveString, autoLoad, fromPf) {
 	if (oldVersion < 4.5 && typeof game.portal.Looting_II !== 'undefined' && game.portal.Looting_II.locked == false){
 		game.global.spiresCompleted = 1;
 		game.global.b += 20;
-		message("Welcome to Patch 4.5! Since you have already cleared Spire I, you have been given 20 bones and earned 5% zone Liqufication. Click 'What's New' to see what's new!", "Story");
+		message("Welcome to Patch 4.5! Since you have already cleared Spire I, you have been given 20 bones and earned 5% Zone Liqufication. Click 'What's New' to see what's new!", "Story");
 	}
 	if (oldVersion < 4.6){
 		if (game.global.highestLevelCleared >= 79) addNewSetting('bigPopups');
@@ -872,7 +872,7 @@ function load(saveString, autoLoad, fromPf) {
 	if (oldVersion < 2){
 		if (game.global.world == 59){
 			game.global.gridArray[99].name = "Improbability";
-			message("Your Scientists have detected an anomaly at the end of this zone. Exercise caution.", "Notices");
+			message("Your Scientists have detected an anomaly at the end of this Zone. Exercise caution.", "Notices");
 		}
 		else if (game.global.world == 60 && game.global.lastClearedCell <= 10){
 			planetBreaker();
@@ -1389,10 +1389,10 @@ function getSpecialSquaredRewards(challenge){
 		var freq = (challenge.replaceSquareFreq) ? challenge.replaceSquareFreq : squaredConfig.rewardFreq;
 		var rewardIncrease = (challenge.replaceSquareGrowth) ? challenge.replaceSquareGrowth : squaredConfig.rewardGrowth;
 		description += "<span class='colorSquared'>本挑战的奖励分配与其他大多数的挑战<sup>2</sup>不同。";
-		description += ((challenge.replaceSquareFreq) ? "<b>" : "") + "每通过" + freq + "区域" + needAnS(freq) + "，" + ((challenge.replaceSquareFreq) ? "</b>" : "");        
-		description += ((challenge.replaceSquareReward) ? "<b>" : "")  + "你将获得" + reward + "%的攻击与生命, 以及" + prettify(reward / 10) + "%的氦获得。" + ((challenge.replaceSquareReward) ? "</b>" : "");
-		description += ((challenge.replaceSquareThresh) ? "<b>" : "") + " 每通过 " + threshes + "区域" + needAnS(threshes) + "，" + ((challenge.replaceSquareThresh) ? "</b>" : "");
-		description += ((challenge.replaceSquareGrowth) ? "<b>" : "") + "每次的奖励都会增加 " + rewardIncrease + "% 的攻击与生命,以及" + prettify(rewardIncrease / 10) + "%的氦获取。</span> " + ((challenge.replaceSquareGrowth) ? "</b>" : "");
+		description += ((challenge.replaceSquareReward) ? "<b>" : "")  + " 你将获得 " + reward + "% 的攻击与生命, 以及" + prettify(reward / 10) + "% 的氦获得。" + ((challenge.replaceSquareReward) ? "</b>" : "");
+		description += ((challenge.replaceSquareFreq) ? "<b>" : "") + " 每达到 " + freq + " 区域" + needAnS(freq) + "。" + ((challenge.replaceSquareFreq) ? "</b>" : "");
+		description += ((challenge.replaceSquareThresh) ? "<b>" : "") + " 每达到 " + threshes + " 区域" + needAnS(threshes) + "。" + ((challenge.replaceSquareThresh) ? "</b>" : "");
+		description += ((challenge.replaceSquareGrowth) ? "<b>" : "") + " 每次的奖励都会增加 " + rewardIncrease + "% 的攻击与生命,以及 " + prettify(rewardIncrease / 10) + "%的氦获取。</span> " + ((challenge.replaceSquareGrowth) ? "</b>" : "");
 	}
 	return description;
 }
@@ -1698,6 +1698,10 @@ function checkOfflineProgress(noTip){
 				if (loops == 12)
 					amt += (toAlter * game.jobs.Magmamancer.getBonusPercent());
 			}
+		}
+		if (game.global.challengeActive == "Decay"){
+			amt *= 10;
+			amt *= Math.pow(0.995, game.challenges.Decay.stacks);
 		}
 		if (game.global.challengeActive == "Meditate") amt *= 1.25;
 		if (game.global.challengeActive == "Balance") amt *= game.challenges.Balance.getGatherMult();
@@ -2474,7 +2478,7 @@ function rewardResource(what, baseAmt, level, checkMapLootScale, givePercentage)
 		amt += Math.round(baseAmt * Math.pow(1.23, Math.sqrt(level)));
 		amt += Math.round(baseAmt * level);
 	}
-	//Scale 20% across the zone, depending on cell number
+	//Scale 20% across the Zone, depending on cell number
 	if (what != "helium" && what != "fragments"){
 		amt = (amt * .8) + ((amt * .002) * (cell + 1));
 	}
@@ -4317,7 +4321,7 @@ function buyMap() {
 	var cost = updateMapCost(true);
 	var newLevel = parseInt(document.getElementById("mapLevelInput").value, 10);
 	if (!newLevel || newLevel <= 5 || newLevel > game.global.world || isNaN(newLevel) || isNaN(cost)) {
-		message("你必须在第6级和你的最高区域之间创建一张地图, " + game.global.world + ".", "Notices");
+		message("你必须在第6级和你的最高区域之间创建一张地图， " + game.global.world + ".", "Notices");
 		return -1;
 	}
 	if (cost > 0 && game.resources.fragments.owned >= cost){
@@ -5249,7 +5253,7 @@ function getHeirloomRarityRanges(zone){
 	return newRarities;
 }
 
-function getHeirloomRarity(zone, seed){ //zone is optional, and will override world
+function getHeirloomRarity(zone, seed){ //Zone is optional, and will override world
 	if (!zone) zone = game.global.world;
 	var rarities = getHeirloomRarityRanges(zone);
 	var nextTest = 0;
@@ -5766,13 +5770,13 @@ var mutations = {
 			var mutText = mutationEffects[effectName].text;
 			var text = "";
 			if (game.global.spireActive){
-				if (effectName == "none") return "This enemy is missing an effect thanks to Fluffy! It will still drop " + ((game.global.challengeActive == "Corrupted") ? "7.5%" : "15%") + " of the helium you would normally get from completing this zone.";
+				if (effectName == "none") return "This enemy is missing an effect thanks to Fluffy! It will still drop " + ((game.global.challengeActive == "Corrupted") ? "7.5%" : "15%") + " of the helium you would normally get from completing this Zone.";
 				text = mutText[0].toUpperCase() + mutText.substring(1);
 			}
 			else {
 				text = "所有腐化敌人现在拥有" + prettify(this.statScale(3)) + "倍攻击并拥有" + prettify(this.statScale(10)) + "倍生命值。此外，" + mutText;
 			}
-			text += "它也会掉落你在该区域所得氦的" + ((game.global.challengeActive == "Corrupted") ? "7.5%" : "15%") + "。";
+			text += " 它也会掉落你在该区域所得氦的 " + ((game.global.challengeActive == "Corrupted") ? "7.5%" : "15%") + "。";
 			return text;
 		},
 		effects: ['corruptDbl', 'corruptBleed', 'corruptStrong', 'corruptTough', 'corruptDodge', 'corruptCrit'],
@@ -6205,13 +6209,13 @@ var mutations = {
 			var mutText = mutationEffects[effectName].text;
 			var text = "";
 			if (game.global.spireActive){
-				if (effectName == "none") return "This enemy is missing an effect thanks to Fluffy! It will still drop 45% of the helium you would normally get from completing this zone.";
+				if (effectName == "none") return "This enemy is missing an effect thanks to Fluffy! It will still drop 45% of the helium you would normally get from completing this Zone.";
 				text = mutText[0].toUpperCase() + mutText.substring(1);
 			}
 			else {
 				text = "All Healthy enemies currently deal " + prettify(this.statScale(5)) + "X damage and have " + prettify(this.statScale(14)) + "X health. In addition, " + mutText;
 			}
-			text += " It will also drop 45% of the helium you would normally get from completing this zone.";
+			text += " It will also drop 45% of the helium you would normally get from completing this Zone.";
 			return text;
 		},
 		effects: ['healthyDbl', 'healthyBleed', 'healthyStrong', 'healthyTough', 'healthyCrit'],
@@ -7747,7 +7751,7 @@ function runMap() {
 	if (game.global.challengeActive == "Watch") game.challenges.Watch.enteredMap = true;
 	if (game.global.challengeActive == "Mapology" && !game.global.currentMapId) {
 		if (game.challenges.Mapology.credits < 1){
-			message("You are all out of Map Credits! Clear some more zones to earn some more.", "Notices");
+			message("You are all out of Map Credits! Clear some more Zones to earn some more.", "Notices");
 			return;
 		}
 		game.challenges.Mapology.credits--;
@@ -8680,8 +8684,8 @@ function calculateScryingReward(){
 	var scryableLevels = game.global.world - 180;
 	if (scryableLevels <= 0) return 0;
 	var modAmt = (game.global.canMagma) ? 1.1683885 : 1.11613; //4.0 compatibility
-	var num = Math.floor((1 * Math.pow(modAmt, scryableLevels)) / 3);
-	if (game.talents.scry.purchased && !game.global.mapsActive){
+	var num = (1 * Math.pow(modAmt, scryableLevels)) / 3;
+		if (game.talents.scry.purchased && !game.global.mapsActive){
 		var worldCell = getCurrentWorldCell();
 		if (worldCell.mutation == "Corruption" || worldCell.mutation == "Healthy"){
 			num *= 1.5;
@@ -8690,6 +8694,7 @@ function calculateScryingReward(){
 	if (game.global.spiresCompleted >= 1){
 		num *= Math.pow(4, game.global.spiresCompleted);
 	}
+	num = Math.floor(num);
 	return (num < 1) ? 1 : num;
 }
 
@@ -12166,7 +12171,7 @@ function onPurchaseResult(result) {
 		hidePurchaseBones();
 		var num = (split[0] > 0) ? split[0] : "";
 		var tooltipText = "Your purchase of ";
-		tooltipText += (split[0] > 0) ? split[0] + " bones has completed successfully!" : "the Exotic Imp-Ort Bundle has completed successfully, and your new bad guys will start spawning in your next zone/map!";
+		tooltipText += (split[0] > 0) ? split[0] + " bones has completed successfully!" : "the Exotic Imp-Ort Bundle has completed successfully, and your new bad guys will start spawning in your next Zone/map!";
 		tooltipText += " Below is the export code for your save file. <b>Please copy, paste, and back this up to somewhere safe, just in case.</b> Thank you for your support!";
 		tooltip('导出', null, 'update', tooltipText);
 		boneTemp.waitingFor = "";
@@ -13092,7 +13097,7 @@ var Fluffy = {
 				elem.innerHTML = 'The amount of levels placed in the Curious Perk. Currently ' + game.portal.Curious.level + '.';
 				return;
 			case "classy":
-				elem.innerHTML = 'The zone Fluffy can start earning Experience at. This value is normally 301, and is currently reduced by ' + Math.floor(game.portal.Classy.level * game.portal.Classy.modifier) + ' thanks to ' + ((game.portal.Classy.modifier > 1) ? game.portal.Classy.level + " level" + ((game.portal.Classy.level == 1) ? "" : "s") + " of " : "") + 'Classy.';
+				elem.innerHTML = 'The Zone Fluffy can start earning Experience at. This value is normally 301, and is currently reduced by ' + Math.floor(game.portal.Classy.level * game.portal.Classy.modifier) + ' thanks to ' + ((game.portal.Classy.modifier > 1) ? game.portal.Classy.level + " level" + ((game.portal.Classy.level == 1) ? "" : "s") + " of " : "") + 'Classy.';
 				return;
 			case "special":
 				elem.innerHTML = this.specialModifierReason;

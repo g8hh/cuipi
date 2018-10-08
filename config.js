@@ -21,7 +21,7 @@
 function newGame () {
 var toReturn = {
 	global: {
-		version: 4.911,
+		version: 4.912,
 		isBeta: false,
 		betaV: 0,
 		killSavesBelow: 0.13,
@@ -876,7 +876,7 @@ var toReturn = {
 					if (game.global.highestLevelCleared >= 199) text += ", the popup at Corruption";
 					if (game.global.highestLevelCleared >= 219) text += ", the popup at The Spire";
 					if (game.global.highestLevelCleared >= 249) text += ", and the popup on reaching Magma.";
-					text += "</p><p>Note that this setting only blocks large popups once your Highest Zone Reached is 20 zones past the location of the popup</p>";
+					text += "</p><p>Note that this setting only blocks large popups once your Highest Zone Reached is 20 Zones past the location of the popup</p>";
 					return text;
 				},
 				extraTags: "alerts popups",
@@ -910,13 +910,13 @@ var toReturn = {
 			// showSnow: {
 			// 	enabled: 1,
 			// 	extraTags: "general",
-			// 	description: "Disable the snow effect in the world. <b>This will take effect on the next zone after this setting is changed</b>. This setting is temporary, and will melt when the snow does.",
+			// 	description: "Disable the snow effect in the world. <b>This will take effect on the next Zone after this setting is changed</b>. This setting is temporary, and will melt when the snow does.",
 			// 	titles: ["No Snow", "Show Snow"]
 			// },
 /*			showHoliday: {
 				enabled: 1,
 				extraTags: "general",
-				description: "<p>Choose between <b>Show Pumpkimps</b>, <b>Bordered Pumpkimps</b>, and <b>No Pumpkimps</b>. This setting applies only to the visual effect of Pumpkimp zones in the world, does not apply to maps, and has no impact on how many Pumpkimps or Pumpkimp Zones actually spawn. This setting is temporary and will rot away after the Pumpkimp season!</p><p><b>Show Pumpkimps</b> is the default, and displays Pumpkimp Zones as normal.</p><p><b>Bordered Pumpkimps</b> displays Pumpkimp cells by changing the border color instead of the background color.</p><p><b>No Pumpkimps</b> will not show any indicator at all that a world zone is a Pumpkimp Zone. Pumpkimps will still spawn at the same rate.</p>",
+				description: "<p>Choose between <b>Show Pumpkimps</b>, <b>Bordered Pumpkimps</b>, and <b>No Pumpkimps</b>. This setting applies only to the visual effect of Pumpkimp Zones in the world, does not apply to maps, and has no impact on how many Pumpkimps or Pumpkimp Zones actually spawn. This setting is temporary and will rot away after the Pumpkimp season!</p><p><b>Show Pumpkimps</b> is the default, and displays Pumpkimp Zones as normal.</p><p><b>Bordered Pumpkimps</b> displays Pumpkimp cells by changing the border color instead of the background color.</p><p><b>No Pumpkimps</b> will not show any indicator at all that a world Zone is a Pumpkimp Zone. Pumpkimps will still spawn at the same rate.</p>",
 				titles: ["No Pumpkimps", "Show Pumpkimps", "Bordered Pumpkimps"],
 				locked: true
 			},*/
@@ -1059,7 +1059,7 @@ var toReturn = {
 			icon: "*spoon-knife"
 		},
 		explorers: {
-			description: "Automatically picks up SpeedExplorer books when you pass their zone.",
+			description: "Automatically picks up SpeedExplorer books when you pass their Zone.",
 			name: "Explorer Aura I",
 			tier: 1,
 			purchased: false,
@@ -1127,7 +1127,7 @@ var toReturn = {
 			requires: "voidPower"
 		},
 		mapLoot: {
-			description: "降低低地图掠夺惩罚1级，这允许你在当前世界层数的地图或当前世界层数-1的地图中获得相同数量的战利品。",
+			description: "降低低地图掠夺惩罚1级，这允许你在当前区域层数的地图或当前区域层数-1的地图中获得相同数量的战利品。",
 			name: "Map Reducer I",
 			tier: 3,
 			purchased: false,
@@ -1293,7 +1293,7 @@ var toReturn = {
 		},
 		blacksmith3: {
 			get description () {
-				return "每个清除的世界区域将直接掉落所有该等级的装备升级。直到区域" + Math.floor((game.global.highestLevelCleared + 1) * 0.9) + "（你最高区域的90％）";
+				return "每个清除的区域将直接掉落所有该等级的装备升级。直到区域" + Math.floor((game.global.highestLevelCleared + 1) * 0.9) + "（你最高区域的90％）";
 			},
 			name: "Blacksmithery III",
 			requires: "blacksmith2",
@@ -1464,7 +1464,7 @@ var toReturn = {
 		},
 		voidSpecial2: {
 			get description(){
-				 var text = "<p>Gain a second Void Map per 100 zones cleared last run, but the first one is earned at Z50 (then 150, 250 etc). In addition, if Fluffy's level 6 bonus is active, this allows Fluffy to stack 1 additional Void Map, adding another 50% Helium bonus to the stack.</p>";
+				 var text = "<p>Gain a second Void Map per 100 Zones cleared last run, but the first one is earned at Z50 (then 150, 250 etc). In addition, if Fluffy's level 6 bonus is active, this allows Fluffy to stack 1 additional Void Map, adding another 50% Helium bonus to the stack.</p>";
 				 text += "<p>You reached <b>Z" + game.global.lastPortal + "</b> last Portal,";
 				 if (this.purchased) text += " earning you a bonus of ";
 				 else text += " which would earn you a bonus of ";
@@ -1493,7 +1493,7 @@ var toReturn = {
 		},
 		fluffyExp: {
 			get description(){
-				return "Fluffy gains +25% more Exp per zone for each completed Evolution. Fluffy has Evolved " + game.global.fluffyPrestige + " time" + needAnS(game.global.fluffyPrestige) + ", " + ((this.purchased) ? "earning" : "which would earn") + " you a bonus of +" + prettify(game.global.fluffyPrestige * 25) + "% Exp.";
+				return "Fluffy gains +25% more Exp per Zone for each completed Evolution. Fluffy has Evolved " + game.global.fluffyPrestige + " time" + needAnS(game.global.fluffyPrestige) + ", " + ((this.purchased) ? "earning" : "which would earn") + " you a bonus of +" + prettify(game.global.fluffyPrestige * 25) + "% Exp.";
 			},
 			name: "Flufffocus",
 			tier: 9,
@@ -1621,7 +1621,7 @@ var toReturn = {
 			max: 50,
 			get tooltip() {
 				var level = (this.levelTemp) ? this.level + this.levelTemp : this.level;
-				return "Reduce the zone that Fluffy can start earning Experience at by " + this.modifier + "." + " With " + level + " level" + needAnS(level) + " in Classy, Fluffy will start earning Experience at Z" + (301 - (level * this.modifier)) + ".";
+				return "Reduce the Zone that Fluffy can start earning Experience at by " + this.modifier + "." + " With " + level + " level" + needAnS(level) + " in Classy, Fluffy will start earning Experience at Z" + (301 - (level * this.modifier)) + ".";
 			}
 		},
 		Overkill: {
@@ -2249,7 +2249,7 @@ var toReturn = {
 			},
 			fireAbandon: true,
 			allowSquared: true,
-			squaredDescription: "为了学习如何变得更足智多谋，传送至一个地图稀缺的维度。每清除一个世界区域你将会获得一个地图点数，并且每运行一次地图都会失去一个地图点数。<b>在进行本挑战时黑锻炼专精无法使用。</b>",
+			squaredDescription: "为了学习如何变得更足智多谋，传送至一个地图稀缺的维度。每清除一个世界区域你将会获得一个地图点数，并且每运行一次地图都会失去一个地图点数。<b>当这一挑战激活时，来自科学家IV和黑锻炼专精无法使用。</b>",
 			abandon: function (){
 				document.getElementById("mapCreditsLeft").innerHTML = "";
 			},
@@ -2711,7 +2711,7 @@ var toReturn = {
 			owned: false
 		},
 		Supervision: {
-			description: "<p>Gain 3 Automation/Micromanagement tools for your Generator!</p><ul><li>Gain the ability to pause the Dimensional Generator by clicking the clock.</li><li>Get a sweet button to configure specific zones to switch Generator states at. You'll also gain the ability to Ctrl + Click the Generator Start setting in the Settings menu to open up the same interface.</li><li>Add a Slider to your Generator window, allowing you to lower your maximum fuel capacity and gain greater control over Overclocker. Lowering your capacity below your stored amount of fuel will not waste any fuel, but the first time Overclocker is triggered, all extra fuel will be consumed.</li></ul>",
+			description: "<p>Gain 3 Automation/Micromanagement tools for your Generator!</p><ul><li>Gain the ability to pause the Dimensional Generator by clicking the clock.</li><li>Get a sweet button to configure specific Zones to switch Generator states at. You'll also gain the ability to Ctrl + Click the Generator Start setting in the Settings menu to open up the same interface.</li><li>Add a Slider to your Generator window, allowing you to lower your maximum fuel capacity and gain greater control over Overclocker. Lowering your capacity below your stored amount of fuel will not waste any fuel, but the first time Overclocker is triggered, all extra fuel will be consumed.</li></ul>",
 			cost: 2000,
 			owned: false,
 			onPurchase: function() {
@@ -2831,7 +2831,7 @@ var toReturn = {
 				if (this.breakpoints.length > this.finished) return this.evaluate() + " / " + this.breakpoints[this.finished];
 				return prettify(this.evaluate()) + " 总共";
 			},
-			breakpoints: [30, 70, 130, 200, 400, 777, 1000, 1500, 10000, 50000],//total zones according to stats
+			breakpoints: [30, 70, 130, 200, 400, 777, 1000, 1500, 10000, 50000],//total Zones according to stats
 			tiers: [2, 2, 3, 3, 3, 4, 4, 5, 7, 7],
 			names: ["Pathfinder", "Bushwhacker", "Pioneer", "Seeker", "Adventurer", "Lucky Resolve", "GigaClearer", "Globetrotter", "Vanquisher", "Conquistador"],
 			icon: "icomoon icon-globe3",
@@ -3656,7 +3656,7 @@ var toReturn = {
 			return "你今天觉得很痒。你让一些脆皮抓抓你的后背，但他们并不想这么做。";
 		},
 		get w505(){
-			if (game.global.lastSpireCleared == 4) return "现在你已经完全地、100%地消灭了德鲁普提的意识，你觉得是时候去清除尖塔上剩下的，他的无脑控制的回声了。也许<b>现在暂时</b>看不到什么任何新的、令人激动的东西了，但是能让人吹嘘也是很好的。";
+			if (game.global.lastSpireCleared == 4) return "那么你已经完全100％根除了德鲁奥皮特的意识，现在你认为现在是时候将其余的无脑回声从其余的尖顶中清除掉了。";
 			return "德鲁普提就在那里变得越来越强大，必须有人对他做点什么。";
 		}
 	},
@@ -5047,7 +5047,7 @@ var toReturn = {
 				return !game.global.canMapAtZone;
 			},
 			fire: function(){
-				var text = "<p>From the void, an auspicious presence reaches out and fills your mind. You feel at peace with the world. It asks you what you desire most. Wait... how many times has this happened now? You're fairly positive that there was something you regretted not asking last time, but you can't quite remember. You've asked for Trimps to be able to manage storage structures, and you've asked for them to be better at managing those structures. Even though you're content with your storage solutions, you suddenly realize the perfect request! You wish the Trimps would stop pushing so far through the zones while you're sleeping, so you ask for a way to tell the Trimps to stop fighting at a Zone of your choosing. The presence lets you know that it is done, then dissipates. As usual, you get serious déjà-vu while regretting not asking to go home.</p><p style='font-weight: bold'>From now on, you have access to the Map At Zone setting. This setting can be accessed through the Map Sidebar, Settings, or the 'Configure Maps' popup!</p>";
+				var text = "<p>From the void, an auspicious presence reaches out and fills your mind. You feel at peace with the world. It asks you what you desire most. Wait... how many times has this happened now? You're fairly positive that there was something you regretted not asking last time, but you can't quite remember. You've asked for Trimps to be able to manage storage structures, and you've asked for them to be better at managing those structures. Even though you're content with your storage solutions, you suddenly realize the perfect request! You wish the Trimps would stop pushing so far through the Zones while you're sleeping, so you ask for a way to tell the Trimps to stop fighting at a Zone of your choosing. The presence lets you know that it is done, then dissipates. As usual, you get serious déjà-vu while regretting not asking to go home.</p><p style='font-weight: bold'>From now on, you have access to the Map At Zone setting. This setting can be accessed through the Map Sidebar, Settings, or the 'Configure Maps' popup!</p>";
 				tooltip('confirm', null, 'update', text, null, 'Auspicious Presence Part III', null, null, true);
 				game.global.canMapAtZone = true;
 				addNewSetting("mapAtZone");
@@ -7210,7 +7210,7 @@ var toReturn = {
 		},
 		Magmamancers: {
 			locked: 1,
-			tooltip: "Your scientists think they can study this book to figure out how to train Trimps as Magmamancers. According to your scientists, according to legend, Magmamancers require gems instead of food as sustainance and can increase the rate of Metal gathering more and more as they stay on the same zone.",
+			tooltip: "Your scientists think they can study this book to figure out how to train Trimps as Magmamancers. According to your scientists, according to legend, Magmamancers require gems instead of food as sustainance and can increase the rate of Metal gathering more and more as they stay on the same Zone.",
 			done: 0,
 			allowed: 0,
 			cost: {
