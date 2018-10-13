@@ -14100,8 +14100,10 @@ function cntalentname(name){
     //专精汉化
         var cntalentname="";
     var temp=name;
-        if(temp=="Bionic Magnet"){
-            cntalentname="仿生磁"
+        if(temp=="Bionic Magnet I"){
+            cntalentname="仿生磁 I"
+        }else if(temp=="Bionic Magnet II"){
+            cntalentname="仿生磁 II"
         }else if(temp=="Portal Generator"){
             cntalentname="传送门生成器"
         }else if(temp=="Bounty Hunter"){
@@ -14169,17 +14171,19 @@ function cntalentname(name){
         }else if(temp=="Liquification II"){
             cntalentname="液化 II"
         }else if(temp=="Magmamancermancy"){
-            cntalentname="微小的女侍者"
+            cntalentname="大巫师"
         }else if(temp=="Patience"){
             cntalentname="忍耐"
         }else if(temp=="Still Rowing I"){
             cntalentname="持续赛艇 I"
         }else if(temp=="Still Rowing II"){
             cntalentname="持续赛艇 II"
-        }else if(temp=="Void Specialization"){
-            cntalentname="虚空专精"
         }else if(temp=="Strength in Health"){
             cntalentname="生命的力量"
+        }else if(temp=="Void Specialization I"){
+            cntalentname="虚空专精 I"
+        }else if(temp=="Void Specialization II"){
+            cntalentname="虚空专精 II"
         }else{
             return name;
         }

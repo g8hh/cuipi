@@ -1018,7 +1018,7 @@ var toReturn = {
 	},
 	talents: {
 		portal: {
-			description: "Unlock Portal immediately after clearing Z20.",
+			description: "在通过区域20后立即开启传送门。",
 			name: "Portal Generator",
 			tier: 1,
 			purchased: false,
@@ -1059,7 +1059,7 @@ var toReturn = {
 			icon: "*spoon-knife"
 		},
 		explorers: {
-			description: "Automatically picks up SpeedExplorer books when you pass their Zone.",
+			description: "当你通过相应区域时自动获取速度探索书。",
 			name: "Explorer Aura I",
 			tier: 1,
 			purchased: false,
@@ -1111,7 +1111,7 @@ var toReturn = {
 		},
 		scry: {
 			get description(){
-				return "When fighting Corrupted " + ((game.global.spiresCompleted >= 2) ? "or Healthy " : "") + "cells in Scryer Formation, grants 50% more Dark Essence and doubles your attack.";
+				return "当以占卜者阵型和腐化" + ((game.global.spiresCompleted >= 2) ? "或者健康 " : "") + "敌人作战时，获取的黑暗精华增加50%，并且伤害翻倍。";
 			},
 			name: "Scryhard I",
 			tier: 2,
@@ -1156,7 +1156,7 @@ var toReturn = {
 			icon: "italic",
 		},
 		daily: {
-			description: "Gain +50% attack when running a Daily Challenge.",
+			description: "当运行日常挑战时伤害+50%。",
 			name: "Legs for Days",
 			tier: 3,
 			purchased: false,
@@ -1214,7 +1214,7 @@ var toReturn = {
 			icon: "*spoon-knife"
 		},
 		autoJobs: {
-			description: "Unlock the Job Automator, the envy of Human Resourceimps across the Universe.",
+			description: "解锁自动工作，它使全宇宙的人力资源部门感到羡慕。",
 			name: "AutoJobs",
 			tier: 4,
 			purchased: false,
@@ -1228,7 +1228,7 @@ var toReturn = {
 		},
 		hyperspeed2: {
 			get description(){
-				return "减少战斗时间 100ms 直到 区域Z" + Math.floor((game.global.highestLevelCleared + 1) * 0.5) + "(你最高区域的50％)";
+				return "减少战斗时间 100ms 直到 区域" + Math.floor((game.global.highestLevelCleared + 1) * 0.5) + "(你最高区域的50％)";
 			},
 			name: "Hyperspeed II",
 			tier: 5,
@@ -1254,7 +1254,7 @@ var toReturn = {
 			icon: "*fire",
 		},
 		quickGen: {
-			description: "增加维度发生器生产房子的速度50%.",
+			description: "维度发生器生产房子的速度增加50%.",
 			name: "Quick Gen",
 			tier: 5,
 			purchased: false,
@@ -1269,7 +1269,7 @@ var toReturn = {
 			requires: "skeletimp"
 		},
 		explorers2: {
-			description: "Start with an extra SpeedExplorer book after each Portal.",
+			description: "每次通过传送门后直接获取一本额外的速度探索书。",
 			name: "Explorer Aura II",
 			tier: 5,
 			purchased: false,
@@ -1345,7 +1345,7 @@ var toReturn = {
 			}
 		},
 		scry2: {
-			description: "Complete an entire Void Map in Scryer Formation to earn an additional 50% Helium.",
+			description: "以占卜者阵型完成整个虚空地图，可以额外获得50%的氦。",
 			name: "Scryhard II",
 			tier: 6,
 			purchased: false,
@@ -1391,7 +1391,7 @@ var toReturn = {
 			icon: "align-justify"
 		},
 		patience: {
-			description: "Anticipation can now reach 45 stacks.",
+			description: "预期能力现在可以叠45层。",
 			name: "Patience",
 			tier: 7,
 			purchased: false,
@@ -1456,7 +1456,7 @@ var toReturn = {
 			icon: "align-justify"
 		},
 		amalg: {
-			description: "Causes the 50% damage bonus from each Amalgamator to be compounding rather than additive.",
+			description: "每个合并者给予50%的伤害加成，多个合并者的加成是相乘的，并非叠加。",
 			name: "Amalgagreater",
 			tier: 8,
 			purchased: false,
@@ -1464,12 +1464,12 @@ var toReturn = {
 		},
 		voidSpecial2: {
 			get description(){
-				 var text = "<p>Gain a second Void Map per 100 Zones cleared last run, but the first one is earned at Z50 (then 150, 250 etc). In addition, if Fluffy's level 6 bonus is active, this allows Fluffy to stack 1 additional Void Map, adding another 50% Helium bonus to the stack.</p>";
-				 text += "<p>You reached <b>Z" + game.global.lastPortal + "</b> last Portal,";
-				 if (this.purchased) text += " earning you a bonus of ";
-				 else text += " which would earn you a bonus of ";
+				 var text = "<p>上一轮每通过100区域，就能再获取第二张虚空地图，但是第一张在区域50拿到(然后是150/250，以此类推)。此外，如果你已开启蓬松的6级加成，你可以使蓬松再叠一张额外的虚空地图，每叠一次再加50%的氦奖励。</p>";
+				 text += "<p>你上一次传送门到达了<b>区域" + game.global.lastPortal + "</b>,";
+				 if (this.purchased) text += "你获得了";
+				 else text += "你将获得";
 				 var maps = Math.floor((game.global.lastPortal + 50) / 100);
-				 text += maps + " more Void Maps (" + (maps + Math.floor((game.global.lastPortal) / 100)) + " including Void Specialization I).</p>"
+				 text += maps + "张虚空地图的奖励(有" + (maps + Math.floor((game.global.lastPortal) / 100)) + "张来自于虚空专精 I).</p>"
 				 return text;
 			},
 			name: "Void Specialization II",
@@ -1479,7 +1479,7 @@ var toReturn = {
 			requires: "voidSpecial"
 		},
 		bionic2: {
-			description: "Adds Prestigious to Bionic Wonderland maps. This will make every Bionic Wonderland have two Prestige upgrades, including your first run that normally just has a RoboTrimp upgrade. In addition, gain +50% attack whenever you're in a map that is higher than your current World.",
+			description: "在仿生仙境地图中再加一个锻造书。本专精将使每个仿生仙境地图中都有两个锻造书升级，包括你第一次打，本来只有一个机械脆皮的仿生仙境。此外，当你所处的地图比你当前区域高时，获取50%的伤害加成。",
 			name: "Bionic Magnet II",
 			tier: 9,
 			purchased: false,
@@ -1493,7 +1493,7 @@ var toReturn = {
 		},
 		fluffyExp: {
 			get description(){
-				return "Fluffy gains +25% more Exp per Zone for each completed Evolution. Fluffy has Evolved " + game.global.fluffyPrestige + " time" + needAnS(game.global.fluffyPrestige) + ", " + ((this.purchased) ? "earning" : "which would earn") + " you a bonus of +" + prettify(game.global.fluffyPrestige * 25) + "% Exp.";
+				return "每一级进化使蓬松每区域多获得25%的经验。蓬松已经进化 " + game.global.fluffyPrestige + " 次" + needAnS(game.global.fluffyPrestige) + ", " + ((this.purchased) ? "给予" : "点亮精通后将给予") + "+" + prettify(game.global.fluffyPrestige * 25) + "%经验的加成。";
 			},
 			name: "Flufffocus",
 			tier: 9,
@@ -1501,14 +1501,14 @@ var toReturn = {
 			icon: "*library"
 		},
 		fluffyAbility: {
-			description: "Gain one extra Fluffy ability. This works as if Fluffy Evolved, but doesn't increase Fluffy's damage bonus.",
+			description: "获得一项额外的蓬松能力。这个功能就像蓬松进化了一样，但是没有蓬松的伤害加成。",
 			name: "Flufffinity",
 			tier: 9,
 			purchased: false,
 			icon: "*infinity"
 		},
 		overkill: {
-			description: "Allows you to Overkill yet another cell.",
+			description: "允许你超杀再额外杀伤一个敌人。",
 			name: "Excessive",
 			tier: 9,
 			purchased: false,
@@ -1516,9 +1516,9 @@ var toReturn = {
 		},
 		crit: {
 			get description(){
-				var text = "<p>Adds +1 to your MegaCrit modifier, and adds 50% of your Shield Heirloom's Crit Chance to your Crit Chance again.</p>";
-				if (game.heirlooms.Shield.critChance.currentBonus > 0) text += "<p>Your Shield currently has a bonus of " + game.heirlooms.Shield.critChance.currentBonus + "%, so this Mastery " + ((this.purchased) ? "is giving you" : "would give you") + " +" + (game.heirlooms.Shield.critChance.currentBonus / 2) + "% additional Crit Chance.</p>";
-				else text += "<p>However, you do not currently have Crit Chance on your Shield.</p>";
+				var text = "<p>你的橙色暴击伤害倍数 +1 , 并且使你的暴击率增加你盾牌传家宝暴击率的一半。</p>";
+				if (game.heirlooms.Shield.critChance.currentBonus > 0) text += "<p>你的盾牌现在的暴击率加成为 " + game.heirlooms.Shield.critChance.currentBonus + "%, 所以本专精 " + ((this.purchased) ? "给你" : "将给你") + " +" + (game.heirlooms.Shield.critChance.currentBonus / 2) + "% 的额外暴击率加成。</p>";
+				else text += "<p>然而，你的盾牌当前没有增加暴击几率的效果。</p>";
 				return text;
 			},
 			name: "Charged Crits",
