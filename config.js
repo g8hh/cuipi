@@ -1469,7 +1469,7 @@ var toReturn = {
 				 if (this.purchased) text += "你获得了";
 				 else text += "你将获得";
 				 var maps = Math.floor((game.global.lastPortal + 50) / 100);
-				 text += maps + "张虚空地图的奖励(有" + (maps + Math.floor((game.global.lastPortal) / 100)) + "张来自于虚空专精 I).</p>"
+				 text += maps + "张虚空地图的奖励(加上虚空专精 I 一共有" + (maps + Math.floor((game.global.lastPortal) / 100)) + "张)。</p>"
 				 return text;
 			},
 			name: "Void Specialization II",
