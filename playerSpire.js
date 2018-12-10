@@ -1611,7 +1611,7 @@ var playerSpireTraps = {
         level: 1,
         noDirectDamage: true,
         get description() {
-            var desc = "Adds " + prettify(this.totalDamage()) + " Toxicity when stepped on. Target will take damage equal to its total Toxicity each time it attempts to move.";
+            var desc = "每步增加" + prettify(this.totalDamage()) + "层毒性伤害. Target will take damage equal to its total Toxicity each time it attempts to move.";
             if (this.level >= 3) desc += "<br/><br/>If a Poison Trap is placed directly next to another Poison Trap, both Traps gain 3x damage. If a Poison Trap has other Poison Traps on both sides of itself, it gains 9x damage instead."
             if (this.level >= 5) desc += "<br/><br/>If the enemy has 75% or less health remaining, " + prettify(this.totalDamage() * 5) + " Toxicity is added instead.";
             if (this.level >= 6) desc += "<br/><br/>If an enemy leaks, gain 10% of its total Toxicity as Runestones.";
@@ -1848,7 +1848,7 @@ var playerSpireTraps = {
         },
         noDirectDamage: true,
         get description(){
-            return "When stepped on, increases the target's Toxicity by 25%. In addition, each Condenser Tower increases all Helium found by " + prettify(this.getWorldBonus(true)) + "% (additive with other Condenser Towers).<br/><br/>Your Condenser Towers are currently granting a total of <b>" + prettify(this.getWorldBonus()) + "%</b> additional Helium from all sources.<br/><br/>(Hotkey 6)";
+            return "当踩上，增加目标的毒性25%. In addition, each Condenser Tower increases all Helium found by " + prettify(this.getWorldBonus(true)) + "% (additive with other Condenser Towers).<br/><br/>Your Condenser Towers are currently granting a total of <b>" + prettify(this.getWorldBonus()) + "%</b> additional Helium from all sources.<br/><br/>(Hotkey 6)";
         },
         extraEffect: function(enemy, cell){
             var effect = (enemy && enemy.shockTurns && enemy.shockTurns > 0) ? playerSpireTraps.Lightning.shockedEffect() : 1;
