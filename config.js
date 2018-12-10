@@ -21,6 +21,9 @@
 function newGame () {
 var toReturn = {
 	global: {
+		//New and accurate version
+		stringVersion: '4.10.0',
+		//Leave 'version' at 4.914 forever, for compatability with old saves
 		version: 4.914,
 		isBeta: false,
 		betaV: 0,
@@ -306,7 +309,6 @@ var toReturn = {
 			var world = getCurrentMapObject();
 			var amt = 0;
 			world = (game.global.mapsActive) ? world.level : game.global.world;
-			var adjWorld = ((world - 1) * 100) + level;
 			amt += 50 * Math.sqrt(world) * Math.pow(3.27, world / 2);
 			amt -= 10;
 			if (world == 1){
@@ -377,22 +379,27 @@ var toReturn = {
 		},
 		Wind: {
 			description: function () {
-				return "当这个赋权激活时，你的脆皮的每次成功攻击会对敌人叠加一个负面效果，导致大风刮来，并将额外的资源砸到你的手中。每层风效果增加<b>" + this.formatModifier(this.getModifier()) + "%所有来源获得的氦，</b>并增加<b>" + this.formatModifier(this.getModifier() * 10) + "%所有其他资源</b>，直到敌人死亡（最多200层）。氦气奖励不适用于地图。";
+				return "当这个赋权激活时，你的脆皮的每次成功攻击会对敌人叠加一个负面效果，导致大风刮来，并将额外的资源砸到你的手中。每层风效果增加<b>" + this.formatModifier(this.getModifier(0, true)) + "%所有来源获得的氦，</b>并增加<b>" + this.formatModifier(this.getModifier()) + "%所有其他资源</b>，直到敌人死亡（最多200层）。此奖励不适用于碎片，氦气奖励不适用于地图。";
 			},
 			upgradeDescription: function () {
-				return "在风赋权激活时，每层风效果多增加<b>" + this.formatModifier(this.baseModifier) + "%</b>的氦收益和<b>" + this.formatModifier(this.baseModifier * 10) + "%</b>的氦以外的资源收益。 你现在的氦奖励是每层效果增加<b>" + this.formatModifier(this.getModifier()) + "%</b>, 下一级的氦奖励是每层效果增加<b>" + this.formatModifier(this.getModifier(1)) + "%</b>。氦以外的资源的奖励总是氦的奖励的10倍，而氦的奖励在地图中不生效。";
+				return "增加你找到的额外氦的数量 <b>" + this.formatModifier(this.baseModifier) + "%</b> 和非氦资源 <b>" + this.formatModifier(this.baseModifier * 10) + "%</b> per stack when the Empowerment of Wind is active. Your current bonus is <b>" + this.formatModifier(this.getModifier(0, true)) + "%</b> Helium, and next level will bring your bonus to <b>" + this.formatModifier(this.getModifier(1, true)) + "%</b> extra helium. Non-Helium resource gain is always " + ((Fluffy.isRewardActive('naturesWrath')) ? "double" : "10x") + " that of Helium, and the Helium bonus does not apply in maps.";
 			},
 			baseModifier: 0.001,
-			getModifier: function (change) {
+			getModifier: function (change, forHelium) {
 				if (!change) change = 0;
 				var bonusLevels = (game.talents.nature3.purchased) ? 5 : 0;
-				return ((this.level + change + bonusLevels) * this.baseModifier);
+				var mod = ((this.level + change + bonusLevels) * this.baseModifier);
+				if (!forHelium) mod *= 10;
+				if (forHelium && Fluffy.isRewardActive("naturesWrath")){
+					mod *= 5;
+				}
+				return mod;
 			},
 			formatModifier: function (number) {
 				return prettify(number * 100);
 			},
-			getCombatModifier: function () {
-				return this.currentDebuffPower * this.getModifier();
+			getCombatModifier: function (forHelium) {
+				return this.currentDebuffPower * this.getModifier(0, forHelium);
 			},
 			currentDebuffPower: 0,
 			color: "#337733",
@@ -403,10 +410,10 @@ var toReturn = {
 		},
 		Ice: {
 			description: function () {
-				return "当这个赋权活动时，你的脆皮的每次成功攻击都会使敌人被冰冻，冰冻的负面效果会叠加，每层冰冻效果会减少敌人<b>" + this.formatModifier(this.getModifier()) + "%</b>的伤害(叠乘) ，同时增加你的脆皮对敌人造成的伤害(增加的百分比等于敌人减少的百分比，收益递减，最大100%)，直到敌人死亡。";
+				return "当这个赋权活动时，你的脆皮的每次成功攻击都会使敌人被冰冻，冰冻的负面效果会叠加，每层冰冻效果会减少敌人 <b>" + this.formatModifier(this.getModifier()) + "%</b> 的伤害(叠乘), 同时增加你的脆皮对敌人造成的伤害 " + ((Fluffy.isRewardActive('naturesWrath')) ? " 两倍的数量（收益递减，最大攻击+ 200％）" : "相同的量（与收益递减，100％的最大值）") + " 直到敌人死亡。";
 			},
 			upgradeDescription: function () {
-				return "每一层冰冻效果使敌人造成的伤害额外降低<b>" + this.formatModifier(1 - this.baseModifier) + "%</b> (复合)，并增加你的脆皮相同百分比的伤害加成。(收益递减，最大100%). 你现在的冰冻效果是每层 <b>" + this.formatModifier(this.getModifier()) + "%</b>, 下一级的冰冻效果是每层 <b>" + this.formatModifier(this.getModifier(1)) + "%</b>。";
+				return "Reduces the enemy's damage dealt from each stack of Chilled when the Empowerment of Ice is active by <b>" + this.formatModifier(1 - this.baseModifier) + "%</b> (compounding), and increases the damage your Trimps deal to that enemy by " + ((Fluffy.isRewardActive('naturesWrath')) ? " twice that amount (with diminishing returns, max of +200% attack)" : "the same amount (with diminishing returns, max of 100%)") + ". Your current bonus is <b>" + this.formatModifier(this.getModifier()) + "%</b>, and next level will bring your bonus to <b>" + this.formatModifier(this.getModifier(1)) + "%</b>.";
 			},
 			baseModifier: 0.01,
 			getModifier: function (change) {
@@ -416,6 +423,11 @@ var toReturn = {
 			},
 			getCombatModifier: function () {
 				return Math.pow(this.getModifier(), this.currentDebuffPower);
+			},
+			getDamageModifier: function() {
+				var mod = 1 - this.getCombatModifier();
+				if (Fluffy.isRewardActive('naturesWrath')) mod *= 2;
+				return mod;
 			},
 			formatModifier: function (number){
 				return prettify((1 - number) * 100);
@@ -1012,6 +1024,7 @@ var toReturn = {
 					game.global.lockTooltip = true;
 					tooltipUpdateFunction = "";
 					this.enabled = 0;
+					playerSpire.resetToDefault();
 				}
 			}
 		}
@@ -1836,7 +1849,8 @@ var toReturn = {
 		Toxicity: 0,
 		Watch: 0,
 		Lead: 0,
-		Obliterated: 0
+		Obliterated: 0,
+		Eradicated: 0
 	},
 	challenges: {
 		Daily: {
@@ -2329,6 +2343,21 @@ var toReturn = {
 			hiredGenes: false,
 			unlockString: "到达区域 190"
 		},
+		Domination: {
+			description: "Travel to a dimension where the strongest Bad Guys gain strength from those weaker than them. Most Bad Guys have 90% less health and attack, but the final Bad Guy in every World Zone and Map has 2.5x more damage, 7.5x more health, and heal for 5% every time they attack your Trimps. But they also drop three times as much Helium! Clearing <b>Zone 215</b> will also reward you with an extra 100% of helium earned from any source up to that point, and will instantly teleport you back to your normal dimension!",
+			filter: function () {
+				return (game.global.highestLevelCleared >= 214);
+			},
+			heliumMultiplier: 1,
+			heldHelium: 0,
+			heliumThrough: 215,
+			unlockString: "reach Zone 215",
+			fireAbandon: true,
+			abandon: function(){
+				var elem = document.getElementById('dominationDebuffContainer');
+				if (elem) elem.style.display = 'none';
+			}
+		},
 		Obliterated: {
 			get squaredDescription() {
 				var num = prettify(1e12);
@@ -2343,7 +2372,33 @@ var toReturn = {
 			allowSquared: true,
 			fireAbandon: true,
 			unlockString: "到达区域 425",
-			mustRestart: true
+			mustRestart: true,
+			zoneScaling: 10,
+			zoneScaleFreq: 10
+		},
+		Eradicated: {
+			get squaredDescription() {
+				var num = prettify(game.challenges.Eradicated.scaleModifier);
+				return "If you thought Obliterated was not very friendly, wait until you see this dimension! Liquimps are unable to liquify, enemies have " + num + "x attack and health, and equipment is " + num + "x more expensive. Every 2 Zones, enemy attack and health will increase by another " + game.challenges.Eradicated.zoneScaling + "x. <b>However, you'll earn 1 extra Coordination per Zone you clear! Oh and Magma, Corruption, and Nature start at Z1.</b>"
+			},
+			filter: function () {
+				return (game.global.totalSquaredReward >= 4500);
+			},
+			replaceSquareFreq: 1,
+			replaceSquareThresh: 2,
+			replaceSquareReward: 10,
+			replaceSquareGrowth: 2,
+			scaleModifier: 1e20,
+			onlySquared: true,
+			allowSquared: true,
+			fireAbandon: true,
+			unlockString: "reach 4500% Challenge<sup>2</sup> bonus",
+			mustRestart: true,
+			zoneScaling: 3,
+			zoneScaleFreq: 2,
+			start: function(){
+				startTheMagma();
+			}
 		}
 	},
 	stats:{
@@ -2464,6 +2519,14 @@ var toReturn = {
 			value: 0,
 			valueTotal: 0
 		},
+		zonesLiquified: {
+			title: "Zones Liquified",
+			display: function() {
+				return (this.value > 0 || this.valueTotal > 0)
+			},
+			value: 0,
+			valueTotal: 0
+		},
 		highestVoidMap: {
 			title: "Highest Void Map Clear",
 			display: function () {
@@ -2476,6 +2539,14 @@ var toReturn = {
 				if (game.global.world > this.value) this.value = game.global.world;
 				if (game.global.world > this.valueTotal) this.valueTotal = game.global.world;
 			}
+		},
+		totalVoidMaps: {
+			title: "Total Void Maps Cleared",
+			display: function () {
+				return (this.value > 0 || this.valueTotal > 0);
+			},
+			value: 0,
+			valueTotal: 0,
 		},
 		totalHeirlooms: { //added from createHeirloom to value
 			title: "Heirlooms Found",
@@ -2505,14 +2576,6 @@ var toReturn = {
 			title: "Burned Nurseries",
 			display: function() {
 				return (this.value > 0 || this.valueTotal > 0);
-			},
-			value: 0,
-			valueTotal: 0
-		},
-		zonesLiquified: {
-			title: "Zones Liquified",
-			display: function() {
-				return (this.value > 0 || this.valueTotal > 0)
 			},
 			value: 0,
 			valueTotal: 0
@@ -2593,12 +2656,6 @@ var toReturn = {
 			},
 			valueTotal: 0
 		},
-		highestLevel: {
-			title: "Highest Zone",
-			valueTotal: function () {
-				return game.global.highestLevelCleared + 1;
-			}
-		},
 		totalPortals: {
 			title: "Total Portals Used",
 			display: function () {
@@ -2615,6 +2672,20 @@ var toReturn = {
 			},
 			valueTotal: 0
 		},
+		highestLevel: {
+			title: "Highest Zone",
+			valueTotal: function () {
+				return game.global.highestLevelCleared + 1;
+			}
+		},
+		tdKills: {
+			title: "Trap/Tower Kills",
+			value: 0,
+			valueTotal: 0,
+			display: function(){
+				return (playerSpire.initialized);
+			}
+		}
 	},
 	generatorUpgrades: {
 		Efficiency: {
@@ -3285,18 +3356,18 @@ var toReturn = {
 		},
 		oneOffs: {
 			//Turns out this method of handling the feats does NOT scale well... adding stuff to the middle is a nightmare
-			finished: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+			finished: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
 			title: "Feats",
 			get descriptions () {
-				return ["在购买赏金升级前完成愤怒的维度地图", "达到30关使用不超过60氦且中途不修改氦气分配", "同时拥有超过 " + prettify(1e6) + " 个陷阱", "死于单个 Voidsnimp 50次", "完成平衡挑战, 从不超过100层不平衡Debuff", "达到10关，阵亡不超过5个脆皮。", "准确地达到 1337 氦每小时", "在电流挑战中，攻击20次不死亡。", "制作一个完美地图", "装备一个magnificent或更高级别的传家宝盾牌和管理人员", "达到60关，阵亡不超过1000个脆皮。", "达到120层，不使用玩家自己研究。", "达到75关，不购买任何房子。", "在高于146的虚空地图找到一个罕见级别的传家宝。", "使用超过 " + prettify(250e3) + " 氦在虫洞上。", "达到60关并使用不高于阶段Ⅲ的装备。", "一击杀死一无序。", "0死亡完成一个超过60级的虚空地图。", "在第5关后不被暴击的情况下完成一个粉碎挑战。", "击杀一个敌人在他100层Nom Buff时（美味挑战）。", "用5个或更少的战役来摧毁这个星球", "达到60层并且不雇佣任意一个工人。", "完成一个超过99关的区域且中途不低于150层生活buff。", "繁殖一支部队超过10分钟。", "完成毒性挑战，从不超过400层毒性buff。", "拥有每种人口建筑超过100个。", "在60关前超杀每一敌人。", "完成观察挑战，不进入地图且不购买托儿所。", "以100次或更少的失败战斗完成引线", "装备一个Magmatic级别的传家宝盾牌和管理人员。", "将一个世界上的敌人的攻击力降低到低于1。", "完成领导挑战切使用不超过一个千兆站。", "完成腐化挑战并且不使用遗传学家。", "完成一个尖塔并且0死亡。", "超杀一个Omnipotrimp", "战胜一个健康的细胞在超过200层风buff的情况下", "堆叠一个比你的攻击高1000倍的毒药效果", "获取超过2000%的挑战<sup>2</sup> 奖励", "完成一个高于你现在所处地图45级的仿生仙境地图。", "战胜一个尖塔使用不超过 " + prettify(100e6) + " 的氦气且中途不修改氦气分配。", "在Obliterated挑战中击败一个敌人。", "在区域1就找到一个合并者。", "连续10次红色暴击", "在科学家V挑战赛上击败Z75", "完成一个高于你现在所处地图200级的仿生仙境地图。", "在协同挑战中完成尖塔II", "完成尖塔II with no respec并且只消耗 " + prettify(1e9) + " 或更少的氦。", "在Obliterated上击败Imploding Star"];
+				return ["在购买赏金升级前完成愤怒的维度地图", "达到30关使用不超过60氦且中途不修改氦气分配", "同时拥有超过 " + prettify(1e6) + " 个陷阱", "死于单个 Voidsnimp 50次", "完成平衡挑战, 从不超过100层不平衡Debuff", "达到10关，阵亡不超过5个脆皮。", "准确地达到 1337 氦每小时", "在电流挑战中，攻击20次不死亡。", "制作一个完美地图", "用完所有7个每日挑战","装备一个magnificent或更高级别的传家宝盾牌和管理人员", "达到60关，阵亡不超过1000个脆皮。", "达到120层，不使用玩家自己研究。", "达到75关，不购买任何房子。", "在高于146的虚空地图找到一个罕见级别的传家宝。", "使用超过 " + prettify(250e3) + " 氦在虫洞上。", "达到60关并使用不高于阶段Ⅲ的装备。", "一击杀死一无序。", "0死亡完成一个超过60级的虚空地图。", "在第5关后不被暴击的情况下完成一个粉碎挑战。", "击杀一个敌人在他100层Nom Buff时（美味挑战）。", "用5个或更少的战役来摧毁这个星球", "达到60层并且不雇佣任意一个工人。", "完成一个超过99关的区域且中途不低于150层生活buff。", "繁殖一支部队超过10分钟。", "完成毒性挑战，从不超过400层毒性buff。", "拥有每种人口建筑超过100个。", "在60关前超杀每一敌人。", "完成观察挑战，不进入地图且不购买托儿所。", "以100次或更少的失败战斗完成引线", "建立你的10石塔楼", "杀死 " + prettify(1e6) + " 你的尖塔中的敌人", "装备一个Magmatic级别的传家宝盾牌和管理人员。", "将一个世界上的敌人的攻击力降低到低于1。", "完成领导挑战切使用不超过一个千兆站。", "完成腐化挑战并且不使用遗传学家。", "完成一个尖塔并且0死亡。","在Domination上完成Z215的虚空地图", "超杀一个Omnipotrimp", "战胜一个健康的细胞在超过200层风buff的情况下", "堆叠一个比你的攻击高1000倍的毒药效果", "获取超过2000%的挑战<sup>2</sup> 奖励", "完成一个高于你现在所处地图45级的仿生仙境地图。", "战胜一个尖塔使用不超过 " + prettify(100e6) + " 的氦气且中途不修改氦气分配。", "在Obliterated挑战中击败一个敌人。", "在区域1就找到一个合并者。", "连续10次红色暴击", "在科学家V挑战赛上击败Z75","Gain at least 01189998819991197253 He from one Bone Portal", "Kill an Enemy on Eradicated", "Complete Spire V with no deaths", "Build your 20th Spire Floor", "完成一个高于你现在所处地图200级的仿生仙境地图。", "在协同挑战中完成尖塔II", "完成尖塔II with no respec并且只消耗 " + prettify(1e9) + " 或更少的氦。", "在Obliterated上击败Imploding Star","Close 750 Nurseries at the same time", "Earn Dark Essence with no respec and 0 He spent", "Reach Magma on Obliterated", "Break the Planet on Eradicated"];
 			},
-			tiers: [2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 7, 8, 8, 8, 8, 8, 8, 8, 9, 9, 9, 9],
+			tiers: [2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 9, 9, 9, 9, 9, 9, 9, 9],
 			description: function (number) {
 				return this.descriptions[number];
 			},
-			filters: [19, 29, 29, -1, 39, 59, -1, 79, -1, 124, 59, 119, 74, -1, -1, 59, 59, 59, 124, 144, 59, 59, 109, -1, 164, 59, -1, 179, 179, 229, 245, 179, 189, 199, 229, 299, 299, 65, 169, 199, 424, 349, -1, 129, 324, 299, 299, 424],
+			filters: [19, 29, 29, -1, 39, 59, -1, 79, -1, 99, 124, 59, 119, 74, -1, -1, 59, 59, 59, 124, 144, 59, 59, 109, -1, 164, 59, -1, 179, 179, 199, 199, 229, 245, 179, 189, 214, 199, 229, 299, 299, 65, 169, 199, 424, 349, -1, 129, 399, 549, 599, 199, 324, 299, 299, 424, 229, 179, 424, 549],
 			icon: "icomoon icon-flag",
-			names: ["Forgot Something", "Underachiever", "Hoarder", "Needs Block", "Underbalanced", "Peacekeeper", "Elite Feat", "Grounded", "Maptastic", "Swag", "Workplace Safety", "No Time for That", "Tent City", "Consolation Prize", "Holey", "Shaggy", "One-Hit Wonder", "Survivor", "Thick Skinned", "Great Host", "Unbroken", "Unemployment", "Very Sneaky", "Extra Crispy", "Trimp is Poison", "Realtor", "Gotta Go Fast", "Grindless", "Leadership", "Swagmatic", "Brr", "Unsatisfied Customer", "Organic Trimps", "Invincible", "Mighty", "Mother Lode", "Infected", "Challenged", "Bionic Sniper", "Nerfed", "Obliterate", "M'Algamator", "Critical Luck", "AntiScience", "Bionic Nuker", "Hypercoordinated", "Nerfeder", "Imploderated"],
+			names: ["Forgot Something", "Underachiever", "Hoarder", "Needs Block", "Underbalanced", "Peacekeeper", "Elite Feat", "Grounded", "Maptastic", "Now What", "Swag", "Workplace Safety", "No Time for That", "Tent City", "Consolation Prize", "Holey", "Shaggy", "One-Hit Wonder", "Survivor", "Thick Skinned", "Great Host", "Unbroken", "Unemployment", "Very Sneaky", "Extra Crispy", "Trimp is Poison", "Realtor", "Gotta Go Fast", "Grindless", "Leadership", "Defender", "Stoned", "Swagmatic", "Brr", "Unsatisfied Customer", "Organic Trimps", "Fhtagn", "Invincible", "Mighty", "Mother Lode", "Infected", "Challenged", "Bionic Sniper", "Nerfed", "Obliterate", "M'Algamator", "Critical Luck", "AntiScience", "HeMergency", "Eradicate", "Invisible", "Power Tower", "Bionic Nuker", "Hypercoordinated", "Nerfeder", "Imploderated", "Wildfire", "Unessenceted", "Melted", "Screwed"],
 			newStuff: []
 		}
 	},
@@ -4201,7 +4272,9 @@ var toReturn = {
 				if (game.global.runningChallengeSquared) return;
 				if (game.global.world >= 21 && (game.global.totalPortals >= 1 || game.global.portalActive)){
 					if (game.resources.helium.owned == 0) fadeIn("helium", 10);
-					amt = rewardResource("helium", 1, level);
+					amt = 1;
+					if (game.global.challengeActive == "Domination") amt *= 3;
+					amt = rewardResource("helium", amt, level);
 					message("那个守卫掉落了氦罐！你从中提取了 " + prettify(amt) + " 氦气！", "Loot", "oil", "helium", "helium");
 					if (game.global.world >= 40 && game.global.challengeActive == "Balance") {
 						if (game.challenges.Balance.highestStacks <= 100) giveSingleAchieve("Underbalanced");
@@ -4225,6 +4298,10 @@ var toReturn = {
 				if (game.resources.helium.owned == 0) fadeIn("helium", 10);
 				var amt = (game.global.world >= 60) ? 10 : 2;
 				if (mutations.Magma.active()) amt *= 3;
+				if (game.global.challengeActive == "Domination"){
+					amt *= 3;
+					if (game.global.world == 215) giveSingleAchieve("Fhtagn");
+				}
 				var percentage = 1;
 				var rewardPercent = 1;
 				if (game.global.world >= mutations.Corruption.start(true)){
@@ -4258,6 +4335,7 @@ var toReturn = {
 					amt = rewardResource("helium", amt, level, false, rewardPercent);
 				
 				game.stats.highestVoidMap.evaluate();
+				game.stats.totalVoidMaps.value += (fromFluffy && fluffyCount) ? fluffyCount : 1;
 				var msg = "Cthulimp and the map it came from crumble into the darkness. You find yourself instantly teleported to ";				
 				if (fromFluffy && fluffyCount == 1){
 					msg = "Before you even realized you were in a new Void Map, Fluffy snuck to the end and quickly stole all the loot.";
@@ -4551,6 +4629,7 @@ var toReturn = {
 				if (!game.global.brokenPlanet) planetBreaker();
 				if (game.global.runningChallengeSquared) return;
 				var amt = (game.global.world >= mutations.Corruption.start(true)) ? 10 : 5;
+				if (game.global.challengeActive == "Domination") amt *= 3;
 				amt = rewardResource("helium", amt, level);
 				message("You managed to steal " + prettify(amt) + " Helium canisters from that Improbability. That'll teach it.", "Loot", "oil", 'helium', 'helium');
 				if (game.global.challengeActive == "Slow" && game.global.world == 120){
@@ -4562,7 +4641,7 @@ var toReturn = {
 					}
 					game.global.slowDone = true;
 				}
-				else if ((game.global.challengeActive == "Life" && game.global.world == 110) || (game.global.challengeActive == "Nom" && game.global.world == 145) || (game.global.challengeActive == "Toxicity" && game.global.world == 165) || ((game.global.challengeActive == "Watch" || game.global.challengeActive == "Lead") && game.global.world >= 180) || (game.global.challengeActive == "Corrupted" && game.global.world >= 190)){
+				else if ((game.global.challengeActive == "Life" && game.global.world == 110) || (game.global.challengeActive == "Nom" && game.global.world == 145) || (game.global.challengeActive == "Toxicity" && game.global.world == 165) || ((game.global.challengeActive == "Watch" || game.global.challengeActive == "Lead") && game.global.world >= 180) || (game.global.challengeActive == "Corrupted" && game.global.world >= 190) || (game.global.challengeActive == "Domination" && game.global.world >= 215)){
 					var challenge = game.global.challengeActive;
 					if (game.global.challengeActive == "Watch" && !game.challenges.Watch.enteredMap && game.buildings.Nursery.purchased == 0) giveSingleAchieve("Grindless");
 					if (game.global.challengeActive == "Lead" && game.upgrades.Gigastation.done <= 1) giveSingleAchieve("Unsatisfied Customer");
@@ -4579,6 +4658,7 @@ var toReturn = {
 					game.challenges[challenge].heldHelium = 0;
 					game.global.challengeActive = "";
 					addHelium(reward);
+					if (challenge == "Domination") game.challenges.Domination.abandon();
 				}
 				else if (game.global.challengeActive == "Mapology" && game.global.world == 100){
 					message("You have completed the Mapology challenge! You have unlocked the 'Resourceful' Perk! Cheaper stuff!", "Notices");
@@ -4600,8 +4680,10 @@ var toReturn = {
 				if (game.global.spireActive){
 					return;
 				}
+				if (game.global.challengeActive == "Eradicated" && game.global.world >= 59 && !game.global.brokenPlanet) planetBreaker();
 				if (!game.global.runningChallengeSquared){
-					amt = rewardResource("helium", 30, level);
+					var amt = 30;
+					amt = rewardResource("helium", amt, level);
 					message("You managed to steal " + prettify(amt) + " Helium canisters from that Omnipotrimp. That'll teach it.", "Loot", "oil", 'helium', 'helium');
 				}
 				if (game.global.world % 5 == 0){
@@ -5716,7 +5798,7 @@ var toReturn = {
 	//More important stuff should be towards the top in case of bailouts
 	worldUnlocks: {
 		Shield: {
-			message: "你找到盾牌的图纸！ 它甚至会告诉你如何升级它，如果你有足够的木材。 这是很好的坏家伙。",
+			message: "你找到盾牌的图纸！ 它甚至会告诉你如何升级它，如果你有足够的木材。 对于坏家伙来说，这是很好的。",
 			world: 1,
 			title: "新装甲",
 			level: 4,
@@ -6892,7 +6974,7 @@ var toReturn = {
 					science: [100000000000, 1.4]
 				}
 			},
-			fire: function (heldCtrl) {
+			fire: function (heldCtrl, noTip) {
 				if (game.buildings.Warpstation.purchased > game.buildings.Warpstation.owned){
 					clearQueue('Warpstation');
 				}
@@ -6904,14 +6986,15 @@ var toReturn = {
 				game.buildings.Warpstation.purchased = 1;
 				game.buildings.Warpstation.owned = 1;
 				addMaxHousing(game.buildings.Warpstation.increase.by, game.talents.autoStructure.purchased);
-				if ((ctrlPressed || heldCtrl) && oldAmt > 1) buyBuilding("Warpstation", false, false, oldAmt - 1);
+				if (!noTip) noTip = false;
+				if ((ctrlPressed || heldCtrl) && oldAmt > 1) buyBuilding("Warpstation", false, noTip, oldAmt - 1);
 			}
 		},
 
 	//One Time Use Upgrades, in order of common unlock order
 		Battle: { //0
 			locked: 1,
-			tooltip: "弄清楚如何教这些脆皮们去战斗并杀死那些坏家伙。",
+			tooltip: "弄清楚如何教这些脆皮们去战斗并杀死那些坏家伙",
 			done: 0,
 			allowed: 0,
 			cost: {
