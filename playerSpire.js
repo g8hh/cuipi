@@ -1708,7 +1708,7 @@ var playerSpireTraps = {
         turns: 1,
         get description(){
             var shockTurns = this.shockTurns();
-            var text = "Deals " + prettify(this.totalDamage()) + " damage when stepped on, and afflicts the target with " + shockTurns + " stack" + needAnS(shockTurns) + " of Shocked. 1 stack of Shocked is consumed each time an enemy steps on a Trap or Tower, causing that Bad Guy to take " + this.shockedDamage() + "x damage and " + this.shockedEffect() + "x effect from the Trap or Tower that consumed the stack of Shocked. Shocked can boost the damage but not the effect of other Lightning Traps."
+            var text = "每步造成" + prettify(this.totalDamage()) + "伤害, and afflicts the target with " + shockTurns + " stack" + needAnS(shockTurns) + " of Shocked. 1 stack of Shocked is consumed each time an enemy steps on a Trap or Tower, causing that Bad Guy to take " + this.shockedDamage() + "x damage and " + this.shockedEffect() + "x effect from the Trap or Tower that consumed the stack of Shocked. Shocked can boost the damage but not the effect of other Lightning Traps."
             if (this.level >= 4) text += "<br/><br/>Each Lightning Trap increases the damage and effect of Fire and Poison Traps in its column by 10%, stacking additively.";
             text += "<br/><br/>(Hotkey 4)";
             return text;
