@@ -756,9 +756,9 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		elem.style.top = "25%";
 	}
 	if (what == "Respec Masteries"){
-		tooltipText = "<p>Click to Respec, refunding all Dark Essence that was spent on Masteries.<p>";
-		if (game.global.freeTalentRespecs > 0) tooltipText += "<p>Your first 3 Respecs are free, and you still have " + game.global.freeTalentRespecs + " left! When there are no more left, each respec will cost 20 Bones."
-		costText = (game.global.freeTalentRespecs > 0) ? "Free!" : ((game.global.b >= 20) ? "<span class='green'>" : "<span class='red'>") + "20 Bones</span>";
+		tooltipText = "<p>点击洗点按钮，退还花在专精上的所有黑暗精华。<p>";
+		if (game.global.freeTalentRespecs > 0) tooltipText += "<p>前三次洗点是免费的, 你还有 " + game.global.freeTalentRespecs + " 次免费机会! 当你的免费机会用完，每次洗点将会花费20骨头。"
+		costText = (game.global.freeTalentRespecs > 0) ? "免费!" : ((game.global.b >= 20) ? "<span class='green'>" : "<span class='red'>") + "20 骨头</span>";
 	}
 	if (what == "The Geneticistassist"){
 		tooltipText = "Greetings, friend! I'm your new robotic pal <b>The Geneticistassist</b> and I am here to assist you with your Geneticists. I will hang out in your Jobs tab, and will appear every run after Geneticists are unlocked. You can customize me in Settings under 'General'!";
@@ -995,7 +995,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 			noExtraCheck = true;
 			costText = "";
 		}
-		else if (buyAmt > 1) what += " X " + prettify(buyAmt);
+		else if (buyAmt > 1) cntitle(what) += " X " + prettify(buyAmt);
 	}
 	if (isItIn == "buildings"){
         var awhat="";
@@ -1423,7 +1423,7 @@ function getPsString(what, rawNum) {
 		var bookStrength = Math.pow(1.25, book.done);
 		currentCalc *= bookStrength;
 		bookStrength = prettify((bookStrength - 1) * 100) + "%";
-		textString += "<tr><td class='bdTitle'>速度" + cnbook(books[index]) + "</td><td class='bdPercent'>+ " + bookStrength + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+		textString += "<tr><td class='bdTitle'>速度" + cnItem(books[index]) + "</td><td class='bdPercent'>+ " + bookStrength + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 	}
 	//Add Megabooks
 	if (typeof mBook !== 'undefined' && mBook.done > 0){
@@ -1431,7 +1431,7 @@ function getPsString(what, rawNum) {
 		var mBookStrength = Math.pow(mod, mBook.done);
 		currentCalc *= mBookStrength;
 		mBookStrength = prettify((mBookStrength - 1) * 100) + "%";
-		textString += "<tr><td class='bdTitle'>巨型" + cnbook(books[index]) + "</td><td class='bdPercent'>+ " + mBookStrength + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+		textString += "<tr><td class='bdTitle'>巨型" + cnItem(books[index]) + "</td><td class='bdPercent'>+ " + mBookStrength + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 	}
 	//Add bounty
 	if (what != "gems" && game.upgrades.Bounty.done > 0){
@@ -1471,7 +1471,7 @@ function getPsString(what, rawNum) {
 		var medStrength = meditation.getBonusPercent();
 		if (medStrength > 0){
 			currentCalc *= (1 + (medStrength * .01));
-			textString += "<tr><td class='bdTitle'>Meditation</td><td class='bdPercent'>" + (meditation.getBonusPercent(true) * 10) + " minutes (+" + medStrength + "%)</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+			textString += "<tr><td class='bdTitle'>Meditation</td><td class='bdPercent'>" + (meditation.getBonusPercent(true) * 10) + " 分钟 (+" + medStrength + "%)</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 		}
 	}
 	//Add Magmamancer
@@ -1480,7 +1480,7 @@ function getPsString(what, rawNum) {
 		if (manceStrength > 1){
 			currentCalc *= manceStrength;
 			manceStrength = (manceStrength - 1) * 100;
-			textString += "<tr><td class='bdTitle'>Magmamancers</td><td class='bdPercent'>" + (game.jobs.Magmamancer.getBonusPercent(true) * 10) + " minutes (+" + prettify(manceStrength) + "%)</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+			textString += "<tr><td class='bdTitle'>Magmamancers</td><td class='bdPercent'>" + (game.jobs.Magmamancer.getBonusPercent(true) * 10) + " 分钟 (+" + prettify(manceStrength) + "%)</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 		}
 	}
 	if (game.upgrades.Speedexplorer.done > 0 && what == "fragments"){
@@ -1571,7 +1571,7 @@ function getPsString(what, rawNum) {
 	if (rawNum) return currentCalc;
 	textString += "</tbody></table>";
 	game.global.lockTooltip = false;
-	tooltip('confirm', null, 'update', textString, "getPsString('" + what + "')", what.charAt(0).toUpperCase() + what.substr(1, what.length) + " Per Second", "Refresh", true);
+	tooltip('confirm', null, 'update', textString, "getPsString('" + what + "')", cnItem(what.charAt(0).toUpperCase() + what.substr(1, what.length)) + " 每秒", "刷新", true);
 }
 
 
@@ -1702,7 +1702,7 @@ function getTrimpPs() {
 	}
 	textString += "</tbody></table>";
 	game.global.lockTooltip = false;
-	tooltip('confirm', null, 'update', textString, "getTrimpPs()", "Trimps Per Second", "Refresh", true);
+	tooltip('confirm', null, 'update', textString, "getTrimpPs()", "Trimps Per Second", "刷新", true);
 }
 
 function getFluctuation(number, minFluct, maxFluct){
@@ -2082,7 +2082,7 @@ function getBattleStatBd(what) {
 	textString += "</tbody></table>";
 	game.global.lockTooltip = false;
 	document.getElementById('tipText').className = "";
-	tooltip('confirm', null, 'update', textString, "getBattleStatBd('" + what + "')", name, "Refresh", true);
+	tooltip('confirm', null, 'update', textString, "getBattleStatBd('" + what + "')", name, "刷新", true);
 	if (what == "attack" || what == "health"){
 		verticalCenterTooltip(true);
 	}
@@ -2173,7 +2173,7 @@ function getMaxTrimps() {
 	}
 	textString += "</tbody></table>";
 	game.global.lockTooltip = false;
-	tooltip('confirm', null, 'update', textString, "getMaxTrimps()", "Max Trimps", "Refresh", true);
+	tooltip('confirm', null, 'update', textString, "getMaxTrimps()", "Max Trimps", "刷新", true);
 }
 
 function getMaxResources(what) {
@@ -2216,7 +2216,7 @@ function getMaxResources(what) {
 	}
 	textString += "</tbody></table>";
 	game.global.lockTooltip = false;
-	tooltip('confirm', null, 'update', textString, "getMaxResources('" + what + "')", "Max " + what, "Refresh", true);
+	tooltip('confirm', null, 'update', textString, "getMaxResources('" + what + "')", "最大 " + cnItem(what), "刷新", true);
 }
 
 function getLootBd(what) {
@@ -2558,7 +2558,7 @@ function getLootBd(what) {
 	}
 	textString += "</tbody></table>";
 	game.global.lockTooltip = false;
-	tooltip('confirm', null, 'update', textString, "getLootBd('" + what + "')", what + " Loot Breakdown", "Refresh", true);
+	tooltip('confirm', null, 'update', textString, "getLootBd('" + what + "')", what + " Loot Breakdown", "刷新", true);
 	verticalCenterTooltip();
 }
 
@@ -4520,8 +4520,8 @@ function toggleSetting(setting, elem, fromPortal, updateOnly, backwards){
 			[", your achievement game shows promise", "，在你成就的道路上", ",多亏了你的成就"],
 			[",多亏了你大量的成就", ", must be all those achievements", ", you are one with the achievements", " and you water your achievements daily"],
 			[", your Trimps are mighty impressed", ", your achievements are mind blowing", ". You wake up, achieve, then sleep", ", you have achievement in your blood"],
-			[", your achievements are beyond mortal comprehension", ", 脆皮远播告诉你的成就的故事", ", you have achieved achievement", ", everything you touch turns to achievement"],
-			[", 你的成就已经取得成就", ", 你的成就的消息传遍了整个银河系。", ", achievements bend to your will", ", your achievements transcend reality"],
+			[", 你的成就超越了凡人的理解", ", 脆皮远播告诉你的成就的故事", ", 你取得了成就", ", 你接触的一切都变成成就"],
+			[", 你的成就已经取得成就", ", 你的成就的消息传遍了整个银河系。", ", 成就符合你的意愿", ", 你的成就超越了现实"],
 			[", word of your achievement spreads throughout the universe", ", everyone else is super jealous", ", the achievements of your achievements have achieved achievement", ", your achievements have gained sentience", ", everyone else just stays home", ", you appear if someone says 'Achievement' 3 times in a mirror"]
 		];
 		var fluffLevel = getAchievementStrengthLevel();
@@ -4981,25 +4981,7 @@ function cnequip(obj){
     return cnperk;
 }
 
-    function cnbook(text){
-    //资源增长明细汉化
-    var cntext="";
-    var what=text;
-    if(what=="farming"){
-        cntext="采集" 
-    }else if(what=="lumber"){
-        cntext="木材"
-    }else if(what=="miner"){
-        cntext="矿工"
-    }else if(what=="science"){
-        cntext="科学"
-    }else if(what==""){
-        cntext=""
-    }else{
-        cntext=text
-    }
-    return cntext;
-}
+ 
 
 function cntime(time) {
     //汉化时间

@@ -4211,7 +4211,7 @@ function adjustMap(what, value) {
 	if (checkPerfectChecked())
 		text = (what == "loot") ? minMax[1] : minMax[0];
 	else 
-		text = "Min " + minMax[0] + ", Max " + minMax[1];
+		text = "最低 " + minMax[0] + ", 最高 " + minMax[1];
 	document.getElementById(what + "AdvMapsText").innerHTML = text;
 	updateMapCost();
 	hideAdvMaps(true);
@@ -5617,23 +5617,23 @@ function natureTooltip(event, doing, spending, convertTo){
 	var tipText = "";
 	var tipCost = 0;
 	if (doing == 'upgrade'){
-		tipTitle = "升级 " + spending + " 的效果";
+		tipTitle = "升级 " + cnItem(spending) + " 的效果";
 		tipText = game.empowerments[spending].upgradeDescription();
 		tipCost = getNextNatureCost(spending);
 	}
 	else if (doing == 'description'){
-		tipTitle = "Empowerment of " + spending;
+		tipTitle = "赋权 " + cnItem(spending);
 		tipText = game.empowerments[spending].description();
 	}
 	else if (doing == 'convert'){
-		tipTitle = "转换 " + spending + " 为 " + convertTo;
+		tipTitle = "转换 " + cnItem(spending) + " 为 " + cnItem(convertTo);
 		tipCost = ctrlPressed ? Math.floor(game.empowerments[spending].tokens / 10) * 10 : 10;
 		var convertRate = (game.talents.nature.purchased) ? ((game.talents.nature2.purchased) ? 8 : 6) : 5;
 		tipText = "<p>花费" + tipCost+spending + "符记交易得到 " + (tipCost / 10 * convertRate) + convertTo + "符记。</p>";
 		if (!ctrlPressed) tipText += "<p><b>按住Ctrl键可以一次转换所有令牌。</b></p>";
 	}
 	else if (doing == 'stackTransfer'){
-		tipTitle = "升级 " + spending + " 效果的传递比例";
+		tipTitle = "升级 " + cnItem(spending) + " 效果的传递比例";
 		var retainLevel = game.empowerments[spending].retainLevel;
 		var cap = 80;
 		if (game.talents.nature3.purchased){
@@ -5654,7 +5654,7 @@ function natureTooltip(event, doing, spending, convertTo){
 		}
 	}
 	if (tipCost == 0) tipCost = "";
-	else tipCost = (game.empowerments[spending].tokens < tipCost) ? "<span class='red'>" + prettify(tipCost) + spending +"符记"+"</span>" : "<span class='green'>" + prettify(tipCost) + " 符记 " + spending + "</span>";
+	else tipCost = (game.empowerments[spending].tokens < tipCost) ? "<span class='red'>" + prettify(tipCost) +" "+ cnItem(spending) +" 符记"+"</span>" : "<span class='green'>" + prettify(tipCost) + " 符记 " + spending + "</span>";
 	tooltip(tipTitle, 'customText', event, tipText, tipCost, null, null, null, null, true);
 	tooltipUpdateFunction = function () {natureTooltip(event, doing, spending, convertTo)}
 }
@@ -8924,7 +8924,7 @@ function displayTalents(){
 			html += "<div class='talentItem noselect talentNotPurchased talentLocked'><span class='talentIcon'><span class='icomoon icon-locked'></span></span></div>";
 		}
 		else {
-			html += "<div class='" + talentClass + "' onmouseover='tooltip(\"" + item + "\", \"talents\", event)' onmouseout='tooltip(\"hide\")' onclick='purchaseTalent(\"" + item + "\")'><span class='talentIcon'><span class='" + icon + "'></span></span><br/><div class='talentName'>" + cntalentname(talent.name) + "</div></div>";
+			html += "<div class='" + talentClass + "' onmouseover='tooltip(\"" + item + "\", \"talents\", event)' onmouseout='tooltip(\"hide\")' onclick='purchaseTalent(\"" + item + "\")'><span class='talentIcon'><span class='" + icon + "'></span></span><br/><div class='talentName'>" + cntitle(talent.name) + "</div></div>";
 		}
 	}
 	html += "</div>";
@@ -8932,8 +8932,8 @@ function displayTalents(){
 	var respecBtn = document.getElementById('talentRespecBtn');
 	var respecAvailable = (game.global.b >= 20 || game.global.freeTalentRespecs) ? 'colorDanger' : 'colorBuyOff';
 	swapClass('color', respecAvailable, respecBtn)
-	if (game.global.freeTalentRespecs > 0) respecBtn.innerHTML = "Respec (" + game.global.freeTalentRespecs + " Free!)";
-	else respecBtn.innerHTML = "Respec (20 Bones)";
+	if (game.global.freeTalentRespecs > 0) respecBtn.innerHTML = "洗点 (" + game.global.freeTalentRespecs + " 免费!)";
+	else respecBtn.innerHTML = "洗点 (20 骨头)";
 	updateTalentNumbers();
 }
 
@@ -14392,99 +14392,7 @@ function cnstat(stat) {
 }
 
 
-function cntalentname(name){
-    //专精汉化
-        var cntalentname="";
-    var temp=name;
-        if(temp=="Bionic Magnet I"){
-            cntalentname="仿生磁 I"
-        }else if(temp=="Bionic Magnet II"){
-            cntalentname="仿生磁 II"
-        }else if(temp=="Portal Generator"){
-            cntalentname="传送门生成器"
-        }else if(temp=="Bounty Hunter"){
-            cntalentname="赏金猎人"
-        }else if(temp=="Home Detector"){
-            cntalentname="家庭探测器"
-        }else if(temp=="Turkimp Tamer I"){
-            cntalentname="驯兽师 I"
-        }else if(temp=="Turkimp Tamer II"){
-            cntalentname="驯兽师 II"
-        }else if(temp=="Turkimp Tamer III"){
-            cntalentname="驯兽师 III"
-        }else if(temp=="Turkimp Tamer IV"){
-            cntalentname="驯兽师 IV"
-        }else if(temp=="Void Power I"){
-            cntalentname="虚空力量 I"
-        }else if(temp=="Void Power II"){
-            cntalentname="虚空力量 II"
-        }else if(temp=="Void Power III"){
-            cntalentname="虚空力量 III"
-        }else if(temp=="Metallic Coat"){
-            cntalentname="金属外套"
-        }else if(temp=="Headstart I"){
-            cntalentname="领先地位 I"
-        }else if(temp=="Headstart II"){
-            cntalentname="领先地位 II"
-        }else if(temp=="Headstart III"){
-            cntalentname="领先地位 III"
-        }else if(temp=="Foremany"){
-            cntalentname="脱颖而出"
-        }else if(temp=="Map Reducer I"){
-            cntalentname="地图还原剂 I"
-        }else if(temp=="Map Reducer II"){
-            cntalentname="地图还原剂 II"
-        }else if(temp=="Double Build"){
-            cntalentname="双重建造"
-        }else if(temp=="King of Bones I"){
-            cntalentname="骨头之王 I"
-        }else if(temp=="King of Bones II"){
-            cntalentname="骨头之王 II"
-        }else if(temp=="Hyperspeed I"){
-            cntalentname="超高速 I"
-        }else if(temp=="Hyperspeed II"){
-            cntalentname="超高速 II"
-        }else if(temp=="Blacksmithery I"){
-            cntalentname="黑煅炼 I"
-        }else if(temp=="Blacksmithery II"){
-            cntalentname="黑煅炼 II"
-        }else if(temp=="Blacksmithery III"){
-            cntalentname="黑煅炼 III"
-        }else if(temp=="Quick Gen"){
-            cntalentname="快速第二代"
-        }else if(temp=="AutoStructure"){
-            cntalentname="自动结构"
-        }else if(temp=="Magma Flow"){
-            cntalentname="岩浆流"
-        }else if(temp=="Natural Diplomacy I"){
-            cntalentname="自然外交 I"
-        }else if(temp=="Natural Diplomacy II"){
-            cntalentname="自然外交 II"
-        }else if(temp=="Natural Diplomacy III"){
-            cntalentname="自然外交 III"
-        }else if(temp=="Liquification I"){
-            cntalentname="液化 I"
-        }else if(temp=="Liquification II"){
-            cntalentname="液化 II"
-        }else if(temp=="Magmamancermancy"){
-            cntalentname="大巫师"
-        }else if(temp=="Patience"){
-            cntalentname="忍耐"
-        }else if(temp=="Still Rowing I"){
-            cntalentname="持续赛艇 I"
-        }else if(temp=="Still Rowing II"){
-            cntalentname="持续赛艇 II"
-        }else if(temp=="Strength in Health"){
-            cntalentname="生命的力量"
-        }else if(temp=="Void Specialization I"){
-            cntalentname="虚空专精 I"
-        }else if(temp=="Void Specialization II"){
-            cntalentname="虚空专精 II"
-        }else{
-            return name;
-        }
-    return cntalentname;
-}
+
 function cnresourcetype(type){
     //汉化地图资源类型
     var cnresourcetype="";
