@@ -13500,7 +13500,7 @@ var Fluffy = {
 			description: "所有来源获得的氦提高25%"
 		},
 		void: {
-			description: "允许有两个相同名字的空地图粘在一起。在完成了这张2x的空白地图之后，蓬松将会立即清除多余的那张，比正常的和第二次传家宝的氦要多一半的氦。"
+			description: "允许有两个相同名字的空地图粘在一起。在完成了这张2x的虚空地图之后，蓬松将会立即清除多余的那张，比正常的和第二次传家宝的氦要多一半的氦。"
 		},
 		eliminator: {
 			description: "尖塔中的腐败和健康细胞会失去它们的所有特性。"
@@ -13534,13 +13534,13 @@ var Fluffy = {
 			}
 		},
 		voidelicious: {
-			description: "每一个传送门都有一个独一无二的空白地图(总共16个)"
+			description: "每一个传送门都有一个独一无二的虚空地图(总共16个)"
 		},
 		naturesWrath: {
-			description: "Improves Empowerments of Nature! Poison gains +10 to Stack Transfer rate, Helium rewards from Wind are increased by 5x, and the damage bonus from Ice is doubled."
+			description: "提高大自然的力量！毒药增益+10到堆叠转移率，来自风的氦奖励增加5倍，来自冰的伤害加成加倍。"
 		},
 		voidSiphon: {
-			description: "Your Trimps gain 5% attack each time you clear a Void Map. This bonus stacks additively and resets on Portal."
+			description: "清理每张虚空地图时，你的脆皮都会得到5%的攻击。这个加成的叠乘累积并在使用传送门后重置。"
 		}
 	}
 }

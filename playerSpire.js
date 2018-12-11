@@ -466,11 +466,11 @@ var playerSpire = {
         infoHtml += "<br/><span onmouseover='playerSpire.infoTooltip(\"Enemies\", event)' onmouseout='tooltip(\"hide\")'>Enemies: <span id='playerSpireCurrentEnemies'>" + this.currentEnemies + "</span> / <span id='playerSpireMaxEnemies'>" + this.maxEnemies + "</span></span>";
         infoHtml += "<br/><span onmouseover='playerSpire.infoTooltip(\"Spirestones\", event)' onmouseout='tooltip(\"hide\")' id='spirestoneBox'>" + this.getSpirestoneHtml() + "</span><br/><span onmouseover='playerSpire.infoTooltip(\"Threat\", event)' onmouseout='tooltip(\"hide\")' id='playerSpireDifficulty'>" + this.getDifficultyHtml() + "</span></div>";
         infoHtml += "<div id='spireTrapsWindow'>";
-        infoHtml += "<div onclick='playerSpire.shrink()' id='shrinkSpireBox' class='spireControlBox'>Shrink Window</div>";
-        infoHtml += "<div onclick='playerSpire.settingsTooltip()' id='spireSettingsBox' class='spireControlBox'>Settings</div>"
-        infoHtml += "<div onclick='tooltip(\"confirm\", null, \"update\", \"Are you sure you want to sell all Traps and Towers? You will get back 100% of Runestones spent on them.<br/><br/>" + ((this.paused) ? "" : "<b>Protip:</b> Pause your Spire before selling your defenses if you want to avoid leaking!") + "\", \"playerSpire.resetTraps()\", \"Sell All?\")' class='spireControlBox'>Sell All</div>";
-        infoHtml += "<div onclick='playerSpire.togglePause()' id='pauseSpireBtn' class='spireControlBox spirePaused" + ((this.paused) ? "Yes'>Unpause" : "'>Pause Spire") + "</div>";      
-        infoHtml += "<div class='spireControlBoxDbl'><div onclick='playerSpire.presetTooltip(1)'>Layout 1</div><div onclick='playerSpire.presetTooltip(2)'>Layout 2</div></div>"
+        infoHtml += "<div onclick='playerSpire.shrink()' id='shrinkSpireBox' class='spireControlBox'>缩小窗口</div>";
+        infoHtml += "<div onclick='playerSpire.settingsTooltip()' id='spireSettingsBox' class='spireControlBox'>设置</div>"
+        infoHtml += "<div onclick='tooltip(\"confirm\", null, \"update\", \"Are you sure you want to sell all Traps and Towers? You will get back 100% of Runestones spent on them.<br/><br/>" + ((this.paused) ? "" : "<b>Protip:</b> Pause your Spire before selling your defenses if you want to avoid leaking!") + "\", \"playerSpire.resetTraps()\", \"Sell All?\")' class='spireControlBox'>卖出全部</div>";
+        infoHtml += "<div onclick='playerSpire.togglePause()' id='pauseSpireBtn' class='spireControlBox spirePaused" + ((this.paused) ? "Yes'>解除暂停" : "'>暂停尖塔") + "</div>";      
+        infoHtml += "<div class='spireControlBoxDbl'><div onclick='playerSpire.presetTooltip(1)'>布局1</div><div onclick='playerSpire.presetTooltip(2)'>布局2</div></div>"
         infoHtml += "<div onclick='playerSpire.selectTrap(\"shiftUp\")' onmouseout='tooltip(\"hide\")' onmouseover='playerSpire.trapTooltip(\"shiftUp\", event)' id='sellTrapBox' class='spireControlBox" + ((this.selectedTrap == "shiftUp") ? " selected" : "") + "'>Shift Up</div>";
         infoHtml += "<div onclick='playerSpire.selectTrap(\"shiftDown\")' onmouseout='tooltip(\"hide\")' onmouseover='playerSpire.trapTooltip(\"shiftDown\", event)' id='sellTrapBox' class='spireControlBox" + ((this.selectedTrap == "shiftDown") ? " selected" : "") + "'>Shift Down</div>";
 
@@ -480,7 +480,7 @@ var playerSpire = {
         // infoHtml += "<div onclick='playerSpire.clearEnemies()' class='spireControlBox'>Clear Enemies</div>";
 
         infoHtml += "<br/><hr/>"
-        infoHtml += "<div onclick='playerSpire.selectTrap(\"sell\")' onmouseout='tooltip(\"hide\")' onmouseover='playerSpire.trapTooltip(\"sell\", event)' style='padding-top: 1.35vw' id='sellTrapBox' class='spireTrapBox" + ((this.selectedTrap == "sell") ? " selected" : "") + "'>Sell a Trap/Tower</div>";
+        infoHtml += "<div onclick='playerSpire.selectTrap(\"sell\")' onmouseout='tooltip(\"hide\")' onmouseover='playerSpire.trapTooltip(\"sell\", event)' style='padding-top: 1.35vw' id='sellTrapBox' class='spireTrapBox" + ((this.selectedTrap == "sell") ? " selected" : "") + "'>卖掉一个陷阱或塔</div>";
         var cheapestTrap = -1;
         for (var item in playerSpireTraps){
             var trap = playerSpireTraps[item];
@@ -511,7 +511,7 @@ var playerSpire = {
         html += "<span onmouseover='playerSpire.infoTooltip(\"Spirestones\", event)' onmouseout='tooltip(\"hide\")' id='spirestoneBox'>" + this.getSpirestoneHtml() + "</span><br/>"
         html += "<span onmouseover='playerSpire.infoTooltip(\"Threat\", event)' onmouseout='tooltip(\"hide\")' id='playerSpireDifficulty'>" + this.getDifficultyHtml() + "</span><br/>";
         html += "</div>"; //playerSpireInfoTopSm
-        html += "<div onclick='playerSpire.enlarge()' id='shrinkSpireBox' class='spireControlBoxSmall'>Enlarge</div>";
+        html += "<div onclick='playerSpire.enlarge()' id='shrinkSpireBox' class='spireControlBoxSmall'>扩大窗口</div>";
         html += "<hr style='margin: 2%'/>";
         html += "<div onclick='playerSpire.selectTrap(\"sell\")' id='sellTrapBox' onmouseout='tooltip(\"hide\")' onmouseover='playerSpire.trapTooltip(\"sell\", event)' class='spireTrapBoxSmall" + ((this.selectedTrap == "sell") ? " selected" : "") + "'>Sell</div>";
         var cheapestTrap = -1;
@@ -604,11 +604,11 @@ var playerSpire = {
             return;
         }
         if (which == "shiftUp"){
-            tooltip("Shift Up", 'customText', event, "Shift your Traps and Towers up one cell!<br/><br/>Click this to select Shift Up Mode, then click a Trap or Tower in your Spire. The Trap/Tower you select and all Traps/Towers after it will shift up one cell until the first empty space is hit.<br/><br/>If there is no empty space, your last Trap/Tower will be sold.")
+            tooltip("Shift Up", 'customText', event, "把你的陷阱和塔移向后移一格！<br/><br/>Click this to select Shift Up Mode, then click a Trap or Tower in your Spire. The Trap/Tower you select and all Traps/Towers after it will shift up one cell until the first empty space is hit.<br/><br/>If there is no empty space, your last Trap/Tower will be sold.")
             return;
         }
         if (which == "shiftDown"){
-            tooltip("Shift Down", 'customText', event, "Shift your Traps and Towers down one cell!<br/><br/>Click this to select Shift Down Mode, then click a Trap or Tower in your Spire. The Trap/Tower you select and all Traps/Towers before it will shift down one cell until the first empty space is hit.<br/><br/>If there is no empty space, your first Trap/Tower will be sold.")
+            tooltip("Shift Down", 'customText', event, "把你的陷阱和塔移向前移一格！<br/><br/>Click this to select Shift Down Mode, then click a Trap or Tower in your Spire. The Trap/Tower you select and all Traps/Towers before it will shift down one cell until the first empty space is hit.<br/><br/>If there is no empty space, your first Trap/Tower will be sold.")
             return;
         }
         var trapText = playerSpireTraps[which].isTower ? " Tower" : " Trap";
@@ -750,7 +750,7 @@ var playerSpire = {
             "<p>Perfect, everything seems to be working just as your Scientists explained. The Frost Trap slows the enemies down, and the Fire Trap finishes them off.</p><p>Unfortunately, it seems like each enemy you kill in here makes your Spire a more important target, causing stronger and stronger enemies to come through.</p><p>Fortunately though, your Magical Spire Traps convert Bad Guys into a new type of resource whenever they kill one, which your Scientists call 'Runestones'. Even more fortunately, larger enemies with more Max Health convert into larger amounts of Runestones! As your Spire's Threat increases, so will your Runestones per second, and so will your Spire's defenses (if you're doing your job).</p><p style='text-decoration: underline'>You don't have to stay here while Runestones build up, you can go back to leading your Trimps while your Traps do some work. The enchanted Spirestones copy your progress to all possible dimensions, so you won't even lose your Traps if you Portal!</p><p class='spireQuest'>Keep an eye on your Runestones, and add more Traps whenever you can. Try to fill this entire Floor with Traps!</p>",
             "<p>You're a natural Spiarchitect! Your Scientists have finally finished adding the second Floor of your Spire, and the added height seems to be attracting even more enemies. Cool, more Runestones for you! You're starting to really like the idea of enemies constantly climbing to their demise in the teeth of your Traps.</p><p>While you're appreciating your deadly handiwork, a small group of Scientists runs up to you and shares some new research. They say that the Runestones can also be used to create mini-towers that broadcast their energy to all Trimps in the World. Wasting no time, they hand you the schematics for the Strength Tower, which increases the effect of all Fire Traps on its Floor, and grants all of your Trimps an attack bonus.</p><p class='spireQuest'>Continue placing more Traps and Towers to fill out your Spire, and raise your Threat level to 300.</p>",
             "<p>Beautiful. It seems like you're getting the hang of this!</p><p>You've finished constructing the third Floor of your Spire, but it seems as if you've used up your entire intial supply of Spirestones. You'll need to clear a Spire again to earn more! Note that you'll find considerably more Spirestones from more difficult Spires.</p><p class='spireQuest'>Collect 20 Spirestones and raise your Spire's Threat to 400 to build your fourth Floor.</p>",
-            "<p>It's getting huge! However, the Traps are getting more expensive as you place more and more of them. At this rate you'll never be able to afford enough Strength Towers to make a huge impact on your Trimps.</p><p>You consult with your Scientists, who tell you that they can create upgrades for your Traps, but that they need to study corpses of high level enemies in order to exploit their weaknesses.</p><p class='spireQuest'>Raise your Highest Zone Reached to Z230, and upgrade your Frost Trap.</p>",
+            "<p>It's getting huge! However, the Traps are getting more expensive as you place more and more of them. At this rate you'll never be able to afford enough Strength Towers to make a huge impact on your Trimps.</p><p>You consult with your Scientists, who tell you that they can create upgrades for your Traps, but that they need to study corpses of high level enemies in order to exploit their weaknesses.</p><p class='spireQuest'>提高你的最高区域达到Z230，并升级你的Frost Trap。</p>",
             "<p>Wow, look at that thing slow!</p><p>You seem to have a pretty decent understanding of how to manage your Spire, and I believe you can handle it on your own for a while. Continue to raise your HZE to unlock more upgrades, collect Spirestones to add more Floors and enemies, and tweak your Trap layout every once in a while to make sure you're getting as many Runestones as you can, you'll definitely need them later.</p><p>Your Scientists let you know that they can possibly forge a new Trap and Tower, but they need to study Spirestones from a higher level Spire first.</p><p class='spireQuest'>Complete Spire II to unlock Poison Trap and Condenser Tower! Once you have your new Traps, raise your Spire's Threat to 600 and build your sixth Floor.<br/><br/>Remember that you have to satisfy both the Threat and Spirestone requirements to add a new Floor!</p>",
             "<p>You've got a new Trap and Tower, your Spire is still growing, and your power is growing with it! Your Trimps are slightly annoyed that they have to clean up the occasional Bad Guy that makes it through the Spire and into the town, but they can handle it. They all agree that life in general is just more fun when there's a giant Spire grinding Bad Guys at the entrance to their town.</p><p>While you're feeling comfortable maintaining your Spire's defenses with the tools you have, you still feel like there's something missing. Your Scientists say that they could perhaps create one more Trap and Tower, but again they'll need to study Spirestones from an even higher Spire.</p><p class='spireQuest'>Clear Spire III to unlock the Lightning Trap and Knowledge Tower, then raise your Spire's Threat to 1100 and build your eleventh Floor.</p>",
             "<p>And that's about all there is to teach you! The rest of the management of your Spire is left in your more-than-capable hands.</p><p>Raise your HZE, clear Spires, buy upgrades, build Floors, and come up with the perfect layout for your Spire.</p><p class='spireQuest'>I'll hang out and make sure everything's OK until you reach Threat level 1300 and build your thirteenth Floor, and then you'll be on your own.</p>"
@@ -1461,8 +1461,8 @@ var playerSpireTraps = {
         damage: 50,
         owned: 0,
         get description(){
-            var desc = "Deals " + prettify(this.totalDamage()) + " damage when stepped on.";
-            if (this.level >= 4) desc += "<br/><br/>If an enemy with 20% health or less steps on a Fire Trap, it dies instantly.";
+            var desc = "每步造成" + prettify(this.totalDamage()) + "点伤害.";
+            if (this.level >= 4) desc += "<br/><br/>秒杀等于少于20%血的敌人.";
             if (this.level >= 7) desc += "<br/><br/>All Fire Traps grant 20% extra Runestones when they get the killing blow on an enemy.";
             desc += "<br/><br/>(Hotkey 1)";
             return desc;
@@ -1528,8 +1528,8 @@ var playerSpireTraps = {
         owned: 0,
         damage: 10,
         get description() {
-            var desc = "Deals " + prettify(this.totalDamage()) + " damage when stepped on, and causes the target to become Chilled, slowing movement to 50% speed for " + this.slowTurns() + " moves. This speed reduction causes the target to stay on each Trap for twice as long, triggering each Trap twice. Note that Frost Traps are coated with antifreeze, preventing chill effects from working while an enemy is standing on a Frost Trap."
-            if (this.level >= 3) desc += "<br/><br/>Enemies chilled by Frost Traps take 25% extra damage from Fire Traps."
+            var desc = "每步造成" + prettify(this.totalDamage()) + "伤害, 使目标变冰冷, 减50%移动速度持续" + this.slowTurns() + "格. 这个速度降低导致目标在每个陷阱上停留两倍时间，触发每个陷阱两次。Note that Frost Traps are coated with antifreeze, preventing chill effects from working while an enemy is standing on a Frost Trap."
+            if (this.level >= 3) desc += "<br/><br/>被冰冻的敌人会额外受到火陷阱25%伤害."
             if (this.level >= 4) desc += "<br/><br/>Any Poison Traps placed directly before a Frost Trap become 4x as effective.";
             if (this.level >= 5) desc += "<br/><br/>Each time an enemy can't move because it's slowed (from Chilled or Frozen), it becomes worth 2% more Runestones. This effect stacks additively."
             desc += "<br/><br/>(Hotkey 2)";
@@ -1611,7 +1611,7 @@ var playerSpireTraps = {
         level: 1,
         noDirectDamage: true,
         get description() {
-            var desc = "Adds " + prettify(this.totalDamage()) + " Toxicity when stepped on. Target will take damage equal to its total Toxicity each time it attempts to move.";
+            var desc = "每步增加" + prettify(this.totalDamage()) + "层毒性伤害. Target will take damage equal to its total Toxicity each time it attempts to move.";
             if (this.level >= 3) desc += "<br/><br/>If a Poison Trap is placed directly next to another Poison Trap, both Traps gain 3x damage. If a Poison Trap has other Poison Traps on both sides of itself, it gains 9x damage instead."
             if (this.level >= 5) desc += "<br/><br/>If the enemy has 75% or less health remaining, " + prettify(this.totalDamage() * 5) + " Toxicity is added instead.";
             if (this.level >= 6) desc += "<br/><br/>If an enemy leaks, gain 10% of its total Toxicity as Runestones.";
@@ -1708,7 +1708,7 @@ var playerSpireTraps = {
         turns: 1,
         get description(){
             var shockTurns = this.shockTurns();
-            var text = "Deals " + prettify(this.totalDamage()) + " damage when stepped on, and afflicts the target with " + shockTurns + " stack" + needAnS(shockTurns) + " of Shocked. 1 stack of Shocked is consumed each time an enemy steps on a Trap or Tower, causing that Bad Guy to take " + this.shockedDamage() + "x damage and " + this.shockedEffect() + "x effect from the Trap or Tower that consumed the stack of Shocked. Shocked can boost the damage but not the effect of other Lightning Traps."
+            var text = "每步造成" + prettify(this.totalDamage()) + "伤害, and afflicts the target with " + shockTurns + " stack" + needAnS(shockTurns) + " of Shocked. 1 stack of Shocked is consumed each time an enemy steps on a Trap or Tower, causing that Bad Guy to take " + this.shockedDamage() + "x damage and " + this.shockedEffect() + "x effect from the Trap or Tower that consumed the stack of Shocked. Shocked can boost the damage but not the effect of other Lightning Traps."
             if (this.level >= 4) text += "<br/><br/>Each Lightning Trap increases the damage and effect of Fire and Poison Traps in its column by 10%, stacking additively.";
             text += "<br/><br/>(Hotkey 4)";
             return text;
@@ -1754,25 +1754,25 @@ var playerSpireTraps = {
         icon: "gavel",
         upgrades: [
             {   //level 2
-                description: "Each Strength Tower grants an additional 15% attack to your Trimps.", //500 
+                description: "每个力量之塔对你的脆皮攻击加成提高15%.", //500 
                 unlockAt: -1,
                 cost: 1e6
             },
             {
                 //level 3
-                description: "Each Strength Tower grants an additional 15% attack to your Trimps.", //5000
+                description: "每个力量之塔对你的脆皮攻击加成提高15%.", //5000
                 unlockAt: -1,
                 cost: 1e10
             },
             {
                 //level 4
-                description: "Each Strength Tower grants an additional 15% attack to your Trimps.", //50000
+                description: "每个力量之塔对你的脆皮攻击加成提高15%.", //50000
                 unlockAt: -1,
                 cost: 1e14
             },
             {
                 //level 5
-                description: "Each Strength Tower grants an additional 15% attack to your Trimps.", //500000
+                description: "每个力量之塔对你的脆皮攻击加成提高15%.", //500000
                 unlockAt: -1,
                 cost: 1e18
             },
@@ -1802,7 +1802,7 @@ var playerSpireTraps = {
         level: 1,
         owned: 0,
         get description(){
-            return "Increases the damage of all Fire Traps on the same Floor as a Strength Tower by 100%, and when stepped on deals damage equal to the combined damage of all Fire Traps on its Floor (max of 1 Strength Tower per Floor). In addition, this Tower increases the attack of your Trimps in Maps and the World by " + prettify(this.getWorldBonus(true)) + "% (additive with other Strength Towers).<br/><br/>Your Strength Towers are currently granting a total of <b>" + prettify(this.getWorldBonus()) + "%</b> attack to your Trimps.<br/><br/>(Hotkey 5)";
+            return "将同一层上所有火陷阱伤害提高100%，其本身造成这楼层所有火陷阱伤害之和的伤害（每层楼最多建1个）. 此外，这个塔还对你在世界和地图中的脆皮攻击" + prettify(this.getWorldBonus(true)) + "%伤害(与其它力量之塔叠加).<br/><br/>你的力量之塔总共给你的脆皮加成<b>" + prettify(this.getWorldBonus()) + "%</b>攻击伤害.<br/><br/>(Hotkey 5)";
         }
     },
     Condenser: {
@@ -1848,7 +1848,7 @@ var playerSpireTraps = {
         },
         noDirectDamage: true,
         get description(){
-            return "When stepped on, increases the target's Toxicity by 25%. In addition, each Condenser Tower increases all Helium found by " + prettify(this.getWorldBonus(true)) + "% (additive with other Condenser Towers).<br/><br/>Your Condenser Towers are currently granting a total of <b>" + prettify(this.getWorldBonus()) + "%</b> additional Helium from all sources.<br/><br/>(Hotkey 6)";
+            return "当踩上，增加目标的毒性25%. In addition, each Condenser Tower increases all Helium found by " + prettify(this.getWorldBonus(true)) + "% (additive with other Condenser Towers).<br/><br/>Your Condenser Towers are currently granting a total of <b>" + prettify(this.getWorldBonus()) + "%</b> additional Helium from all sources.<br/><br/>(Hotkey 6)";
         },
         extraEffect: function(enemy, cell){
             var effect = (enemy && enemy.shockTurns && enemy.shockTurns > 0) ? playerSpireTraps.Lightning.shockedEffect() : 1;
