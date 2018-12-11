@@ -2805,7 +2805,7 @@ var toReturn = {
 	achievements: {
 		zones: {
 			finished: 0,
-			title: "区域进度",
+			title: "Zone Progress",
 			description: function (number) {
 				return "完成区域 " + this.breakpoints[number];
 			},
@@ -2816,13 +2816,13 @@ var toReturn = {
 			evaluate: function () { return game.global.highestLevelCleared},
 			breakpoints: [2, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240, 250, 260, 270, 280, 290, 300, 350, 400, 450, 500],
 			tiers: [1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 8, 8, 8, 8],
-			names: ["这很容易", "飞艇杀手", "都是开拓", "开端", "决心", "教授", "脆皮业余爱好者", "星际杀手", "上进心", "电气", "残端", "耐久力", "坚定不移", "配合", "已解决", "坚定", "砂砾", "恒心", "坚持", "韧性", "研究者", "破坏者", "毁灭者", "灭火器", "制热机", "加热器", "热断路器", "热火杀手", "热火专家", "热弯机", "火山", "岩浆大师", "大自然", "灵感", "癫狂", "尖顶大师"],
+            names: ["This is Easy", "Blimp Slayer", "Groundbreaker", "The Beginning", "Determined", "Professor", "Trimp Aficionado", "Slayer of Planets", "Motivated", "Electric", "Stronk", "Endurance", "Unwavering", "Coordinated", "Resolved", "Steadfast", "Grit", "Perseverance", "Persistence", "Tenacity", "The Instigator", "The Destroyer", "The Eradicator", "The Exterminator", "Heat Maker", "Heat Hater", "Heat Breaker", "Heat Slayer", "Heat Expert", "Heat Bender", "Volcanic", "Magma Master", "Acre of Nature", "Aspirer", "Insane", "Spire Master"],
 			icon: "icomoon icon-compass2",
 			newStuff: []
 		},
 		damage: {
 			finished: 0,
-			title: "脆皮伤害",
+			title: "Trimp Damage",
 			description: function (number) {
 				return "达到 " + prettify(this.breakpoints[number]) + " 显示伤害";
 			},
@@ -2833,14 +2833,14 @@ var toReturn = {
 			highest: 0,
 			breakpoints: [100, 100000, 1e+11, 1e+17, 1e+23, 1e+29, 1e+35, 1e+41, 1e+47, 1e+53, 1e+60, 1e+67],
 			tiers: [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6],
-			names: ["领导脆皮", "银色脆皮", "金色脆皮", "铜色脆皮", "白金脆皮", "铁脆皮", "钢脆皮", "黑曜石脆皮", "钴脆皮", "黄玉脆皮", "钻石脆皮", "超越脆皮"],
+			names: ["Lead Trimps", "Silver Trimps", "Golden Trimps", "Copper Trimps", "Platinum Trimps", "Iron Trimps", "Steel Trimps", "Obsidian Trimps", "Cobalt Trimps", "Topaz Trimps", "Diamond Trimps", "Transcendental Trimps"],
 			icon: "icomoon icon-bomb",
 			newStuff: []
 		},
 		trimps: {
 			finished: 0,
 			highest: 0,
-			title: "拥有脆皮",
+			title: "Trimps Owned",
 			description: function (number) {
 				return "累计拥有  " + prettify(this.breakpoints[number]) + " 脆皮";
 			},
@@ -2850,13 +2850,13 @@ var toReturn = {
 			},
 			breakpoints: [50, 150, 300, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000, 10000000000, 100000000000],
 			tiers: [1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4],
-			names: ["太多脆皮", "人满为患", "这是脆皮", "建成部落", "建成乡镇", "建成城市", "建成国家", "调整增长", "MMMEGATRIMPS", "它是一个国家", "星球", "宇宙"],
+			names: ["Too Many Trimps", "Overcrowding", "This Is Trimp", "It Takes a Tribe", "It Takes a Town", "It Takes a City", "A Milli Trimpi", "Trimpsponential Growth", "MMMEGATRIMPS", "It Takes a Nation", "It Takes a Planet", "It Takes a Universe"],
 			icon: "icomoon icon-group",
 			newStuff: []
 		},
 		housing: {
 			finished: 0,
-			title: "房地产",
+			title: "Real Estate",
 			description: function (number) {
 				if (number == 9) return "使用维度生成器";
 				return "建造你的第一个  " + cnwhat(this.breakpoints[number]);
@@ -2864,13 +2864,13 @@ var toReturn = {
 //			breakpoints: ["窝棚", "房子", "大厦", "旅馆", "娱乐场", "出入口", "虫洞", "集电极", "经线站", "发电机"],
             breakpoints: ["Hut", "House", "Mansion", "Hotel", "Resort", "Gateway", "Wormhole", "Collector", "Warpstation", "Generator"],
 			tiers: [1, 1, 1, 1, 2, 2, 2, 2, 3, 5],
-			names: ["小公寓", "住宅开发", "品味奢华", "花俏", "地平线", "维漂移", "对氦来说太酷了", "星际空间", "无穷无尽", "大众新一代"],
+			names: ["Tiny Homes", "Residential Development", "Taste for Luxury", "Fancy", "The Skyline", "Dimensional Drift", "Too Cool For Helium", "Space From Stars", "To Infinity and Beyond", "Mass Generation"],
 			icon: "icomoon icon-building-o",
 			newStuff: []
 		},
 		portals: {
 			finished: 0,
-			title: "总传送门",
+			title: "Total Portals",
 			description: function (number) {
 				var s = (number > 0) ? "" : "";
 				return "使用传送门 " + prettify(this.breakpoints[number]) + " 次" + s;
@@ -2891,7 +2891,7 @@ var toReturn = {
 		},
 		totalZones: {
 			finished: 0,
-			title: "总清理区域",
+			title: "Total Zone Clears",
 			description: function (number) {
 				return "清理了  " + prettify(this.breakpoints[number]) + " 总区域";
 			},
@@ -2910,7 +2910,7 @@ var toReturn = {
 		},
 		totalMaps: {
 			finished: 0,
-			title: "地图总清理数",
+			title: "Total Map Clears",
 			description: function (number) {
 				return "总共清理了  " + prettify(this.breakpoints[number]) + " 地图";
 			},
@@ -2932,7 +2932,7 @@ var toReturn = {
 		},
 		totalHelium: {
 			finished: 0,
-			title: "氦收集",
+			title: "Helium Collection",
 			description: function (number) {
 				return "Gather " + prettify(this.breakpoints[number]) + " total Helium";
 			},
@@ -2954,7 +2954,7 @@ var toReturn = {
 		},
 		heliumHour: {
 			finished: 0,
-			title: "氦每小时",
+			title: "Helium Per Hour",
 			description: function (number) {
 				return "达到 " + prettify(this.breakpoints[number]) + " 氦每小时";
 			},
@@ -2976,7 +2976,7 @@ var toReturn = {
 		},
 		totalHeirlooms: {
 			finished: 0,
-			title: "传家宝收藏",
+			title: "Heirloom Collection",
 			description: function (number) {
 				var number = this.breakpoints[number];
 				var s = (number > 1) ? "" : "";
@@ -3000,7 +3000,7 @@ var toReturn = {
 		},
 		totalGems: {
 			finished: 0,
-			title: "宝石收集",
+			title: "Gem Collection",
 			description: function (number) {
 				var number = this.breakpoints[number];
 				var s = (number > 1) ? "" : "";
@@ -3021,7 +3021,7 @@ var toReturn = {
 		},
 		dailyHelium: {
 			finished: 0,
-			title: "日常奖金",
+			title: "Daily Bonus",
 			description: function (number) {
 				var number = this.breakpoints[number];
 				return "获取 " + prettify(number) + " 氦气从每日挑战";
@@ -3044,7 +3044,7 @@ var toReturn = {
 		},
 		humaneRun: {
 			finished: 0,
-			title: "人性化战斗",
+			title: "Humane Run",
 			description: function (number){
 				var number = this.breakpoints[number];
 				return "<span style='font-size: .8em'>关爱区域" + number + " 每个区域失去不超过一个战士。</span>";
@@ -3252,7 +3252,7 @@ var toReturn = {
 		},
 		spireTimed: {
 			finished: 0,
-			title: "速度: 尖塔",
+			title: "Speed: Spire",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
 				return "<span style='font-size: .8em'>清除尖塔用时少于" + number + "，从使用传送门开始计时。</span>";
@@ -3278,7 +3278,7 @@ var toReturn = {
 		},
 		spire2Timed: {
 			finished: 0,
-			title: "速度: 尖塔 II",
+			title: "Speed: Spire II",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
 				return "<span style='font-size: .8em'>清除尖塔II用时少于" + number + "，从使用传送门开始计时。</span>";
@@ -3304,7 +3304,7 @@ var toReturn = {
 		},
 		spire3Timed: {
 			finished: 0,
-			title: "速度: 尖塔 III",
+			title: "Speed: Spire III",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
 				return "<span style='font-size: .8em'>清除尖塔III用时少于" + number + "，从使用传送门开始计时。</span>";
@@ -3330,7 +3330,7 @@ var toReturn = {
 		},
 		spire4Timed: {
 			finished: 0,
-			title: "速度: 尖塔 IV",
+			title: "Speed: Spire IV",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
 				return "<span style='font-size: .8em'>清除尖塔IV用时少于" + number + "，从使用传送门开始计时。</span>";
