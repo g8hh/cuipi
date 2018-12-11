@@ -479,7 +479,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 				for (var item in preset){
 					if (item == "Name") continue;
 					tooltipText += (count > 0) ? ", " : "";
-					tooltipText += '<b>' + cntequan(item.replace('_', ' ')) + ":</b>&nbsp;" + preset[item];
+					tooltipText += '<b>' + cnItem(item.replace('_', ' ')) + ":</b>&nbsp;" + preset[item];
 					count++;
 				}
 			}
@@ -545,7 +545,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 			tip2 = true;
 			var steps = game.global.GeneticistassistSteps;
 			tooltipText = "<div id='GATargetError'></div><div>Customize the target thresholds for your Geneticistassist! Use a number between 0.5 and 60 seconds for all 3 boxes. Each box corresponds to a Geneticistassist toggle threshold.</div><div style='width: 100%'><input class='GACustomInput' id='target1' value='" + steps[1] + "'/><input class='GACustomInput' id='target2' value='" + steps[2] + "'/><input class='GACustomInput' id='target3' value='" + steps[3] + "'/><hr class='noBotMarg'/><div class='maxCenter'>" + getSettingHtml(game.options.menu.gaFire, 'gaFire') + getSettingHtml(game.options.menu.geneSend, 'geneSend') + "</div><hr class='noTopMarg'/><div id='GADisableCheck'>" + buildNiceCheckbox('disableOnUnlockCheck', null, game.options.menu.GeneticistassistTarget.disableOnUnlock) + "&nbsp;Start disabled when unlocked each run</div></div>";
-			costText = "<div class='maxCenter'><div class='btn btn-info' id='confirmTooltipBtn' onclick='customizeGATargets();'>Confirm</div> <div class='btn btn-danger' onclick='cancelTooltip()'>Cancel</div>"
+			costText = "<div class='maxCenter'><div class='btn btn-info' id='confirmTooltipBtn' onclick='customizeGATargets();'>Confirm</div> <div class='btn btn-danger' onclick='cancelTooltip()'>取消</div>"
 			elem.style.left = "33.75%";
 			elem.style.top = "25%";
 		}
@@ -556,7 +556,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 			elem = document.getElementById('tooltipDiv2');
 			tip2 = true;
 			var steps = game.global.GeneticistassistSteps;
-			tooltipText = "<div id='GATargetError'></div><div>Customize your settings for running maps!</div>";
+			tooltipText = "<div id='GATargetError'></div><div>自定义运行地图的设置！</div>";
 			tooltipText += "<hr class='noBotMarg'/><div class='maxCenter'>"
 			var settingCount = 0;
 			if (game.global.totalPortals >= 1) {
@@ -568,7 +568,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 				settingCount++;
 			}
 			if (settingCount % 2 == 0) tooltipText += "<br/><br/>";
-			tooltipText += '<div class="optionContainer"><div class="noselect settingsBtn ' + ((game.global.repeatMap) ? "settingBtn1" : "settingBtn0") + '" id="repeatBtn2" onmouseover="tooltip(\'Repeat Map\', null, event)" onmouseout="tooltip(\'hide\')" onclick="repeatClicked()">' + ((game.global.repeatMap) ? "Repeat On" : "Repeat Off") + '</div></div>';
+			tooltipText += '<div class="optionContainer"><div class="noselect settingsBtn ' + ((game.global.repeatMap) ? "settingBtn1" : "settingBtn0") + '" id="repeatBtn2" onmouseover="tooltip(\'Repeat Map\', null, event)" onmouseout="tooltip(\'hide\')" onclick="repeatClicked()">' + ((game.global.repeatMap) ? "重复开启" : "重复关闭") + '</div></div>';
 			settingCount++;
 			if (settingCount % 2 == 0) tooltipText += "<br/><br/>";
 			tooltipText += getSettingHtml(game.options.menu.repeatUntil, 'repeatUntil', null, "CM");
@@ -587,7 +587,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 				settingCount++;
 			}
 			tooltipText += "</div>";
-			costText = "<div class='maxCenter'><div class='btn btn-info' id='confirmTooltipBtn' onclick='cancelTooltip();'>Close</div></div>"
+			costText = "<div class='maxCenter'><div class='btn btn-info' id='confirmTooltipBtn' onclick='cancelTooltip();'>关闭</div></div>"
 			elem.style.left = "33.75%";
 			elem.style.top = "25%";
 		}

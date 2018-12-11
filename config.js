@@ -582,7 +582,7 @@ var toReturn = {
 			smallPerks: {
 				extraTags: "layout",
 				enabled: 0,
-				description: "Shrink the size of perk buttons in the Portal and View Perks windows. <b>Large Perk Buttons</b> is default and fits 5 buttons per row. <b>Small Perk Buttons</b> shrinks the size to fit 6 per row, and <b>Tiny Perk Buttons</b> fits 7 per row.",
+				description: "缩小传送门和View Perks窗口中perk按钮的大小。 <b>Large Perk Buttons</b> is default and fits 5 buttons per row. <b>Small Perk Buttons</b> shrinks the size to fit 6 per row, and <b>Tiny Perk Buttons</b> fits 7 per row.",
 				titles: ["Large Perk Buttons", "Small Perk Buttons", "Tiny Perk Buttons"]
 			},
 			progressBars: {
@@ -628,14 +628,14 @@ var toReturn = {
 			},
 			repeatUntil: {
 				enabled: 0,
-				description: "<p><b>Repeat Forever</b> will cause the map to continually repeat if Repeat Maps is enabled.</p><p><b>Repeat to 10</b> will repeat unless you have 10 Map Bonus stacks.</p><p><b>Repeat for Items</b> will repeat unless there are no more special items left for that level of map.</p><p><b>Repeat for Any</b> will repeat unless there are no special items available AND you can not earn more Map Bonus stacks.</p><p><b>This setting only matters if Repeat is on. Toggling Repeat off will still leave the map when it is finished no matter what.</b></p>",
+				description: "<p><b>永远重复</b> 如果启用了重复地图，将导致地图不断重复。</p><p><b>重复10次</b> 会重复，除非你有10个地图奖励叠加。</p><p><b>重复项目</b> 将重复，除非没有更多特殊项目留给该级别的地图。</p><p><b>重复任何</b> 将重复，除非没有可用的特殊项目，你不能获得更多地图奖励叠加。</p><p><b>此设置仅在重复打开时才有意义。 切换重复关闭仍然会在完成后离开地图，无论如何。</b></p>",
 				titles: ["永远重复", "重复10次", "重复项", "重复所有"],
 				locked: true,
 				secondLocation: ['togglerepeatUntilCM']
 			},
 			exitTo: {
 				enabled: 0,
-				description: "Choose whether to go to the Maps Screen or World after completing a map.",
+				description: "选择完成地图后是否转到地图屏幕或世界。",
 				titles: ["退出地图", "退出世界"],
 				locked: true,
 				secondLocation: ['toggleexitToCM']
@@ -808,7 +808,7 @@ var toReturn = {
 				enabled: 1,
 				extraTags: "other",
 				description: "选择是否希望游戏在到达尖塔时通过发送地图来暂停战斗。<b>保持在尖塔格斗</b> 到达尖塔时不会中断你， <b>地图在尖顶</b> will send you to maps on every Spire, <b>Map at Top 2 Spires</b> will send you to maps at the highest and second highest level Spire reached, and <b>Map at Top Spire</b> will switch to maps only on the single highest Spire reached.",
-				titles: ["Keep Fighting at Spires", "Map at Spires", "Map at Top 2 Spires", "Map at Top Spire"],
+				titles: ["Keep Fighting at Spires", "尖塔地图", "Map at Top 2 Spires", "Map at Top Spire"],
 				lockUnless: function () {
 					return (game.global.highestLevelCleared >= 199);
 				},
@@ -2403,22 +2403,22 @@ var toReturn = {
 	},
 	stats:{
 		trimpsKilled: {
-			title: "死掉的脆皮",
+			title: "Dead Trimps",
 			value: 0,
 			valueTotal: 0
 		},
 		battlesWon: {
-			title: "战斗胜利",
+			title: "Battles Won",
 			value: 0,
 			valueTotal: 0
 		},
 		battlesLost: {
-			title: "战斗失败",
+			title: "Battles Lost",
 			value: 0,
 			valueTotal: 0
 		},
 		gemsCollected: {
-			title: "收集宝石",
+			title: "Gems Collected",
 			value: 0,
 			valueTotal: 0,
 			display: function () {
@@ -2426,17 +2426,17 @@ var toReturn = {
 			}
 		},
 		mapsCleared: {
-			title: "清理地图",
+			title: "Maps Cleared",
 			value: 0,
 			valueTotal: 0
 		},
 		zonesCleared: {
-			title: "清理区域",
+			title: "Zones Cleared",
 			value: 0,
 			valueTotal: 0
 		},
 		trimpsFired: {
-			title: "解雇脆皮",
+			title: "Trimps Fired",
 			value: 0,
 			valueTotal: 0,
 			//This stat was added in 3.6 and the numbers will look bad for a few months.
@@ -2444,7 +2444,7 @@ var toReturn = {
 			display: function () {return false;}
 		},
 		spentOnWorms: {
-			title: "蠕虫氦气",
+			title: "Wormholed Helium",
 			display: function () {
 				return ((this.value + this.valueTotal) > 0)
 			},
@@ -2452,7 +2452,7 @@ var toReturn = {
 			valueTotal: 0
 		},
 		goldenUpgrades: {
-			title: "黄金升级",
+			title: "Golden Upgrades",
 			display: function () {
 				return (this.value > 0 || this.valueTotal > 0);
 			},
@@ -2460,7 +2460,7 @@ var toReturn = {
 			valueTotal: 0
 		},
 		heliumHour: {
-			title: "游戏时间",
+			title: "He/Hour this Run",
 			display: function () {
 				return (game.resources.helium.owned > 0);
 			},

@@ -1113,7 +1113,7 @@ function displayAllStats(buildAll) {
 		if (buildAll){
 //            console.log(stat.title);
 //            stat.title
-			document.getElementById("statCol" + column).innerHTML += '<div class="statContainer" id="stat' + item + 'Container"><span class="statTitle">' + cnstat(stat.title) + '</span><br/><span class="statValue" id="stat' + item + 'Value">' + value + '</span></div>'
+			document.getElementById("statCol" + column).innerHTML += '<div class="statContainer" id="stat' + item + 'Container"><span class="statTitle">' + cnItem(stat.title) + '</span><br/><span class="statValue" id="stat' + item + 'Value">' + value + '</span></div>'
 			column++;
 			if (column == 5) column = 1;
 		}
@@ -1280,7 +1280,7 @@ function displayChallenges() {
 		if (thisFail) done = "nextChallenge";
 		if (!name) name = what;
 		//make sure the challengeSquaredMode color still works after messing with line below
-		challengeHTML += '<div class="noselect pointer challengeThing thing ' + done + '" id="challenge' + what + '" onclick="selectChallenge(\'' + what + '\')"><span class="thingName">' + cntequan(name) + '</span></div>';
+		challengeHTML += '<div class="noselect pointer challengeThing thing ' + done + '" id="challenge' + what + '" onclick="selectChallenge(\'' + what + '\')"><span class="thingName">' + cnItem(name) + '</span></div>';
 //        console.log(what.replace('_', ' '))
 	}
 	challengesHere.innerHTML = challengeHTML;
@@ -1604,7 +1604,7 @@ function displayPortalUpgrades(fromTab){
 		if (portUpgrade.additive) html += " 附加的";
         //能力汉化
 		html += " 改变关闭";
-		html += '" id="' + what + '" onclick="buyPortalUpgrade(\'' + what + '\')"><span class="thingName">' + cntequan(what.replace('_', ' ')) + '</span>';
+		html += '" id="' + what + '" onclick="buyPortalUpgrade(\'' + what + '\')"><span class="thingName">' + cnItem(what.replace('_', ' ')) + '</span>';
 
 		if (game.options.menu.detailedPerks.enabled == 1){
 		html += '<br/>等级:&nbsp;<span class="thingOwned"><b><span id="' + what + 'Owned">' + ((game.options.menu.formatPerkLevels.enabled) ? prettify(portUpgrade.level) : portUpgrade.level) + '</span></b>';
@@ -1889,9 +1889,9 @@ function activateClicked(){
 	var newText = "";
 	if (game.global.selectedChallenge){
 		if (challengeSquaredMode)
-			newText += " <span id='addChallenge' class='colorSquared'>你即将进行 <b style='font-size: 1.1em'>" + cntequan(game.global.selectedChallenge) + " 挑战<sup>2</sup></b></span><br/>";
+			newText += " <span id='addChallenge' class='colorSquared'>你即将进行 <b style='font-size: 1.1em'>" + cnItem(game.global.selectedChallenge) + " 挑战<sup>2</sup></b></span><br/>";
 		else
-			newText += " <span id='addChallenge'>你即将进行<b style='font-size: 1.1em'>" + cntequan(game.global.selectedChallenge) + "挑战</b></span><br/>";
+			newText += " <span id='addChallenge'>你即将进行<b style='font-size: 1.1em'>" + cnItem(game.global.selectedChallenge) + "挑战</b></span><br/>";
 	}
 	else newText += " <span id='addChallenge'></span>";
 	if (game.global.kongBonusMode){
@@ -14337,60 +14337,6 @@ document.addEventListener('keyup', function(e) {
 
 }, true);
 
-function cnstat(stat) {
-    //统计汉化
-    var cnstat = "";
-    var stat = stat;
-    if (stat == "Dead Trimps") {
-        cnstat = "死去的脆皮"
-    } else if (stat == "Battles Won") {
-        cnstat = "战斗胜利"
-    } else if (stat == "Battles Lost") {
-        cnstat = "战斗失败"
-    } else if (stat == "Maps Cleared") {
-        cnstat = "地图清除"
-    } else if (stat == "Zones Cleared") {
-        cnstat = "区域清除"
-    } else if (stat == "Gems Collected") {
-        cnstat = "宝石收集"
-    } else if (stat == "Wormholed Helium") {
-        cnstat = "虫洞氦气"
-    } else if (stat == "He/Hour this Run") {
-        cnstat = "本次游戏氦/小时"
-    } else if (stat == "Best He/Hr this Run") {
-        cnstat = "本轮游戏中最高的氦/小时"
-    } else if (stat == "Highest Void Map Clear") {
-        cnstat = "最高虚空地图清除"
-    } else if (stat == "Golden Upgrades") {
-        cnstat = "黄金升级"
-    } else if (stat == "Heirlooms Found") {
-        cnstat = "传家宝发现"
-    } else if (stat == "Daily Challenge Helium") {
-        cnstat = "每日的挑战氦"
-    } else if (stat == "World Cells Overkilled") {
-        cnstat = "超杀世界单元格敌人数量"
-    } else if (stat == "Trimps from Generator") {
-        cnstat = "维度发生器生产的脆皮"
-    } else if (stat == "Nurseries Closed by Magma") {
-        cnstat = "由岩浆封闭的幼儿园"
-    } else if (stat == "Zones Liquified") {
-        cnstat = "区域液化"
-    } else if (stat == "Highest Zone") {
-        cnstat = "最高区域"
-    } else if (stat == "Total Portals Used") {
-        cnstat = "使用的总传送门"
-    } else if (stat == "Total Helium Earned") {
-        cnstat = "获得总氦气"
-    } else if (stat == "Best He/Hour all Runs") {
-        cnstat = "所有轮游戏中最高的氦/小时"
-    } else if (stat == "Planets Broken") {
-        cnstat = "行星破碎"
-    } else {
-        return stat;
-    }
-    return cnstat;
-}
-
 
 
 function cnresourcetype(type){
@@ -14422,122 +14368,7 @@ function cnresourcetype(type){
     }
     return cnresourcetype;
 }
-function cntequan(what){
-    //汉化地图资源类型
-    var cntequan="";
-    var temp=what;
-    if(temp=="Agility"){
-        cntequan="敏捷"
-    }else if(temp=="Bait"){
-        cntequan="诱饵"
-    }else if(temp=="Pheromones"){
-        cntequan="信息素"
-    }else if(temp=="Packrat"){
-        cntequan="包装"
-    }else if(temp=="Motivation"){
-        cntequan="动机"
-    }else if(temp=="Power"){
-        cntequan="力量"
-    }else if(temp=="Toughness"){
-        cntequan="坚韧"
-    }else if(temp=="Looting"){
-        cntequan="掠夺"
-    }else if(temp=="Trumps"){
-        cntequan="法宝"
-    }else if(temp=="Discipline"){
-        //从这里开始是时间传送门下的按钮
-        cntequan="纪律"
-    }else if(temp=="Daily"){
-        cntequan="日常"
-    }else if(temp=="Metal"){
-        cntequan="金属"
-    }else if(temp=="Size"){
-        cntequan="尺寸"
-    }else if(temp=="Balance"){
-        cntequan="平衡"
-    }else if(temp=="Scientist V"){
-        cntequan="科学家 V"
-    }else if(temp=="Scientist"){
-        cntequan="科学家"
-    }else if(temp=="Looting II"){
-        cntequan="劫掠 II"
-    }else if(temp=="Carpentry II"){
-        cntequan="木工 II"
-    }else if(temp=="Power II"){
-        cntequan="力量 II"
-    }else if(temp=="Toughness II"){
-        cntequan="坚韧 II"
-    }else if(temp=="Capable"){
-        cntequan="能力"
-    }else if(temp=="Cunning"){
-        cntequan="狡猾"
-    }else if(temp=="Curious"){
-        cntequan="好奇"
-    }else if(temp=="Overkill"){
-        cntequan="超杀"
-    }else if(temp=="Resourceful"){
-        cntequan="足智多谋"
-    }else if(temp=="Coordinated"){
-        cntequan="协调"
-    }else if(temp=="Siphonology"){
-        cntequan="虹吸学"
-    }else if(temp=="Anticipation"){
-        cntequan="预期"
-    }else if(temp=="Resilience"){
-        cntequan="弹性"
-    }else if(temp=="Meditation"){
-        cntequan="冥想"
-    }else if(temp=="Relentlessness"){
-        cntequan="无情"
-    }else if(temp=="Carpentry"){
-        cntequan="木工"
-    }else if(temp=="Artisanistry"){
-        cntequan="艺术性"
-    }else if(temp=="Range"){
-        cntequan="范围"
-    }else if(temp=="Motivation II"){
-        cntequan="动机 II"
-    }else if(temp=="Meditate"){
-        cntequan="冥想"
-    }else if(temp=="Decay"){
-        cntequan="衰变"
-    }else if(temp=="Trimp"){
-        cntequan="脆皮"
-    }else if(temp=="Trapper"){
-        cntequan="捕手"
-    }else if(temp=="Electricity"){
-        cntequan="电流"
-    }else if(temp=="Frugal"){
-        cntequan="节俭"
-    }else if(temp=="Life"){
-        cntequan="生命"
-    }else if(temp=="Nom"){
-        cntequan="美味"
-    }else if(temp=="Lead"){
-        cntequan="领导"
-    }else if(temp=="Watch"){
-        cntequan="观望"
-    }else if(temp=="Mapocalypse"){
-        cntequan="地图的启示"
-    }else if(temp=="Mapology"){
-        cntequan="地图学"
-    }else if(temp=="Coordinate"){
-        cntequan="协同"
-    }else if(temp=="Crushed"){
-        cntequan="粉碎"
-    }else if(temp=="Toxicity"){
-        cntequan="毒性"
-    }else if(temp=="Devastation"){
-        cntequan="破坏"
-    }else if(temp=="Corrupted"){
-        cntequan="腐化"
-    }else if(temp=="Slow"){
-        cntequan="迟钝"
-    }else{
-        return what;
-    }
-    return cntequan;
-}
+
 
 function cntime(time) {
     //汉化时间（加上怪名）
