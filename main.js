@@ -1906,7 +1906,7 @@ function activateClicked(){
 		newText += "<div class='heirloomRecycleWarning portalError'>你拥有" + game.global.heirloomsExtra.length + "个额外传家宝。如果你现在传送，它们将会被回收成" + prettify(recycleAllExtraHeirlooms(true)) + "虚空物质。确保携带你想要的传家宝来保留它!</div>";
 	}
 	if (game.global.world >= 230 && canAffordGeneratorUpgrade()){
-		newText += "<div class='magmiteError portalError'>You have " + prettify(game.global.magmite) + " Magmite, which is enough purchase an upgrade for your Dimensional Generator! If you portal now, " + ((game.permanentGeneratorUpgrades.Shielding.owned) ? "20" : "30") + "% of your Magmite will decay.<div style='text-align: center'><span onclick='cancelTooltip(); tooltip(\"Upgrade Generator\", null, \"update\")' class='btn btn-lg btn-success'>Spend Magmite</span></div></div><br/>";
+		newText += "<div class='magmiteError portalError'>You have " + prettify(game.global.magmite) + " Magmite, which is enough purchase an upgrade for your Dimensional Generator! If you portal now, " + ((game.permanentGeneratorUpgrades.Shielding.owned) ? "20" : "30") + "% of your Magmite will decay.<div style='text-align: center'><span onclick='cancelTooltip(); tooltip(\"Upgrade Generator\", null, \"update\")' class='btn btn-lg btn-success'>花费 Magmite</span></div></div><br/>";
 	}
 	var btnText = "<div class='btn btn-info btn-lg' onclick='activatePortal()'>就这么干。</div>&nbsp;<div class='btn btn-lg btn-warning' onclick='cancelTooltip()'>等等, 我还没准备好!</div>";
 	tooltip('运行传送门', 'customText', 'update', newText, btnText);
@@ -7149,7 +7149,7 @@ function setVoidCorruptionIcon(regularMap){
 		text += "地图末尾的氦现在变为你在世界区域赚得的两倍，包括腐化房间！";
 		title = "虚空腐化";
 	}
-	else title = "地图腐化";
+	else title = "Map Corruption";
 	document.getElementById('corruptionBuff').innerHTML = '<span class="badge badBadge voidBadge" onmouseover="tooltip(\'' + title + '\', \'customText\', event, \'' + text + '\')" onmouseout="tooltip(\'hide\')"><span class="glyphicon glyphicon-plus"></span></span>&nbsp;';
 }
 
@@ -12675,7 +12675,7 @@ function toggleVoidMaps(updateOnly){
 		mapsHere.style.display = "block";
 		mapsCreate.style.display = "block";
 		heirRare.style.display = "none";
-		elem.innerHTML = "Void Maps (" + game.global.totalVoidMaps + ")";
+		elem.innerHTML = "虚空地图 (" + game.global.totalVoidMaps + ")";
 		elem.style.display = (game.global.totalVoidMaps <= 0 || !game.global.preMapsActive) ? "none" : "block";
 		hideAdvMaps(true);
 		return;
@@ -13156,7 +13156,7 @@ var Fluffy = {
 			possibilities = ["Fluffy's just chillin.", "Fluffy can now predict the future, though he won't tell you what's going to happen.", "Fluffy's looking pretty buff.", "FLUFFY SMASH", "Fluffy's smelling great today.", "Fluffy is a model Trimp.", "Fluffy can do anything.", "Fluffy once killed a Snimp with a well-timed insult.", "Fluffy can juggle 3 dozen scientists without breaking a sweat.", "Fluffy does a barrel roll.", "Fluffy's thinking about writing a book."];
 		}
 		else {
-			possibilities = ["He's enjoying the grind.", "He can't wait to get stronger.", "He could probably use a shower.", "He's growing up so fast.", "His fur is looking healthy today.", "He's feeling quite capable.", "He still drools a bit in his sleep.", "He loves a good game of fetch.", "He's been practicing juggling.", "He does a flip.", "He's the only Trimp not scared by your campfire ghost stories."];
+			possibilities = ["He's enjoying the grind.", "He can't wait to get stronger.", "He could probably use a shower.", "He's growing up so fast.", "His fur is looking healthy today.", "He's feeling quite capable.", "He still drools a bit in his sleep.", "他喜欢一个精彩的游戏。", "He's been practicing juggling.", "He does a flip.", "He's the only Trimp not scared by your campfire ghost stories."];
 		}
 		return possibilities[getRandomIntSeeded(timeSeed, 0, possibilities.length)];
 	},
@@ -13379,8 +13379,8 @@ var Fluffy = {
 		var bottomText = "";
 		var topText = "<div style='width: 100%; font-size: 0.95em;'><div class='fluffyThird'>";
 		var minZoneForExp = Fluffy.getMinZoneForExp() + 1;
-		if (game.global.fluffyPrestige > 0 || this.currentLevel == this.rewards.length) topText += "<span style='color: #740774'>Evolution " + game.global.fluffyPrestige + " </span>";
-		topText += "Level " + fluffyInfo[0] + "</div><div class='fluffyThird'>";
+		if (game.global.fluffyPrestige > 0 || this.currentLevel == this.rewards.length) topText += "<span style='color: #740774'>进化 " + game.global.fluffyPrestige + " </span>";
+		topText += "等级 " + fluffyInfo[0] + "</div><div class='fluffyThird'>";
 		if (savedLevel >= Fluffy.rewards.length) {
 			topText += "Max"
 		}
@@ -13392,7 +13392,7 @@ var Fluffy = {
 		topText += "</div><div class='fluffyThird'>+" + prettify((Fluffy.getDamageModifier() - 1) * 100) + "% 伤害"
 		topText += "</div></div>";
 		if (!Fluffy.isMaxLevel()){
-			if (savedLevel > fluffyInfo[0]) topText += "<span class='red'>- 蓬松的等级和伤害加成现在被降低了. Fluffy 会恢复等级 " + savedLevel + " 当点被放回有能力的时候.</span>";
+			if (savedLevel > fluffyInfo[0]) topText += "<span class='red'>- 蓬松的等级和伤害加成现在被降低了. 蓬松会恢复等级 " + savedLevel + " 当点被放回有能力的时候.</span>";
 			else if (!Fluffy.canGainExp()) topText += "<span class='red'>- 蓬松需要 " + ((game.portal.Capable.level == 0) ? "至少一级的能力来获取经验" + ((game.portal.Capable.locked) ? ". 完成塔尖II去解锁能力!" : "") : " 更多的点数能让你获得更高的提升 " + game.portal.Capable.level + ".") + "</span>";
 			else {
 				if (game.global.world < minZoneForExp) topText += "<span class='red'>- 蓬松不能获得任何经验从低于 " + minZoneForExp + "</span>";

@@ -244,29 +244,29 @@ var playerSpire = {
             text += "<span class='red'>您的尖塔中没有足够的层数可用于加载此布局。</span>";
             noLoad = true;
         }
-        text += "<br/><br/><div class='spirePresetBtns'><span onclick='tooltip(\"confirm\", null, \"update\", \"Are you sure you want to save your current Spire layout to Preset " + slot + "? This will overwrite your currently saved layout.<br/><br/>If you want, you can also type a note to your future self below!<br/><br/><input maxlength=\\\"250\\\" style=\\\"width: 100%\\\" id=\\\"spireLayoutNoteInput\\\"/><br/>\", \"playerSpire.saveLayout(" + slot + ")\", \"Save to Layout " + slot + "?\")'>在这里保存当前布局</span>";
+        text += "<br/><br/><div class='spirePresetBtns'><span onclick='tooltip(\"confirm\", null, \"update\", \"您确定要将当前的尖塔布局保存到预设 " + slot + "? 这将覆盖您当前保存的布局。<br/><br/>如果你愿意，你也可以在下面输入你未来的笔记！<br/><br/><input maxlength=\\\"250\\\" style=\\\"width: 100%\\\" id=\\\"spireLayoutNoteInput\\\"/><br/>\", \"playerSpire.saveLayout(" + slot + ")\", \"保存到布局 " + slot + "?\")'>在这里保存当前布局</span>";
         if (hasTraps && layout.length <= this.layout.length && !noLoad)
-            text += "<span onclick='tooltip(\"confirm\", null, \"update\", \"Are you sure you want to load layout " + slot + "? This will remove all Traps and Towers currently placed in your Spire!\", \"playerSpire.loadLayout(" + slot + ")\", \"Load Layout " + slot + "?\")'>加载此布局</span>";
+            text += "<span onclick='tooltip(\"confirm\", null, \"update\", \"您确定要加载布局 " + slot + "? 这将删除目前放置在尖塔中的所有陷阱和塔！\", \"playerSpire.loadLayout(" + slot + ")\", \"加载布局 " + slot + "?\")'>加载此布局</span>";
         text += "</div>";
         tooltip(title, 'customText', 'lock', text, "", "center");
     },
     settingsTooltip: function(){
         var text = "<div id='spireSettingsTooltip'>";
-        text += "<b style='margin-bottom: 1vw'>Floating Combat Text</b>";
-        text += "<span class='spireOption'>Make Static:" + buildNiceCheckbox('spirefctStatic', '', this.settings.fctStatic) + "</span>";
-        text += "<span class='spireOption'>Trap Damage: " + buildNiceCheckbox('spirefctTrap', '', this.settings.fctTrap) + "</span>";
+        text += "<b style='margin-bottom: 1vw'>浮动战斗文本</b>";
+        text += "<span class='spireOption'>制作静态:" + buildNiceCheckbox('spirefctStatic', '', this.settings.fctStatic) + "</span>";
+        text += "<span class='spireOption'>陷阱伤害: " + buildNiceCheckbox('spirefctTrap', '', this.settings.fctTrap) + "</span>";
         if (!playerSpireTraps.Poison.locked)
-            text += "<span class='spireOption'>Poison Tick: " + buildNiceCheckbox('spirefctPoison', '', this.settings.fctPoison) + "</span>";
-        text += "<span class='spireOption'>Runestones: " + buildNiceCheckbox('spirefctRs', '', this.settings.fctRs) + "</span>";
-        text += "<b style='margin-top: 0; margin-bottom: 1vw'>Visual Settings</b>";
-        text += "<span class='spireOption'>Trap Icons: " + buildNiceCheckbox('spiretrapIcons', '', this.settings.trapIcons) + "</span>";
-        text += "<span class='spireOption'>Enemy Icons: " + buildNiceCheckbox('spireenemyIcons', '', this.settings.enemyIcons) + "</span>";
-        text += "<span class='spireOption'>Chill Effect: " + buildNiceCheckbox('spirechillGradient', '', this.settings.chillGradient) + "</span>";
+            text += "<span class='spireOption'>毒伤每轮: " + buildNiceCheckbox('spirefctPoison', '', this.settings.fctPoison) + "</span>";
+        text += "<span class='spireOption'>符石: " + buildNiceCheckbox('spirefctRs', '', this.settings.fctRs) + "</span>";
+        text += "<b style='margin-top: 0; margin-bottom: 1vw'>视觉设置</b>";
+        text += "<span class='spireOption'>陷阱图标: " + buildNiceCheckbox('spiretrapIcons', '', this.settings.trapIcons) + "</span>";
+        text += "<span class='spireOption'>敌人图标: " + buildNiceCheckbox('spireenemyIcons', '', this.settings.enemyIcons) + "</span>";
+        text += "<span class='spireOption'>寒冷效应: " + buildNiceCheckbox('spirechillGradient', '', this.settings.chillGradient) + "</span>";
         if (!playerSpireTraps.Lightning.locked)
-        text += "<span class='spireOption'>Shock Effect: " + buildNiceCheckbox('spireshockEffect', '', this.settings.shockEffect) + "</span>";
-        text += "<span class='spireOption'>Health as %: " + buildNiceCheckbox('spirepercentHealth', '', this.settings.percentHealth) + "</span>";
+        text += "<span class='spireOption'>休克效应: " + buildNiceCheckbox('spireshockEffect', '', this.settings.shockEffect) + "</span>";
+        text += "<span class='spireOption'>生命值 %: " + buildNiceCheckbox('spirepercentHealth', '', this.settings.percentHealth) + "</span>";
         text += "</div>";
-        tooltip("Spire Settings", 'customText', 'lock', text, "<span class='btn btn-info' onclick='playerSpire.saveSettings()'>Save</span><span class='btn btn-danger' onclick='cancelTooltip()'>Cancel</span>", "hi", "hi");
+        tooltip("Spire Settings", 'customText', 'lock', text, "<span class='btn btn-info' onclick='playerSpire.saveSettings()'>保存</span><span class='btn btn-danger' onclick='cancelTooltip()'>取消</span>", "hi", "hi");
     },
     saveSettings: function(){
         for (var item in this.settings){
