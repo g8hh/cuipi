@@ -227,26 +227,26 @@ var playerSpire = {
             text += "<span class='playerSpireTooltipTrapName' style='background-color: " + color + "'>" + item + "&nbsp;x" + traps[item] + "</span> ";
         }
         text += "<br/><br/>";
-        text += "Total Cost: " + prettify(cost) + " Rs<br/>Value of Current Traps: " + prettify(curCost) + " Rs<br/>";
+        text += "总成本: " + prettify(cost) + " 符石<br/>当前陷阱价值: " + prettify(curCost) + " 符石<br/>";
         var dif = (curCost - cost);
-        if (dif < 0) text += "Remaining Cost: " + prettify(Math.abs(dif));
-        else text += "Refund: " + prettify(dif);
-        text += " Rs";
-        if (!hasTraps) text = "This layout is currently empty. You can save your current setup to this layout, and load it later!";
-        else if (this['layout' + slot + 'Note'].length) text += "<br/><br/><b>You wanted to remind yourself:</b><br/>" + this['layout' + slot + 'Note'];
+        if (dif < 0) text += "剩余成本: " + prettify(Math.abs(dif));
+        else text += "退款: " + prettify(dif);
+        text += " 符石";
+        if (!hasTraps) text = "此布局目前为空。 您可以将当前设置保存到此布局，稍后再加载！";
+        else if (this['layout' + slot + 'Note'].length) text += "<br/><br/><b>你想提醒自己:</b><br/>" + this['layout' + slot + 'Note'];
         text += "<br/>";
         var noLoad = false;
         if (dif < 0 && this.runestones < Math.abs(dif)){
-            text += "<span class='red'>You cannot afford to load this Trap layout.</span>";
+            text += "<span class='red'>您负担不起加载此陷阱布局的费用。</span>";
             noLoad = true;
         }
         else if (layout.length > this.layout.length){
-            text += "<span class='red'>You don't have enough Floors available in your Spire to load this layout.</span>";
+            text += "<span class='red'>您的尖塔中没有足够的层数可用于加载此布局。</span>";
             noLoad = true;
         }
-        text += "<br/><br/><div class='spirePresetBtns'><span onclick='tooltip(\"confirm\", null, \"update\", \"Are you sure you want to save your current Spire layout to Preset " + slot + "? This will overwrite your currently saved layout.<br/><br/>If you want, you can also type a note to your future self below!<br/><br/><input maxlength=\\\"250\\\" style=\\\"width: 100%\\\" id=\\\"spireLayoutNoteInput\\\"/><br/>\", \"playerSpire.saveLayout(" + slot + ")\", \"Save to Layout " + slot + "?\")'>Save Current Layout Here</span>";
+        text += "<br/><br/><div class='spirePresetBtns'><span onclick='tooltip(\"confirm\", null, \"update\", \"Are you sure you want to save your current Spire layout to Preset " + slot + "? This will overwrite your currently saved layout.<br/><br/>If you want, you can also type a note to your future self below!<br/><br/><input maxlength=\\\"250\\\" style=\\\"width: 100%\\\" id=\\\"spireLayoutNoteInput\\\"/><br/>\", \"playerSpire.saveLayout(" + slot + ")\", \"Save to Layout " + slot + "?\")'>在这里保存当前布局</span>";
         if (hasTraps && layout.length <= this.layout.length && !noLoad)
-            text += "<span onclick='tooltip(\"confirm\", null, \"update\", \"Are you sure you want to load layout " + slot + "? This will remove all Traps and Towers currently placed in your Spire!\", \"playerSpire.loadLayout(" + slot + ")\", \"Load Layout " + slot + "?\")'>Load This Layout</span>";
+            text += "<span onclick='tooltip(\"confirm\", null, \"update\", \"Are you sure you want to load layout " + slot + "? This will remove all Traps and Towers currently placed in your Spire!\", \"playerSpire.loadLayout(" + slot + ")\", \"Load Layout " + slot + "?\")'>加载此布局</span>";
         text += "</div>";
         tooltip(title, 'customText', 'lock', text, "", "center");
     },
@@ -417,7 +417,7 @@ var playerSpire = {
         if (elem) elem.innerHTML = this.getSpirestoneHtml();
     },
     getSpirestoneHtml: function() {
-        var text = ((this.smallMode) ? "Ss: " : "Spirestones: ") + prettify(this.spirestones);
+        var text = ((this.smallMode) ? "尖顶石头: " : "尖顶石头: ") + prettify(this.spirestones);
         var nextCost = this.getNextRowCost();
         if (nextCost == -1 || this.tutorialStep < 3) return text;
         text += " / " + prettify(nextCost) + "</span>"
@@ -437,12 +437,12 @@ var playerSpire = {
                 tooltipText = "Runestones (Rs) are earned by killing Bad Guys in your Spire, and the amount of Runestones gained is directly proportional to the Max Health of the slain Bad Guy.<br/><br/>You have found " + prettify(curCost + upgradeCost + remaining) + " total Runestones.<br/><br/>" + prettify(upgradeCost) + " Runestones have been spent on Upgrades.<br/><br/>" + prettify(curCost) + " Runestones have been spent on Traps/Towers in your current layout.";
                 break;
             case "Threat":
-                tooltipText = "Threat rises as you kill Bad Guys in your Spire, and falls as they escape. Threat is an average of kills/escapes over some time and may not always rise immediately after a kill or fall immediately after an escape, but will always stay near what your Spire can handle.<br/><br/>More Threat means Healthier Bad Guys, which means more Runestones. Threat is also required for adding additional Floors to your Spire, increasing by 100 Threat required per Floor.<br/><br/>The highest Threat your Spire has ever reached is: <b>" + prettify(Math.floor(this.peakThreat)) + "</b><br/><br/>Displayed As: <b>Current Threat</b> / <b>Threat Required for Next Floor</b>";
+                tooltipText = "Threat rises as you kill Bad Guys in your Spire, and falls as they escape. Threat is an average of kills/escapes over some time and may not always rise immediately after a kill or fall immediately after an escape, but will always stay near what your Spire can handle.<br/><br/>More Threat means Healthier Bad Guys, which means more Runestones. Threat is also required for adding additional Floors to your Spire, increasing by 100 Threat required per Floor.<br/><br/>The highest Threat your Spire has ever reached is: <b>" + prettify(Math.floor(this.peakThreat)) + "</b><br/><br/>Displayed As: <b>当前威胁</b> / <b>Threat Required for Next Floor</b>";
                 break;
             case "Enemies":
                 tooltipText = "The amount of enemies currently allowed in your Spire.<br/><br/>Your Spire can hold 1 Bad Guy, plus an additional 2.5 Bad Guys for each Floor in your Spire (rounded up).";
                 if (playerSpireTraps.Frost.level >= 7 && playerSpireTraps.Frost.owned) tooltipText += "<br/><br/>You have an additional " + playerSpireTraps.Frost.owned + " Maximum Enemies allowed in your Spire, thanks to Frost IV.";
-                tooltipText += "<br/><br/>Displayed As: <b>Current Enemies in Spire</b> / <b>Maximum Enemies Allowed in Spire</b>"
+                tooltipText += "<br/><br/>Displayed As: <b>当前尖塔里的敌人</b> / <b>尖塔里允许的最大敌人数量</b>"
                 break;
             case "Spirestones":
                 tooltipText = "Spirestones (Ss) can only be earned by clearing Spires in the World, and have no use other than adding Floors onto your own Spire.<br/><br/>Displayed As: <b>Current Spirestones</b> / <b>Spirestones Required for Next Floor</b>"
@@ -462,8 +462,8 @@ var playerSpire = {
         var elem = document.getElementById('playerSpireInfoPanel');
         var infoHtml = "";
         infoHtml += "<div id='playerSpireInfoTop'>";
-        infoHtml += "<span onmouseover='playerSpire.infoTooltip(\"Runestones\", event)' onmouseout='tooltip(\"hide\")'>Runestones: <span id='playerSpireRunestones'>" + prettify(this.runestones) + "</span><br/>Runestones per Second: <span id='RsPs'>" + prettify(this.getRsPs()) + "</span></span>";
-        infoHtml += "<br/><span onmouseover='playerSpire.infoTooltip(\"Enemies\", event)' onmouseout='tooltip(\"hide\")'>Enemies: <span id='playerSpireCurrentEnemies'>" + this.currentEnemies + "</span> / <span id='playerSpireMaxEnemies'>" + this.maxEnemies + "</span></span>";
+        infoHtml += "<span onmouseover='playerSpire.infoTooltip(\"Runestones\", event)' onmouseout='tooltip(\"hide\")'>符石: <span id='playerSpireRunestones'>" + prettify(this.runestones) + "</span><br/>每秒产生符石: <span id='RsPs'>" + prettify(this.getRsPs()) + "</span></span>";
+        infoHtml += "<br/><span onmouseover='playerSpire.infoTooltip(\"Enemies\", event)' onmouseout='tooltip(\"hide\")'>敌人: <span id='playerSpireCurrentEnemies'>" + this.currentEnemies + "</span> / <span id='playerSpireMaxEnemies'>" + this.maxEnemies + "</span></span>";
         infoHtml += "<br/><span onmouseover='playerSpire.infoTooltip(\"Spirestones\", event)' onmouseout='tooltip(\"hide\")' id='spirestoneBox'>" + this.getSpirestoneHtml() + "</span><br/><span onmouseover='playerSpire.infoTooltip(\"Threat\", event)' onmouseout='tooltip(\"hide\")' id='playerSpireDifficulty'>" + this.getDifficultyHtml() + "</span></div>";
         infoHtml += "<div id='spireTrapsWindow'>";
         infoHtml += "<div onclick='playerSpire.shrink()' id='shrinkSpireBox' class='spireControlBox'>缩小窗口</div>";
@@ -471,8 +471,8 @@ var playerSpire = {
         infoHtml += "<div onclick='tooltip(\"confirm\", null, \"update\", \"Are you sure you want to sell all Traps and Towers? You will get back 100% of Runestones spent on them.<br/><br/>" + ((this.paused) ? "" : "<b>Protip:</b> Pause your Spire before selling your defenses if you want to avoid leaking!") + "\", \"playerSpire.resetTraps()\", \"Sell All?\")' class='spireControlBox'>卖出全部</div>";
         infoHtml += "<div onclick='playerSpire.togglePause()' id='pauseSpireBtn' class='spireControlBox spirePaused" + ((this.paused) ? "Yes'>解除暂停" : "'>暂停尖塔") + "</div>";      
         infoHtml += "<div class='spireControlBoxDbl'><div onclick='playerSpire.presetTooltip(1)'>布局1</div><div onclick='playerSpire.presetTooltip(2)'>布局2</div></div>"
-        infoHtml += "<div onclick='playerSpire.selectTrap(\"shiftUp\")' onmouseout='tooltip(\"hide\")' onmouseover='playerSpire.trapTooltip(\"shiftUp\", event)' id='sellTrapBox' class='spireControlBox" + ((this.selectedTrap == "shiftUp") ? " selected" : "") + "'>Shift Up</div>";
-        infoHtml += "<div onclick='playerSpire.selectTrap(\"shiftDown\")' onmouseout='tooltip(\"hide\")' onmouseover='playerSpire.trapTooltip(\"shiftDown\", event)' id='sellTrapBox' class='spireControlBox" + ((this.selectedTrap == "shiftDown") ? " selected" : "") + "'>Shift Down</div>";
+        infoHtml += "<div onclick='playerSpire.selectTrap(\"shiftUp\")' onmouseout='tooltip(\"hide\")' onmouseover='playerSpire.trapTooltip(\"shiftUp\", event)' id='sellTrapBox' class='spireControlBox" + ((this.selectedTrap == "shiftUp") ? " selected" : "") + "'>上移</div>";
+        infoHtml += "<div onclick='playerSpire.selectTrap(\"shiftDown\")' onmouseout='tooltip(\"hide\")' onmouseover='playerSpire.trapTooltip(\"shiftDown\", event)' id='sellTrapBox' class='spireControlBox" + ((this.selectedTrap == "shiftDown") ? " selected" : "") + "'>下移</div>";
 
         
         // infoHtml += "<div onclick='playerSpire.resetUpgrades()' class='spireControlBox'>Reset Upgrades</div>";
@@ -485,13 +485,13 @@ var playerSpire = {
         for (var item in playerSpireTraps){
             var trap = playerSpireTraps[item];
             if (trap.locked) continue;
-            var trapText = trap.isTower ? "Tower" : "Trap";
+            var trapText = trap.isTower ? "塔" : "陷阱";
             trapText += " " + romanNumeral(trap.level);
             var trapIcon = "";
             if (this.settings.trapIcons) trapIcon = "<span class='icomoon icon-" + trap.icon + "'></span> ";
             var cost = this.getTrapCost(item);
             var color = (this.runestones >= cost) ? trap.color : "grey";
-            infoHtml += "<div style='background-color: " + color + "' onmouseout='tooltip(\"hide\")' onmouseover='playerSpire.trapTooltip(\"" + item + "\", event)' onclick='playerSpire.selectTrap(\"" + item + "\")' id='" + item + "TrapBox' class='spireTrapBox" + ((item == this.selectedTrap) ? " selected" : "") + "'>" + trapIcon + item + " " + trapText + "<br/>" + prettify(this.getTrapCost(item)) + " Rs</div>"
+            infoHtml += "<div style='background-color: " + color + "' onmouseout='tooltip(\"hide\")' onmouseover='playerSpire.trapTooltip(\"" + item + "\", event)' onclick='playerSpire.selectTrap(\"" + item + "\")' id='" + item + "TrapBox' class='spireTrapBox" + ((item == this.selectedTrap) ? " selected" : "") + "'>" + trapIcon + cnitem(item) + " " + trapText + "<br/>" + prettify(this.getTrapCost(item)) + " 符石</div>"
             if (this.runestones < cost && (cheapestTrap == -1 || cost < cheapestTrap)) cheapestTrap = cost;
         }
         this.nextTrap = cheapestTrap;
@@ -505,8 +505,8 @@ var playerSpire = {
     drawSmallInfo: function(){
         var elem = document.getElementById('playerSpireSmallPanel');
         var html = "<div id='playerSpireInfoTopSm'>";
-        html += "<span onmouseover='playerSpire.infoTooltip(\"Runestones\", event)' onmouseout='tooltip(\"hide\")'>Rs: <span id='playerSpireRunestones'>" + prettify(this.runestones) + "</span><br/>";
-        html += "Rs/S: <span id='RsPs'>" + prettify(this.getRsPs()) + "</span></span><br/>"
+        html += "<span onmouseover='playerSpire.infoTooltip(\"Runestones\", event)' onmouseout='tooltip(\"hide\")'>符石: <span id='playerSpireRunestones'>" + prettify(this.runestones) + "</span><br/>";
+        html += "符石/秒: <span id='RsPs'>" + prettify(this.getRsPs()) + "</span></span><br/>"
         html += "<span onmouseover='playerSpire.infoTooltip(\"Enemies\", event)' onmouseout='tooltip(\"hide\")'>E: <span id='playerSpireCurrentEnemies'>" + this.currentEnemies + "</span> / <span id='playerSpireMaxEnemies'>" + this.maxEnemies + "</span></span><br/>";
         html += "<span onmouseover='playerSpire.infoTooltip(\"Spirestones\", event)' onmouseout='tooltip(\"hide\")' id='spirestoneBox'>" + this.getSpirestoneHtml() + "</span><br/>"
         html += "<span onmouseover='playerSpire.infoTooltip(\"Threat\", event)' onmouseout='tooltip(\"hide\")' id='playerSpireDifficulty'>" + this.getDifficultyHtml() + "</span><br/>";
@@ -928,7 +928,7 @@ var playerSpire = {
             var toxReward = enemy.toxicity * 0.1;
             this.rewardRunestones(toxReward);
             if (!catchingUp && this.settings.fctRs)
-                TDFloatingText.spawnFloatingText(location, playerSpireTraps.Poison.color, -0.05, 3.5, "+ " + prettify(toxReward) + " Rs");
+                TDFloatingText.spawnFloatingText(location, playerSpireTraps.Poison.color, -0.05, 3.5, "+ " + prettify(toxReward) + " 符石");
         }
         this.difficultyHidden -= this.getThreatChange(false, enemy, location);
         if (this.difficultyHidden < 1) this.difficultyHidden = 1;
@@ -971,7 +971,7 @@ var playerSpire = {
         
         this.updateKills();
         if (!catchingUp && this.settings.fctRs)
-            TDFloatingText.spawnFloatingText(location, "black", -0.1, 7, "+ " + prettify(reward) + " Rs");
+            TDFloatingText.spawnFloatingText(location, "black", -0.1, 7, "+ " + prettify(reward) + " 符石");
         this.checkRedrawUpgrades();
         this.checkUpdateTrapColors();
     },
@@ -994,7 +994,7 @@ var playerSpire = {
             elem.textContent = this.getDifficultyHtml();
     },
     getDifficultyHtml: function() {
-        var text = ((this.smallMode) ? "T: " : "Threat: ") + prettify(Math.floor(this.difficulty));
+        var text = ((this.smallMode) ? "威胁: " : "威胁: ") + prettify(Math.floor(this.difficulty));
         var nextCost = (this.rowsAllowed < 20 && this.tutorialStep > 1) ? " / " + prettify(100 * (this.rowsAllowed + 1)) : "";
         return text + nextCost;
     },
@@ -1494,31 +1494,31 @@ var playerSpireTraps = {
         upgrades: [
             {
                 //level 2
-                description: "Multiply Frost Trap damage <b>by 5</b>, and increase the duration of Chilled by 1 cell.",
+                description: "加成冰霜陷阱伤害 <b>by 5</b>, and increase the duration of Chilled by 1 cell.",
                 unlockAt: 230,
                 cost: 1e4
             },
             {
                 //level 3
-                description: "Multiply Frost Trap damage <b>by 10</b>. Chilled enemies now take 25% more damage from Fire Traps.",
+                description: "加成冰霜陷阱伤害 <b>by 10</b>. Chilled enemies now take 25% more damage from Fire Traps.",
                 unlockAt: 275,
                 cost: 5e5
             },
             {
                 //level 4
-                description: "Multiply Frost Trap damage <b>by 5</b>. If there is a Poison Trap directly before a Frost Trap, that Poison Trap becomes 4x as effective.",
+                description: "加成冰霜陷阱伤害 <b>by 5</b>. If there is a Poison Trap directly before a Frost Trap, that Poison Trap becomes 4x as effective.",
                 unlockAt: 330,
                 cost: 2.5e6
             },
             {
                 //level 5
-                description: "Multiply Frost Trap damage <b>by 2</b>, and each time an enemy can't move because it is slowed, that enemy becomes worth 2% more Runestones. This effect stacks additively.",
+                description: "加成冰霜陷阱伤害 <b>by 2</b>, and each time an enemy can't move because it is slowed, that enemy becomes worth 2% more Runestones. This effect stacks additively.",
                 unlockAt: 430,
                 cost: 1e8
             },
             {
                 //level 6
-                description: "Multiply Frost Trap damage <b>by 5</b>, and increase the duration of Chilled by 1 cell.",
+                description: "加成冰霜陷阱伤害 <b>by 5</b>, and increase the duration of Chilled by 1 cell.",
                 unlockAt: 530,
                 cost: 5e10,
             }

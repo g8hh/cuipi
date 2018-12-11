@@ -9760,7 +9760,7 @@ function giveSpireReward(level){
 				var amt = giveHeliumReward(100);
 				text += " 你找到了大量库存的 <b>" + prettify(amt) + " 氦</b> and <b>" + prettify(playerSpire.rewardSpirestones(spireWorld)) + " 尖顶石头</b>!";
 			}
-			else text += " You find a large stockpile of <b>" + prettify(playerSpire.rewardSpirestones(spireWorld)) + " Spirestones</b>!";
+			else text += " You find a large stockpile of <b>" + prettify(playerSpire.rewardSpirestones(spireWorld)) + " 尖顶石头</b>!";
 			if (game.global.spiresCompleted < spireWorld){
 				game.global.spiresCompleted = spireWorld;
 				game.global.b += 20;
@@ -9883,7 +9883,7 @@ function rewardSpire1(level){
 				playerSpire.rewardSpirestones(1);
 			}
 			else{
-				text += "<br/><br/><b>You've also found " + prettify(playerSpire.rewardSpirestones(1)) + " Spirestones!</b>";
+				text += "<br/><br/><b>You've also found " + prettify(playerSpire.rewardSpirestones(1)) + " 尖顶石头!</b>";
 			}
 			text += "<br/><br/>你帮助脆皮建立了能够流传于世的人口和经济，并且已经击败了使这个世界混乱的人。你现在可以离开，因为你的存在，这个宇宙永远都会变得更好。只要脆皮的文明存在，它们就会为你竖起一座雕像。但是你知道世界上仍然存在其他的尖塔，将腐化释放到这个星球上。如果你留下来并且帮助解决这些问题，或许你的雕像能更大一些？";
 			message(text, "Story");
@@ -14408,7 +14408,12 @@ function cnitem(item) {
         cnitem = "氦";
     } else if(temp=="science"){
            cnitem = "科学";   
+    } else if(temp=="Fire"){
+           cnitem = "火焰";   
+    } else if(temp=="Frost"){
+           cnitem = "冰霜";   
     } else {
+        console.log("cnitem："+item);
         return item;
     }
     return cnitem;
@@ -14682,29 +14687,6 @@ function cntime(time) {
     return cntime;
 }
 
-    function cnmap(map) {
-    //汉化地图
-    var cnmap = "";
-    var temp = map;
-    if (temp == "Dimension of Anger") {
-        cnmap = "愤怒维度";
-    } else if (temp == "The Prison") {
-        cnmap = "监狱";
-    } else if (temp == "Bionic Wonderland") {
-        cnmap = "仿生仙境";
-    } else if (temp == "The Block") {
-        cnmap = "障碍区";
-    } else if (temp == "The Wall") {
-        cnmap = "高墙";
-    } else if (temp == "Trimple Of Doom") {
-        cnmap = "末日之神殿";
-    } else if(temp=="Imploding Star"){
-        cnmap = "爆炸之星";   
-    } else {
-        return map;
-    }
-    return cnmap;
-}
 
     function cngen(text) {
     //汉化维度发生器升级标题
