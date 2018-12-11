@@ -4489,10 +4489,10 @@ var toReturn = {
 				checkAchieve("bionicTimed");
 				var amt1 = rewardResource("wood", 1, level, true);
 				var amt2 = rewardResource("food", 1, level, true);
-				message("Robotrimp discombobulated. Loot inspection reveals: " + prettify(amt1) + " wood and " + prettify(amt2) + " food. Splendiferous.", "Loot", "*cogs", null, 'primary');
+				message("Robotrimp惊慌失措。战利品检查显示: " + prettify(amt1) + " 木头和 " + prettify(amt2) + " 食物。极好的。", "Loot", "*cogs", null, 'primary');
 				if (game.global.challengeActive == "Crushed") {
 					var heliumAdded = (game.challenges.Crushed.heldHelium * 4);
-					message("You have completed the Crushed challenge! You have been rewarded with " + prettify(heliumAdded) + " Helium.", "Notices");
+					message("您完成了“粉碎挑战”! 你得到了 " + prettify(heliumAdded) + " 氦。", "Notices");
 					game.challenges.Crushed.heldHelium = 0;
 					game.global.challengeActive = "";
 					addHelium(heliumAdded);
@@ -4509,7 +4509,7 @@ var toReturn = {
 			fast: false,
 			loot: function (level) {
 				var amt = rewardResource("metal", .25, level, true);
-				message("Mechimp disengaged. Reward encountered: " + prettify(amt) + " bars of metal. Huzzah.", "Loot", "*cubes", null, 'primary');
+				message("Mechimp逃离了。 你获得奖励: " + prettify(amt) + " 金属条。 好哇。", "Loot", "*cubes", null, 'primary');
 			}
 		},
 		Destructimp: {
@@ -4520,7 +4520,7 @@ var toReturn = {
 			fast: false,
 			loot: function (level) {
 				var amt = rewardResource("metal", .25, level, true);
-				message("Destructimp shorted out. Salvage results: " + prettify(amt) + " bars of metal. Acceptable.", "Loot", "*cubes", null, 'primary');
+				message("破坏程序短路了。打捞结果: " + prettify(amt) + " 金属条。 还可以接受。", "Loot", "*cubes", null, 'primary');
 			}
 		},
 		Terminatimp: {
@@ -4531,7 +4531,7 @@ var toReturn = {
 			fast: false,
 			loot: function (level) {
 				var amt = rewardResource("metal", .25, level, true);
-				message("Terminatimp Terminated. Findings: " + prettify(amt) + " bars of metal. Hasta la Vista.", "Loot", "*cubes", null, 'primary');
+				message("终端mp已终止。发现了: " + prettify(amt) + " 金属条。再见。", "Loot", "*cubes", null, 'primary');
 			}
 		},
 		Autoimp: {
@@ -4542,7 +4542,7 @@ var toReturn = {
 			fast: false,
 			loot: function (level) {
 				var amt = rewardResource("metal", .5, level, true);
-				message("Autoimp force quit. Memory dump provides " + prettify(amt) + " bars of metal and no clues. It's a feature!", "Loot", "*cubes", null, 'primary');
+				message("Autoimp 强制退出。内存转储提供 " + prettify(amt) + " 金属条，没有线索。这是一个功能!", "Loot", "*cubes", null, 'primary');
 			}
 		},
 		Artimp: {
@@ -4553,7 +4553,7 @@ var toReturn = {
 			fast: false,
 			loot: function (level) {
 				var amt = rewardResource("metal", 0.3, level, true);
-				message("The Artimp wordlessly sputters, whirrs, beeps, then drops " + prettify(amt) + " perfect cubes of metal on the ground. Cubist art is your favorite!", "Loot", "*cubes", null, 'primary');
+				message("阿提姆飞船无声地溅射、呼呼、哔哔，然后掉落 " + prettify(amt) + " 完美的金属立方体在地上。立体派艺术是你最喜欢的!", "Loot", "*cubes", null, 'primary');
 			}
 		},
 		//End Bionic Wonderland stuff
@@ -4569,9 +4569,9 @@ var toReturn = {
 				checkAchieve("starTimed");
 				var amt1 = rewardResource("wood", 1.5, level, true);
 				var amt2 = rewardResource("metal", 1.5, level, true);
-				message("The Neutrimp gasps, shimmers, squeaks, then poofs into a quickly dispersing purple cloud. You spend a few moments trying to make sense of what you've just seen, but look around and find " + prettify(amt1) + " wood and " + prettify(amt2) + " metal instead!", "Loot", "*cogs", null, 'primary');
+				message("Neutrimp发出喘息、闪烁、尖叫，然后噗的一声变成了迅速消散的紫色云。你花了一些时间试图弄懂你刚刚看到的，但环顾四周，你发现了 " + prettify(amt1) + " 木头和 " + prettify(amt2) + " 金属!", "Loot", "*cogs", null, 'primary');
 				if (game.global.challengeActive == "Devastation") {
-					message("You have completed the Devastation challenge! Your world has been returned to normal, and you have unlocked the Overkill perk!", "Notices");
+					message("您已经完成了破坏性挑战!你的世界已经恢复正常，你已经解锁了超杀技能!", "Notices");
 					game.global.challengeActive = "";
 					game.portal.Overkill.locked = false;
 					addNewSetting('overkillColor');
@@ -4590,7 +4590,7 @@ var toReturn = {
 			fast: true,
 			loot: function (level) {
 				var amt = rewardResource("metal", .5, level, true);
-				message("The Fusimp explodes, leaving behind " + prettify(amt) + " bars of metal and a nice dose of radiation.", "Loot", "*cubes", null, 'primary');
+				message("火球爆炸了，在后面掉落了 " + prettify(amt) + " 金属棒和相当剂量的辐射。", "Loot", "*cubes", null, 'primary');
 			}
 		},
 		Hydrogimp: {
