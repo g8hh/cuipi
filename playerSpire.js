@@ -342,7 +342,7 @@ var playerSpire = {
             var text;
             if (this.smallMode){
                 upgradeClass = 'spireTrapBoxSmall';
-                text = trapItem + " " + romanNumeral(trap.level + 1);
+                text = cnItem(trapItem) + " " + romanNumeral(trap.level + 1);
             }
             else{
                 upgradeClass = 'playerSpireUpgrade spireTrapBox';
