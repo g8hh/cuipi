@@ -4517,12 +4517,12 @@ function toggleSetting(setting, elem, fromPortal, updateOnly, backwards){
 		displayAchievements();
 		var fluff = [
 			[", 更好的取得更多的成就", ", 你会做一些更多的成就更好", " 但是你希望你有更多的成就"],
-			[", your achievement game shows promise", "，在你成就的道路上", ",多亏了你的成就"],
-			[",多亏了你大量的成就", ", must be all those achievements", ", you are one with the achievements", " and you water your achievements daily"],
-			[", your Trimps are mighty impressed", ", your achievements are mind blowing", ". You wake up, achieve, then sleep", ", you have achievement in your blood"],
+			[", 你的成就游戏显示出承诺", "，在你成就的道路上", ",多亏了你的成就"],
+			[",多亏了你大量的成就", ", 必须是所有这些成就", ", 你是成就者之一", " 你每天都在为自己的成就浇水"],
+			[", 你的脆皮非常令人印象深刻", ", 你的成就是令人兴奋的", ". 你醒来，实现，然后睡觉", ", 你的血液中有成就"],
 			[", 你的成就超越了凡人的理解", ", 脆皮远播告诉你的成就的故事", ", 你取得了成就", ", 你接触的一切都变成成就"],
 			[", 你的成就已经取得成就", ", 你的成就的消息传遍了整个银河系。", ", 成就符合你的意愿", ", 你的成就超越了现实"],
-			[", word of your achievement spreads throughout the universe", ", everyone else is super jealous", ", the achievements of your achievements have achieved achievement", ", your achievements have gained sentience", ", everyone else just stays home", ", you appear if someone says 'Achievement' 3 times in a mirror"]
+			[", 你的成就在整个宇宙中传播开来", ", 其他人都非常嫉妒", ", 你的成就取得了成就", ", 你的成就获得了知觉", ", 其他人只是呆在家里", ", 如果有人在镜子里说“成就”3次，你就会出现"]
 		];
 		var fluffLevel = getAchievementStrengthLevel();
 		fluff = fluff[fluffLevel];
