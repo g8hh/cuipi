@@ -3000,7 +3000,7 @@ function canAffordBuilding(what, take, buildCostString, isEquipment, updatingLab
 				percent = (game.resources[costItem].owned > 0) ? prettify(((price / game.resources[costItem].owned) * 100).toFixed(1)) : 0;
 				percent = "(" + percent + "%)";
 			}
-			costString += '<span class="' + color + '">' + cnitem(costItem) + ':&nbsp;' + prettify(price) + '&nbsp;' + percent + '</span>, ';
+			costString += '<span class="' + color + '">' + cnItem(costItem) + ':&nbsp;' + prettify(price) + '&nbsp;' + percent + '</span>, ';
 		}
 		if (take) game.resources[costItem].owned -= price;
 	}
@@ -3490,7 +3490,7 @@ function getTooltipJobText(what, toBuy) {
     for (var item in job.cost) {
 		var result = (checkJobItem(what, false, item, false, toBuy))
         var color =  (result === 0) ? "orange" : ((result == true) ? "green" : "red");
-        fullText += '<span class="' + color + '">' + cnitems(item) + ':&nbsp;' + checkJobItem(what, false, item, true, toBuy) + '</span>, ';
+        fullText += '<span class="' + color + '">' + cnItem(item) + ':&nbsp;' + checkJobItem(what, false, item, true, toBuy) + '</span>, ';
     }
     fullText = fullText.slice(0, -2);
     return fullText;
@@ -7885,15 +7885,7 @@ function selectMap(mapId, force) {
     }
     var map = getMapIndex(mapId);
     map = game.global.mapsOwnedArray[map];
-	if (!map) return;
-    //地图名称
-    var mapname="";
-    if(map.name=="Enchanted Gardens"){
-        mapname="魔法花园";
-    }else{
-        mapname=map.name
-    }
-    document.getElementById("selectedMapName").innerHTML = cnmap(mapname);
+    document.getElementById("selectedMapName").innerHTML = cnmap(map.name);
 
 	document.getElementById("mapStatsSize").innerHTML = (Math.floor(map.size));
 	document.getElementById("mapStatsDifficulty").innerHTML = Math.floor(map.difficulty * 100) + "%";
@@ -14398,34 +14390,7 @@ function cnstat(stat) {
     }
     return cnstat;
 }
-function cnitem(item) {
-    //汉化变量
-    var cnitem = "";
-    var temp = item;
-    if (temp == "food") {
-        cnitem = "食物";
-    } else if (temp == "wood") {
-        cnitem = "木头";
-    } else if (temp == "metal") {
-        cnitem = "金属";
-    } else if (temp == "fragments") {
-        cnitem = "碎片";
-    } else if (temp == "gems") {
-        cnitem = "宝石";
-    } else if (temp == "helium") {
-        cnitem = "氦";
-    } else if(temp=="science"){
-           cnitem = "科学";   
-    } else if(temp=="Fire"){
-           cnitem = "火焰";   
-    } else if(temp=="Frost"){
-           cnitem = "冰霜";   
-    } else {
-        console.log("cnitem："+item);
-        return item;
-    }
-    return cnitem;
-}
+
 
 function cntalentname(name){
     //专精汉化

@@ -616,7 +616,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 				if (item == "cache" && game.global.highestLevelCleared < 59) continue;
 				if (item == "token" && game.global.highestLevelCleared < 235) continue;
 				if (item == 'enabled') continue;
-				tooltipText += "<span class='messageConfigContainer'><span class='messageCheckboxHolder'>" + buildNiceCheckbox(name + item, 'messageConfigCheckbox', (msgs[name][item])) + "</span><span onmouseover='messageConfigHover(\"" + name + item + "\", event)' onmouseout='tooltip(\"hide\")' class='messageNameHolder'> - " + cnitems(item) + "</span></span><br/>";
+				tooltipText += "<span class='messageConfigContainer'><span class='messageCheckboxHolder'>" + buildNiceCheckbox(name + item, 'messageConfigCheckbox', (msgs[name][item])) + "</span><span onmouseover='messageConfigHover(\"" + name + item + "\", event)' onmouseout='tooltip(\"hide\")' class='messageNameHolder'> - " + cnItem(item) + "</span></span><br/>";
                 //                item.charAt(0).toUpperCase() + item.substr(1)
 			}
 			tooltipText += "</div>";
@@ -1287,10 +1287,10 @@ function addTooltipPricing(toTip, what, isItIn) {
 							percentOfTotal = "(" + percentOfTotal + "%)";
 						}
 					}
-					costText += '<span class="' + canAfford + '">' + cnitems(item) + ':&nbsp;' + prettify(price) + '&nbsp;' + percentOfTotal + '</span>, ';
+					costText += '<span class="' + canAfford + '">' + cnItem(item) + ':&nbsp;' + prettify(price) + '&nbsp;' + percentOfTotal + '</span>, ';
 				}
 				else
-				costText += cnitems(item) + ": " + prettify(price) + ", ";
+				costText += cnItem(item) + ": " + prettify(price) + ", ";
 			}
 			continue;
 		}
@@ -4873,49 +4873,7 @@ function cnjob(job){
     }
     return cnjob;
 }
-function cnitems(item) {
-    //汉化升级项
-    var cnitems = "";
-    var temp = item;
-    if (item == "primary") {
-        cnitems = "主要"
-    } else if (item == "secondary") {
-        cnitems = "次要"
-    } else if (item == "exotic") {
-        cnitems = "异国"
-    } else if (item == "helium") {
-        cnitems = "氦"
-    } else if (item == "essence") {
-        cnitems = "真髓"
-    } else if (item == "token") {
-        cnitems = "符记"
-    } else if (item == "magma") {
-        cnitems = "热门"
-    } else if (item == "events") {
-        cnitems = "事件"
-    } else if (item == "repeated") {
-        cnitems = "重复"
-    } else if (item == "unique") {
-        cnitems = "独特"
-    } else if (item == "trimp") {
-        cnitems = "脆皮"
-    } else if (item == "enemy") {
-        cnitems = "敌人"
-    } else if (item == "food") {
-        cnitems = "食物"
-    } else if (item == "wood") {
-        cnitems = "木头"
-    } else if (item == "metal") {
-        cnitems = "金属"
-    } else if (item == "gems") {
-        cnitems = "宝石"
-    } else if (item == "science") {
-        cnitems = "科学"
-    } else {
-        return item;
-    }
-    return cnitems;
-}
+
 
 function cnwhat(hat){
     //汉化建筑名称

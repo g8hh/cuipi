@@ -497,7 +497,7 @@ var playerSpire = {
             if (this.settings.trapIcons) trapIcon = "<span class='icomoon icon-" + trap.icon + "'></span> ";
             var cost = this.getTrapCost(item);
             var color = (this.runestones >= cost) ? trap.color : "grey";
-            infoHtml += "<div style='background-color: " + color + "' onmouseout='tooltip(\"hide\")' onmouseover='playerSpire.trapTooltip(\"" + item + "\", event)' onclick='playerSpire.selectTrap(\"" + item + "\")' id='" + item + "TrapBox' class='spireTrapBox" + ((item == this.selectedTrap) ? " selected" : "") + "'>" + trapIcon + cnitem(item) + " " + trapText + "<br/>" + prettify(this.getTrapCost(item)) + " 符石</div>"
+            infoHtml += "<div style='background-color: " + color + "' onmouseout='tooltip(\"hide\")' onmouseover='playerSpire.trapTooltip(\"" + item + "\", event)' onclick='playerSpire.selectTrap(\"" + item + "\")' id='" + item + "TrapBox' class='spireTrapBox" + ((item == this.selectedTrap) ? " selected" : "") + "'>" + trapIcon + cnItem(item) + " " + trapText + "<br/>" + prettify(this.getTrapCost(item)) + " 符石</div>"
             if (this.runestones < cost && (cheapestTrap == -1 || cost < cheapestTrap)) cheapestTrap = cost;
         }
         this.nextTrap = cheapestTrap;

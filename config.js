@@ -4880,7 +4880,7 @@ var toReturn = {
 					var amt = simpleSeconds(item, 5);
 					amt = scaleToCurrentMap(amt);
 					addResCheckMax(item, amt, null, null, true);
-					cMessage += prettify(amt) + " " + cnitem(item);
+					cMessage += prettify(amt) + " " + cnItem(item);
 					if (x == (eligible.length - 1)) cMessage += "!";
 					else if (x == (eligible.length - 2)) cMessage += ", 和 ";
 					else cMessage += ", ";
