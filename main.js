@@ -4636,10 +4636,10 @@ function populateHeirloomWindow(){
 	hideHeirloomSelectButtons();
 	//Equipped hat
 	document.getElementById("ShieldEquipped").innerHTML = generateHeirloomIcon(game.global.ShieldEquipped, "Equipped");
-	document.getElementById("ShieldEquippedName").innerHTML = (typeof game.global.ShieldEquipped.name !== 'undefined') ? game.global.ShieldEquipped.name : "无.";
+	document.getElementById("ShieldEquippedName").innerHTML = (typeof game.global.ShieldEquipped.name !== 'undefined') ? cnItem(game.global.ShieldEquipped.name) : "无.";
 	//Equipped staff
 	document.getElementById("StaffEquipped").innerHTML = generateHeirloomIcon(game.global.StaffEquipped, "Equipped");
-	document.getElementById("StaffEquippedName").innerHTML = (typeof game.global.StaffEquipped.name !== 'undefined') ? game.global.StaffEquipped.name : "无.";
+	document.getElementById("StaffEquippedName").innerHTML = (typeof game.global.StaffEquipped.name !== 'undefined') ? cnItem(game.global.StaffEquipped.name) : "无.";
 	displayAddCarriedBtn();
 	displayCarriedHeirlooms();
 	displayExtraHeirlooms();
@@ -4887,7 +4887,7 @@ function generateHeirloomIcon(heirloom, location, number){
 	var icon = (heirloom.type == "Shield") ? 'icomoon icon-shield3' : 'glyphicon glyphicon-grain';
 	var animated = (game.options.menu.showHeirloomAnimations.enabled) ? "animated " : "";
 	var html = '<span class="heirloomThing ' + animated + 'heirloomRare' + heirloom.rarity;
-	if (location == "Equipped") html += ' equipped';
+	if (location == "Equipped") html += ' 已装备';
 	var locText = "";
 	if (location == "Equipped") locText += '-1,\'' + heirloom.type + 'Equipped\'';
 	else locText += number + ', \'heirlooms' + location + '\'';
@@ -4922,7 +4922,7 @@ function displaySelectedHeirloom(modSelected, selectedIndex, fromTooltip, locati
 	var animated = (game.options.menu.showHeirloomAnimations.enabled) ? "animated " : "";
 	var html = '<div class="selectedHeirloomItem ' + animated + 'heirloomRare' + heirloom.rarity + '"><div class="row selectedHeirloomRow"><div class="col-xs-2 selectedHeirloomIcon" id="' + ((fromTooltip) ? 'tooltipHeirloomIcon' : 'selectedHeirloomIcon') + '"><span class="' + icon + '"></span></div><div class="col-xs-10"><span onclick="renameHeirloom(';
 	if (fromPopup) html += 'false, true';
-	html += ')" id="selectedHeirloomTitle">' + heirloom.name + '</span> '
+	html += ')" id="selectedHeirloomTitle">' + cnItem(heirloom.name) + '</span> '
 	if (!fromTooltip) html += '<span id="renameContainer"></span>';
 	html+= '</div></div>';
 	if (!fromPopup && !fromTooltip && (game.global.selectedHeirloom[1] == "StaffEquipped" || game.global.selectedHeirloom[1] == "ShieldEquipped")) html += '<span class="heirloomEquipped">已装备</span><br/>';
@@ -13424,7 +13424,7 @@ var Fluffy = {
 			else if (!game.portal.Cunning.locked) fluffFormula += Fluffy.baseExp + " * (" + Fluffy.expGrowth + "^(Zone - " + startNumber + ")) * (1 + (Cunning * " + game.portal.Cunning.modifier + "))";
 			else fluffFormula += Fluffy.baseExp + " * (" + Fluffy.expGrowth + "^(Zone - " + startNumber + "))";
 			fluffFormula += "</span>";
-			fluffFormula += ' * <span class="fluffFormDaily" onmouseover="Fluffy.expBreakdown(\'daily\')" onmouseout="Fluffy.expBreakdown(\'clear\')">dailyHeliumModifier</span>';
+			fluffFormula += ' * <span class="fluffFormDaily" onmouseover="Fluffy.expBreakdown(\'daily\')" onmouseout="Fluffy.expBreakdown(\'clear\')">每日氦修饰符</span>';
 			if (game.talents.fluffyExp.purchased) fluffFormula += ' * <span class="fluffFormFlufffocus" onmouseover="Fluffy.expBreakdown(\'flufffocus\')" onmouseout="Fluffy.expBreakdown(\'clear\')">Flufffocus</span>';
 			if (game.heirlooms.Staff.FluffyExp.currentBonus > 0) fluffFormula += ' * <span class="fluffFormStaff" onmouseover="Fluffy.expBreakdown(\'staff\')" onmouseout="Fluffy.expBreakdown(\'clear\')">Staff</span>';
 			if (playerSpireTraps.Knowledge.owned) fluffFormula += ' * <span class="fluffFormKnowledge" onmouseover="Fluffy.expBreakdown(\'knowledge\')" onmouseout="Fluffy.expBreakdown(\'clear\')">Knowledge</span>';

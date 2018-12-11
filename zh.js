@@ -22,11 +22,12 @@ var cnItems = {
     'science': '科学',
     'Fire':'火焰',
     'Frost':'冰霜',
-    '':'',
-    '':'',
-    '':'',
-    '':'',
-    '':'',
+    'Magmatic Shield':'岩浆盾',
+    'Magmatic Staff':'岩浆棍棒',
+    'Legendary Staff': '传奇的棍棒',
+    'Magnificent Shield':'华丽的盾牌',
+    'Legendary Shield':'传奇的盾牌',
+    'Magnificent Staff':'华丽的棍棒',
     '':'',
     '':'',
     '':'',
@@ -63,7 +64,7 @@ function cnItem(text) {
     //数组里面没有的，原样返回
     for (var i in cnItems) {
         if (text != i) {
-console.log("需汉化的英文cnItem："+text);
+console.log("需汉化的英文Item："+text);
             return text;
         }
     }
@@ -218,14 +219,11 @@ var cntit = {
     'Difficulty': '难度',
     'Perfect Sliders': '完美的滑块',
     'Enchanted Gardens': '魔法花园',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
+    'Repeat Map': '重复地图',
+    'Heirloom': '传家宝',
+    'Trustworthy Trimps': '守信的脆皮',
+    'World Info': '世界信息',
+    'AutoGold': '自动黄金',
     '': '',
     '': '',
     '': '',
