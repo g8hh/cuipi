@@ -207,7 +207,7 @@ var playerSpire = {
     },
     presetTooltip: function(slot){
         var title = "Trap Layout " + slot;
-        var text = "<b>This saved layout contains:</b><br/><br/>";
+        var text = "<b>此处保存的布局包含：</b><br/><br/>";
         var traps = {};
         var layout = this["savedLayout" + slot];
         var hasTraps = false;
@@ -224,7 +224,7 @@ var playerSpire = {
         for (var item in traps){
             if (traps[item] == 0) continue;
             var color = playerSpireTraps[item].color;
-            text += "<span class='playerSpireTooltipTrapName' style='background-color: " + color + "'>" + item + "&nbsp;x" + traps[item] + "</span> ";
+            text += "<span class='playerSpireTooltipTrapName' style='background-color: " + color + "'>" + cnItem(item) + "&nbsp;x" + traps[item] + "</span> ";
         }
         text += "<br/><br/>";
         text += "总成本: " + prettify(cost) + " 符石<br/>当前陷阱价值: " + prettify(curCost) + " 符石<br/>";

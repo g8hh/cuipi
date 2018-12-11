@@ -3221,7 +3221,7 @@ function toggleAutoJobsHelp(){
 	}
 	else {
 		helpElem.style.display = "block";
-		btnElem.innerHTML = "Hide Help";
+		btnElem.innerHTML = "隐藏帮助";
 	}
 	verticalCenterTooltip();
 }
@@ -6712,7 +6712,7 @@ function getGeneratorHtml(getContainer){
 	html += "<div id='dgChangeBtnContainer'" + ((game.global.challengeActive == "Eradicated") ? " class='eradicatedBtns'" : "") + "><span id='generatorActiveBtn' onclick='changeGeneratorState(1)' class='dgChangeBtn pointer noselect colorDanger hoverColor'>获得燃料</span> <span onclick='changeGeneratorState(0)' id='generatorPassiveBtn' class='dgChangeBtn pointer noselect colorPrimary hoverColor'>获得岩浆岩</span> <span onclick='changeGeneratorState(2)' id='generatorHybridBtn' class='dgChangeBtn pointer noselect colorTeal hoverColor' style='display: none'>混合动力</span> <span style='display: none' onclick='tooltip(\"Configure Generator State\", null, \"update\")' id='generatorStateConfigBtn' class='pointer noselect hoverColor dgChangeBtn colorDefault'><span class='glyphicon glyphicon-cog'></span></span></div>";
 	html += "<div id='generatorUpgradeBtn' onclick='tooltip(\"Upgrade Generator\", null, \"update\")'class='workBtn pointer noselect colorDark hoverColor'>升级 (<span id='upgradeMagmiteTotal'></span>)</div></div><div id='genGaugeContainer'><div class='row'><div class='col-xs-4'><div id='fuelContainer'><div id='fuelBar'></div><div id='fuelStorageBar'></div><div id='fuelGlass'></div><div id='fuelOwnedText'>燃料<br/><span id='generatorFuelOwned'>0</span> / <span id='generatorFuelMax'>0</span></div></div></div>"
 	if (game.permanentGeneratorUpgrades.Supervision.owned)
-		html += "<div class='col-xs-4 hasSlider' id='generatorProducingColumn'><div id='generatorProducingContainer'>Producing<br/><span id='generatorTrimpsPs'>0</span><br/>Housing/Tick</div><div id='generatorSliderBox'><input id='generatorSlider' onchange='saveSupervisionSetting()' type='range' min='1' max='100' value='" + game.global.supervisionSetting + "' /></div></div>";
+		html += "<div class='col-xs-4 hasSlider' id='generatorProducingColumn'><div id='generatorProducingContainer'>生产<br/><span id='generatorTrimpsPs'>0</span><br/>房屋/轮</div><div id='generatorSliderBox'><input id='generatorSlider' onchange='saveSupervisionSetting()' type='range' min='1' max='100' value='" + game.global.supervisionSetting + "' /></div></div>";
 	else
 		html += "<div class='col-xs-4' id='generatorProducingColumn'><div id='generatorProducingContainer'>生产<br/><span id='generatorTrimpsPs'>0</span><br/>人口上限/次</div></div>";
 	html += "<div class='col-xs-4'><div id='generatorTickContainer' onclick='pauseGenerator()' onmouseover='updatePauseBtn(true)' onmouseout='updatePauseBtn(false)'" + ((game.permanentGeneratorUpgrades.Supervision.owned) ? " style='cursor: pointer'" : "") + "> <div id='generatorRadialContainer' class='radial-progress'> <div class='radial-progress-circle'> <div class='radial-progress-arrow static''></div></div><div id='generatorRadial' class='radial-progress-circle'> <div class='radial-progress-arrow mobile'></div> </div> <div id='clockKnob' class='radial-progress-knob generatorState'></div></div><span id='generatorNextTick' style='pointer-events: none;'>0</span></div></div></div></div>";
@@ -8142,7 +8142,7 @@ function startFight() {
 		displayedName += "s";
 	}
 	else {
-		displayedName = cnItem(cell.name.replace('_', ' '));
+		displayedName = cell.name.replace('_', ' ');
 	}
 	if (displayedName == "Mutimp" || displayedName == "Hulking Mutimp"){
 		displayedName = "<span class='Mutimp'>" + displayedName + "</span>";
@@ -12718,7 +12718,7 @@ function toggleAutoJobs(noChange, forceOff){
 	}
 	var color = (setting.enabled) ? "colorSuccess" : "colorDanger";
 	swapClass("color", color, btnElem);
-	var text = (setting.enabled) ? "AutoJobs On" : "AutoJobs Off";
+	var text = (setting.enabled) ? "自动工作 开启" : "自动工作 关闭";
 	document.getElementById('autoJobsText').innerHTML = text;
 }
 

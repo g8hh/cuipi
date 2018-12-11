@@ -7173,12 +7173,12 @@ var toReturn = {
 			locked: 1,
 			allowed: 0,
 			get tooltip (){
-				var text = "This book will teach your Robotrimp how to do a much better job of shrieking, allowing MagnetoShriek to be used on multiple Corrupted cells in addition to Improbabilities. Upgraded MagnetoShriek starts off only being able to affect 1 cell at a time, but each use after purchasing this upgrade will extend the bonus by one additional cell, up to a max of 5 cells (resets on portal). <br/><br/> Each new 仿生仙境 clear starting at Z185 will permanently increase the cell count cap by 1.";
+				var text = "This book will teach your Robotrimp how to do a much better job of shrieking, allowing MagnetoShriek to be used on multiple Corrupted cells in addition to Improbabilities. Upgraded MagnetoShriek starts off only being able to affect 1 cell at a time, but each use after purchasing this upgrade will extend the bonus by one additional cell, up to a max of 5 cells (resets on portal). <br/><br/> 每个新的仿生仙境 clear starting at Z185 will permanently increase the cell count cap by 1.";
 				var cap = 5;
 				if (game.global.roboTrimpLevel >= 5)
 					cap += game.global.roboTrimpLevel - 4;
 				var cleared = (game.global.roboTrimpLevel - 4);
-				text += " <b>You have cleared " + cleared + " 仿生仙境" + ((cleared == 1) ? "" : "") + " at 185 or higher, and your MagnetoShriek cell count cap will be " + cap + "</b>";
+				text += " <b>你已清理了 " + cleared + " 仿生仙境" + ((cleared == 1) ? "" : "") + " at 185 or higher, and your MagnetoShriek cell count cap will be " + cap + "</b>";
 				return text;
 			}
 		},
