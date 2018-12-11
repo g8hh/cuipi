@@ -5526,7 +5526,7 @@ var toReturn = {
 			level: [1, 15],
 			icon: "th-large",
 			canRunOnce: true,
-			title: "仿生仙境",
+			title: "Bionic Wonderland",
 			fire: function () {
 				message("你找到了一个地图通往映射到仿生仙境。 听起来很有趣！", "Story");
 				game.global.bionicOwned++;

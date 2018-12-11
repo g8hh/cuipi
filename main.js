@@ -8155,7 +8155,7 @@ function startFight() {
 		badName = "<span class='badNameMutation " + cell.vm + "'>" + tempName + "</span>";
 	}
 	else if (cell.mutation) {
-		badName = "<span class='badNameMutation " + cell.mutation + "'>" + cnItem(mutations[cell.mutation].namePrefix) + " " + displayedName + "</span>";
+		badName = "<span class='badNameMutation " + cell.mutation + "'>" + mutations[cell.mutation].namePrefix + " " + displayedName + "</span>";
 	}
 	else if (cell.vm && visualMutations[cell.vm].namePrefix){
 		badName = "<span class='badNameMutation " + cell.vm + "'>" + visualMutations[cell.vm].namePrefix + " " + displayedName + "</span>"
