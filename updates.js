@@ -4396,7 +4396,7 @@ function toggleSetting(setting, elem, fromPortal, updateOnly, backwards){
 		document.getElementById("achievement" + location + "Reward").innerHTML = '<b>奖励:</b> +' + game.tierValues[achievement.tiers[displayNumber]] + "% 伤害";
 		if (forHover && typeof achievement.progress !== 'undefined' && (typeof achievement.highest === 'undefined' || (achievement.highest > 0 || achievement.finished > 0))){
 			if (!one && achievement.tiers.length == achievement.finished){
-				prog.innerHTML = "Row Finished! (" + achievement.progress() + ")";
+				prog.innerHTML = "行已完成! (" + achievement.progress() + ")";
 			}
 			else{
 				prog.innerHTML = "进度: " + achievement.progress();

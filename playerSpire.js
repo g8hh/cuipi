@@ -440,15 +440,15 @@ var playerSpire = {
                 var curCost = this.getCurrentLayoutPrice();
                 var upgradeCost = this.spentOnUpgrades;
                 var remaining = this.runestones;
-                tooltipText = "Runestones (Rs) are earned by killing Bad Guys in your Spire, and the amount of Runestones gained is directly proportional to the Max Health of the slain Bad Guy.<br/><br/>You have found " + prettify(curCost + upgradeCost + remaining) + " total Runestones.<br/><br/>" + prettify(upgradeCost) + " Runestones have been spent on Upgrades.<br/><br/>" + prettify(curCost) + " Runestones have been spent on Traps/Towers in your current layout.";
+                tooltipText = "Runestones (Rs) are earned by killing Bad Guys in your Spire, and the amount of Runestones gained is directly proportional to the Max Health of the slain Bad Guy.<br/><br/>你总共找到了 " + prettify(curCost + upgradeCost + remaining) + " 符石。<br/><br/>" + prettify(upgradeCost) + " Runestones have been spent on Upgrades.<br/><br/>" + prettify(curCost) + " Runestones have been spent on Traps/Towers in your current layout.";
                 break;
             case "Threat":
-                tooltipText = "Threat rises as you kill Bad Guys in your Spire, and falls as they escape. Threat is an average of kills/escapes over some time and may not always rise immediately after a kill or fall immediately after an escape, but will always stay near what your Spire can handle.<br/><br/>More Threat means Healthier Bad Guys, which means more Runestones. Threat is also required for adding additional Floors to your Spire, increasing by 100 Threat required per Floor.<br/><br/>The highest Threat your Spire has ever reached is: <b>" + prettify(Math.floor(this.peakThreat)) + "</b><br/><br/>Displayed As: <b>当前威胁</b> / <b>Threat Required for Next Floor</b>";
+                tooltipText = "Threat rises as you kill Bad Guys in your Spire, and falls as they escape. Threat is an average of kills/escapes over some time and may not always rise immediately after a kill or fall immediately after an escape, but will always stay near what your Spire can handle.<br/><br/>More Threat means Healthier Bad Guys, which means more Runestones. Threat is also required for adding additional Floors to your Spire, increasing by 100 Threat required per Floor.<br/><br/>The highest Threat your Spire has ever reached is: <b>" + prettify(Math.floor(this.peakThreat)) + "</b><br/><br/>显示为: <b>当前威胁</b> / <b>下一层需要的威胁</b>";
                 break;
             case "Enemies":
-                tooltipText = "The amount of enemies currently allowed in your Spire.<br/><br/>Your Spire can hold 1 Bad Guy, plus an additional 2.5 Bad Guys for each Floor in your Spire (rounded up).";
-                if (playerSpireTraps.Frost.level >= 7 && playerSpireTraps.Frost.owned) tooltipText += "<br/><br/>You have an additional " + playerSpireTraps.Frost.owned + " Maximum Enemies allowed in your Spire, thanks to Frost IV.";
-                tooltipText += "<br/><br/>Displayed As: <b>当前尖塔里的敌人</b> / <b>尖塔里允许的最大敌人数量</b>"
+                tooltipText = "您尖塔当前允许的敌人数量。<br/> <br/>您的尖塔可以容纳1个坏蛋，另外还有2.5个坏蛋用于尖塔中的每个楼层（向上舍入）。";
+                if (playerSpireTraps.Frost.level >= 7 && playerSpireTraps.Frost.owned) tooltipText += "<br/><br/>你有一个额外的 " + playerSpireTraps.Frost.owned + " Maximum Enemies allowed in your Spire, thanks to Frost IV.";
+                tooltipText += "<br/><br/>显示为: <b>当前尖塔里的敌人</b> / <b>尖塔里允许的最大敌人数量</b>"
                 break;
             case "Spirestones":
                 tooltipText = "Spirestones (Ss) can only be earned by clearing Spires in the World, and have no use other than adding Floors onto your own Spire.<br/><br/>Displayed As: <b>Current Spirestones</b> / <b>Spirestones Required for Next Floor</b>"
@@ -513,7 +513,7 @@ var playerSpire = {
         var html = "<div id='playerSpireInfoTopSm'>";
         html += "<span onmouseover='playerSpire.infoTooltip(\"Runestones\", event)' onmouseout='tooltip(\"hide\")'>符石: <span id='playerSpireRunestones'>" + prettify(this.runestones) + "</span><br/>";
         html += "符石/秒: <span id='RsPs'>" + prettify(this.getRsPs()) + "</span></span><br/>"
-        html += "<span onmouseover='playerSpire.infoTooltip(\"Enemies\", event)' onmouseout='tooltip(\"hide\")'>E: <span id='playerSpireCurrentEnemies'>" + this.currentEnemies + "</span> / <span id='playerSpireMaxEnemies'>" + this.maxEnemies + "</span></span><br/>";
+        html += "<span onmouseover='playerSpire.infoTooltip(\"Enemies\", event)' onmouseout='tooltip(\"hide\")'>敌人: <span id='playerSpireCurrentEnemies'>" + this.currentEnemies + "</span> / <span id='playerSpireMaxEnemies'>" + this.maxEnemies + "</span></span><br/>";
         html += "<span onmouseover='playerSpire.infoTooltip(\"Spirestones\", event)' onmouseout='tooltip(\"hide\")' id='spirestoneBox'>" + this.getSpirestoneHtml() + "</span><br/>"
         html += "<span onmouseover='playerSpire.infoTooltip(\"Threat\", event)' onmouseout='tooltip(\"hide\")' id='playerSpireDifficulty'>" + this.getDifficultyHtml() + "</span><br/>";
         html += "</div>"; //playerSpireInfoTopSm

@@ -2811,7 +2811,7 @@ var toReturn = {
 			},
 			progress: function () {
 				if (this.breakpoints.length > this.finished) return game.global.highestLevelCleared + " / " + this.breakpoints[this.finished];
-				return "Highest is " + game.global.highestLevelCleared;
+				return "最高是 " + game.global.highestLevelCleared;
 			},
 			evaluate: function () { return game.global.highestLevelCleared},
 			breakpoints: [2, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240, 250, 260, 270, 280, 290, 300, 350, 400, 450, 500],
@@ -2846,7 +2846,7 @@ var toReturn = {
 			},
 			progress: function () {
 				if (this.breakpoints.length > this.finished) return prettify(Math.floor(this.highest)) + " / " + prettify(this.breakpoints[this.finished]);
-				return "Highest is " + prettify(Math.floor(this.highest));
+				return "最高是 " + prettify(Math.floor(this.highest));
 			},
 			breakpoints: [50, 150, 300, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000, 10000000000, 100000000000],
 			tiers: [1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4],
