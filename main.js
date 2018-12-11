@@ -5679,8 +5679,8 @@ function updateNatureInfoSpans(){
 		document.getElementById('infoSpan' + item).innerHTML = "<span class='icomoon icon-info2'></span>&nbsp" + emp.formatModifier(emp.getModifier(0, true)) + "%";
 		document.getElementById('tokenCount' + item).innerHTML = prettify(emp.tokens);
 		var bonusLevels = (game.talents.nature3.purchased) ? 5 : 0;
-		if (item == "Poison" && Fluffy.isRewardActive('naturesWrath')) bonusLevels += 10;
 		document.getElementById('natureUpgrade' + item + 'Level').innerHTML = "等级: " + prettify(emp.level + bonusLevels);
+		if (item == "Poison" && Fluffy.isRewardActive('naturesWrath')) bonusLevels += 10;
 		document.getElementById('natureStackTransfer' + item + 'Level').innerHTML = "等级: " + prettify(emp.retainLevel + bonusLevels);
 	}
 	updateEmpowerCosts();
@@ -13407,8 +13407,10 @@ var Fluffy = {
 				else{
 					var remainingXp = fluffyInfo[2] - fluffyInfo[1];
 					var xpReward = Fluffy.getExpReward();
-					var remainingRuns = Math.ceil(remainingXp / xpReward);
-					topText += "- 蓬松会获得 " + prettify(xpReward) + " 经验每个区域。 蓬松需要 " + prettify(remainingXp) + " more Exp to level, equivalent to clearing this zone about " + prettify(remainingRuns) + " time" + needAnS(remainingRuns) + ".";
+					var remainingRuns = (game.stats.bestFluffyExp.value > 0) ? Math.ceil(remainingXp / game.stats.bestFluffyExp.value) : -1;
+					topText += "- 蓬松会获得 " + prettify(xpReward) + " 经验每个区域。 蓬松需要 " + prettify(remainingXp) + " 更多的经验到达等级";
+					if (remainingRuns > -1) topText += ", 相当于重复当前对该区域的运行" + prettify(remainingRuns) + " 更多次" + needAnS(remainingRuns) + ".";
+					else topText += ".";
 					topText += "<br/>- " + Fluffy.getFluff();
 				}
 			}
@@ -14189,8 +14191,9 @@ document.addEventListener('keydown', function (e) {
 		return game.options.menu.hotkeys.enabled == 1 && !game.global.lockTooltip && !ctrlPressed && !heirloomsShown && !game.options.displayed && !portalWindowOpen && !trimpStatsDisplayed && !trimpAchievementsOpen;
 	};
 	switch(e.keyCode){
-		case 27:
+		case 27: //escape
 			cancelTooltip();
+			if (playerSpire.popupOpen) playerSpire.closePopup();
 			break;
 		case 16:
 			shiftPressed = true;
@@ -14310,6 +14313,11 @@ document.addEventListener('keydown', function (e) {
 				fightManual();
 			}
 			break;
+		case 80: //p for sPire
+			if (checkLettersOk() && playerSpire.initialized){
+				if (playerSpire.popupOpen) playerSpire.closePopup();
+				else playerSpire.openPopup();
+			}
 		case 38: 
 			//Up arrow for map levels
 			mapLevelHotkey(true);
