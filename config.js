@@ -3015,7 +3015,7 @@ var toReturn = {
 			},
 			breakpoints: [1, 1e+9, 1e+21, 1e+30, 1e+39, 1e+48],//total gems according to statistics
 			tiers: [1, 2, 3, 4, 5, 6],
-			names: ["这个是干什么的?", "Shinies收藏家", "Dragimp爱人", "Shinies专家", "珠宝商", "宝石大师"],
+            names: ["What's This For?", "Collector of Shinies", "Dragimp Lover", "Expert of Shinies", "Jeweller", "Gemaster"],
 			icon: "icomoon icon-diamond",
 			newStuff: []
 		},
@@ -3070,7 +3070,7 @@ var toReturn = {
 		},
 		blockTimed: {
 			finished: 0,
-			title: "速度: 障碍区",
+			title: "Speed: The Block",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
 				return "清除障碍区地图用时少于" + number + "，从使用传送门开始计时。";
@@ -3096,7 +3096,7 @@ var toReturn = {
 		},
 		wallTimed: {
 			finished: 0,
-			title: "速度: 高墙",
+			title: "Speed: The Wall",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
 				return "清除高墙地图用时少于" + number + "，从使用传送门开始计时。";
@@ -3122,7 +3122,7 @@ var toReturn = {
 		},
 		angerTimed: {
 			finished: 0,
-			title: "速度: 愤怒维度",
+			title: "Speed: Anger",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
 				return "清除愤怒维度地图用时少于" + number + "，从使用传送门开始计时。";
@@ -3148,7 +3148,7 @@ var toReturn = {
 		},
 		doomTimed: {
 			finished: 0,
-			title: "速度: 末日神殿",
+			title: "Speed: Doom",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
 				return "清除末日神殿地图用时少于" + number + "，从使用传送门开始计时。";
@@ -3174,7 +3174,7 @@ var toReturn = {
 		},
 		prisonTimed: {
 			finished: 0,
-			title: "速度: 监狱",
+			title: "Speed: The Prison",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
 				return "清除监狱地图用时少于" + number + "，从使用传送门开始计时。";
@@ -3200,7 +3200,7 @@ var toReturn = {
 		},
 		bionicTimed: {
 			finished: 0,
-			title: "速度: 仿生仙境",
+			title: "Speed: Bionic",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
 				return "<span style='font-size: .8em'>清除仿生仙境地图用时少于" + number + "，从使用传送门开始计时。</span>";
@@ -3226,7 +3226,7 @@ var toReturn = {
 		},
 		starTimed: {
 			finished: 0,
-			title: "速度: 爆炸之星",
+			title: "Speed: Star",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
 				return "<span style='font-size: .8em'>清除爆炸之星地图用时少于" + number + "，从使用传送门开始计时。</span>";

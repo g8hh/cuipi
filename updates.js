@@ -2238,7 +2238,7 @@ function getLootBd(what) {
 	if (game.global.mapsUnlocked) textString += '<li role="presentation" onclick="getLootBd(\'Fragments\')"><a href="#">碎片</a></li><li role="presentation" onclick="getLootBd(\'Gems\')"><a href="#">宝石</a></li>';
 	if (game.global.world >= 20) textString += '<li role="presentation" onclick="getLootBd(\'Helium\')"><a href="#">氦</a></li>';
 	textString += '</ul></div>';
-	textString +=  "<table class='bdTableSm table table-striped'><tbody><tr><td style='font-weight: bold; font-size: 1.1em'>" + what + "</td><td>基础</td><td>Amount</td><td>Line Total</td><td>总计</td></tr>";
+	textString +=  "<table class='bdTableSm table table-striped'><tbody><tr><td style='font-weight: bold; font-size: 1.1em'>" + cnItem(what) + "</td><td>基础</td><td>数量</td><td>线路总数</td><td>总计</td></tr>";
 	var currentCalc = 0;
 	var percent = 0;
 	var amt = 0;
@@ -4390,7 +4390,7 @@ function toggleSetting(setting, elem, fromPortal, updateOnly, backwards){
 		}
 		document.getElementById("achievement" + location).style.display = "block";
 		document.getElementById("achievement" + location + "IconContainer").innerHTML = '<span class="achieveTier' + achievement.tiers[displayNumber] + ' ' + achievement.icon + ' achievementPopupIcon"></span>';
-		titleElem.innerHTML = achievement.names[displayNumber];
+		titleElem.innerHTML = cntitle(achievement.names[displayNumber]);
 		titleElem.className = 'achieveTier' + achievement.tiers[displayNumber];
 		document.getElementById("achievement" + location + "Description").innerHTML = achievement.description(displayNumber);
 		document.getElementById("achievement" + location + "Reward").innerHTML = '<b>奖励:</b> +' + game.tierValues[achievement.tiers[displayNumber]] + "% 伤害";
@@ -4480,7 +4480,7 @@ function toggleSetting(setting, elem, fromPortal, updateOnly, backwards){
 				titleClass += ' doubleTall';
 
 
-			htmlString += '<div class="achievementsContainer"><div ' + titleClass + '">' + achievement.title + '</div><span class="littleAchievementWrapper">';
+			htmlString += '<div class="achievementsContainer"><div ' + titleClass + '">' + cntitle(achievement.title) + '</div><span class="littleAchievementWrapper">';
 			var width = 7.3;
 			for (var x = 0; x < amount; x++){
 				if (one && achievement.filters[x] == -1 && !achievement.finished[x]) continue;
