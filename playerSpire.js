@@ -336,7 +336,7 @@ var playerSpire = {
             if (!trap.upgrades || trap.upgrades.length < trap.level) continue;
             var nextUpgrade = trap.upgrades[trap.level - 1];
             if ((nextUpgrade.cost > this.runestones || game.global.highestLevelCleared + 1 < nextUpgrade.unlockAt) && this.smallMode) continue;
-            var trapText = trap.isTower ? " Tower " : " Trap ";
+            var trapText = trap.isTower ? " 塔 " : " 陷阱 ";
             var style = (nextUpgrade.cost > this.runestones || (game.global.highestLevelCleared + 1 < nextUpgrade.unlockAt)) ? "grey" : trap.color;
             var upgradeClass;
             var text;
@@ -346,7 +346,7 @@ var playerSpire = {
             }
             else{
                 upgradeClass = 'playerSpireUpgrade spireTrapBox';
-                text = trapItem + trapText + romanNumeral(trap.level + 1)
+                text = cnItem(trapItem) + trapText + romanNumeral(trap.level + 1)
             }
             html += "<div onmouseover='playerSpire.upgradeTooltip(\"" + trapItem + "\", event)' onmouseout='tooltip(\"hide\")' onclick='playerSpire.buyUpgrade(\"" + trapItem + "\")' style='background-color: " + style + "' class='" + upgradeClass + "'>" + text + "</div>";
             if (this.runestones < nextUpgrade.cost && (cheapestTrap == -1 || nextUpgrade.cost < cheapestTrap)) cheapestTrap = nextUpgrade.cost;
@@ -399,9 +399,9 @@ var playerSpire = {
         if (this.runestones < upgrade.cost) return;
         if (game.global.highestLevelCleared + 1 < upgrade.unlockAt) return;
         if (!confirmed){
-            var trapText = trapName + ((trapObj.isTower) ? " Tower" : " Trap");
-            var tipText = "Are you sure you want to upgrade your " + trapText + "? This upgrade is non-refundable!<br/><br/><i>\"" + upgrade.description + "\"</i><br/><br/><b>Cost: " + prettify(upgrade.cost) + " Rs</b>";
-            tooltip("confirm", null, "update", tipText, "playerSpire.buyUpgrade('" + trapName + "', true)", "Upgrade " + trapText + "?");
+            var trapText = trapName + ((trapObj.isTower) ? " 塔" : " 陷阱");
+            var tipText = "你确定要升级你的 " + trapText + " 吗? 这个升级是不可退还的!<br/><br/><i>\"" + upgrade.description + "\"</i><br/><br/><b>成本: " + prettify(upgrade.cost) + " 符石</b>";
+            tooltip("confirm", null, "update", tipText, "playerSpire.buyUpgrade('" + trapName + "', true)", "升级 " + trapText + "?");
             return;
         }
         this.runestones -= upgrade.cost;
@@ -606,7 +606,7 @@ var playerSpire = {
     },
     trapTooltip: function(which, event){
         if (which == "sell"){
-            tooltip("Sell Trap/Tower", 'customText', event, "Sell a Trap or Tower! You'll get back 100% of what you spent on the last Trap or Tower of that type.<br/><br/>(Hotkey 0 or ')")
+            tooltip("Sell Trap/Tower", 'customText', event, "Sell a Trap or Tower! You'll get back 100% of what you spent on the last Trap or Tower of that type.<br/><br/>(快捷键 0 或 ')")
             return;
         }
         if (which == "shiftUp"){
@@ -1470,7 +1470,7 @@ var playerSpireTraps = {
             var desc = "每步造成" + prettify(this.totalDamage()) + "点伤害.";
             if (this.level >= 4) desc += "<br/><br/>秒杀等于少于20%血的敌人.";
             if (this.level >= 7) desc += "<br/><br/>All Fire Traps grant 20% extra Runestones when they get the killing blow on an enemy.";
-            desc += "<br/><br/>(Hotkey 1)";
+            desc += "<br/><br/>(快捷键 1)";
             return desc;
         },
         totalDamage: function (enemy, cell){
@@ -1538,7 +1538,7 @@ var playerSpireTraps = {
             if (this.level >= 3) desc += "<br/><br/>被冰冻的敌人会额外受到火陷阱25%伤害."
             if (this.level >= 4) desc += "<br/><br/>Any Poison Traps placed directly before a Frost Trap become 4x as effective.";
             if (this.level >= 5) desc += "<br/><br/>Each time an enemy can't move because it's slowed (from Chilled or Frozen), it becomes worth 2% more Runestones. This effect stacks additively."
-            desc += "<br/><br/>(Hotkey 2)";
+            desc += "<br/><br/>(快捷键 2)";
             return desc;
         },
         slowTurns: function(){
@@ -1621,7 +1621,7 @@ var playerSpireTraps = {
             if (this.level >= 3) desc += "<br/><br/>If a Poison Trap is placed directly next to another Poison Trap, both Traps gain 3x damage. If a Poison Trap has other Poison Traps on both sides of itself, it gains 9x damage instead."
             if (this.level >= 5) desc += "<br/><br/>If the enemy has 75% or less health remaining, " + prettify(this.totalDamage() * 5) + " Toxicity is added instead.";
             if (this.level >= 6) desc += "<br/><br/>If an enemy leaks, gain 10% of its total Toxicity as Runestones.";
-            desc += "<br/><br/>(Hotkey 3)";
+            desc += "<br/><br/>(快捷键 3)";
             return desc;
         },
         totalDamage: function (enemy, cell){
@@ -1716,7 +1716,7 @@ var playerSpireTraps = {
             var shockTurns = this.shockTurns();
             var text = "每步造成" + prettify(this.totalDamage()) + "伤害, and afflicts the target with " + shockTurns + " stack" + needAnS(shockTurns) + " of Shocked. 1 stack of Shocked is consumed each time an enemy steps on a Trap or Tower, causing that Bad Guy to take " + this.shockedDamage() + "x damage and " + this.shockedEffect() + "x effect from the Trap or Tower that consumed the stack of Shocked. Shocked can boost the damage but not the effect of other Lightning Traps."
             if (this.level >= 4) text += "<br/><br/>Each Lightning Trap increases the damage and effect of Fire and Poison Traps in its column by 10%, stacking additively.";
-            text += "<br/><br/>(Hotkey 4)";
+            text += "<br/><br/>(快捷键 4)";
             return text;
         },
         shockedDamage: function(){
@@ -1808,7 +1808,7 @@ var playerSpireTraps = {
         level: 1,
         owned: 0,
         get description(){
-            return "将同一层上所有火陷阱伤害提高100%，其本身造成这楼层所有火陷阱伤害之和的伤害（每层楼最多建1个）. 此外，这个塔还对你在世界和地图中的脆皮攻击" + prettify(this.getWorldBonus(true)) + "%伤害(与其它力量之塔叠加).<br/><br/>你的力量之塔总共给你的脆皮加成<b>" + prettify(this.getWorldBonus()) + "%</b>攻击伤害.<br/><br/>(Hotkey 5)";
+            return "将同一层上所有火陷阱伤害提高100%，其本身造成这楼层所有火陷阱伤害之和的伤害（每层楼最多建1个）. 此外，这个塔还对你在世界和地图中的脆皮攻击" + prettify(this.getWorldBonus(true)) + "%伤害(与其它力量之塔叠加).<br/><br/>你的力量之塔总共给你的脆皮加成<b>" + prettify(this.getWorldBonus()) + "%</b>攻击伤害.<br/><br/>(快捷键 5)";
         }
     },
     Condenser: {
@@ -1854,7 +1854,7 @@ var playerSpireTraps = {
         },
         noDirectDamage: true,
         get description(){
-            return "当踩上，增加目标的毒性25%. In addition, each Condenser Tower increases all Helium found by " + prettify(this.getWorldBonus(true)) + "% (additive with other Condenser Towers).<br/><br/>Your Condenser Towers are currently granting a total of <b>" + prettify(this.getWorldBonus()) + "%</b> additional Helium from all sources.<br/><br/>(Hotkey 6)";
+            return "当踩上，增加目标的毒性25%. In addition, each Condenser Tower increases all Helium found by " + prettify(this.getWorldBonus(true)) + "% (additive with other Condenser Towers).<br/><br/>Your Condenser Towers are currently granting a total of <b>" + prettify(this.getWorldBonus()) + "%</b> additional Helium from all sources.<br/><br/>(快捷键 6)";
         },
         extraEffect: function(enemy, cell){
             var effect = (enemy && enemy.shockTurns && enemy.shockTurns > 0) ? playerSpireTraps.Lightning.shockedEffect() : 1;
@@ -1905,7 +1905,7 @@ var playerSpireTraps = {
         },
         noDirectDamage: true,
         get description(){
-            return "When stepped on by a Chilled enemy, Chilled becomes Frozen, slowing the target to 33% speed for 5 moves. In addition, each Knowledge Tower increases Fluffy's Experience gain by " + prettify(this.getWorldBonus(true)) + "% (additive with other Knowledge Towers). Note that Knowledge Towers are coated with antifreeze, preventing chill effects from working until the enemy steps off of this Tower.<br/><br/>Your Knowledge Towers are currently granting a total of <b>" + prettify(this.getWorldBonus()) + "%</b> additional Fluffy Exp.<br/><br/>(Hotkey 7)";
+            return "When stepped on by a Chilled enemy, Chilled becomes Frozen, slowing the target to 33% speed for 5 moves. In addition, each Knowledge Tower increases Fluffy's Experience gain by " + prettify(this.getWorldBonus(true)) + "% (additive with other Knowledge Towers). Note that Knowledge Towers are coated with antifreeze, preventing chill effects from working until the enemy steps off of this Tower.<br/><br/>Your Knowledge Towers are currently granting a total of <b>" + prettify(this.getWorldBonus()) + "%</b> additional Fluffy Exp.<br/><br/>(快捷键 7)";
         },
         totalDamage: function (enemy){
             var level = this.level;

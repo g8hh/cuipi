@@ -8142,7 +8142,7 @@ function startFight() {
 		displayedName += "s";
 	}
 	else {
-		displayedName = cntime(cell.name.replace('_', ' '));
+		displayedName = cnItem(cell.name.replace('_', ' '));
 	}
 	if (displayedName == "Mutimp" || displayedName == "Hulking Mutimp"){
 		displayedName = "<span class='Mutimp'>" + displayedName + "</span>";
@@ -8155,7 +8155,7 @@ function startFight() {
 		badName = "<span class='badNameMutation " + cell.vm + "'>" + tempName + "</span>";
 	}
 	else if (cell.mutation) {
-		badName = "<span class='badNameMutation " + cell.mutation + "'>" + cntime(mutations[cell.mutation].namePrefix) + " " + displayedName + "</span>";
+		badName = "<span class='badNameMutation " + cell.mutation + "'>" + cnItem(mutations[cell.mutation].namePrefix) + " " + displayedName + "</span>";
 	}
 	else if (cell.vm && visualMutations[cell.vm].namePrefix){
 		badName = "<span class='badNameMutation " + cell.vm + "'>" + visualMutations[cell.vm].namePrefix + " " + displayedName + "</span>"
@@ -10751,7 +10751,7 @@ function getDailyTopText(add){
 			returnText += 'colorGrey';
 		else
 			returnText += 'colorSuccess';
-		returnText += "'>" + cntime(dayOfWeek(getDailyTimeString(dayIndex, false, true))).charAt(1);
+		returnText += "'>" + cnItem(dayOfWeek(getDailyTimeString(dayIndex, false, true))).charAt(1);
 		if (!dayDone){
 			var heliumValue = getDailyHeliumValue(countDailyWeight(getDailyChallenge(dayIndex, true)));
 			returnText += "<br/>" + prettify(heliumValue) + "%";
@@ -10761,7 +10761,7 @@ function getDailyTopText(add){
 	}
 	returnText += "</div>";
 	//returnText += "<div style='text-align: left; padding: 10px;'><span class='btn btn-md btn-primary' onclick='lastAdd += 7; selectChallenge(\"Daily\");'>Test Server Only - Travel To Next Week</span></div>"
-	returnText += "<div class='row' style='margin: 0'><div class='col-xs-6 lowPad dailyTop' style='font-weight: bold'>" + cntime(dayOfWeek(getDailyTimeString(add, false, true))) + " " + getDailyTimeString(add, true) + "</div><div class='col-xs-6 dailyTop lowPad'>" + cntime(dayOfWeek(getDailyTimeString(1, false, true))) + " 重置倒计时 <span id='dailyResetTimer'>00:00:00</span></div></div>";
+	returnText += "<div class='row' style='margin: 0'><div class='col-xs-6 lowPad dailyTop' style='font-weight: bold'>" + cnItem(dayOfWeek(getDailyTimeString(add, false, true))) + " " + getDailyTimeString(add, true) + "</div><div class='col-xs-6 dailyTop lowPad'>" + cnItem(dayOfWeek(getDailyTimeString(1, false, true))) + " 重置倒计时 <span id='dailyResetTimer'>00:00:00</span></div></div>";
 
 	if (checkedDayDone)
 		returnText += "<b class='redText'>你已经尝试过这个每日挑战！</b><br/><br/>";
@@ -14367,36 +14367,6 @@ function cnresourcetype(type){
         return type;
     }
     return cnresourcetype;
-}
-
-
-function cntime(time) {
-    //汉化时间（加上怪名）
-    var cntime = "";
-    var temp = time;
-    if (temp == "Monday") {
-        cntime = "周一";
-    } else if (temp == "Tuesday") {
-        cntime = "周二";
-    } else if (temp == "Wednesday") {
-        cntime = "周三";
-    } else if (temp == "Thursday") {
-        cntime = "周四";
-    } else if (temp == "Friday") {
-        cntime = "周五";
-    } else if (temp == "Saturday") {
-        cntime = "周六";
-    } else if(temp=="Sunday"){
-        cntime = "周日"; 
-    } else if(temp=="Improbability"){
-        cntime = "无序"; 
-    } else if(temp=="Corrupt"){
-        cntime = "腐败"; 
-    } else {
-        console.log("测试"+time)
-        return time;
-    }
-    return cntime;
 }
 
 

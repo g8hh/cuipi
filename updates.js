@@ -232,7 +232,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 	}
 	if (what == "Switch Daily"){
 		var daysUntilReset = Math.floor(7 + textString);
-		tooltipText = "点击查看" + ((textString == 0) ? "今天" : cntime(dayOfWeek(getDailyTimeString(textString, false, true)))) + "的挑战, 将在" + daysUntilReset + "天内重置" + ((daysUntilReset == 1) ? "" : "") + "。";
+		tooltipText = "点击查看" + ((textString == 0) ? "今天" : cnItem(dayOfWeek(getDailyTimeString(textString, false, true)))) + "的挑战, 将在" + daysUntilReset + "天内重置" + ((daysUntilReset == 1) ? "" : "") + "。";
 		costText = "";
 	}
 	if (what == "Decay"){
@@ -4982,31 +4982,6 @@ function cnequip(obj){
 }
 
  
-
-function cntime(time) {
-    //汉化时间
-    var cntime = "";
-    var temp = time;
-    if (temp == "Monday") {
-        cntime = "周一";
-    } else if (temp == "Tuesday") {
-        cntime = "周二";
-    } else if (temp == "Wednesday") {
-        cntime = "周三";
-    } else if (temp == "Thursday") {
-        cntime = "周四";
-    } else if (temp == "Friday") {
-        cntime = "周五";
-    } else if (temp == "Saturday") {
-        cntime = "周六";
-    } else if(temp=="Sunday"){
-        cntime = "周日";   
-    } else {
-        return time;
-    }
-    return cntime;
-}
-
 
 var nums=0;
 function importAuto(){
