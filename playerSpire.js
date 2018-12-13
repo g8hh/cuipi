@@ -253,17 +253,17 @@ var playerSpire = {
     settingsTooltip: function(){
         var text = "<div id='spireSettingsTooltip'>";
         text += "<b style='margin-bottom: 1vw'>浮动战斗文本</b>";
-        text += "<span class='spireOption'>制作静态:" + buildNiceCheckbox('spirefctStatic', '', this.settings.fctStatic) + "</span>";
+        text += "<span class='spireOption'>静态数值:" + buildNiceCheckbox('spirefctStatic', '', this.settings.fctStatic) + "</span>";
         text += "<span class='spireOption'>陷阱伤害: " + buildNiceCheckbox('spirefctTrap', '', this.settings.fctTrap) + "</span>";
         if (!playerSpireTraps.Poison.locked)
             text += "<span class='spireOption'>毒伤每轮: " + buildNiceCheckbox('spirefctPoison', '', this.settings.fctPoison) + "</span>";
-        text += "<span class='spireOption'>符石: " + buildNiceCheckbox('spirefctRs', '', this.settings.fctRs) + "</span>";
+        text += "<span class='spireOption'>符石掉落: " + buildNiceCheckbox('spirefctRs', '', this.settings.fctRs) + "</span>";
         text += "<b style='margin-top: 0; margin-bottom: 1vw'>视觉设置</b>";
         text += "<span class='spireOption'>陷阱图标: " + buildNiceCheckbox('spiretrapIcons', '', this.settings.trapIcons) + "</span>";
         text += "<span class='spireOption'>敌人图标: " + buildNiceCheckbox('spireenemyIcons', '', this.settings.enemyIcons) + "</span>";
         text += "<span class='spireOption'>寒冷效应: " + buildNiceCheckbox('spirechillGradient', '', this.settings.chillGradient) + "</span>";
         if (!playerSpireTraps.Lightning.locked)
-        text += "<span class='spireOption'>休克效应: " + buildNiceCheckbox('spireshockEffect', '', this.settings.shockEffect) + "</span>";
+        text += "<span class='spireOption'>震慑状态: " + buildNiceCheckbox('spireshockEffect', '', this.settings.shockEffect) + "</span>";
         text += "<span class='spireOption'>生命值 %: " + buildNiceCheckbox('spirepercentHealth', '', this.settings.percentHealth) + "</span>";
         text += "</div>";
         tooltip("Spire Settings", 'customText', 'lock', text, "<span class='btn btn-info' onclick='playerSpire.saveSettings()'>保存</span><span class='btn btn-danger' onclick='cancelTooltip()'>取消</span>", "hi", "hi");
