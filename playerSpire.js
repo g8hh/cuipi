@@ -440,18 +440,18 @@ var playerSpire = {
                 var curCost = this.getCurrentLayoutPrice();
                 var upgradeCost = this.spentOnUpgrades;
                 var remaining = this.runestones;
-                tooltipText = "Runestones (Rs) are earned by killing Bad Guys in your Spire, and the amount of Runestones gained is directly proportional to the Max Health of the slain Bad Guy.<br/><br/>你总共找到了 " + prettify(curCost + upgradeCost + remaining) + " 符石。<br/><br/>" + prettify(upgradeCost) + " Runestones have been spent on Upgrades.<br/><br/>" + prettify(curCost) + " Runestones have been spent on Traps/Towers in your current layout.";
+                tooltipText = "符石（RS）是由在尖塔杀敌人获得，并且获得符文的数量与敌人的生命值是成正比的。<br/><br/>你总共找到了 " + prettify(curCost + upgradeCost + remaining) + " 符石。<br/><br/>" + prettify(upgradeCost) + " 符石用于升级。<br/><br/>" + prettify(curCost) + " 符石用于建造塔/陷阱在你当前的布局中。";
                 break;
             case "Threat":
-                tooltipText = "Threat rises as you kill Bad Guys in your Spire, and falls as they escape. Threat is an average of kills/escapes over some time and may not always rise immediately after a kill or fall immediately after an escape, but will always stay near what your Spire can handle.<br/><br/>More Threat means Healthier Bad Guys, which means more Runestones. Threat is also required for adding additional Floors to your Spire, increasing by 100 Threat required per Floor.<br/><br/>The highest Threat your Spire has ever reached is: <b>" + prettify(Math.floor(this.peakThreat)) + "</b><br/><br/>显示为: <b>当前威胁</b> / <b>下一层需要的威胁</b>";
+                tooltipText = "当你在塔尖杀死敌人时，威胁上升，当他们逃跑时，威胁下降。威胁是一段时间内杀死/逃脱的平均值，可能不会在杀死敌人后立即上升，也不会在敌人逃跑后立即下降，但会一直停留在你的尖塔所能承受的范围内。<br/><br/>更多威胁会有更高生命值的敌人，也会掉落更多的符石。为您的尖塔添加新的楼层也需要威胁值，每增加一层需要增加100的威胁值。<br/><br/>你的尖塔所达到的最高威胁值是：<b>" + prettify(Math.floor(this.peakThreat)) + "</b><br/><br/>显示为: <b>当前威胁</b> / <b>下一层需要的威胁</b>";
                 break;
             case "Enemies":
-                tooltipText = "您尖塔当前允许的敌人数量。<br/> <br/>您的尖塔可以容纳1个坏蛋，另外还有2.5个坏蛋用于尖塔中的每个楼层（向上舍入）。";
+                tooltipText = "您尖塔当前允许的敌人数量。<br/> <br/>您的尖塔可以容纳1个敌人，另外每层还能多存在2.5个敌人（向上取整）。";
                 if (playerSpireTraps.Frost.level >= 7 && playerSpireTraps.Frost.owned) tooltipText += "<br/><br/>你有一个额外的 " + playerSpireTraps.Frost.owned + " Maximum Enemies allowed in your Spire, thanks to Frost IV.";
                 tooltipText += "<br/><br/>显示为: <b>当前尖塔里的敌人</b> / <b>尖塔里允许的最大敌人数量</b>"
                 break;
             case "Spirestones":
-                tooltipText = "Spirestones (Ss) can only be earned by clearing Spires in the World, and have no use other than adding Floors onto your own Spire.<br/><br/>Displayed As: <b>Current Spirestones</b> / <b>Spirestones Required for Next Floor</b>"
+                tooltipText = "尖塔石头(Ss)只能通过清除世界上的尖塔获得，除了在升级层数时消耗外，没有其它用处了。<br/><br/>显示为: <b>当前尖塔石头</b> / <b>下一层需要的尖塔石头</b>"
                 break;
             default:
                 break;
@@ -477,8 +477,8 @@ var playerSpire = {
         infoHtml += "<div onclick='tooltip(\"confirm\", null, \"update\", \"Are you sure you want to sell all Traps and Towers? You will get back 100% of Runestones spent on them.<br/><br/>" + ((this.paused) ? "" : "<b>Protip:</b> Pause your Spire before selling your defenses if you want to avoid leaking!") + "\", \"playerSpire.resetTraps()\", \"Sell All?\")' class='spireControlBox'>卖出全部</div>";
         infoHtml += "<div onclick='playerSpire.togglePause()' id='pauseSpireBtn' class='spireControlBox spirePaused" + ((this.paused) ? "Yes'>解除暂停" : "'>暂停尖塔") + "</div>";      
         infoHtml += "<div class='spireControlBoxDbl'><div onclick='playerSpire.presetTooltip(1)'>布局1</div><div onclick='playerSpire.presetTooltip(2)'>布局2</div></div>"
-        infoHtml += "<div onclick='playerSpire.selectTrap(\"shiftUp\")' onmouseout='tooltip(\"hide\")' onmouseover='playerSpire.trapTooltip(\"shiftUp\", event)' id='sellTrapBox' class='spireControlBox" + ((this.selectedTrap == "shiftUp") ? " selected" : "") + "'>上移</div>";
-        infoHtml += "<div onclick='playerSpire.selectTrap(\"shiftDown\")' onmouseout='tooltip(\"hide\")' onmouseover='playerSpire.trapTooltip(\"shiftDown\", event)' id='sellTrapBox' class='spireControlBox" + ((this.selectedTrap == "shiftDown") ? " selected" : "") + "'>下移</div>";
+        infoHtml += "<div onclick='playerSpire.selectTrap(\"shiftUp\")' onmouseout='tooltip(\"hide\")' onmouseover='playerSpire.trapTooltip(\"shiftUp\", event)' id='sellTrapBox' class='spireControlBox" + ((this.selectedTrap == "shiftUp") ? " selected" : "") + "'>后移</div>";
+        infoHtml += "<div onclick='playerSpire.selectTrap(\"shiftDown\")' onmouseout='tooltip(\"hide\")' onmouseover='playerSpire.trapTooltip(\"shiftDown\", event)' id='sellTrapBox' class='spireControlBox" + ((this.selectedTrap == "shiftDown") ? " selected" : "") + "'>前移</div>";
 
         
         // infoHtml += "<div onclick='playerSpire.resetUpgrades()' class='spireControlBox'>Reset Upgrades</div>";
@@ -610,17 +610,17 @@ var playerSpire = {
             return;
         }
         if (which == "shiftUp"){
-            tooltip("Shift Up", 'customText', event, "把你的陷阱和塔移向后移一格！<br/><br/>Click this to select Shift Up Mode, then click a Trap or Tower in your Spire. The Trap/Tower you select and all Traps/Towers after it will shift up one cell until the first empty space is hit.<br/><br/>If there is no empty space, your last Trap/Tower will be sold.")
+            tooltip("Shift Up", 'customText', event, "把你的陷阱和塔移向后移一格！<br/><br/>单击此按钮选择“后移模式”，然后单击“尖塔”中的“陷阱”或“塔”。你选择的陷阱/塔以及之后的所有陷阱/塔将向后移动一个单元格，直到碰到的第一个空白区域。<br/><br/>如果没有空的空间，您的最后一个陷阱/塔将被出售。")
             return;
         }
         if (which == "shiftDown"){
-            tooltip("Shift Down", 'customText', event, "把你的陷阱和塔移向前移一格！<br/><br/>Click this to select Shift Down Mode, then click a Trap or Tower in your Spire. The Trap/Tower you select and all Traps/Towers before it will shift down one cell until the first empty space is hit.<br/><br/>If there is no empty space, your first Trap/Tower will be sold.")
+            tooltip("Shift Down", 'customText', event, "把你的陷阱和塔移向前移一格！<br/><br/>单击此按钮选择“前移模式”，然后单击“尖塔”中的“陷阱”或“塔”。你选择的陷阱/塔以及之后的所有陷阱/塔将向前移动一个单元格，直到碰到的第一个空白区域。<br/><br/>如果没有空的空间，您的最后一个陷阱/塔将被出售。")
             return;
         }
         var trapText = playerSpireTraps[which].isTower ? " Tower" : " Trap";
         var cost = this.getTrapCost(which);
         var costText = (cost > this.runestones) ? "<span style='color: red'>" : "<span style='color: green'>";
-        costText += prettify(cost) + " Runestones";
+        costText += prettify(cost) + " 符石";
         if (cost > this.runestones) costText += " (" + calculateTimeToMax(null, this.lootAvg.average, (cost - this.runestones)) + ")";
         else{
             var costPct = (cost / this.runestones) * 100;
@@ -639,7 +639,7 @@ var playerSpire = {
         var title = which + ((trap.isTower) ? " Tower " : " Trap ") + romanNumeral(trap.level + 1);
         var cost = "<span style='color: ";
         cost += (this.runestones >= upgrade.cost) ? "green" : "red";
-        cost += "'>" + prettify(upgrade.cost) + " Runestones";
+        cost += "'>" + prettify(upgrade.cost) + " 符石";
         if (upgrade.cost > this.runestones) cost += " (" + calculateTimeToMax(null, this.lootAvg.average, (upgrade.cost - this.runestones)) + ")";
         else{
             var costPct = (upgrade.cost / this.runestones) * 100;
@@ -1420,43 +1420,43 @@ var playerSpireTraps = {
         icon: "fire",
         upgrades: [
             {   //level 2
-                description: "All Fire Traps gain <b>10x</b> damage.", //500 
+                description: "所有火焰陷阱<b>10倍</b>伤害。", //500 
                 unlockAt: 250,
                 cost: 5e4
             },
             {
                 //level 3
-                description: "All Fire Traps gain <b>5x</b> damage.", //2500
+                description: "所有火焰陷阱<b>5倍</b>伤害。", //2500
                 unlockAt: 300,
                 cost: 5e6
             },
             {
                 //level 4
-                description: "<b>Double</b> the damage of all Fire Traps, and all Fire Traps will instantly kill any enemy that has 20% or less health.", //5000
+                description: "所有火焰陷阱<b>2倍</b>伤害，所有火焰陷阱可以秒杀20%及以下血的敌人。", //5000
                 unlockAt: 375,
                 cost: 2.5e7
             },
             {
                 //level 5
-                description: "<b>Double</b> the damage of all Fire Traps.",
+                description: "所有火焰陷阱<b>2倍</b>伤害。",
                 unlockAt: 425,
                 cost: 7.5e7
             },
             {
                 //level 6
-                description: "<b>Dectuple</b> the damage of all Fire Traps.", //50k
+                description: "所有火焰陷阱<b>10倍</b>伤害。", //50k
                 unlockAt: 500,
                 cost: 5e9
             },
             {
                 //level 7
-                description: "<b>Dectuple</b> the damage of all Fire Traps once more, and all enemies drop 20% extra Runestones when they die on a Fire Trap.", //500k
+                description: "所有火焰陷阱<b>10倍</b>伤害，在火焰陷阱上死亡的敌人额外掉落20%符石", //500k
                 unlockAt: 590,
                 cost: 5e11
             },
             {
                 //level 8
-                description: "All Fire Traps gain <b>100x</b> damage.", //5m
+                description: "所有火焰陷阱<b>100倍</b>伤害。", //5m
                 unlockAt: 650,
                 cost: 1e14
             }
@@ -1467,9 +1467,9 @@ var playerSpireTraps = {
         damage: 50,
         owned: 0,
         get description(){
-            var desc = "每步造成" + prettify(this.totalDamage()) + "点伤害.";
-            if (this.level >= 4) desc += "<br/><br/>秒杀等于少于20%血的敌人.";
-            if (this.level >= 7) desc += "<br/><br/>All Fire Traps grant 20% extra Runestones when they get the killing blow on an enemy.";
+            var desc = "每步造成" + prettify(this.totalDamage()) + "点伤害。";
+            if (this.level >= 4) desc += "<br/><br/>秒杀等于少于20%血的敌人。";
+            if (this.level >= 7) desc += "<br/><br/>在火焰陷阱上死亡的敌人额外掉落20%符石。";
             desc += "<br/><br/>(快捷键 1)";
             return desc;
         },
@@ -1500,31 +1500,31 @@ var playerSpireTraps = {
         upgrades: [
             {
                 //level 2
-                description: "加成冰霜陷阱伤害 <b>by 5</b>, and increase the duration of Chilled by 1 cell.",
+                description: "所有冰霜陷阱<b>5倍</b>伤害，使冰冷效果的持续时间增加<b>1</b>格。",
                 unlockAt: 230,
                 cost: 1e4
             },
             {
                 //level 3
-                description: "加成冰霜陷阱伤害 <b>by 10</b>. Chilled enemies now take 25% more damage from Fire Traps.",
+                description: "所有冰霜陷阱<b>10倍</b>伤害。冰冷效果会使敌人多受到25%火焰陷阱伤害。",
                 unlockAt: 275,
                 cost: 5e5
             },
             {
                 //level 4
-                description: "加成冰霜陷阱伤害 <b>by 5</b>. If there is a Poison Trap directly before a Frost Trap, that Poison Trap becomes 4x as effective.",
+                description: "所有冰霜陷阱<b>5倍</b>伤害。冰霜陷阱前一格的毒陷阱叠加效果翻到4倍。",
                 unlockAt: 330,
                 cost: 2.5e6
             },
             {
                 //level 5
-                description: "加成冰霜陷阱伤害 <b>by 2</b>, and each time an enemy can't move because it is slowed, that enemy becomes worth 2% more Runestones. This effect stacks additively.",
+                description: "所有冰霜陷阱<b>2倍</b>伤害，每当敌人因为速度减慢而无法移动时，该敌人的符石掉落就会增加2％。这种效果可以叠加。",
                 unlockAt: 430,
                 cost: 1e8
             },
             {
                 //level 6
-                description: "加成冰霜陷阱伤害 <b>by 5</b>, and increase the duration of Chilled by 1 cell.",
+                description: "所有冰霜陷阱<b>5倍</b>伤害，使冰冷效果的持续时间增加<b>1</b>格。",
                 unlockAt: 530,
                 cost: 5e10,
             }
@@ -1534,10 +1534,10 @@ var playerSpireTraps = {
         owned: 0,
         damage: 10,
         get description() {
-            var desc = "每步造成" + prettify(this.totalDamage()) + "伤害, 使目标变冰冷, 减50%移动速度持续" + this.slowTurns() + "格. 这个速度降低导致目标在每个陷阱上停留两倍时间，触发每个陷阱两次。Note that Frost Traps are coated with antifreeze, preventing chill effects from working while an enemy is standing on a Frost Trap."
+            var desc = "每步造成" + prettify(this.totalDamage()) + "伤害, 使目标变冰冷, 减50%移动速度持续" + this.slowTurns() + "格. 这个速度降低导致目标在每个陷阱上停留两倍时间，触发每个陷阱两次。请注意，冰霜陷阱涂有防冻剂，可防止敌人站在冰霜陷阱时起作用。"
             if (this.level >= 3) desc += "<br/><br/>被冰冻的敌人会额外受到火陷阱25%伤害."
-            if (this.level >= 4) desc += "<br/><br/>Any Poison Traps placed directly before a Frost Trap become 4x as effective.";
-            if (this.level >= 5) desc += "<br/><br/>Each time an enemy can't move because it's slowed (from Chilled or Frozen), it becomes worth 2% more Runestones. This effect stacks additively."
+            if (this.level >= 4) desc += "<br/><br/>放置在冰霜陷阱之前的毒物陷阱效果是4倍。";
+            if (this.level >= 5) desc += "<br/><br/>每当敌人因为速度减慢而无法移动时（从冰冷或冻结），他掉落的符石会额外多2％。这种效果可以叠加。"
             desc += "<br/><br/>(快捷键 2)";
             return desc;
         },
@@ -1577,37 +1577,37 @@ var playerSpireTraps = {
         upgrades: [
             {
                 //Level 2
-                description: "<b>Double</b> the amount of Toxicity added when an enemy steps on any Poison Trap.",
+                description: "当敌人踩到毒物陷阱时叠加的毒性层数<b>翻倍</b>。",
                 unlockAt: 350,
                 cost: 1e7
             },
             {
                 //level 3
-                description: "If there is a Poison Trap either directly before or after another Poison Trap, both Traps gain 3x damage. If a Poison Trap has Poison Traps on both sides of itself, it gains 9x damage instead.",
+                description: "如果在两个毒陷阱想连，则两个毒陷阱都获得3倍效果。如果一个毒陷阱两侧都有毒陷阱，则此毒陷阱会造成9倍效果。",
                 unlockAt: 400,
                 cost: 5e7
             },
             {
                 //Level 4
-                description: "<b>Double</b> the amount of Toxicity added when an enemy steps on any Poison Trap.",
+                description: "当敌人踩到毒物陷阱时叠加的毒性层数<b>翻倍</b>。",
                 unlockAt: 450,
                 cost: 7.5e8
             },
             {
                 //Level 5
-                description: "<b>Double</b> the amount of Toxicity added when an enemy steps on any Poison Trap. In addition, if the enemy has 75% or less health remaining, the final amount of Toxicity added is multiplied by 5.",
+                description: "当敌人踩到毒物陷阱时叠加的毒性层数<b>翻倍</b>。此外，如果敌人的生命值在75％或更低，则毒陷阱造成5倍效果。",
                 unlockAt: 550,
                 cost: 1e11
             },
             {
                 //Level 6
-                description: "<b>Double</b> the amount of Toxicity added when an enemy steps on any Poison Trap. In addition, if an enemy leaks, gain 10% of its total Toxicity as Runestones.",
+                description: "当敌人踩到毒物陷阱时叠加的毒性层数<b>翻倍</b>。此外，如果敌人逃跑，将获得其毒性伤害的10％的符石。",
                 unlockAt: 600,
                 cost: 1e12
             },
             {
                 //Level 7
-                description: "<b>Double</b> the amount of Toxicity added when an enemy steps on any Poison Trap.",
+                description: "当敌人踩到毒物陷阱时叠加的毒性层数<b>翻倍</b>。",
                 unlockAt: 625,
                 cost: 4e13
             }
@@ -1617,10 +1617,10 @@ var playerSpireTraps = {
         level: 1,
         noDirectDamage: true,
         get description() {
-            var desc = "每步增加" + prettify(this.totalDamage()) + "层毒性伤害. Target will take damage equal to its total Toxicity each time it attempts to move.";
-            if (this.level >= 3) desc += "<br/><br/>If a Poison Trap is placed directly next to another Poison Trap, both Traps gain 3x damage. If a Poison Trap has other Poison Traps on both sides of itself, it gains 9x damage instead."
-            if (this.level >= 5) desc += "<br/><br/>If the enemy has 75% or less health remaining, " + prettify(this.totalDamage() * 5) + " Toxicity is added instead.";
-            if (this.level >= 6) desc += "<br/><br/>If an enemy leaks, gain 10% of its total Toxicity as Runestones.";
+            var desc = "每步增加" + prettify(this.totalDamage()) + "层毒性伤害。每步目标都会受到与其总毒性相等的伤害。";
+            if (this.level >= 3) desc += "<br/><br/>如果在两个毒陷阱想连，则两个毒陷阱都获得3倍效果。如果一个毒陷阱两侧都有毒陷阱，则此毒陷阱会造成9倍效果。"
+            if (this.level >= 5) desc += "<br/><br/>如果敌人的生命值在75％或更低，则叠加" + prettify(this.totalDamage() * 5) + "伤害。";
+            if (this.level >= 6) desc += "<br/><br/>如果敌人逃跑，将获得其毒性伤害的10％的符石。";
             desc += "<br/><br/>(快捷键 3)";
             return desc;
         },
@@ -1677,31 +1677,31 @@ var playerSpireTraps = {
         upgrades: [
             {
                 //Level 2
-                description: "Lightning Trap gains <b>10x</b> damage, and Lightning Trap now adds <b>2</b> stacks of Shocked.",
+                description: "所有闪电陷阱<b>10倍</b>伤害，闪电陷阱现在叠加<b>2</b>层震慑效果。",
                 unlockAt: 440,
                 cost: 5e8
             },
             {
                 //Level 3
-                description: "Lightning Trap gains <b>10x</b> damage, and Shocked now causes the target to take 4x damage and Toxicity from Traps. Towers and slows are not boosted by this extra damage.",
+                description: "所有闪电陷阱<b>10倍</b>伤害，每层震慑效果会使敌人在陷阱中受到4倍伤害和毒性叠加。这个效果不会增加塔和减速效果。",
                 unlockAt: 500,
                 cost: 5e9
             },
             {
                 //Level 4
-                description: "Lightning Trap increases the damage and effect of Fire and Poison Traps in its column by 10%, stacking additively with other Lightning Traps in the column.",
+                description: "闪电陷阱将一列中其他火焰和毒物陷阱的伤害和效果提高10％，与其他闪电陷阱叠加。",
                 unlockAt: 575,
                 cost: 2.5e11
             },
             {
                 //Level 5
-                description: "Lightning Trap gains <b>10x</b> damage, and Lightning Trap now adds <b>3</b> stacks of Shocked.",
+                description: "所有闪电陷阱<b>10倍</b>伤害，闪电陷阱现在叠加<b>3</b>层震慑效果。",
                 unlockAt: 600,
                 cost: 1e12
             },
             {
                 //Level 6
-                description: "Lightning Trap gains <b>10x</b> damage, and Shocked now causes the target to take 8x damage and Toxicity from Traps. Towers and slows are not boosted by this extra damage.",
+                description: "所有闪电陷阱<b>10倍</b>伤害，每层震慑效果会使敌人在陷阱中受到8倍伤害和毒性叠加。这个效果不会增加塔和减速效果。",
                 unlockAt: 675,
                 cost: 1e15
             }
@@ -1714,8 +1714,8 @@ var playerSpireTraps = {
         turns: 1,
         get description(){
             var shockTurns = this.shockTurns();
-            var text = "每步造成" + prettify(this.totalDamage()) + "伤害, and afflicts the target with " + shockTurns + " stack" + needAnS(shockTurns) + " of Shocked. 1 stack of Shocked is consumed each time an enemy steps on a Trap or Tower, causing that Bad Guy to take " + this.shockedDamage() + "x damage and " + this.shockedEffect() + "x effect from the Trap or Tower that consumed the stack of Shocked. Shocked can boost the damage but not the effect of other Lightning Traps."
-            if (this.level >= 4) text += "<br/><br/>Each Lightning Trap increases the damage and effect of Fire and Poison Traps in its column by 10%, stacking additively.";
+            var text = "每步造成" + prettify(this.totalDamage()) + "伤害，并给敌人叠加" + shockTurns + "层" + needAnS(shockTurns) + "震慑状态。敌人每步行动时会消耗一层震慑状态，导致敌人多受到<b>" + this.shockedDamage() + "倍</b>伤害和<b>" + this.shockedEffect() + "倍</b>效果。震慑状态在闪电陷阱上只有伤害加成，不享受效果加成。"
+            if (this.level >= 4) text += "<br/><br/>闪电陷阱将一列中其他火焰和毒物陷阱的伤害和效果提高10％，效果是叠加的。";
             text += "<br/><br/>(快捷键 4)";
             return text;
         },
@@ -1820,25 +1820,25 @@ var playerSpireTraps = {
         icon: "funnel",
         upgrades: [
             {   //level 2
-                description: "Each Condenser Tower grants an additional 5% Helium earned from all sources.", //500 
+                description: "每个冷凝塔都可以从所有来源获得额外的5％氦气。", //500 
                 unlockAt: -1,
                 cost: 2e6
             },
             {
                 //level 3
-                description: "Each Condenser Tower grants an additional 5% Helium earned from all sources.", //5000
+                description: "每个冷凝塔都可以从所有来源获得额外的5％氦气。", //5000
                 unlockAt: -1,
                 cost: 2e10
             },
             {
                 //level 4
-                description: "Each Condenser Tower grants an additional 5% Helium earned from all sources.", //50000
+                description: "每个冷凝塔都可以从所有来源获得额外的5％氦气。", //50000
                 unlockAt: -1,
                 cost: 2e14
             },
             {
                 //level 5
-                description: "Each Condenser Tower grants an additional 5% Helium earned from all sources.", //500000
+                description: "每个冷凝塔都可以从所有来源获得额外的5％氦气。", //500000
                 unlockAt: -1,
                 cost: 2e18
             },
@@ -1854,7 +1854,7 @@ var playerSpireTraps = {
         },
         noDirectDamage: true,
         get description(){
-            return "当踩上，增加目标的毒性25%. In addition, each Condenser Tower increases all Helium found by " + prettify(this.getWorldBonus(true)) + "% (additive with other Condenser Towers).<br/><br/>Your Condenser Towers are currently granting a total of <b>" + prettify(this.getWorldBonus()) + "%</b> additional Helium from all sources.<br/><br/>(快捷键 6)";
+            return "当踩上，增加目标的毒性25%。此外，每个冷凝塔都会增加所有来源获得额外的" + prettify(this.getWorldBonus(true)) + "%氦气(additive with other Condenser Towers)。<br/><br/>你的冷凝塔总共加成所有来源获得额外的<b>" + prettify(this.getWorldBonus()) + "%</b>氦气。<br/><br/>(快捷键 6)";
         },
         extraEffect: function(enemy, cell){
             var effect = (enemy && enemy.shockTurns && enemy.shockTurns > 0) ? playerSpireTraps.Lightning.shockedEffect() : 1;
@@ -1871,25 +1871,25 @@ var playerSpireTraps = {
         icon: "book2",
         upgrades: [
             {   //level 2
-                description: "Each Knowledge Tower grants an additional 7.5% Fluffy Exp earned from all sources.", //500 
+                description: "每个知识塔提供从所有来源获得的额外7.5％蓬松经验加成。", //500 
                 unlockAt: -1,
                 cost: 3e6
             },
             {
                 //level 3
-                description: "Each Knowledge Tower grants an additional 7.5% Fluffy Exp  earned from all sources.", //5000
+                description: "每个知识塔提供从所有来源获得的额外7.5％蓬松经验加成。", //5000
                 unlockAt: -1,
                 cost: 3e10
             },
             {
                 //level 4
-                description: "Each Knowledge Tower grants an additional 7.5% Fluffy Exp earned from all sources.", //50000
+                description: "每个知识塔提供从所有来源获得的额外7.5％蓬松经验加成。", //50000
                 unlockAt: -1,
                 cost: 3e14
             },
             {
                 //level 4
-                description: "Each Knowledge Tower grants an additional 7.5% Fluffy Exp earned from all sources.", //50000
+                description: "每个知识塔提供从所有来源获得的额外7.5％蓬松经验加成。", //50000
                 unlockAt: -1,
                 cost: 3e18
             }
@@ -1905,7 +1905,7 @@ var playerSpireTraps = {
         },
         noDirectDamage: true,
         get description(){
-            return "When stepped on by a Chilled enemy, Chilled becomes Frozen, slowing the target to 33% speed for 5 moves. In addition, each Knowledge Tower increases Fluffy's Experience gain by " + prettify(this.getWorldBonus(true)) + "% (additive with other Knowledge Towers). Note that Knowledge Towers are coated with antifreeze, preventing chill effects from working until the enemy steps off of this Tower.<br/><br/>Your Knowledge Towers are currently granting a total of <b>" + prettify(this.getWorldBonus()) + "%</b> additional Fluffy Exp.<br/><br/>(快捷键 7)";
+            return "当被冰冷的敌人踩到时，冰冷变为冻结，使目标减速至33％（一格三步），持续5格。此外，每个知识塔都会提供" + prettify(this.getWorldBonus(true)) + "%蓬松经验加成(additive with other Knowledge Towers). 请注意，知识塔涂有防冻剂，可防止冰冷或冻结直到敌人离开此塔。<br/><br/>你的知识塔一共提供<b>" + prettify(this.getWorldBonus()) + "%</b>蓬松经验加成。<br/><br/>(快捷键 7)";
         },
         totalDamage: function (enemy){
             var level = this.level;

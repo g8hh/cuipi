@@ -13494,7 +13494,7 @@ var Fluffy = {
 			description: "所有来源获得的氦提高25%"
 		},
 		void: {
-			description: "允许有两个相同名字的空地图粘在一起。在完成了这张2x的虚空地图之后，蓬松将会立即清除多余的那张，比正常的和第二次传家宝的氦要多一半的氦。"
+			description: "允许有两个相同名字的虚空地图粘在一起。在完成了这张2x的虚空地图之后，蓬松将会立即清除多余的那张，比正常的和第二次传家宝的氦要多一半的氦。"
 		},
 		eliminator: {
 			description: "尖塔中的腐败和健康细胞会失去它们的所有特性。"
@@ -13509,7 +13509,7 @@ var Fluffy = {
 			description: "所有日常挑战的氦气系数增加100%。"
 		},
 		critChance: {
-			description: "给予你的脆皮额外50%暴击几率。Gives your Trimps an additional 50% crit chance."
+			description: "给予你的脆皮额外50%暴击几率。"
 		},
 		megaCrit: {
 			get description(){
