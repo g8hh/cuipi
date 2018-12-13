@@ -1854,7 +1854,7 @@ var playerSpireTraps = {
         },
         noDirectDamage: true,
         get description(){
-            return "当踩上，增加目标的毒性25%。此外，每个冷凝塔都会增加所有来源获得额外的" + prettify(this.getWorldBonus(true)) + "%氦气(additive with other Condenser Towers)。<br/><br/>你的冷凝塔总共加成所有来源获得额外的<b>" + prettify(this.getWorldBonus()) + "%</b>氦气。<br/><br/>(快捷键 6)";
+            return "每步增加目标的毒性25%。此外，每个冷凝塔都会增加所有来源获得额外的" + prettify(this.getWorldBonus(true)) + "%氦气(additive with other Condenser Towers)。<br/><br/>你的冷凝塔总共加成所有来源获得额外的<b>" + prettify(this.getWorldBonus()) + "%</b>氦气。<br/><br/>(快捷键 6)";
         },
         extraEffect: function(enemy, cell){
             var effect = (enemy && enemy.shockTurns && enemy.shockTurns > 0) ? playerSpireTraps.Lightning.shockedEffect() : 1;
