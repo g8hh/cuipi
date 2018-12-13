@@ -473,7 +473,7 @@ var cntit = {
     'Frozen':'冻结',
     'Hour Bender':'小时狂欢',
     'Daylusional':'白天的',
-    'Chilly':'寒意',
+    'Chilly':'冰冷',
     'Frosty':'寒霜',
     'Cool':'凉爽',
     'Coldlector':'冷冻机',

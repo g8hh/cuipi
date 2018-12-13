@@ -1,4 +1,8 @@
 var playerSpire = {
+    // 数值计算开始
+    LastShangHai: 0,
+    LastDiaoLuo: 0,
+    // 数值计算结束
     layout: [],
     rowsAllowed: 1,
     resetToRows: 1,
@@ -1319,6 +1323,24 @@ var playerSpire = {
                         if (newLocation != x) playerSpire.drawEnemy(newLocation);
                     }
                 }
+                // 数值计算开始
+                if(x == cells - 1)
+                {
+                    var maxshanghai =  enemy.maxHealth - enemy.health;
+                    if (enemy.health <= 0) {
+                        if(this.LastDiaoLuo != this.getRsReward(enemy, rsBonus)) {
+                            this.LastDiaoLuo = this.getRsReward(enemy, rsBonus);
+                            console.log("最大生命：" + enemy.maxHealth + "掉落：" + this.LastDiaoLuo);
+                        }
+                    }
+                    else {
+                        if(this.LastShangHai != maxshanghai) {
+                            this.LastShangHai = maxshanghai;
+                            console.log("最大生命：" + enemy.maxHealth + "最大伤害：" + maxshanghai + "预计掉落：" + this.getRsReward(enemy, rsBonus));
+                        }
+                    }
+                }
+                // 数值计算结束
             }
             if (drawCell && !catchingUp) playerSpire.drawEnemy(x);
         }
