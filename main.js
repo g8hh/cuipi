@@ -4100,13 +4100,13 @@ function populateSpecialModifiers(){
 	var setting = elem.value;
 	if (!setting) setting = "0";
 	elem.innerHTML = "";
-	var newOptions = "<option value='0'>No Modifier</option>";
+	var newOptions = "<option value='0'>没有修饰语</option>";
 	for (var item in mapSpecialModifierConfig){
 		var bonusItem = mapSpecialModifierConfig[item];
 		if (game.global.highestLevelCleared + 1 < bonusItem.unlocksAt){
 			break;
 		}
-		newOptions += "<option value='" + item + "'>" + bonusItem.name + "</option>";
+		newOptions += "<option value='" + item + "'>" + cnItem(bonusItem.name) + "</option>";
 	}
 	elem.innerHTML = newOptions;
 	elem.value = setting;
@@ -4967,7 +4967,7 @@ function renameHeirloom(cancel, fromPopup){
 		return;
 	}
 	if (!inputText){
-		containerElem.innerHTML = "<input maxlength='25' id='heirloomNameInput' value='" + heirloom.name + "'/> <span onclick='renameHeirloom()' class='renameHeirloomBtn'>Save</span><span class='renameHeirloomBtn' onclick='renameHeirloom(true)'>Cancel</span>";
+		containerElem.innerHTML = "<input maxlength='25' id='heirloomNameInput' value='" + heirloom.name + "'/> <span onclick='renameHeirloom()' class='renameHeirloomBtn'>保存</span><span class='renameHeirloomBtn' onclick='renameHeirloom(true)'>取消</span>";
 		titleElem.innerHTML = "";
 		return;
 	}
@@ -5239,15 +5239,15 @@ function setHeirRareText(forBones){
 	if (!forBones){
 		var breakpoint = getHeirloomZoneBreakpoint();
 		if (breakpoint == game.heirlooms.rarityBreakpoints.length) nextAt = "Max Rarity";
-		else nextAt = "Next Rarity Increase at Z" + game.heirlooms.rarityBreakpoints[breakpoint];
-		html = "<b>Current Heirloom Drop Rates</b> - " + nextAt + "<br/>";
+		else nextAt = "接下来稀有度增加在区域 " + game.heirlooms.rarityBreakpoints[breakpoint];
+		html = "<b>当前传家宝掉落几率</b> - " + nextAt + "<br/>";
 	}
 	var rarities = (!forBones) ? getHeirloomRarityRanges(game.global.world) : getHeirloomRarityRanges(game.global.highestLevelCleared + 1);
 	var canLower = (Fluffy.isRewardActive("stickler")) ? 500 : 0;
 	for (var x = 0; x < rarities.length; x++){
 		var rarity = rarities[x];
 		if (rarity == -1) continue;
-		if (!forBones) html += "<div class='rarityBdBox heirloomRare" + x + "'>" + game.heirlooms.rarityNames[x] + "<br/>" + (rarity / 100) + "%</div>";
+		if (!forBones) html += "<div class='rarityBdBox heirloomRare" + x + "'>" + cnItem(game.heirlooms.rarityNames[x]) + "<br/>" + (rarity / 100) + "%</div>";
 		else html += "<div class='rarityBdBox heirloomRare" + x + " forBones' title='" + game.heirlooms.rarityNames[x] + "'>" + (rarity / 100) + "%</div>";
 	}
 	if (forBones) document.getElementById("heirloomRarityMisc").innerHTML = html;
@@ -6645,7 +6645,7 @@ function saveGenStateConfig(){
 }
 
 function getGenStateConfigTooltip(){
-	var tooltipText = "<div id='genStateConfigTop'><div style='font-size: 1.2vw; text-align: right; width: 40%; margin-right: 10%; display: inline-block;'>Starting Setting: </div>" + getSettingHtml(game.options.menu.generatorStart, 'generatorStart', null, "Popup") + "</div>";
+	var tooltipText = "<div id='genStateConfigTop'><div style='font-size: 1.2vw; text-align: right; width: 40%; margin-right: 10%; display: inline-block;'>开始设置: </div>" + getSettingHtml(game.options.menu.generatorStart, 'generatorStart', null, "Popup") + "</div>";
 	var savedSettings = game.global.genStateConfig;
 	var btnsAllowed = 2;
 	for (var x = 0; x < btnsAllowed; x++){
@@ -6822,7 +6822,7 @@ function updateGeneratorUpgradeHtml(){
 		if (elem == null) continue;
 		var upgrade = game.generatorUpgrades[item];
 		var cost = upgrade.cost();
-		var text = cngen(item) + "<br/>" + upgrade.upgrades;
+		var text = cnItem(item) + "<br/>" + upgrade.upgrades;
 		elem.innerHTML = text;
 		var state = (game.global.magmite >= cost) ? "CanAfford" : "CanNotAfford";
 		if (item == "Overclocker" && (!game.permanentGeneratorUpgrades.Hybridization.owned || !game.permanentGeneratorUpgrades.Storage.owned))
@@ -6834,7 +6834,7 @@ function updateGeneratorUpgradeHtml(){
 		if (elem == null) continue;
 		var upgrade = game.permanentGeneratorUpgrades[item];
 		var cost = upgrade.cost;
-		var text = cngen(item) + "<br/>";
+		var text = cnItem(item) + "<br/>";
 		text += (upgrade.owned) ? "已完成" : prettify(cost) + " 岩浆岩";
 		elem.innerHTML = text;
 		var state;
@@ -6885,7 +6885,7 @@ function showGeneratorUpgradeInfo(item, permanent){
 		text = "已完成";
 	}
 	else text = "购买: " + prettify(cost) + " 岩浆岩";
-	elem.innerHTML = "<div id='generatorUpgradeName'>" + cngen(item) + "</div><div onclick='buyGeneratorUpgrade(\"" + item + "\")' id='magmiteCost' class='pointer noSelect hoverColor color" + color + "'>" + text + "</div>" + description + "<br/>";
+	elem.innerHTML = "<div id='generatorUpgradeName'>" + cnItem(item) + "</div><div onclick='buyGeneratorUpgrade(\"" + item + "\")' id='magmiteCost' class='pointer noSelect hoverColor color" + color + "'>" + text + "</div>" + description + "<br/>";
 	lastViewedDGUpgrade = [item, permanent];
 	verticalCenterTooltip();
 }
@@ -12687,7 +12687,7 @@ function toggleVoidMaps(updateOnly){
 	heirRare.style.display = "block";
 	setHeirRareText();
 	hideAdvMaps(true, true);
-	elem.innerHTML = "Back";
+	elem.innerHTML = "返回";
 }
 
 function toggleAutoStructure(noChange, forceOff){
@@ -14369,36 +14369,6 @@ function cnresourcetype(type){
     return cnresourcetype;
 }
 
-
-    function cngen(text) {
-    //汉化维度发生器升级标题
-    var cngen = "";
-    var temp = text;
-    if (temp == "Efficiency") {
-        cngen = "效率";
-    } else if (temp == "Capacity") {
-        cngen = "容量";
-    } else if (temp == "Supply") {
-        cngen = "供给";
-    } else if (temp == "Overclocker") {
-        cngen = "超频";
-    } else if (temp == "Hybridization") {
-        cngen = "混合";
-    } else if (temp == "Storage") {
-        cngen = "存储";
-    } else if (temp=="Shielding"){
-        cngen = "屏障";   
-    } else if (temp=="Slowburn"){
-        cngen = "缓慢燃烧";   
-    } else if (temp=="Supervision"){
-        cngen = "管理";   
-    } else if (temp=="Simulacrum"){
-        cngen = "复制";   
-    } else {
-        return text;
-    }
-    return cngen;
-}
 
 load();
 displayPerksBtn();

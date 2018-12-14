@@ -807,8 +807,9 @@ var toReturn = {
 			mapsOnSpire: {
 				enabled: 1,
 				extraTags: "other",
-				description: "选择是否希望游戏在到达尖塔时通过发送地图来暂停战斗。<b>保持在尖塔格斗</b> 到达尖塔时不会中断你， <b>地图在尖顶</b> will send you to maps on every Spire, <b>Map at Top 2 Spires</b> will send you to maps at the highest and second highest level Spire reached, and <b>Map at Top Spire</b> will switch to maps only on the single highest Spire reached.",
-				titles: ["Keep Fighting at Spires", "尖塔地图", "Map at Top 2 Spires", "Map at Top Spire"],
+				description: "选择是否希望游戏在到达尖塔时通过发送地图来暂停战斗。<b>继续在尖塔战斗</b> 到达尖塔时不会中断你， <b>尖塔地图</b> 将发送给你每个尖塔的地图， <b>地图在尖塔顶部2层</b> 会送你到地图在最高和第二高的你达到的尖塔, 以及 <b>地图在尖塔顶层</b> 只会在达到的最高尖塔上切换到地图。",
+				titles: ["继续在尖塔战斗", "尖塔地图", "地图在尖塔顶部2层", "地图在尖塔顶层"],
+
 				lockUnless: function () {
 					return (game.global.highestLevelCleared >= 199);
 				},
@@ -817,7 +818,7 @@ var toReturn = {
 			mapAtZone: {
 				enabled: 0,
 				extraTags: "other",
-				description: "When enabled, you will automatically abandon your Trimps in the World and enter the Map Chamber as soon as you hit your specified Zone number.",
+				description: "启用后，您将自动放弃世界中的脆皮，并在达到指定的区域编号后立即进入地图室。",
 				get titles(){
 					var nextZone = "";
 					if (this.setZone.length == 1) nextZone = this.setZone;
@@ -832,7 +833,8 @@ var toReturn = {
 						if (nextZone == "") 
 							nextZone = this.setZone[0];
 					}
-					return ["No Map At Zone", "Map At Z" + nextZone];
+				return ["区域内无地图", "地图在Z" + nextZone];
+
 				},
 				setZone: [200],
 				secondLocation: ["togglemapAtZone2", "togglemapAtZoneCM"],
@@ -884,7 +886,7 @@ var toReturn = {
 					return (game.global.highestLevelCleared >= 79);
 				},
 				get description(){
-					var text = "<p>This setting applies to big popups that occur after hitting certain milestones each portal. This setting will currently block: the Improbability popup";
+					var text = "<p>此设置适用于在每个传送门达到某些里程碑后发生的大弹出窗口。 此设置目前将阻止：Improbability弹出窗口";
 					if (game.global.highestLevelCleared >= 199) text += ", the popup at Corruption";
 					if (game.global.highestLevelCleared >= 219) text += ", the popup at The Spire";
 					if (game.global.highestLevelCleared >= 249) text += ", and the popup on reaching Magma.";
@@ -2782,7 +2784,7 @@ var toReturn = {
 			owned: false
 		},
 		Supervision: {
-			description: "<p>Gain 3 Automation/Micromanagement tools for your Generator!</p><ul><li>Gain the ability to pause the Dimensional Generator by clicking the clock.</li><li>Get a sweet button to configure specific Zones to switch Generator states at. You'll also gain the ability to Ctrl + Click the Generator Start setting in the Settings menu to open up the same interface.</li><li>Add a Slider to your Generator window, allowing you to lower your maximum fuel capacity and gain greater control over Overclocker. Lowering your capacity below your stored amount of fuel will not waste any fuel, but the first time Overclocker is triggered, all extra fuel will be consumed.</li></ul>",
+			description: "<p>为您的发生器获得3个自动化/微管理工具！</p><ul><li>通过单击时钟获得暂停维度生成器的功能。</li><li>获取一个甜蜜按钮来配置特定区域以切换发生器状态。 您还可以在“设置”菜单中按Ctrl +单击“发生器启动”设置以打开相同的界面。</li><li>在您的发生器窗口添加滑块，可以降低最大燃油容量并获得对超频者的更大控制。 将容量降低到低于存储的燃料量不会浪费任何燃料，但是第一次触发超频时，所有额外的燃料都将被消耗掉。</li></ul>",
 			cost: 2000,
 			owned: false,
 			onPurchase: function() {
@@ -2859,7 +2861,7 @@ var toReturn = {
 			title: "Real Estate",
 			description: function (number) {
 				if (number == 9) return "使用维度生成器";
-				return "建造你的第一个  " + cnwhat(this.breakpoints[number]);
+				return "建造你的第一个  " + cnItem(this.breakpoints[number]);
 			},
 //			breakpoints: ["窝棚", "房子", "大厦", "旅馆", "娱乐场", "出入口", "虫洞", "集电极", "经线站", "发电机"],
             breakpoints: ["Hut", "House", "Mansion", "Hotel", "Resort", "Gateway", "Wormhole", "Collector", "Warpstation", "Generator"],
