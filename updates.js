@@ -731,15 +731,15 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		elem.style.top = "25%";
 	}
 	if (what == "The Magma"){
-		tooltipText = "<p>You stumble across a large locked chest, unlike anything you've ever seen. The lock looks rusty, you smack it with a rock, and it falls right off. Immediately the ground shakes and cracks beneath your feet, intense heat hits your face, and Magma boils up from the core.</p><p>Where one minute ago there was dirt, grass, and noxious fog, there are now rivers of molten rock (and noxious fog). You'd really like to try and repair the planet somehow, so you decide to keep pushing on. It's been working out well so far, there was some useful stuff in that chest!</p><hr/>";
-		tooltipText += "<span class='planetBreakDescription'><span class='bad'>The heat is tough on your Trimps, causing each Zone to reduce their attack and health by 20% more than the last. 10% of your Nurseries will permanently close after each Zone to avoid Magma flows, and Corruption has seeped into both Void and regular Maps, further increasing their difficulty. </span><span class='good'> However, the chest contained plans and materials for the <b>Dimensional Generator</b> building, <b>" + prettify(textString) + " Helium</b>, and <b>100 copies of Coordination</b>! In addition, all Zones are now worth <b>3x Helium</b>!<span></span>";
+		tooltipText = "<p>你偶然发现一个上锁的大宝箱，它不同于你以往见过的。 锁看起来生锈得很厉害，你用岩石砸了一下它，它就掉下来了。 随后地面开始震动并在你的脚下裂开，强烈的热气击中你的脸，岩浆从核心沸腾。</p><p>在一分钟前，有泥土，草和有毒的雾，现在有熔岩（和有害雾）的河流。 你真的想以某种方式尝试修复这个星球，所以你决定继续推进。 到目前为止，它一直运作良好，胸部有一些有用的东西！</p><hr/>";
+		tooltipText += "<span class='planetBreakDescription'><span class='bad'>猛烈的热量炙烤着你的脆皮，导致每个区域的攻击和生命值比上一次减少20％。 在每个区域之后，10％的托儿所将永久关闭，以避免岩浆流动，腐蚀已经渗透到虚空和常规地图中，进一步增加了它们的难度。 </span><span class='good'> 然而，箱子里装的是<b>维度发生器</b> 建筑的计划和材料  <b>" + prettify(textString) + " 氦</b>, 以及 <b>100份协调</b>! 此外，所有区域现在都值 <b>3倍 氦</b>!<span></span>";
 		costText += "<div class='maxCenter'><div class='btn btn-info' id='confirmTooltipBtn' onclick='cancelTooltip()'>好</div></div>";
 		game.global.lockTooltip = true;
 		elem.style.left = "33.75%";
 		elem.style.top = "25%";
 	}
 	if (what == "Exit Spire"){
-		tooltipText = "This will exit the spire, and you will be unable to re-enter until your next portal. Are you sure?";
+		tooltipText = "这将退出尖顶，在您的下一个传送门之前，您将无法重新进入。 你确定吗？";
 		costText = "<div class='maxCenter'><div class='btn btn-info' onclick='cancelTooltip(); endSpire()'>退出尖塔</div><div class='btn btn-danger' onclick='cancelTooltip()'>取消</div></div>";
 		game.global.lockTooltip = true;
 		elem.style.left = "33.75%";
@@ -871,7 +871,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		} else {
 			costText += 'data:text/plain,' + encodeURIComponent(saveText);
 		}
-		costText += " ><div class='btn btn-danger' id='downloadBtn'>Download as File</div></a>";
+		costText += " ><div class='btn btn-danger' id='downloadBtn'>下载保存为一个文件</div></a>";
 		costText += "</div>";
 		ondisplay = tooltips.handleCopyButton();
 		game.global.lockTooltip = true;

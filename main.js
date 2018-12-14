@@ -589,7 +589,7 @@ function load(saveString, autoLoad, fromPf) {
 	if (oldVersion < 4.5 && typeof game.portal.Looting_II !== 'undefined' && game.portal.Looting_II.locked == false){
 		game.global.spiresCompleted = 1;
 		game.global.b += 20;
-		message("Welcome to Patch 4.5! Since you have already cleared Spire I, you have been given 20 bones and earned 5% Zone Liqufication. Click 'What's New' to see what's new!", "Story");
+		message("欢迎来到补丁4.5！ 由于你已经清除了尖塔 I，你已经获得了20块骨头并且获得了5％的区域液化。 点击“版本号”，看看有什么新东西！", "Story");
 	}
 	if (oldVersion < 4.6){
 		if (game.global.highestLevelCleared >= 79) addNewSetting('bigPopups');

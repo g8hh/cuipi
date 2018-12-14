@@ -704,9 +704,9 @@ var cntit = {
     'Set Map At Zone': '在区域内设置地图',
     'Megalumber': '巨型木材',
     'Void Map': '虚空地图',
-    '': '',
-    '': '',
-    '': '',
+    'Corruption': '腐败',
+    'The Magma': '岩浆',
+    'Error': '出错啦',
     '': '',
     '': '',
     '': '',
@@ -855,12 +855,12 @@ function cnLog(x, cells, enemy, rsBonus, LastDiaoLuo, getRsReward, LastShangHai)
         if (enemy.health <= 0) {
             if (LastDiaoLuo != getRsReward) {
                 LastDiaoLuo = getRsReward;
-                message("最大生命：" + enemy.maxHealth + "掉落：" + LastDiaoLuo);
+                message("最大生命：" + enemy.maxHealth + "掉落：" + LastDiaoLuo,"Loot");
             }
         } else {
             if (LastShangHai != maxshanghai) {
                 LastShangHai = maxshanghai;
-               message("最大生命：" + enemy.maxHealth + "最大伤害：" + maxshanghai + "预计掉落：" + getRsReward,"Story", null, "voidMessage");
+               message("最大生命：" + enemy.maxHealth + "最大伤害：" + maxshanghai + "预计掉落：" + getRsReward,"Loot");
             }
         }
     }
