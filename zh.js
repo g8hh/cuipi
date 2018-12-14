@@ -855,12 +855,12 @@ function cnLog(x, cells, enemy, rsBonus, LastDiaoLuo, getRsReward, LastShangHai)
         if (enemy.health <= 0) {
             if (LastDiaoLuo != getRsReward) {
                 LastDiaoLuo = getRsReward;
-                message("最大生命：" + enemy.maxHealth + "掉落：" + LastDiaoLuo,"Loot");
+                message("最大生命：" + enemy.maxHealth + "掉落：" + LastDiaoLuo,"Loot", "*cubes", null, 'primary');
             }
         } else {
             if (LastShangHai != maxshanghai) {
                 LastShangHai = maxshanghai;
-               message("最大生命：" + enemy.maxHealth + "最大伤害：" + maxshanghai + "预计掉落：" + getRsReward,"Loot");
+               message("最大生命：" + enemy.maxHealth + "最大伤害：" + maxshanghai + "预计掉落：" + getRsReward,"Loot", "*cubes", null, 'primary');
             }
         }
     }

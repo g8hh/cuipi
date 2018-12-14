@@ -1653,11 +1653,11 @@ function activateKongBonus(oldWorld){
 	var addText = "";
 	if (oldWorld > 0){
 		helium = Math.floor(oldWorld / 2);
-		addText = "You earned " + helium + " bonus points for reaching World " + oldWorld + ".";
+		addText = "你得到了 " + helium + " 奖励点，作为探索世界 " + oldWorld + "的奖励。";
 	}
 	else {
 		helium = game.resources.helium.owned;
-		addText = "You still have " + helium + " bonus points to spend!";
+		addText = "你还有 " + helium + " 奖励点可以花!";
 	}
 	document.getElementById("wrapper").style.display = "none";
 	var portalWrapper = document.getElementById("portalWrapper");
@@ -5920,14 +5920,14 @@ var mutations = {
 			var baseValue = (game.global.world >= this.start(true)) ? 10 : 5;
 			if (mutations.Magma.active()) baseValue *= 3;
 			var amt = rewardResource("helium", baseValue, 99, false, percentage);
-			var text = "The corruption quickly swirls into the air and dissipates. <span class='helium'>You see " + prettify(amt) + " canisters of Helium left on the ground and pick them up. Useful!</span>";
+			var text = "腐败迅速蔓延到空中并消散。 <span class='helium'>你看到 " + prettify(amt) + " 氦气罐留在地上并捡起来。 有用！</span>";
 			message(text, "Loot", "oil", "voidMessage", "helium");
 		},
 		tooltip: function (effectName) {
 			var mutText = mutationEffects[effectName].text;
 			var text = "";
 			if (game.global.spireActive){
-				if (effectName == "none") return "This enemy is missing an effect thanks to Fluffy! It will still drop " + ((game.global.challengeActive == "Corrupted") ? "7.5%" : "15%") + " of the helium you would normally get from completing this Zone.";
+				if (effectName == "none") return "感谢蓬松，这个敌人缺少效果！ 它仍会掉落 " + ((game.global.challengeActive == "Corrupted") ? "7.5%" : "15%") + " 通常从完成此区域获得的氦气。";
 				text = mutText[0].toUpperCase() + mutText.substring(1);
 			}
 			else {
@@ -6279,7 +6279,7 @@ var mutations = {
 						var rate = getFuelBurnRate();
 						var aboveCap = game.global.magmaFuel - cap;
 						rate = Math.ceil(aboveCap / rate);
-						text = "You earned " + prettify(amt) + " fuel, triggering " + rate + " Overclock" + ((rate > 1) ? "s" : "") + "!";
+						text = "你得到了 " + prettify(amt) + " 燃料, 触发 " + rate + " 超频" + ((rate > 1) ? "" : "") + "!";
 						for (var x = 0; x < rate; x++){
 							generatorTick(true);
 						}
@@ -6291,17 +6291,17 @@ var mutations = {
 						if (dif <= 0) dif = 0;
 						amt -= dif;
 						if (amt <= 0.001) amt = 0;
-						text = "You earned " + prettify(amt) + " fuel! (" + prettify(dif) + " destroyed, not enough capacity)";
+						text = "你得到了 " + prettify(amt) + " 燃料! (" + prettify(dif) + " 损毁了，没有足够的容量)";
 						game.global.magmaFuel = cap;
 					}
 				}
 				else
-					text = "You earned " + prettify(amt) + " fuel!";
+					text = "你得到了 " + prettify(amt) + " 燃料!";
 				changeGeneratorState(null, true);
 			}
 			else{
 				amt = getMagmiteReward();
-				text = "You earned " + prettify(amt) + " Magmite!";
+				text = "你得到了 " + prettify(amt) + " Magmite!";
 				game.global.magmite += amt;
 				updateGeneratorUpgradeHtml();
 				document.getElementById('upgradeMagmiteTotal').innerHTML = prettify(game.global.magmite) + " Mi";

@@ -4903,7 +4903,7 @@ var toReturn = {
 				game.unlocks.impCount.Magnimp++;
 				var amt = Math.pow(1.003, game.unlocks.impCount.Magnimp);
 				amt = (amt - 1) * 100;
-				message("你杀死了一个Magnimp! The strong magnetic forces now increase your loot by " + amt.toFixed(2) + "%!", "Loot", "magnet", "exotic", "exotic");
+				message("你杀死了一个Magnimp! 强大的磁力现在会增加你的战利品 " + amt.toFixed(2) + "%!", "Loot", "magnet", "exotic", "exotic");
 			}
 		},
 		Skeletimp: {
