@@ -161,6 +161,7 @@ var cnItems = {
     'Best Fluffy Exp/Hr this Run': '本次游戏最高蓬松经验/小时',
     'cache': '缓存',
     'bone': '骨头',
+    'Classy':'经典',
     '': '',
     '': '',
     '': '',
@@ -185,7 +186,7 @@ function cnItem(text) {
     //数组里面没有的，原样返回
     for (var i in cnItems) {
         if (text != i) {
-//            console.log("需汉化的英文Item：" + text);
+            console.log("需汉化的英文Item：" + text);
             return text;
         }
     }
@@ -641,12 +642,12 @@ var cntit = {
     '':'',
     '':'',
     'Message Config':'消息设置',
-    '':'',
-    '':'',
-    '':'',
-    '':'',
-    '':'',
-    '':'',
+    'Buy Max':'购买最大数量',
+    'Save Perk Preset':'保存额外福利预设',
+    'Rename Perk Preset':'重命名额外福利预设',
+    'Load Perk Preset':'加载额外福利预设',
+    'Classy':'经典',
+    'Respec':'修改',
     '':'',
     '':'',
     '':'',
@@ -698,7 +699,7 @@ function cntitle(text) {
     //数组里面没有的，原样返回
     for (var i in cntit) {
         if (text != i) {
-//            console.log("需汉化的英文标题：" + text);
+            console.log("需汉化的英文标题：" + text);
             return text;
         }
     }
@@ -791,7 +792,7 @@ function cnmap(text) {
     //数组里面没有的，原样返回
     for (var i in cnmaps) {
         if (text != i) {
-//            console.log("需汉化的英文地图名：" + text);
+            console.log("需汉化的英文地图名：" + text);
             return text;
         }
     }

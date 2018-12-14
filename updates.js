@@ -446,25 +446,25 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 	}
 	if (what == "Perk Preset"){
 		if (textString == "Save"){
-			what = "保存额外福利预设";
+			what = "Save Perk Preset";
 			tooltipText = "点击把你当前的额外福利放在选定的预设值上";
 		}
 		else if (textString == "Rename"){
-			what = "重命名额外福利预设";
+			what = "Rename Perk Preset";
 			tooltipText = "点击为当前选中的额外福利设置一个名称";
 		}
 		else if (textString == "Load"){
-			what = "加载额外福利预设";
+			what = "Load Perk Preset";
 			tooltipText = "点击载入当前选中的额外福利预设。";
 			if (!game.global.respecActive) tooltipText += " <p class='red'>您必须有相应的激活才能加载预置!</p>";
 		}
 		else if (textString == "Import"){
 			what = "Import Perk Preset";
-			tooltipText = "Click to import a perk setup from a text string";
+			tooltipText = "单击此处可从文本字符串导入perk设置";
 		}
 		else if (textString == "Export"){
 			what = "Export Perk Setup";
-			tooltipText = "Click to export a copy of your current perk setup to share with friends, or to save and import later!"
+			tooltipText = "单击以导出当前激活设置的副本以与朋友分享，或稍后保存和导入！"
 		}
 		else if (textString > 0 && textString <= 3){
 			var preset = game.global["perkPreset" + textString];
@@ -995,7 +995,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 			noExtraCheck = true;
 			costText = "";
 		}
-		else if (buyAmt > 1) cntitle(what) += " X " + prettify(buyAmt);
+		else if (buyAmt > 1) what += " X " + prettify(buyAmt);
 	}
 	if (isItIn == "buildings"){
         var awhat="";
