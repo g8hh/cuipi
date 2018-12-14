@@ -1601,9 +1601,9 @@ function displayPortalUpgrades(fromTab){
 		var html = '<div onmouseover="tooltip(\'' + what + '\',\'portal\',event)" onmouseout="tooltip(\'hide\')" class="noselect pointer portalThing thing perkColorOff';
 		if (game.options.menu.detailedPerks.enabled == 1) html += " detailed";
 		if (game.options.menu.smallPerks.enabled) html += (game.options.menu.smallPerks.enabled == 1) ? " smallPerk" : " tinyPerk";
-		if (portUpgrade.additive) html += " 附加的";
-        //能力汉化
-		html += " 改变关闭";
+		if (portUpgrade.additive) html += " additive";
+        // 能力汉化!!!这里并不能汉化 
+		html += " changingOff";
 		html += '" id="' + what + '" onclick="buyPortalUpgrade(\'' + what + '\')"><span class="thingName">' + cnItem(what.replace('_', ' ')) + '</span>';
 
 		if (game.options.menu.detailedPerks.enabled == 1){
