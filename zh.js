@@ -798,11 +798,12 @@ var cnmaps = {
     'Poisonous Descent': '有毒的血统',
     'Deadly Pit': '致命的坑',
     'Deadly Descent': '致命的血统',
+    'Deadly Void': '致命的虚空',
+    'Deadly Nightmare': '致命的梦魇',
     'Destructive Descent': '破坏性的血统',
     'Destructive Nightmare': '破坏性的噩梦',
     'Destructive Void': '破坏性虚空',
-    '': '',
-    '': '',
+    'Destructive Pit': '破坏性虚坑',
     '': '',
     '': '',
     '': '',
@@ -822,18 +823,18 @@ var cnmaps = {
     '仿生仙境 XIX': '仿生仙境 XIX',
     '仿生仙境 XX': '仿生仙境 XX',
     '仿生仙境 XXI': '仿生仙境 XXI',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
+    '仿生仙境 VII': '仿生仙境 VII',
+    '仿生仙境 VIII': '仿生仙境 VIII',
+    '仿生仙境 IX': '仿生仙境 IX',
+    '导入': '导入',
+    '仿生仙境 VI': '仿生仙境 VI',
+    '仿生仙境 X': '仿生仙境 X',
     '': '',
     '': '',
     '': '',
 };
 
-function cnmap(text) {
+function cnMap(text) {
     //数组里面有的，返回中文
     for (var i in cnmaps) {
         if (text == i) {

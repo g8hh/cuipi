@@ -83,16 +83,16 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 	}
 	if (isItIn == "advMaps"){
 		var advTips = {
-			Loot: "This slider allows you to fine tune the map Loot modifier. Moving this slider from left to right will guarantee more loot from the map, but increase the cost.",
-			Size: "This slider allows you to fine tune the map Size modifier. Moving this slider from left to right will guarantee a smaller map, but increase the cost.",
-			Difficulty: "This slider allows you to fine tune the map Difficulty modifier. Moving this slider from left to right will guarantee an easier map, but increase the cost.",
-			Biome: "If you're looking to farm something specific, you can select the biome here. Anything other than random will increase the cost of the map.",
+			Loot: "该滑块可以微调地图战利品修改。 将此滑块从左向右移动将保证从地图中获得更多的战利品，但会增加成本。",
+			Size: "此滑块允许您微调地图尺寸修改器。 将此滑块从左向右移动将保证较小的地图，但会增加成本。",
+			Difficulty: "此滑块允许您微调地图“难度”修改器。 将此滑块从左向右移动将保证更简单的地图，但会增加成本。",
+			Biome: "如果您正在寻找特定的农场，您可以在这里选择生物群系。 除随机之外的任何东西都会增加地图的成本。",
 			get Special_Modifier() {
-				var text = "<p>Select a special modifier to add to your map from the drop-down below! You can only add one of these to each map. The following bonuses are currently available:</p><ul>"
+				var text = "<p>从下面的下拉列表中选择要添加到地图的特殊修改器！ 您只能将其中一个添加到每个地图中。 以下奖金目前可用：</p><ul>"
 				for (var item in mapSpecialModifierConfig){
 					var bonusItem = mapSpecialModifierConfig[item];
 					if (game.global.highestLevelCleared + 1 < bonusItem.unlocksAt){
-						text += "<li><b>Next modifier unlocks at Z" + bonusItem.unlocksAt + "</b></li>";
+						text += "<li><b>下一个修改器在Z处解锁" + bonusItem.unlocksAt + "</b></li>";
 						break;
 					}
 					text += "<li><b>" + cnItem(bonusItem.name) + " (" + bonusItem.abv + ")</b> - " + bonusItem.description + "</li>";
@@ -3898,8 +3898,8 @@ function unlockMap(what) { //what here is the array index
 	var abbrev = item.bonus;
 	if (item.location == "Bionic" && game.talents.bionic2.purchased) abbrev = '<span class="mapSpec"> (P, FA)</span>';
 	else abbrev = ((abbrev) ? getMapSpecTag(abbrev) : "");
-	if (game.options.menu.extraStats.enabled) elem.innerHTML = '<div' + tooltip + ' class="' + btnClass + '" id="' + item.id + '" onclick="selectMap(\'' + item.id + '\')"><div class="onMapIcon"><span class="' + getMapIcon(item) + '"></span></div><div class="thingName onMapName">' + cnmap(item.name) + '</div><br/><span class="thingOwned mapLevel"><span class="stackedVoids">' + ((item.stacked) ? "(x" + (item.stacked + 1) + ") " : "") + '</span>等级 ' + level + abbrev + '</span><br/><span class="onMapStats"><span class="icomoon icon-gift2"></span>' + Math.floor(item.loot * 100) + '% </span><span class="icomoon icon-cube2"></span>' + item.size + ' <span class="icon icon-warning"></span>' + Math.floor(item.difficulty * 100) + '%</div>' + elem.innerHTML;
-	else elem.innerHTML = '<div' + tooltip + ' class="' + btnClass + '" id="' + item.id + '" onclick="selectMap(\'' + item.id + '\')"><span class="thingName">' + item.name + '</span><br/><span class="thingOwned mapLevel"><span class="stackedVoids">' + ((item.stacked) ? "(x" + (item.stacked + 1) + ") " : "") + '</span>Level ' + level + abbrev + '</span></div>' + elem.innerHTML;
+	if (game.options.menu.extraStats.enabled) elem.innerHTML = '<div' + tooltip + ' class="' + btnClass + '" id="' + item.id + '" onclick="selectMap(\'' + item.id + '\')"><div class="onMapIcon"><span class="' + getMapIcon(item) + '"></span></div><div class="thingName onMapName">' + cnMap(item.name) + '</div><br/><span class="thingOwned mapLevel"><span class="stackedVoids">' + ((item.stacked) ? "(x" + (item.stacked + 1) + ") " : "") + '</span>等级 ' + level + abbrev + '</span><br/><span class="onMapStats"><span class="icomoon icon-gift2"></span>' + Math.floor(item.loot * 100) + '% </span><span class="icomoon icon-cube2"></span>' + item.size + ' <span class="icon icon-warning"></span>' + Math.floor(item.difficulty * 100) + '%</div>' + elem.innerHTML;
+	else elem.innerHTML = '<div' + tooltip + ' class="' + btnClass + '" id="' + item.id + '" onclick="selectMap(\'' + item.id + '\')"><span class="thingName">' + cnMap(item.name) + '</span><br/><span class="thingOwned mapLevel"><span class="stackedVoids">' + ((item.stacked) ? "(x" + (item.stacked + 1) + ") " : "") + '</span>Level ' + level + abbrev + '</span></div>' + elem.innerHTML;
 	if (item.id == game.global.currentMapId) swapClass("mapElement", "mapElementSelected", document.getElementById(item.id));
 }
 

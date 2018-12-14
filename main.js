@@ -3572,7 +3572,7 @@ function buyUpgrade(what, confirmed, noTip, heldCtrl) {
     if (!canAfford) return false;
 	var usingCtrl = (typeof heldCtrl !== 'undefined') ? heldCtrl : (game.options.menu.ctrlGigas.enabled && what == "Gigastation") ? true : ctrlPressed;
 	if (what == "Gigastation" && !confirmed && !noTip && game.options.menu.confirmhole.enabled){
-		tooltip('Confirm Purchase', null, 'update', 'You are about to purchase a Gigastation, <b>which is not a renewable upgrade</b>. Make sure you have purchased all of the Warpstations you can afford first!', 'buyUpgrade(\'Gigastation\', true, false, ' + usingCtrl + ')');
+		tooltip('Confirm Purchase', null, 'update', '您将要购买一个千兆站， <b>这不是可再生的升级</b>。确保您已经购买了所有可以买得起的经纱站工作站！', 'buyUpgrade(\'Gigastation\', true, false, ' + usingCtrl + ')');
 		return;
 	}
 	if (what == "Shieldblock" && !confirmed && game.options.menu.confirmhole.enabled && game.global.highestLevelCleared >= 30){
@@ -7836,7 +7836,7 @@ function toggleMapGridHtml(on, currentMapObj){
 	var worldNumElem = document.getElementById("worldNumber");
 	worldNumElem.style.display = 'inline';
 	worldNumElem.innerHTML = "<br/>等级: " + currentMapObj.level;
-	document.getElementById("worldName").innerHTML = cnmap(currentMapObj.name);
+	document.getElementById("worldName").innerHTML = cnMap(currentMapObj.name);
 }
 
 function clearMapDescription(){
@@ -7885,7 +7885,7 @@ function selectMap(mapId, force) {
     }
     var map = getMapIndex(mapId);
     map = game.global.mapsOwnedArray[map];
-    document.getElementById("selectedMapName").innerHTML = cnmap(map.name);
+    document.getElementById("selectedMapName").innerHTML = cnMap(map.name);
 
 	document.getElementById("mapStatsSize").innerHTML = (Math.floor(map.size));
 	document.getElementById("mapStatsDifficulty").innerHTML = Math.floor(map.difficulty * 100) + "%";
