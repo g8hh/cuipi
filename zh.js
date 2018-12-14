@@ -796,3 +796,22 @@ function cnmap(text) {
         }
     }
 }
+ // 数值计算开始
+function cnLog(x,cells,enemy,rsBonus,LastDiaoLuo,getRsReward,LastShangHai){
+    if(x == cells - 1)
+                {
+                    var maxshanghai =  enemy.maxHealth - enemy.health;
+                    if (enemy.health <= 0) {
+                        if(LastDiaoLuo != getRsReward) {
+                            LastDiaoLuo = getRsReward;
+                            console.log("最大生命：" + enemy.maxHealth + "掉落：" + LastDiaoLuo);
+                        }
+                    }
+                    else {
+                        if(LastShangHai != maxshanghai) {
+                            LastShangHai = maxshanghai;
+                            console.log("最大生命：" + enemy.maxHealth + "最大伤害：" + maxshanghai + "预计掉落：" + getRsReward);
+                        }
+                    }
+                }
+}
