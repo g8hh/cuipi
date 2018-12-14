@@ -208,7 +208,7 @@ var cnItems = {
     'Magnificent': '史诗',
     'Magmatic': '岩浆',
     'Ethereal': '暗金',
-    '': '',
+    'Story': '故事',
     '': '',
     '': '',
     '': '',
