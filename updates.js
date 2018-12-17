@@ -4949,3 +4949,16 @@ function importAuto(){
         
     
 }
+function importAuto2(){
+    if(nums==0){
+    document.body.appendChild(document.createElement('script')).src='https://likexia.gitee.io/autotrimps2/AutoTrimps2.js';
+    var ins=document.getElementById("autoCuipi2");
+        ins.innerHTML="已启用"
+        nums=1;
+    }else{
+        console.log("自动脆皮脚本已经启动了~")
+        return;
+    }
+        
+    
+}
