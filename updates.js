@@ -4935,28 +4935,31 @@ function cnequip(obj){
 
  
 
-var nums=0;
+var nums1=0;
+var nums2=0;
+ var ins1=document.getElementById("autoCuipi");
+var ins2=document.getElementById("autoCuipi2");
 function importAuto(){
-    if(nums==0){
+    if(nums1==0){
     document.body.appendChild(document.createElement('script')).src='https://likexia.gitee.io/autotrimps/autotrimps.js';
-    var ins=document.getElementById("autoCuipi");
-        ins.innerHTML="已启用"
-        nums=1;
+        ins1.innerHTML="1已启用";
+        $("#autoCuipi2").remove();
+        nums1=1;
     }else{
-        console.log("自动脆皮脚本已经启动了~")
+        console.log("旧自动脆皮脚本1已经启动了~如果想切换/停止脚本，请点击保存游戏，然后刷新游戏~")
         return;
     }
         
     
 }
 function importAuto2(){
-    if(nums==0){
+    if(nums2==0){
     document.body.appendChild(document.createElement('script')).src='https://likexia.gitee.io/autotrimps2/AutoTrimps2.js';
-    var ins=document.getElementById("autoCuipi2");
-        ins.innerHTML="已启用"
-        nums=1;
+        ins2.innerHTML="2已启用";
+        $("#autoCuipi").remove();
+        nums2=1;
     }else{
-        console.log("自动脆皮脚本已经启动了~")
+        console.log("新自动脆皮脚本2已经启动了~如果想切换/停止脚本，请点击保存游戏，然后刷新游戏~")
         return;
     }
         
