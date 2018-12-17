@@ -237,7 +237,7 @@ function cnItem(text) {
     //数组里面没有的，原样返回
     for (var i in cnItems) {
         if (text != i) {
-            console.log("需汉化的英文Item：" + text);
+//            console.log("需汉化的英文Item：" + text);
             return text;
         }
     }
@@ -844,7 +844,7 @@ function cnMap(text) {
     //数组里面没有的，原样返回
     for (var i in cnmaps) {
         if (text != i) {
-            console.log("需汉化的英文地图名：" + text);
+//            console.log("需汉化的英文地图名：" + text);
             return text;
         }
     }
