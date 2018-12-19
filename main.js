@@ -268,8 +268,8 @@ function load(saveString, autoLoad, fromPf) {
 		message("您不能把beta版的存档导入到这个版本!", "Notices");
 		return false;
 	}
-	if ((oldStringVersion && oldStringVersion.length && (compareVersion(oldStringVersion, game.global.stringVersion.split('.'))))) {
-		message("您的存档文件来自一个比你当前脆皮的版本更新的 (v" + savegame.global.stringVersion + ") ，当前脆皮版本是 (v" + game.global.stringVersion + ")。请刷新或者重启你的浏览器以价值最新版！", "Notices");
+	if ((oldStringVersion && oldStringVersion.length && (compareVersion(oldStringVersion, game.global.stringVersion.split('.'), true)))) {
+		message("您的存档文件来自一个比你当前脆皮的版本更新的 (v" + savegame.global.stringVersion + ") 当前脆皮版本是 (v" + game.global.stringVersion + "). 请刷新或者重启你的浏览器以获取最新版", "Notices");
 		return false;
 	}
 	resetGame();
@@ -736,13 +736,21 @@ function load(saveString, autoLoad, fromPf) {
 		}
 		addNewFeats([9, 30, 31, 36, 48, 49, 50, 51, 56, 57, 58, 59]);
 		if (game.global.recentDailies.length >= 7) giveSingleAchieve("Now What");
+		oldStringVersion = [4, 10, 0];
 	}
 	else {
-		//Last version was at least 4.10.0, continue as normal
-		// if (compareVersion([4, 10, 0], oldStringVersion)){
-		// 	//example compat for 4.10.1
-		// 	console.log('test');
-		// }
+		oldStringVersion = [parseInt(oldStringVersion[0], 10), parseInt(oldStringVersion[1], 10), parseInt(oldStringVersion[2], 10)];
+	}
+	//Last version was at least 4.10.0, continue as normal
+	if (compareVersion([4, 10, 2], oldStringVersion)){
+		//check if old version was before 4.10.2 and enable snow
+		if (game.options.menu.showSnow) game.options.menu.showSnow.enabled = 1;
+		addNewSetting("showSnow");
+		if (game.global.spiresCompleted >= 1 && !playerSpire.initialized){
+			playerSpire.init();
+			playerSpire.spirestones = 20;
+			playerSpire.openPopup();
+		}
 	}
 	//End compatibility
 	//Test server only
@@ -939,19 +947,18 @@ function load(saveString, autoLoad, fromPf) {
 	return true;
 }
 
-function compareVersion(compareTo, compare){
-	//Returns true if compareTo is greater than compare
+function compareVersion(compareTo, compare, parseFirst){
+	if (parseFirst){
+		compareTo = [parseInt(compareTo[0], 10), parseInt(compareTo[1], 10), parseInt(compareTo[2], 10)];
+		compare = [parseInt(compare[0], 10), parseInt(compare[1], 10), parseInt(compare[2], 10)];
+	}
+	//Returns true if compare (old version) is older than compareTo (new version)
 	//Use case like 'compareVersion([4,11,0], [4,10,0])' to see if compat code for 4.11.0 should run on a save from 4.10.0. Would be true.
-
-	//4.10.3 vs 4.11.0
-	//5.8.1 vs 4.6.1
-
-	if (parseInt(compare[0], 10) < parseInt(compareTo[0], 10)) return true;
-	if (parseInt(compare[0], 10) > parseInt(compareTo[0], 10)) return false;
-	if (parseInt(compare[1], 10) < parseInt(compareTo[1], 10)) return true;
-	if (parseInt(compare[1], 10) > parseInt(compareTo[1], 10)) return false;
-	if (parseInt(compare[2], 10) < parseInt(compareTo[2], 10)) return true;
-
+	if (compare[0] < compareTo[0]) return true;
+	if (compare[0] > compareTo[0]) return false;
+	if (compare[1] < compareTo[1]) return true;
+	if (compare[1] > compareTo[1]) return false;
+	if (compare[2] < compareTo[2]) return true;
 	return false;
 }
 
@@ -2190,6 +2197,14 @@ function removePerk(what) {
 	if (forceZeroSpent) {
 		toBuy.heliumSpentTemp = toBuy.heliumSpent * -1;
 		toBuy.levelTemp = toBuy.level * -1;
+	}
+	if (toBuy.levelTemp + toBuy.level == 0){
+		var roundingError = toBuy.heliumSpentTemp + toBuy.heliumSpent;
+		if (roundingError){
+			console.log('rounding error of ' + roundingError + ', adding to refund');
+			refund += roundingError;
+			toBuy.heliumSpentTemp = toBuy.heliumSpent * -1;
+		}
 	}
 	game.resources.helium.totalSpentTemp -= refund;
 	updatePerkLevel(what);
@@ -6465,7 +6480,6 @@ var visualMutations = {
 	},
 	TrimpmasSnow: {
 		active: function() {
-			return false;
 			return (game.options.menu.showSnow.enabled);
 		},
 		pattern: function(currentArray, mutationArray) {
@@ -7606,6 +7620,7 @@ function recycleBelow(confirmed){
 	var total = 0;
 	for (var x = game.global.mapsOwnedArray.length - 1; x >= 0; x--){
 		var item = game.global.mapsOwnedArray[x];
+		if (game.global.currentMapId == item.id && game.global.mapsActive) continue;
 		if (!item.noRecycle && item.level < level) {
 			refund += recycleMap(x, true);
 			total++;

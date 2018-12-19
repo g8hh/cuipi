@@ -708,8 +708,8 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 	}
 	if (what == "Corruption"){
 		if (game.global.challengeActive == "Corrupted"){
-			tooltipText = "<span class='planetBreakMessage'>Though you've seen the Corruption grow since the planet broke, you can now see a giant spire pumping out tons of the purple goo. Things seem to be absorbing it at a higher rate now.</span><br/>";
-			costText += "<span class='planetBreakDescription'><span class='bad'>Improbabilities and Void Maps are now more difficult.</span> <span class='good'>Improbabilities and Void Maps now drop 2x helium.</span></span>";
+			tooltipText = "<span class='planetBreakMessage'>虽然你已经看到自地球破裂以来腐败的增长，你现在可以看到一个巨大的尖顶抽出了大量的紫色粘液。 事情似乎现在以更高的速度吸收它。</span><br/>";
+			costText += "<span class='planetBreakDescription'><span class='bad'>现在，不可能性和虚空地图变得更加困难。</span> <span class='good'>不可能性和虚空地图掉落2x氦气。</span></span>";
 		}
 		else {
 			tooltipText = (game.talents.headstart.purchased) ? "Off in the distance, you can see a giant spire grow larger as you approach it." : "You can now see a giant spire only about 20 Zones ahead of you.";
@@ -4231,7 +4231,7 @@ function getSettingHtml(optionItem, item, forceClass, appendId){
 	if (!appendId) appendId = "";
 	if (!forceClass) forceClass = "";
 	var text = optionItem.titles[optionItem.enabled];
-	return "<div class='optionContainer" + forceClass + "'><div id='toggle" + item + appendId + "' class='noselect settingsBtn settingBtn" + optionItem.enabled + "' onclick='toggleSetting(\"" + item + "\"" + ((appendId) ? "" : ", this") + ")' onmouseover='tooltip(\"" + text + "\", \"customText\", event, \"" + optionItem.description + "\")' onmouseout='tooltip(\"hide\")'>" + text + "</div></div>";
+	return "<div class='optionContainer" + forceClass + "'><div id='toggle" + item + appendId + "' class='noselect settingsBtn settingBtn" + optionItem.enabled + "' onclick='toggleSetting(\"" + item + "\"" + ((appendId) ? "" : ", this") + ")' onmouseover='tooltip(\"" + text + "\", \"customText\", event, \"" + optionItem.description + "\")' onmouseout='tooltip(\"hide\")'>" + cntitle(text) + "</div></div>";
 }
 
 function saveMapAtZone(){
