@@ -805,7 +805,7 @@ function cntitle(text) {
     //数组里面没有的，原样返回
     for (var i in cntit) {
         if (text != i) {
-            console.log("需汉化的英文标题：" + text);
+//            console.log("需汉化的英文标题：" + text);
             return text;
         }
     }
