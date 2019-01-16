@@ -22,7 +22,7 @@ function newGame () {
 var toReturn = {
 	global: {
 		//New and accurate version
-		stringVersion: '4.10.2',
+		stringVersion: '4.10.3',
 		//Leave 'version' at 4.914 forever, for compatability with old saves
 		version: 4.914,
 		isBeta: false,
@@ -915,12 +915,12 @@ var toReturn = {
 				},
 				secondLocation: ["togglegeneratorStartPopup"]
 			},
-			showSnow: {
-				enabled: 1,
-				extraTags: "general",
-				description: "禁用世界上的雪花效果。 <b>此设置更改后，此功能将在下一个区域生效</b>。 这个设置是暂时的，并且在下雪时会融化。",
-				titles: ["No Snow", "Show Snow"]
-			},
+//			showSnow: {
+//				enabled: 1,
+//				extraTags: "general",
+//				description: "禁用世界上的雪花效果。 <b>此设置更改后，此功能将在下一个区域生效</b>。 这个设置是暂时的，并且在下雪时会融化。",
+//				titles: ["No Snow", "Show Snow"]
+//			},
 /*			showHoliday: {
 				enabled: 1,
 				extraTags: "general",
@@ -3997,7 +3997,7 @@ var toReturn = {
 		},
 		Presimpt: {
 			location: "World",
-			locked: 0,
+			locked: 1,
 			attack: 1.1,
 			health: 1.5,
 			fast: false,
