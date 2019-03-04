@@ -194,7 +194,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 				}
 			}
 		}
-		if (game.global.world >= 180){
+		if (game.global.world >= 181){
 			var essenceRemaining = countRemainingEssenceDrops();
 			tooltipText += "<p><b>" + essenceRemaining + " 剩余 " + ((essenceRemaining == 1) ? " 敌人在当前区域" : " 敌人在当前区域") + " 持有黑暗精华.</b></p>"
 		}
