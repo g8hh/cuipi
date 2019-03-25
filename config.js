@@ -22,7 +22,7 @@ function newGame () {
 var toReturn = {
 	global: {
 		//New and accurate version
-		stringVersion: '4.10.5',
+		stringVersion: '4.11.1',
 		//Leave 'version' at 4.914 forever, for compatability with old saves
 		version: 4.914,
 		isBeta: false,
@@ -145,6 +145,7 @@ var toReturn = {
 		heirloomsCarried: [],
 		StaffEquipped: {},
 		ShieldEquipped: {},
+		CoreEquipped: {},
 		nullifium: 0,
 		maxCarriedHeirlooms: 1,
 		selectedHeirloom: [],
@@ -193,6 +194,8 @@ var toReturn = {
 		autoGolden: -1,
 		autoStructureSetting: {enabled: false},
 		autoJobsSetting: {enabled: false},
+		autoEquipSetting: {enabled: false},
+		autoEquipUnlocked: false,
 		passive: true,
 		spiresCompleted: 0,
 		lastSpireCleared: 0,
@@ -218,6 +221,7 @@ var toReturn = {
 		waitToScryMaps: false,
 		freeTalentRespecs: 3,
 		genStateConfig: [],
+		uberNature: "",
 		mapPresets: {
 			p1: {
 				loot: 0,
@@ -365,30 +369,49 @@ var toReturn = {
 			baseModifier: 0.01,
 			getModifier: function (change) {
 				if (!change) change = 0;
-				var bonusLevels = (game.talents.nature3.purchased) ? 5 : 0;
-				return ((this.level + change + bonusLevels) * this.baseModifier);
+				return ((this.getLevel() + change) * this.baseModifier);
 			},
 			formatModifier: function (number){
 				return prettify(number * 100);
+			},
+			getDamage: function(){
+				if (getEmpowerment() == "Poison" && getUberEmpowerment() == "Poison") return (this.currentDebuffPower * 2);
+				return this.currentDebuffPower;
+			},
+			getLevel: function(){
+				var level = this.level;
+				if (game.talents.nature3.purchased) level += 5;
+				return level;
+			},
+			getRetainBonus: function(){
+				var extra = 0;
+				if (game.talents.nature3.purchased){
+					extra += 5;
+				}
+				if (Fluffy.isRewardActive('naturesWrath')){
+					extra += 10;
+				}
+				return extra;
 			},
 			color: "#33bb33",
 			currentDebuffPower: 0,
 			level: 1,
 			retainLevel: 0,
-			tokens: 0
+			tokens: 0,
+			nextUberCost: 0,
+			enlightenDesc: "your Trimps deal 3x damage, and Poison Nature stacks deal 2x damage"
 		},
 		Wind: {
 			description: function () {
-				return "当这个赋权激活时，你的脆皮的每次成功攻击会对敌人叠加一个负面效果，导致大风刮来，并将额外的资源砸到你的手中。每层风效果增加<b>" + this.formatModifier(this.getModifier(0, true)) + "%所有来源获得的氦，</b>并增加<b>" + this.formatModifier(this.getModifier()) + "%所有其他资源</b>，直到敌人死亡（最多200层）。此奖励不适用于碎片，氦气奖励不适用于地图。";
+				return "When this Empowerment is active, each successful attack by your Trimps stacks a debuff on the enemy, causing winds to swell and knock extra resources into your reach. Each stack increases Helium gained from the World by <b>" + this.formatModifier(this.getModifier(0, true)) + "%</b> and increases all other basic resources gained from all sources by <b>" + this.formatModifier(this.getModifier()) + "%</b> until that enemy dies (maximum of " + this.stackMax() + " stacks). This bonus does not apply to Fragments, and the helium bonus does not apply to maps.";
 			},
 			upgradeDescription: function () {
-				return "增加你找到的额外氦的数量 <b>" + this.formatModifier(this.baseModifier) + "%</b> 和非氦资源 <b>" + this.formatModifier(this.baseModifier * 10) + "%</b> per stack when the Empowerment of Wind is active. Your current bonus is <b>" + this.formatModifier(this.getModifier(0, true)) + "%</b> Helium, and next level will bring your bonus to <b>" + this.formatModifier(this.getModifier(1, true)) + "%</b> extra helium. Non-Helium resource gain is always " + ((Fluffy.isRewardActive('naturesWrath')) ? "double" : "10x") + " that of Helium, and the Helium bonus does not apply in maps.";
+				return "Increases the amount of extra Helium you find in the World by <b>" + this.formatModifier(this.baseModifier) + "%</b> and non-Helium basic resources from all sources by <b>" + this.formatModifier(this.baseModifier * 10) + "%</b> per stack when the Empowerment of Wind is active. Your current bonus is <b>" + this.formatModifier(this.getModifier(0, true)) + "%</b> Helium, and next level will bring your bonus to <b>" + this.formatModifier(this.getModifier(1, true)) + "%</b> extra helium. Non-Helium resource gain is always " + ((Fluffy.isRewardActive('naturesWrath')) ? "double" : "10x") + " that of Helium, and the Helium bonus does not apply in maps.";
 			},
 			baseModifier: 0.001,
 			getModifier: function (change, forHelium) {
 				if (!change) change = 0;
-				var bonusLevels = (game.talents.nature3.purchased) ? 5 : 0;
-				var mod = ((this.level + change + bonusLevels) * this.baseModifier);
+				var mod = ((this.getLevel() + change) * this.baseModifier);
 				if (!forHelium) mod *= 10;
 				if (forHelium && Fluffy.isRewardActive("naturesWrath")){
 					mod *= 5;
@@ -399,27 +422,53 @@ var toReturn = {
 				return prettify(number * 100);
 			},
 			getCombatModifier: function (forHelium) {
-				return this.currentDebuffPower * this.getModifier(0, forHelium);
+				var mod = this.currentDebuffPower * this.getModifier(0, forHelium);
+				return mod;
+			},
+			getLevel: function(){
+				var level = this.level;
+				if (game.talents.nature3.purchased) level += 5;
+				return level;
+			},
+			getRetainBonus: function(){
+				var extra = 0;
+				if (game.talents.nature3.purchased){
+					extra += 5;
+				}
+				if (getUberEmpowerment() == "Wind"){
+					extra += 5;
+				}
+				return extra;
 			},
 			currentDebuffPower: 0,
 			color: "#337733",
 			level: 1,
 			retainLevel: 0,
-			maxStacks: 200,
-			tokens: 0
+			stackMax: function(){
+				return (getUberEmpowerment() == "Wind") ? 300 : 200;
+			},
+			tokens: 0,
+			nextUberCost: 0,
+			enlightenDesc: "you gain a 10x increase in all non-Helium loot, Wind stacks accumulate twice as fast, Wind can stack to 300, Wind gains an additional 5% stack transfer rate, and your Trimps gain access to the Wind Formation. This new Formation prevents any enemies in Wind Zones from falling below 1HP before they have 300 stacks of Wind. Wind Formation also grants all bonuses of Scrying Formation and allows collection of Dark Essence with no Trimp stat penalty",
+			formationDesc: "You have been Enlightened by Wind! While in this Formation in a Wind Zone, enemies will never fall below 1HP before they have 300 stacks of Wind.<br/>This Formation also allows collection of Dark Essence, and grants all bonuses of the Scryer Formation."
 		},
 		Ice: {
 			description: function () {
-				return "当这个赋权活动时，你的脆皮的每次成功攻击都会使敌人被冰冻，冰冻的负面效果会叠加，每层冰冻效果会减少敌人 <b>" + this.formatModifier(this.getModifier()) + "%</b> 的伤害(叠乘), 同时增加你的脆皮对敌人造成的伤害 " + ((Fluffy.isRewardActive('naturesWrath')) ? " 两倍的数量（收益递减，最大攻击+ 200％）" : "相同的量（与收益递减，100％的最大值）") + " 直到敌人死亡。";
+				return "When this Empowerment is active, enemies will be Chilled each time your Trimps attack. The Chill debuff stacks, reduces the damage that enemy deals by <b>" + this.formatModifier(this.getModifier()) + "%</b> (compounding) per stack, and increases the damage your Trimps deal to that enemy by " + ((Fluffy.isRewardActive('naturesWrath')) ? " twice that amount (with diminishing returns, max of +200% attack)" : "the same amount (with diminishing returns, max of 100%)") + " until it dies." + this.overkillDesc();
 			},
 			upgradeDescription: function () {
-				return "Reduces the enemy's damage dealt from each stack of Chilled when the Empowerment of Ice is active by <b>" + this.formatModifier(1 - this.baseModifier) + "%</b> (compounding), and increases the damage your Trimps deal to that enemy by " + ((Fluffy.isRewardActive('naturesWrath')) ? " twice that amount (with diminishing returns, max of +200% attack)" : "the same amount (with diminishing returns, max of 100%)") + ". Your current bonus is <b>" + this.formatModifier(this.getModifier()) + "%</b>, and next level will bring your bonus to <b>" + this.formatModifier(this.getModifier(1)) + "%</b>.";
+				return "Reduces the enemy's damage dealt from each stack of Chilled when the Empowerment of Ice is active by <b>" + this.formatModifier(1 - this.baseModifier) + "%</b> (compounding), and increases the damage your Trimps deal to that enemy by " + ((Fluffy.isRewardActive('naturesWrath')) ? " twice that amount (with diminishing returns, max of +200% attack)" : "the same amount (with diminishing returns, max of 100%)") + ". Your current bonus is <b>" + this.formatModifier(this.getModifier()) + "%</b>, and next level will bring your bonus to <b>" + this.formatModifier(this.getModifier(1)) + "%</b>." + this.overkillDesc();
+			},
+			overkillDesc: function(){
+				var level = this.getLevel();
+				if (level < 50) return "<div style='margin-top: 10px'><b>You will earn +1 Overkill during Ice Zones once you reach Level 50, and a second Overkill cell at Level 100!</b></div>";
+				else if (level < 100) return "<div style='margin-top: 10px'><b>You are earning +1 Overkill during Ice Zones! Earn another at Level 100!</b></div>";
+				else return "<div style='margin-top: 10px'><b>Your Ice level is" + ((level > 100) ? " over" : "") + " 100, and you are gaining an additional 2 cells of Overkill during Ice Zones!</b></div>";
 			},
 			baseModifier: 0.01,
 			getModifier: function (change) {
 				if (!change) change = 0;
-				var bonusLevels = (game.talents.nature3.purchased) ? 5 : 0;
-				return Math.pow(1 - this.baseModifier, (this.level + change + bonusLevels));
+				return Math.pow(1 - this.baseModifier, (this.getLevel() + change));
 			},
 			getCombatModifier: function () {
 				return Math.pow(this.getModifier(), this.currentDebuffPower);
@@ -432,11 +481,27 @@ var toReturn = {
 			formatModifier: function (number){
 				return prettify((1 - number) * 100);
 			},
+			getLevel: function(){
+				var level = this.level;
+				if (game.talents.nature3.purchased) level += 5;
+				return level;
+			},
+			getRetainBonus: function(){
+				var extra = 0;
+				if (game.talents.nature3.purchased){
+					extra += 5;
+				}
+				return extra;
+			},
 			color: "#3333bb",
 			currentDebuffPower: 0,
 			level: 1,
 			retainLevel: 0,
-			tokens: 0
+			tokens: 0,
+			nextUberCost: 0,
+			get enlightenDesc(){
+				return "your Trimps gain +2 maximum Overkill cells " + ((game.global.spiresCompleted >= 2) ? " and +0.25% increased Fluffy Exp per Ice level (currently " + prettify(game.empowerments.Ice.getLevel() * 0.25) + "%)" : "") + " for your entire run. In Ice Zones, Ice stacks accumulate twice as fast, and if an enemy is hit by your Trimps while it has 20 or more stacks of Ice and is below 50% health, it will instantly shatter! The shards of Ice from the shattered enemy destroy everything in their path, triggering your maximum Overkill regardless of your damage";
+			}
 		}
 	},
 	singleRunBonuses: {
@@ -529,9 +594,10 @@ var toReturn = {
 			},
 			standardNotation: {
 				enabled: 1,
+				logBase: 10,
 				extraTags: "layout",
-				description: "标准格式之间进行切换 (12.7M, 540B), 工程表示法 (12.7e6, 540e9), 科学计数法 (1.27e7, 5.40e11), 字母符号 (12.7b, 540c), 和混合符号（标准高达e96，然后工程。摹拟标准前4.6）。",
-				titles: ["科学计数法", "标准格式", "工程符号", "字母符号", "混合符号"],
+				description: "标准格式之间进行切换 (12.7M, 540B), 工程表示法 (12.7e6, 540e9), 科学计数法 (1.27e7, 5.40e11), 字母符号 (12.7b, 540c), 和混合符号（标准高达e96，然后工程。摹拟标准前4.6）,和对数表示法（10 ^ 7.10,10 ^ 8.73）。 单击“对数表示法”时按住Ctrl可更改基数。",
+				titles: ["科学计数法", "标准格式", "工程符号", "字母符号", "混合符号", "对数符号"],
 				onToggle: function () {
 					document.getElementById("tab5Text").innerHTML = "+" + prettify(game.global.lastCustomAmt);
 				}
@@ -738,8 +804,8 @@ var toReturn = {
 			detailedPerks: {
 				extraTags: "qol",
 				enabled: 0,
-				description: "决定是否在额外津贴按钮上显示额外的信息",
-				titles: ["最小化额外津贴信息", "额外的信息"]
+				description: "决定是否在天赋按钮上显示额外的信息",
+				titles: ["最小化天赋信息", "额外的信息"]
 			},
 			alwaysAbandon: {
 				extraTags: "general",
@@ -1236,7 +1302,9 @@ var toReturn = {
 		},
 		hyperspeed2: {
 			get description(){
-				return "减少战斗时间 100ms 直到 区域" + Math.floor((game.global.highestLevelCleared + 1) * 0.5) + "(你最高区域的50％)";
+				var percent = 50;
+				if (game.talents.liquification3.purchased) percent = 75;
+				return "Reduce the time in between fights and attacks by an additional 100ms through Z" + Math.floor((game.global.highestLevelCleared + 1) * (percent / 100)) + " (" + percent + "% of your highest Zone reached)";
 			},
 			name: "Hyperspeed II",
 			tier: 5,
@@ -1392,7 +1460,7 @@ var toReturn = {
 			requires: "doubleBuild"
 		},
 		stillRowing: {
-			description: "连续完成一个完整的尖顶增加50%掠夺奖励,从2％每行的额外奖励增加到3％。",
+			description: "连续完成一个完整的尖塔增加50%掠夺奖励,从2％每行的额外奖励增加到3％。",
 			name: "Still Rowing I",
 			tier: 7,
 			purchased: false,
@@ -1409,10 +1477,11 @@ var toReturn = {
 			get description() {
 				var text = "<p>通过传送门时，上次运行每清除100个区域，你将获得1个免费的虚空地图。 来自虚空地图的氦气增加上次完成区域数*0.25％。</p>";
 				var amt = (game.global.lastPortal * 0.0025);
-				text += "<p>你在上一个传送门中到达了 Z" + game.global.lastPortal + ", ";
-				if (this.purchased) text += " 获得了奖励 ";
-				else text += " 这将为你本次的虚空地图获得 ";
-				text +=  prettify(amt * 100) + "% 额外的氦气和 " + Math.floor(game.global.lastPortal / 100) + " 虚空地图。</p>"
+				text += "<p>你在上一个传送门中到达了 <b>区域" + game.global.lastPortal + "</b> , ";
+				if (this.purchased) text += " 获得了奖励";
+				else text += "这将为你本次的虚空地图获得 ";
+				text +=  prettify(amt * 100) + "% 额外的氦气和 " + Math.floor(game.global.lastPortal / 100) + " 虚空地图.</p>";
+				text += "<p>只有在Z99之后的传送门或收集传家宝时，“最后一个传送门区域”的值才会改变，这意味着它不会在早期重启时重置。</p>"
 				return text;
 			},
 			name: "Void Specialization I",
@@ -1477,7 +1546,8 @@ var toReturn = {
 				 if (this.purchased) text += "你获得了";
 				 else text += "你将获得";
 				 var maps = Math.floor((game.global.lastPortal + 50) / 100);
-				 text += maps + "张虚空地图的奖励(加上虚空专精 I 一共有" + (maps + Math.floor((game.global.lastPortal) / 100)) + "张)。</p>"
+				 text += maps + " 张虚空地图的奖励 (加上虚空专精 I 一共有 " + (maps + Math.floor((game.global.lastPortal) / 100)) + " 张).</p>";
+				 text += "<p>只有在Z99之后的传送门或收集传家宝时，“最后一个传送门区域”的值才会改变，这意味着它不会在早期重启时重置。</p>"
 				 return text;
 			},
 			name: "Void Specialization II",
@@ -1533,6 +1603,94 @@ var toReturn = {
 			tier: 9,
 			purchased: false,
 			icon: "*power"
+		},
+		voidMastery: {
+			get description(){
+				var voidStackCount = Fluffy.getVoidStackCount();
+				var text = "<p>Grants 3 spectacular bonuses to your Void Maps!</p><p>1. The Fluffy bonus for stacked Void Maps calculates with compounding gains, rather than additive. Each Void Map in the stack increases the Helium gain from the stack by x1.5 rather than +50%.</p>";
+				text += "<p>2. Allows Void Maps to infinitely stack. HOWEVER, the bonus Helium does not increase past the amount that Fluffy can normally stack, which for you would cap the bonus to a " + voidStackCount + " stack. To clarify, a 100 stack or a " + voidStackCount + " stack map would both grant " + prettify((Math.pow(1.5, voidStackCount - 1) - 1) * 100) + "% bonus Helium to each map in the stack, but the entire stack will still be completed instantly and each map in the stack will receive the maximum bonus.</p>";
+				text += "<p>3. Your Trimps gain 5x damage inside Void Maps</p>";
+				return text;
+			},
+			name: "Master of the Void",
+			tier: 10,
+			purchased: false,
+			requires: "voidSpecial2",
+			icon: "*podcast"
+		},
+		healthStrength2: {
+			get description(){
+				var text = "<p>Adds 1 extra Healthy cell for every Spire completed this run. Healthy cells will also drop an additional 20% of the Zone's value in Helium, bringing the total up to 65%. Spire I will count for 1 Healthy cell once Healthy cells begin to appear in the World, but does not cause them to start spawning earlier.</p>";
+				text += "<p>On your current run, you have cleared " + ((game.global.lastSpireCleared == 0) ? "no Spires" : "through Spire " + romanNumeral(game.global.lastSpireCleared)) + ", so this Mastery is granting " + game.global.lastSpireCleared + " extra Healthy cells. On your current Zone, you're finding " + mutations.Healthy.cellCount() + " Healthy cells.</p>";
+				return text;
+			},
+			name: "Strength in Health II",
+			tier: 10,
+			purchased: false,
+			requires: "healthStrength",
+			icon: "*aid-kit"
+		},
+		stillMagmamancer: {
+			description: "Start every post-magma Zone with an additional 60 seconds of credit already applied to your Magmamancers per Spire row completed this run. In addition, every 2 Spires you complete this run increases the maximum time that Magmamancers can stack by 10 minutes!",
+			name: "Still Magmamancing",
+			tier: 10,
+			purchased: false,
+			requires: ["stillRowing2", "magmamancer"],
+			icon: "*equalizer"
+		},
+		liquification3: {
+			get description () {
+				var text = (this.purchased) ? "This mastery is increasing " : "This mastery would increase ";
+				var totalSpires = game.global.spiresCompleted;
+				if (game.talents.liquification.purchased) totalSpires++;
+				if (game.talents.liquification2.purchased) totalSpires++;
+				var fluffyCount = Fluffy.isRewardActive("liquid");
+				var fluffyText = "";
+				if (fluffyCount > 0){
+					if (fluffyCount == 1) fluffyText = " and your Fluffy bonus as half of a Spire";
+					else fluffyText += " and your two Fluffy bonuses as another"
+					totalSpires += (fluffyCount * 0.5);
+				}
+				return "Increase your Liquification bonus by <b>10%</b>, as if you had completed <b>2 extra Spires</b>. In addition, <b>Hyperspeed II's bonus will also now function up to 75% of your Highest Zone Reached rather than a measly 50%</b>.<br/><br/>Counting Liquification I and II as two Spires" + fluffyText + ", you have completed the equivalent of " + totalSpires + " unique Spire" + ((totalSpires == 1) ? "" : "s") + ", giving you " + (totalSpires * 5) + "% of your highest Zone reached (through Z" + Math.floor((totalSpires / 20) * (game.global.highestLevelCleared + 1)) + "). " + text + " your bonus to " + ((totalSpires + 2) * 5) + "% of your highest Zone reached (through Z" + Math.floor(((totalSpires + 2) / 20) * (game.global.highestLevelCleared + 1)) + ").";
+			},
+			name: "Liquification III",
+			tier: 10,
+			purchased: false,
+			requires: "liquification2",
+			icon: "*water"
+		},
+		mesmer: {
+			get description(){
+				var text = "<p>Triples the Challenge<sup>2</sup> bonus for all Challenge<sup>2</sup>s that have normal reward scaling (Does not include Trapper, Coordinate, Trimp, Obliterated or Eradicated).</p>";
+				var currentC2 = countChallengeSquaredReward(true);
+				text += "<p>You currently have a C<sup>2</sup> bonus of " + prettify(currentC2) + "%.";
+				if (this.purchased){
+					var newVal = countChallengeSquaredReward(true, "noMesmer");
+					text += " Removing this Mastery would reduce your bonus by " + prettify(currentC2 - newVal) + "%, bringing your total down to " + prettify(newVal) + "%.</p>";
+				}
+				else{
+					var newVal = countChallengeSquaredReward(true, "mesmer");
+					text += " Purchasing this Mastery would increase your bonus by " + prettify(newVal - currentC2) + "%, bringing your total up to " + prettify(newVal) + "%.</p>";
+				}
+				return text;
+			},
+			name: "Mesmer",
+			tier: 10,
+			purchased: false,
+			icon: "*shrink",
+			onPurchase: function(){
+				countChallengeSquaredReward();
+			},
+			afterRespec: function(){
+				countChallengeSquaredReward();
+			}
+		},
+		angelic: {
+			description: "Your Trimps heal for 50% of their remaining health immediately before each attack. Due to the intense amount of evil present, Trimps cannot heal in never-before-cleared Spires.",
+			name: "Angelic",
+			tier: 10,
+			purchased: false,
+			icon: "*star-half-empty"
 		}
 		//don't forget to add new talent tier to getHighestTalentTier()
 	},
@@ -2551,6 +2709,14 @@ var toReturn = {
 			value: 0,
 			valueTotal: 0
 		},
+		coresFound: {
+			title: "Cores Found",
+			display: function (){
+				return (this.value > 0 || this.valueTotal > 0);
+			},
+			value: 0,
+			valueTotal: 0
+		},
 		cellsOverkilled: {
 			title: "World Cells Overkilled",
 			display: function () {
@@ -2794,7 +2960,7 @@ var toReturn = {
 		}
 	},
 	//Total 4448% after 4.6
-	tierValues: [0, 0.3, 1, 2.5, 5, 10, 20, 40, 80, 160],
+	tierValues: [0, 0.3, 1, 2.5, 5, 10, 20, 40, 80, 160, 250],
 	//rip colorsList, 11/28/15 - 11/28/17. He served us well until it became obvious that CSS was better.
 	//colorsList: ["white", "#155515", "#151565", "#551555", "#954515", "#651515", "#951545", "#35a5a5", "#d58565", "#d53535"],
 	achievements: {
@@ -3343,9 +3509,35 @@ var toReturn = {
 			reverse: true,
 			timed: true,
 			showAll: true,
-			breakpoints: [4320, 2880, 1440, 300, 60],
-			tiers: [8, 8, 8, 8, 9],
-			names: ["Windy Walker", "Gusty Gait", "Breeze Breaker", "Zippy Zephyr", "Temporal Tempest"],
+			breakpoints: [4320, 2880, 1440, 300, 60, 30, 10],
+			tiers: [8, 8, 8, 8, 9, 9, 10],
+			names: ["Windy Walker", "Gusty Gait", "Breeze Breaker", "Zippy Zephyr", "Temporal Tempest", "Stratus Screamer", "Tearin\' Tornado"],
+			icon: "icomoon icon-alarmclock",
+			newStuff: []
+		},
+		spire5Timed: {
+			finished: 0,
+			title: "Speed: Spire V",
+			description: function (number) {
+				number = formatMinutesForDescriptions(this.breakpoints[number]);
+				return "<span style='font-size: .8em'>Clear Spire V in less than " + number + " from start of run</span>";
+			},
+			display: function () {
+				return (game.global.highestLevelCleared >= 569);
+			}, 
+			evaluate: function () {
+				return getMinutesThisPortal();
+			},
+			progress: function () {
+				return "Best run is " + formatMinutesForDescriptions(this.highest);
+			},
+			highest: 0,
+			reverse: true,
+			timed: true,
+			showAll: true,
+			breakpoints: [1440, 360, 120, 40, 20],
+			tiers: [8, 9, 9, 10, 10],
+			names: ["actiVe", "resolVed", "traVeler", "driVen", "triVialized"],
 			icon: "icomoon icon-alarmclock",
 			newStuff: []
 		},
@@ -3370,13 +3562,60 @@ var toReturn = {
 	heirlooms: { //Basic layout for modifiers. Steps can be set specifically for each modifier, or else default steps will be used
 		//NOTE: currentBonus is the only thing that will persist!
 		values: [10, 20, 30, 50, 150, 300, 800, 2000, 5000],
-		slots: [1,2,2,3,3,4,4,5,5],
-		defaultSteps: [[1, 2, 1], [2, 3, 1], [3, 6, 1], [6, 12, 1], [16, 40, 2], [32, 80, 4], [64, 160, 8], [128, 320, 16], [256, 640, 32]],
+		coreValues: function(tier){
+			return Math.floor(Math.pow(10, tier) * 20) * 2;
+		},
+		slots: [1,2,3,3,3,4,4,5,5],
+		defaultSteps: [[3, 6, 1], [3, 6, 1], [3, 6, 1], [6, 12, 1], [16, 40, 2], [32, 80, 4], [64, 160, 8], [128, 320, 16], [256, 640, 32]],
 		rarityNames: ['Common', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Magnificent', 'Ethereal', 'Magmatic', 'Plagued'],
-		rarities:[[7500,2500,-1,-1,-1,-1,-1,-1,-1],[2000,6500,1500,-1,-1,-1,-1,-1,-1],[500,4500,5000,-1,-1,-1,-1,-1,-1],[-1,3200,4300,2500,-1,-1,-1,-1,-1],[-1,1600,3300,5000,100,-1,-1,-1,-1],[-1,820,2400,6500,200,80,-1,-1,-1],[-1,410,1500,7500,400,160,30,-1,-1],[-1,200,600,8000,800,320,80,-1,-1],[-1,-1,-1,7600,1600,640,160,-1,-1],[-1,-1,-1,3500,5000,1200,300,-1,-1],[-1,-1,-1,-1,8000,1570,350,80,-1],[-1,-1,-1,-1,6000,3170,680,150,-1],[-1,-1,-1,-1,3000,5000,1650,350,-1],[-1,-1,-1,-1,-1,4500,3000,2000,500]],
-		rarityBreakpoints:[41,60,80,100,125,146,166,181,201,230,300,400,500],
-		priceIncrease: [2, 1.5, 1.25, 1.19, 1.15, 1.12, 1.1, 1.06, 1.04],
+		rarities:[[5000,3500,1500,-1,-1,-1,-1,-1,-1],[1000,5000,4000,-1,-1,-1,-1,-1,-1],[-1,3500,5000,1500,-1,-1,-1,-1,-1],[-1,2000,4000,4000,-1,-1,-1,-1,-1],[-1,1500,3000,5000,500,-1,-1,-1,-1],[-1,800,2000,6000,1000,200,-1,-1,-1],[-1,400,1000,7000,1000,500,100,-1,-1],[-1,200,500,6000,2200,800,300,-1,-1],[-1,-1,-1,5000,3000,1700,300,-1,-1],[-1,-1,-1,2500,5000,2000,500,-1,-1],[-1,-1,-1,-1,7000,2400,500,100,-1],[-1,-1,-1,-1,6000,3170,680,150,-1],[-1,-1,-1,-1,3000,5000,1650,350,-1],[-1,-1,-1,-1,-1,4500,3000,2000,500],[-1,-1,-1,-1,-1,1500,2000,5000,1500],[-1,-1,-1,-1,-1,-1,1000,6000,3000]],
+		rarityBreakpoints:[41,60,80,100,125,146,166,181,201,230,300,400,500,600,700],
+		priceIncrease: [1.5, 1.5, 1.25, 1.19, 1.15, 1.12, 1.1, 1.06, 1.04],
 		canReplaceMods: [true, true, true, true, true, true, true, true, false],
+		Core: {
+			fireTrap: {
+				name: "Fire Trap Damage",
+				currentBonus: 0,
+				steps: [[10,25,1],[10,25,1],[10,25,1],[25,50,1],[50,100,2],[100,199,3],[200,400,4]]
+			},
+			poisonTrap: {
+				name: "Poison Trap Damage",
+				currentBonus: 0,
+				steps: [-1,[10,25,1],[10,25,1],[25,50,1],[50,100,2],[100,199,3],[200,400,4]]
+			},
+			lightningTrap: {
+				name: "Lightning Trap Damage",
+				currentBonus: 0,
+				steps: [-1,-1,[1,10,1],[10,20,1],[20,50,2],[50,100,2],[100,199,3]],
+				specialDescription: function (modifier) {
+					return "Increases the damage dealt by Lightning Trap" + ((playerSpireTraps.Lightning.level >= 4) ? ", Shocked, and its column boost to Fire and Poison Traps " : " and Shocked ") + "by " + prettify(modifier) + "%.";
+				},
+			},
+			runestones: {
+				name: "Runestone Drop Rate",
+				currentBonus: 0,
+				steps: [[10,25,1],[10,25,1],[10,25,1],[25,50,1],[50,100,2],[100,199,3],[200,400,4]]
+			},
+			strengthEffect: {
+				name: "Strength Tower Effect",
+				currentBonus: 0,
+				steps: [[1,10,1],[1,10,1],[1,10,1],[10,20,1],[20,50,2],[50,100,2],[100,199,3]],
+				specialDescription: function (modifier) {
+					return "Increases the damage dealt by Fire Traps on the same Floor as a Strength Tower by " + prettify(modifier) + "%. Does not increase the world bonus to Trimps.";
+				},
+			},
+			condenserEffect: {
+				name: "Condenser Effect",
+				currentBonus: 0,
+				steps: [-1,[1,5,0.25],[1,5,0.25],[5,10,0.25],[5,15,0.5],[10,20,0.5],[20,30,0.5]],
+				max: [-1,10,10,15,25,35,50],
+				specialDescription: function(modifier) {
+					return "Increases the amount of Poison damage compounded by the Condenser Tower by " + prettify(modifier) + "%. Does not increase the world bonus to Trimps.";
+				}
+			},
+
+
+		},
 		Staff: {
 			metalDrop: {
 				name: "金属掉落加成",
@@ -3436,42 +3675,42 @@ var toReturn = {
 			playerEfficiency: {
 				name: "玩家效率",
 				currentBonus: 0,
-				steps: [[2,4,1],[4,8,1],[8,16,1],[16,32,2],[32,64,4],[64,128,8],[128,256,16],[256,512,32],[512,1024,64]]
+				steps: [[8,16,1],[8,16,1],[8,16,1],[16,32,2],[32,64,4],[64,128,8],[128,256,16],[256,512,32],[512,1024,64]]
 			},
 			trainerEfficiency: {
 				name: "培训师效率",
 				currentBonus: 0,
-				steps: [[1,5,1],[5,10,1],[10,20,1],[20,40,2],[40,60,2],[60,80,2],[80,100,2],[100,120,2],[120,140,2]]
+				steps: [[10,20,1],[10,20,1],[10,20,1],[20,40,2],[40,60,2],[60,80,2],[80,100,2],[100,120,2],[120,140,2]]
 			},
 			storageSize: {
 				name: "存储上限",
 				currentBonus: 0,
-				steps: [[8,16,4],[16,32,4],[32,64,4],[64,128,4],[128,256,8],[256,512,16],[512,768,16],[768,1024,16],[1024,1280,16]]
+				steps: [[32,64,4],[32,64,4],[32,64,4],[64,128,4],[128,256,8],[256,512,16],[512,768,16],[768,1024,16],[1024,1280,16]]
 			},
 			breedSpeed: {
 				name: "繁殖速度",
 				currentBonus: 0,
-				steps: [[1,2,1],[2,5,1],[5,10,1],[10,20,1],[70,100,3],[100,130,3],[130,160,3],[160,190,3],[190,220,3]]
+				steps: [[5,10,1],[5,10,1],[5,10,1],[10,20,1],[70,100,3],[100,130,3],[130,160,3],[160,190,3],[190,220,3]]
 			},
 			trimpHealth: {
 				name: "脆皮生命",
 				currentBonus: 0,
-				steps: [[1,2,1],[2,6,1],[6,20,2],[20,40,2],[50,100,5],[100,150,5],[150,200,5],[200,260,6],[260,356,8]]
+				steps: [[6,20,2],[6,20,2],[6,20,2],[20,40,2],[50,100,5],[100,150,5],[150,200,5],[200,260,6],[260,356,8]]
 			},
 			trimpAttack: {
 				name: "脆皮攻击",
 				currentBonus: 0,
-				steps: [[1,2,1],[2,6,1],[6,20,2],[20,40,2],[50,100,5],[100,150,5],[150,200,5],[200,260,6],[260,356,8]]
+				steps: [[6,20,2],[6,20,2],[6,20,2],[20,40,2],[50,100,5],[100,150,5],[150,200,5],[200,260,6],[260,356,8]]
 			},
 			trimpBlock: {
 				name: "脆皮防御",
 				currentBonus: 0,
-				steps: [[1,2,1],[2,4,1],[4,7,1],[7,10,1],[28,40,1],[48,60,1],[68,80,1],[88,100,1],[108,120,1]]
+				steps: [[4,7,1],[4,7,1],[4,7,1],[7,10,1],[28,40,1],[48,60,1],[68,80,1],[88,100,1],[108,120,1]]
 			},
 			critDamage: {
 				name: "暴击伤害, 附加的",
 				currentBonus: 0,
-				steps: [[10,20,5],[20,40,5],[40,60,5],[60,100,5],[100,200,10],[200,300,10],[300,400,10],[400,500,10],[500,650,15]],
+				steps: [[40,60,5],[40,60,5],[40,60,5],[60,100,5],[100,200,10],[200,300,10],[300,400,10],[400,500,10],[500,650,15]],
 				filter: function () {
 					return (!game.portal.Relentlessness.locked);
 				}
@@ -3479,7 +3718,7 @@ var toReturn = {
 			critChance: {
 				name: "暴击几率, 附加的",
 				currentBonus: 0,
-				steps: [[0.2,0.6,0.2],[0.6,1.4,0.2],[1.4,2.6,0.2],[2.6,5,0.2],[5,7.4,0.2],[7.4,9.8,0.2],[9.8,12.2,0.2],[12.3,15.9,0.3],[20,30,0.5]],
+				steps: [[1.4,2.6,0.2],[1.4,2.6,0.2],[1.4,2.6,0.2],[2.6,5,0.2],[5,7.4,0.2],[7.4,9.8,0.2],[9.8,12.2,0.2],[12.3,15.9,0.3],[20,30,0.5]],
 				filter: function () {
 					return (!game.portal.Relentlessness.locked);
 				},
@@ -3488,7 +3727,7 @@ var toReturn = {
 			voidMaps: {
 				name: "虚空地图掉落几率",
 				currentBonus: 0,
-				steps: [[0.5,1.5,0.5],[2.5,4,0.5],[5,7,0.5],[8,11,0.5],[12,16,0.5],[17,22,0.5],[24,30,0.5],[32,38,0.5],[40,50,0.25]],
+				steps: [[5,7,0.5],[5,7,0.5],[5,7,0.5],[8,11,0.5],[12,16,0.5],[17,22,0.5],[24,30,0.5],[32,38,0.5],[40,50,0.25]],
 				max: [50,50,50,50,50,50,50,50,80]
 			},
 			plaguebringer: {
@@ -3634,20 +3873,31 @@ var toReturn = {
 		},
 		w225: "你在一个凉爽、黑暗的洞穴一觉醒来后全身都是汗。你梦到你非常的热，尽管在过去温度从未成为一个问题。好吧，奇怪的梦和之前的记忆也没有真正表明什么重要的东西，可能没有什么事。",
 		w231: "这里非常热。",
-		w235: "热量随着你穿过区域而逐渐增强。你的本能告诉你要远离这些热量，但是那样就无法前进了。",
-		get w245 () {
+		w232: "The heat intensifies as you move further and further through the Zones. Instinct says to turn away from the heat, but that wouldn't be any fun.",
+		w234: ["As you finish clearing out the Zone, you notice a green cloud fall from the sky. It hovers above you for a few moments and shoots some sort of energy at you in a quick, painless burst. Seeming satisfied by the results of this blast, it hurriedly shoots forward a couple of Zones. Before you can even really think about what it could be, ten more green clouds of various sizes appear! They zip down, zap you, then zealously zoom off to the same zone. The clouds look toxic to you, but your Trimps seem to want to follow them.", "natureMessage poison"],
+		w236: ["As you climb over a rather large mountain and into the next Zone, you see that the green clouds have finally made it to the ground. Your worries about their toxicity seem to have been needless though, as your Trimps appear to greatly enjoy this rare treat. You watch in amazement as your Trimps begin to grow spines that drip with toxic sludge, and they immediately use their new powers to try to stick each other. You bet they're a bit stronger now.", "natureMessage poison"],
+		w240: ["You and your Trimps have been really enjoying the benefits of what your Scientists call an \"Empowerment of Nature\". However, something up ahead seems to be absorbing all of the Poisonous clouds. Oh no! Your scientists think this will be your last zone with the Poison Empowerment, but they seem convinced that there will be another Empowerment to take its place!", "natureMessage poison"],
+		w241: ["As you reach the new Zone, you happen to see a Bad Guy finish absorbing the last bit of Poison in the entire Zone, leaving no trace of your new ally, Nature. Before you get too upset about the thought of having to tackle the Magma alone again, Wind floods in to take Poison's place. The spikes on your Trimps stop dripping sludge and begin to spin like propellers, the sound resembling a gigantic swarm of beeimps. These controllable Trimp-generated gusts of wind should be helpful for knocking extra resources into your reach, but you'll still need to deal with that Bad Guy that sucked in all of the Poison...", "natureMessage wind"],
+		w243: ["The middle of these Windy Zones are the most beautiful you've seen yet. The Magma and Wind bring all sorts of nutrients and seeds here, leaving the area rich in plant biodiversity. For the first time since you arrived on this planet, you feel truly peaceful. Nature is repairing itself, and you've become one of its tools (but like in a good way).", "natureMessage wind"],
+		get w244 () {
 			if (game.jobs.Magmamancer.owned > 0)
-				return "你的法师们想出一个办法，能够在基地周围的岩浆中制造喷泉。你喜欢这个效果。";
-			return "你记得法师们是非常酷的。";
+				return "Your Magmamancers have figured out how to make little fountains in the Magma around the base. You like the effect.";
+			return "You remember Magmamancers as being pretty cool.";
 		},
-		w251: "你和气地请求那只Omnipotrimp在你杀死它后不要自爆，但是它还是自爆了。真是粗鲁。",
-		w255: "在你不断穿过这些区域的途中，你的脆皮在不断失去力量，但是它们精神上似乎适应得很好。似乎每一代脆皮都越来越喜欢高温了。",
-		w265: "你决心修复这个星球，尽管你觉得还不可能。 无论哪种方式，你都知道你正在获得力量，你的脆皮会跟随你。",
-		w270: "这个星球真是大得吓人。你感觉你在这个星球上行走了许多年，却还没有看完这个星球上所有的东西。这附近不应该有座尖塔或什么东西的吗？",
-		w277: "又能闻到一种紫色的东西了。你必须接近另一座尖塔。",
+		w245: ["Something in the next zone appears to be sucking up all of the Wind again. You've enjoyed all of the extra resources, but you're excited to see what Nature has next for you!", "natureMessage wind"],
+		w246: ["Once again, a Bad Guy in this Zone has absorbed every trace of your Windy friends. But once again, Nature has replaced them with new, colder ones. Suddenly your Trimps\' new spikes stop spinning and start spewing snow! You feel incredibly cold, but your Trimps seem perfectly comfortable. This cold will surely slow down your enemies!", "natureMessage ice"],
+		w248: ["While the Windy Zones were beautiful, the Ice Zones are nearly indescribable. Deep blues from the frozen ground contrast sharply with the fiery reds of the Magma rivers, and these two systems have equalized at a very comfortable ambient temperature. Your Trimps are too cold to touch though, your hand is still stuck to the one you high-fived at the start of the last zone.", "natureMessage ice"],
+		w251: ["Right on cue, another enemy has absorbed the Empowerment of Ice, and Nature has reacted by refilling the Zone with familiar green clouds. Poison is back! Your Trimps\' spikes resume spewing toxic sludge, and finally the Trimp stuck to your hand warms up enough to fall off. No more high-fiving Trimps in the Ice Zones.", "natureMessage poison"],
+		w255: "The Magma continues to sap your Trimps\' strength as you press through the Zones, but they seem to be adapting well in spirits. It seems like each generation likes the heat more and more.",
+		w256: ["You're detecting a pattern here! Poison has once again given way to Wind, and you have a feeling that this Wind will soon give way to Ice. The Bad Guys can absorb as much Nature as they want! Their Tokens will only help you to strengthen Nature, and Nature will always be back. With your new ally, you can totally handle the Magma.", "natureMessage wind"],
+		w261: "You asked that Omnipotrimp nicely not to explode after you killed it, but it exploded anyways. Pretty rude.",
+		w264: ["Good job not high-fiving any Trimps so far this time. You are worried morale might fall if you spend too much time with such a difficult restriction, but you're pretty sure Poison is coming up soon.", "natureMessage ice"],
+		w267: ["You're determined to repair the planet, and now that Nature is on your side you feel it might actually be possible. Either way, you know you must be doing something right to have earned the loyalty of Trimps and Nature.", "natureMessage poison"],
+		w270: "This planet is really freaking big. You feel like you've been walking around it for years and still haven't seen everything there is to offer. Shouldn't there be another spire around here or something?",
+		w277: "It's starting to smell purple again. You must be getting close to another spire.",
 		get w283() {
 			var soldiers = game.resources.trimps.getCurrentSend();
-			return "在一个无聊的夜晚，你们正在等待跨越一条非常汹涌的岩浆河。你计划着要教会你的脆皮通过相互叠起来，变成一种有趣的形状。" + prettify(soldiers) + "个脆皮叠起来而形成了巨大的Moongooseimp，你就要为第一个遇到它的Snimp而感到难过了。";
+			return "During a boring night while waiting to cross a particularly rough Magma river, you managed to teach your Trimps how to stack on each other to create some funny shapes. You almost feel bad for the first Snimp to come across " + prettify(soldiers) + " Trimps stuck together in the shape of a humongous Mongooseimp.";
 		},
 		get w285(){
 			if (game.global.spireRows >= 10)
@@ -3722,7 +3972,7 @@ var toReturn = {
 			return "你今天觉得很痒。你让一些脆皮抓抓你的后背，但他们并不想这么做。";
 		},
 		get w505(){
-			if (game.global.lastSpireCleared == 4) return "那么你已经完全100％根除了德鲁普提的意识，现在你认为现在是时候将其余的无脑回声从其余的尖顶中清除掉了。";
+			if (game.global.lastSpireCleared == 4) return "那么你已经完全100％根除了德鲁普提的意识，现在你认为现在是时候将其余的无脑回声从其余的尖塔中清除掉了。";
 			return "德鲁普提就在那里变得越来越强大，必须有人对他做点什么。";
 		}
 	},
@@ -4306,7 +4556,8 @@ var toReturn = {
 					if (mutations.Healthy.active()) corrCount -= mutations.Healthy.cellCount();
 					percentage *= corrCount;
 					if (mutations.Healthy.active()){
-						amt *= ((mutations.Healthy.cellCount() * 0.45) + percentage + 1);
+						var healthyValue = (game.talents.healthStrength2.purchased) ? 0.65 : 0.45;
+						amt *= ((mutations.Healthy.cellCount() * healthyValue) + percentage + 1);
 					}
 					else {
 						amt *= (percentage + 1);
@@ -4315,8 +4566,18 @@ var toReturn = {
 				if (game.talents.voidSpecial.purchased){
 					amt *= ((game.global.lastPortal * 0.0025) + 1);
 				}
+
+				var fluffyBonus = 1;
 				if (fromFluffy){
-					 amt *= (1 + (0.5 * fluffyCount));
+					var maxFloof = Fluffy.getVoidStackCount() - 1;
+					var countFloof = (fluffyCount > maxFloof) ? maxFloof : fluffyCount;
+					if (game.talents.voidMastery.purchased){
+						fluffyBonus = Math.pow(1.5, countFloof);
+					}
+					else{
+						fluffyBonus = (1 + (0.5 * countFloof));
+					}
+					amt *= fluffyBonus;
 					amt *= fluffyCount;
 				}
 
@@ -4340,7 +4601,7 @@ var toReturn = {
 				}
 				else if (fromFluffy){
 					msg = "Before you even realize what's happening, Fluffy has entered and cleared the remaining " + fluffyCount + " Void Maps and quickly stole all the loot!";
-					if (!game.global.runningChallengeSquared) msg += " After earning a bonus on each of +" + prettify(50 * fluffyCount) + "% Helium, you've earned an additional " + prettify(amt) + " Helium!";
+					if (!game.global.runningChallengeSquared) msg += " After earning a bonus on each of +" + prettify((fluffyBonus - 1) * 100) + "% Helium, you've earned an additional " + prettify(amt) + " Helium!";
 					message(msg, "Loot", "oil", "helium", "helium");
 					return;
 				}
@@ -4988,7 +5249,7 @@ var toReturn = {
 			},
 			Void: {
 				resourceType: "Any",
-				upgrade: ["AutoStorage", "Heirloom", "ImprovedAutoStorage", "MapAtZone"]
+				upgrade: ["AutoStorage", "Heirloom", "ImprovedAutoStorage", "MapAtZone", "AutoEquip"]
 			},
 			Star: {
 				resourceType: "Metal"
@@ -5124,10 +5385,29 @@ var toReturn = {
 				return !game.global.canMapAtZone;
 			},
 			fire: function(){
-				var text = "<p>From the void, an auspicious presence reaches out and fills your mind. You feel at peace with the world. It asks you what you desire most. Wait... how many times has this happened now? You're fairly positive that there was something you regretted not asking last time, but you can't quite remember. You've asked for Trimps to be able to manage storage structures, and you've asked for them to be better at managing those structures. Even though you're content with your storage solutions, you suddenly realize the perfect request! You wish the Trimps would stop pushing so far through the Zones while you're sleeping, so you ask for a way to tell the Trimps to stop fighting at a Zone of your choosing. The presence lets you know that it is done, then dissipates. As usual, you get serious déjà-vu while regretting not asking to go home.</p><p style='font-weight: bold'>From now on, you have access to the Map At Zone setting. This setting can be accessed through the Map Sidebar, Settings, or the 'Configure Maps' popup!</p>";
+				var text = "<p>From the void, an auspicious presence reaches out and fills your mind. You feel at peace with the world. It asks you what you desire most. Wait... how many times has this happened now? You're fairly positive that there was something you regretted not asking last time, but you can't quite remember. You've asked for Trimps to be able to manage storage structures, and you've asked for them to be better at managing those structures. Even though you're content with your storage solutions, you suddenly realize the perfect request! You wish the Trimps would stop pushing so far through the Zones while you're sleeping, so you ask for a way to tell the Trimps to stop fighting at a Zone of your choosing. The presence lets you know that it is done, then dissipates. You realize as soon as it leaves that you could have asked to go home, but you don't really want to anymore. Next time you'll make sure to ask for invincible Trimps though, that may have been a better choice.</p><p style='font-weight: bold'>From now on, you have access to the Map At Zone setting. This setting can be accessed through the Map Sidebar, Settings, or the 'Configure Maps' popup!</p>";
 				tooltip('confirm', null, 'update', text, null, 'Auspicious Presence Part III', null, null, true);
 				game.global.canMapAtZone = true;
 				addNewSetting("mapAtZone");
+				createHeirloom();
+				message("You found an Heirloom!", "Loot", "*archive", null, "secondary");
+			}
+		},
+		AutoEquip: {
+			world: 350,
+			level: "last",
+			icon: "*eye4",
+			title: "Auspicious Presence Part IV",
+			canRunOnce: true,
+			filterUpgrade: true,
+			specialFilter: function(world){
+				return !game.global.autoEquipUnlocked;
+			},
+			fire: function(){
+				var text = "<p>From the void, an auspicious presence reaches out and fills your mind. You feel at peace with the world. It asks you what you desire most. Wait... This has DEFINITELY happened before... hasn't it? You're pretty sure it has, but you have no actual memory of it. But you do... but also you don't. Wait, who even are you? Where are you? What are you?</p><p>You sit on the ground and contemplate things for a few hours while the Auspicious Presence waits patiently. You finally stand up and demand that the Trimps become smart enough to level up their own equipment! You can't see how this could go badly. The presence lets you know that it is done, then it dissipates. As soon as it is gone, you realize you could have just asked for invincible Trimps, but you're pretty sure you'll remember next time.</p><p style='font-weight: bold'>From now on, you have access to AutoEquip!</p>";
+				tooltip('confirm', null, 'update', text, null, 'Auspicious Presence Part IV', null, null, true);
+				game.global.autoEquipUnlocked = true;
+				toggleAutoEquip(true);
 				createHeirloom();
 				message("You found an Heirloom!", "Loot", "*archive", null, "secondary");
 			}
@@ -6417,7 +6697,7 @@ var toReturn = {
 			fire: function (level) {
 				if (!game.global.spireActive) return;
 				var amt = rewardResource("metal", 25, level);
-				message("肯定有很多金属在这个尖顶周围！ 你发现了 " + prettify(amt) + " 更多!", "Loot", "*safe", "spireMetalsMsg", "primary");
+				message("肯定有很多金属在这个尖塔周围！ 你发现了 " + prettify(amt) + " 更多!", "Loot", "*safe", "spireMetalsMsg", "primary");
 			},
 			specialFilter: function (){
 				return checkIfSpireWorld();
@@ -6814,12 +7094,19 @@ var toReturn = {
 			owned: 0,
 			allowAutoFire: true,
 			get tooltip(){
+				var timeStr;
+				var max = 120;
 				var timeOnZone = Math.floor((getGameTime() - game.global.zoneStarted) / 60000);
 				if (game.talents.magmamancer.purchased) timeOnZone += 5;
+				if (game.talents.stillMagmamancer.purchased){
+					timeOnZone = Math.floor(timeOnZone + game.global.spireRows);
+					var extraMax = game.global.spireRows * 0.5;
+					max = Math.floor((extraMax + max) / 10) * 10;
+				}
 				var bonus = (this.getBonusPercent() - 1) * 100;
-				var timeStr;
-				if (timeOnZone >= 120)
-					timeStr = "over 120 minutes (Max)";
+
+				if (timeOnZone >= max)
+					timeStr = "over " + max + " minutes (Max)";
 				else{
 					var remaining = 10 - (timeOnZone % 10);
 					var nextBonus = ((this.getBonusPercent(false, Math.floor(timeOnZone / 10) + 1) - 1) * 100);
@@ -6829,10 +7116,10 @@ var toReturn = {
 				var currentMag = (((1 - Math.pow(0.9999, this.owned)) * 3));
 				var nextMag = (((1 - Math.pow(0.9999, this.owned + 1)) * 3));
 				var nextBonus = (1 - (currentMag / nextMag)) * 100;
-				var textString = "<p>训练一名巫师，将镐头和宝石还有岩浆混合在一起，形成每个区域独特的岩石。你有越多的巫师，你在一个区域花的时间越长，你的脆皮就能收集到的金属就越多!</p><p>你在这个区域中每花费十分钟（上限2小时）, 你的巫师的增益就会提高20% (指数增长). 你现在的增益是 <b>" + prettify(bonus) + "%</b>, and " + ((game.talents.magmamancer.purchased) ? "counting your Magmamancermancy Mastery " : "") + "你已经在该区域中停留了 " + timeStr + ".</p>";
+				var textString = "<p>训练一名巫师，将镐头和宝石还有岩浆混合在一起，形成每个区域独特的岩石。你有越多的巫师，你在一个区域花的时间越长，你的脆皮就能收集到的金属就越多!</p><p>你在这个区域中每花费十分钟,最多" + max + " 分钟,  你的巫师的增益就会提高20% (指数增长). 你现在的增益是 <b>" + prettify(bonus) + "%</b>, and " + ((game.talents.magmamancer.purchased) ? "counting your Magmamancermancy " + ((game.talents.stillMagmamancer.purchased) ? " Masteries" : " Mastery") + " " : "") + "你已经在该区域中停留了 " + timeStr + ".</p>";
 				if (this.owned > 0) textString += "<p>你的下一个岩浆法师将增加总奖励 " + prettify(nextBonus) + "% (复利, 按住Ctrl键查看公式)</p>";
 				else textString += "<p>培训了你的第一个岩浆法师之后，你的金属奖励将会是 " + prettify((nextMag * (Math.pow(1.2, this.getBonusPercent(true)) - 1)) * 100) + "%. (按住Ctrl键查看公式)</p>";
-				if (ctrlPressed) textString += "<b><p>M = 巫师数量。T = 在这个区域中的时间（每10分钟为1个单位，向下取整）.</p><p>金属/秒 *= 1 + (((1 - (0.9999 ^ M)) * 3) * ((1.2 ^ T) - 1))</p><b>";
+				if (ctrlPressed) textString += "<b><p>M = 巫师数量. T = 在这个区域中的时间（每10分钟为1个单位，向下取整）</p><p>金属/秒 *= 1 + (((1 - (0.9999 ^ M)) * 3) * ((1.2 ^ T) - 1))</p><b>";
 				return textString;
 			},
 			cost: {
@@ -6844,13 +7131,19 @@ var toReturn = {
 				var boostMult = 0.9999;
 				var boostMax = 3;
 				var expInc = 1.2;
+				var timeMax = 12;
 				var timeOnZone;
 				if (typeof forceTime === 'undefined'){
 					var timeOnZone = getGameTime() - game.global.zoneStarted;
 					if (game.talents.magmamancer.purchased) timeOnZone += 300000;
+					if (game.talents.stillMagmamancer.purchased){
+						timeOnZone = Math.floor(timeOnZone + (60000 * game.global.spireRows));
+						var extraMax = game.global.spireRows * 0.05;
+						timeMax = Math.floor(extraMax + timeMax);
+					}
 					timeOnZone = Math.floor(timeOnZone / 600000);
 					
-					if (timeOnZone > 12) timeOnZone = 12;
+					if (timeOnZone > timeMax) timeOnZone = timeMax;
 					else if (timeOnZone <= 0) return 1;
 				}
 				else timeOnZone = forceTime;
@@ -7160,7 +7453,8 @@ var toReturn = {
 			modifier: 1.05,
 			fire: function () {
 				var oldBlock = game.buildings.Gym.increase.by;
-				game.buildings.Gym.increase.by = 6 * Math.pow(game.upgrades.Gymystic.modifier + (0.01 * (game.upgrades.Gymystic.done)), game.buildings.Gym.owned);
+				var base = (game.upgrades.Blockmaster.done) ? 6 : 4;
+				game.buildings.Gym.increase.by = base * Math.pow(game.upgrades.Gymystic.modifier + (0.01 * (game.upgrades.Gymystic.done)), game.buildings.Gym.owned);
 				game.global.block += ((game.buildings.Gym.increase.by - oldBlock) * game.buildings.Gym.owned);
 			}
 		},

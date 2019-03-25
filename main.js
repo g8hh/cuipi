@@ -1847,7 +1847,7 @@ function checkOfflineProgress(noTip){
 			textString += "<br/>你的尖塔陷阱和塔也产生了 <b>" + prettify(rsReward) + "</b> 符文石，在你离开的时候!";
 		}
 	}
-	if (!noTip) tooltip("守信的脆皮", null, "update", textString);
+	if (!noTip) tooltip("Trustworthy Trimps", null, "update", textString);
 	else savedOfflineText = textString;
 }
 
@@ -14475,7 +14475,7 @@ function runEverySecond(makeUp){
 	if (Math.floor(game.stats.heliumHour.value()) == 1337) giveSingleAchieve("Elite Feat");
 	//Display and stats
 	if (savedOfflineText && !game.global.lockTooltip) {
-		tooltip("守信的脆皮", null, "update", savedOfflineText);
+		tooltip("Trustworthy Trimps", null, "update", savedOfflineText);
 		savedOfflineText = "";
 	}
 	if (trimpStatsDisplayed) displayAllStats();

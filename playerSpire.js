@@ -422,12 +422,17 @@ var playerSpire = {
         this.updateSpirestoneText();
         return reward;
     },
+    giveSpirestones: function(count){
+        this.spirestones += count;
+        if (this.tutorialStep >= 4) this.addRow();
+        this.updateSpirestoneText();
+    },
     updateSpirestoneText: function() {
         var elem = document.getElementById('spirestoneBox');
         if (elem) elem.innerHTML = this.getSpirestoneHtml();
     },
     getSpirestoneHtml: function() {
-        var text = ((this.smallMode) ? "尖顶石头: " : "尖顶石头: ") + prettify(this.spirestones);
+        var text = ((this.smallMode) ? "尖塔石头: " : "尖塔石头: ") + prettify(this.spirestones);
         var nextCost = this.getNextRowCost();
         if (nextCost == -1 || this.tutorialStep < 3) return text;
         text += " / " + prettify(nextCost) + "</span>"
@@ -445,7 +450,8 @@ var playerSpire = {
                 var curCost = this.getCurrentLayoutPrice();
                 var upgradeCost = this.spentOnUpgrades;
                 var remaining = this.runestones;
-                tooltipText = "符石（RS）是由在尖塔杀敌人获得，并且获得符文的数量与敌人的生命值是成正比的。<br/><br/>你总共找到了 " + prettify(curCost + upgradeCost + remaining) + " 符石。<br/><br/>" + prettify(upgradeCost) + " 符石用于升级。<br/><br/>" + prettify(curCost) + " 符石用于建造塔/陷阱在你当前的布局中。";
+                tooltipText = "符石 (Rs) 是由在尖塔杀敌人获得，并且获得符文的数量与敌人的生命值是成正比的。<br/><br/>你总共找到了 " + prettify(curCost + upgradeCost + remaining) + " 符石.<br/><br/>" + prettify(upgradeCost) + " 符石已花费掉用于升级<br/><br/>" + prettify(curCost) + " 符石用于建造塔/陷阱在你当前的布局中。";
+                if (game.heirlooms.Core.runestones.currentBonus > 0) tooltipText += "<br/><br/>你得到了 " + prettify(game.heirlooms.Core.runestones.currentBonus) + "% 更多的符文从所有来源感谢您的尖顶核心!";
                 break;
             case "Threat":
                 tooltipText = "当你在塔尖杀死敌人时，威胁上升，当他们逃跑时，威胁下降。威胁是一段时间内杀死/逃脱的平均值，可能不会在杀死敌人后立即上升，也不会在敌人逃跑后立即下降，但会一直停留在你的尖塔所能承受的范围内。<br/><br/>更多威胁会有更高生命值的敌人，也会掉落更多的符石。为您的尖塔添加新的楼层也需要威胁值，每增加一层需要增加100的威胁值。<br/><br/>你的尖塔所达到的最高威胁值是：<b>" + prettify(Math.floor(this.peakThreat)) + "</b><br/><br/>显示为: <b>当前威胁</b> / <b>下一层需要的威胁</b>";
@@ -456,7 +462,7 @@ var playerSpire = {
                 tooltipText += "<br/><br/>显示为: <b>当前尖塔里的敌人</b> / <b>尖塔里允许的最大敌人数量</b>"
                 break;
             case "Spirestones":
-                tooltipText = "尖塔石头(Ss)只能通过清除世界上的尖塔获得，除了在升级层数时消耗外，没有其它用处了。<br/><br/>显示为: <b>当前尖塔石头</b> / <b>下一层需要的尖塔石头</b>"
+                tooltipText = "尖塔石头 (Ss)只能通过回收从世界各地的塔尖上找到的塔尖核心来获得，并且可以用来为你的塔尖升级层数或升级其他核心。<br/><br/>显示为: <b>当前尖塔石头</b> / <b>下一层需要的尖塔石头</b>"
                 break;
             default:
                 break;
@@ -617,7 +623,7 @@ var playerSpire = {
     },
     trapTooltip: function(which, event){
         if (which == "sell"){
-            tooltip("Sell Trap/Tower", 'customText', event, "Sell a Trap or Tower! You'll get back 100% of what you spent on the last Trap or Tower of that type.<br/><br/>(快捷键 0 或 ')")
+            tooltip("Sell Trap/Tower", 'customText', event, "出售一个陷阱或塔!你会得到你花在最后一个陷阱或塔上的钱的100%。<br/><br/>(快捷键 0 或 ')")
             return;
         }
         if (which == "shiftUp"){
@@ -763,13 +769,13 @@ var playerSpire = {
             this.drawSpire();
         }
         var tutorialSteps = [
-            "<p>欢迎来到你的尖塔！ 你已经杀死了德鲁普提并且带走了一些尖塔石：它们是一种古老的建筑材料，能够跨越维度复制自己，传统上用来制造强大的尖塔。 德鲁普提认为他是唯一一个可以建造尖塔的人，但是你即将要做的将证明他是错的！</p><p>你能够用你找到的尖塔石完成你自己的尖塔的第一层建造，而且你仍然能留下来一部分来把它建的更高。 你让脆皮们在整个城镇周围筑起一堵墙，让你的新尖塔成为唯一的出入口。 很快你就感觉这里非常安全，你的脆皮在他们的新堡垒上十分振奋。</p><p>随后，你注意到尖塔吸引了大量的不速之客-一些心中嫉妒的敌人，他们似乎将你的尖塔当做一种挑战。</p><p>幸运的是，你的科学家已经设法提出了一些陷阱设计，可以有希望阻止敌人进入你的城镇。</p><p class='spireQuest'>尝试将冰霜陷阱放置在尖塔最左边的单元格中，并将火焰陷阱直接放在它的右侧。</p>",
-            "<p>完美，一切正都像你的科学家所说的那样。 冰霜陷阱使敌人减速，火焰陷阱干掉它们。</p><p>不幸的是，看起来你在这里杀死的每个敌人都会使你的尖塔成为一个更重要的目标，从而导致越来越强大的敌人来到这里。</p><p>好消息是，你的魔法尖塔陷阱会在他们杀死敌人的时候把它们变成一种新的资源，你的科学家称之为“符石”。 更好的是，更强、拥有更多生命值的敌人转化成的符石也越多拥！ 随着你的尖塔威胁度的增加，你每秒所获得的符石也会增加，你的尖塔的防御也会增加（如果你正在建设）。</p><p style='text-decoration: underline'>当符石积聚时，你不必留在这里，在你的陷阱不断击杀敌人时你可以回去指挥你的脆皮。 神奇的尖塔石会将您的进度复制到所有可能到达的维度，因此如果你使用传送门，你所建设的陷阱不会消失！</p><p class='spireQuest'>留意你的符石，并尽可能添加更多陷阱。 尝试用陷阱填充整个楼层！</p>",
-            "<p>你是个天生的尖塔建造师! 你的科学家总算是建造好了尖塔的第二层, 尖塔高度的增加似乎引来了更多的敌人。酷啊，有更多行走的符石过来了！你现在开始喜欢这种敌人源源不断地爬到你的陷阱中死亡的感觉了。</p><p>当你在欣赏你致命的作品时，几个科学家跑来向你分享一些新的研究成果。他们表示符石也能用来建造一个小型塔-能够把自己的能量散播到全世界的脆皮身上。别浪费时间了，他们给你力量之塔的示意图，它能够增强这一层所有火焰陷阱的效果，并且给所有脆皮一个伤害加成。 </p><p class='spireQuest'>继续建造更多陷阱和塔来填满你的尖塔，并将威胁度升到300。</p>",
-            "<p>太美了。看起来你已经完全掌握了它!</p><p>You've finished constructing the third Floor of your Spire, but it seems as if you've used up your entire intial supply of Spirestones. You'll need to clear a Spire again to earn more! Note that you'll find considerably more Spirestones from more difficult Spires.</p><p class='spireQuest'>Collect 20 Spirestones and raise your Spire's Threat to 400 to build your fourth Floor.</p>",
-            "<p>It's getting huge! However, the Traps are getting more expensive as you place more and more of them. At this rate you'll never be able to afford enough Strength Towers to make a huge impact on your Trimps.</p><p>You consult with your Scientists, who tell you that they can create upgrades for your Traps, but that they need to study corpses of high level enemies in order to exploit their weaknesses.</p><p class='spireQuest'>提高你的最高区域达到Z230，并升级你的Frost Trap。</p>",
-            "<p>Wow, look at that thing slow!</p><p>You seem to have a pretty decent understanding of how to manage your Spire, and I believe you can handle it on your own for a while. Continue to raise your HZE to unlock more upgrades, collect Spirestones to add more Floors and enemies, and tweak your Trap layout every once in a while to make sure you're getting as many Runestones as you can, you'll definitely need them later.</p><p>Your Scientists let you know that they can possibly forge a new Trap and Tower, but they need to study Spirestones from a higher level Spire first.</p><p class='spireQuest'>Complete Spire II to unlock Poison Trap and Condenser Tower! Once you have your new Traps, raise your Spire's Threat to 600 and build your sixth Floor.<br/><br/>Remember that you have to satisfy both the Threat and Spirestone requirements to add a new Floor!</p>",
-            "<p>You've got a new Trap and Tower, your Spire is still growing, and your power is growing with it! Your Trimps are slightly annoyed that they have to clean up the occasional Bad Guy that makes it through the Spire and into the town, but they can handle it. They all agree that life in general is just more fun when there's a giant Spire grinding Bad Guys at the entrance to their town.</p><p>While you're feeling comfortable maintaining your Spire's defenses with the tools you have, you still feel like there's something missing. Your Scientists say that they could perhaps create one more Trap and Tower, but again they'll need to study Spirestones from an even higher Spire.</p><p class='spireQuest'>Clear Spire III to unlock the Lightning Trap and Knowledge Tower, then raise your Spire's Threat to 1100 and build your eleventh Floor.</p>",
+            "<p>Welcome to your Spire! You've killed Druopitee and stolen some Spirestones: ancient construction materials that duplicate themselves across dimensions, traditionally used to create powerful Spires. Druopitee thought that he was the only one who could build tall buildings, but you're on a mission to prove him wrong!</p><p>You were able to finish constructing the first Floor of your very own Spire with the Spirestones you found, and you still have a few left over to try to make it even taller. You had your Trimps build a wall around the entire town, making your new Spire the only entrance and exit point. You feel super safe for a few seconds, and your Trimps are super stoked on their new fortress.</p><p>After those few seconds are up, you see that the Spire is attracting a decent amount of unwanted attention from jealous enemies, who seem to take your Spire as a challenge.</p><p>Luckily, your Scientists have managed to come up with a few Trap designs that can hopefully stop the flow of enemies into your town.</p><p class='spireQuest'>Try placing a Frost Trap in the leftmost cell of your Spire, and a Fire Trap directly to the right of it.</p>",
+            "<p>Perfect, everything seems to be working just as your Scientists explained. The Frost Trap slows the enemies down, and the Fire Trap finishes them off.</p><p>Unfortunately, it seems like each enemy you kill in here makes your Spire a more important target, causing stronger and stronger enemies to come through.</p><p>Fortunately though, your Magical Spire Traps convert Bad Guys into a new type of resource whenever they kill one, which your Scientists call 'Runestones'. Even more fortunately, larger enemies with more Max Health convert into larger amounts of Runestones! As your Spire's Threat increases, so will your Runestones per second, and so will your Spire's defenses (if you're doing your job).</p><p style='text-decoration: underline'>You don't have to stay here while Runestones build up, you can go back to leading your Trimps while your Traps do some work. The enchanted Spirestones copy your progress to all possible dimensions, so you won't even lose your Traps if you Portal!</p><p class='spireQuest'>Keep an eye on your Runestones, and add more Traps whenever you can. Try to fill this entire Floor with Traps!</p>",
+            "<p>You're a natural Spiarchitect! Your Scientists have finally finished adding the second Floor of your Spire, and the added height seems to be attracting even more enemies. Cool, more Runestones for you! You're starting to really like the idea of enemies constantly climbing to their demise in the teeth of your Traps.</p><p>While you're appreciating your deadly handiwork, a small group of Scientists runs up to you and shares some new research. They say that the Runestones can also be used to create mini-towers that broadcast their energy to all Trimps in the World. Wasting no time, they hand you the schematics for the Strength Tower, which increases the effect of all Fire Traps on its Floor, and grants all of your Trimps an attack bonus.</p><p class='spireQuest'>Continue placing more Traps and Towers to fill out your Spire, and raise your Threat level to 300.</p>",
+            "<p>Beautiful. It seems like you're getting the hang of this!</p><p>You've finished constructing the third Floor of your Spire, but it seems as if you've used up your entire intial supply of Spirestones. You'll need to clear a Spire and crush its Core to earn more! Note that you'll find considerably better Cores worth more Spirestones from more difficult Spires.</p><p class='spireQuest'>Collect 20 Spirestones and raise your Spire's Threat to 400 to build your fourth Floor.</p>",
+            "<p>It's getting huge! However, the Traps are getting more expensive as you place more and more of them. At this rate you'll never be able to afford enough Strength Towers to make a huge impact on your Trimps.</p><p>You consult with your Scientists, who tell you that they can create upgrades for your Traps, but that they need to study corpses of high level enemies in order to exploit their weaknesses.</p><p class='spireQuest'>Raise your Highest Zone Reached to Z230, and upgrade your Frost Trap.</p>",
+            "<p>Wow, look at that thing slow!</p><p>You seem to have a pretty decent understanding of how to manage your Spire, and I believe you can handle it on your own for a while. Continue to raise your HZE to unlock more upgrades, collect Spirestones to add more Floors and enemies, and tweak your Trap layout every once in a while to make sure you're getting as many Runestones as you can, you'll definitely need them later.</p><p>Your Scientists let you know that they can possibly forge a new Trap and Tower, but they need to study a Core from a higher level Spire first.</p><p class='spireQuest'>Complete Spire II to unlock Poison Trap and Condenser Tower! Once you have your new Traps, raise your Spire's Threat to 600 and build your sixth Floor.<br/><br/>Remember that you have to satisfy both the Threat and Spirestone requirements to add a new Floor!</p>",
+            "<p>You've got a new Trap and Tower, your Spire is still growing, and your power is growing with it! Your Trimps are slightly annoyed that they have to clean up the occasional Bad Guy that makes it through the Spire and into the town, but they can handle it. They all agree that life in general is just more fun when there's a giant Spire grinding Bad Guys at the entrance to their town.</p><p>While you're feeling comfortable maintaining your Spire's defenses with the tools you have, you still feel like there's something missing. Your Scientists say that they could perhaps create one more Trap and Tower, but again they'll need to study a Core from an even higher Spire.</p><p class='spireQuest'>Clear Spire III to unlock the Lightning Trap and Knowledge Tower, then raise your Spire's Threat to 1100 and build your eleventh Floor.</p>",
             "<p>And that's about all there is to teach you! The rest of the management of your Spire is left in your more-than-capable hands.</p><p>Raise your HZE, clear Spires, buy upgrades, build Floors, and come up with the perfect layout for your Spire.</p><p class='spireQuest'>I'll hang out and make sure everything's OK until you reach Threat level 1300 and build your thirteenth Floor, and then you'll be on your own.</p>"
         ];
         var text = (this.tutorialStep < 8) ? tutorialSteps[this.tutorialStep] : "";
@@ -943,6 +949,7 @@ var playerSpire = {
         
         if (enemy.toxicity > 0 && playerSpireTraps.Poison.level >= 6){
             var toxReward = enemy.toxicity * 0.1;
+            toxReward = calcHeirloomBonus("Core", "runestones", toxReward);
             this.rewardRunestones(toxReward);
             if (!catchingUp && this.settings.fctRs)
                 TDFloatingText.spawnFloatingText(location, playerSpireTraps.Poison.color, -0.05, 3.5, "+ " + prettify(toxReward) + " 符石");
@@ -972,6 +979,7 @@ var playerSpire = {
     killedEnemy: function(enemy, location, rsBonus, catchingUp){
         this.killedSinceLeak++;
         var reward = this.getRsReward(enemy, rsBonus);
+        reward = calcHeirloomBonus("Core", "runestones", reward);
         this.rewardRunestones(reward);
         this.layout[location].occupiedBy = {dead: true};
         this.currentEnemies--;
@@ -1498,12 +1506,13 @@ var playerSpireTraps = {
             else
                 dmg = dmgs[this.level - 1];
             var row = playerSpire.getRowFromCell(cell);
-            if (playerSpire.strengthLocations.indexOf(row) != -1) dmg *= 2;
+            if (playerSpire.strengthLocations.indexOf(row) != -1) dmg = calcHeirloomBonus("Core", "strengthEffect", (dmg * 2));
             if (playerSpireTraps.Frost.level >= 3 && enemy && enemy.slowedFor && enemy.slowMod == 1){
                 dmg *= 1.25;
             }
             if (effect > 0) dmg *= effect;
             dmg *= playerSpireTraps.Lightning.getColBonus(cell);
+            dmg = calcHeirloomBonus("Core", "fireTrap", dmg);
             return dmg;
         },
     },
@@ -1668,6 +1677,7 @@ var playerSpireTraps = {
                 }
             }
             dmg *= playerSpireTraps.Lightning.getColBonus(cell);
+            dmg = calcHeirloomBonus("Core", "poisonTrap", dmg);
             return dmg;
         },
         extraEffect: function (enemy, cell){
@@ -1687,7 +1697,7 @@ var playerSpireTraps = {
             if (this.level < 4) return 1;
             var col = playerSpire.getColFromCell(cell);
             var traps = playerSpire.lightColumns[col];
-            return 1 + (traps * 0.1);
+            return 1 + calcHeirloomBonus("Core", "lightningTrap", (traps * 0.1));
         },
         upgrades: [
             {
@@ -1729,15 +1739,16 @@ var playerSpireTraps = {
         turns: 1,
         get description(){
             var shockTurns = this.shockTurns();
-            var text = "每步造成" + prettify(this.totalDamage()) + "伤害，并给敌人叠加" + shockTurns + "层" + needAnS(shockTurns) + "震慑状态。敌人每步行动时会消耗一层震慑状态，导致敌人多受到<b>" + this.shockedDamage() + "倍</b>伤害和<b>" + this.shockedEffect() + "倍</b>效果。震慑状态在闪电陷阱上只有伤害加成，不享受效果加成。"
-            if (this.level >= 4) text += "<br/><br/>闪电陷阱将一列中其他火焰和毒物陷阱的伤害和效果提高10％，效果是叠加的。";
-            text += "<br/><br/>(快捷键 4)";
+            var text = "每步造成 " + prettify(this.totalDamage()) + " 伤害，并给敌人叠加 " + shockTurns + " 层" + needAnS(shockTurns) + " 震慑状态。敌人每步行动时会消耗一层震慑状态，导致敌人多受到 " + prettify(this.shockedDamage()) + "x 倍伤害和 " + prettify(this.shockedEffect()) + "x 倍效果从陷阱或塔中消耗了一堆震慑。 震慑可以增加伤害，但不会增加其他闪电陷阱的效果。"
+            if (this.level >= 4) text += "<br/><br/>闪电陷阱将一列中其他火焰和毒物陷阱的伤害和效果提高 " + prettify(calcHeirloomBonus("Core", "lightningTrap", 10)) + "%, 效果是叠加的。";
+            text += "<br/><br/>(热键 4)";
             return text;
         },
         shockedDamage: function(){
             var dmg = this.damageMod;
             if (this.level >= 3) dmg *= 2;
             if (this.level >= 6) dmg *= 2;
+            dmg = calcHeirloomBonus("Core", "lightningTrap", dmg);
             return dmg;
         },
         shockedEffect: function(){
@@ -1759,6 +1770,7 @@ var playerSpireTraps = {
             else
                 dmg = dmgs[this.level - 1];
             if (effect) dmg *= effect;
+            dmg = calcHeirloomBonus("Core", "lightningTrap", dmg);
             return dmg;
         },
         extraEffect: function (enemy){
@@ -1823,7 +1835,7 @@ var playerSpireTraps = {
         level: 1,
         owned: 0,
         get description(){
-            return "将同一层上所有火陷阱伤害提高100%，其本身造成这楼层所有火陷阱伤害之和的伤害（每层楼最多建1个）. 此外，这个塔还对你在世界和地图中的脆皮攻击" + prettify(this.getWorldBonus(true)) + "%伤害(与其它力量之塔叠加).<br/><br/>你的力量之塔总共给你的脆皮加成<b>" + prettify(this.getWorldBonus()) + "%</b>攻击伤害.<br/><br/>(快捷键 5)";
+            return "Increases the damage of all Fire Traps on the same Floor as a Strength Tower by " + prettify(calcHeirloomBonus("Core", "strengthEffect", 100)) + "%, and when stepped on deals damage equal to the combined damage of all Fire Traps on its Floor (max of 1 Strength Tower per Floor). In addition, this Tower increases the attack of your Trimps in Maps and the World by " + prettify(this.getWorldBonus(true)) + "% (additive with other Strength Towers).<br/><br/>Your Strength Towers are currently granting a total of <b>" + prettify(this.getWorldBonus()) + "%</b> attack to your Trimps.<br/><br/>(快捷键 5)";
         }
     },
     Condenser: {
@@ -1869,11 +1881,13 @@ var playerSpireTraps = {
         },
         noDirectDamage: true,
         get description(){
-            return "每步增加目标的毒性25%。此外，每个冷凝塔都会增加所有来源获得额外的" + prettify(this.getWorldBonus(true)) + "%氦气(additive with other Condenser Towers)。<br/><br/>你的冷凝塔总共加成所有来源获得额外的<b>" + prettify(this.getWorldBonus()) + "%</b>氦气。<br/><br/>(快捷键 6)";
+            return "When stepped on, increases the target's Toxicity by  " + prettify(calcHeirloomBonus("Core", "condenserEffect", 25)) + "%. In addition, each Condenser Tower increases all Helium found by " + prettify(this.getWorldBonus(true)) + "% (additive with other Condenser Towers).<br/><br/>Your Condenser Towers are currently granting a total of <b>" + prettify(this.getWorldBonus()) + "%</b> additional Helium from all sources.<br/><br/>(Hotkey 6)";
         },
         extraEffect: function(enemy, cell){
             var effect = (enemy && enemy.shockTurns && enemy.shockTurns > 0) ? playerSpireTraps.Lightning.shockedEffect() : 1;
-            var boost = (1 + (0.25 * effect));
+            var baseEffect = 0.25;
+            baseEffect = calcHeirloomBonus("Core", "condenserEffect", baseEffect);
+            var boost = (1 + (baseEffect * effect));
             if (enemy.toxicity) enemy.toxicity *= boost;
         },
     },
