@@ -3,7 +3,7 @@
 //If you want to learn how to make javascript games, this is the short tutorial that got me started: http://dhmholley.co.uk/incrementals.html
 
 /*		Trimps
-		Copyright (C) 2016 Zach Hood
+		Copyright (C) 2019 Zach Hood
 
 		This program is free software: you can redistribute it and/or modify
 		it under the terms of the GNU General Public License as published by
@@ -27,6 +27,9 @@ if (typeof kongregate === 'undefined' && document.getElementById("boneBtn") !== 
 	boneBtn.innerHTML = "Kongregate API没有加载！ 您不能提交高分或花费Kreds。 尝试刷新或联系Kongregate支持！";
 	boneBtn.style.backgroundColor = "#d9534f";
 	document.getElementById("getBundleBtn").style.display = "none";
+}
+if (typeof usingScreenReader === 'undefined'){
+	var usingScreenReader = false;
 }
 document.getElementById("versionNumber").innerHTML = game.global.stringVersion;
 
@@ -173,6 +176,8 @@ function save(exportThis, fromManual) {
 		var empUp = saveGame.empowerments[itemEmp];
 		delete empUp.baseModifier;
 		delete empUp.color;
+		delete empUp.formationDesc;
+		delete empUp.enlightenDesc;
 	}
 	for (var itemSrb in saveGame.singleRunBonuses){
 		itemSrb = saveGame.singleRunBonuses[itemSrb];
@@ -750,6 +755,9 @@ function load(saveString, autoLoad, fromPf) {
 			playerSpire.openPopup();
 		}
 	}
+	if (compareVersion([4,11,0], oldStringVersion)){
+		if (game.global.freeTalentRespecs < 3) game.global.freeTalentRespecs++;
+	}
 	//End compatibility
 	//Test server only
 
@@ -807,6 +815,7 @@ function load(saveString, autoLoad, fromPf) {
 	toggleAutoTrap(true);
 	toggleAutoStructure(true);
 	toggleAutoJobs(true);
+	toggleAutoEquip(true);
 	toggleAutoGolden(true);
     setGather(game.global.playerGathering);
     numTab(1);
@@ -1129,14 +1138,18 @@ function displayAllStats(buildAll) {
 	}
 }
 
-function countChallengeSquaredReward(){
+function countChallengeSquaredReward(numberOnly, mesmerPreview){
+	//"noMesmer" for mesmerPreview forces the calculation while ignoring mesmer
+	//"mesmer" for mesmerPreview forces the calculation to include mesmer
 	var reward = 0;
+	if (!mesmerPreview) mesmerPreview = false;
 	for (var item in game.challenges){
 		var challenge = game.challenges[item];
 		if (!challenge.allowSquared) continue;
-		reward += getIndividualSquaredReward(item);
+		reward += getIndividualSquaredReward(item, false, mesmerPreview);
 	}
-	if (reward >= 2000) giveSingleAchieve("Challenged");
+	if (reward >= 2000 && !mesmerPreview) giveSingleAchieve("Challenged");
+	if (numberOnly) return reward;
 	game.global.totalSquaredReward = reward;
 }
 
@@ -1147,7 +1160,7 @@ var squaredConfig = {
 		thresh: 100,
 }
 
-function getIndividualSquaredReward(challengeName, forceHighest){
+function getIndividualSquaredReward(challengeName, forceHighest, mesmerPreview){
 	if (!forceHighest) forceHighest = game.c2[challengeName];
 	if (forceHighest < 1) return 0;
 	var challenge = game.challenges[challengeName];
@@ -1158,6 +1171,12 @@ function getIndividualSquaredReward(challengeName, forceHighest){
 	var freq = (challenge.replaceSquareFreq) ? challenge.replaceSquareFreq : squaredConfig.rewardFreq;
 	var addedBonuses = 0;
 	var loops = Math.ceil(forceHighest / thresh);
+	if ((game.talents.mesmer.purchased || mesmerPreview == "mesmer") && !challenge.onlySquared && mesmerPreview != "noMesmer"){
+		if (!challenge.replaceSquareFreq && !challenge.replaceSquareGrowth && !challenge.replaceSquareReward && !challenge.replaceSquareThresh){
+			reward *= 3;
+			rewardGrowth *= 3;
+		}
+	}
 	for (var x = 0; x < loops; x++){
 		var count = (x == loops - 1) ? forceHighest - addedBonuses : thresh;
 		addedBonuses += count - (count % freq);
@@ -1441,11 +1460,15 @@ function getSpecialSquaredRewards(challenge){
 		var reward = (challenge.replaceSquareReward) ? challenge.replaceSquareReward : squaredConfig.rewardEach;
 		var freq = (challenge.replaceSquareFreq) ? challenge.replaceSquareFreq : squaredConfig.rewardFreq;
 		var rewardIncrease = (challenge.replaceSquareGrowth) ? challenge.replaceSquareGrowth : squaredConfig.rewardGrowth;
+		if (game.talents.mesmer.purchased && !challenge.onlySquared){
+			reward *= 2;
+			rewardIncrease *= 2;
+		}
 		description += "<span class='colorSquared'>本挑战的奖励分配与其他大多数的挑战<sup>2</sup>不同。";
-		description += ((challenge.replaceSquareReward) ? "<b>" : "")  + " 你将获得 " + reward + "% 的攻击与生命, 以及" + prettify(reward / 10) + "% 的氦获得。" + ((challenge.replaceSquareReward) ? "</b>" : "");
-		description += ((challenge.replaceSquareFreq) ? "<b>" : "") + " 每达到 " + freq + " 区域" + needAnS(freq) + "。" + ((challenge.replaceSquareFreq) ? "</b>" : "");
-		description += ((challenge.replaceSquareThresh) ? "<b>" : "") + " 每达到 " + threshes + " 区域" + needAnS(threshes) + "。" + ((challenge.replaceSquareThresh) ? "</b>" : "");
-		description += ((challenge.replaceSquareGrowth) ? "<b>" : "") + " 每次的奖励都会增加 " + rewardIncrease + "% 的攻击与生命,以及 " + prettify(rewardIncrease / 10) + "%的氦获取。</span> " + ((challenge.replaceSquareGrowth) ? "</b>" : "");
+		description += ((challenge.replaceSquareReward) ? "<b>" : "")  + " 你将获得 " + reward + "% 的攻击与生命, 以及 " + prettify(reward / 10) + "% 的氦获得" + ((challenge.replaceSquareReward) ? "</b>" : "");
+		description += ((challenge.replaceSquareFreq) ? "<b>" : "") + " 每达到 " + freq + " 区域" + needAnS(freq) + " 。" + ((challenge.replaceSquareFreq) ? "</b>" : "");
+		description += ((challenge.replaceSquareThresh) ? "<b>" : "") + " 每达到 " + threshes + " 区域" + needAnS(threshes) + " ," + ((challenge.replaceSquareThresh) ? "</b>" : "");
+		description += ((challenge.replaceSquareGrowth) ? "<b>" : "") + " 每次的奖励都会增加 " + rewardIncrease + "% 的攻击与生命,以及 " + prettify(rewardIncrease / 10) + "% 的氦获取.</span> " + ((challenge.replaceSquareGrowth) ? "</b>" : "");
 	}
 	return description;
 }
@@ -1789,13 +1812,13 @@ function checkOfflineProgress(noTip){
 						if (newMax > (resource.owned + amt)) break;
 					}
 					var s = (count > 1) ? "" : "";
-					storageBought.push(count + " " + cnresourcetype(storages[x]) + s + ", ");
+					storageBought.push(count + " " + cnItem(storages[x]) + s + ", ");
 				}
 			}
 		}
 		if (amt > 0){
 			resource.owned += amt;
-			textString = prettify(amt) + " " + cnresourcetype(resName) + ", ";
+			textString = prettify(amt) + " " + cnItem(resName) + ", ";
 			textArray.push(textString);
 			if (resName == "gems") game.stats.gemsCollected.value += amt;
 		}
@@ -1821,7 +1844,7 @@ function checkOfflineProgress(noTip){
 		if (!isNumberBad(avg)){
 			var rsReward = (dif * 0.75 * avg);
 			playerSpire.runestones += rsReward;
-			textString += "<br/>你的尖顶陷阱和塔也产生了 <b>" + prettify(rsReward) + "</b> 符文石，在你离开的时候!";
+			textString += "<br/>你的尖塔陷阱和塔也产生了 <b>" + prettify(rsReward) + "</b> 符文石，在你离开的时候!";
 		}
 	}
 	if (!noTip) tooltip("守信的脆皮", null, "update", textString);
@@ -1908,7 +1931,8 @@ function activateClicked(){
 	if (game.global.runningChallengeSquared) newText += "<div class='squaredError portalError'>" + getSquaredDescriptionInRun(true) + "</div>";
 	if (game.global.heirloomsExtra.length){
 		var s = (game.global.heirloomsExtra.length > 1) ? "s" : "";
-		newText += "<div class='heirloomRecycleWarning portalError'>你拥有" + game.global.heirloomsExtra.length + "个额外传家宝。如果你现在传送，它们将会被回收成" + prettify(recycleAllExtraHeirlooms(true)) + "虚空物质。确保携带你想要的传家宝来保留它!</div>";
+		var spirestones = recycleAllExtraHeirlooms(false, true);
+		newText += "<div class='heirloomRecycleWarning portalError'>你拥有 " + game.global.heirloomsExtra.length + " 个额外传家宝" + s + ", 如果你现在传送，它们将会被回收成 " + prettify(recycleAllExtraHeirlooms(true)) + " 虚空物质 " + ((spirestones > 0) ? " 和 " + prettify(spirestones) + " 尖塔石头 " : "") + "。确保你携带了任何你想保存的东西!</div>";
 	}
 	if (game.global.world >= 230 && canAffordGeneratorUpgrade()){
 		newText += "<div class='magmiteError portalError'>You have " + prettify(game.global.magmite) + " Magmite, which is enough purchase an upgrade for your Dimensional Generator! If you portal now, " + ((game.permanentGeneratorUpgrades.Shielding.owned) ? "20" : "30") + "% of your Magmite will decay.<div style='text-align: center'><span onclick='cancelTooltip(); tooltip(\"Upgrade Generator\", null, \"update\")' class='btn btn-lg btn-success'>花费 Magmite</span></div></div><br/>";
@@ -2339,12 +2363,12 @@ function canCommitCarpentry(){ //Uh, and Coordinated. This checks coordinated to
 	var good = true;
 	var soldiers = game.resources.trimps.getCurrentSend(true);
     if (newMax < (soldiers * 2.4)) {
-        error.innerHTML += "You do not have enough max Trimps with this Perk setup to sustain your Coordination. ";
+        error.innerHTML += "使用此天赋设置，您没有足够的最大脆皮来维持您的协调。 ";
 		error.style.display = "block";
 		good = false;
     }
 	if (Math.ceil(newMax / 2) < game.resources.trimps.employed){
-		error.innerHTML += "你有太多的工作人员分配给这个额外津贴设置。";
+		error.innerHTML += "你有太多的工作人员分配给这个天赋设置。";
 		error.style.display = "block";
 		good = false;
 	}
@@ -2615,6 +2639,9 @@ function rewardResource(what, baseAmt, level, checkMapLootScale, givePercentage)
 		else if (what != "fragments")
 			amt *= (1 + (game.empowerments.Wind.getCombatModifier()));
 	}
+	if (what != "helium" && what != "fragments" && getUberEmpowerment() == "Wind"){
+		amt *= 10;
+	}
 	if (what == "helium"){
 		if (game.singleRunBonuses.heliumy.owned) amt *= 1.25;
 		if (game.global.sLevel >= 5) amt *= Math.pow(1.005, game.global.world);
@@ -2637,7 +2664,7 @@ function rewardResource(what, baseAmt, level, checkMapLootScale, givePercentage)
 };
 
 function isScryerBonusActive(){
-	if (game.global.formation != 4) return false;
+	if (game.global.formation != 4 && game.global.formation != 5) return false;
 	if (game.global.mapsActive && game.global.waitToScryMaps) return false;
 	if (!game.global.mapsActive && game.global.waitToScry) return false;
 	return true;
@@ -3230,9 +3257,9 @@ function trapThings() {
 }
 
 
-function toggleAutoJobsHelp(){
-	var btnElem = document.getElementById('autoJobsHelpBtn');
-	var helpElem = document.getElementById('autoJobsHelpDiv');
+function toggleAutoTooltipHelp(){
+	var btnElem = document.getElementById('autoTooltipHelpBtn');
+	var helpElem = document.getElementById('autoTooltipHelpDiv');
 	if (!btnElem || !helpElem) return;
 	if (helpElem.style.display == "block"){
 		helpElem.style.display = "none";
@@ -3616,8 +3643,13 @@ function buyUpgrade(what, confirmed, noTip, heldCtrl) {
 		if (!noTip) tooltip(what, "upgrades", "update");
         document.getElementById(what + "Owned").innerHTML = upgrade.done;
         return true;
-    }
-    document.getElementById("upgradesHere").removeChild(document.getElementById(what));
+	}
+	var upgradesHereElem = document.getElementById("upgradesHere")
+	upgradesHereElem.removeChild(document.getElementById(what));
+	if (usingScreenReader){
+		var tooltipElem = document.getElementById('srTooltip' + what);
+		if (tooltipElem) upgradesHereElem.removeChild(tooltipElem);
+	}
     if (!noTip) tooltip("hide");
 	return true;
 }
@@ -4522,6 +4554,7 @@ function createVoidMap(forcePrefix, forceSuffix, skipMessage) {
 	var mapName = prefixes[prefixNum] + " " + suffixes[suffixNum];
 	var stackedMap = false;
 	var stackCount = Fluffy.getVoidStackCount();
+	if (game.talents.voidMastery.purchased) stackCount = 999;
 	if (game.global.totalVoidMaps > 0 && stackCount > 1){
 		for (var x = 0; x < game.global.mapsOwnedArray.length; x++){
 			var newMap = game.global.mapsOwnedArray[x];
@@ -4627,6 +4660,7 @@ function toggleHeirlooms(){
 	heirloomsShown = !heirloomsShown;
 	document.getElementById("heirloomWrapper").style.display = (heirloomsShown) ? "block" : "none";
 	document.getElementById("wrapper").style.display = (heirloomsShown) ? "none" : "block";
+	document.getElementById("heirloomSpirestoneCount").style.display = (game.global.spiresCompleted >= 1) ? "inline-block" : "none";
 	if (heirloomsShown) populateHeirloomWindow();
 	else {
 		game.global.selectedHeirloom = [];
@@ -4659,6 +4693,21 @@ function populateHeirloomWindow(){
 	//Equipped staff
 	document.getElementById("StaffEquipped").innerHTML = generateHeirloomIcon(game.global.StaffEquipped, "Equipped");
 	document.getElementById("StaffEquippedName").innerHTML = (typeof game.global.StaffEquipped.name !== 'undefined') ? cnItem(game.global.StaffEquipped.name) : "无.";
+	var coreContainer = document.getElementById('CoreEquippedContainer');
+	var staffContainer = document.getElementById('StaffEquippedContainer');
+	var shieldContainer = document.getElementById('ShieldEquippedContainer');
+	if (game.stats.coresFound.value > 0 || game.stats.coresFound.valueTotal > 0){
+		coreContainer.style.display = 'inline-block';
+		swapClass('col', 'col-xs-4', staffContainer);
+		swapClass('col', 'col-xs-4', shieldContainer);
+		document.getElementById("CoreEquipped").innerHTML = generateHeirloomIcon(game.global.CoreEquipped, "Equipped");
+		document.getElementById("CoreEquippedName").innerHTML = (typeof game.global.CoreEquipped.name !== 'undefined') ? cnItem(game.global.CoreEquipped.name) : "无.";
+	}
+	else{
+		coreContainer.style.display = 'none';
+		swapClass('col', 'col-xs-6', staffContainer);
+		swapClass('col', 'col-xs-6', shieldContainer);
+	}
 	displayAddCarriedBtn();
 	displayCarriedHeirlooms();
 	displayExtraHeirlooms();
@@ -4670,6 +4719,7 @@ function populateHeirloomWindow(){
 			fidgetSpinners[x].style.animationDelay = "-" + ((new Date().getTime() / 1000) % 30).toFixed(1) + "s";
 		}
 	}
+	updateHeirloomSpirestoneCount();
 }
 
 function displayCarriedHeirlooms(){
@@ -4690,9 +4740,15 @@ function getNextCarriedCost(){
 	return (game.heirlooms.values[game.global.maxCarriedHeirlooms - 1] * 4);
 }
 
+function getMaxCarriedHeirlooms(){
+	var spires = game.global.spiresCompleted;
+	if (spires > 3) spires = 3;
+	return game.global.maxCarriedHeirlooms + spires;
+}
+
 function displayAddCarriedBtn(){
-	var s = (game.global.maxCarriedHeirlooms > 1) ? "" : "";
-	document.getElementById("carriedHeirloomsText").innerHTML = " - 通过传送门时你可以随身携带 <b>" + game.global.maxCarriedHeirlooms + "</b> 额外的传家宝" + s + "。";
+	var realMaxHeirlooms = getMaxCarriedHeirlooms();
+	document.getElementById("carriedHeirloomsText").innerHTML = " - 你可以随身携带 <b>" + realMaxHeirlooms + "</b> 额外的传家宝" + needAnS(realMaxHeirlooms) + " 通过传送门时";
 	var elem = document.getElementById("addCarriedBtn");
 	if (game.global.maxCarriedHeirlooms > game.heirlooms.values.length){
 		elem.style.display = "none";
@@ -4738,8 +4794,11 @@ function displayExtraHeirlooms(){
 		tempHtml += generateHeirloomIcon(game.global.heirloomsExtra[y], "Extra", y);
 	}
 	document.getElementById("extraHeirloomsHere").innerHTML = tempHtml;
-	var s = (extraExtraText > 1) ? "" : "";
-	document.getElementById("extraHeirloomsText").innerHTML = " - " + extraExtraText + " 传家宝" + s + ", 回收可以得到 " + recycleAllExtraHeirlooms(true) + " Nu 在传送门";
+	var s = (extraExtraText > 1) ? "s" : "";
+	var heirloomExtraText = " - " + extraExtraText + " 传家宝" + s + ", 回收可以得到 " + recycleAllExtraHeirlooms(true) + " Nu";
+	if (game.global.spiresCompleted >= 1) heirloomExtraText += " 和 " + recycleAllExtraHeirlooms(false, true) + " Ss";
+	heirloomExtraText += " on Portal";
+	document.getElementById("extraHeirloomsText").innerHTML = heirloomExtraText;
 	document.getElementById("recycleAllHeirloomsBtn").style.display = (game.global.heirloomsExtra.length) ? "inline-block" : "none";
 	if (game.options.menu.showHeirloomAnimations.enabled){
 		var fidgetSpinners = document.getElementById("extraHeirloomsHere").getElementsByClassName('heirloomRare8');
@@ -4758,6 +4817,7 @@ function selectHeirloom(number, location, noScreenUpdate){
 	switch (location){
 		case "StaffEquipped":
 		case "ShieldEquipped":
+		case "CoreEquipped":
 			document.getElementById("equippedHeirloomsBtnGroup").style.visibility = "visible";
 			break;
 		case "heirloomsCarried":
@@ -4767,8 +4827,8 @@ function selectHeirloom(number, location, noScreenUpdate){
 		case "heirloomsExtra":
 			document.getElementById("extraHeirloomsBtnGroup").style.visibility = "visible";
 			document.getElementById("equipHeirloomBtn2").innerHTML = (typeof game.global[heirloom.type + "Equipped"].name === 'undefined') ? "装备" : "交换";
-			if (game.global.heirloomsCarried.length < game.global.maxCarriedHeirlooms) swapClass("heirloomBtn", "heirloomBtnActive", document.getElementById("carryHeirloomBtn"));
-			document.getElementById("recycleHeirloomBtn").innerHTML = "回收 (+" + prettify(getTotalHeirloomRefundValue(heirloom)) + " Nullifium)";
+			if (game.global.heirloomsCarried.length < getMaxCarriedHeirlooms()) swapClass("heirloomBtn", "heirloomBtnActive", document.getElementById("carryHeirloomBtn"));
+			document.getElementById("recycleHeirloomBtn").innerHTML = "回收 (+" + prettify(getTotalHeirloomRefundValue(heirloom)) + ((heirloom.type == "Core") ? " 尖塔石)" : " 虚空物质)");
 			break;
 	}
 	displaySelectedHeirloom();
@@ -4778,30 +4838,44 @@ function recycleHeirloom(confirmed){
 	var heirloom = getSelectedHeirloom();
 	if (game.global.selectedHeirloom[0] == -1 || game.global.selectedHeirloom[1] == "heirloomsCarried") return;
 	var value = Math.floor(getTotalHeirloomRefundValue(heirloom));
+	var resource = (heirloom.type == "Core") ? "尖塔石头" : "虚空物质";
 	if (!confirmed) {
-		tooltip('confirm', null, 'update', '你正在回收 ' + heirloom.name + ' 以得到 ' + prettify(value) + ' 虚空物质。 你确定吗?' , 'recycleHeirloom(true)', 'Recycle Heirloom');
+		tooltip('confirm', null, 'update', '你正在回收 ' + heirloom.name + ' 以得到 ' + prettify(value) + ' ' + resource + '.你确定吗?' , 'recycleHeirloom(true)', 'Recycle Heirloom');
 		return;
 	}
-	game.global.nullifium += value;
+	if (heirloom.type == "Core") playerSpire.giveSpirestones(value);
+	else game.global.nullifium += value;
 	game.global.heirloomsExtra.splice(game.global.selectedHeirloom[0], 1);
 	populateHeirloomWindow();
 }
 
-function recycleAllExtraHeirlooms(valueOnly){
+function recycleAllExtraHeirlooms(valueOnly, checkCores){
 	var extraHeirlooms = game.global.heirloomsExtra;
 	var value = 0;
+	var coreValue = 0;
 	for (var item in extraHeirlooms){
-		value += getTotalHeirloomRefundValue(extraHeirlooms[item]);
+		var heirloom = extraHeirlooms[item];
+		if (heirloom.type == "Core"){
+			if (valueOnly) continue;
+			coreValue += getTotalHeirloomRefundValue(heirloom);
+		}
+		else {
+			if (checkCores) continue;
+			value += getTotalHeirloomRefundValue(heirloom);
+		}
 	}
 	if (valueOnly) return value;
+	if (checkCores) return coreValue;
 	game.global.nullifium += value;
+	playerSpire.giveSpirestones(coreValue);
 	game.global.heirloomsExtra = [];
 }
 
 function recycleAllHeirloomsClicked(confirmed){
 	if (!confirmed){
 		var s = (game.global.heirloomsExtra.length == 1) ? "" : "s";
-		var messageString = "You have " + game.global.heirloomsExtra.length + " extra Heirloom" + s + ", which will be recycled for " + prettify(recycleAllExtraHeirlooms(true)) + " Nullifium. Are you sure?";
+		var spirestones = recycleAllExtraHeirlooms(false, true);
+		var messageString = "You have " + game.global.heirloomsExtra.length + " extra Heirloom" + s + ", which will be recycled for " + prettify(recycleAllExtraHeirlooms(true)) + " Nullifium " + ((spirestones > 0) ? " and " + prettify(spirestones) + " Spirestones" : "") + ". Are you sure?";
 		tooltip("confirm", null, "update", messageString, "recycleAllHeirloomsClicked(true)", "Recycle All Heirlooms");
 		return;
 	}
@@ -4812,6 +4886,7 @@ function recycleAllHeirloomsClicked(confirmed){
 function recalculateHeirloomBonuses(){
 	for (var item in game.heirlooms.Staff) game.heirlooms.Staff[item].currentBonus = 0;
 	for (var item in game.heirlooms.Shield) game.heirlooms.Shield[item].currentBonus = 0;
+	for (var item in game.heirlooms.Core) game.heirlooms.Core[item].currentBonus = 0;
 	if (game.global.StaffEquipped){
 		for (var item in game.global.StaffEquipped.mods){
 			var mod = game.global.StaffEquipped.mods[item];
@@ -4824,6 +4899,12 @@ function recalculateHeirloomBonuses(){
 			game.heirlooms.Shield[mod[0]].currentBonus = mod[1];
 		}
 	}
+	if (game.global.CoreEquipped){
+		for (var item in game.global.CoreEquipped.mods){
+			var mod = game.global.CoreEquipped.mods[item];
+			game.heirlooms.Core[mod[0]].currentBonus = mod[1];
+		}
+	}
 }
 
 
@@ -4831,7 +4912,7 @@ function unequipHeirloom(heirloom, toLocation, noScreenUpdate){
 	if (!noScreenUpdate) cancelTooltip();
 	if (!heirloom) heirloom = getSelectedHeirloom();
 	if (!toLocation) toLocation = "heirloomsCarried";
-	if (toLocation == "heirloomsCarried" && game.global.heirloomsCarried.length >= game.global.maxCarriedHeirlooms){
+	if (toLocation == "heirloomsCarried" && game.global.heirloomsCarried.length >= getMaxCarriedHeirlooms()){
 		tooltip("Unequip Heirloom", null, 'update');
 		return;
 	}
@@ -4871,7 +4952,7 @@ function checkLowestHeirloom(){
 
 function carryHeirloom(){
 	var heirloom = getSelectedHeirloom();
-	if (game.global.heirloomsCarried.length >= game.global.maxCarriedHeirlooms) return;
+	if (game.global.heirloomsCarried.length >= getMaxCarriedHeirlooms()) return;
 	game.global.heirloomsExtra.splice(game.global.selectedHeirloom[0], 1);
 	game.global.heirloomsCarried.push(heirloom);
 	populateHeirloomWindow();
@@ -4903,7 +4984,7 @@ function hideHeirloomSelectButtons(){
 
 function generateHeirloomIcon(heirloom, location, number){
 	if (typeof heirloom.name === 'undefined') return "<span class='icomoon icon-sad3'></span>";
-	var icon = (heirloom.type == "Shield") ? 'icomoon icon-shield3' : 'glyphicon glyphicon-grain';
+	var icon = getHeirloomIcon(heirloom.type);
 	var animated = (game.options.menu.showHeirloomAnimations.enabled) ? "animated " : "";
 	var html = '<span class="heirloomThing ' + animated + 'heirloomRare' + heirloom.rarity;
 	if (location == "Equipped") html += ' 已装备';
@@ -4913,6 +4994,11 @@ function generateHeirloomIcon(heirloom, location, number){
 	html += '" onmouseover="tooltip(\'Heirloom\', null, event, null, ' + locText + ')" onmouseout="tooltip(\'hide\')" onclick="selectHeirloom(';
 	html += locText + ', this)"> <span class="' + icon + '"></span></span>';
 	return html;
+}
+
+function getHeirloomIcon(type){
+	return((type == "Core") ? 'glyphicon glyphicon-adjust' : (type == "Shield") ? 'icomoon icon-shield3' : 'glyphicon glyphicon-grain');
+
 }
 
 function htmlEncode(text) {
@@ -4937,7 +5023,7 @@ var lastDisplayedHeirloom = new Date().getTime();
 function displaySelectedHeirloom(modSelected, selectedIndex, fromTooltip, locationOvr, indexOvr, fromPopup){
 	if (fromPopup && !game.options.menu.voidPopups.enabled) return;
 	var heirloom = getSelectedHeirloom(locationOvr, indexOvr);
-	var icon = (heirloom.type == "Shield") ? 'icomoon icon-shield3' : 'glyphicon glyphicon-grain';
+	var icon = getHeirloomIcon(heirloom.type);
 	var animated = (game.options.menu.showHeirloomAnimations.enabled) ? "animated " : "";
 	var html = '<div class="selectedHeirloomItem ' + animated + 'heirloomRare' + heirloom.rarity + '"><div class="row selectedHeirloomRow"><div class="col-xs-2 selectedHeirloomIcon" id="' + ((fromTooltip) ? 'tooltipHeirloomIcon' : 'selectedHeirloomIcon') + '"><span class="' + icon + '"></span></div><div class="col-xs-10"><span onclick="renameHeirloom(';
 	if (fromPopup) html += 'false, true';
@@ -5020,6 +5106,13 @@ function selectMod(which, fromPopup){
 	displaySelectedHeirloom(true, which);
 	var heirloom = getSelectedHeirloom();
 	var mod = heirloom.mods[which];
+	var resourceShort = "Nu";
+	var isCore = (heirloom.type == "Core");
+	var resourceCount = game.global.nullifium;
+	if (isCore){
+		resourceShort = "Ss";
+		resourceCount = playerSpire.spirestones;
+	}
 	var modConfig = game.heirlooms[heirloom.type][mod[0]];
 	document.getElementById("modBreakdown").style.display = "block";
 	buildModOptionDdl(heirloom.type, heirloom.rarity, mod[0]);
@@ -5030,24 +5123,24 @@ function selectMod(which, fromPopup){
 	var upgradeBtn = document.getElementById("modUpgradeBtn");
 	var upgradeBtn10 = document.getElementById("modUpgradeBtn10");
 	var upgradeCost10 = getModUpgradeCost(heirloom, which, 10);
-	var newClass = (replaceCost > game.global.nullifium) ? "heirloomBtnInactive" : "heirloomBtnActive";
+	var newClass = (replaceCost > resourceCount) ? "heirloomBtnInactive" : "heirloomBtnActive";
 	swapClass("heirloomBtn", newClass, replaceBtn);
-	newClass = (upgradeCost > game.global.nullifium) ? "heirloomBtnInactive" : "heirloomBtnActive";
+	newClass = (upgradeCost > resourceCount) ? "heirloomBtnInactive" : "heirloomBtnActive";
 	swapClass("heirloomBtn", newClass, upgradeBtn);
-	newClass = (upgradeCost10 > game.global.nullifium) ? "heirloomBtnInactive" : "heirloomBtnActive";
+	newClass = (upgradeCost10 > resourceCount) ? "heirloomBtnInactive" : "heirloomBtnActive";
 	swapClass("heirloomBtn", newClass, upgradeBtn10);
-	replaceBtn.innerHTML = (mod[0] == "empty") ? "增加 (" + prettify(replaceCost) + " Nu)" : "替换 (" + prettify(replaceCost) + " Nu)";
+	replaceBtn.innerHTML = (mod[0] == "empty") ? "增加 (" + prettify(replaceCost) + " " + cnItem(resourceShort) + ")" : "替换 (" + prettify(replaceCost) + " " + cnItem(resourceShort) + ")";
 	var step = (typeof modConfig.steps !== 'undefined') ? modConfig.steps : game.heirlooms.defaultSteps;
 	step = step[heirloom.rarity];
-	var upgradeCostText = "Each upgrade adds " + step[2] + "%";
+	var upgradeCostText = "每项升级增加 " + step[2] + "%";
 	if (modConfig.max){
 		if (mod[1] < modConfig.max[heirloom.rarity])
-			upgradeCostText = "<span class='upgradeCostTextMax'><span>" + upgradeCostText + "</span><span>Max of " + modConfig.max[heirloom.rarity] + "%</span></span>"
-		else upgradeCostText = "At Max!";
+			upgradeCostText = "<span class='upgradeCostTextMax'><span>" + upgradeCostText + "</span><span>最大 " + modConfig.max[heirloom.rarity] + "%</span></span>"
+		else upgradeCostText = "达到最大!";
 	}
 	document.getElementById("modUpgradeCost").innerHTML = upgradeCostText;
-	upgradeBtn.innerHTML = "Upgrade x1<br/>(" + prettify(upgradeCost) + " Nu)";
-	upgradeBtn10.innerHTML = "Upgrade x10<br/>(" + prettify(upgradeCost10) + " Nu)";
+	upgradeBtn.innerHTML = "升级 x1<br/>(" + prettify(upgradeCost) + " " + cnItem(resourceShort) + ")";
+	upgradeBtn10.innerHTML = "升级 x10<br/>(" + prettify(upgradeCost10) + " " + cnItem(resourceShort) + ")";
 	var modDescElem = document.getElementById("specialModDescription");
 	if (modConfig.specialDescription){
 		modDescElem.style.display = "block";
@@ -5084,7 +5177,7 @@ function getModUpgradeCost(heirloom, modIndex, count){
 	if (modConfig.max && getModUpgradeValue(heirloom, modIndex, count) === false) return Infinity;
 	var cost = 0;
 	for (var x = 0; x < count; x++){
-		var tempCost = (game.heirlooms.values[heirloom.rarity] / 2);
+		var tempCost = (getHeirloomBaseValue(heirloom) / 2);
 		tempCost *= getStepPriceIncrease(heirloom, mod, x);
 		cost += Math.floor(tempCost);
 	}
@@ -5109,9 +5202,14 @@ function getTotalHeirloomRefundValue(heirloom){
 		var dummyHeirloom = setupDummyHeirloom(heirloom, thisMod);
 		total += countPriceOfUpgrades(dummyHeirloom, heirloom.mods[x][3]);
 	}
-	var result = Math.floor(total) + Math.floor(game.heirlooms.values[heirloom.rarity] / 2);
+	var result = Math.floor(total) + Math.floor(getHeirloomBaseValue(heirloom) / 2);
 	if (isNumberBad(result)) return 0;
 	return result;
+}
+
+function getHeirloomBaseValue(heirloom){
+	if (heirloom.type == "Core") return game.heirlooms.coreValues(heirloom.rarity);
+	return game.heirlooms.values[heirloom.rarity];
 }
 
 //Dummy heirloom for mod recycle price calculating
@@ -5144,17 +5242,20 @@ function upgradeMod(confirmed, count){
 	if (!count) count = 1;
 	var cost = Math.ceil(getModUpgradeCost(heirloom, selectedMod, count));
 	if (cost == Infinity) return;
-	if (game.global.nullifium < cost) return;
+	var resource = heirloom.type == "Core" ? playerSpire.spirestones : game.global.nullifium;
+	var resourceName = heirloom.type == "Core" ? "Spirestones" : "Nullifium";
+	if (resource < cost) return;
 	if (!confirmed && game.options.menu.boneAlerts.enabled == 1) {
-		tooltip('confirm', null, 'update', 'You are about to upgrade ' + game.heirlooms[heirloom.type][heirloom.mods[selectedMod][0]].name + ((count > 1) ? ' 10 times' : '') + ' for ' + prettify(cost) + ' Nullifium. Are you sure?' , 'upgradeMod(true, ' + count + ')', 'Upgrade Mod');
+		tooltip('confirm', null, 'update', 'You are about to upgrade ' + game.heirlooms[heirloom.type][heirloom.mods[selectedMod][0]].name + ((count > 1) ? ' 10 times' : '') + ' for ' + prettify(cost) + ' ' + resourceName + '. Are you sure?' , 'upgradeMod(true, ' + count + ')', 'Upgrade Mod');
 		return;
 	}
-	game.global.nullifium -= cost;
+	if (heirloom.type == "Core") playerSpire.spirestones -= cost;
+	else game.global.nullifium -= cost;
 	var newBonus = getModUpgradeValue(heirloom, selectedMod, count);
 	var mod = heirloom.mods[selectedMod];
 	mod[1] = newBonus;
 	mod[3] += count;
-	if (game.global.selectedHeirloom[1] == "ShieldEquipped" || game.global.selectedHeirloom[1] == "StaffEquipped"){
+	if (game.global.selectedHeirloom[1] == "ShieldEquipped" || game.global.selectedHeirloom[1] == "StaffEquipped" || game.global.selectedHeirloom[1] == "CoreEquipped"){
 		game.heirlooms[heirloom.type][heirloom.mods[selectedMod][0]].currentBonus = newBonus;
 	}
 	displaySelectedHeirloom();
@@ -5164,12 +5265,21 @@ function upgradeMod(confirmed, count){
 }
 
 function getModReplaceCost(heirloom, mod){
-	var value = game.heirlooms.values[heirloom.rarity];
+	var value = getHeirloomBaseValue(heirloom);
 	return (mod[0] == "empty") ? value : (value * 3);
 }
 
 function replaceMod(confirmed){
 	var heirloom = getSelectedHeirloom();
+	var resourceLong = "Nullifium";
+	var resourceShort = "Nu";
+	var isCore = (heirloom.type == "Core");
+	var resourceCount = game.global.nullifium;
+	if (isCore){
+		resourceLong = "Spirestones";
+		resourceShort = "Ss";
+		resourceCount = playerSpire.spirestones;
+	}
 	var mod = heirloom.mods[selectedMod];
 	if (!game.heirlooms.canReplaceMods[heirloom.rarity] && mod[0] != "empty") return;
 	var cost = getModReplaceCost(heirloom, mod);
@@ -5180,15 +5290,15 @@ function replaceMod(confirmed){
 		console.log("something broke");
 		return;
 	}
-	if (game.global.nullifium < cost) return;
+	if (resourceCount < cost) return;
 	if (!confirmed && game.options.menu.boneAlerts.enabled == 1) {
 		var oldName = game.heirlooms[heirloom.type][heirloom.mods[selectedMod][0]].name;
 		var text = (oldName == "Empty") ? "你准备要增加 " : "你准备要替换 " + oldName + " 用 ";
-		text += newMod.name + ' 花费 ' + prettify(cost) + ' Nullifium. ';
+		text += newMod.name + ' 花费 ' + prettify(cost) + ' ' + cnItem(resourceLong) + '。 ';
 		if (oldName != "Empty"){
 			if (mod[3] > 0){
 				var cost = countPriceOfUpgrades(setupDummyHeirloom(heirloom, mod), mod[3]);
-				text += "<br/><br/><b>你已经购买了 " + mod[3] + " 升级 " + oldName + " 累计消耗了 " + prettify(cost) + " Nullifium. <span style='color:red'>Replacing this mod will not refund your Nu, and it will be permanently lost</span></b>.";
+				text += "<br/><br/><b>你已经购买了 " + mod[3] + " 升级 " + oldName + " 累计消耗了 " + prettify(cost) + " " + cnItem(resourceLong) + ". <span style='color:red'>更换此mod不会退还您的 " + resourceShort + ", 它会永久丢失</span></b>.";
 			}
 		}
 		text += " 你确定吗?";
@@ -5196,7 +5306,12 @@ function replaceMod(confirmed){
 		tooltip('confirm', null, 'update', text, 'replaceMod(true)', tipName);
 		return;
 	}
-	game.global.nullifium -= cost;
+	if (isCore){
+		playerSpire.spirestones -= cost;
+	}
+	else{
+		game.global.nullifium -= cost;
+	}
 	var steps = (typeof newMod.steps !== 'undefined') ? newMod.steps : game.heirlooms.defaultSteps;
 	steps = steps[heirloom.rarity];
 	mod[0] = newModName;
@@ -5222,6 +5337,13 @@ function replaceMod(confirmed){
 	displaySelectedHeirloom();
 	selectMod(selectedMod);
 	document.getElementById("nullifiumCount").innerHTML = prettify(game.global.nullifium);
+	if (game.global.spiresCompleted >= 1){
+		updateHeirloomSpirestoneCount();
+	}
+}
+
+function updateHeirloomSpirestoneCount(){
+	document.getElementById("heirloomSpirestoneCount").innerHTML = "&nbsp;and <b>" + prettify(playerSpire.spirestones) + "</b> Spirestones";
 }
 
 function buildModOptionDdl(type, rarity, selectedMod){
@@ -5238,7 +5360,6 @@ function buildModOptionDdl(type, rarity, selectedMod){
 		document.getElementById('modCantReplace').style.display = 'none';
 	}
 	var html = '';
-	var baseValue = game.heirlooms.values[rarity] * 5;
 	html += '<option value="-1">选择一个模式</option>';
 	for (var item in game.heirlooms[type]){
 		if (item == 'empty') continue;
@@ -5281,18 +5402,30 @@ function checkSelectedModsFor(what){
 	return false;
 }
 
-function createHeirloom(zone, fromBones){
+function createHeirloom(zone, fromBones, spireCore){
 	var slots = game.heirlooms.slots;
 	var rarityNames = game.heirlooms.rarityNames;
 	//Determine Type
 	var seed = (fromBones) ? game.global.heirloomBoneSeed : game.global.heirloomSeed;
-	var type = (getRandomIntSeeded(seed++, 0, 2) == 0) ? "Shield" : "Staff";
-	//Determine type rarity
-	var rarity = getHeirloomRarity(zone, seed++);
+	var type;
+	var rarity;
+	if (spireCore){
+		type = "Core";
+		rarity = Math.round((zone - 200) / 100);
+		if (rarity > 6) rarity = 6;
+		if (rarity < 0) rarity = 0;
+		game.stats.coresFound.value++;
+	}
+	else{
+		type = (getRandomIntSeeded(seed++, 0, 2) == 0) ? "Shield" : "Staff";
+		//Determine type rarity
+		rarity = getHeirloomRarity(zone, seed++);
+	}
 	//Sort through modifiers and build a list of eligible items. Check filters if applicable
 	var eligible = [];
 	for (var item in game.heirlooms[type]){
 		var heirloom = game.heirlooms[type][item];
+		if (item == "empty" && (rarity == 0 || rarity == 1)) continue;
 		if (typeof heirloom.filter !== 'undefined' && !heirloom.filter()) continue;
 		if (heirloom.steps && heirloom.steps[rarity] === -1) continue;
 		eligible.push(item);
@@ -5431,7 +5564,7 @@ function getRandomMapName() {
 }
 
 function buildMapGrid(mapId) {
-	if (game.global.formation == 4) game.global.canScryCache = true;
+	if (game.global.formation == 4 || game.global.formation == 5) game.global.canScryCache = true;
 	game.global.mapStarted = getGameTime();
     var map = game.global.mapsOwnedArray[getMapIndex(mapId)];
     var array = [];
@@ -5469,8 +5602,13 @@ function getMapIndex(mapId) {
 	}
 }
 
+function getUberEmpowerment(){
+	if (game.global.world < getNatureStartZone()) return "";
+	return game.global.uberNature;
+}
+
 function getEmpowerment(adjust, getNaming){
-	var natureStartingZone = (game.global.challengeActive == "Eradicated") ? 1 : 236;
+	var natureStartingZone = getNatureStartZone();
 	var adjWorld = game.global.world;
 	if (typeof adjust !== 'undefined') adjWorld += adjust;
 	if (adjWorld < natureStartingZone) return false;
@@ -5482,9 +5620,14 @@ function getEmpowerment(adjust, getNaming){
 	return activeEmpowerments[adjWorld];
 }
 
+function getNatureStartZone(){
+	return (game.global.challengeActive == "Eradicated") ? 1 : 236;
+}
+
 function stackPoison(trimpAttack){
+	if (Fluffy.isRewardActive("plaguebrought")) trimpAttack *= 2;
 	game.empowerments.Poison.currentDebuffPower += Math.ceil(game.empowerments.Poison.getModifier() * trimpAttack);
-	if (game.empowerments.Poison.currentDebuffPower > trimpAttack * 1000) giveSingleAchieve("Infected");
+	if (game.empowerments.Poison.getDamage() > trimpAttack * 1000) giveSingleAchieve("Infected");
 	handlePoisonDebuff();
 }
 
@@ -5501,7 +5644,7 @@ function handlePoisonDebuff(){
 		elem = document.getElementById('poisonEmpowermentIcon');
 	}
 	elem.style.display = 'inline-block';
-	document.getElementById('poisonEmpowermentText').innerHTML = prettify(game.empowerments.Poison.currentDebuffPower);
+	document.getElementById('poisonEmpowermentText').innerHTML = prettify(game.empowerments.Poison.getDamage());
 }
 
 function handleIceDebuff() {
@@ -5521,8 +5664,8 @@ function handleIceDebuff() {
 }
 
 function handleWindDebuff() {
-	if (game.empowerments.Wind.currentDebuffPower > game.empowerments.Wind.maxStacks)
-		game.empowerments.Wind.currentDebuffPower = game.empowerments.Wind.maxStacks;
+	if (game.empowerments.Wind.currentDebuffPower > game.empowerments.Wind.stackMax())
+		game.empowerments.Wind.currentDebuffPower = game.empowerments.Wind.stackMax();
 	var elem = document.getElementById('windEmpowermentIcon');
 	if (getEmpowerment() != "Wind"){
 		game.empowerments.Wind.currentDebuffPower = 0;
@@ -5591,29 +5734,29 @@ function setEmpowerTab(){
 }
 
 function updateEmpowerCosts(){
-	var empowers = ["Poison", "Wind", "Ice"];
-	for (var x = 0; x < empowers.length; x++){
-		var emp = empowers[x];
-		document.getElementById('natureUpgrade' + emp + 'Cost').innerHTML = checkAndFormatTokens(getNextNatureCost(emp), emp);
-		document.getElementById('natureStackTransfer' + emp + 'Cost').innerHTML = (game.empowerments[emp].retainLevel >= 80) ? "<span class='red'>Max</span>" : checkAndFormatTokens(getNextNatureCost(emp, true), emp);
-		for (var y = 0; y < empowers.length; y++){
-			var empY = empowers[y];
-			if (empY == emp) continue;
-			var amount = ctrlPressed ? Math.floor(game.empowerments[emp].tokens / 10) * 10 : 10;
-			document.getElementById('nature' + emp + empY + 'Cost').innerHTML = checkAndFormatTokens(amount, emp);
+	for (var item in game.empowerments){
+		var emp = game.empowerments[item];
+		document.getElementById('natureUpgrade' + item + 'Cost').innerHTML = checkAndFormatTokens(getNextNatureCost(item), item);
+		document.getElementById('natureStackTransfer' + item + 'Cost').innerHTML = (emp.retainLevel >= 80) ? "<span class='red'>Max</span>" : checkAndFormatTokens(getNextNatureCost(item, true), item);
+		var uberCost = emp.nextUberCost;
+		document.getElementById('natureUberEmpower' + item + 'Cost').innerHTML = (emp.getLevel() < 50) ? "" : checkAndFormatTokens(uberCost, item);
+		//Loop again to set conversion prices for this nature type
+		var purchaseAmount = ctrlPressed ? Math.floor(emp.tokens / 10) * 10 : 10;
+		for (var itemY in game.empowerments){
+			if (itemY == item) continue;
+			document.getElementById('nature' + item + itemY + 'Cost').innerHTML = checkAndFormatTokens(purchaseAmount, item);
 		}
 	}
 }
 
 function checkAndFormatTokens(tokenCost, empowerment){
 	var canAfford = (game.empowerments[empowerment].tokens >= tokenCost);
-	return "<span class='" + ((canAfford) ? "green" : "red") + "'>" + prettify(tokenCost) + "&nbsp;符记</span>";
+	return "<span class='" + ((canAfford) ? "green" : "orange") + "'>" + prettify(tokenCost) + "&nbsp;符记</span>";
 }
 
 function getRetainModifier(empowermentName){
 	var empowerment = game.empowerments[empowermentName];
-	var bonusLevels = (game.talents.nature3.purchased) ? 5 : 0;
-	if (empowermentName == "Poison" && Fluffy.isRewardActive('naturesWrath')) bonusLevels += 10;
+	var bonusLevels = empowerment.getRetainBonus();
 	return 0.01 * (empowerment.retainLevel + bonusLevels);
 }
 
@@ -5636,8 +5779,9 @@ function natureTooltip(event, doing, spending, convertTo){
 	var tipText = "";
 	var tipCost = 0;
 	if (doing == 'upgrade'){
-		tipTitle = "升级 " + cnItem(spending) + " 的效果";
-		tipText = game.empowerments[spending].upgradeDescription();
+		tipTitle = "升级赋权 " + spending;
+		var emp = game.empowerments[spending];
+		tipText = emp.upgradeDescription();
 		tipCost = getNextNatureCost(spending);
 	}
 	else if (doing == 'description'){
@@ -5649,28 +5793,45 @@ function natureTooltip(event, doing, spending, convertTo){
 		tipCost = ctrlPressed ? Math.floor(game.empowerments[spending].tokens / 10) * 10 : 10;
 		var convertRate = (game.talents.nature.purchased) ? ((game.talents.nature2.purchased) ? 8 : 6) : 5;
 		tipText = "<p>花费" + tipCost+spending + "符记交易得到 " + (tipCost / 10 * convertRate) + convertTo + "符记。</p>";
-		if (!ctrlPressed) tipText += "<p><b>按住Ctrl键可以一次转换所有令牌。</b></p>";
+		if (!ctrlPressed) tipText += "<p><b>按住Ctrl键可以一次转换所有符记。</b></p>";
 	}
 	else if (doing == 'stackTransfer'){
 		tipTitle = "升级 " + cnItem(spending) + " 效果的传递比例";
 		var retainLevel = game.empowerments[spending].retainLevel;
 		var cap = 80;
-		if (game.talents.nature3.purchased){
-			retainLevel += 5;
-			cap += 5;
-		}
-		if (spending == "Poison" && Fluffy.isRewardActive('naturesWrath')){
-			retainLevel += 10;
-			cap += 10;
-		}
+		var bonusLevels = game.empowerments[spending].getRetainBonus();
+		retainLevel += bonusLevels;
+		cap += bonusLevels;
 		if (retainLevel >= cap){
 			tipText = "您目前处于该效果传递比例的最高水平, 可以传递 <b>" + cap + "%</b> 的赋权Debuff。";
 			tipCost = 0;
 		}
 		else{
-			tipText = "现在，当你击败一个敌人后，<b>" + prettify(getRetainModifier(spending) * 100) + "%</b>的 " + spending + "的效果会传递给下一个敌人，升级会使这个传递比例增加 <b>1%</b>, 也就是会达到 <b>" + prettify((getRetainModifier(spending) + 0.01) * 100) + "%</b>。这个传递的最高等级是 " + ((game.talents.nature3.purchased) ? "85" : "80") + " 级。";
+			tipText = "现在，当你击败一个敌人后 <b>" + prettify(getRetainModifier(spending) * 100) + "%</b> 在授权期间杀死一个坏人后你的筹码转移 " + spending + ". 每一次升级会使这个传递比例增加  <b>1%</b>, 也就是会达到 <b>" + prettify((getRetainModifier(spending) + 0.01) * 100) + "%</b>. 这个传递的最高等级是 " + cap + " 级.";
 			tipCost = getNextNatureCost(spending, true);
 		}
+	}
+	else if (doing == 'uberEmpower'){
+		if (game.empowerments[spending].getLevel() < 50){
+			tipTitle = "未解锁";
+			tipText = "升级赋权 " + spending + " 到50级解锁.";
+			tipCost = 0;
+		}
+		else{
+			tipTitle = "激活开明 " + spending;
+			tipText = "<p>Sacrifice your Tokens and return them back to Nature, enlightening your Trimps on how to be one with " + spending + "!</p><p>While Enlightened, " + game.empowerments[spending].enlightenDesc + ".";
+			var cost = game.empowerments[spending].nextUberCost;
+			tipText += "</p><p>This bonus lasts until your next Portal, and only one Enlightenment can be activated per Portal. Enlightenments can be purchased at any point in your run, but the effects will not activate until Nature enters your World.</p><p>Each time this Enlightenment is activated, its cost increases by 150 Tokens of " + spending + ". Each time you start a Daily Challenge, the costs of all 3 Enlightenments will decrease by 33% or 50 Tokens, whichever number is greater, but never more than 100.</p>";
+			tipCost = cost;
+		}
+
+	}
+	else if (doing == 'formation' && getUberEmpowerment() == "Wind"){
+		var emp = getUberEmpowerment();
+		tipTitle = "Wind Formation";
+		tipText = game.empowerments.Wind.formationDesc;
+		tipText += "<br/><br/>(Hotkeys: W or 6)";
+		tipCost = "";
 	}
 	if (tipCost == 0) tipCost = "";
 	else tipCost = (game.empowerments[spending].tokens < tipCost) ? "<span class='red'>" + prettify(tipCost) +" "+ cnItem(spending) +" 符记"+"</span>" : "<span class='green'>" + prettify(tipCost) + " 符记 " + spending + "</span>";
@@ -5682,8 +5843,17 @@ function displayNature(){
 	updateNatureInfoSpans();
 }
 
-function rewardToken(empowerment){
-	var tokens = Math.floor((game.global.world - 241) / 15) + 1;
+function rewardToken(empowerment, countOnly, atZone){
+	// if (empowerment == getUberEmpowerment()){
+	// 	var noTokenText = ["That empowered enemy was looking a bit ill, and you find no tokens. What a shame!"];
+	// 	var useText = Math.floor(Math.random() * noTokenText.length);
+	// 	useText = noTokenText[useText];
+	// 	message(useText, "Loot", "*medal2", "empoweredCell" + empowerment, 'token');
+	// 	return 0;
+	// }
+	var world = (countOnly) ? atZone : game.global.world;
+	var tokens = Math.floor((world - 241) / 15) + 1;
+	if (countOnly) return tokens;
 	game.empowerments[empowerment].tokens += tokens;
 	message("你找到了 " + prettify(tokens) + " 符记" + ((tokens == 1) ? "" : "") + " of " + empowerment + "!", "Loot", "*medal2", "empoweredCell" + empowerment, 'token');
 	if (game.global.buyTab == "nature")
@@ -5697,10 +5867,16 @@ function updateNatureInfoSpans(){
 		var emp = game.empowerments[item];
 		document.getElementById('infoSpan' + item).innerHTML = "<span class='icomoon icon-info2'></span>&nbsp" + emp.formatModifier(emp.getModifier(0, true)) + "%";
 		document.getElementById('tokenCount' + item).innerHTML = prettify(emp.tokens);
-		var bonusLevels = (game.talents.nature3.purchased) ? 5 : 0;
-		document.getElementById('natureUpgrade' + item + 'Level').innerHTML = "等级: " + prettify(emp.level + bonusLevels);
-		if (item == "Poison" && Fluffy.isRewardActive('naturesWrath')) bonusLevels += 10;
+		var bonusLevels = emp.getRetainBonus();
+		document.getElementById('natureUpgrade' + item + 'Level').innerHTML = "等级: " + prettify(emp.getLevel());
 		document.getElementById('natureStackTransfer' + item + 'Level').innerHTML = "等级: " + prettify(emp.retainLevel + bonusLevels);
+		document.getElementById('uber' + item + "Name").innerHTML = ((emp.getLevel() < 50) ? "锁定" : (game.global.uberNature != "") ? "<span class='red'>" + game.global.uberNature + " 激活</span>" : "开明 " + item);
+		var unlockZone = 235;
+		var mainWindow = document.getElementById('tabCol' + item);
+		if (item == "Wind") unlockZone = 240;
+		else if (item == "Ice") unlockZone = 245;
+		if (game.global.highestLevelCleared < unlockZone) mainWindow.style.display = 'none';
+		else mainWindow.style.display = 'block';
 	}
 	updateEmpowerCosts();
 }
@@ -5739,6 +5915,36 @@ function naturePurchase(doing, spending, convertTo){
 		natureTooltip('update', doing, spending);
 		return;
 	}
+	if (doing == "uberEmpower"){
+		if (game.global.uberNature != "") return;
+		var spendingEmpowerment = game.empowerments[spending];
+		if (spendingEmpowerment.getLevel() < 50) return;
+		var cost = spendingEmpowerment.nextUberCost;
+		if (spendingEmpowerment.tokens < cost) return;
+		spendingEmpowerment.tokens -= cost;
+		spendingEmpowerment.nextUberCost += 150;
+		game.global.uberNature = spending;
+		updateNatureInfoSpans();
+		natureTooltip('update', doing, spending);
+		if (spending == "Wind")
+			unlockFormation(5);
+	}
+}
+
+function dailyReduceEnlightenmentCost(){
+	for (var item in game.empowerments){
+		var emp = game.empowerments[item];
+		var oneThird = Math.floor(emp.nextUberCost / 3);
+		if (oneThird > 100) oneThird = 100;
+		if (oneThird > 50){
+			emp.nextUberCost -= oneThird;
+		}
+		else{
+			emp.nextUberCost -= 50;
+		}
+		if (emp.nextUberCost < 0) emp.nextUberCost = 0;
+	}
+	updateNatureInfoSpans();
 }
 
 function getNextNatureCost(empowerment, forRetain){
@@ -6344,6 +6550,7 @@ var mutations = {
 			if (world > lastSpire + 199) 
 				world = lastSpire + 199;
 			var possible = Math.floor((world - 300) / 15) + 2;
+			if (game.talents.healthStrength2.purchased) possible += game.global.lastSpireCleared;
 			if (possible > 80) possible = 80;
 			return possible;
 		},
@@ -6374,10 +6581,11 @@ var mutations = {
 			return base;
 		},
 		reward: function (effect) {
-			if (game.empowerments.Wind.currentDebuffPower == 200) giveSingleAchieve("Mother Lode");
+			if (game.empowerments.Wind.currentDebuffPower >= 200) giveSingleAchieve("Mother Lode");
 			if (game.global.world < 20 || game.global.runningChallengeSquared) return;
 			var percentage = 0.45;
 			var baseValue = 30;
+			if (game.talents.healthStrength2.purchased) percentage += .2;
 			var amt = rewardResource("helium", baseValue, 99, false, percentage);
 			var text = "The land looks even healthier now that the Bad Guy is dead! <span class='helium'>You find " + prettify(amt) + " canisters of Helium and figure it was worth it.</span>";
 			message(text, "Loot", "oil", "Healthy", "helium");
@@ -7807,7 +8015,7 @@ function mapsSwitch(updateOnly, fromRecycle) {
 	else if (game.global.mapsActive) {
 		//Switching to maps
 		resetEmpowerStacks();
-		if (game.global.formation != 4) game.global.waitToScryMaps = true;
+		if (game.global.formation != 4 && game.global.formation != 5) game.global.waitToScryMaps = true;
 		if (game.global.usingShriek) {
 			disableShriek();
 			game.global.useShriek = true;
@@ -7825,7 +8033,7 @@ function mapsSwitch(updateOnly, fromRecycle) {
 	else {
 		//Switching to world
 		resetEmpowerStacks();
-		if (game.global.formation != 4) game.global.waitToScry = true;
+		if (game.global.formation != 4 && game.global.formation != 5) game.global.waitToScry = true;
 		if (game.global.lastClearedCell == 98 && game.global.useShriek && !game.global.usingShriek)
 			activateShriek();
 		document.getElementById("battleHeadContainer").style.display = "block";
@@ -7855,7 +8063,7 @@ function toggleMapGridHtml(on, currentMapObj){
 	var worldNumElem = document.getElementById("worldNumber");
 	worldNumElem.style.display = 'inline';
 	worldNumElem.innerHTML = "<br/>等级: " + currentMapObj.level;
-	document.getElementById("worldName").innerHTML = cnMap(currentMapObj.name);
+	document.getElementById("worldName").innerHTML = cnItem(currentMapObj.name);
 }
 
 function clearMapDescription(){
@@ -7904,13 +8112,13 @@ function selectMap(mapId, force) {
     }
     var map = getMapIndex(mapId);
     map = game.global.mapsOwnedArray[map];
-    document.getElementById("selectedMapName").innerHTML = cnMap(map.name);
+    document.getElementById("selectedMapName").innerHTML = cnItem(map.name);
 
 	document.getElementById("mapStatsSize").innerHTML = (Math.floor(map.size));
 	document.getElementById("mapStatsDifficulty").innerHTML = Math.floor(map.difficulty * 100) + "%";
 	document.getElementById("mapStatsLoot").innerHTML = Math.floor(map.loot * 100) + "%";
 	document.getElementById("mapStatsItems").innerHTML = (map.location == "Void") ? "&nbsp;" : addSpecials(true, true, map);
-	document.getElementById("mapStatsResource").innerHTML = cnresourcetype(game.mapConfig.locations[map.location].resourceType);
+	document.getElementById("mapStatsResource").innerHTML = cnItem(game.mapConfig.locations[map.location].resourceType);
 	if (typeof game.global.mapsOwnedArray[getMapIndex(game.global.lookingAtMap)] !== 'undefined') {
 		var prevSelected = document.getElementById(game.global.lookingAtMap);
 		prevSelected.className = prevSelected.className.replace("mapElementSelected","mapElementNotSelected");
@@ -7937,7 +8145,7 @@ function runMap() {
 		updateMapCredits();
 		messageMapCredits()
 	}
-	if (game.global.formation != 4) game.global.canScryCache = false;
+	if (game.global.formation != 4 && game.global.formation != 5) game.global.canScryCache = false;
     var mapId = game.global.lookingAtMap;
     game.global.preMapsActive = false;
     game.global.mapsActive = true;
@@ -7976,8 +8184,11 @@ function battleCoordinator(makeUp) {
     game.global.battleCounter += (1000 / game.settings.speed);
 	var num = (game.portal.Agility.level) ? 1000 * Math.pow(1 - game.portal.Agility.modifier, game.portal.Agility.level) : 1000;
 	if (game.talents.hyperspeed.purchased) num -= 100;
-	if (game.talents.hyperspeed2.purchased && (game.global.world <= Math.floor((game.global.highestLevelCleared + 1) * 0.5)))
-		num -= 100;
+	if (game.talents.hyperspeed2.purchased)
+		var hsZoneMod = game.talents.liquification3.purchased ? 0.75 : 0.5;
+		if (game.global.world <= Math.floor((game.global.highestLevelCleared + 1) * hsZoneMod)){
+			num -= 100;
+		}
 	else if (game.global.mapExtraBonus == "fa")
 		num -= 100;
 	if (!game.global.mapsActive && game.global.gridArray[0].name == "Liquimp" && num < 400)
@@ -8333,14 +8544,20 @@ function startFight() {
 			}
 		}
 		cell.maxHealth = cell.health;
-		if (game.portal.Overkill.level && !(!map && game.global.gridArray[0].name == "Liquimp")) cell.health -= (overkill * game.portal.Overkill.level * 0.005);
+		if (overkill == "shatter") cell.health = 0;
+		else if (game.portal.Overkill.level && !(!map && game.global.gridArray[0].name == "Liquimp")) cell.health -= (overkill * game.portal.Overkill.level * 0.005);
 		if (cell.health < 1) {
 			var overkillerCount = Fluffy.isRewardActive("overkiller");
 			if (game.talents.overkill.purchased) overkillerCount++;
+			if (getEmpowerment() == "Ice"){
+				if (game.empowerments.Ice.getLevel() >= 50) overkillerCount++;
+				if (game.empowerments.Ice.getLevel() >= 100) overkillerCount++;
+			}
+			if (getUberEmpowerment() == "Ice") overkillerCount += 2;
 			if (cell.OKcount <= overkillerCount){
 				var nextCell = (game.global.mapsActive) ? game.global.mapGridArray[cellNum + 1] : game.global.gridArray[cellNum + 1];
 				if (nextCell){
-					nextCell.health = Math.abs(cell.health);
+					nextCell.health = (overkill == "shatter" && (cellNum != 98 || !game.global.spireActive)) ? "shatter" : Math.abs(cell.health);
 					nextCell.OKcount = cell.OKcount + 1;
 				}
 			}
@@ -8362,20 +8579,25 @@ function startFight() {
 				if (empowerment){
 					if (empowerment == "Poison"){
 						stackPoison(cell.plaguebringer);
-						//stackPoison handles the poison debuff
+						//stackPoison handles the poison debuff and plaguebrought scaling
 					}
-					else{
-						game.empowerments[empowerment].currentDebuffPower += Math.ceil(cell.plagueHits);
-						if (empowerment == "Wind"){
-							handleWindDebuff();
-						}
-						else {
-							handleIceDebuff();
-						}
+					if (empowerment == "Wind"){
+						var hits = cell.plagueHits;
+						if (getEmpowerment() == "Wind" && getUberEmpowerment() == "Wind") hits *= 2;
+						if (Fluffy.isRewardActive("plaguebrought")) hits *= 2;
+						game.empowerments[empowerment].currentDebuffPower += Math.ceil(hits);
+						handleWindDebuff();
+					}
+					if (empowerment == "Ice"){
+						var hits = cell.plagueHits;
+						if (getEmpowerment() == "Ice" && getUberEmpowerment() == "Ice") hits *= 2;
+						if (Fluffy.isRewardActive("plaguebrought")) hits *= 2;
+						game.empowerments[empowerment].currentDebuffPower += Math.ceil(hits);
+						handleIceDebuff();
 					}
 				}
 			}
-			if (game.global.formation == 4){
+			if (game.global.formation == 4 || game.global.formation == 5){
 				if (game.global.mapsActive) game.global.waitToScryMaps = false;
 				else game.global.waitToScry = false;
 			}
@@ -8470,9 +8692,11 @@ function startFight() {
 		game.global.soldierHealthMax = calcHeirloomBonus("Shield", "trimpHealth", game.global.soldierHealthMax);
 		//block handled in getBaseBlock()
 		if (game.global.challengeActive == "Daily" && typeof game.global.dailyChallenge.pressure !== 'undefined') game.global.soldierHealthMax *= dailyModifiers.pressure.getMult(game.global.dailyChallenge.pressure.strength, game.global.dailyChallenge.pressure.stacks);
-		if (game.global.formation !== 0){
+		if (game.global.formation !== 0 && game.global.formation != 5){
 			game.global.soldierHealthMax *= (game.global.formation == 1) ? 4 : 0.5;
-			game.global.soldierCurrentAttack *= (game.global.formation == 2) ? 4 : 0.5;
+			var formAttackMod = 0.5;
+			if (game.global.formation == 2) formAttackMod = 4;
+			game.global.soldierCurrentAttack *= formAttackMod;
 			//block handled in getBaseBlock()
 		}
 		if (game.global.challengeActive == "Balance"){
@@ -8523,7 +8747,7 @@ function startFight() {
 			if (game.goldenUpgrades.Battle.currentBonus > 0) healthTemp *= game.goldenUpgrades.Battle.currentBonus + 1;
 			if (game.portal.Resilience.level > 0) healthTemp *= Math.pow(game.portal.Resilience.modifier + 1, game.portal.Resilience.level);
 			if (game.global.challengeActive == "Daily" && typeof game.global.dailyChallenge.pressure !== 'undefined') healthTemp *= dailyModifiers.pressure.getMult(game.global.dailyChallenge.pressure.strength, game.global.dailyChallenge.pressure.stacks);
-			if (game.global.formation !== 0){
+			if (game.global.formation !== 0 && game.global.formation !== 5){
 				healthTemp *= (game.global.formation == 1) ? 4 : 0.5;
 			}
 			if (game.global.totalSquaredReward > 0)
@@ -8548,7 +8772,7 @@ function startFight() {
 				attackTemp *= mutations.Magma.getTrimpDecay();
 			}
 			if (game.portal.Power_II.level) attackTemp *= (1 + (game.portal.Power_II.modifier * game.portal.Power_II.level));
-			if (game.global.formation !== 0){
+			if (game.global.formation !== 0 && game.global.formation != 5){
 				attackTemp *= (game.global.formation == 2) ? 4 : 0.5;
 			}
 			game.global.soldierCurrentAttack += attackTemp;
@@ -8556,7 +8780,7 @@ function startFight() {
 		}
 		if (game.global.difs.block !== 0) {
 			var blockTemp = (trimpsFighting * game.global.difs.block * ((game.global.difs.trainers * (calcHeirloomBonus("Shield", "trainerEfficiency", game.jobs.Trainer.modifier) / 100)) + 1));
-			if (game.global.formation !== 0){
+			if (game.global.formation !== 0 && game.global.formation !== 5){
 				blockTemp *= (game.global.formation == 3) ? 4 : 0.5;
 			}
 			blockTemp = calcHeirloomBonus("Shield", "trimpBlock", blockTemp);
@@ -8638,13 +8862,13 @@ function updateBadBar(cell) {
 function getBaseBlock(){
 	var baseBlock = Math.floor((game.global.block * (game.jobs.Trainer.owned * (calcHeirloomBonus("Shield", "trainerEfficiency", game.jobs.Trainer.modifier) / 100)) + game.global.block));
 	baseBlock = calcHeirloomBonus("Shield", "trimpBlock", baseBlock);
-	if (game.global.formation !== 0){
+	if (game.global.formation !== 0 && game.global.formation !== 5){
 		baseBlock *= (game.global.formation == 3) ? 4 : 0.5;
 	}
 	return baseBlock;
 }
 
-function calculateDamage(number, buildString, isTrimp, noCheckAchieve, cell) { //number = base attack
+function calculateDamage(number, buildString, isTrimp, noCheckAchieve, cell, noFluctuation) { //number = base attack
     var fluctuation = .2; //%fluctuation
 	var maxFluct = -1;
 	var minFluct = -1;
@@ -8707,6 +8931,9 @@ function calculateDamage(number, buildString, isTrimp, noCheckAchieve, cell) { /
 		if (game.talents.healthStrength.purchased && mutations.Healthy.active()){
 			number *= ((0.15 * mutations.Healthy.cellCount()) + 1);
 		}
+		if (game.global.voidBuff && game.talents.voidMastery.purchased){
+			number *= 5;
+		}
 		if (game.talents.scry.purchased && !game.global.mapsActive && isScryerBonusActive()){
 			var worldCell = getCurrentWorldCell();
 			if (worldCell.mutation == "Corruption" || worldCell.mutation == "Healthy"){
@@ -8731,6 +8958,9 @@ function calculateDamage(number, buildString, isTrimp, noCheckAchieve, cell) { /
 		if (playerSpireTraps.Strength.owned){
 			var strBonus = playerSpireTraps.Strength.getWorldBonus();
 			number *= (1 + (strBonus / 100));
+		}
+		if (getUberEmpowerment() == "Poison"){
+			number *= 3;
 		}
 		if (Fluffy.isRewardActive('voidSiphon') && game.stats.totalVoidMaps.value){
 			number *= (1 + (game.stats.totalVoidMaps.value * 0.05));
@@ -8817,6 +9047,7 @@ function calculateDamage(number, buildString, isTrimp, noCheckAchieve, cell) { /
 	if (maxFluct == -1) maxFluct = fluctuation;
 	if (minFluct == -1) minFluct = fluctuation;
 	var min = Math.floor(number * (1 - minFluct));
+	if (noFluctuation) return min;
     var max = Math.ceil(number + (number * maxFluct));
     if (buildString) {
 		if (isTrimp) {
@@ -8915,7 +9146,7 @@ function getHighestUnlockedTalentTier(){
 }
 
 function getHighestIdealRow(){
-	var idealPoints = [16, 22, 28, 34, 40, 45, 49, 52, 54];
+	var idealPoints = [16, 22, 28, 34, 40, 46, 51, 55, 58, 60];
 	var affordable = checkAffordableTalents();
 	for (var x = 0; x < idealPoints.length; x++){
 		if (affordable < idealPoints[x]) return x;
@@ -8937,13 +9168,24 @@ function displayTalents(){
 			html += "</div><div class='talentTierRow talentRow" + ((tiers[currentTier - 1] > 0) ? 'Unlocked' : 'Locked') + "'>";
 		}
 		var talentClass = ((ctrlPressed && talent.tier <= highestBuyoutRow) ? ((talent.tier <= highestIdealRow) ? "talentIdealRow " : "talentCanBuyRow ") : "") + "talentItem noselect talent" + ((talent.purchased) ? "Purchased" : "NotPurchased");
-		if (talent.requires && !game.talents[talent.requires].purchased) talentClass += " talentReqNeeded";
+		if (typeof talent.requires !== 'undefined'){
+			var requires;
+			if (Array.isArray(talent.requires)) requires = talent.requires;
+			else requires = [talent.requires];
+			for (var x = 0; x < requires.length; x++){
+				if (!game.talents[requires[x]].purchased){ 
+					talentClass += " talentReqNeeded";
+					break;
+				}
+			}
+		}
 		var icon = (talent.icon.charAt(0) == "*") ? "icomoon icon-" + talent.icon.substr(1) : "glyphicon glyphicon-" + talent.icon;
 		if (currentTier > purchasePower){
 			html += "<div class='talentItem noselect talentNotPurchased talentLocked'><span class='talentIcon'><span class='icomoon icon-locked'></span></span></div>";
 		}
 		else {
-			html += "<div class='" + talentClass + "' onmouseover='tooltip(\"" + item + "\", \"talents\", event)' onmouseout='tooltip(\"hide\")' onclick='purchaseTalent(\"" + item + "\")'><span class='talentIcon'><span class='" + icon + "'></span></span><br/><div class='talentName'>" + cntitle(talent.name) + "</div></div>";
+			if (item == "attuned") console.log("wtf");
+			html += "<div class='" + talentClass + "' onmouseover='tooltip(\"" + item + "\", \"talents\", event)' onmouseout='tooltip(\"hide\")' onclick='purchaseTalent(\"" + item + "\")'><span class='talentIcon'><span class='" + icon + "'></span></span><br/><div class='talentName'>" + cnItem(talent.name) + "</div></div>";
 		}
 	}
 	html += "</div>";
@@ -8962,11 +9204,19 @@ function updateTalentNumbers(){
 	var talentsCostElem = document.getElementById('talentsCost');
 	var alertElem = document.getElementById('talentsAlert');
 	var countElem = document.getElementById('talentsEssenceTotal');
+	var affordableElem = document.getElementById('talentsAffordable');
 	//Check primary elements, update
 	if (mainEssenceElem == null || nextCostElem == null) {return;}
 
 	var nextCost = getNextTalentCost();
 	mainEssenceElem.innerHTML = prettify(game.global.essence);
+	var affordable = checkAffordableTalents() - countPurchasedTalents();
+	if (affordable > 0){
+		affordableElem.innerHTML = affordable + " Affordable";
+	}
+	else{
+		affordableElem.innerHTML = "";
+	}
 	if (nextCost == -1){
 		talentsCostElem.style.display = 'none';
 		alertElem.innerHTML = "";
@@ -9004,9 +9254,10 @@ function respecTalents(confirmed, force){
 			updateSkeleBtn();
 	}
 	for (var item in game.talents){
+		var wasPurchased = game.talents[item].purchased;
 		if (game.talents[item].purchased && typeof game.talents[item].onRespec === 'function') game.talents[item].onRespec();
 		game.talents[item].purchased = false;
-		if (game.talents[item].purchased && typeof game.talents[item].afterRespec === 'function') game.talents[item].afterRespec();
+		if (wasPurchased && typeof game.talents[item].afterRespec === 'function') game.talents[item].afterRespec();
 	}
 	game.global.essence += game.global.spentEssence;
 	game.global.spentEssence = 0;
@@ -9027,7 +9278,16 @@ function completeTalentPurchase(talent){
 	//from purchaseTalent or other functions
 	if (talent.purchased) return;
 	if (getAllowedTalentTiers()[talent.tier - 1] <= 0) return;
-	if (talent.requires && !game.talents[talent.requires].purchased) return;
+	if (typeof talent.requires !== 'undefined'){
+		var requires;
+		if (Array.isArray(talent.requires)) requires = talent.requires;
+		else requires = [talent.requires];
+		for (var x = 0; x < requires.length; x++){
+			if (!game.talents[requires[x]].purchased){ 
+				return;
+			}
+		}
+	}
 	var cost = getNextTalentCost();
 	if (game.global.essence < cost && prettify(game.global.essence) != prettify(cost)) return;
 	if (game.global.essence < cost) game.global.essence = cost;
@@ -9074,7 +9334,7 @@ function getHighestTalentTier(){
 }
 
 function getAllowedTalentTiers(){
-	var totalTiers = 9;
+	var totalTiers = getHighestTalentTier();
 	var colsPerTier = 6;
 
 	var ownedLastTier = countPurchasedTalents(1);
@@ -9202,7 +9462,7 @@ function rewardLiquidZone(){
 		if (cell.mutation && typeof mutations[cell.mutation].reward !== 'undefined') mutations[cell.mutation].reward(cell.corrupted);
 		if (cell.empowerment){
 			var tokReward = rewardToken(cell.empowerment);
-			if (game.global.messages.Loot.token && game.global.messages.Loot.enabled){
+			if (game.global.messages.Loot.token && game.global.messages.Loot.enabled && tokReward){
 				tokText = "<span class='message empoweredCell" + cell.empowerment + "'>Found " + prettify(tokReward) + " Token" + ((tokReward == 1) ? "" : "s") + " of " + cell.empowerment + "!</span>";
 			}
 		}
@@ -9285,6 +9545,7 @@ function checkIfLiquidZone(){
 	var spireCount = game.global.spiresCompleted;
 	if (game.talents.liquification.purchased) spireCount++;
 	if (game.talents.liquification2.purchased) spireCount++;
+	if (game.talents.liquification3.purchased) spireCount += 2;
 	spireCount += (Fluffy.isRewardActive("liquid") * 0.5);
 	var liquidAmount = ((spireCount) / 20);
 	if (game.global.world > ((game.global.highestLevelCleared + 1) * liquidAmount) || checkIfSpireWorld()){
@@ -9356,7 +9617,15 @@ function nextWorld() {
 	liquifyZone();
 	drawGrid();
 	buyAutoJobs(true);
-	if (game.worldText["w" + game.global.world]) message(game.worldText["w" + game.global.world], "Story");
+	if (game.worldText["w" + game.global.world]){
+		var msgText = game.worldText["w" + game.global.world];
+		var extraClass = null;
+		if (Array.isArray(msgText)){
+			extraClass = msgText[1];
+			msgText = msgText[0];
+		}
+		message(msgText, "Story", null, extraClass)
+	};
 	if (game.global.canMagma) checkAchieve("zones");
 	checkGenStateSwitch();
 	if (game.global.challengeActive == "Scientist" && game.global.highestLevelCleared >= 129 && game.global.sLevel >= 4 && game.global.world == 76){
@@ -9489,6 +9758,8 @@ function nextWorld() {
 			}
 	}
 	setEmpowerTab();
+	if (game.global.buyTab == "nature") updateNatureInfoSpans();
+	if (game.global.world == 236 && getUberEmpowerment() == "Wind") unlockFormation(5);
 	if (game.global.world >= 241 && game.global.world % 5 == 1){
 		resetEmpowerStacks();
 	}
@@ -9769,28 +10040,29 @@ function giveSpireReward(level){
 			var text = getSpireStory(spireWorld, 10);
 			if (!game.global.runningChallengeSquared){
 				var amt = giveHeliumReward(100);
-				text += " 你找到了大量库存的 <b>" + prettify(amt) + " 氦</b> and <b>" + prettify(playerSpire.rewardSpirestones(spireWorld)) + " 尖顶石头</b>!";
+				text += " 你找到了大量库存的 <b>" + prettify(amt) + " 氦</b> 和 <b>全新的尖塔核心</b>!";
 			}
-			else text += " You find a large stockpile of <b>" + prettify(playerSpire.rewardSpirestones(spireWorld)) + " 尖顶石头</b>!";
+			else text += " 你找到了一个 <b>全新的尖塔核心</b>!";
+			createHeirloom(game.global.world, false, true);
 			if (game.global.spiresCompleted < spireWorld){
 				game.global.spiresCompleted = spireWorld;
 				game.global.b += 20;
 				text += " 你第一次在任何时间轴上消灭这个回响，你已经永久地增加了5%的液化加成，增加了你的黑暗本质增益乘以4x，并获得了 <b>20个骨头!</b>"
 				switch (spireWorld){
 					case 2: 
-						text += " 你也解锁了 <b>能力</b> 能力!";
+						text += " 您还解锁了 <b>能力</b> 能力，而且还可以携带额外的传家宝!";
 						game.portal.Capable.locked = false;
 						break;
 					case 3:
-						text += " 你也解锁了 <b>狡猾</b> 能力!"
+						text += " 您还解锁了 <b>狡猾</b> 能力，而且还可以携带额外的传家宝!"
 						game.portal.Cunning.locked = false;
 						break;
 					case 4:
-						text += " 你也解锁了 <b>好奇</b> 能力!"
+						text += " 您还解锁了 <b>好奇</b> 能力!"
 						game.portal.Curious.locked = false;
 						break;
 					case 5:
-						text += " You have also unlocked the <b>Classy</b> perk!<b>";
+						text += " 您还解锁了 <b>优等</b> 能力!<b>";
 						game.portal.Classy.locked = false;
 				}
 			}
@@ -9877,7 +10149,6 @@ function rewardSpire1(level){
 			break;
 		case 100:
 			if (game.global.spireDeaths == 0) giveSingleAchieve("Invincible");
-
 			text = "德鲁普提瘫倒在地板上。你希望他能恢复理智。不管怎样，你关闭了腐化装置，并希望这星球能够不久后自我恢复，然后你在他的物品中翻找，找到了一把钥匙，这一定是飞船的钥匙！";
 			if (!game.global.runningChallengeSquared){
 				amt = giveHeliumReward(100);
@@ -9885,16 +10156,17 @@ function rewardSpire1(level){
 			}
 			if (game.portal.Looting_II.locked) text += "你在尖塔中寻找东西的技巧帮助你<b>解锁掠夺 II</b>.";
 			if (game.global.spiresCompleted < 1){
-				text += "<br/><br/>你注意到在房间后面有一个旧衣柜，在那里，Druopitee保存着他在很多时间里收集的Skeletimp骨头。 你打开它然后找到了 <b>20个完美的Skeletimp骨头!</b>. 你可以看出，这些骨骼不会下次出现。塔尖的力量给了你一个永久的4x奖励你收集的所有黑暗的本质，而你的传送门也改变了自己现在的区域相当于你的最高区域的5%到达的区域。你不太明白这意味着什么，但是你对这个发现还是很兴奋!"
+				text += "<br/> <br/>你注意到房间后面有一个小小的破旧箱子，在那里，Druopitee储存了他在许多时间线上收集的Skeletimp骨头。 你打开它然后找到<b> 20个完美的Skeletimp Bones！</b>你可以说下次这些骨头不在这里。尖塔的力量为你收集的所有黑暗精华提供永久的4倍加值，你可以通过传送门带回一个额外的传家宝，你的传送门也将自己修改为现在的液化区域等于你达到的最高区域的5％。 你不太清楚液化是什么，但你很高兴找到答案！"
 				game.global.b += 20;
 				updateSkeleBtn();
 				game.global.spiresCompleted = 1;
-				text += "<br/><br/><b>你还在Druopitee后面发现了少量的尖顶石头。 你把它们交给你的科学家，他们开始建造你自己的尖顶！"
+				text += "<br/><br/><b>您还发现了一个巨大的脉冲核心，似乎正在为尖塔提供动力。 你试着小心地把它拆掉，但把它粉碎成20个仍然嗡嗡作响的碎片！ 你把这些作品交给你的科学家，他们将神奇的新材料命名为“尖塔石头”并用它们开始建造你自己的尖塔！"
 				playerSpire.init();
 				playerSpire.rewardSpirestones(1);
 			}
 			else{
-				text += "<br/><br/><b>You've also found " + prettify(playerSpire.rewardSpirestones(1)) + " 尖顶石头!</b>";
+				createHeirloom(200, false, true);
+				text += "<br/><br/><b>你这次能够正确地移除Core，并找到了一个普通尖塔核心传家宝！</b>";
 			}
 			text += "<br/><br/>你帮助脆皮建立了能够流传于世的人口和经济，并且已经击败了使这个世界混乱的人。你现在可以离开，因为你的存在，这个宇宙永远都会变得更好。只要脆皮的文明存在，它们就会为你竖起一座雕像。但是你知道世界上仍然存在其他的尖塔，将腐化释放到这个星球上。如果你留下来并且帮助解决这些问题，或许你的雕像能更大一些？";
 			message(text, "Story");
@@ -9931,15 +10203,12 @@ function displayGoldenUpgrades(redraw) {
 		){
 			color = "thingColorCanNotAfford";
 		}
-        var cnit="";
-        if(item=="Void"){
-            cnit="虚空"
-        }else if(item=="Gigastation"){
-            cnit="千兆站"
-        }else{
-            cnit=item;
-        }
-		html += '<div onmouseover="tooltip(\'' + item + '\', \'goldenUpgrades\', event)" onmouseout="tooltip(\'hide\')" class="' + color + ' thing goldenUpgradeThing noselect pointer upgradeThing" id="' + item + 'Golden" onclick="buyGoldenUpgrade(\'' + item + '\'); tooltip(\'hide\')"><span class="thingName">金色 ' + cnit + ' ' + romanNumeral(game.global.goldenUpgrades + 1) + '</span><br/><span class="thingOwned" id="golden' + item + 'Owned">' + upgrade.purchasedAt.length + '</span></div>';
+		if (usingScreenReader){
+			html += '<button id="srTooltip' + item + '" class="thing goldenUpgradeThing noSelect pointer upgradeThing" onclick="tooltip(\'' + item + '\',\'goldenUpgrades\',\'screenRead\')">Golden ' + item + ' Info</button><button onmouseover="tooltip(\'' + item + '\',\'goldenUpgrades\',event)" onmouseout="tooltip(\'hide\')" class="' + color + ' thing goldenUpgradeThing noselect pointer upgradeThing" id="' + item + '金色" onclick="buyGoldenUpgrade(\'' + item + '\')"><span class="thingName">金色 ' + cnItem(item) + ' ' + romanNumeral(game.global.goldenUpgrades + 1) + '</span>, <span class="thingOwned" id="golden' + item + 'Owned">' + upgrade.purchasedAt.length + '</span></button>';
+		}
+		else{
+			html += '<div onmouseover="tooltip(\'' + item + '\', \'goldenUpgrades\', event)" onmouseout="tooltip(\'hide\')" class="' + color + ' thing goldenUpgradeThing noselect pointer upgradeThing" id="' + item + 'Golden" onclick="buyGoldenUpgrade(\'' + item + '\'); tooltip(\'hide\')"><span class="thingName">金色 ' + cnItem(item) + ' ' + romanNumeral(game.global.goldenUpgrades + 1) + '</span><br/><span class="thingOwned" id="golden' + item + 'Owned">' + upgrade.purchasedAt.length + '</span></div>';
+		}
 	}
 	var elem = document.getElementById('upgradesHere');
 	elem.innerHTML =  html + elem.innerHTML;
@@ -10632,6 +10901,7 @@ function startDaily(){
 	game.global.recentDailies.push(game.global.dailyChallenge.seed);
 	if (game.global.recentDailies.length == 7) giveSingleAchieve("Now What");
 	handleFinishDailyBtn();
+	dailyReduceEnlightenmentCost();
 }
 
 function countDailyWeight(dailyObj){
@@ -10974,7 +11244,9 @@ function fight(makeUp) {
 		}
         var s = (game.resources.trimps.soldiers > 1) ? "s " : " ";
 		randomText = game.trimpDeathTexts[Math.floor(Math.random() * game.trimpDeathTexts.length)];
-        message(prettify(game.resources.trimps.soldiers) + " Trimp" + s + "just " + randomText + ".", "Combat", null, null, 'trimp');
+		var msgText = prettify(game.resources.trimps.soldiers) + " Trimp" + s + "just " + randomText + ".";
+		if (usingScreenReader) msgText = "Cell " + cellNum + ": " + msgText;
+        message(msgText, "Combat", null, null, 'trimp');
 		if (game.global.spireActive && !game.global.mapsActive) deadInSpire();
         game.global.fighting = false;
         game.resources.trimps.soldiers = 0;
@@ -10995,7 +11267,7 @@ function fight(makeUp) {
 			game.global.voidSeed++;
 			game.global.scrySeed++;
 		}
-		if (game.global.formation == 4 && !game.global.mapsActive && !game.global.waitToScry) tryScry();
+		if ((game.global.formation == 4 || game.global.formation == 5) && !game.global.mapsActive && !game.global.waitToScry) tryScry();
 		if (game.global.challengeActive == "Nom" && cell.nomStacks == 100) giveSingleAchieve("Great Host");
 		if (game.global.challengeActive == "Obliterated") giveSingleAchieve("Obliterate");
 		if (game.global.challengeActive == "Eradicated") giveSingleAchieve("Eradicate");	
@@ -11007,6 +11279,7 @@ function fight(makeUp) {
 		var killedText = "You " + randomText + aAn + cell.name;
 		if (game.global.challengeActive == "Coordinate") killedText += " group";
 		killedText += "!";
+		if (usingScreenReader) killedText = "Cell " + cellNum + ": " + killedText;
         if (!game.global.spireActive || cellNum != 99 || game.global.mapsActive) message(killedText, "Combat", null, null, 'enemy');
 		try{
 			if (typeof kongregate !== 'undefined' && !game.global.mapsActive) kongregate.stats.submit("HighestLevel", ((game.global.world * 100) + cell.level));
@@ -11274,21 +11547,26 @@ function fight(makeUp) {
 	var thisKillsTheBadGuy = function() {
 		cell.health = 0;
 	};
+	//Angelic Heal
+	if (game.talents.angelic.purchased && (!game.global.spireActive || game.global.mapsActive || (Math.floor((game.global.world - 100) / 100) <= game.global.spiresCompleted))){
+		game.global.soldierHealth += (game.global.soldierHealth / 2);
+		if (game.global.soldierHealth > game.global.soldierHealthMax) game.global.soldierHealth = game.global.soldierHealthMax;
+	}
     if (trimpAttack > 0 && (game.global.challengeActive == "Slow" || ((((game.badGuys[cell.name].fast || cell.mutation == "Corruption") && game.global.challengeActive != "Nom") || game.global.voidBuff == "doubleAttack") && game.global.challengeActive != "Coordinate"))) {
         game.global.soldierHealth -= attackAndBlock;
 		wasAttacked = true;
         if (game.global.soldierHealth > 0) {
 			if (!badDodge){
 				if (getEmpowerment() == "Poison"){
-					cell.health -= game.empowerments.Poison.currentDebuffPower;
+					cell.health -= game.empowerments.Poison.getDamage();
 					stackPoison(trimpAttack);
 				}
 				if (trimpAttack >= cell.health) {
 					overkill = trimpAttack - cell.health;
 					if (cell.name == "Improbability" && cell.health == cell.maxHealth) giveSingleAchieve("One-Hit Wonder");
 				}
-				else if (game.heirlooms.Shield.plaguebringer.currentBonus > 0){
-					plaguebringer = trimpAttack * (game.heirlooms.Shield.plaguebringer.currentBonus / 100);
+				else if (getPlaguebringerModifier() > 0){
+					plaguebringer = trimpAttack * getPlaguebringerModifier();
 				}
 				cell.health -= trimpAttack;
 				attacked = true;
@@ -11298,7 +11576,10 @@ function fight(makeUp) {
 				}
 			}
 		}
-        else thisKillsTheTrimp();
+		else thisKillsTheTrimp();
+		if (cell.health < 1 && game.global.formation == 5 && getUberEmpowerment() == "Wind" && getEmpowerment() == "Wind" && game.empowerments.Wind.currentDebuffPower < game.empowerments.Wind.stackMax()){
+			cell.health = 1;
+		}
         if (cell.health <= 0) {
 			thisKillsTheBadGuy();
 		}
@@ -11307,18 +11588,21 @@ function fight(makeUp) {
 		if (game.global.soldierHealth > 0){
 			if (!badDodge){
 				if (getEmpowerment() == "Poison"){
-					cell.health -= game.empowerments.Poison.currentDebuffPower;
+					cell.health -= game.empowerments.Poison.getDamage();
 					stackPoison(trimpAttack);
 				}
 				if (trimpAttack >= cell.health){
 					overkill = trimpAttack - cell.health;
 					if (cell.name == "Improbability" && cell.health == cell.maxHealth) giveSingleAchieve("One-Hit Wonder");
 				}
-				else if (game.heirlooms.Shield.plaguebringer.currentBonus > 0){
-					plaguebringer = trimpAttack * (game.heirlooms.Shield.plaguebringer.currentBonus / 100);
+				else if (getPlaguebringerModifier() > 0){
+					plaguebringer = trimpAttack * getPlaguebringerModifier();
 				}
 				cell.health -= trimpAttack;
 				attacked = true;
+			}
+			if (cell.health < 1 && game.global.formation == 5 && getUberEmpowerment() == "Wind" && getEmpowerment() == "Wind" && game.empowerments.Wind.currentDebuffPower < game.empowerments.Wind.stackMax()){
+				cell.health = 1;
 			}
 			if (cell.health > 0) {
 				game.global.soldierHealth -= attackAndBlock;
@@ -11332,6 +11616,15 @@ function fight(makeUp) {
 		}
 	}
 	//After attack stuff
+	if (getUberEmpowerment() == "Wind" && getEmpowerment() == "Wind" && game.global.formation == 5) {
+		overkill = 0;
+		if (plaguebringer == 0) plaguebringer = 1;
+	}
+	if ((cell.health / cell.maxHealth < 0.5) && getUberEmpowerment() == "Ice" && getEmpowerment() == "Ice" && game.empowerments.Ice.currentDebuffPower > 20) {
+		cell.health = 0;
+		thisKillsTheBadGuy();
+		overkill = "shatter";
+	}
 	if (game.global.challengeActive == "Daily" && typeof game.global.dailyChallenge.mirrored !== 'undefined' && attacked && game.global.soldierHealth > 0){
 		game.global.soldierHealth -= dailyModifiers.mirrored.reflectDamage(game.global.dailyChallenge.mirrored.strength, trimpAttack);
 		if (game.global.soldierHealth <= 0)
@@ -11350,12 +11643,18 @@ function fight(makeUp) {
 		updateElectricityStacks();
 	}
 	if (getEmpowerment() == "Ice" && attacked){
-		game.empowerments.Ice.currentDebuffPower++;
+		var addStacks = 1;
+		if (getUberEmpowerment() == "Ice" && getEmpowerment() == "Ice") addStacks *= 2;
+		if (Fluffy.isRewardActive("plaguebrought")) addStacks *= 2;
+		game.empowerments.Ice.currentDebuffPower += addStacks;
 		handleIceDebuff();
 	}
 	if (getEmpowerment() == "Wind" && attacked) {
-		if (game.empowerments.Wind.currentDebuffPower < game.empowerments.Wind.maxStacks)
-			game.empowerments.Wind.currentDebuffPower++;
+		var addStacks = 1;
+		if (getUberEmpowerment() == "Wind" && getEmpowerment() == "Wind") addStacks *= 2;
+		if (Fluffy.isRewardActive("plaguebrought")) addStacks *= 2;
+		game.empowerments.Wind.currentDebuffPower += addStacks;
+		if (game.empowerments.Wind.currentDebuffPower > game.empowerments.Wind.stackMax()) game.empowerments.Wind.currentDebuffPower = game.empowerments.Wind.stackMax();
 		handleWindDebuff();
 	}
 	if (game.global.challengeActive == "Daily"){
@@ -11433,21 +11732,27 @@ function fight(makeUp) {
 		game.global.soldierHealth -= (game.global.soldierHealth * bleedMod);
 		if (game.global.soldierHealth < 1) thisKillsTheTrimp();
 	}
-	if (critTier == -1) critSpan.innerHTML = "<span style='color: cyan'>微弱!</span>";
+
+	//Crit/Overkill
+	if (critTier == -1) critSpan.innerHTML = "<span style='color: cyan'>软弱!</span>";
 	if (critTier == 1) critSpan.innerHTML = "暴击!";
 	if (critTier == 2) critSpan.innerHTML = "<span style='color: orange'>暴击!</span>";
 	if (critTier == 3){
-		 critSpan.innerHTML = "<span style='color: red'>暴击!!</span>";
+		critSpan.innerHTML = "<span style='color: red'>暴击!!</span>";
 		redCritCounter++;
-		if (redCritCounter >= 10) giveSingleAchieve("Critical Luck");
+	}
+	else if (critTier == 4){
+		critSpan.innerHTML = "<span class='critTier4'>CRIT<span class='icomoon icon-atom'></span></span>";
+		redCritCounter++; //I'm not a monster
 	}
 	else redCritCounter = 0;
+	if (redCritCounter >= 10) giveSingleAchieve("Critical Luck");
 	var badCritText;
 	if (badDodge) badCritText = "躲闪!";
 	else if (badCrit && wasAttacked) badCritText = "暴击!";
 	else badCritText = "";
 	document.getElementById("badCrit").innerHTML =  badCritText;
-    if (cell.health <= 0) game.global.battleCounter = 800;
+	if (cell.health <= 0) game.global.battleCounter = 800;
     if (overkill) {
 		var nextCell = (game.global.mapsActive) ? game.global.mapGridArray[cellNum + 1] : game.global.gridArray[cellNum + 1];
 		if (nextCell) {
@@ -11460,8 +11765,8 @@ function fight(makeUp) {
 		if (nextCell) {
 			if (!nextCell.plaguebringer) nextCell.plaguebringer = plaguebringer;
 			else nextCell.plaguebringer += plaguebringer;
-			if (!nextCell.plagueHits) nextCell.plagueHits = game.heirlooms.Shield.plaguebringer.currentBonus / 100;
-			else nextCell.plagueHits += game.heirlooms.Shield.plaguebringer.currentBonus / 100;
+			if (!nextCell.plagueHits) nextCell.plagueHits = getPlaguebringerModifier();
+			else nextCell.plagueHits += getPlaguebringerModifier();
 		}		
 	}
 	if (game.global.challengeActive == "Devastation" && impOverkill){
@@ -11485,6 +11790,14 @@ function fight(makeUp) {
 	updateBadBar(cell);
 }
 
+function getPlaguebringerModifier(){
+	var amt = 0;
+	var shieldBonus = (game.heirlooms.Shield.plaguebringer.currentBonus / 100);
+	if (shieldBonus > 0) amt += shieldBonus;
+	if (Fluffy.isRewardActive("plaguebrought")) amt += 0.5;
+	return amt;
+}
+
 function getNextVoidId(){
 	for (var x = 0; x < game.global.mapsOwnedArray.length; x++){
 		 if (game.global.mapsOwnedArray[x].location == "Void") return game.global.mapsOwnedArray[x].id;
@@ -11506,7 +11819,7 @@ function getPlayerCritChance(){ //returns decimal: 1 = 100%
 			critChance -= dailyModifiers.trimpCritChanceDown.getMult(game.global.dailyChallenge.trimpCritChanceDown.strength);
 		}
 	}
-	if (critChance > 3) critChance = 3;
+	if (critChance > 4) critChance = 4;
 	return critChance;
 }
 
@@ -11517,7 +11830,7 @@ function getPlayerCritDamageMult(){
 }
 
 function getMegaCritDamageMult(critTier){
-	//critTier 1 is yellow and returns 1 from this. critTier 2 is orange, 3 is red.
+	//critTier 1 is yellow and returns 1 from this. critTier 2 is orange, 3 is red, 4 is purple.
 	var base = 5;
 	if (Fluffy.isRewardActive("megaCrit")) base += 2;
 	if (game.talents.crit.purchased) base += 1;
@@ -11648,16 +11961,18 @@ function updateBalanceStacks(){
 	else elem.style.display = "none";
 }
 
-function buyEquipment(what, confirmed, noTip) {
+function buyEquipment(what, confirmed, noTip, forceAmt) {
+
 	if (game.options.menu.pauseGame.enabled) return;
 	if (!confirmed && game.options.menu.lockOnUnlock.enabled == 1 && (new Date().getTime() - 1000 <= game.global.lastUnlock)) return;
 	var toBuy = game.equipment[what];
 	var purchaseAmt = 1;
-	if (!toBuy.percent) purchaseAmt = (game.global.buyAmt == "Max") ? calculateMaxAfford(toBuy, false, true) : game.global.buyAmt;
+	if (forceAmt) purchaseAmt = forceAmt;
+	else if (!toBuy.percent) purchaseAmt = (game.global.buyAmt == "Max") ? calculateMaxAfford(toBuy, false, true) : game.global.buyAmt;
 	if (typeof toBuy === 'undefined') return;
-	var canAfford = canAffordBuilding(what, null, null, true);
+	var canAfford = canAffordBuilding(what, false, false, true, false, purchaseAmt);
 	if (canAfford) {
-		canAffordBuilding(what, true, null, true);
+		canAffordBuilding(what, true, false, true, false, purchaseAmt);
 		levelEquipment(what, purchaseAmt);
 	}
 	if (!noTip) tooltip(what, "equipment", "update");
@@ -11757,12 +12072,12 @@ function setFormation(what) {
 		if (game.options.menu.pauseGame.enabled) return;
 		what = parseInt(what, 10);
 		swapClass("formationState", "formationStateDisabled", document.getElementById("formation" + game.global.formation));
-		if (what == 4 && game.global.formation != 4){
+		if ((what == 4 || what == 5) && game.global.formation != 5 && game.global.formation != 4){
 			if (game.global.mapsActive) game.global.waitToScryMaps = true;
 			else game.global.waitToScry = true;
 		}
 		if (game.global.mapsActive){
-			if (what != 4) game.global.canScryCache = false;
+			if (what != 4 && what != 5) game.global.canScryCache = false;
 			else if (game.global.lastClearedMapCell == -1) game.global.canScryCache = true;
 		}
 		if (game.global.soldierHealth > 0) {
@@ -11843,12 +12158,26 @@ function unlockFormation(what){
 	if ((game.global.world >= 60 && game.global.highestLevelCleared >= 180) && (what == "start" || what == "all" || what == 4)){
 		document.getElementById("formation4").style.display = "block";
 	}
+	if (what == 5 || ((what == "start" || what == "all") && getUberEmpowerment() == "Wind")){
+		var uberActive = getUberEmpowerment();
+		if (uberActive){
+			for (var x = 0; x < 5; x++){
+				swapClass('form', 'formSixth', document.getElementById('form' + x + 'Container'));
+			}
+			document.getElementById('form5Container').style.display = "inline-block";
+			var uberElem = document.getElementById('formation5');
+			uberElem.innerHTML = "W";
+			uberElem.style.display = "block";
+		}
+	}
 }
 
 function hideFormations() {
 	for (var x = 0; x < 5; x++){
 		document.getElementById("formation" + x).style.display = "none";
+		swapClass('form', 'formFifth', document.getElementById('form' + x + 'Container'));
 	}
+	document.getElementById('form5Container').style.display = "none";
 }
 
 //Bones
@@ -12051,6 +12380,7 @@ function scaleToCurrentMap(amt, ignoreBonuses, ignoreScry) {
 	if (game.unlocks.impCount.Magnimp) amt *= Math.pow(1.003, game.unlocks.impCount.Magnimp);
 	if (game.portal.Looting.level) amt += (amt * game.portal.Looting.level * game.portal.Looting.modifier);
 	if (game.portal.Looting_II.level) amt *= (1 + (game.portal.Looting_II.level * game.portal.Looting_II.modifier));
+	if (getUberEmpowerment() == "Wind") amt *= 10;
 	if (!ignoreScry && isScryerBonusActive()) amt *= 2;
 	return amt;
 }
@@ -12741,6 +13071,22 @@ function toggleAutoJobs(noChange, forceOff){
 	document.getElementById('autoJobsText').innerHTML = text;
 }
 
+function toggleAutoEquip(noChange, forceOff){
+	var setting = game.global.autoEquipSetting;
+	if (!noChange) setting.enabled = !setting.enabled;
+	var btnElem = document.getElementById('autoEquipBtn');
+	if (game.global.autoEquipUnlocked && !forceOff)
+		btnElem.style.display = 'block';
+	else{
+		btnElem.style.display = 'none';
+		return;
+	}
+	var color = (setting.enabled) ? "colorSuccess" : "colorDanger";
+	swapClass("color", color, btnElem);
+	var text = (setting.enabled) ? "AutoEquip On" : "AutoEquip Off";
+	document.getElementById('autoEquipText').innerHTML = text;
+}
+
 var lastAutoGoldenToggle = -1;
 function toggleAutoGolden(noChange){
 	if (!noChange && game.global.autoGolden != -1){
@@ -12849,6 +13195,25 @@ function saveAutoStructureConfig(){
 	cancelTooltip();
 }
 
+function saveAutoEquipConfig(){
+	var setting = game.global.autoEquipSetting;
+	var checkboxes = document.getElementsByClassName('autoCheckbox');
+	var quantboxes = document.getElementsByClassName('equipConfigQuantity');
+	for(var x = 0; x < checkboxes.length; x++){
+		var name = checkboxes[x].id.split('equipConfig')[1];
+		var checked = (checkboxes[x].dataset.checked == 'true');
+		if (!checked && !setting[name]) continue;
+		if (!setting[name]) setting[name] = {};
+		setting[name].enabled = checked;
+		setting[name].value = document.getElementById('equipSelect' + name).value;
+		var max = parseInt(quantboxes[x].value, 10);
+		if (max > 10000) max = 10000;
+		max = (isNumberBad(max)) ? 0 : max;
+		setting[name].buyMax = max;
+	}
+	cancelTooltip();
+}
+
 function buyAutoStructures(){
 	if (game.options.menu.pauseGame.enabled)
 		return;
@@ -12896,6 +13261,39 @@ function buyAutoStructures(){
 			(game.resources.metal.owned * costMult) >= (costs.metal[0] * Math.pow(costs.metal[1], owned))
 		) autoBuyUpgrade('Gigastation');
 	}
+}
+
+function uncheckAutoEquip(type, btnElem){
+	var elems = document.getElementsByClassName('checkbox' + type);
+	var nextOn = btnElem.dataset.nexton == 'true';
+	for (var x = 0; x < elems.length; x++){
+		swapNiceCheckbox(elems[x], nextOn);
+	}
+	btnElem.dataset.nexton = !nextOn;
+	btnElem.innerHTML = "Toggle All " + ((type == "Wep") ? "Weapons" : "Armor") + " " + ((nextOn) ? "Off" : "On");
+	var newClass = (nextOn) ? "colorDanger" : "colorPrimary";
+	swapClass("color", newClass, btnElem);
+}
+
+function buyAutoEquip(){
+	if (new Date().getTime() - 2000 < lastPurchasedPrestige) return;
+	if (game.options.menu.pauseGame.enabled)
+		return;
+	var setting = game.global.autoEquipSetting;
+	if (!setting.enabled || !game.global.autoEquipUnlocked) return;
+	for (var item in game.equipment){
+		if (!setting[item]) continue;
+		if (!setting[item].enabled) continue;
+		var equip = game.equipment[item];
+		if (equip.locked) continue;
+		var level = equip.level;
+		var buyMax = setting[item].buyMax;
+		if (buyMax > 0 && level >= buyMax) continue;
+		var settingValue = parseFloat(setting[item].value);
+		var wantToBuy = calculateMaxAfford(game.equipment[item], false, true, false, buyMax, settingValue / 100);
+		if (buyMax != 0 && (wantToBuy > (buyMax - equip.level))) wantToBuy = buyMax - equip.level;
+		if (wantToBuy > 0) buyEquipment(item, true, true, wantToBuy);
+	}	
 }
 
 
@@ -13121,6 +13519,7 @@ function getCheapestPrestigeUpgrade(upgradeArray) {
 	return cheapest;
 }
 
+var lastPurchasedPrestige = -1;
 function autoBuyUpgrade(item){
 	var purchase = buyUpgrade(item, false, true);
 	if (!purchase) return false;
@@ -13128,6 +13527,7 @@ function autoBuyUpgrade(item){
 		game.upgrades[item].alert = false;
 		if (countAlertsIn("upgrades") <= 0) document.getElementById("upgradesAlert").innerHTML = "";
 	}
+	if (game.upgrades[item].prestiges) lastPurchasedPrestige = new Date().getTime();
 	return true;
 }
 
@@ -13148,7 +13548,7 @@ var Fluffy = {
 	currentExp: [],
 	damageModifiers: [1, 1.1, 1.3, 1.6, 2, 2.5, 3.1, 3.8, 4.6, 5.5, 6.5],
 	rewards: ["stickler", "helium", "liquid", "purifier", "lucky", "void", "helium", "liquid", "eliminator", "overkiller"],
-	prestigeRewards: ["dailies", "voidance", "overkiller", "critChance", "megaCrit", "superVoid", "voidelicious", "naturesWrath", "voidSiphon"],
+	prestigeRewards: ["dailies", "voidance", "overkiller", "critChance", "megaCrit", "superVoid", "voidelicious", "naturesWrath", "voidSiphon", "plaguebrought"],
 	prestige: function () {
 		this.calculateLevel();
 		if (this.currentLevel < 10) return;
@@ -13255,6 +13655,7 @@ var Fluffy = {
 		//----Modifiers below this comment will not apply to best fluffy exp bone portal credit or stats----
 		if (game.global.challengeActive == "Daily")
 			reward *= (1 + (getDailyHeliumValue(countDailyWeight()) / 100));
+		if (getUberEmpowerment() == "Ice") reward *= (1 + (game.empowerments.Ice.getLevel() * 0.0025));
 		return reward;
 	},
 	getLevel: function(ignoreCapable){
@@ -13363,8 +13764,9 @@ var Fluffy = {
 				elem.innerHTML = "";
 				return;
 			case "daily":
-				var text = 'Applies when running a Daily Challenge, and matches your Daily\'s extra Helium modifier.' 
+				var text = 'Applies when running a Daily Challenge, and matches the extra Helium from your Daily.' 
 				text += ((game.global.challengeActive == "Daily") ? ' Currently ' + prettify(1 + (getDailyHeliumValue(countDailyWeight()) / 100)) + '.' : ' Currently 1.');
+				text += " Does not apply to Best Fluffy Exp."
 				elem.innerHTML = text;
 				return;
 			case "zone":
@@ -13390,6 +13792,10 @@ var Fluffy = {
 				return;
 			case "knowledge":
 				elem.innerHTML = 'The bonus from your Knowledge Towers. You have ' + playerSpireTraps.Knowledge.owned + ' Knowledge Tower' + needAnS(playerSpireTraps.Knowledge.owned) + ', granting a bonus of ' + playerSpireTraps.Knowledge.getWorldBonus(true) + '% each, bringing this modifier to ' + (1 + (playerSpireTraps.Knowledge.getWorldBonus() / 100)) + ".";
+				return;
+			case "ice":
+				elem.innerHTML = 'From Enlightened Ice. Equal to (1 + (0.0025 * Ice Levels)), currently ' + prettify((1 + (0.0025 * game.empowerments.Ice.getLevel()))) + '. Does not apply to Best Fluffy Exp.'
+				return;
 		}
 	},
 	tooltip: function (big){
@@ -13399,7 +13805,7 @@ var Fluffy = {
 		if (game.talents.fluffyAbility.purchased) 
 			calculatedPrestige++;
 		if (calculatedPrestige > Fluffy.prestigeRewards.length) 
-			calculatedPrestige = Fluffy.prestigeRewards.length;
+			calculatedPrestige = Fluffy.prestigeRewards.length + 1;
 		var bottomText = "";
 		var topText = "<div style='width: 100%; font-size: 0.95em;'><div class='fluffyThird'>";
 		var minZoneForExp = Fluffy.getMinZoneForExp() + 1;
@@ -13440,8 +13846,7 @@ var Fluffy = {
 		if (Fluffy.currentLevel == 10 && game.global.fluffyPrestige < Fluffy.prestigeRewards.length)
 			topText += "<span class='fluffyEvolveText'>蓬松准备好进化了! 这将会重置它的伤害加成和所有特殊能力到等级0， 但是，他将会比以往任何时候都更加强大。你可以在任何时候取消这个进化，回到第10级。<br/><span class='btn btn-md btn-success' onclick='Fluffy.prestige(); Fluffy.refreshTooltip(true);'>进化!</span></span><br/>";
 		if (Fluffy.canGainExp() && game.global.world >= minZoneForExp) {
-			topText += "- 蓬松在每个区域结束时的经验值等于: ";
-			var fluffFormula = "<br/><span style='padding-left: 3em'>";
+			var fluffFormula = "<br/><span style='padding-left: 1em'>";
 			var startNumber = Fluffy.getMinZoneForExp();
 			if (!game.portal.Classy.locked) startNumber = '<span class="fluffFormClassy" onmouseover="Fluffy.expBreakdown(\'classy\')" onmouseout="Fluffy.expBreakdown(\'clear\')">' + (startNumber + 1) + "</span> - 1";
 			if (!game.portal.Curious.locked) fluffFormula += "(" + Fluffy.baseExp + " + (Curious * " + game.portal.Curious.modifier + ")) * (" + Fluffy.expGrowth + "^(Zone - " + startNumber + ")) * (1 + (Cunning * " + game.portal.Cunning.modifier + "))";
@@ -13453,6 +13858,7 @@ var Fluffy = {
 			if (game.heirlooms.Staff.FluffyExp.currentBonus > 0) fluffFormula += ' * <span class="fluffFormStaff" onmouseover="Fluffy.expBreakdown(\'staff\')" onmouseout="Fluffy.expBreakdown(\'clear\')">Staff</span>';
 			if (playerSpireTraps.Knowledge.owned) fluffFormula += ' * <span class="fluffFormKnowledge" onmouseover="Fluffy.expBreakdown(\'knowledge\')" onmouseout="Fluffy.expBreakdown(\'clear\')">Knowledge</span>';
 			if (Fluffy.specialExpModifier > 1) fluffFormula += ' * <span class="fluffFormSpecial" onmouseover="Fluffy.expBreakdown(\'special\')" onmouseout="Fluffy.expBreakdown(\'clear\')">' + Fluffy.specialExpModifier + "</span>";
+			if (getUberEmpowerment() == "Ice") fluffFormula += ' * <span class="fluffFormIce" onmouseover="Fluffy.expBreakdown(\'ice\')" onmouseout="Fluffy.expBreakdown(\'clear\')">Ice</span>'
 			fluffFormula = fluffFormula.replace('Zone', '<span onmouseover="Fluffy.expBreakdown(\'zone\')" onmouseout="Fluffy.expBreakdown(\'clear\')" class="fluffFormZone">Zone</span>');
 			fluffFormula = fluffFormula.replace('Cunning', '<span onmouseover="Fluffy.expBreakdown(\'cunning\')" onmouseout="Fluffy.expBreakdown(\'clear\')" class="fluffFormCunning">Cunning</span>')
 			fluffFormula = fluffFormula.replace('Curious', '<span onmouseover="Fluffy.expBreakdown(\'curious\')" onmouseout="Fluffy.expBreakdown(\'clear\')" class="fluffFormCurious">Curious</span>')			
@@ -13558,7 +13964,10 @@ var Fluffy = {
 			description: "提高大自然的力量！毒药增益+10到堆叠转移率，来自风的氦奖励增加5倍，来自冰的伤害加成加倍。"
 		},
 		voidSiphon: {
-			description: "清理每张虚空地图时，你的脆皮都会得到5%的攻击。这个加成的叠乘累积并在使用传送门后重置。"
+			description: "Your Trimps gain 5% attack each time you clear a Void Map. This bonus stacks additively and resets on Portal."
+		},
+		plaguebrought: {
+			description: "Your Trimps gain +50% to their Plaguebringer modifier, and all Nature stacks accumulate twice as fast."
 		}
 	}
 }
@@ -14033,6 +14442,7 @@ function gameLoop(makeUp, now) {
 		if (mutations.Living.active()){
 			mutations.Living.change();
 		}
+		if (usingScreenReader) screenReaderSummary();
 	}
 	if (game.talents.autoJobs.purchased){
 		//Ratio jobs every 30 seconds (or every zone, see nextWorld)
@@ -14076,6 +14486,7 @@ function runEverySecond(makeUp){
 	}
 	if (game.stats.bestFluffyExp.value > 0) game.stats.bestFluffyExpHourThisRun.evaluate();
 	if (game.global.selectedChallenge == "Daily") updateDailyClock();
+	if (game.global.autoEquipUnlocked) buyAutoEquip();
 	Fluffy.handleBox();
 	updatePortalTimer();
 	if (playerSpire.initialized)
@@ -14285,9 +14696,12 @@ document.addEventListener('keydown', function (e) {
 			break;
 		case 54: //6
 		case 102: //num6
-			if (playerSpire.popupOpen && !playerSpireTraps.Condenser.locked)
+			if (playerSpire.popupOpen && !playerSpireTraps.Condenser.locked){
 				playerSpire.selectTrap("Condenser");
-			break;
+				break;
+			}
+		case 87: //W
+			if (checkStatus() && getUberEmpowerment() == "Wind") setFormation('5');
 		case 55: //7
 		case 103: //num7
 			if (playerSpire.popupOpen && !playerSpireTraps.Knowledge.locked)
@@ -14363,35 +14777,6 @@ document.addEventListener('keyup', function(e) {
 
 
 
-function cnresourcetype(type){
-    //汉化地图资源类型
-    var cnresourcetype="";
-    var temp=type;
-    if((temp=="Food")||((temp=="food"))){
-        cnresourcetype="食物"
-    }else if(temp=="Metal"){
-        cnresourcetype="金属"
-    }else if((temp=="Wood")||((temp=="wood"))){
-        cnresourcetype="木头"
-    }else if((temp=="Metal")||((temp=="metal"))){
-        cnresourcetype="金属"
-    }else if((temp=="Barn")||((temp=="barn"))){
-        cnresourcetype="仓库"
-    }else if((temp=="Shed")||((temp=="shed"))){
-        cnresourcetype="木棚"
-    }else if((temp=="Forge")||((temp=="forge"))){
-        cnresourcetype="锻造"
-    }else if((temp=="Gems")||(temp=="gems")){
-        cnresourcetype="宝石"
-    }else if(temp=="Any"){
-        cnresourcetype="所有"
-    }else if((temp=="Fragments")||(temp=="fragments")){
-        cnresourcetype="碎片"
-    }else{
-        return type;
-    }
-    return cnresourcetype;
-}
 
 
 load();
@@ -14400,6 +14785,8 @@ displayPerksBtn();
 setTimeout(autoSave, 60000);
 costUpdatesTimeout();
 setTimeout(gameTimeout, (1000 / game.settings.speed));
+
+if (usingScreenReader) screenReaderSummary();
 
 preventZoom(document.getElementById('talentsContainer'));
 document.getElementById('mapLevelInput').addEventListener('keydown', function(e) {

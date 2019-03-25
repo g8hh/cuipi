@@ -1,5 +1,11 @@
 //汉化杂项
 var cnItems = {
+    _STYLE_: [
+        '符号', '待归类', '标题', '地图', '工作', '道具', '属性', '敌人'
+    ],
+    _OTHER_: [],
+    //1.0.符号
+    //1.1.待归类
     'primary': '主要',
     'secondary': '次要',
     'exotic': '异国',
@@ -151,11 +157,11 @@ var cnItems = {
     'Trimps Fired': '解雇的脆皮',
     'Food/Wood/Metal': '食物/木头/金属',
     'Total Void Maps Cleared': '总计清理虚空地图',
-    'Tokens This Run': '本次游戏获得的令牌',
+    'Tokens This Run': '本次游戏获得的符记',
     'Amalgamators Befriended': '合并者帮助',
     'Fluffy Exp This Run': '本次游戏蓬松经验',
     'Fluffy Exp/Hr this Run': '本次游戏蓬松经验/小时',
-    'Most Tokens': '令牌最高数量',
+    'Most Tokens': '符记最高数量',
     'Best Fluffy Exp': '最高蓬松经验',
     'Best Fluffy Exp/Hr': '最高蓬松经验/小时',
     'Best Fluffy Exp/Hr this Run': '本次游戏最高蓬松经验/小时',
@@ -212,41 +218,7 @@ var cnItems = {
     '': '',
     '': '',
     '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-
-};
-
-function cnItem(text) {
-    //数组里面有的，返回中文
-    for (var i in cnItems) {
-        if (text == i) {
-            return cnItems[i];
-        }
-    }
-    //数组里面没有的，原样返回
-    for (var i in cnItems) {
-        if (text != i) {
-//            console.log("需汉化的英文Item：" + text);
-            return text;
-        }
-    }
-}
-
-
-
-//汉化标题
-var cntit = {
+    //1.2.标题
     'Shield': '盾',
     'Dagger': '匕首',
     'Boots': '靴子',
@@ -400,7 +372,7 @@ var cntit = {
     'Threat': '威胁',
     'Enemies': '敌人',
     'Runestones': '符石',
-    'Spirestones': '尖顶石头',
+    'Spirestones': '尖塔石头',
     'Trimps Per Second': '每秒脆皮',
     'Max Trimps': '脆皮上限',
     'Scryhard I': '努力占卜 I',
@@ -698,27 +670,6 @@ var cntit = {
     '': '',
     '': '',
     '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
     //成就结束
     '': '',
     'Block': '防御',
@@ -748,71 +699,7 @@ var cntit = {
     '': '',
     '': '',
     '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    //阻止页面打印
-    '平均': '平均',
-    '导入': '导入',
-    '欢迎': '欢迎',
-    '导出': '导出',
-    '自动战斗': '自动战斗',
-    '战斗': '战斗',
-    '世界信息': '世界信息',
-    '守信的脆皮': '守信的脆皮',
-    '购买最大': '购买最大',
-    '攻击阵型': '攻击阵型',
-    '防守阵型': '防守阵型',
-    '肉山阵型': '肉山阵型',
-    '无编队': '无编队',
-    '退出地图': '退出地图',
-    '重复10次': '重复10次',
-    '装备优先': '装备优先',
-    '脆皮信息': '脆皮信息',
-    '暂停游戏': '暂停游戏',
-    '区域内无地图': '区域内无地图',
-    '退出世界': '退出世界',
-    '尖塔地图': '尖塔地图',
-    '重复所有': '重复所有',
-    '一个虚空地图': '一个虚空地图',
-
-};
-
-function cntitle(text) {
-    //数组里面有的，返回中文
-    for (var i in cntit) {
-        if (text == i) {
-            return cntit[i];
-        }
-    }
-    //数组里面没有的，原样返回
-    for (var i in cntit) {
-        if (text != i) {
-//            console.log("需汉化的英文标题：" + text);
-            return text;
-        }
-    }
-}
-
-//汉化地图名
-var cnmaps = {
+    //1.3.地图
     'Dimension of Anger': '愤怒维度',
     'The Prison': '监狱',
     'Bionic Wonderland': '仿生仙境',
@@ -874,7 +761,44 @@ var cnmaps = {
     '': '',
     '': '',
     '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
     //阻止页面打印
+    '平均': '平均',
+    '导入': '导入',
+    '欢迎': '欢迎',
+    '导出': '导出',
+    '自动战斗': '自动战斗',
+    '战斗': '战斗',
+    '世界信息': '世界信息',
+    '购买最大': '购买最大',
+    '攻击阵型': '攻击阵型',
+    '防守阵型': '防守阵型',
+    '肉山阵型': '肉山阵型',
+    '无编队': '无编队',
+    '退出地图': '退出地图',
+    '重复10次': '重复10次',
+    '装备优先': '装备优先',
+    '脆皮信息': '脆皮信息',
+    '暂停游戏': '暂停游戏',
+    '区域内无地图': '区域内无地图',
+    '退出世界': '退出世界',
+    '尖塔地图': '尖塔地图',
+    '重复所有': '重复所有',
+    '一个虚空地图': '一个虚空地图',
     '仿生仙境 XIX': '仿生仙境 XIX',
     '仿生仙境 XX': '仿生仙境 XX',
     '仿生仙境 XXI': '仿生仙境 XXI',
@@ -884,26 +808,75 @@ var cnmaps = {
     '导入': '导入',
     '仿生仙境 VI': '仿生仙境 VI',
     '仿生仙境 X': '仿生仙境 X',
-    '': '',
-    '': '',
-    '': '',
+
 };
 
-function cnMap(text) {
-    //数组里面有的，返回中文
-    for (var i in cnmaps) {
-        if (text == i) {
-            return cnmaps[i];
-        }
+//2.采集新词
+//20190320@JAR
+
+var cnItem = function() {
+
+    //传参是否非空字串
+    if (!arguments[0]) return;
+
+    //检验传参是否对象
+    let text = arguments[0], s = '';
+    if (typeof(text) != "string")
+        return text;
+    else
+        s = arguments[0].charCodeAt()
+    ;
+
+    //检验传参是否英文
+    if(
+        s < 65 || (s > 90 && s <97) || (s > 122)
+        
+    ) return text;
+    //检验字典是否可存
+    if(!cnItems._OTHER_) cnItems._OTHER_=[];
+
+    //遍历尝试匹配
+    for ( let i in cnItems ) {
+        //字典已有词汇或译文、且译文不为空，则返回译文
+        if(
+            text == i || text == cnItems[i]
+            && cnItems[i] != ''
+        )
+        return cnItems[i];
     }
-    //数组里面没有的，原样返回
-    for (var i in cnmaps) {
-        if (text != i) {
-//            console.log("需汉化的英文地图名：" + text);
-            return text;
-        }
+
+    //遍历生词表是否收录
+    for (
+        let i = 0;
+        i < cnItems._OTHER_.length;
+        i++
+    ) {
+        //已收录则直接返回
+        if (text == cnItems._OTHER_[i])
+        return text;
     }
-}
+
+    //未收录则保存
+    cnItems._OTHER_.push(text);
+    cnItems._OTHER_.sort(
+      function(a,b){
+        return a.localeCompare(b)
+      }
+    );
+        
+/*
+    //开启生词打印
+    //console.log(
+        '有需要汉化的英文：', text
+    );
+*/
+
+    //返回生词字串
+    return text;
+};
+
+
+
 // 数值计算开始
 function cnLog(x, cells, enemy, rsBonus, LastDiaoLuo, getRsReward, LastShangHai) {
     if (x == cells - 1) {

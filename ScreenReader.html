@@ -2,25 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-
-	<title>Trimps 4.11.1 (Kongregate Version)</title>
+  
+	<title>Trimps 4.11.1 (Screen Reader version)</title>
 	<meta name="description" content="Trimps">
 	<meta name="author" content="Brownprobe">
-    <link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="fonts/icomoon/style.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css?18" />
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="css/style.css?18" />
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  
-  ga('create', 'UA-65049418-1', 'auto');
+
+  ga('create', 'UA-64748869-1', 'auto');
   ga('send', 'pageview');
 
-</script>
-<script type="text/javascript">
-var kongregate = parent.kongregateAPI.getAPI();
 </script>
 </head>
 <!-- 		Trimps
@@ -48,7 +46,6 @@ var kongregate = parent.kongregateAPI.getAPI();
 		If you are not using any addons that might interfere with javascript, try using the latest versions of Chrome or Firefox. 
 	</div>
 	</noscript>
-	
 	<div id="boneWrapper" style="display: none">
 		<div id="boneWrapper0">
 			<div class="row">
@@ -61,14 +58,8 @@ var kongregate = parent.kongregateAPI.getAPI();
 					<div id="boneOwnedContainer">
 						You have <span id="bonesOwned">0</span>
 					</div>
-					<div id="getBonesBtn" class="boneBtn successColor pointer noselect" style="width: 33vw; display: inline-block" onclick="showPurchaseBones()">
-						<span class="kredSpan"><img class="kredImg" src="imgs/kred_single.png" /></span> Get some more bones</span>
-					</div>
-					<br/>
-					<span id="bonesFrom">You Can Also Earn Bones In Game By Killing Skeletimps</span>
-					<br/>
-					<div id="getBundleBtn" class="boneBtn pointer noselect" style="width: 33vw; display: inline-block; font-size: .9em;" onclick="showPurchaseBones(); startBundling()">
-						<span class="glyphicon glyphicon-star"></span> Click to Bundle 4 Exotic Imp-orts and get 100 free bones! <span class="glyphicon glyphicon-star"></span>
+					<div id="mainBoneHowTo">
+						You can earn bones as you progress through the world by killing Skeletimps and Megaskeletimps.
 					</div>
 					<div id="boneFlavorRow">
 						The Bone Trader trades bones for... bonuses
@@ -133,19 +124,20 @@ var kongregate = parent.kongregateAPI.getAPI();
 				<div id="boneImportsColumn" class="col-xs-4 boneBuyColumn">
 					<div class="boneBuyTitle">Exotic Imp-orts</div>
 					<div class="boostSpacerImports boostSpacer">
-						<div class="boneBuyDesc">Exotic Imp-orts will be unlocked permanently once purchased, and will stick around through portals. Each has a 3% chance to spawn per square and better loot than normal enemies. You can also bundle 4 together and get some extra bones.</div>
-						<div class="importsPreview">
-							<div class="importLocation">Spawns in World</div>
-							<table class="table importsTable" id="importsTableWorld0">						
-							</table>
-							<div class="importLocation table-hover">Spawns in Maps</div>
-							<table class="table importsTable" id="importsTableMaps0">					
-							</table>
-						</div>
-						<div id="purchaseContainerImports">
-							<div class="boneBtn boneBtnStateOn pointer noselect" id="importPurchaseBtn" onclick="tooltip('Confirm Purchase', null, 'update', 'You are about to purchase a new Exotic Import for 50 bones. This new Bad Guy will begin spawning in your next Zone or Map at about an average of 3 spawns per 100 squares. Is this what you wanted to do?', 'purchaseImport()', 50)"></div>
-						</div>
+					<div class="boneBuyDesc">Exotic Imp-orts will be unlocked permanently once purchased, and will stick around through portals. Each has a 3% chance to spawn per square and better loot than normal enemies. Collect them all!</div>
+					<div class="importsPreview">
+						<div class="importLocation">Spawns in World</div>
+						<table class="table importsTable" id="importsTableWorld0">						
+						</table>
+						<div class="importLocation table-hover">Spawns in Maps</div>
+						<table class="table importsTable" id="importsTableMaps0">					
+						</table>
 					</div>
+					<div id="purchaseContainerImports">
+						<div class="boneBtn boneBtnStateOff pointer noselect" id="importPurchaseBtn" onclick="tooltip('Confirm Purchase', null, 'update', 'You are about to purchase a new Exotic Import for 50 bones. This new Bad Guy will begin spawning in your next Zone or Map at about an average of 3 spawns per 100 squares. Is this what you wanted to do?', 'purchaseImport()', 50)"></div>
+					</div>
+				</div>
+
 				</div>
 				<div id="boneMiscColumn" class="col-xs-4 boneBuyColumn">
 					<div class="boneBuyTitle">Other Goodies</div>
@@ -166,7 +158,6 @@ var kongregate = parent.kongregateAPI.getAPI();
 							<div class="boneBtn boneBtnStateOn pointer noselect" id="heirloomPurchaseBtn" onclick="tooltip('Confirm Purchase', null, 'update', 'You are about to purchase one Heirloom for 30 bones. This will be created at a random rarity, and will be just like completing a Void Map at your highest ever Zone reached. Are you sure?', 'purchaseMisc(\'heirloom\')', 30)"> 
 								Buy Heirloom (30 bones)
 							</div>
-							
 							<div class="miscDesc">
 								<div id="heirloomRarityMisc"></div>
 								Get&nbsp;one&nbsp;Heirloom&nbsp;at&nbsp;the&nbsp;chances&nbsp;above,&nbsp;based&nbsp;on&nbsp;highest&nbsp;zone
@@ -175,102 +166,6 @@ var kongregate = parent.kongregateAPI.getAPI();
 					</div>
 				</div>
 			</div>
-		</div>
-		<div id="boneWrapper1" style="display: none">
-		<div class="row">
-			<div class="col-xs-2">		
-			</div>
-			<div class="col-xs-8">
-			<div id="purchaseBonesTitle">
-				Purchase Bones
-			</div>
-			<div id="purchaseBonesDesc">
-				Bones can be earned in game or purchased here.<br/>In game, you will earn bones from enemies that randomly spawn in the world
-				<div class="boneBuyDesc">
-					I love working on this game, but there's still so much to do, and any funds raised through bones will support the continued development of Trimps. Thank you so much for playing!
-				</div>
-			</div>
-			</div>
-			<div class="col-xs-2">
-					<div class="boneBtn successColor pointer noselect" onclick="hidePurchaseBones()">
-							Back to Trader
-					</div>
-					<div class="boneBtn dangerColor pointer noselect" onclick="hideBones()">
-							Close All
-					</div>
-			</div>
-		</div>
-		<div id="boneBuyTableContainer">
-			<table id="boneBuyTable" class="table">
-				<tbody>
-					<tr class="pointer noSelect" onclick="kredPurchase('20.bones')">
-						<td>
-							20 Bones
-						</td>
-						<td>
-							&nbsp;
-						</td>
-						<td>
-							10 <span class="kredSpan"><img class="kredImg" src="imgs/kred_single.png" /></span>
-						</td>
-					</tr>
-					<tr class="pointer noSelect" onclick="kredPurchase('42.bones')">
-						<td>42 Bones</td>
-						<td>(Includes +2 bones!)</td>
-						<td>20 <span class="kredSpan"><img class="kredImg" src="imgs/kred_single.png" /></span></td>
-					</tr>
-					<tr class="pointer noSelect" onclick="kredPurchase('110.bones')">
-						<td>110 Bones</td>
-						<td>(Includes +10 bones!)</td>
-						<td>50 <span class="kredSpan"><img class="kredImg" src="imgs/kred_single.png" /></span></td>
-					</tr>
-					<tr class="pointer noSelect" onclick="kredPurchase('230.bones')">
-						<td>230 Bones</td>
-						<td>(Includes +30 bones!)</td>
-						<td>100 <span class="kredSpan"><img class="kredImg" src="imgs/kred_single.png" /></span></td>
-					</tr>
-					<tr class="pointer noSelect" onclick="kredPurchase('480.bones')">
-						<td>480 Bones</td>
-						<td>(Includes +80 bones!)</td>
-						<td>200 <span class="kredSpan"><img class="kredImg" src="imgs/kred_single.png" /></span></td>
-					</tr>
-					<tr id="bundleRow" class="pointer noSelect" onclick="startBundling()">
-						<td>4 Exotic Imp-orts of your choice<br/>AND 100 bones</td>
-						<td>(Includes +100 bones!)</td>
-						<td>100 <span class="kredSpan"><img class="kredImg" src="imgs/kred_single.png" /></span></td>
-					</tr>
-				</tbody>
-			</table>
-			</div>
-		</div>
-		<div id="boneWrapper2" style="display: none">
-			<div class="row">
-				<div class="col-xs-3">
-				
-				</div>
-				<div class="col-xs-6" style="background-color: #e1e1e1">
-					<div id="bundleTitle">Select 4 Exotic Imports!</div>
-					<div class="boneBuyDesc">Click once to select an Imp, click again to deselect</div>
-					<div id="importsPreview1">
-						<div class="importLocation">Spawns in World</div>
-						<table class="table importsTable" id="importsTableWorld1">						
-						</table>
-						<div class="importLocation table-hover">Spawns in Maps</div>
-						<table class="table importsTable" id="importsTableMaps1">					
-						</table>
-					</div>
-					<div class="boneBtn pointer noSelect" id="addBundleBtn" onclick="purchaseBundleClicked()"></div>
-				</div>
-				<div class="col-xs-3">
-					<div class="boneBtn successColor pointer noselect" onclick="hidePurchaseBones()">
-							Back to Trader
-					</div>
-					<div class="boneBtn dangerColor pointer noselect" onclick="hideBones()">
-							Close All
-					</div>
-				</div>
-			</div>
-
 		</div>
 	</div>
 	<div id="wrapper" style="background: url(css/bg2.png) center repeat-x;">
@@ -281,18 +176,17 @@ var kongregate = parent.kongregateAPI.getAPI();
 				<div class="row resourceRow">
 					<div class="col-xs-6 maxH">
 						<div id="food" class="playerGather">
-							<span class="title">Food</span>
-							<br/>
+							<h1 class="title">Food</h1>
 							<span class="ownedArea bdHover" onclick="getMaxResources('Food')"><span id="foodOwned">0</span> / <span id="foodMax"></span></span>
 							<br/>
 							<div class="progress resProgress">
-								<div class="progress-bar percentColorBlue" id="foodBar" role="progressbar">
+								<div class="progress-bar percentColorBlue" id="foodBar">
 									<span id="foodTimeToFill"></span>
 								</div>
 							</div>
 							<div class="row collectRow">
 								<div class="col-xs-6">
-									<div id="foodCollectBtn" class="workBtn workColorOff pointer noselect" onclick="setGather('food')">Gather</div>
+									<div role="button" id="foodCollectBtn" class="workBtn workColorOff pointer noselect" onclick="setGather('food')">Gather</div>
 								</div>
 								<div class="col-xs-6">
 									<span class="psText sizeSecRegular pointer noselect" id="foodPs" onclick="getPsString('food')">+0/sec</span>
@@ -303,19 +197,18 @@ var kongregate = parent.kongregateAPI.getAPI();
 
 					<div class="col-xs-6 maxH">
 						<div id="wood" class="playerGather" style="visibility: hidden;">
-							<span class="title">Wood</span>
-							<br/>
+							<h1 class="title">Wood</h1>
 							<span class="ownedArea bdHover" onclick="getMaxResources('Wood')"><span id="woodOwned">0</span> / <span id="woodMax"></span></span>
 							<br/>
 							<div class="progress resProgress">
-								<div class="progress-bar percentColorBlue" id="woodBar" role="progressbar">
+								<div class="progress-bar percentColorBlue" id="woodBar">
 									<span id="woodTimeToFill"></span>
 								</div>
 							</div>
 
 							<div class="row collectRow">
 								<div class="col-xs-6">
-									<div id="woodCollectBtn" class="workBtn workColorOff pointer noselect" onclick="setGather('wood')">Chop</div>
+									<div id="woodCollectBtn" role="button" class="workBtn workColorOff pointer noselect" onclick="setGather('wood')">Chop</div>
 								</div>
 								<div class="col-xs-6">
 									<span class="psText sizeSecRegular pointer noselect" id="woodPs" onclick="getPsString('wood')">+0/sec</span>
@@ -327,18 +220,17 @@ var kongregate = parent.kongregateAPI.getAPI();
 				<div class="row resourceRow">
 					<div class="col-xs-6 maxH">
 						<div id="metal" class="playerGather" style="visibility: hidden;">
-							<span class="title">Metal</span>
-							<br/>
+							<h1 class="title">Metal</h1>
 							<span class="ownedArea bdHover" onclick="getMaxResources('Metal')"><span id="metalOwned">0</span> / <span id="metalMax"></span></span>
 							<br/>
 							<div class="progress resProgress">
-								<div class="progress-bar percentColorBlue" id="metalBar" role="progressbar">
+								<div class="progress-bar percentColorBlue" id="metalBar">
 									<span id="metalTimeToFill"></span>
 								</div>
 							</div>
 							<div class="row collectRow">
 								<div class="col-xs-6">
-									<div id="metalCollectBtn" class="workBtn workColorOff pointer noselect" onclick="setGather('metal')">Mine</div>
+									<div id="metalCollectBtn" role="button" class="workBtn workColorOff pointer noselect" onclick="setGather('metal')">Mine</div>
 								</div>
 								<div class="col-xs-6">
 									<span class="psText sizeSecRegular pointer noselect" id="metalPs" onclick="getPsString('metal')">+0/sec</span>
@@ -348,13 +240,12 @@ var kongregate = parent.kongregateAPI.getAPI();
 					</div>
 					<div class="col-xs-6 maxH">
 						<div id="science" class="playerGather" style="visibility: hidden;">
-							<span class="title">Science</span>
-							<br/>
+							<h1 class="title">Science</h1>
 							<span class="ownedArea"><span id="scienceOwned">0</span></span>
 							<br/>
 							<div class="row collectRow">
 								<div class="col-xs-6">
-									<div id="scienceCollectBtn" class="workBtn workColorOff pointer noselect" onclick="setGather('science')">Research</div>
+									<div id="scienceCollectBtn" role="button" class="workBtn workColorOff pointer noselect" onclick="setGather('science')">Research</div>
 								</div>
 								<div class="col-xs-6">
 									<span class="psText sizeSecRegular pointer noselect" id="sciencePs" onclick="getPsString('science')">+0/sec</span>
@@ -398,7 +289,7 @@ var kongregate = parent.kongregateAPI.getAPI();
 						</div>
 						<div class="col-xs-6">
 							<div class="maxCenter">
-								<span id="trimpTitle" class="title">???</span>													
+								<h1><span id="trimpTitle" class="title">???</span></h1>												
 							</div>
 						</div>
 						<div class="col-xs-3" style="padding-left: 0">
@@ -422,7 +313,7 @@ var kongregate = parent.kongregateAPI.getAPI();
 						<span id="trimpsEmployed">0</span>/<span id="maxEmployed">0</span> employed
 					</div>
 					<div id="trapArea">
-						<div id="trimpsCollectBtn" class="workBtn workColorOff pointer noSelect" onclick="setGather('trimps')">Check&nbsp;Traps&nbsp;(<span id="trimpTrapText">1</span>)</div>
+						<div id="trimpsCollectBtn" role="button" class="workBtn workColorOff pointer noSelect" onclick="setGather('trimps')">Check&nbsp;Traps&nbsp;(<span id="trimpTrapText">1</span>)</div>
 						<div id="trimpsCollecting" class="collecting" style="display: none">Trapping (<span id="trimpTrapText2">1</span>)</div>
 						<div class="progress" id="trappingProgress">
 							<div class="progress-bar" id="trappingBar" role="progressbar"></div>
@@ -446,13 +337,14 @@ var kongregate = parent.kongregateAPI.getAPI();
 							<button id="CombatFilter" type="button" onclick="filterMessage('Combat')" class="btn btn-success logFlt">Combat</button>
 						</div>
 						<div id="logConfigHolder" class="btn-group" role="group">
-							<button id="logConfigBtn" type="button" onclick="tooltip('Message Config', null, 'update')" class="btn btn-default logFlt"><span class='glyphicon glyphicon-cog'></span></button>
+							<button title="Configure Displayed Messages" id="logConfigBtn" type="button" onclick="tooltip('Message Config', null, 'update')" class="btn btn-default logFlt"><span class='glyphicon glyphicon-cog'></span></button>
 						</div>						
 					</div>
 					<div id="log" class="niceScroll">
 						<span class="storyMessage message"><span class='glyphicon glyphicon-star'></span>A green shimmer erupts then disappears, and you hit the ground. You look pretty hungry...</span>
-					</div>
+					</div>		
 				</div>
+				<h3>End of Log</h3>
 			</div>
 		</div>
 		<div class="row" id="bottomRow">
@@ -469,7 +361,7 @@ var kongregate = parent.kongregateAPI.getAPI();
 							<div id="autoTrapBtn" style="display: none" onclick="toggleAutoTrap()" class="pointer noselect colorDanger autoUpgradeBtn">AutoTraps Off</div>
 						</div>
 						<div class="col-xs-3">
-							<div id="buildingsCollectBtn" onclick="setGather('buildings')" class="workBtn workColorOff pointer noselect">Build</div>
+							<h1><div role="button" id="buildingsCollectBtn" onclick="setGather('buildings')" class="workBtn workColorOff pointer noselect">Build Buildings</div></h1>
 						</div>
 					</div>
 					<div class="queue niceScroll" id="buildingsQueue">
@@ -477,20 +369,20 @@ var kongregate = parent.kongregateAPI.getAPI();
 					</div>
 				</div>
 				<div id="outerBuyContainer">	
-					<div id="buyTabs">
-						<ul id="buyTabsUl" class="nav nav-tabs nav-justified buyTabsUl">
-							<li role="presentation" id="allTab" onclick="filterTabs('all')" class="tabNotSelected buyTab"><a id="allA">All</a></li>
-							<li role="presentation" id="buildingsTab" onclick="filterTabs('buildings')" class="tabNotSelected buyTab"><a id="buildingsA"><span id="buildingsAlert" class="alert badge"></span>Buildings</a></li>
-							<li role="presentation" id="jobsTab" style="visibility: hidden" onclick="filterTabs('jobs')" class="tabNotSelected buyTab"><a id="jobsA"><span id="jobsAlert" class="alert badge"></span>Jobs</a></li>
-							<li role="presentation" id="upgradesTab" style="visibility: hidden" onclick="filterTabs('upgrades')" class="tabNotSelected buyTab"><a id="upgradesA"><span id="upgradesAlert" class="alert badge"></span>Upgrades</a></li>
-							<li role="presentation" id="equipmentTab" style="visibility: hidden" onclick="filterTabs('equipment')" class="tabNotSelected buyTab"><a id="equipmentA"><span id="equipmentAlert" class="alert badge"></span>Equipment</a></li>		
-						</ul>
-						<ul id="buyTabsUl2" class="nav nav-tabs nav-justified buyTabsUl">
-							<li role="presentation" id="talentsTab" style='display: none' onclick="filterTabs('talents')" class="tabNotSelected buyTab" onmouseover="tooltip('Mastery', null, event)" onmouseout="tooltip('hide')"><a id="talentA"><span id="talentsAlert" class="alert badge"></span>Mastery<span id="talentsEssenceTotal"></span></a></li>		
-							<li role="presentation" id="natureTab" style='display: none'  onclick="filterTabs('nature')" class="tabNotSelected buyTab empowerTabNone" onmouseover="tooltip('Empowerments of Nature', null, event)" onmouseout="tooltip('hide')"><a id="natureA">Nature</a></li>		
-							<li role="presentation" id="playerSpireTab" style='display: none' onclick="playerSpire.openPopup()" class="tabNotSelected buyTab pausedSpireNo"><a id="spireA">Spire</a></li>		
-						</ul>
-					</div>
+				<div id="buyTabs">
+					<ul id="buyTabsUl" class="nav nav-tabs nav-justified buyTabsUl">
+						<li role="presentation" id="allTab" onclick="filterTabs('all')" class="tabNotSelected buyTab"><a id="allA">All</a></li>
+						<li role="presentation" id="buildingsTab" onclick="filterTabs('buildings')" class="tabNotSelected buyTab"><a id="buildingsA"><span id="buildingsAlert" class="alert badge"></span>Buildings</a></li>
+						<li role="presentation" id="jobsTab" style="visibility: hidden" onclick="filterTabs('jobs')" class="tabNotSelected buyTab"><a id="jobsA"><span id="jobsAlert" class="alert badge"></span>Jobs</a></li>
+						<li role="presentation" id="upgradesTab" style="visibility: hidden" onclick="filterTabs('upgrades')" class="tabNotSelected buyTab"><a id="upgradesA"><span id="upgradesAlert" class="alert badge"></span>Upgrades</a></li>
+						<li role="presentation" id="equipmentTab" style="visibility: hidden" onclick="filterTabs('equipment')" class="tabNotSelected buyTab"><a id="equipmentA"><span id="equipmentAlert" class="alert badge"></span>Equipment</a></li>		
+					</ul>
+					<ul id="buyTabsUl2" class="nav nav-tabs nav-justified buyTabsUl">
+						<li role="presentation" id="talentsTab" style='display: none' onclick="filterTabs('talents')" class="tabNotSelected buyTab" onmouseover="tooltip('Mastery', null, event)" onmouseout="tooltip('hide')"><a id="talentA"><span id="talentsAlert" class="alert badge"></span>Mastery<span id="talentsEssenceTotal"></span></a></li>		
+						<li role="presentation" id="natureTab" style='display: none'  onclick="filterTabs('nature')" class="tabNotSelected buyTab empowerTabNone" onmouseover="tooltip('Empowerments of Nature', null, event)" onmouseout="tooltip('hide')"><a id="natureA">Nature</a></li>		
+						<li role="presentation" id="playerSpireTab" style='display: none' onclick="playerSpire.openPopup()" class="tabNotSelected buyTab pausedSpireNo"><a id="spireA">Spire</a></li>		
+					</ul>
+				</div>
 
 					<div id="numTabs" class="numTabs">
 						<ul class="nav nav-tabs nav-justified">
@@ -524,7 +416,7 @@ var kongregate = parent.kongregateAPI.getAPI();
 								<div id="buildingsTitleDiv" class="titleDiv">
 									<div class="row">
 										<div class="col-xs-3" style="padding-right: 5px">
-											<span id="buildingsTitleSpan" class="titleSpan">Buildings</span>
+											<span id="buildingsTitleSpan" class="titleSpan"><h2>Buildings</h2></span>
 										</div>
 										<div class="col-xs-3 lowPad">&nbsp;</div>
 										<div class="col-xs-3 lowPad">
@@ -545,7 +437,7 @@ var kongregate = parent.kongregateAPI.getAPI();
 								<div id="jobsTitleDiv" class="titleDiv" style="display: none">
 									<div class="row">
 										<div class="col-xs-3" style="padding-right: 5px">
-											<span id="jobsTitleSpan" class="titleSpan">Jobs</span>
+											<span id="jobsTitleSpan" class="titleSpan"><h2>Jobs</h2></span>
 										</div>
 										<div class="col-xs-3 lowPad">
 											<span id="jobsTitleUnemployed" class="titleSpan"></span>
@@ -568,7 +460,7 @@ var kongregate = parent.kongregateAPI.getAPI();
 								<div id="upgradesTitleDiv" style="display: none" class="titleDiv">
 									<div class="row">
 										<div class="col-xs-3" style="padding-right: 5px">
-											<span id="upgradesTitleSpan" class="titleSpan">Upgrades<br/>(Research first)</span>
+											<h2><span id="upgradesTitleSpan" class="titleSpan">Upgrades<br/>(Research first)</span></h2>
 										</div>
 										<div class="col-xs-3 lowPad">								
 											<div id="autoGoldenBtn" onmouseover="tooltip('AutoGold', null, event)" onmouseout="tooltip('hide')" class="pointer noselect settingBtn0 autoUpgradeBtn">
@@ -590,7 +482,7 @@ var kongregate = parent.kongregateAPI.getAPI();
 								<div id="equipmentTitleDiv" style="display: none" class="titleDiv">
 									<div class="row">
 										<div class="col-xs-3">
-											<span id="equipmentTitleSpan" class="titleSpan">Equipment</span>
+											<span id="equipmentTitleSpan" class="titleSpan"><h2>Equipment</h2></span>
 										</div>
 										<div class="col-xs-3 lowPad">&nbsp;</div>
 										<div class="col-xs-3 lowPad">&nbsp;</div>
@@ -746,7 +638,7 @@ var kongregate = parent.kongregateAPI.getAPI();
 							<div class="col-xs-6" id="goodGuyCol">
 								<div class="row">
 									<div class="col-xs-9" style="padding-right: 5px">
-										<!-- Update in resetGame if adding to name -->
+									<!-- Update in resetGame if adding to name -->
 										<div class="battleStatsTitle" id="goodGuyName"><span id='realTrimpName'>Trimps</span>&nbsp;(<span id="trimpsFighting">1</span>) <span id="anticipationSpan"></span> <span id="titimpBuff"></span> <span id="debuffSpan"></span></div>
 									</div>
 									<div class="col-xs-3" style="padding-left: 5px;">
@@ -785,6 +677,7 @@ var kongregate = parent.kongregateAPI.getAPI();
 									</div>
 								</div>
 								<div class="row guyRow" id="goodGuyStatsRow">
+									<h4 style='font-size: 0px'>Trimp Battle Stats</h4>
 									<div id='damageDiv' class="col-xs-6 lbdHover pointer noselect bdHover" style="padding-right: 0" onclick="getBattleStatBd('attack')">
 										<span id="goodGuyAttack" class='attackColorNormal'></span> DMG <span id="critSpan"></span>
 									</div>
@@ -796,19 +689,22 @@ var kongregate = parent.kongregateAPI.getAPI();
 									</div>
 								</div>
 								<div class="progress fightBar">
-									<div class="progress-bar percentColorBlue" id="goodGuyBar" role="progressbar">
+									<h5 title="trimpHealth">
+									<div style='color: black;' class="percentColorBlue" id="goodGuyBar">
 										<span class="bdHover pointer noselect innerFightBar" onclick="getBattleStatBd('health')">
 											<span id="goodGuyHealth">0</span>/<span id="goodGuyHealthMax">0</span>
 										</span>
 									</div>
+									</h5>
 								</div>
 							</div>
 							<div class="col-xs-6" id="badGuyCol" style="visibility: hidden">
 							<div>
 								<div class="row">
+									<h4 style='font-size: 0px'>Enemy Battle Stats</h4>
 									<div class="col-xs-11">
-										<span class="battleStatsTitle"><span id="badGuyName"></span> <span id="corruptionBuff"></span><span id="voidBuff"></span><span id="badCanCrit" style="display: none" class="badge" onmouseover="tooltip('Crushing Blows', 'customText', event, 'Your current health is higher than your block, making you vulnerable to critical strikes from your enemies. Better fix that...')" onmouseout="tooltip('hide')"><span class="icomoon icon-hair-cross"></span></span><span id='badDebuffSpan'></span></span><br/>
-										<div class="guyRow" id="badGuyRow">
+									<span class="battleStatsTitle"><span id="badGuyName"></span> <span id="corruptionBuff"></span><span id="voidBuff"></span><span id="badCanCrit" style="display: none" class="badge" onmouseover="tooltip('Crushing Blows', 'customText', event, 'Your current health is higher than your block, making you vulnerable to critical strikes from your enemies. Better fix that...')" onmouseout="tooltip('hide')"><span class="icomoon icon-hair-cross"></span></span><span id='badDebuffSpan'></span></span><br/>
+									<div class="guyRow" id="badGuyRow">
 									<div>
 										<span id="badGuyAttack" class="dmgColorWhite"></span> DMG <span id="badCrit"></span>
 									</div>
@@ -822,11 +718,13 @@ var kongregate = parent.kongregateAPI.getAPI();
 								</div>
 							</div>
 								<div class="progress fightBar">
-									<div class="progress-bar percentColorBlue" id="badGuyBar" role="progressbar">
+									<h5 title="enemyHealth">
+									<div style='color: black;' class="percentColorBlue" id="badGuyBar">
 										<span class="innerFightBar">
 											<span id="badGuyHealth">0</span>/<span id="badGuyHealthMax">0</span>
 										</span>
 									</div>
+									</h5>
 								</div>
 							</div>
 						</div>
@@ -835,7 +733,7 @@ var kongregate = parent.kongregateAPI.getAPI();
 					<div class="row" id="gridRow">
 						<div class="col-xs-2" id="battleBtnsColumn">
 							<div id="battleSideTitle" onmouseover="getZoneStats(event)" onmouseout="tooltip('hide')">
-									<span id="worldName">Zone</span> <span id="worldNumber">1</span><br/><span id="mapBonus"></span>
+									<h3><span id="worldName">Zone</span> <span id="worldNumber">1</span><br/><span id="mapBonus"></span></h3>
 							</div>
 							<div class="battleSideBtnContainer">
 								<span class="btn btn-primary fightBtn" id="fightBtn" onmouseover="tooltip('Fight',null,event)" onmouseout="tooltip('hide')" onclick="fightManual()">
@@ -872,10 +770,10 @@ var kongregate = parent.kongregateAPI.getAPI();
 								<span id="heirloomsBtn" class="btn fightBtn heirloomsBtnColor" onclick="toggleHeirlooms()">Heirlooms</span>
 							</div>
 							<div class="battleSideBtnContainer" style="display: none" id="boneBtnContainer">
-								<span class="btn btn-default fightBtn" id="boneBtn" onclick="showBones()">
+								<span class="btn btn-default fightBtn" id="boneBtnMain" onclick="showBones()">
 									<span id="boneBtnText">Bone Trader</span>
 								</span>
-							</div>
+							</div>							
 							<div class="battleSideBtnContainer" style="display: none" id="finishDailyBtnContainer">
 								<span class="btn btn-success fightBtn" id="finishDailyBtn" onclick="tooltip('Finish Daily', null, 'update')">
 									Finish Daily
@@ -886,6 +784,7 @@ var kongregate = parent.kongregateAPI.getAPI();
 									Exit Spire
 								</span>
 							</div>
+
 						</div>
 						<div class="col-xs-10" id="gridContainer">
 							<div id="grid"></div>
@@ -1062,11 +961,11 @@ var kongregate = parent.kongregateAPI.getAPI();
 							<div class="battleSideBtnContainer">
 								<span class="btn settingBtn1 fightBtn" id="togglemapAtZone2" onmouseout="tooltip('hide')" onclick="toggleSetting('mapAtZone')">
 								</span>
-							</div>		
-							<div class="battleSideBtnContainer" id="repeatVoidsContainer">
+							</div>							
+							<div class="battleSideBtnContainer" style="display: none" id="repeatVoidsContainer">
 								<span class="btn settingBtn1 fightBtn" id="togglerepeatVoids" onmouseout="tooltip('hide')" onclick="toggleSetting('repeatVoids')">
 								</span>
-							</div>									
+							</div>					
 						</div>
 					</div>
 				</div>
@@ -1099,7 +998,7 @@ var kongregate = parent.kongregateAPI.getAPI();
 					<td class="btn btn-new" onclick="window.open('updates.html', '_blank')">
 							V <span id="versionNumber"></span> | What's New 
 					</td>
-					<td id="portalTimer" class="timerNotPaused" onclick="toggleSetting('pauseGame')">
+					<td id="portalTimer" class="timerNotPaused" onclick="toggleSetting('pauseGame')" onmouseover="tooltip('Pause the game', 'customText', event, game.options.menu['pauseGame'].description)" onmouseout="tooltip('hide')">
 						<span id="portalTime">&nbsp;</span>&nbsp;&nbsp;<span style='font-size: 0.85em; line-height: 0.85em;' class='icomoon icon-pause3'></span>&nbsp;
 					</td>
 				</tr>
@@ -1209,7 +1108,7 @@ var kongregate = parent.kongregateAPI.getAPI();
 							<a id="ptabRemoveText">Remove</a>
 						</li>
 					</ul>
-				</div>			
+				</div>		
 				<div id="portalUpgradesHere" class="niceScroll"></div>
 			</div>
 			<div id="challengeCol" class="col-xs-5">
@@ -1244,7 +1143,7 @@ var kongregate = parent.kongregateAPI.getAPI();
 		</div>
 		<div id="portalBtnContainer">
 			<div class="btn btn-primary inPortalBtn" id="activatePortalBtn" onclick="activateClicked()">Activate Portal</div>
-			<div class="btn btn-danger inPortalBtn" id="cancelPortalBtn" onclick="cancelPortal()">Cancel</div>
+			<div class="btn btn-danger inPortalBtn" id="cancelPortalBtn" onclick="cancelTooltip(); cancelPortal()">Cancel</div>
 			<div class="btn btn-warning inPortalBtn" style="display: none" id="respecPortalBtn" onclick="respecPerks()" onmouseover="tooltip('Respec', null, event)" onmouseout="tooltip('hide')"></div>
 			<div class="btn btn-success inPortalBtn" style='display: none' id="swapToCurrentChallengeBtn" onclick="swapToCurrentChallenge()" onmouseover="tooltip('View Current Challenge', 'customText', event, 'Swap the Challenge Selection pane to instead display your current challenge, or vice versa')" onmouseout="tooltip('hide')">View Current Challenge</div>
 			<div class="btn btn-warning inPortalBtn" style="display: none" id="clearPerksBtn" onclick="clearPerks()">Clear All Perks</div>
@@ -1252,9 +1151,8 @@ var kongregate = parent.kongregateAPI.getAPI();
 	</div>
 	<div id="achievementWrapper" style="display: none">
 		<div id="achievementMainButtons">
-			<span id="achievementHelp" onclick="toggleAchievementHelp()" class="icomoon icon-question-circle"></span>
-			<span id="achievementMainClose" onclick="toggleAchievementWindow()" class="icomoon icon-close"></span>
-			
+			<span id="achievementHelp" style='display: none' onclick="toggleAchievementHelp()" class="icomoon icon-question-circle"></span>
+			<span id="achievementMainClose" role='button' title='Close Achievement Screen' onclick="toggleAchievementWindow()" class="icomoon icon-close">Close</span>
 		</div>
 		<div class="row" id="achievementTopRow">
 			<div class="col-xs-6">
@@ -1275,7 +1173,8 @@ var kongregate = parent.kongregateAPI.getAPI();
 				<div class="maxCenter" id="achievementHeader">
 					<span class="achievementMainTitle">Achievements</span><br/>
 					<span class="achievementTotals">You are dealing <span id="achievementTotalPercent"></span>% extra damage<span id="achievementFluff"></span>.</span>
-					<div id="achievementGoldenBonusContainer"></div>
+					<div id="achievementGoldenBonusContainer">
+					</div>
 				</div>
 				<div id="achievementHelpContainer" style="display: none">
 					You can earn achievements by doing stuff. Each achievement will boost the amount of damage your Trimps can deal, and later achievements grant a larger bonus. You can learn more about an achievement by hovering your mouse over it.
@@ -1284,7 +1183,7 @@ var kongregate = parent.kongregateAPI.getAPI();
 			<div class="col-xs-1">
 			</div>
 		</div>
-		<div id="achievementsHere"></div>
+		<div id="achievementsHere" class="niceScroll"></div>
 	</div>
 	<div id="statsWrapper" style="display: none">
 		<span id="statsTitle">Statistics!</span><br/>
@@ -1410,14 +1309,33 @@ var kongregate = parent.kongregateAPI.getAPI();
 		<div id="tipText"></div>
 		<hr/>
 		<div id="tipCost"></div>
+		<hr/>
 	</div>
 	<div id="tooltipDiv2" class="tooltipExtraNone" style="display: none">
-			<div id="tipTitle2"></div>
-			<hr/>
-			<div id="tipText2"></div>
-			<hr/>
-			<div id="tipCost2"></div>
+		<div id="tipTitle2"></div>
+		<hr/>
+		<div id="tipText2"></div>
+		<hr/>
+		<div id="tipCost2"></div>
 	</div>
+	<div style='position: absolute; display: block; width: 20vw; left: 80%; top: 50%; background-color: grey; z-index: 99' id="screenReaderSummary">
+		<h6>Zone Number: <span id='srSumWorldZone'></span></h6>
+		<h6>World Cell: <span id='srSumWorldCell'></span></h6>
+		<h6 id='srSumMapNameContainer'>Current Map: <span id='srSumMapName'></span></h6>
+		<h6 id='srSumMapCellContainer'>Current Map Cell: <span id='srSumMapCell'></span></h6>
+		<h6>Trimps: <span id='srSumTrimps'></span></h6>
+		<h6>Attack: <span id='srSumAttackScore'></span></h6>
+		<h6>Health: <span id='srSumHealthScore'></span></h6>
+		<h6 id='srSumFoodContainer'>Food: <span id='srSumFood'></span></h6>
+		<h6 id='srSumWoodContainer'>Wood: <span id='srSumWood'></span></h6>
+		<h6 id='srSumMetalContainer'>Metal: <span id='srSumMetal'></span></h6>
+		<h6 id='srSumScienceContainer'>Science: <span id='srSumScience'></span></h6>
+		<h6 id='srSumGemsContainer'>Gems: <span id='srSumGems'></span></h6>
+		<h6 id='srSumFragmentsContainer'>Fragments: <span id='srSumFragments'></span></h6>
+		<h6>Last combat: <span id='srSumLastCombat'></span></h6>
+		<h6>Last story: <span id='srSumLastStory'></span></h6>
+	</div>
+	<div style='position: absolute; display: block; width: 15vw; left: 85%; top: 90%; background-color: grey; z-index: 99' id="screenReaderTooltip" aria-live="assertive"></div>
 	<div id='playerSpirePopout' style='display: none'>
 		<div id='playerSpireSpirePanel'>
 			<div id='playerSpireSpireSpirePanel' class='noselect'>
@@ -1431,6 +1349,9 @@ var kongregate = parent.kongregateAPI.getAPI();
 			&nbsp;
 		</div>
 	</div>
+	<script type="text/javascript">
+		var usingScreenReader = true;
+	</script>
 	<script type="text/javascript" src="Playfab/PlayFabSDK/PlayFabClientApi.js"></script>
 	<script type="text/javascript" src="lz-string.js"></script>
 	<script type="text/javascript" src="decimal.min.js"></script>
@@ -1438,25 +1359,7 @@ var kongregate = parent.kongregateAPI.getAPI();
 	<script type="text/javascript" src="updates.js?23"></script>
 	<script type="text/javascript" src="playerSpire.js?23"></script>
 	<script type="text/javascript" src="main.js?23"></script>
-	<script type="text/javascript">
-		document.body.addEventListener('DOMMouseScroll', onWheel, true);
-		document.body.addEventListener('mousewheel', onWheel, true);
-		var buyCol = document.getElementById("buyCol");
-		var buyHere = document.getElementById("buyContainer");
-		function onWheel (e){
-			if (e.target.parentElement.offsetParent === buyCol){
-			try{
-			if((e.wheelDelta < 0 && (buyHere.scrollTop === (buyHere.scrollHeight - buyHere.offsetHeight))) || (e.wheelDelta > 0 && (buyHere.scrollTop == 0))){
-				e.preventDefault();
-				e.stopPropagation();
-				}
-			}
-			catch(err){
-			
-			}
-			}
-		}
-	</script>
+	
 </body>
 
 </html>
