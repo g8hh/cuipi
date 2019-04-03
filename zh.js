@@ -66,6 +66,22 @@ var cnItems = {
     'Magma': '岩浆',
     'Healthy': '健康的',
     'Obliterated': '湮没',
+    'Common Core': '共同核心',
+    'Rare Core': '稀有核心',
+    'Uncommon Core': '罕见核心',
+    'Nullifium': '虚空物质',
+    'Nu': '虚空物质',
+    '': '',
+    //传家宝效果
+    'Condenser Effect': '冷凝器效果',
+    'Runestone Drop Rate': '符石掉率',
+    'Fire Trap Damage': '火焰陷阱的伤害',
+    'Poison Trap Damage': '毒陷阱的伤害',
+    'Lightning Trap Damage': '光陷阱的伤害',
+    'Fluffy Exp': '蓬松经验',
+    'Plaguebringer': '瘟疫传播',
+    'Strength Tower Effect': '力量塔效果',
+    'Ss': '尖塔石头',
     '': '',
     '': '',
     '': '',
@@ -667,6 +683,38 @@ var cnItems = {
     'Holey': '洞穴',
     'Survivor': '幸存者',
     'Maptastic': '地图符号',
+    'Void': '虚空',
+    'Helium': '氦',
+    'Gym X10': '健身房 X10',
+    'Consolation Prize': '安慰奖',
+    'Speed: Spire V': '速度:尖塔V',
+    'actiVe': '激活',
+    'Arctic Accelerator': '北极加速器',
+    'driVen': '驱动',
+    'Friend of Bots': '机器人的朋友',
+    'Nerfed': '削弱',
+    'Nerfeder': '继续削弱',
+    'Tent City': '帐篷城',
+    'Infected': '被感染',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
     '': '',
     '': '',
     '': '',
@@ -814,62 +862,60 @@ var cnItems = {
 //2.采集新词
 //20190320@JAR
 
-var cnItem = function() {
+var cnItem = function () {
 
     //传参是否非空字串
     if (!arguments[0]) return;
 
     //检验传参是否对象
-    let text = arguments[0], s = '';
-    if (typeof(text) != "string")
+    let text = arguments[0],
+        s = '';
+    if (typeof (text) != "string")
         return text;
     else
-        s = arguments[0].charCodeAt()
-    ;
+        s = arguments[0].charCodeAt();
 
     //检验传参是否英文
-    if(
-        s < 65 || (s > 90 && s <97) || (s > 122)
-        
+    if (
+        s < 65 || (s > 90 && s < 97) || (s > 122)
+
     ) return text;
     //检验字典是否可存
-    if(!cnItems._OTHER_) cnItems._OTHER_=[];
+    if (!cnItems._OTHER_) cnItems._OTHER_ = [];
 
     //遍历尝试匹配
-    for ( let i in cnItems ) {
+    for (let i in cnItems) {
         //字典已有词汇或译文、且译文不为空，则返回译文
-        if(
-            text == i || text == cnItems[i]
-            && cnItems[i] != ''
+        if (
+            text == i || text == cnItems[i] &&
+            cnItems[i] != ''
         )
-        return cnItems[i];
+            return cnItems[i];
     }
 
     //遍历生词表是否收录
     for (
-        let i = 0;
-        i < cnItems._OTHER_.length;
-        i++
+        let i = 0; i < cnItems._OTHER_.length; i++
     ) {
         //已收录则直接返回
         if (text == cnItems._OTHER_[i])
-        return text;
+            return text;
     }
 
     //未收录则保存
     cnItems._OTHER_.push(text);
     cnItems._OTHER_.sort(
-      function(a,b){
-        return a.localeCompare(b)
-      }
+        function (a, b) {
+            return a.localeCompare(b)
+        }
     );
-        
-/*
-    //开启生词打印
-    //console.log(
-        '有需要汉化的英文：', text
-    );
-*/
+
+    /*
+        //开启生词打印
+        //console.log(
+            '有需要汉化的英文：', text
+        );
+    */
 
     //返回生词字串
     return text;
@@ -884,12 +930,12 @@ function cnLog(x, cells, enemy, rsBonus, LastDiaoLuo, getRsReward, LastShangHai)
         if (enemy.health <= 0) {
             if (LastDiaoLuo != getRsReward) {
                 LastDiaoLuo = getRsReward;
-                message("最大生命：" + enemy.maxHealth + "掉落：" + LastDiaoLuo,"Loot", "*cubes", null, 'events');
+                message("最大生命：" + enemy.maxHealth + "掉落：" + LastDiaoLuo, "Loot", "*cubes", null, 'events');
             }
         } else {
             if (LastShangHai != maxshanghai) {
                 LastShangHai = maxshanghai;
-               message("最大生命：" + enemy.maxHealth + "最大伤害：" + maxshanghai + "预计掉落：" + getRsReward,"Loot", "*cubes", null, 'events');
+                message("最大生命：" + enemy.maxHealth + "最大伤害：" + maxshanghai + "预计掉落：" + getRsReward, "Loot", "*cubes", null, 'events');
             }
         }
     }

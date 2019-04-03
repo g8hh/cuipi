@@ -5030,7 +5030,7 @@ function displaySelectedHeirloom(modSelected, selectedIndex, fromTooltip, locati
 	var animated = (game.options.menu.showHeirloomAnimations.enabled) ? "animated " : "";
 	var html = '<div class="selectedHeirloomItem ' + animated + 'heirloomRare' + heirloom.rarity + '"><div class="row selectedHeirloomRow"><div class="col-xs-2 selectedHeirloomIcon" id="' + ((fromTooltip) ? 'tooltipHeirloomIcon' : 'selectedHeirloomIcon') + '"><span class="' + icon + '"></span></div><div class="col-xs-10"><h5 aria-label="Rename Heirloom" onclick="renameHeirloom(';
 	if (fromPopup) html += 'false, true';
-	html += ')" id="selectedHeirloomTitle" style="margin: 10px 0">' + heirloom.name + '</h5> '
+	html += ')" id="selectedHeirloomTitle" style="margin: 10px 0">' + cnItem(heirloom.name) + '</h5> '
 	if (!fromTooltip) html += '<span id="renameContainer"></span>';
 	html+= '</div></div>';
 	var isEquipped = (game.global.selectedHeirloom[1] == "StaffEquipped" || game.global.selectedHeirloom[1] == "ShieldEquipped" || game.global.selectedHeirloom[1] == "CoreEquipped");
@@ -5052,12 +5052,12 @@ function displaySelectedHeirloom(modSelected, selectedIndex, fromTooltip, locati
 			if (modSelected && selectedIndex != x) html += opacity;
 			html += 'onclick="selectMod(' + x;
 			if (fromPopup) html += ', true';
-			html += ')">' + heirloom.mods[x][1] + '% ' + game.heirlooms[heirloom.type][heirloom.mods[x][0]].name + '</span><br/>';
+			html += ')">' + heirloom.mods[x][1] + '% ' + cnItem(game.heirlooms[heirloom.type][heirloom.mods[x][0]].name) + '</span><br/>';
 		}
 	}
 	if (fromTooltip) return html;
 	if (usingScreenReader){
-		document.getElementById('screenReaderTooltip').innerHTML = srText + "<br/><br/>Press 5 or shift 5 then B to view this Heirloom and its mods.";
+		document.getElementById('screenReaderTooltip').innerHTML = srText + "<br/><br/>按5或按下shift 5然后按B查看此传家宝及其shux。";
 	}
 	if (fromPopup){
 		document.getElementById("heirloomsPopupHere").innerHTML = html;
@@ -5081,7 +5081,7 @@ function renameHeirloom(cancel, fromPopup){
 		return;
 	}
 	if (!inputText){
-		containerElem.innerHTML = "<input maxlength='25' id='heirloomNameInput' value='" + heirloom.name + "'/> <span onclick='renameHeirloom()' class='renameHeirloomBtn'>保存</span><span class='renameHeirloomBtn' onclick='renameHeirloom(true)'>取消</span>";
+		containerElem.innerHTML = "<input maxlength='25' id='heirloomNameInput' value='" + cnItem(heirloom.name) + "'/> <span onclick='renameHeirloom()' class='renameHeirloomBtn'>保存</span><span class='renameHeirloomBtn' onclick='renameHeirloom(true)'>取消</span>";
 		titleElem.innerHTML = "";
 		return;
 	}
@@ -5360,7 +5360,7 @@ function buildModOptionDdl(type, rarity, selectedMod){
 		document.getElementById('modReplaceBtn').style.display = 'none';
 		document.getElementById('modReplaceSelect').style.display = 'none';
 		document.getElementById('modCantReplace').style.display = 'block';
-		document.getElementById('modCantReplace').innerHTML = "Can't replace mods other than 'Empty' at this tier."
+		document.getElementById('modCantReplace').innerHTML = "不能在此层替换除“空”之外的属性。"
 		return;
 	}
 	else {
@@ -5376,7 +5376,7 @@ function buildModOptionDdl(type, rarity, selectedMod){
 		var thisMod = game.heirlooms[type][item];
 		if (thisMod.steps && thisMod.steps[rarity] === -1) continue;
 		if (typeof thisMod.filter !== 'undefined' && !thisMod.filter()) continue;
-		html += '<option value="' + item + '">' + thisMod.name + '</option>';
+		html += '<option value="' + item + '">' + cnItem(thisMod.name) + '</option>';
 	}
 	document.getElementById("modReplaceSelect").innerHTML = html;
 }
