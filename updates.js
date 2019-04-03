@@ -3964,7 +3964,7 @@ function drawJob(what, where){
 		where.innerHTML += '<button class="thing noSelect pointer jobThing" onclick="tooltip(\'' + what + '\',\'jobs\',\'screenRead\')">' + what + ' Info</button><button onmouseover="tooltip(\'' + what + '\',\'jobs\',event)" onmouseout="tooltip(\'hide\')" class="thingColorCanNotAfford thing noselect pointer jobThing" id="' + what + '" onclick="buyJob(\'' + what + '\')"><span class="thingName"><span id="' + what + 'Alert" class="alert badge"></span>' + cnItem(what) + '</span>, <span class="thingOwned" id="' + what + 'Owned">0</span><span class="cantAffordSR">, 负担不起</span><span class="affordSR">, 不能购买</span></button>';
 		return;
 	}
-	where.innerHTML += '<div onmouseover="tooltip(\'' + what + '\',\'jobs\',event)" onmouseout="tooltip(\'hide\')" class="thingColorCanNotAfford thing noselect pointer jobThing" id="' + what + '" onclick="buyJob(\'' + what + '\')"><span class="thingName"><span id="' + what + 'Alert" class="alert badge"></span>' + what + '</span><br/><span class="thingOwned" id="' + what + 'Owned">0</span></div>';
+	where.innerHTML += '<div onmouseover="tooltip(\'' + what + '\',\'jobs\',event)" onmouseout="tooltip(\'hide\')" class="thingColorCanNotAfford thing noselect pointer jobThing" id="' + what + '" onclick="buyJob(\'' + what + '\')"><span class="thingName"><span id="' + what + 'Alert" class="alert badge"></span>' + cnItem(what) + '</span><br/><span class="thingOwned" id="' + what + 'Owned">0</span></div>';
 }
 
 function drawGeneticistassist(where){
