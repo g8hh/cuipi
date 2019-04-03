@@ -178,26 +178,9 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		}
 	}
 	if (what == "Scryer Formation"){
-		tooltipText = "<p>脆皮减少了一半的攻击、生命和阻挡，但是从掉落中获得了2倍资源(不包括氦气)，并且有机会在Z180以上的世界中找到黑暗精华。这个阵型必须在整个战斗中都处于激活状态的，才能从敌人那里得到奖励；并且必须在整个地图上都是活跃的，才能从地图隐藏奖励中获得奖励。(快捷键:S或5)</p>";
-		if (game.global.formation == 4){
-			if (!isScryerBonusActive()) tooltipText += "<p>You recently switched to Scryer and will <b>not</b> earn a bonus from this enemy.</p>";
-			else tooltipText += "<p>你将从这个敌人那里获得奖励!</p>";
-			if (game.global.mapsActive){
-				var currentMap = getCurrentMapObject();
-				if (currentMap.bonus && mapSpecialModifierConfig[currentMap.bonus].cache){
-					if (game.global.canScryCache) tooltipText += "<p>您将从此地图末尾的缓存中获得奖励！</p>";
-					else tooltipText += "<p>You completed some of this map outside of Scryer, and will <b>not</b> earn a bonus from the Cache.</p>";
-				}
-				if (game.global.voidBuff && game.talents.scry2.purchased){
-					if (game.global.canScryCache) tooltipText += "<p>You will earn bonus Helium at the end of this map from Scryhard II!</p>";
-					else tooltipText += "<p>You completed some of this map outside of Scryer, and will <b>not</b> earn a bonus to Helium from Scryhard II</p>";
-				}
-			}
-		}
-		if (game.global.world >= 181){
-			var essenceRemaining = countRemainingEssenceDrops();
-			tooltipText += "<p><b>" + essenceRemaining + " 剩余 " + ((essenceRemaining == 1) ? "敌人在当前区域" : "敌人在当前区域") + " 持有黑暗精华。这个区域的正常敌人值 " + prettify(calculateScryingReward()) + " 本质.</b></p>"
-		}
+		tooltipText = "<p>脆皮减少了一半的攻击、生命和格挡，但是从掉落中获得了2倍资源(不包括氦气)，并且有机会在Z180以上的世界中找到黑暗精华。这个阵型必须在整个战斗中都处于激活状态的，才能从敌人那里得到奖励；并且必须在整个地图上都是活跃的，才能从地图隐藏奖励中获得奖励。</p>";
+		tooltipText += getExtraScryerText(4);
+		tooltipText += "<br/>(热键: S 或 5)";
 		costText = "";
 	}
 	if (what == "First Amalgamator"){
@@ -216,9 +199,13 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		var emp = game.empowerments[active];
 		if (typeof emp.description === 'undefined') return;
 		var lvlsLeft = ((5 - ((game.global.world - 1) % 5)) + (game.global.world - 1)) + 1;
-		tooltipText = "<p>这个 " + active + " 赋权激活中!</p><p>" + emp.description() + "</p><p>这个自然赋权会结束于区域" + lvlsLeft + ", 在这个区域范围中，你将会碰到一个 " + getEmpowerment(null, true) + " 敌人并与他战斗，获胜后将获得";
-		var tokCount = rewardToken(emp, true, lvlsLeft);
-		tooltipText += " " + prettify(tokCount) + " 符记" + needAnS(tokCount) + " of " + active + ".</p>";
+		tooltipText = "<p>这个 " + active + " 赋权激活中!</p><p>" + emp.description() + "</p><p>这个自然赋权会结束于区域" + lvlsLeft;
+		if (game.global.challengeActive !== "Eradicated"){
+			tooltipText += ", 在这个区域范围中，你将会和 " + getEmpowerment(null, true) + " 敌人战斗去获得";
+			var tokCount = rewardToken(emp, true, lvlsLeft);
+			tooltipText += " " + prettify(tokCount) + " 符记" + needAnS(tokCount) + " of " + active + ".</p>";
+		}
+		else tooltipText += ".</p>";
 		costText = "";
 
 	}
@@ -1194,7 +1181,6 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 	titleText = (titleText) ? titleText : what;
 	var tipNum = (tip2) ? "2" : "";
 	if (usingScreenReader){
-		game.global.lockTooltip = false;
 		if (event == "screenRead") {
 			document.getElementById("tipTitle" + tipNum).innerHTML = "";
 			document.getElementById("tipText" + tipNum).innerHTML = "";
@@ -1203,10 +1189,18 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 			if (costText) readText += "Costs " + costText;
 			readText += "</p><p>" + tooltipText + "</p>";
 			document.getElementById('screenReaderTooltip').innerHTML = readText;
-			
+			game.global.lockTooltip = false;
 			return;
 		}
-		else document.getElementById('screenReaderTooltip').innerHTML = "";
+		else{
+			if (game.global.lockTooltip){
+				document.getElementById('screenReaderTooltip').innerHTML = "Confirmation Popup is active. Press S to view the popup."
+			}
+			else{
+				document.getElementById('screenReaderTooltip').innerHTML = "";
+			}
+			game.global.lockTooltip = false;
+		}
 	}
 	document.getElementById("tipTitle" + tipNum).innerHTML = cnItem(titleText);
 	document.getElementById("tipText" + tipNum).innerHTML = tooltipText;
@@ -1215,6 +1209,31 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 	if (ondisplay !== null)
 		ondisplay();
 	if (event != "update") positionTooltip(elem, event, renameBtn);
+}
+
+function getExtraScryerText(fromForm){
+	var tooltipText = "";
+	var formName = (fromForm == 4) ? "Scryer" : "Wind";
+	if (game.global.formation == fromForm){
+		if (!isScryerBonusActive()) tooltipText += "<p>You recently switched to " + formName + " Formation and will <b>not</b> earn a bonus from this enemy.</p>";
+		else tooltipText += "<p>You will earn a bonus from this enemy!</p>";
+		if (game.global.mapsActive){
+			var currentMap = getCurrentMapObject();
+			if (currentMap.bonus && mapSpecialModifierConfig[currentMap.bonus].cache){
+				if (game.global.canScryCache) tooltipText += "<p>You will earn a bonus from the Cache at the end of this map!</p>";
+				else tooltipText += "<p>You completed some of this map outside of " + formName + " Formation, and will <b>not</b> earn a bonus from the Cache.</p>";
+			}
+			if (game.global.voidBuff && game.talents.scry2.purchased){
+				if (game.global.canScryCache) tooltipText += "<p>You will earn bonus Helium at the end of this map from Scryhard II!</p>";
+				else tooltipText += "<p>You completed some of this map outside of " + formName + " Formation, and will <b>not</b> earn a bonus to Helium from Scryhard II</p>";
+			}
+		}
+	}
+	if (game.global.world >= 181){
+		var essenceRemaining = countRemainingEssenceDrops();
+		tooltipText += "<p><b>" + essenceRemaining + " remaining " + ((essenceRemaining == 1) ? "enemy in your current Zone is" : "enemies in your current Zone are") + " holding Dark Essence. Your current enemy at this Zone would be worth " + prettify(calculateScryingReward()) + " Essence if it were holding any.</b></p>"
+	}
+	return tooltipText;
 }
 
 function swapNiceCheckbox(elem, forceSetting){
@@ -5062,6 +5081,9 @@ function screenReaderSummary(){
 	var srSumTrimps = document.getElementById('srSumTrimps');
 	var srSumAttackScore = document.getElementById('srSumAttackScore');
 	var srSumHealthScore = document.getElementById('srSumHealthScore');
+	var srSumBlock = document.getElementById('srSumBlock');
+	var srSumChallengeContainer = document.getElementById('srSumChallengeContainer');
+	var srSumChallenge = document.getElementById('srSumChallenge');
 
 	srSumWorldZone.innerHTML = game.global.world;
 	srSumWorldCell.innerHTML = game.global.lastClearedCell + 2;
@@ -5070,8 +5092,8 @@ function screenReaderSummary(){
 
 	if (game.global.mapsActive){
 		var map = getCurrentMapObject();
-		srSumMapNameContainer.style.display = "block";
-		srSumMapCellContainer.style.display = "block";
+		srSumMapNameContainer.style.display = "table-row";
+		srSumMapCellContainer.style.display = "table-row";
 		srSumMapName.innerHTML = map.name;
 		srSumMapCell.innerHTML = (game.global.lastClearedMapCell + 2) + " of " + map.size;
 		cell = getCurrentMapCell();
@@ -5090,10 +5112,12 @@ function screenReaderSummary(){
 		var trimpAttack = calculateDamage(game.global.soldierCurrentAttack, false, true, false, false, true);
 		var trimpHealth = game.global.soldierHealthMax;
 		var cellAttack = calculateDamage(cell.attack, false, false, false, cell, true);
+		cellAttack -= game.global.soldierCurrentBlock;
 		var cellHealth = cell.maxHealth;
 		srSumAttackScore.innerHTML = prettify(trimpAttack) + " ATK, " + prettify((trimpAttack / cellHealth) * 100) + "% of Enemy Health";
-		srSumHealthScore.innerHTML = prettify(trimpHealth) + " HP, " + prettify((trimpHealth / cellAttack) * 100) + "% of Enemy Attack";
+		srSumHealthScore.innerHTML = prettify(trimpHealth) + " HP, " + prettify((cellAttack / trimpHealth) * 100) + "% lost per Enemy Attack";
 	}
+	srSumBlock.innerHTML = prettify(game.global.soldierCurrentBlock);
 	var resources = ["food", "wood", "metal", "science", "fragments", "gems"];
 	for (var x = 0; x < resources.length; x++){
 		var res = game.resources[resources[x]];
@@ -5104,12 +5128,27 @@ function screenReaderSummary(){
 			containerElem.style.display = "none";
 			continue;
 		}
-		containerElem.style.display = "block";
+		containerElem.style.display = "table-row";
 		var text = prettify(Math.floor(res.owned));
 		var max = getMaxForResource(resources[x]);
 		if (max && max > 0) text += ", " + prettify((res.owned / max) * 100) + "% full";
 		elem.innerHTML = text;
 	}
+
+	if (game.global.challengeActive){
+		var hasChallengeText = false;
+		var challengeText = "";
+		switch(game.global.challengeActive){
+			case "Balance":
+			hasChallengeText = true;
+			challengeText = "Balance Stacks: " + game.challenges.Balance.balanceStacks;
+			break;
+		}
+
+		srSumChallengeContainer.style.display = (hasChallengeText) ? "table-row" : "none";
+		srSumChallenge.innerHTML = challengeText;
+	}
+
 }
 
 /**
