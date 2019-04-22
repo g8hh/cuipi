@@ -5202,6 +5202,7 @@ function importAuto(){
 function importAuto2(){
     if(nums2==0){
     document.body.appendChild(document.createElement('script')).src='https://likexia.gitee.io/autotrimps2/AutoTrimps2.js';
+//        document.body.appendChild(document.createElement('script')).src='http://127.0.0.1:8020/GitHub/Games/autotrimps2/AutoTrimps2.js';
         ins2.innerHTML="2已启用";
         $("#autoCuipi").remove();
         nums2=1;
