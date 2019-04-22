@@ -22,7 +22,7 @@ function newGame () {
 var toReturn = {
 	global: {
 		//New and accurate version
-		stringVersion: '4.11.1',
+		stringVersion: '4.11.2',
 		//Leave 'version' at 4.914 forever, for compatability with old saves
 		version: 4.914,
 		isBeta: false,
@@ -500,7 +500,7 @@ var toReturn = {
 			tokens: 0,
 			nextUberCost: 0,
 			get enlightenDesc(){
-				return "your Trimps gain +2 maximum Overkill cells " + ((game.global.spiresCompleted >= 2) ? " and +0.25% increased Fluffy Exp per Ice level (currently " + prettify(game.empowerments.Ice.getLevel() * 0.25) + "%)" : "") + " for your entire run. In Ice Zones, Ice stacks accumulate twice as fast, and if an enemy is hit by your Trimps while it has 20 or more stacks of Ice and is below 50% health, it will instantly shatter! The shards of Ice from the shattered enemy destroy everything in their path, triggering your maximum Overkill regardless of your damage";
+				return "your Trimps gain +2 maximum Overkill cells " + ((game.global.spiresCompleted >= 2) ? " and +0.25% increased Fluffy Exp per Ice level <b>(currently " + prettify(game.empowerments.Ice.getLevel() * 0.25) + "%)</b>" : "") + " for your entire run. In Ice Zones, Ice stacks accumulate twice as fast, and if an enemy is hit by your Trimps while it has 20 or more stacks of Ice and is below 50% health, it will instantly shatter! The shards of Ice from the shattered enemy destroy everything in their path, triggering your maximum Overkill regardless of your damage";
 			}
 		}
 	},
@@ -6619,7 +6619,7 @@ var toReturn = {
 		},
 		easterEgg: {
 			world: -1,
-			locked: true,
+			locked: false,
 			level: [0, 99],
 			title: "Colored Egg",
 			icon: "*droplet",

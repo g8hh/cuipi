@@ -1615,6 +1615,7 @@ function displayPortalUpgrades(fromTab){
 	elem.innerHTML = "";
 	if (!fromTab) game.resources.helium.totalSpentTemp = 0;
 	for (var what in game.portal){
+		var itemName = what.replace('_', ' ');
 		if (game.portal[what].locked) continue;
 		var portUpgrade = game.portal[what];
 		if (typeof portUpgrade.level === 'undefined') continue;
@@ -1622,17 +1623,24 @@ function displayPortalUpgrades(fromTab){
 			portUpgrade.levelTemp = 0;
 			portUpgrade.heliumSpentTemp = 0;
 		}
-		var html = '<div onmouseover="tooltip(\'' + what + '\',\'portal\',event)" onmouseout="tooltip(\'hide\')" class="noselect pointer portalThing thing perkColorOff';
+		var html = "";
+		if (usingScreenReader){
+			html += '<button class="thing noSelect pointer jobThing" onclick="tooltip(\'' + what + '\',\'portal\',\'screenRead\')">' + itemName + ' Info</button>';
+		}
+		html += '<div role="button" onmouseover="tooltip(\'' + what + '\',\'portal\',event)" onmouseout="tooltip(\'hide\')" class="noselect pointer portalThing thing perkColorOff';
+		if (usingScreenReader) html += " screenReaderPerk";
 		if (game.options.menu.detailedPerks.enabled == 1) html += " detailed";
 		if (game.options.menu.smallPerks.enabled) html += (game.options.menu.smallPerks.enabled == 1) ? " smallPerk" : " tinyPerk";
 		if (portUpgrade.additive) html += " additive";
         // 能力汉化!!!这里并不能汉化 
 		html += " changingOff";
-		html += '" id="' + what + '" onclick="buyPortalUpgrade(\'' + what + '\')"><span class="thingName">' + cnItem(what.replace('_', ' ')) + '</span>';
+		html += '" id="' + what + '" onclick="buyPortalUpgrade(\'' + what + '\')"><span class="thingName">' + cnItem(what.replace('_', ' '));
+		if (usingScreenReader) html += "<span id='screenReaderPerkAfford" + what + "'></span>";
+		html += '</span>';
 
-		if (game.options.menu.detailedPerks.enabled == 1){
+		if (game.options.menu.detailedPerks.enabled == 1 || usingScreenReader){
 		html += '<br/>等级:&nbsp;<span class="thingOwned"><b><span id="' + what + 'Owned">' + ((game.options.menu.formatPerkLevels.enabled) ? prettify(portUpgrade.level) : portUpgrade.level) + '</span></b>';
-		if (!portUpgrade.max || portUpgrade.max > portUpgrade.level + portUpgrade.levelTemp) html += "<br/>价格: <span id='" + what + "Price'>" + prettify(getPortalUpgradePrice(what)) + "</span>";
+		if (!portUpgrade.max || portUpgrade.max > portUpgrade.level + portUpgrade.levelTemp) html += "<br/>Price: <span id='" + what + "Price'>" + prettify(getPortalUpgradePrice(what)) + "</span>";
 		else html += "<br/>价格: <span id='" + what + "Price'>最大</span>";
 		html += '<br/>花费: <span id="' + what + 'Spent">' + prettify(portUpgrade.heliumSpent + portUpgrade.heliumSpentTemp) + '</span>';
 		}
@@ -1652,6 +1660,12 @@ function updatePerkColor(what){
 	if (game.global.removingPerks){
 		var removableLevel = (game.global.respecActive) ? (perk.level + perk.levelTemp) : perk.levelTemp;
 		perkClass = (removableLevel > 0) ? "perkColorOn" : "perkColorOff";
+		if (usingScreenReader){
+			var affordElem = document.getElementById('screenReaderPerkAfford' + what);
+			if (affordElem){
+				affordElem.innerHTML = (removableLevel > 0) ? ", Can Buy" : ", Not Affordable";
+			}
+		}
 	}
 	else
 	{
@@ -1661,6 +1675,14 @@ function updatePerkColor(what){
 		if (perk.max && (perk.max < perk.level + perk.levelTemp + buyAmt)) perkClass = "perkColorMaxed";
 		else
 		perkClass = ((canSpend >= price)) ? "perkColorOn" : "perkColorOff";
+		if (usingScreenReader){
+			var affordElem = document.getElementById('screenReaderPerkAfford' + what);
+			
+			if (affordElem){
+				if (perkClass == "perkColorMaxed") affordElem.innerHTML = ", Max";
+				else affordElem.innerHTML = (removableLevel > 0) ? ", Can Buy" : ", Not Affordable";
+			}
+		}
 	}
 	swapClass("perkColor", perkClass, elem);
 }
@@ -3274,8 +3296,8 @@ function buyAutoJobs(allowRatios){
 		return;
 	var setting = game.global.autoJobsSetting;
 	if (!setting.enabled || !game.talents.autoJobs.purchased) return;
-	if (new Date().getTime() - lastAutoJob < 2000) return;
-	if (allowRatios) lastAutoJob = new Date().getTime();
+	if (loops - lastAutoJob < 20) return;
+	if (allowRatios) lastAutoJob = loops;
 	var trimps = game.resources.trimps;
 	var breedCount = (trimps.owned - trimps.employed > 2) ? Math.floor(trimps.owned - trimps.employed) : 0;
 	var workspaces = game.workspaces;
@@ -7760,6 +7782,8 @@ function drawGrid(maps) { //maps t or f. This function overwrites the current gr
 				cell.onclick = function () { easterEggClicked(); };
 				game.global.eggLoc = counter;
 				cell.className += " eggCell";
+				cell.setAttribute("title", "Colored Egg");
+				cell.setAttribute("role", "button");
 			}
 			counter++;
         }
@@ -13286,7 +13310,7 @@ function uncheckAutoEquip(type, btnElem){
 }
 
 function buyAutoEquip(){
-	if (new Date().getTime() - 2000 < lastPurchasedPrestige) return;
+	if (loops - 20 < lastPurchasedPrestige) return;
 	if (game.options.menu.pauseGame.enabled)
 		return;
 	var setting = game.global.autoEquipSetting;
@@ -13537,7 +13561,7 @@ function autoBuyUpgrade(item){
 		game.upgrades[item].alert = false;
 		if (countAlertsIn("upgrades") <= 0) document.getElementById("upgradesAlert").innerHTML = "";
 	}
-	if (game.upgrades[item].prestiges) lastPurchasedPrestige = new Date().getTime();
+	if (game.upgrades[item].prestiges) lastPurchasedPrestige = loops;
 	return true;
 }
 
