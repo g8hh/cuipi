@@ -22,7 +22,7 @@ function newGame () {
 var toReturn = {
 	global: {
 		//New and accurate version
-		stringVersion: '4.11.2',
+		stringVersion: '4.11.3',
 		//Leave 'version' at 4.914 forever, for compatability with old saves
 		version: 4.914,
 		isBeta: false,
@@ -222,6 +222,8 @@ var toReturn = {
 		freeTalentRespecs: 3,
 		genStateConfig: [],
 		uberNature: "",
+		//For the log notation base 
+		logNotBase: 10,
 		mapPresets: {
 			p1: {
 				loot: 0,
@@ -594,7 +596,6 @@ var toReturn = {
 			},
 			standardNotation: {
 				enabled: 1,
-				logBase: 10,
 				extraTags: "layout",
 				description: "标准格式之间进行切换 (12.7M, 540B), 工程表示法 (12.7e6, 540e9), 科学计数法 (1.27e7, 5.40e11), 字母符号 (12.7b, 540c), 和混合符号（标准高达e96，然后工程。摹拟标准前4.6）,和对数表示法（10 ^ 7.10,10 ^ 8.73）。 单击“对数表示法”时按住Ctrl可更改基数。",
 				titles: ["科学计数法", "标准格式", "工程符号", "字母符号", "混合符号", "对数符号"],
@@ -6619,7 +6620,7 @@ var toReturn = {
 		},
 		easterEgg: {
 			world: -1,
-			locked: false,
+			locked: true,
 			level: [0, 99],
 			title: "Colored Egg",
 			icon: "*droplet",

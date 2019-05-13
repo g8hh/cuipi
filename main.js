@@ -3106,7 +3106,8 @@ function buyBuilding(what, confirmed, fromAuto, forceAmt) {
 			tooltip('Confirm Purchase', null, 'update', '你将要购买 ' + purchaseAmt + ' 虫洞, <b>需要消耗氦</b>. 请确保你有能力去赚回你花费的氦气!', 'buyBuilding(\'Wormhole\', true, false, ' + purchaseAmt + ')');
 			return false;
 		}
-		((forceAmt) ? canAffordBuilding(what, true, false, false, false, purchaseAmt) : canAffordBuilding(what, true));
+		if (forceAmt) canAffordBuilding(what, true, false, false, false, purchaseAmt);
+		else canAffordBuilding(what, true);
 		game.buildings[what].purchased += purchaseAmt;
 		if (getCraftTime(game.buildings[what]) == 0) {
 			for (var x = 0; x < purchaseAmt; x++) buildBuilding(what);
@@ -3527,7 +3528,7 @@ function calculateMaxAfford(itemObj, isBuilding, isEquipment, isJob, forceMax, f
 				}
 				start = Math.ceil(start * artMult);
 			}
-			if (isBuilding && game.portal.Resourceful.level) start = Math.ceil(start * (Math.pow(1 - game.portal.Resourceful.modifier, game.portal.Resourceful.level)));
+			if (isBuilding && game.portal.Resourceful.level) start = start * (Math.pow(1 - game.portal.Resourceful.modifier, game.portal.Resourceful.level));
 			toBuy = Math.floor(log10(((resourcesAvailable / (start * Math.pow(price[1], currentOwned))) * (price[1] - 1)) + 1) / log10(price[1]));
 			//if (itemObj == game.equipment.Shield) console.log(toBuy);
 		}
@@ -3962,7 +3963,8 @@ function prestigeEquipment(what, fromLoad, noInc) {
 	if (fromLoad) return;
 	equipment.level = 0;
 	if (!noInc && !fromLoad) levelEquipment(what, 1);
-    if (document.getElementById(what + "Numeral") !== null) document.getElementById(what + "Numeral").innerHTML = romanNumeral(equipment.prestige);
+	var numeral = (usingScreenReader) ? prettify(equipment.prestige) : romanNumeral(equipment.prestige);
+    if (document.getElementById(what + "Numeral") !== null) document.getElementById(what + "Numeral").innerHTML = numeral;
 }
 
 function getNextPrestigeCost(what){
@@ -4055,6 +4057,9 @@ function incrementMapLevel(amt){
 	else elem.value = newNum;
 	updateMapCost();
 	hideAdvMaps(true);
+	if (usingScreenReader) {
+		document.getElementById('screenReaderTooltip').innerHTML = "Map level set to " + newNum;
+	}
 }
 
 function saveAdvMaps(){
@@ -4120,11 +4125,17 @@ function resetAdvMaps(fromClick) {
 	updateMapNumbers();
 }
 
-function updateMapNumbers(){
+function updateMapNumbers(readChange){
 	adjustMap('loot', getMapSliderValue('loot'));
 	adjustMap('difficulty', getMapSliderValue('difficulty'));
 	adjustMap('size', getMapSliderValue('size'));
 	updateMapCost();
+	if (usingScreenReader && readChange){
+		var text = document.getElementById(readChange + 'AdvMapsText');
+		if (text != null){
+			document.getElementById('screenReaderTooltip').innerHTML = readChange + " set to " + text.innerHTML;
+		}
+	}
 }
 
 
@@ -8048,7 +8059,7 @@ function mapsSwitch(updateOnly, fromRecycle) {
 	}
 	else if (game.global.mapsActive) {
 		//Switching to maps
-		resetEmpowerStacks();
+		if (!updateOnly) resetEmpowerStacks();
 		if (game.global.formation != 4 && game.global.formation != 5) game.global.waitToScryMaps = true;
 		if (game.global.usingShriek) {
 			disableShriek();
@@ -8066,7 +8077,7 @@ function mapsSwitch(updateOnly, fromRecycle) {
 	} 
 	else {
 		//Switching to world
-		resetEmpowerStacks();
+		if (!updateOnly) resetEmpowerStacks();
 		if (game.global.formation != 4 && game.global.formation != 5) game.global.waitToScry = true;
 		if (game.global.lastClearedCell == 98 && game.global.useShriek && !game.global.usingShriek)
 			activateShriek();
@@ -10238,7 +10249,7 @@ function displayGoldenUpgrades(redraw) {
 			color = "thingColorCanNotAfford";
 		}
 		if (usingScreenReader){
-			html += '<button id="srTooltip' + item + '" class="thing goldenUpgradeThing noSelect pointer upgradeThing" onclick="tooltip(\'' + item + '\',\'goldenUpgrades\',\'screenRead\')">Golden ' + item + ' Info</button><button onmouseover="tooltip(\'' + item + '\',\'goldenUpgrades\',event)" onmouseout="tooltip(\'hide\')" class="' + color + ' thing goldenUpgradeThing noselect pointer upgradeThing" id="' + item + '金色" onclick="buyGoldenUpgrade(\'' + item + '\')"><span class="thingName">金色 ' + cnItem(item) + ' ' + romanNumeral(game.global.goldenUpgrades + 1) + '</span>, <span class="thingOwned" id="golden' + item + 'Owned">' + upgrade.purchasedAt.length + '</span></button>';
+			html += '<button id="srTooltip' + item + '" class="thing goldenUpgradeThing noSelect pointer upgradeThing" onclick="tooltip(\'' + item + '\',\'goldenUpgrades\',\'screenRead\')">Golden ' + item + ' Info</button><button onmouseover="tooltip(\'' + item + '\',\'goldenUpgrades\',event)" onmouseout="tooltip(\'hide\')" class="' + color + ' thing goldenUpgradeThing noselect pointer upgradeThing" id="' + item + 'Golden" onclick="buyGoldenUpgrade(\'' + item + '\')"><span class="thingName">金色 ' + item + ' ' + prettify(game.global.goldenUpgrades + 1) + '</span>, <span class="thingOwned" id="golden' + item + 'Owned">' + upgrade.purchasedAt.length + '</span></button>';
 		}
 		else{
 			html += '<div onmouseover="tooltip(\'' + item + '\', \'goldenUpgrades\', event)" onmouseout="tooltip(\'hide\')" class="' + color + ' thing goldenUpgradeThing noselect pointer upgradeThing" id="' + item + 'Golden" onclick="buyGoldenUpgrade(\'' + item + '\'); tooltip(\'hide\')"><span class="thingName">金色 ' + cnItem(item) + ' ' + romanNumeral(game.global.goldenUpgrades + 1) + '</span><br/><span class="thingOwned" id="golden' + item + 'Owned">' + upgrade.purchasedAt.length + '</span></div>';
@@ -14610,6 +14621,7 @@ function zoomShortcut(e){
 function mapLevelHotkey(up){
 	if (!game.global.preMapsActive) return;
 	if (!game.options.menu.hotkeys.enabled) return;
+	if (usingScreenReader) return;
 	var worldInput = (parseInt(document.getElementById('mapLevelInput').value, 10));
 	var extraLevelsAvailable = (game.global.highestLevelCleared >= 209);
 	var extraElem = document.getElementById('advExtraLevelSelect');
