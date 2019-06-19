@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="fonts/icomoon/style.css">
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" type="text/css" href="css/style.css?18" />
+<!--
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -20,6 +21,7 @@
   ga('send', 'pageview');
 
 </script>
+-->
 </head>
 <!-- 		Trimps
 		Copyright (C) 2019 Zach Hood
@@ -40,6 +42,7 @@
 		<trimps.github.io/license.txt>). If not, see
 		<http://www.gnu.org/licenses/>. -->
 <body>
+	<script type="text/javascript" src="zh/core.js"></script>
 	<noscript>
 	<div id="checkJavascript" style="position: absolute; height: 100%; width: 100%; font-size: 2vw; padding: 10%; color: white; background-color: black; z-index: 1000000;">
 		For some reason, your browser is having trouble loading this game. This game runs on javascript, and if you have an addon such as noscript, you may need to tell it to allow scripts from http://trimps.github.io, which is where this game is hosted.<br/><br/>
@@ -998,6 +1001,15 @@
 					<td id="portalTimer" class="timerNotPaused" onclick="toggleSetting('pauseGame')" onmouseover="tooltip('Pause the game', 'customText', event, game.options.menu['pauseGame'].description)" onmouseout="tooltip('hide')">
 						<span id="portalTime">&nbsp;</span>&nbsp;&nbsp;<span style='font-size: 0.85em; line-height: 0.85em;' class='icomoon icon-pause3'></span>&nbsp;
 					</td>
+					<td class="btn btn-default" id="autoCuipi" onclick="importAuto();" title="旧自动脆皮脚本1~如果想切换/停止脚本，请点击保存游戏，然后刷新游戏~">
+							脚本1
+					</td>
+					<td class="btn btn-default" id="autoCuipi2" onclick="importAuto2();" title="新自动脆皮脚本2~如果想切换/停止脚本，请点击保存游戏，然后刷新游戏~">
+							脚本2
+					</td>
+					<td class="btn btn-default" id="autoCuipi3" onclick="importAuto3();" title="新自动脆皮脚本3~如果想切换/停止脚本，请点击保存游戏，然后刷新游戏~">
+							脚本3
+					</td>
 				</tr>
 			</table>
 			<div id="settingsHere" style="display: none">
@@ -1334,7 +1346,11 @@
 	<script type="text/javascript" src="updates.js?25"></script>
 	<script type="text/javascript" src="playerSpire.js?25"></script>
 	<script type="text/javascript" src="main.js?25"></script>
-	
+	<!--客服 开始-->
+<script src="https://likexia.gitee.io/game/js/jquery.min.js"></script>
+<link rel="stylesheet" href="https://likexia.gitee.io/game/css/kf.css" type="text/css" media="screen" charset="utf-8">
+<script src="https://likexia.gitee.io/game/js/kf.js"></script>
+<!-- 客服 结束 -->
 </body>
 
 </html>
