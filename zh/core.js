@@ -997,7 +997,7 @@ var cnRegReplace = new Map([
 	[/^requires (\d+) more research points$/, '需要$1个研究点'],
 	[/^(\d+) Royal points$/, '$1 皇家点数'],
 	[/^Cost: (\d+) RP$/, '成本：$1 皇家点数'],
-	[/^Usages: (\d+)\/$/, '用途：$1\/'],
+	[/^(\d+) Min (\d+) Secs$/, '$1 分 $2 秒'],
 	[/^workers: (\d+)\/$/, '工人：$1\/'],
 
 ]);
