@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-	<title>脆皮 4.11.3</title>
+	<title>脆皮 5.0</title>
 	<meta name="description" content="Trimps">
 	<meta name="author" content="Brownprobe">
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="fonts/icomoon/style.css">
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
-	<link rel="stylesheet" type="text/css" href="css/style.css?18" />
+	<link rel="stylesheet" type="text/css" href="css/style.css?19" />
 <!--
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -279,7 +279,7 @@
 					<span class="psText sizeSecRegular pointer noselect" id="gemsPs" style="display: none" onclick="getPsString('gems')">+0/秒</span>
 				</div>
 				<div id="helium" class="playerGather playerGatherSm" style="display: none">
-					<span class="title">氦</span>
+					<span id="heliumName" class="title">氦</span>
 					<br/>
 					<span class="ownedArea"><span id="heliumOwned">0</span></span>
 					<br/>
@@ -688,7 +688,7 @@
 										<span id="goodGuyAttack" class='attackColorNormal'></span> 攻击 <span id="critSpan"></span>
 									</div>
 									<div class="col-xs-4 noPad pointer noselect bdHover" id="blockDiv" style="visibility: hidden" onclick="getBattleStatBd('block')">
-										<span id="goodGuyBlock">0</span> 防御
+										<span id="goodGuyBlock">0</span> <span id='goodGuyBlockName'>防御</span>
 									</div>
 									<div class="col-xs-2 pointer noselect" style="padding-left: 0" id="roboTrimpBtn" onclick="magnetoShriek()">
 										<span id="chainHolder" class="shriekStateCooldown" style='visibility: hidden' onmouseover="tooltip('MagnetoShriek', null, event)" onmouseout="tooltip('hide')"><span id="roboTrimpTurnsLeft"></span> <span class="icomoon icon-chain" style="color: white"></span></span>
@@ -700,6 +700,7 @@
 											<span id="goodGuyHealth">0</span>/<span id="goodGuyHealthMax">0</span>
 										</span>
 									</div>
+									<div class="progress-bar" role="progressbar" id="energyShield">&nbsp;</div>
 								</div>
 							</div>
 							<div class="col-xs-6" id="badGuyCol" style="visibility: hidden">
@@ -860,7 +861,7 @@
 								</div>
 								<div class="col-xs-2 mapConfigContainer lowPad">
 									<div id="advPerfectLocked" style="border: 1px solid white">
-										<div class="advMapsTitle">
+										<div class="advMapsTitle" id='advPerfectLockedText'>
 											在Z110解锁
 										</div>
 										<span class="icomoon icon-lock3"></span>
@@ -875,7 +876,7 @@
 								</div>
 								<div class="col-xs-3 mapConfigContainer lowPad">
 									<div id="advExtraLevelLocked" style="border: 1px solid white">
-										<div class="advMapsTitle">
+										<div class="advMapsTitle" id='advExtraLockedText'>
 											在Z210解锁
 										</div>
 										<span class="icomoon icon-lock3"></span>
@@ -1042,6 +1043,7 @@
 	</div>
 
 	<div id="portalWrapper" style="display: none" class="portalMk0">
+		<div id='swapPortalUniverseBtn' onmouseover="tooltip('Change Universe', null, event)" onmouseout="tooltip('hide')" onclick="swapPortalUniverse()">Change Universe</div>
 		<div id='titleRow'>
 			<div id='titleCol1' class='titleCol'>
 				<div>
@@ -1122,18 +1124,18 @@
 			</div>
 			<div id="challengeCol" class="col-xs-5">
 				<div id="viewChallenge" style="display: none">
-				<div style='text-align: center'><span class="thing thingColorSquared pointer" style='width: 50%; display: inline-block;'  onmouseover="tooltip('Challenge2', null, event, true)" onmouseout="tooltip('hide')" id='challengeSquaredViewBtn'>挑战<sup>2</sup> - <span id='challengeSquaredBonusAmtView'>0</span>% 奖励</span></div>
-					<span id="viewChallengeText">您目前不具备有效的挑战。</span>
+				<div style='text-align: center'><span class="thing thingColorSquared pointer" style='width: 50%; display: inline-block;'  onmouseover="tooltip('Challenge2', null, event, true)" onmouseout="tooltip('hide')" id='challengeSquaredViewBtn'>挑战<sup><span id='challengeSquaredName'>2</span></sup> - <span id='challengeSquaredBonusAmtView'>0</span>% 奖励</span></div>
+					<span id="viewChallengeText">您目前不具备有效的挑战.</span>
 				<br/><br/>
 				<div class="btn btn-warning inPortalBtn" style="display: none" id="cancelChallengeBtn" onclick="confirmAbandonChallenge()">放弃挑战</div>
-
+				<span id="extraChallengeStuff"></span>
 				</div>
 				<div id="challenges"  style="display: none">
 					<div id='challengeTitleNoSquared'>
 						<div class="challengeTitle">挑战</div>
 					</div>
 					<div id='challengeTitleSquared' style='display: none'>
-						<div class="challengeTitle" style='display: inline-block; width: 50%; padding: 0; margin: 0;'>挑战</div><div style='display: inline-block; width: 50%; padding: 0; margin: 0;'><span class="thing thingColorSquared pointer" style='width: 75%; display: inline-block;' onclick="toggleChallengeSquared()"  onmouseover="tooltip('Challenge2', null, event)" onmouseout="tooltip('hide')">挑战<sup>2</sup> - <span id='challengeSquaredBonusAmt'>0</span>% 奖励</span></div>
+						<div class="challengeTitle" style='display: inline-block; width: 50%; padding: 0; margin: 0;'>挑战</div><div style='display: inline-block; width: 50%; padding: 0; margin: 0;'><span id='inPortalC2Button' class="thing thingColorSquared pointer" style='width: 75%; display: inline-block;' onclick="toggleChallengeSquared()"  onmouseover="tooltip('Challenge2', null, event)" onmouseout="tooltip('hide')">挑战<sup><span id='inPortalC2Name'>2</span></sup> - <span id='challengeSquaredBonusAmt'>0</span>% 奖励</span></div>
 					</div>
 					
 					<div id="challengeDescription">
@@ -1220,9 +1222,15 @@
 	<div id="heirloomWrapper" style="display: none">
 		<div id="heirloomTitleBar" class="row"><div class="col-xs-5">传家宝-未来送给过去的你的礼物</div><div class="col-xs-5" id="nullifiumContainer">你有 <span id="nullifiumCount"></span> 虚空物质<span id="heirloomSpirestoneCount"></span></div><div class="col-xs-1"><div onclick="toggleHeirloomHelp()" class="pointer noselect colorPrimary heirBtn heirInfo">帮助</div></div><div class="col-xs-1"><div class="pointer noselect colorDanger heirBtn heirInfo" onclick="toggleHeirlooms()">关闭</div></div></div>
 		<div id="heirloomHelp" style="display: none">
+<<<<<<< HEAD
 			传家宝是一种功能强大的物品，可以通过各种各样的奖励和各种各样的稀有物品掉落来获得。如果你完成了一个虚空地图，你将会获得一份传家宝，如果你在更高的区域完成了虚空地图，你就有更高的机会获得更好的稀有物品掉落。一旦你有了传家宝，你可以点击下面的图标来选择它。<br/><br/>
 			一旦你选择了一个传家宝，你可以在屏幕右边看到它的所有数据。<b>您可以单击一个属性来升级或替换它。</b> 用于升级和替换属性会消耗一些东西，例如： <b>虚空物质,</b> 它们只能通过回收传家宝来获得。 您还可以单击该菜单上的传家宝名称来重命名它。<br/><br/>
 			当你使用它的时候，你只能带一些传家宝(除了两个你已经装备的) <b>任何在“临时”部分的传家宝将在通过传送门时会被回收变为虚空物质。</b>
+=======
+			Heirlooms are powerful items that can drop with a variety of bonuses and a variety of rarities. You will earn one Heirloom every time a Void Map is completed, and you have a better chance to get higher rarities if you complete the Void Map at higher zones. Once you have an Heirloom, you can click the icon below to select it.<br/><br/>
+			Once you've selected an Heirloom, you can see all of its stats on the right side of this screen. <b style='color: red'>You can click a stat to upgrade or replace it.</b> The currency to upgrade and replace stats, <b style='color: red'>Nullifium, or Nu,</b> can only be gathered by recycling an Heirloom. You can also click on the Heirloom's name on this menu to rename it. <b style='color: red'>You can upgrade any Staff and Shield to HALF the value of your total earned Nu. Nu is not spent, but dictates how powerful your Heirlooms can be!</b><br/><br/>
+			You can only carry a few Heirlooms (other than the two you have equipped) back through the Portal with you when you use it. <b style='color: red'>Any Heirlooms in the "Temporary" section will be recycled for Nullifium on portal.</b>
+>>>>>>> master-en
 		</div>
 		<div class="row">
 			<div class="col-xs-6">
@@ -1347,10 +1355,10 @@
 	<!--document.body.appendChild(document.createElement('script')).src='https://zhaolinxu.github.io/cuipi/AutoTrimps2.js';-->
 	
 	
-	<script type="text/javascript" src="config.js?25"></script>
-	<script type="text/javascript" src="updates.js?25"></script>
-	<script type="text/javascript" src="playerSpire.js?25"></script>
-	<script type="text/javascript" src="main.js?25"></script>
+	<script type="text/javascript" src="config.js?26"></script>
+	<script type="text/javascript" src="updates.js?26"></script>
+	<script type="text/javascript" src="playerSpire.js?26"></script>
+	<script type="text/javascript" src="main.js?26"></script>
 	<!--客服 开始-->
 <script src="https://likexia.gitee.io/game/js/jquery.min.js"></script>
 <link rel="stylesheet" href="https://likexia.gitee.io/game/css/kf.css" type="text/css" media="screen" charset="utf-8">
