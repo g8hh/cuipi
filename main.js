@@ -1307,17 +1307,6 @@ function portalClicked(noUniChange) {
 	else bgColor = "green";
 	swapClass("portalMk", "portalMk" + (getSLevel(true) + 1), document.getElementById("portalWrapper"));
 	fadeIn("portalWrapper", 10);
-<<<<<<< HEAD
-	var titleText = "时间传送门";
-	if (game.global.sLevel >= 1) titleText += " Mk. " + romanNumeral(game.global.sLevel + 1);
-	var portalStory = (game.global.sLevel >= 1) ? "氦进去了，胜利就出来了" : "嗯,你做到了。你通过这个奇怪的世界跟随你的直觉,使你在Dimension of Anger,并获得这个传送门。但是为什么呢?也许通过这个门户会有答案……你的科学家告诉你，他们可以把时间过得很长，以便带回更多的记忆和物品，但他们需要氦气来冷却。";
-	document.getElementById("portalTitle").innerHTML = titleText;
-	document.getElementById("portalStory").innerHTML = portalStory;
-	document.getElementById("portalHelium").innerHTML = '<span id="portalHeliumOwned">' + prettify(game.resources.helium.owned + game.global.heliumLeftover) + '</span> 氦';
-	document.getElementById("totalHeliumEarned").innerHTML = prettify(game.global.totalHeliumEarned);
-	document.getElementById("totalHeliumSpent").innerHTML = prettify(countHeliumSpent());
-	document.getElementById("totalPortals").innerHTML = game.global.totalPortals;
-=======
 	var titleText = "Time Portal";
 	if (getSLevel(true) >= 1) titleText += " Mk. " + romanNumeral(getSLevel(true) + 1);
 	var portalStory = (getSLevel(true) >= 1) ? heliumOrRadon(false, true) + " goes in, victory comes out" : ((portalUniverse == 1) ? "Well, you did it. You followed your instincts through this strange world, made your way through the Dimension of Anger, and obtained this portal. But why? Maybe there will be answers through this portal... Your scientists tell you they can overclock it to bring more memories and items back, but they'll need helium to cool it." : "The Radon Universe is harsh. Your Portal still retains some information about the Scientist upgrades, but it'll need an upgrade of its own to be able to utilize them in this new Universe.<br/><b>Be ready to manually Gather some Food!</b>");
@@ -1329,20 +1318,14 @@ function portalClicked(noUniChange) {
 	document.getElementById("totalHeliumEarned").innerHTML = prettify(totalEarned);
 	document.getElementById("totalHeliumSpent").innerHTML = prettify(countHeliumSpent(false, true));
 	document.getElementById("totalPortals").innerHTML = getTotalPortals(true);
->>>>>>> master-en
 	document.getElementById("activatePortalBtn").style.display = "inline-block";
 	document.getElementById("activatePortalBtn").innerHTML = "激活传送门";
 	document.getElementById("challengeSquaredBonusAmt").innerHTML = prettify(game.global.totalSquaredReward);
-<<<<<<< HEAD
-	document.getElementById("challengeDescription").style.height = (game.global.sLevel >= 1) ? "19vw" : "22.5vw";
-	document.getElementById("challengeDescriptionPre").innerHTML = (game.global.sLevel >= 1) ? "别忘了带个挑战。<br/>" : '在使用传送门之前，还可以选择激活一个挑战。完成挑战会给你永久的奖励。您可以通过单击“查看能力”按钮随时放弃或查看进行的挑战。';
-=======
 	document.getElementById('inPortalC2Name').innerHTML = (game.global.highestRadonLevelCleared >= 64) ? "<span class='icomoon icon-infinity'></span>" : "2";
 	var className = (game.global.highestRadonLevelCleared >= 64) ? "thingColorInfinite" : "thingColorSquared";
 	swapClass("thingColor", className, document.getElementById('inPortalC2Button'))
 	document.getElementById("challengeDescription").style.height = (getSLevel(true) >= 1) ? "19vw" : "22.5vw";
 	document.getElementById("challengeDescriptionPre").innerHTML = (getSLevel(true) >= 1) ? "Don't forget to bring a challenge<br/>" : 'You can also choose to activate a challenge before using your portal. Completing a challenge will earn you a permanent reward. You can abandon or view an active challenge at any time by clicking the "View Perks" button.';
->>>>>>> master-en
 	if (game.global.canRespecPerks) {
 		document.getElementById("respecPortalBtn").innerHTML = "天赋";
 		document.getElementById("respecPortalBtn").style.display = "inline-block";
@@ -1482,11 +1465,6 @@ function selectChallenge(what) {
 	desc += "<b>";
 	if (challengeSquaredMode) {
 		var reward = getIndividualSquaredReward(what);
-<<<<<<< HEAD
-		desc += " 您达到了这个挑战<sup>2</sup> 的最高区域是 Z" + game.c2[what] + ", 为你增加了 " + prettify(reward) + "% 额外的攻击和生命, 还有 " + prettify(reward / 10) + "% 更多来自所有来源的氦。";
-	}
-	else if (game.portal[game.challenges[what].unlocks]) desc += (game.portal[game.challenges[what].unlocks].locked) ? " 你也会赚到一个新的额外奖励！" : " 你不会赚到一个新的额外奖励";
-=======
 		var obsidianStart = getObsidianStart();
 		var highestZone = game.c2[what];
 		var number = (portalUniverse == 1) ? "2" : "3";
@@ -1503,7 +1481,6 @@ function selectChallenge(what) {
 		if (portalUniverse == 1 && game.global.highestLevelCleared >= (getObsidianStart(true) - 2)) desc += "<br/><b style='color: blue'>Zones above Z" + getObsidianStart(true) + " are worth 5x more Challenge<sup>2</sup> bonus!</b>";
 	}
 	else if (game.portal[game.challenges[what].unlocks]) desc += (isPerkUnlocked(game.challenges[what].unlocks, true)) ? " You will not earn a new perk." : " You will also earn a new Perk!";
->>>>>>> master-en
 	else if (what == "Scientist") {
 		var sciLev = getScientistLevel();
 		if (sciLev == game.global.sLevel) desc += " 你已经完成了这个挑战!";
@@ -1552,17 +1529,10 @@ function getScientistInfo(number, reward){
 			return (reward) ? "以完整的脆皮和200%的手动效率开始" : 1500;
 		}
 		case 4: {
-<<<<<<< HEAD
-			return (reward) ? "打一次地图可以获得两个等级的锻造书, 解锁自动进阶,并且你的经纱站将被迅速建好,跳过了建造队列的过程" : 70;
-		}
-		case 5: {
-			return (reward) ? "永久增加氦获得，倍数随层数增加，增加后变为\'(1+0.005)^层数\'倍。开始时将拥有1000%的手动效率，以及谷仓、窝棚、锻造室各50个" : 1500;
-=======
 			return (reward) ? "earn two levels of each prestige upgrade per map" + ((game.global.universe == 1) ? ", unlock AutoPrestiges, and your Warpstations will build instantly, skipping the queue" : "") + ". This bonus will apply" : 70;
 		}
 		case 5: {
 			return (reward) ? "permanently increase all " + heliumOrRadon() + " found by 0.5% to the power of your current Zone number. You'll also start with 1000% player efficiency and 50 Barns, Sheds, and Forges" : 1500;
->>>>>>> master-en
 		}
 	}
 }
@@ -1655,19 +1625,6 @@ function getSquaredDescriptionInRun(hideDesc){
 	var number = (portalUniverse == 1) ? "2" : "3";
 	if (highest > 0){
 		if (dif >= 1){
-<<<<<<< HEAD
-			description += ", <span class='greenText'>你在这个挑战中，先前的最高区域为" + highest + "。如果你现在" + portalText + "，你将会增加" + prettify(dif) + "% 伤害和生命到你的总挑战<sup>2</sup> 加成中，你的总伤害和生命加成增长到" + prettify(dif + game.global.totalSquaredReward) + "%。</span>";
-		}
-		else {
-			description += ", <span class='redText'>你在本挑战的最高区域为" + highest + "。如果你现在" + portalText + "，你的总挑战<sup>2</sup>攻击与生命加成仍然保持在" + prettify(game.global.totalSquaredReward) + "%。</span>";
-		}
-	}
-	else{
-		if (dif <= 0)
-			description += ". <span class='redText'>你至少要到达区域" + ((challenge.replaceSquareFreq) ? challenge.replaceSquareFreq : squaredConfig.rewardFreq) + "才能获取任何挑战<sup>2</sup>加成。现在攻击与生命加成为" + prettify(game.global.totalSquaredReward) + "%。</span>";
-		else
-			description += ". <span class='greenText'>如果你现在" + portalText + "，你将会增加" + prettify(dif) + "%伤害和生命到你的总挑战<sup>2</sup>的加成中，你的总伤害和生命加成增长到" + prettify(dif + game.global.totalSquaredReward) + "%。</span>";
-=======
 			description += ", <span class='greenText'>your previous highest for this challenge was Zone " + highest + ". If you " + portalText + "now, you'll add " + prettify(dif) + "% to your total Challenge<sup>" + number + "</sup> bonus, bringing it to " + prettify(dif + reward) + "%.";
 			if (game.global.highestRadonLevelCleared >= 64){
 				var c2 = (portalUniverse == 1) ? (rewards[0] + dif) : rewards[0];
@@ -1682,7 +1639,6 @@ function getSquaredDescriptionInRun(hideDesc){
 	else{
 		if (dif <= 0){
 			description += ". <span class='redText'>You'll need to reach at least Zone " + ((challenge.replaceSquareFreq) ? challenge.replaceSquareFreq : squaredConfig.rewardFreq) + " before you'll add anything to your current Challenge<sup>" + number + "</sup> bonus of " + prettify(reward) + "%.";
->>>>>>> master-en
 		}
 		else{
 			description += ". <span class='greenText'>If you " + portalText + "now, you'll add " + prettify(dif) + "% to your Challenge<sup>" + number + "</sup> bonus, bringing the total to " + prettify(dif + reward) + "%.";
@@ -1725,38 +1681,24 @@ function viewPortalUpgrades() {
 		challengeText = getCurrentChallengePane();
 	}
 	else
-<<<<<<< HEAD
-		challengeText = "你没有进行中的挑战。";
-=======
-		challengeText = "You don't have an active challenge.";
+		challengeText = "你没有进行中的挑战.";
 	if (game.global.universe == 2 && !game.global.portalActive){
 		document.getElementById('extraChallengeStuff').innerHTML = "<br/>If you can't handle this Universe, you can always return to Universe 1. However, returning before finding the Portal Device will invalidate all Scruffy Exp and Radon earned.<br/><span onclick='screwThisUniverse()' class='inPortalBtn btn btn-danger'>Return to Universe 1</span>"
 	}
->>>>>>> master-en
 	document.getElementById("viewChallengeText").innerHTML = challengeText;
 	document.getElementById("wrapper").style.display = "none";
 	swapClass("portalMk", "portalMkPreview", document.getElementById("portalWrapper"));
 	fadeIn("portalWrapper", 10);
-<<<<<<< HEAD
-	document.getElementById("portalTitle").innerHTML = "查看能力";
-	document.getElementById("portalHelium").innerHTML = '<span id="portalHeliumOwned">' + prettify(parseInt(game.global.heliumLeftover, 10)) + '</span> 氦剩余';
-	document.getElementById("portalStory").innerHTML = "这些都是你的福利！你每运行一次可以重置他们。";
-	document.getElementById("totalHeliumSpent").innerHTML = prettify(countHeliumSpent());
-	document.getElementById("totalHeliumEarned").innerHTML = prettify(game.global.totalHeliumEarned);
-	document.getElementById("totalPortals").innerHTML = game.global.totalPortals;
-	document.getElementById("cancelPortalBtn").innerHTML = "取消";
-=======
-	document.getElementById("portalTitle").innerHTML = "View Perks";
+	document.getElementById("portalTitle").innerHTML = "查看福利";
 	var totalAvailable = (portalUniverse == 1) ? game.global.heliumLeftover : game.global.radonLeftover;
 	var resName = (portalUniverse == 1) ? "Helium" : "Radon";
-	document.getElementById("portalHelium").innerHTML = '<span id="portalHeliumOwned">' + prettify(parseInt(totalAvailable, 10)) + '</span> ' + resName + ' Left Over';
-	document.getElementById("portalStory").innerHTML = "These are all of your perks! You can reset them once per run.";
+	document.getElementById("portalHelium").innerHTML = '<span id="portalHeliumOwned">' + prettify(parseInt(totalAvailable, 10)) + '</span> ' + resName + ' 剩余';
+	document.getElementById("portalStory").innerHTML = "这些都是你的福利！你每运行一次可以重置他们。";
 	document.getElementById("totalHeliumSpent").innerHTML = prettify(countHeliumSpent(false, true));
 	var totalEarned = (portalUniverse == 1) ? game.global.totalHeliumEarned : game.global.totalRadonEarned;
 	document.getElementById("totalHeliumEarned").innerHTML = prettify(totalEarned);
 	document.getElementById("totalPortals").innerHTML = getTotalPortals(true);
-	document.getElementById("cancelPortalBtn").innerHTML = "Cancel";
->>>>>>> master-en
+	document.getElementById("cancelPortalBtn").innerHTML = "取消";
 	document.getElementById("activatePortalBtn").style.display = "none";
 	if (game.global.canRespecPerks) {
 		document.getElementById("respecPortalBtn").innerHTML = "修改";
@@ -1949,16 +1891,6 @@ function displayPortalUpgrades(fromTab){
 		if (usingScreenReader){
 			html += '<button class="thing noSelect pointer jobThing" onclick="tooltip(\'' + what + '\',\'portal\',\'screenRead\')">' + itemName + ' Info</button>';
 		}
-<<<<<<< HEAD
-		html += '<div role="button" onmouseover="tooltip(\'' + what + '\',\'portal\',event)" onmouseout="tooltip(\'hide\')" class="noselect pointer portalThing thing perkColorOff';
-		if (usingScreenReader) html += " screenReaderPerk";
-		if (game.options.menu.detailedPerks.enabled == 1) html += " detailed";
-		if (game.options.menu.smallPerks.enabled) html += (game.options.menu.smallPerks.enabled == 1) ? " smallPerk" : " tinyPerk";
-		if (portUpgrade.additive) html += " additive";
-        // 能力汉化!!!这里并不能汉化 
-		html += " changingOff";
-		html += '" id="' + what + '" onclick="buyPortalUpgrade(\'' + what + '\')"><span class="thingName">' + cnItem(what.replace('_', ' '));
-=======
 		html += '<div role="button" onmouseover="tooltip(\'' + what + '\',\'portal\',event)" onmouseout="tooltip(\'hide\')" class="';
 		var htmlClass = "noselect pointer portalThing thing perkColorOff";
 		if (usingScreenReader) htmlClass += " screenReaderPerk";
@@ -1967,26 +1899,16 @@ function displayPortalUpgrades(fromTab){
 		if (portUpgrade.additive) htmlClass += " additive";
 		htmlClass += " changingOff";
 		html += htmlClass + '" id="' + what + '" onclick="buyPortalUpgrade(\'' + what + '\')"><span class="thingName">' + what.replace('_', ' ');
->>>>>>> master-en
 		if (usingScreenReader) html += "<span id='screenReaderPerkAfford" + what + "'></span>";
 		html += '</span>';
 
 		if (game.options.menu.detailedPerks.enabled == 1 || usingScreenReader){
-<<<<<<< HEAD
-		html += '<br/>等级:&nbsp;<span class="thingOwned"><b><span id="' + what + 'Owned">' + ((game.options.menu.formatPerkLevels.enabled) ? prettify(portUpgrade.level) : portUpgrade.level) + '</span></b>';
-		if (!portUpgrade.max || portUpgrade.max > portUpgrade.level + portUpgrade.levelTemp) html += "<br/>Price: <span id='" + what + "Price'>" + prettify(getPortalUpgradePrice(what)) + "</span>";
-		else html += "<br/>价格: <span id='" + what + "Price'>最大</span>";
-		html += '<br/>花费: <span id="' + what + 'Spent">' + prettify(portUpgrade.heliumSpent + portUpgrade.heliumSpentTemp) + '</span>';
-		}
-		else html += '<br/><span class="thingOwned">等级:&nbsp;<span id="' + what + 'Owned">' + ((game.options.menu.formatPerkLevels.enabled) ? prettify(portUpgrade.level) : portUpgrade.level) + '</span>';
-=======
 		html += '<br/>Level:&nbsp;<span class="thingOwned"><b><span id="' + what + 'Owned">' + ((game.options.menu.formatPerkLevels.enabled) ? prettify(level) : level) + '</span></b>';
 		if (!portUpgrade.max || portUpgrade.max > combinedLevel) html += "<br/>Price: <span id='" + what + "Price'>" + prettify(getPortalUpgradePrice(what)) + "</span>";
 		else html += "<br/>Price: <span id='" + what + "Price'>Max</span>";
 		html += '<br/>Spent: <span id="' + what + 'Spent">' + prettify(spentRes) + '</span>';
 		}
 		else html += '<br/><span class="thingOwned">Lv:&nbsp;<span id="' + what + 'Owned">' + ((game.options.menu.formatPerkLevels.enabled) ? prettify(level) : level) + '</span>';
->>>>>>> master-en
 		html += '</span></div>';
 		if (what == "Equality"){
 			var state = game.portal.Equality.scalingActive ? "On" : "Off";
@@ -2365,11 +2287,7 @@ function activateClicked(){
 	var newText = "";
 	if (game.global.selectedChallenge){
 		if (challengeSquaredMode)
-<<<<<<< HEAD
-			newText += " <span id='addChallenge' class='colorSquared'>你即将进行 <b style='font-size: 1.1em'>" + cnItem(game.global.selectedChallenge) + " 挑战<sup>2</sup></b></span><br/>";
-=======
-			newText += " <span id='addChallenge' class='colorSquared'>You are about to run the <b style='font-size: 1.1em'>" + game.global.selectedChallenge + " Challenge<sup>" + ((portalUniverse == 1) ? "2" : "3") + "</sup></b></span><br/>";
->>>>>>> master-en
+			newText += " <span id='addChallenge' class='colorSquared'>你即将进行 <b style='font-size: 1.1em'>" + game.global.selectedChallenge + " 挑战<sup>" + ((portalUniverse == 1) ? "2" : "3") + "</sup></b></span><br/>";
 		else
 			newText += " <span id='addChallenge'>你即将进行<b style='font-size: 1.1em'>" + cnItem(game.global.selectedChallenge) + "挑战</b></span><br/>";
 	}
@@ -2515,15 +2433,9 @@ function savePerkPreset(){
 		if ((game.global.universe == 1 && game.portal[item].locked !== false) || (game.global.universe == 2 && game.portal[item].radLocked !== false) || game.portal[item][levelName] + temp == 0) continue;
 		saved[item] = game.portal[item][levelName] + temp;
 	}
-<<<<<<< HEAD
-	if (game.global["perkPreset" + to].Name) saved.Name = game.global["perkPreset" + to].Name;
-	game.global["perkPreset" + to] = saved;
-	document.getElementById('presetTab' + to + 'Text').innerHTML = ((saved.Name) ? saved.Name : "预设 " + to);
-=======
 	if (presetGroup["perkPreset" + to].Name) saved.Name = presetGroup["perkPreset" + to].Name;
 	presetGroup["perkPreset" + to] = saved;
-	document.getElementById('presetTab' + to + 'Text').innerHTML = ((saved.Name) ? saved.Name : "Preset " + to);
->>>>>>> master-en
+	document.getElementById('presetTab' + to + 'Text').innerHTML = ((saved.Name) ? saved.Name : "预设 " + to);
 }
 
 function renamePerkPreset(needTooltip, name){
@@ -2539,13 +2451,8 @@ function renamePerkPreset(needTooltip, name){
 	presetGroup["perkPreset" + selectedPreset].Name = htmlEncode(elem.value.substring(0, 25));
 	cancelTooltip();
 	for (var x = 1; x <= 3; x++){
-<<<<<<< HEAD
-		var preset = game.global["perkPreset" + x];
-		document.getElementById('presetTab' + x + 'Text').innerHTML = (preset.Name) ? preset.Name : "预设 " + x;
-=======
 		var preset = presetGroup["perkPreset" + x];
-		document.getElementById('presetTab' + x + 'Text').innerHTML = (preset.Name) ? preset.Name : "Preset " + x;
->>>>>>> master-en
+		document.getElementById('presetTab' + x + 'Text').innerHTML = (preset.Name) ? preset.Name : "预设 " + x;
 	}
 }
 
@@ -2926,16 +2833,12 @@ function activatePortal(){
 	displayPerksBtn();
 	handleFinishDailyBtn();
 	document.getElementById("portalUpgradesHere").innerHTML = "";
-<<<<<<< HEAD
-	message("绿色微光一闪而过，你摔在了地上。看起来你很饿...", "Story");
-=======
 	if (game.global.universe == 2) {
 		message("A blue shimmer erupts then disappears as you gracefully take its place. You look like you don't belong here... Well, better start gathering some food.", "Story")
 	}
 	else{
-		message("A green shimmer erupts then disappears, and you hit the ground. You look pretty hungry...", "Story");
+		message("绿色微光一闪而过，你摔在了地上。看起来你很饿...", "Story");
 	}
->>>>>>> master-en
 }
 
 function cancelPortal(keep){
@@ -4879,12 +4782,8 @@ var mapSpecialModifierConfig = {
 	lc: {
 		name: "Large Cache",
 		unlocksAt: 60,
-<<<<<<< HEAD
-		description: "在每次完成此地图时，随机获得食物、木头或金属的20秒产量。",
-=======
 		unlocksAt2: 15,
 		description: "Earn 20 seconds of production for either food, wood, or metal at random each time you complete this map.",
->>>>>>> master-en
 		costIncrease: 7,
 		cache: true,
 		onCompletion: function (){
@@ -4895,12 +4794,8 @@ var mapSpecialModifierConfig = {
 	ssc: {
 		name: "Small Savory Cache",
 		unlocksAt: 85,
-<<<<<<< HEAD
-		description: "每次完成这张地图，你就能获得10秒的食物产量。",
-=======
 		unlocksAt2: 25,
 		description: "Earn 10 seconds of food production each time you complete this map.",
->>>>>>> master-en
 		costIncrease: 10,
 		cache: true,
 		onCompletion: function () {
@@ -4911,12 +4806,8 @@ var mapSpecialModifierConfig = {
 	swc: {
 		name: "Small Wooden Cache",
 		unlocksAt: 85,
-<<<<<<< HEAD
-		description: "每次完成这张地图，你都可以获得10秒的木材产量。",
-=======
 		unlocksAt2: 25,
 		description: "Earn 10 seconds of wood production each time you complete this map.",
->>>>>>> master-en
 		costIncrease: 10,
 		cache: true,
 		onCompletion: function () {
@@ -4927,12 +4818,8 @@ var mapSpecialModifierConfig = {
 	smc: {
 		name: "Small Metal Cache",
 		unlocksAt: 85,
-<<<<<<< HEAD
-		description: "每次完成这张地图，你都可以获得10秒钟的金属产量。",
-=======
 		unlocksAt2: 25,
-		description: "Earn 10 seconds of metal production each time you complete this map.",
->>>>>>> master-en
+		description: "每次完成这张地图，你都可以获得10秒钟的金属产量。",
 		costIncrease: 10,
 		cache: true,
 		onCompletion: function () {
@@ -4943,12 +4830,8 @@ var mapSpecialModifierConfig = {
 	p: {
 		name: "Prestigious",
 		unlocksAt: 135,
-<<<<<<< HEAD
-		description: "这张地图可以有两种不同的装备声望升级，如果有两种的话。",
-=======
 		unlocksAt2: 55,
 		description: "This map can hold two different equipment prestige upgrades, if two are available.",
->>>>>>> master-en
 		costIncrease: 10,
 		abv: "P"
 	},
@@ -5470,11 +5353,7 @@ function selectHeirloom(number, location, noScreenUpdate){
 			document.getElementById("extraHeirloomsBtnGroup").style.visibility = "visible";
 			document.getElementById("equipHeirloomBtn2").innerHTML = (typeof game.global[heirloom.type + "Equipped"].name === 'undefined') ? "装备" : "交换";
 			if (game.global.heirloomsCarried.length < getMaxCarriedHeirlooms()) swapClass("heirloomBtn", "heirloomBtnActive", document.getElementById("carryHeirloomBtn"));
-<<<<<<< HEAD
-			document.getElementById("recycleHeirloomBtn").innerHTML = "回收 (+" + prettify(getTotalHeirloomRefundValue(heirloom)) + ((heirloom.type == "Core") ? " 尖塔石)" : " 虚空物质)");
-=======
 			document.getElementById("recycleHeirloomBtn").innerHTML = "Recycle (+" + prettify(getHeirloomRecycleValue(heirloom)) + ((heirloom.type == "Core") ? " Spirestones)" : " Nullifium)");
->>>>>>> master-en
 			break;
 	}
 	displaySelectedHeirloom();
@@ -5483,10 +5362,6 @@ function selectHeirloom(number, location, noScreenUpdate){
 function recycleHeirloom(confirmed){
 	var heirloom = getSelectedHeirloom();
 	if (game.global.selectedHeirloom[0] == -1 || game.global.selectedHeirloom[1] == "heirloomsCarried") return;
-<<<<<<< HEAD
-	var value = Math.floor(getTotalHeirloomRefundValue(heirloom));
-	var resource = (heirloom.type == "Core") ? "尖塔石头" : "虚空物质";
-=======
 	var value;
 	var resource;
 	if (heirloom.type == "Core"){
@@ -5497,7 +5372,6 @@ function recycleHeirloom(confirmed){
 		value = getHeirloomRecycleValue(heirloom);
 		resource = "Nullifium";
 	}
->>>>>>> master-en
 	if (!confirmed) {
 		tooltip('confirm', null, 'update', '你正在回收 ' + heirloom.name + ' 以得到 ' + prettify(value) + ' ' + resource + '.你确定吗?' , 'recycleHeirloom(true)', 'Recycle Heirloom');
 		return;
@@ -5692,12 +5566,9 @@ function displaySelectedHeirloom(modSelected, selectedIndex, fromTooltip, locati
 	if (!fromTooltip) html += '<span id="renameContainer"></span>';
 	html+= '</div></div>';
 	var isEquipped = (game.global.selectedHeirloom[1] == "StaffEquipped" || game.global.selectedHeirloom[1] == "ShieldEquipped" || game.global.selectedHeirloom[1] == "CoreEquipped");
-<<<<<<< HEAD
-	if (!fromPopup && !fromTooltip && isEquipped) html += '<span class="heirloomEquipped">已装备</span><br/>';
-=======
 	var addBr = false;
 	if (!fromPopup && !fromTooltip && isEquipped){
-		html += '<span class="heirloomEquipped">Equipped</span>&nbsp;';
+		html += '<span class="heirloomEquipped">已装备</span>&nbsp;';
 		addBr = true;
 	}
 	var spent = getTotalHeirloomRefundValue(heirloom, true);
@@ -5709,7 +5580,6 @@ function displaySelectedHeirloom(modSelected, selectedIndex, fromTooltip, locati
 		addBr = true;
 	}
 	if (addBr) html += "<br/>";
->>>>>>> master-en
 	var srText = "Selected " + heirloom.name + ", " + ((isEquipped) ? "your equipped " + heirloom.type : "unequipped " + heirloom.type) + ". Has the following mods: ";
 	var noneEmpty = true;
 	var opacity = (modSelected) ? 'style="opacity: 0.5" ' : '';
@@ -5727,11 +5597,7 @@ function displaySelectedHeirloom(modSelected, selectedIndex, fromTooltip, locati
 			if (modSelected && selectedIndex != x) html += opacity;
 			html += 'onclick="selectMod(' + x;
 			if (fromPopup) html += ', true';
-<<<<<<< HEAD
-			html += ')">' + heirloom.mods[x][1] + '% ' + cnItem(game.heirlooms[heirloom.type][heirloom.mods[x][0]].name) + '</span><br/>';
-=======
 			html += ')">' + prettify(scaleHeirloomModUniverse(heirloom.type, heirloom.mods[x][0], heirloom.mods[x][1])) + '% ' + game.heirlooms[heirloom.type][heirloom.mods[x][0]].name + '</span><br/>';
->>>>>>> master-en
 		}
 	}
 	if (fromTooltip) return html;
@@ -5820,19 +5686,11 @@ function selectMod(which, fromPopup){
 	replaceBtn.innerHTML = (mod[0] == "empty") ? "增加 (" + prettify(replaceCost) + " " + cnItem(resourceShort) + ")" : "替换 (" + prettify(replaceCost) + " " + cnItem(resourceShort) + ")";
 	var step = (typeof modConfig.steps !== 'undefined') ? modConfig.steps : game.heirlooms.defaultSteps;
 	step = step[heirloom.rarity];
-<<<<<<< HEAD
-	var upgradeCostText = "每项升级增加 " + step[2] + "%";
-	if (modConfig.max){
-		if (mod[1] < modConfig.max[heirloom.rarity])
-			upgradeCostText = "<span class='upgradeCostTextMax'><span>" + upgradeCostText + "</span><span>最大 " + modConfig.max[heirloom.rarity] + "%</span></span>"
-		else upgradeCostText = "达到最大!";
-=======
-	var upgradeCostText = "Each upgrade adds " + prettify(scaleHeirloomModUniverse(heirloom.type, mod[0], step[2])) + "%";
+	var upgradeCostText = "每项升级增加 " + prettify(scaleHeirloomModUniverse(heirloom.type, mod[0], step[2])) + "%";
 	if (modConfig.max){
 		if (mod[1] < modConfig.max[heirloom.rarity])
 			upgradeCostText = "<span class='upgradeCostTextMax'><span>" + upgradeCostText + "</span><span>Max of " + scaleHeirloomModUniverse(heirloom.type, mod[0], modConfig.max[heirloom.rarity]) + "%</span></span>"
 		else upgradeCostText = "At Max!";
->>>>>>> master-en
 	}
 	document.getElementById("modUpgradeCost").innerHTML = upgradeCostText;
 	upgradeBtn.innerHTML = "升级 x1<br/>(" + prettify(upgradeCost) + " " + cnItem(resourceShort) + ")";
@@ -6011,21 +5869,9 @@ function replaceMod(confirmed){
 	if (resourceCount < cost) return;
 	if (!confirmed && game.options.menu.boneAlerts.enabled == 1) {
 		var oldName = game.heirlooms[heirloom.type][heirloom.mods[selectedMod][0]].name;
-<<<<<<< HEAD
 		var text = (oldName == "Empty") ? "你准备要增加 " : "你准备要替换 " + oldName + " 用 ";
-		text += newMod.name + ' 花费 ' + prettify(cost) + ' ' + cnItem(resourceLong) + '。 ';
-		if (oldName != "Empty"){
-			if (mod[3] > 0){
-				var cost = countPriceOfUpgrades(setupDummyHeirloom(heirloom, mod), mod[3]);
-				text += "<br/><br/><b>你已经购买了 " + mod[3] + " 升级 " + oldName + " 累计消耗了 " + prettify(cost) + " " + cnItem(resourceLong) + ". <span style='color:red'>更换此mod不会退还您的 " + resourceShort + ", 它会永久丢失</span></b>.";
-			}
-		}
-		text += " 你确定吗?";
-=======
-		var text = (oldName == "Empty") ? "You are about to add " : "You are about to replace " + oldName + " with ";
 		text += newMod.name + ' for ' + prettify(cost) + ' ' + resourceLong + '. ';
 		text += " Are you sure?";
->>>>>>> master-en
 		var tipName = (oldName == "Empty") ? "Add Mod" : "Replace Mod";
 		tooltip('confirm', null, 'update', text, 'replaceMod(true)', tipName);
 		return;
@@ -6104,16 +5950,11 @@ function setHeirRareText(forBones){
 	if (!forBones){
 		var breakpoint = getHeirloomZoneBreakpoint();
 		if (breakpoint == game.heirlooms.rarityBreakpoints.length) nextAt = "Max Rarity";
-<<<<<<< HEAD
-		else nextAt = "接下来稀有度增加在区域 " + game.heirlooms.rarityBreakpoints[breakpoint];
-		html = "<b>当前传家宝掉落几率</b> - " + nextAt + "<br/>";
-=======
 		else{
-			nextAt = "Next Rarity Increase at Z" + game.heirlooms.rarityBreakpoints[breakpoint];
+			nextAt = "接下来稀有度增加在区域" + game.heirlooms.rarityBreakpoints[breakpoint];
 			if (game.heirlooms.universeBreakpoints[breakpoint] > game.global.universe) nextAt += " in Universe " + game.heirlooms.universeBreakpoints[breakpoint];
 		}
-		html = "<b>Current Heirloom Drop Rates</b> - " + nextAt + "<br/>";
->>>>>>> master-en
+		html = "<b>当前传家宝掉落几率</b> - " + nextAt + "<br/>";
 	}
 	var rarities = getHeirloomRarityRanges(game.global.world, forBones);
 	var canLower = (Fluffy.isRewardActive("stickler")) ? 500 : 0;
@@ -6532,15 +6373,9 @@ function natureTooltip(event, doing, spending, convertTo){
 	else if (doing == 'convert'){
 		tipTitle = "转换 " + cnItem(spending) + " 为 " + cnItem(convertTo);
 		tipCost = ctrlPressed ? Math.floor(game.empowerments[spending].tokens / 10) * 10 : 10;
-<<<<<<< HEAD
-		var convertRate = (game.talents.nature.purchased) ? ((game.talents.nature2.purchased) ? 8 : 6) : 5;
-		tipText = "<p>花费" + tipCost+spending + "符记交易得到 " + (tipCost / 10 * convertRate) + convertTo + "符记。</p>";
-		if (!ctrlPressed) tipText += "<p><b>按住Ctrl键可以一次转换所有符记。</b></p>";
-=======
 		var convertRate = (game.talents.nature.purchased) ? 8 : 5;
-		tipText = "<p>Trade " + tipCost + " Tokens of " + spending + " and get back " + (tipCost / 10 * convertRate) + " Tokens of " + convertTo + ".</p>";
-		if (!ctrlPressed) tipText += "<p><b>Hold Ctrl to convert as many tokens as you can afford!</b></p>";
->>>>>>> master-en
+		tipText = "<p>花费 " + tipCost + " 符记交易 " + spending + " 得到 " + (tipCost / 10 * convertRate) + " 符记 " + convertTo + ".</p>";
+		if (!ctrlPressed) tipText += "<p><b>按住Ctrl键可以一次转换所有符记。</b></p>";
 	}
 	else if (doing == 'stackTransfer'){
 		tipTitle = "升级 " + cnItem(spending) + " 效果的传递比例";
@@ -6893,13 +6728,8 @@ var mutations = {
 			var baseValue = (game.global.world >= this.start(true)) ? 10 : 5;
 			if (mutations.Magma.active()) baseValue *= 3;
 			var amt = rewardResource("helium", baseValue, 99, false, percentage);
-<<<<<<< HEAD
-			var text = "腐败迅速蔓延到空中并消散。 <span class='helium'>你看到 " + prettify(amt) + " 氦气罐留在地上并捡起来。 有用！</span>";
-			message(text, "Loot", "oil", "voidMessage", "helium");
-=======
-			var text = "The corruption quickly swirls into the air and dissipates. <span class='helium'>You see " + prettify(amt) + " canisters of Helium left on the ground and pick them up. Useful!</span>";
+			var text = "腐败迅速蔓延到空中并消散. <span class='helium'>你看到 " + prettify(amt) + " 氦气罐留在地上并捡起来。 有用！</span>";
 			message(text, "Loot", heliumIcon(true), "voidMessage", "helium");
->>>>>>> master-en
 		},
 		tooltip: function (effectName) {
 			var mutText = mutationEffects[effectName].text;
@@ -10951,13 +10781,8 @@ function giveSpireReward(level){
 			break;
 		case(50):
 			if (spireWorld == 2){
-<<<<<<< HEAD
-				if (game.portal.Capable.level > 0){
-					message("在你视野的角落，你发现了一个生物，似乎不属于德鲁普提。你走近一看，发现它是蓬松！你转过身，想看到你的另一只蓬松，但是这里只有这一只。你回过头，它正在挥手致意，你感觉有点头晕，但是你在这个星球上已经见到了更奇怪的事情。你决定和这个新的老朋友继续向尖塔高处前进。", "Story");					
-=======
 				if (Fluffy.getCapableLevel() > 0){
 					message("Out of the corner of your eye, you notice a creature who doesn't seem like he belongs. You walk up closer and notice that it's Fluffy! You turn around expecting to see your other Fluffy, but there is only one. You turn back as he waves at you in recognition, you feel a bit lightheaded, but you've had weirder things happen on this planet. You decide to keep moving up the Spire with your new old friend.", "Story");					
->>>>>>> master-en
 				}
 				else {
 					message("在你视野的角落，你发现了一个生物，似乎不属于德鲁普提。你走近一看，发现它是一只脆皮！只有这一只脆皮是紫色的，而不是蓝色的，显然这是德鲁普提实验的产物，你让它明白已经没有什么好害怕的了，你会保证它的安全。你将它命名为蓬松，并且发誓不会让它受到任何伤害。 <b>获得 1 脆皮!</b>", "Story");
@@ -11008,10 +10833,7 @@ function giveSpireReward(level){
 				var amt = giveHeliumReward(100);
 				text += " 你找到了大量库存的 <b>" + prettify(amt) + " 氦</b> 和 <b>全新的尖塔核心</b>!";
 			}
-<<<<<<< HEAD
 			else text += " 你找到了一个 <b>全新的尖塔核心</b>!";
-=======
-			else text += " You find a <b>brand new Spire Core</b>!";
 			if (spireWorld == 6){
 				var talentCount = countPurchasedTalents();
 				var maxTalents = Object.keys(game.talents).length;
@@ -11026,7 +10848,6 @@ function giveSpireReward(level){
 					}
 				}
 			}
->>>>>>> master-en
 			createHeirloom(game.global.world, false, true);
 			if (game.global.spiresCompleted < spireWorld){
 				game.global.spiresCompleted = spireWorld;
@@ -11067,11 +10888,7 @@ function giveSpireReward(level){
 			amt = 0.5;
 			amt *= Math.pow(1.01, level);
 			amt = giveHeliumReward(amt);
-<<<<<<< HEAD
-			message("在你离开时，你找到了 " + prettify(amt) + " 氦!", "Loot", "oil", "helium", "helium");
-=======
-			message("As you're leaving, you find " + prettify(amt) + " helium!", "Loot", heliumIcon(true), "helium", "helium");
->>>>>>> master-en
+			message("在你离开时，你找到了 " + prettify(amt) + " 氦!", "Loot", heliumIcon(true), "helium", "helium");
 			return;				
 	}
 }
@@ -11171,11 +10988,7 @@ function rewardSpire1(level){
 			amt = 0.5;
 			amt *= Math.pow(1.01, level);
 			amt = giveHeliumReward(amt);
-<<<<<<< HEAD
-			message("你找到了 " + prettify(amt) + " helium!", "Loot", "oil", "helium", "helium");
-=======
-			message("You found " + prettify(amt) + " helium!", "Loot", heliumIcon(true), "helium", "helium");
->>>>>>> master-en
+			message("你找到了 " + prettify(amt) + " helium!", "Loot", heliumIcon(true), "helium", "helium");
 	}
 }
 
@@ -11198,17 +11011,10 @@ function displayGoldenUpgrades(redraw) {
 		var displayName = item;
 		if (displayName == "Helium" && game.global.universe == 2) displayName = "Radon";
 		if (usingScreenReader){
-<<<<<<< HEAD
-			html += '<button id="srTooltip' + item + '" class="thing goldenUpgradeThing noSelect pointer upgradeThing" onclick="tooltip(\'' + item + '\',\'goldenUpgrades\',\'screenRead\')">Golden ' + item + ' Info</button><button onmouseover="tooltip(\'' + item + '\',\'goldenUpgrades\',event)" onmouseout="tooltip(\'hide\')" class="' + color + ' thing goldenUpgradeThing noselect pointer upgradeThing" id="' + item + 'Golden" onclick="buyGoldenUpgrade(\'' + item + '\')"><span class="thingName">金色 ' + item + ' ' + prettify(game.global.goldenUpgrades + 1) + '</span>, <span class="thingOwned" id="golden' + item + 'Owned">' + upgrade.purchasedAt.length + '</span></button>';
+			html += '<button id="srTooltip' + item + '" class="thing goldenUpgradeThing noSelect pointer upgradeThing" onclick="tooltip(\'' + item + '\',\'goldenUpgrades\',\'screenRead\')">Golden ' + item + ' Info</button><button onmouseover="tooltip(\'' + item + '\',\'goldenUpgrades\',event)" onmouseout="tooltip(\'hide\')" class="' + color + ' thing goldenUpgradeThing noselect pointer upgradeThing" id="' + item + 'Golden" onclick="buyGoldenUpgrade(\'' + item + '\')"><span class="thingName">金色 ' + displayName + ' ' + prettify(game.global.goldenUpgrades + 1) + '</span>, <span class="thingOwned" id="golden' + item + 'Owned">' + upgrade.purchasedAt.length + '</span></button>';
 		}
 		else{
-			html += '<div onmouseover="tooltip(\'' + item + '\', \'goldenUpgrades\', event)" onmouseout="tooltip(\'hide\')" class="' + color + ' thing goldenUpgradeThing noselect pointer upgradeThing" id="' + item + 'Golden" onclick="buyGoldenUpgrade(\'' + item + '\'); tooltip(\'hide\')"><span class="thingName">金色 ' + cnItem(item) + ' ' + romanNumeral(game.global.goldenUpgrades + 1) + '</span><br/><span class="thingOwned" id="golden' + item + 'Owned">' + upgrade.purchasedAt.length + '</span></div>';
-=======
-			html += '<button id="srTooltip' + item + '" class="thing goldenUpgradeThing noSelect pointer upgradeThing" onclick="tooltip(\'' + item + '\',\'goldenUpgrades\',\'screenRead\')">Golden ' + item + ' Info</button><button onmouseover="tooltip(\'' + item + '\',\'goldenUpgrades\',event)" onmouseout="tooltip(\'hide\')" class="' + color + ' thing goldenUpgradeThing noselect pointer upgradeThing" id="' + item + 'Golden" onclick="buyGoldenUpgrade(\'' + item + '\')"><span class="thingName">Golden ' + displayName + ' ' + prettify(game.global.goldenUpgrades + 1) + '</span>, <span class="thingOwned" id="golden' + item + 'Owned">' + upgrade.purchasedAt.length + '</span></button>';
-		}
-		else{
-			html += '<div onmouseover="tooltip(\'' + item + '\', \'goldenUpgrades\', event)" onmouseout="tooltip(\'hide\')" class="' + color + ' thing goldenUpgradeThing noselect pointer upgradeThing" id="' + item + 'Golden" onclick="buyGoldenUpgrade(\'' + item + '\'); tooltip(\'hide\')"><span class="thingName">Golden ' + displayName + ' ' + romanNumeral(game.global.goldenUpgrades + 1) + '</span><br/><span class="thingOwned" id="golden' + item + 'Owned">' + upgrade.purchasedAt.length + '</span></div>';
->>>>>>> master-en
+			html += '<div onmouseover="tooltip(\'' + item + '\', \'goldenUpgrades\', event)" onmouseout="tooltip(\'hide\')" class="' + color + ' thing goldenUpgradeThing noselect pointer upgradeThing" id="' + item + 'Golden" onclick="buyGoldenUpgrade(\'' + item + '\'); tooltip(\'hide\')"><span class="thingName">金色 ' + displayName + ' ' + romanNumeral(game.global.goldenUpgrades + 1) + '</span><br/><span class="thingOwned" id="golden' + item + 'Owned">' + upgrade.purchasedAt.length + '</span></div>';
 		}
 	}
 	var elem = document.getElementById('upgradesHere');
@@ -11576,11 +11382,7 @@ var dailyModifiers = {
         },
 		karma: {
 			description: function (str) {
-<<<<<<< HEAD
-				return '每杀死一个敌人获得一层增益效果 , 每层效果增加所有非氦战利品掉落 ' + prettify((this.getMult(str, 1) * 100) - 100) + '%。最多叠加' + this.getMaxStacks(str) + '层, 打通区域后重置。';
-=======
 				return 'Gain a stack after killing an enemy, increasing all non ' + heliumOrRadon(false, true) + ' loot by ' + prettify((this.getMult(str, 1) * 100) - 100) + '%. Stacks cap at ' + this.getMaxStacks(str) + ', and reset after clearing a Zone.';
->>>>>>> master-en
 			},
 			stackDesc: function (str, stacks){
 				return "你的脆皮额外找到 " + prettify((this.getMult(str, stacks) * 100) - 100) + "%的战利品!";
@@ -11956,12 +11758,8 @@ function getCurrentDailyDescription(){
 		if (item == 'seed') continue;
 		returnText += "<li>" + dailyModifiers[item].description(daily[item].strength) + "</li>";
 	}
-<<<<<<< HEAD
-	returnText += "</ul>挑战没有终点，并在完成时获得<u><b>额外的"  + prettify(getDailyHeliumValue(countDailyWeight())) + "%</b></u>.";
-=======
 	var portalUni = (game.global.viewingUpgrades) ? game.global.universe : portalUniverse;
 	returnText += "</ul>Challenge has no end point, and grants an <u><b>additional "  + prettify(getDailyHeliumValue(countDailyWeight())) + "%</b></u> of all " + ((portalUni == 2) ? "Radon" : "Helium") + " earned before finishing.";
->>>>>>> master-en
 	return returnText;
 }
 
@@ -12026,11 +11824,7 @@ function abandonDaily(){
 		checkAchieve('dailyHelium');
 	}
 	else console.log('attempted to give ' + reward + ' as daily challenge reward.');
-<<<<<<< HEAD
-	message("你已经完成了每日挑战！ 你得到了回报 " + prettify(reward) + " 额外的氦气!", "Notices");
-=======
-	message("You have completed the Daily challenge! You have been rewarded with " + prettify(reward) + " extra " + heliumOrRadon() + "!", "Notices");
->>>>>>> master-en
+	message("你已经完成了每日挑战！ 你得到了回报 " + prettify(reward) + " 额外的 " + heliumOrRadon() + "!", "Notices");
 	game.global.dailyChallenge = {};
 	handleFinishDailyBtn();
 	return reward;
@@ -12245,11 +12039,7 @@ function getDailyChallenge(add, objectOnly, textOnly){
 	dailyObject.seed = dateSeed;
 	if (objectOnly) return dailyObject;
 	if (countDailyWeight(dailyObject) != currentWeight) console.log('mismatch, objectCount = ' + countDailyWeight(dailyObject) + ", current = " + currentWeight);
-<<<<<<< HEAD
-	returnText += "</ul>挑战没有终点，并在完成时获得<u><b>额外"  + prettify(getDailyHeliumValue(currentWeight)) + "%</b></u>的氦。 <b>只能运行一次!</b> 奖赏不计入骨头购买传送门数据，也不计入最好的氦/小时统计。";
-=======
 	returnText += "</ul>Challenge has no end point, and grants an <u><b>additional "  + prettify(getDailyHeliumValue(currentWeight)) + "%</b></u> of all " + ((portalUni == 2) ? "Radon" : "Helium") + " earned before finishing. <b>Can only be run once!</b> Reward does not count toward Bone Portals or affect best " + ((portalUni == 2) ? "Rn" : "He") + "/Hr stat.";
->>>>>>> master-en
 	if (textOnly) return returnText;
 	nextDaily = returnText;
 	if (document.getElementById('specificChallengeDescription') != null) document.getElementById('specificChallengeDescription').innerHTML = returnText;
@@ -12901,11 +12691,6 @@ function fight(makeUp) {
 	}
 
 	//Crit/Overkill
-<<<<<<< HEAD
-	if (critTier == -1) critSpan.innerHTML = "<span style='color: cyan'>软弱!</span>";
-	if (critTier == 1) critSpan.innerHTML = "暴击!";
-	if (critTier == 2) critSpan.innerHTML = "<span style='color: orange'>暴击!</span>";
-=======
 	if (game.global.challengeActive == "Duel"){
 		var challenge = game.challenges.Duel;
 		var trimpPoints = 0;
@@ -12932,10 +12717,9 @@ function fight(makeUp) {
 		}
 		challenge.drawStacks();
 	}
-	if (critTier == -1) critSpan.innerHTML = "<span style='color: cyan'>Weak!</span>";
-	if (critTier == 1) critSpan.innerHTML = "Crit!";
-	if (critTier == 2) critSpan.innerHTML = "<span style='color: orange'>CRIT!</span>";
->>>>>>> master-en
+	if (critTier == -1) critSpan.innerHTML = "<span style='color: cyan'>虚弱!</span>";
+	if (critTier == 1) critSpan.innerHTML = "暴击!";
+	if (critTier == 2) critSpan.innerHTML = "<span style='color: orange'>暴击!</span>";
 	if (critTier == 3){
 		critSpan.innerHTML = "<span style='color: red'>暴击!!</span>";
 		redCritCounter++;
@@ -13194,15 +12978,11 @@ function updateBalanceStacks(){
 	var challenge = (game.global.challengeActive == "Unbalance") ? game.challenges.Unbalance : game.challenges.Balance;
 	if (game.global.challengeActive == "Unbalance" && challenge.balanceStacks > 0) {
 		elem.style.display = "inline-block";
-<<<<<<< HEAD
-		elem.innerHTML = ' <span class="badge antiBadge" onmouseover="tooltip(\'不平衡\', \'customText\', event, \'你的脆皮的生命值减少' + game.challenges.Balance.getHealthMult(true) + '，但是所有脆皮的收集速度提高' + game.challenges.Balance.getGatherMult(true) + '。 在世界上杀死敌人你将获得一次叠加，在地图上杀死敌人将失去一次叠加。\');" onmouseout="tooltip(\'hide\')"><span id="balanceStack">' + stacks + '</span><span class="icomoon icon-balance-scale"></span></span>';
-=======
 		elem.innerHTML = ' <span class="badge antiBadge" onmouseover="tooltip(\'Unbalance\', \'customText\', event, \'Your Trimps have ' + challenge.getAttackMult(true) + ' less attack, but all Trimps can gather ' + challenge.getGatherMult(true) + ' faster. You will gain one stack from killing Bad Guys in the world, and lose one stack for killing Bad Guys in maps.\');" onmouseout="tooltip(\'hide\')"><span id="balanceStack">' + challenge.balanceStacks + '</span><span class="icomoon icon-balance-scale"></span></span>';
 	}
 	else if (challenge.balanceStacks > 0) {
 		elem.style.display = "inline-block";
 		elem.innerHTML = ' <span class="badge antiBadge" onmouseover="tooltip(\'Unbalance\', \'customText\', event, \'Your Trimps have ' + challenge.getHealthMult(true) + ' less health, but all Trimps can gather ' + challenge.getGatherMult(true) + ' faster. You will gain one stack from killing Bad Guys in the world, and lose one stack for killing Bad Guys in maps.\');" onmouseout="tooltip(\'hide\')"><span id="balanceStack">' + challenge.balanceStacks + '</span><span class="icomoon icon-balance-scale"></span></span>';
->>>>>>> master-en
 	}
 	else elem.style.display = "none";
 }
@@ -13484,18 +13264,11 @@ function showBones() {
 	updateImportButton("首先，选中一个外来物种", false);
 	var heliumGainedArea = document.getElementById("heliumGainedMisc");
 	var heDescElem = document.getElementById("bonePortalDescription");
-<<<<<<< HEAD
-	var heText = "+ " + prettify(boostHe(true)) + " 氦";
-	var heDesc = "获取一次氦，";
-	if (game.stats.bestTokens.valueTotal >= 3) {
-		heDesc += (game.stats.bestFluffyExp.valueTotal > 0) ? ", " : " and ";
-=======
 	var heText = "+ " + prettify(boostHe(true)) + " " + heliumOrRadon();
 	var heDesc = "Automatically gain " + heliumOrRadon();
 	var fluffyStat = Fluffy.getBestExpStat();
 	if (game.stats.bestTokens.valueTotal >= 3 && game.global.universe == 1) {
 		heDesc += (fluffyStat.valueTotal > 0) ? ", " : " and ";
->>>>>>> master-en
 		heDesc += "Nature Tokens";
 		heText += ", " + prettify(Math.floor(game.stats.bestTokens.valueTotal / 3)) + "x each Token";
 	}
@@ -13504,13 +13277,8 @@ function showBones() {
 		heText += ", " + prettify(fluffyStat.valueTotal) + " " + Fluffy.getName() + " Exp";
 	}
 	else document.getElementById('boneBuyRow').style.height = "27vw";
-<<<<<<< HEAD
-	heDesc += "其数量与你最好的一轮所获取的数量相同。";
-	if (game.stats.bestFluffyExp.valueTotal > 0){
-=======
-	heDesc += " equal to the amount you earned on your best run.";
+	heDesc += " 其数量与你最好的一轮所获取的数量相同.";
 	if (fluffyStat.valueTotal > 0){
->>>>>>> master-en
 		if (Fluffy.getLevel() == 10) {
 			heDesc += "<br/><b>" + Fluffy.getName() + " is at Level 10 and will not gain Exp!";
 		}
@@ -13887,13 +13655,8 @@ function purchaseSingleRunBonus(what){
 }
 
 function displaySingleRunBonuses(){
-<<<<<<< HEAD
-	var anyPortals = (game.global.totalPortals == 0);
-	var html = "<div class='boneBuyTitle'>单轮加成</div><div class='boneBuyDesc'>这些加成本轮生效，下一" + ((anyPortals) ? "soft reset" : "轮") + "停止。明智地使用它们!</div>";
-=======
 	var anyPortals = (getTotalPortals() == 0);
-	var html = "<div class='boneBuyTitle'>Single Run Bonuses</div><div class='boneBuyDesc'>These all last until your next " + ((anyPortals) ? "soft reset" : "Portal") + ". Use them wisely!</div>";
->>>>>>> master-en
+	var html = "<div class='boneBuyTitle'>单轮加成</div><div class='boneBuyDesc'>这些加成本轮生效，下一 " + ((anyPortals) ? "soft reset" : "Portal") + ". 明智地使用它们!</div>";
 	for (var item in game.singleRunBonuses){
 		var bonus = game.singleRunBonuses[item];
 		html += "<div id='" + item + "SingleBonusBox' class='singleBonusBox'>";
@@ -14463,10 +14226,7 @@ function toggleAutoGolden(noChange){
 	}
 	var color = "settingBtn" + setting;
 	swapClass("settingBtn", color, btnElem);
-<<<<<<< HEAD
-	var texts = ["自动金色升级关闭", "自动金色升级-氦", "自动金色升级-战斗", "自动金色升级-虚空", "自动金色升级 空隙"];
-=======
-	var texts = ["AutoGold Off", "AutoGold Helium", "AutoGold Battle"];
+	var texts = ["自动金色升级关闭", "自动金色升级-氦", "自动金色升级-战斗"];
 	if (getTotalPortals() > 0){
 		texts.push("AutoGold Voidlium");
 		texts.push("AutoGold Voidtle")
@@ -14475,7 +14235,6 @@ function toggleAutoGolden(noChange){
 		texts[1] = "AutoGold Radon";
 		if (texts.length > 3) texts[3] = "AutoGold Voidon";
 	}
->>>>>>> master-en
 	var text = texts[setting];
 	if (!noChange && setting != 0) text += ' <span id="autoGoldenTimeLeft">(4)</span>';
 	document.getElementById('autoGoldenText').innerHTML = text;
@@ -15281,16 +15040,10 @@ var Fluffy = {
 		var bottomText = "";
 		var topText = "<div style='width: 100%; font-size: 0.95em;'><div class='fluffyThird'>";
 		var minZoneForExp = Fluffy.getMinZoneForExp() + 1;
-<<<<<<< HEAD
-		if (game.global.fluffyPrestige > 0 || this.currentLevel == this.rewards.length) topText += "<span style='color: #740774'>进化 " + game.global.fluffyPrestige + " </span>";
+		if (this.getCurrentPrestige() > 0 || this.currentLevel == rewardsList.length) topText += "<span style='color: #740774'>进化 " + this.getCurrentPrestige() + " </span>";
 		topText += "等级 " + fluffyInfo[0] + "</div><div class='fluffyThird'>";
-		if (savedLevel >= Fluffy.rewards.length) {
-=======
-		if (this.getCurrentPrestige() > 0 || this.currentLevel == rewardsList.length) topText += "<span style='color: #740774'>Evolution " + this.getCurrentPrestige() + " </span>";
-		topText += "Level " + fluffyInfo[0] + "</div><div class='fluffyThird'>";
 		if (savedLevel >= rewardsList.length) {
->>>>>>> master-en
-			topText += "Max"
+			topText += "最大"
 		}
 		else {
 			topText += (Fluffy.canGainExp()) ? "<span>" : "<span class='red'>"
@@ -15300,18 +15053,6 @@ var Fluffy = {
 		topText += "</div><div class='fluffyThird'>+" + prettify((Fluffy.getDamageModifier() - 1) * 100) + "% 伤害"
 		topText += "</div></div>";
 		if (!Fluffy.isMaxLevel()){
-<<<<<<< HEAD
-			if (savedLevel > fluffyInfo[0]) topText += "<span class='red'>- 蓬松的等级和伤害加成现在被降低了. 蓬松会恢复等级 " + savedLevel + " 当点被放回有能力的时候.</span>";
-			else if (!Fluffy.canGainExp()) topText += "<span class='red'>- 蓬松需要 " + ((game.portal.Capable.level == 0) ? "至少一级的能力来获取经验" + ((game.portal.Capable.locked) ? ". 完成塔尖II去解锁能力!" : "") : " 更多的点数能让你获得更高的提升 " + game.portal.Capable.level + ".") + "</span>";
-			else {
-				if (game.global.world < minZoneForExp) topText += "<span class='red'>- 蓬松不能获得任何经验从低于 " + minZoneForExp + "</span>";
-				else{
-					var remainingXp = fluffyInfo[2] - fluffyInfo[1];
-					var xpReward = Fluffy.getExpReward();
-					var remainingRuns = (game.stats.bestFluffyExp.value > 0) ? Math.ceil(remainingXp / game.stats.bestFluffyExp.value) : -1;
-					topText += "- 蓬松会获得 " + prettify(xpReward) + " 经验每个区域。 蓬松需要 " + prettify(remainingXp) + " 更多的经验到达等级";
-					if (remainingRuns > -1) topText += ", 相当于重复当前对该区域的运行" + prettify(remainingRuns) + " 更多次" + needAnS(remainingRuns) + ".";
-=======
 			if (savedLevel > fluffyInfo[0]) topText += "<span class='red'>- " + name + "'s level and damage bonus are currently reduced. " + name + " will return to level " + savedLevel + " when points are placed back in Capable.</span>";
 			else if (!Fluffy.canGainExp()) topText += "<span class='red'>- " + name + " needs " + ((this.getCapableLevel() == 0) ? " at least one point of Capable to gain any Exp" + ((game.portal.Capable.locked) ? ". Complete Spire II to unlock Capable!" : "") : " more points in Capable to gain Exp above level " + this.getCapableLevel() + ".") + "</span>";
 			else {
@@ -15323,7 +15064,6 @@ var Fluffy = {
 					var remainingRuns = (fluffyStat.value > 0) ? Math.ceil(remainingXp / fluffyStat.value) : -1;
 					topText += "- " + name + " is earning " + prettify(xpReward) + " Exp per Zone. " + name + " needs " + prettify(remainingXp) + " more Exp to level";
 					if (remainingRuns > -1) topText += ", equivalent to repeating your current run to this zone about " + prettify(remainingRuns) + " more time" + needAnS(remainingRuns) + ".";
->>>>>>> master-en
 					else topText += ".";
 					topText += "<br/>- " + Fluffy.getFluff();
 				}
@@ -15335,16 +15075,10 @@ var Fluffy = {
 		if (!big) return topText;
 		//clicked
 
-<<<<<<< HEAD
-		if (Fluffy.currentLevel == 10 && game.global.fluffyPrestige < Fluffy.prestigeRewards.length)
-			topText += "<span class='fluffyEvolveText'>蓬松准备好进化了! 这将会重置它的伤害加成和所有特殊能力到等级0， 但是，他将会比以往任何时候都更加强大。你可以在任何时候取消这个进化，回到第10级。<br/><span class='btn btn-md btn-success' onclick='Fluffy.prestige(); Fluffy.refreshTooltip(true);'>进化!</span></span><br/>";
-		if (Fluffy.canGainExp() && game.global.world >= minZoneForExp) {
-=======
 		if (Fluffy.currentLevel == 10 && this.getCurrentPrestige() < prestigeRewardsList.length)
-			topText += "<span class='fluffyEvolveText'>" + name + " is ready to Evolve! This will reset his damage bonus and most abilities back to level 0, but he will regrow to be stronger than ever. You can cancel this Evolution at any point to return to level 10.<br/><span class='btn btn-md btn-success' onclick='Fluffy.prestige(); Fluffy.refreshTooltip(true);'>Evolve!</span></span><br/>";
+			topText += "<span class='fluffyEvolveText'>" + name + " 准备好进化了! 这将会重置它的伤害加成和所有特殊能力到等级0， 但是，他将会比以往任何时候都更加强大。你可以在任何时候取消这个进化，回到第10级。<br/><span class='btn btn-md btn-success' onclick='Fluffy.prestige(); Fluffy.refreshTooltip(true);'>进化!</span></span><br/>";
 		if (Fluffy.canGainExp() && game.global.world >= minZoneForExp) {
 			topText += "- " + name + "'s Exp gain at the end of each Zone is equal to: ";
->>>>>>> master-en
 			var fluffFormula = "<br/><span style='padding-left: 1em'>";
 			var startNumber = Fluffy.getMinZoneForExp();
 			if (isPerkUnlocked("Classy")) startNumber = '<span class="fluffFormClassy" onmouseover="Fluffy.expBreakdown(\'classy\')" onmouseout="Fluffy.expBreakdown(\'clear\')">' + (startNumber + 1) + "</span> - 1";
@@ -15353,11 +15087,7 @@ var Fluffy = {
 			else if (game.global.universe == 2) fluffFormula += Fluffy.baseExp + " * (" + Fluffy.expGrowth + "^(Zone * 3))";
 			else fluffFormula += Fluffy.baseExp + " * (" + Fluffy.expGrowth + "^(Zone - " + startNumber + "))";
 			fluffFormula += "</span>";
-<<<<<<< HEAD
-			fluffFormula += ' * <span class="fluffFormDaily" onmouseover="Fluffy.expBreakdown(\'daily\')" onmouseout="Fluffy.expBreakdown(\'clear\')">每日氦修饰符</span>';
-=======
-			if (getHighestLevelCleared() >= 29) fluffFormula += ' * <span class="fluffFormDaily" onmouseover="Fluffy.expBreakdown(\'daily\')" onmouseout="Fluffy.expBreakdown(\'clear\')">daily' + heliumOrRadon() + 'Modifier</span>';
->>>>>>> master-en
+			if (getHighestLevelCleared() >= 29) fluffFormula += ' * <span class="fluffFormDaily" onmouseover="Fluffy.expBreakdown(\'daily\')" onmouseout="Fluffy.expBreakdown(\'clear\')">每日' + heliumOrRadon() + '修饰符</span>';
 			if (game.talents.fluffyExp.purchased) fluffFormula += ' * <span class="fluffFormFlufffocus" onmouseover="Fluffy.expBreakdown(\'flufffocus\')" onmouseout="Fluffy.expBreakdown(\'clear\')">Flufffocus</span>';
 			if (getHeirloomBonus("Staff", "FluffyExp") > 0) fluffFormula += ' * <span class="fluffFormStaff" onmouseover="Fluffy.expBreakdown(\'staff\')" onmouseout="Fluffy.expBreakdown(\'clear\')">Staff</span>';
 			if (playerSpireTraps.Knowledge.owned) fluffFormula += ' * <span class="fluffFormKnowledge" onmouseover="Fluffy.expBreakdown(\'knowledge\')" onmouseout="Fluffy.expBreakdown(\'clear\')">Knowledge</span>';
@@ -15368,13 +15098,8 @@ var Fluffy = {
 			fluffFormula = fluffFormula.replace('Curious', '<span onmouseover="Fluffy.expBreakdown(\'curious\')" onmouseout="Fluffy.expBreakdown(\'clear\')" class="fluffFormCurious">Curious</span>')			
 			topText += fluffFormula;
 		}
-<<<<<<< HEAD
-		if (calculatedPrestige > 0 && Fluffy.currentLevel < 10)
-			topText += "<br/><span class='btn btn-sm btn-warning' onmousedown='cancelTooltip(); tooltip(\"confirm\", null, \"update\", \"你将中止蓬松的进化。这将使你的蓬松回到10级，但是你将永远失去本次进化中获得的所有经验。你确定要放弃吗?\", \"Fluffy.abortPrestige()\", \"Abort Evolution\")'>终止进化</span>"
-=======
 		if (calculatedPrestige > 0 && Fluffy.currentLevel < 10 && !(calculatedPrestige == 1 && game.talents.fluffyAbility.purchased))
 			topText += "<br/><span class='btn btn-sm btn-warning' onmousedown='cancelTooltip(); tooltip(\"confirm\", null, \"update\", \"You are about to abort " + name + "&#39;s Evolution. This will return you to level 10 on your last Evolution, but you will permanently lose all Experience earned towards the current Evolution. Are you sure you want to abort?\", \"Fluffy.abortPrestige()\", \"Abort Evolution\")'>Abort Evolution</span>"
->>>>>>> master-en
 		var xpBreakdownFill = (document.getElementById('fluffyExpBreakdown') ? document.getElementById('fluffyExpBreakdown').innerHTML : "");
 		topText += "<div id='fluffyExpBreakdown'>" + xpBreakdownFill + "</div>";
 		bottomText += "<table id='fluffyLevelBreakdown'><tbody><tr style='font-weight: bold; font-size: 1.25em; text-align: center;'><td style='padding: 0 1em'>Level</td><td>Ability</td><td style='padding: 0 1em'>+Damage</td></tr>";
@@ -15433,13 +15158,9 @@ var Fluffy = {
 			description: "超杀有机会击中额外的一个敌人。"
 		},
 		helium: {
-<<<<<<< HEAD
-			description: "所有来源获得的氦提高25%"
-=======
 			get description(){
 			return heliumOrRadon() + " gain from all sources is increased by 25%."
 			}
->>>>>>> master-en
 		},
 		void: {
 			description: "允许有两个相同名字的虚空地图粘在一起。在完成了这张2x的虚空地图之后，蓬松将会立即清除多余的那张，比正常的和第二次传家宝的氦要多一半的氦。"
@@ -15454,13 +15175,9 @@ var Fluffy = {
 			description: "每个传送门，从两个双层的虚空地图开始。"
 		},
 		dailies: {
-<<<<<<< HEAD
-			description: "所有日常挑战的氦气系数增加100%。"
-=======
 			get description(){
 				return "Adds 100% to the " + heliumOrRadon() + " modifier of all Daily Challenges.";
 			}
->>>>>>> master-en
 		},
 		critChance: {
 			description: "给予你的脆皮额外50%暴击几率。"

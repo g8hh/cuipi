@@ -632,12 +632,6 @@ var toReturn = {
 
 		},
 		heliumy: {
-<<<<<<< HEAD
-			name: "高氦",
-			text: "+25%氦",
-			cost: 100,
-			confirmation: "你正要花费100骨头购买高氦。这个将会<b>在你的下一轮前</b>使你从所有来源获得的氦增加25%。这是你想要的吗？?",
-=======
 			get name(){ 
 				return (game.global.universe == 2) ? "Radonculous" : "Heliumy";
 			},
@@ -648,7 +642,6 @@ var toReturn = {
 			get confirmation(){
 				return "You are about to purchase " + this.name + " for 100 bones. This will cause you to earn 25% more " + heliumOrRadon() + " from all sources <b>until your next Portal</b>. Is this what you wanted to do?"
 			},
->>>>>>> master-en
 			owned: false,
 			fire: function () {
 				swapClass("hePhColor", "hePhColorOrange", document.getElementById("heliumPh"));
@@ -810,13 +803,8 @@ var toReturn = {
 			boneAlerts: {
 				enabled: 1,
 				extraTags: "alerts",
-<<<<<<< HEAD
-				description: "在“骨法商人”或“传家宝”菜单中不弹出确认提示。",
-				titles: ["不确认骨头", "确认骨头"]
-=======
 				description: "Hide popup confirmation messages when spending rare resources in the Bone Trader or Heirlooms menus.",
 				titles: ["Not Confirming Rare", "Confirming Rare Stuff"]
->>>>>>> master-en
 			},
 			showAlerts: {
 				enabled: 1,
@@ -1219,15 +1207,9 @@ var toReturn = {
 			purchased: false,
 			icon: "magnet"
 		},
-<<<<<<< HEAD
-		bounty: {
-			description: "在清理Z15后马上解锁赏金。",
-			name: "Bounty Hunter",
-=======
 		turkimp: {
 			description: "Increases the chance of finding a Turkimp by 33%, the bonus time from each Turkimp by 5 minutes, and increases the time cap by 10 minutes.",
 			name: "Turkimp Tamer I",
->>>>>>> master-en
 			tier: 1,
 			purchased: false,
 			icon: "*spoon-knife"
@@ -1239,15 +1221,9 @@ var toReturn = {
 			purchased: false,
 			icon: "home"
 		},
-<<<<<<< HEAD
-		turkimp: {
-			description: "增加每一个Turkimp的奖励时间5分钟，最大奖励时间增加10分钟。",
-			name: "Turkimp Tamer I",
-=======
 		bounty: {
 			description: "Unlock Bounty immediately after clearing Z15.",
 			name: "Bounty Hunter",
->>>>>>> master-en
 			tier: 1,
 			purchased: false,
 			icon: "th-large",
@@ -1273,15 +1249,9 @@ var toReturn = {
 			purchased: false,
 			icon: "tint"
 		},
-<<<<<<< HEAD
-		headstart: {
-			description: "腐败提早5个区域开始，即区域176。",
-			name: "Headstart I",
-=======
 		heirloom: {
 			description: "You can spend an extra 10% of your Nu on your Heirlooms, bringing the total to 60%.",
 			name: "Heirnuum I",
->>>>>>> master-en
 			tier: 2,
 			purchased: false,
 			icon: "grain"
@@ -1301,15 +1271,9 @@ var toReturn = {
 			},
 			icon: "user",
 		},
-<<<<<<< HEAD
-		turkimp2: {
-			description: "找到Turkimp的机会增加33%。",
-			name: "Turkimp Tamer II",
-=======
 		headstart: {
 			description: "Corruption begins 5 levels earlier, at Zone 176.",
 			name: "Headstart I",
->>>>>>> master-en
 			tier: 2,
 			purchased: false,
 			icon: "road"
@@ -1338,15 +1302,9 @@ var toReturn = {
 			purchased: false,
 			icon: "*gift2"
 		},
-<<<<<<< HEAD
-		headstart2: {
-			description: "腐败提早10个区域开始，即区域166。",
-			name: "Headstart II",
-=======
 		skeletimp: {
 			description: "Double the chance for a Megaskeletimp to appear instead of a Skeletimp.",
 			name: "King of Bones I",
->>>>>>> master-en
 			tier: 3,
 			purchased: false,
 			icon: "italic",
@@ -1358,15 +1316,9 @@ var toReturn = {
 			purchased: false,
 			icon: "*hammer"
 		},
-<<<<<<< HEAD
-		skeletimp: {
-			description: "Skeletimp进化为Megaskeletimp的概率变为原来的两倍。",
-			name: "King of Bones I",
-=======
 		headstart2: {
 			description: "Corruption begins an additional 10 levels earlier, at Zone 166.",
 			name: "Headstart II",
->>>>>>> master-en
 			tier: 3,
 			purchased: false,
 			icon: "road",
@@ -1388,26 +1340,16 @@ var toReturn = {
 		},
 		blacksmith: {
 			get description () {
-<<<<<<< HEAD
-				return "每个清除的世界区域将直接掉落所有该等级的装备升级。直到区域" + Math.floor((game.global.highestLevelCleared + 1) / 2) + "（你最高区域的50％）";
-=======
 				return "Each cleared Zone through Z" + Math.floor((getHighestLevelCleared(false, true) + 1) / 2) + " (half of your highest Zone reached) will drop all available equipment prestiges from maps.";
->>>>>>> master-en
 			},
 			name: "Blacksmithery I",
 			tier: 4,
 			purchased: false,
 			icon: "*hammer2"
 		},
-<<<<<<< HEAD
-		headstart3: {
-			description: "腐败提早15个区域开始，即区域151。",
-			name: "Headstart III",
-=======
 		turkimp2: {
 			description: "Learn to grow your own Turkimp, increasing the bonus from +50% to +100%, and making the Turkimp bonus available permanently.",
 			name: "Turkimp Tamer II",
->>>>>>> master-en
 			tier: 4,
 			purchased: false,
 			requires: "turkimp",
@@ -1425,13 +1367,8 @@ var toReturn = {
 		},
 		autoStructure: {
 			get description(){
-<<<<<<< HEAD
-				 var text = "解锁自动建筑工具，允许您自动购买建筑。此外，所有的住房和战斗区域奖金将伴随准备好战斗的Trimps进入";
-				 if (game.global.highestLevelCleared >= 229) text += " (不包括维度发生器)";
-=======
 				 var text = "Unlock the AutoStructure tool, allowing you to automatically purchase structures. In addition, all housing and battle territory bonuses will come with ready-to-fight Trimps inside";
 				 if (getHighestLevelCleared() >= 229) text += " (Not including the Dimensional Generator)";
->>>>>>> master-en
 				 text += "!";
 				 return text;
 			},
@@ -1447,15 +1384,9 @@ var toReturn = {
 				toggleAutoStructure(true, true);
 			}
 		},
-<<<<<<< HEAD
-		turkimp3: {
-			description: "增加Turkimp的奖励25%, 从 50% 到 75%.",
-			name: "Turkimp Tamer III",
-=======
 		headstart3: {
 			description: "Corruption begins an additional 15 levels earlier, at Zone 151.",
 			name: "Headstart III",
->>>>>>> master-en
 			tier: 4,
 			purchased: false,
 			icon: "road",
@@ -1488,11 +1419,7 @@ var toReturn = {
 		},
 		blacksmith2: {
 			get description () {
-<<<<<<< HEAD
-				return "每个清除的世界区域将直接掉落所有该等级的装备升级。直到区域" + Math.floor((game.global.highestLevelCleared + 1) * 0.75) + " （你最高区域的75％）";
-=======
 				return "Each cleared Zone through Z" + Math.floor((getHighestLevelCleared(false, true) + 1) * 0.75) + " (75% of your highest Zone reached) will drop all available equipment prestiges from maps.";
->>>>>>> master-en
 			},
 			name: "Blacksmithery II",
 			requires: "blacksmith",
@@ -1500,15 +1427,9 @@ var toReturn = {
 			purchased: false,
 			icon: "*hammer2"
 		},
-<<<<<<< HEAD
-		magmaFlow: {
-			description: "增加两个额外的岩浆房间在任何已经有岩浆的区域。",
-			name: "Magma Flow",
-=======
 		skeletimp2: {
 			description: "Reduce the minimum time between Skeletimp spawns by 10 minutes.",
 			name: "King of Bones II",
->>>>>>> master-en
 			tier: 5,
 			purchased: false,
 			icon: "italic",
@@ -1521,15 +1442,9 @@ var toReturn = {
 			purchased: false,
 			icon: "*diamonds"
 		},
-<<<<<<< HEAD
-		skeletimp2: {
-			description: "将Skeletimp产卵之间的最短时间缩短10分钟",
-			name: "King of Bones II",
-=======
 		magmaFlow: {
 			description: "Cause two extra Magma cells to appear on any Zone that already has Magma.",
 			name: "Magma Flow",
->>>>>>> master-en
 			tier: 5,
 			purchased: false,
 			icon: "*fire",
@@ -1559,11 +1474,7 @@ var toReturn = {
 		},
 		blacksmith3: {
 			get description () {
-<<<<<<< HEAD
-				return "每个清除的区域将直接掉落所有该等级的装备升级。直到区域" + Math.floor((game.global.highestLevelCleared + 1) * 0.9) + "（你最高区域的90％）";
-=======
 				return "Each cleared Zone through Z" + Math.floor((getHighestLevelCleared(false, true) + 1) * 0.9) + " (90% of your highest Zone reached) will drop all available equipment prestiges from maps.";
->>>>>>> master-en
 			},
 			name: "Blacksmithery III",
 			requires: "blacksmith2",
@@ -1571,15 +1482,9 @@ var toReturn = {
 			purchased: false,
 			icon: "*hammer2"
 		},
-<<<<<<< HEAD
-		nature: {
-			description: "将您的自然符记转换比率从10：5提高到10：6",
-			name: "Natural Diplomacy I",
-=======
 		heirloom2: {
 			description: "You can spend another extra 10% of your Nu on your Heirlooms, bringing the total to 70%.",
 			name: "Heirnuum II",
->>>>>>> master-en
 			tier: 6,
 			purchased: false,
 			requires: "heirloom",
@@ -1587,12 +1492,8 @@ var toReturn = {
 		},
 		liquification: {
 			get description () {
-<<<<<<< HEAD
-				var text = (this.purchased) ? "这个精通将增加" : "这个精通将增加";
-=======
 				if (game.global.universe == 2) return "This Mastery is currently disabled in Universe 2";
 				var text = (this.purchased) ? "This mastery is increasing " : "This mastery would increase ";
->>>>>>> master-en
 				var totalSpires = game.global.spiresCompleted;
 				var fluffyCount = Fluffy.isRewardActive("liquid");
 				var fluffyText = "Y";
@@ -1601,26 +1502,16 @@ var toReturn = {
 					else fluffyText = "将你的Fluffy的两个特殊能力视为完成了一个尖塔。"
 					totalSpires += (fluffyCount * 0.5);
 				}
-<<<<<<< HEAD
-				return "将你的液化奖励提高5％，就好像你已经完成了1个额外的尖塔。" + fluffyText + " 您目前已完成了相当于 " + totalSpires + " 个尖塔" + ((totalSpires == 1) ? "" : "") + ", 将基于你所达到的最高区域(Z" + (game.global.highestLevelCleared +1) + ")，液化其中 " + (totalSpires * 5) + "% 的区域 (Z" + Math.floor((totalSpires / 20) * (game.global.highestLevelCleared + 1)) + ")。 " + text + "你的液化奖励到 " + ((totalSpires + 1) * 5) + "%的最高区域（Z" + Math.floor(((totalSpires + 1) / 20) * (game.global.highestLevelCleared + 1)) + "）。";
-=======
 				return "Increase your Liquification bonus by 5%, as if you had completed 1 extra Spire. " + fluffyText + "ou have completed " + totalSpires + " unique Spire" + ((totalSpires == 1) ? "" : "s") + ", giving you " + (totalSpires * 5) + "% of your highest Zone reached (through Z" + Math.floor((totalSpires / 20) * (getHighestLevelCleared(false, true) + 1)) + "). " + text + " your bonus to " + ((totalSpires + 1) * 5) + "% of your highest Zone reached (through Z" + Math.floor(((totalSpires + 1) / 20) * (getHighestLevelCleared(false, true) + 1)) + ").";
->>>>>>> master-en
 			},
 			name: "Liquification I",
 			tier: 6,
 			purchased: false,
 			icon: "*water"
 		},
-<<<<<<< HEAD
-		turkimp4: {
-			description: "学习发展自己的Turkimp，增加奖励+ 100％，并永久提供奖金。",
-			name: "Turkimp Tamer IV",
-=======
 		mapHealth: {
 			description: "Your Trimps gain +100% health in maps.",
 			name: "Safe Mapping",
->>>>>>> master-en
 			tier: 6,
 			purchased: false,
 			icon: "*map-signs"
@@ -1648,15 +1539,9 @@ var toReturn = {
 			requires: "mapLoot",
 			icon: "*gift2"
 		},
-<<<<<<< HEAD
-		nature2: {
-			description: "将您的自然符记转换比率从10：6增加到10：8",
-			name: "Natural Diplomacy II",
-=======
 		nature: {
 			description: "Increase your token trading ratio from 10:5 to 10:8.",
 			name: "Natural Diplomacy I",
->>>>>>> master-en
 			tier: 7,
 			purchased: false,
 			icon: "*tree3"
@@ -1685,15 +1570,6 @@ var toReturn = {
 		},
 		voidSpecial: {
 			get description() {
-<<<<<<< HEAD
-				var text = "<p>通过传送门时，上次运行每清除100个区域，你将获得1个免费的虚空地图。 来自虚空地图的氦气增加上次完成区域数*0.25％。</p>";
-				var amt = (game.global.lastPortal * 0.0025);
-				text += "<p>你在上一个传送门中到达了 <b>区域" + game.global.lastPortal + "</b> , ";
-				if (this.purchased) text += " 获得了奖励";
-				else text += "这将为你本次的虚空地图获得 ";
-				text +=  prettify(amt * 100) + "% 额外的氦气和 " + Math.floor(game.global.lastPortal / 100) + " 虚空地图.</p>";
-				text += "<p>只有在Z99之后的传送门或收集传家宝时，“最后一个传送门区域”的值才会改变，这意味着它不会在早期重启时重置。</p>"
-=======
 				var text = "<p>Receive 1 free Void Map after using your Portal for each 100 Zones cleared last run. " + heliumOrRadon() + " from Void Maps is also increased by 0.25% for each Zone cleared last run.</p>";
 				var amt = (getLastPortal() * 0.0025);
 				text += "<p>You reached <b>Z" + getLastPortal() + "</b> last Portal, ";
@@ -1701,7 +1577,6 @@ var toReturn = {
 				else text += " which would earn you a bonus of ";
 				text +=  prettify(amt * 100) + "% extra " + heliumOrRadon() + " and " + Math.floor(getLastPortal() / 100) + " Void Maps.</p>";
 				text += "<p>Your value for \"Last Portal Zone\" only changes if you Portal after Z99 or collect an Heirloom, meaning it won't be reset by early restarts.</p>"
->>>>>>> master-en
 				return text;
 			},
 			name: "Void Specialization I",
@@ -1710,26 +1585,15 @@ var toReturn = {
 			icon: "*feed"
 		},
 		healthStrength: {
-<<<<<<< HEAD
-			description: "你的脆皮根据当前区域内的健康细胞个数增加细胞数*15％的攻击力。",
-			name: "Strength in Health",
-=======
 			description: "Your Trimps gain 15% additive damage per Healthy cell in your current Zone.",
 			name: "Strength in Health I",
->>>>>>> master-en
 			tier: 8,
 			purchased: false,
 			icon: "*aid-kit"
 		},
-<<<<<<< HEAD
-		nature3: {
-			description: "增加5个%自然赋权传递率而不增加成本。",
-			name: "Natural Diplomacy III",
-=======
 		nature2: {
 			description: "Add 5 levels to the Upgrade and Stack Transfer of all 3 Empowerments of Nature, without increasing the costs.",
 			name: "Natural Diplomacy II",
->>>>>>> master-en
 			tier: 8,
 			purchased: false,
 			requires: "nature",
@@ -1737,12 +1601,8 @@ var toReturn = {
 		},
 		liquification2: {
 			get description () {
-<<<<<<< HEAD
-				var text = (this.purchased) ? "这个精通将增加" : "这个精通将增加";
-=======
 				if (game.global.universe == 2) return "This Mastery is currently disabled in Universe 2";
 				var text = (this.purchased) ? "This mastery is increasing " : "This mastery would increase ";
->>>>>>> master-en
 				var totalSpires = game.global.spiresCompleted;
 				if (game.talents.liquification.purchased) totalSpires++;
 				var fluffyCount = Fluffy.isRewardActive("liquid");
@@ -1752,11 +1612,7 @@ var toReturn = {
 					else fluffyText += " 将你的Fluffy的两个特殊能力视为完成了一个尖塔。"
 					totalSpires += (fluffyCount * 0.5);
 				}
-<<<<<<< HEAD
-				return "将你的液化奖励提高5％，就好像你已经完成了1个额外的尖塔。" + fluffyText + "你已经完成了相当于 " + totalSpires + " 个尖塔" + ((totalSpires == 1) ? "" : "") + ", 将基于你所达到的最高区域(Z" + (game.global.highestLevelCleared +1) + ")，液化其中 " + (totalSpires * 5) + "% 的区域 (Z" + Math.floor((totalSpires / 20) * (game.global.highestLevelCleared + 1)) + ")。 " + text + "你的液化奖励到 " + ((totalSpires + 1) * 5) + "%的最高区域（Z" + Math.floor(((totalSpires + 1) / 20) * (game.global.highestLevelCleared + 1)) + "）。";
-=======
 				return "Increase your Liquification bonus by another 5%, as if you had completed 1 extra Spire. Counting Liquification I as one Spire" + fluffyText + ", you have completed the equivalent of " + totalSpires + " unique Spire" + ((totalSpires == 1) ? "" : "s") + ", giving you " + (totalSpires * 5) + "% of your highest Zone reached (through Z" + Math.floor((totalSpires / 20) * (getHighestLevelCleared(false, true) + 1)) + "). " + text + " your bonus to " + ((totalSpires + 1) * 5) + "% of your highest Zone reached (through Z" + Math.floor(((totalSpires + 1) / 20) * (getHighestLevelCleared(false, true) + 1)) + ").";
->>>>>>> master-en
 			},
 			name: "Liquification II",
 			tier: 8,
@@ -1781,15 +1637,6 @@ var toReturn = {
 		},
 		voidSpecial2: {
 			get description(){
-<<<<<<< HEAD
-				 var text = "<p>上一轮每通过100区域，就能再获取第二张虚空地图，但是第一张在区域50拿到(然后是150/250，以此类推)。此外，如果你已开启蓬松的6级加成，你可以使蓬松再叠一张额外的虚空地图，每叠一次再加50%的氦奖励。</p>";
-				 text += "<p>你上一次传送门到达了<b>区域" + game.global.lastPortal + "</b>,";
-				 if (this.purchased) text += "你获得了";
-				 else text += "你将获得";
-				 var maps = Math.floor((game.global.lastPortal + 50) / 100);
-				 text += maps + " 张虚空地图的奖励 (加上虚空专精 I 一共有 " + (maps + Math.floor((game.global.lastPortal) / 100)) + " 张).</p>";
-				 text += "<p>只有在Z99之后的传送门或收集传家宝时，“最后一个传送门区域”的值才会改变，这意味着它不会在早期重启时重置。</p>"
-=======
 				 var text = "<p>Gain a second Void Map per 100 Zones cleared last run, but the first one is earned at Z50 (then 150, 250 etc). In addition, if Fluffy's level 6 bonus is active, this allows Fluffy to stack 1 additional Void Map, adding another 50% Helium bonus to the stack.</p>";
 				 text += "<p>You reached <b>Z" + getLastPortal() + "</b> last Portal,";
 				 if (this.purchased) text += " earning you a bonus of ";
@@ -1797,7 +1644,6 @@ var toReturn = {
 				 var maps = Math.floor((getLastPortal() + 50) / 100);
 				 text += maps + " more Void Maps (" + (maps + Math.floor((getLastPortal()) / 100)) + " including Void Specialization I).</p>";
 				 text += "<p>Your value for \"Last Portal Zone\" only changes if you Portal after Z99 or collect an Heirloom, meaning it won't be reset by early restarts.</p>"
->>>>>>> master-en
 				 return text;
 			},
 			name: "Void Specialization II",
@@ -1821,26 +1667,18 @@ var toReturn = {
 		},
 		fluffyExp: {
 			get description(){
-<<<<<<< HEAD
-				return "每一级进化使蓬松每区域多获得25%的经验。蓬松已经进化 " + game.global.fluffyPrestige + " 次" + needAnS(game.global.fluffyPrestige) + ", " + ((this.purchased) ? "给予" : "点亮精通后将给予") + "+" + prettify(game.global.fluffyPrestige * 25) + "%经验的加成。";
-=======
 				var prestige = Fluffy.getCurrentPrestige();
 				return "" + Fluffy.getName() + " gains +25% more Exp per Zone for each completed Evolution. " + Fluffy.getName() + " has Evolved " + prestige + " time" + needAnS(prestige) + ", " + ((this.purchased) ? "earning" : "which would earn") + " you a bonus of +" + prettify(prestige * 25) + "% Exp.";
 			},
 			get name(){
 				var name = Fluffy.getName();
 				return name.substring(0, name.length - 1) + "focus";
->>>>>>> master-en
 			},
 			tier: 9,
 			purchased: false,
 			icon: "*library"
 		},
 		fluffyAbility: {
-<<<<<<< HEAD
-			description: "获得一项额外的蓬松能力。这个功能就像蓬松进化了一样，但是没有蓬松的伤害加成。",
-			name: "Flufffinity",
-=======
 			get description(){
 				return "Gain one extra " + Fluffy.getName() + " ability. This works as if " + Fluffy.getName() + " Evolved, but doesn't increase " + Fluffy.getName() + "'s damage bonus.";
 			},
@@ -1848,7 +1686,6 @@ var toReturn = {
 				var name = Fluffy.getName();
 				return name.substring(0, name.length - 1) + "finity";
 			},
->>>>>>> master-en
 			tier: 9,
 			purchased: false,
 			icon: "*infinity"
@@ -1862,15 +1699,9 @@ var toReturn = {
 		},
 		crit: {
 			get description(){
-<<<<<<< HEAD
-				var text = "<p>你的橙色暴击伤害倍数 +1 , 并且使你的暴击率增加你盾牌传家宝暴击率的一半。</p>";
-				if (game.heirlooms.Shield.critChance.currentBonus > 0) text += "<p>你的盾牌现在的暴击率加成为 " + game.heirlooms.Shield.critChance.currentBonus + "%, 所以本专精 " + ((this.purchased) ? "给你" : "将给你") + " +" + (game.heirlooms.Shield.critChance.currentBonus / 2) + "% 的额外暴击率加成。</p>";
-				else text += "<p>然而，你的盾牌当前没有增加暴击几率的效果。</p>";
-=======
 				var text = "<p>Adds +1 to your MegaCrit modifier, and adds 50% of your Shield Heirloom's Crit Chance to your Crit Chance again.</p>";
 				if (getHeirloomBonus("Shield", "critChance") > 0) text += "<p>Your Shield currently has a bonus of " + getHeirloomBonus("Shield", "critChance") + "%, so this Mastery " + ((this.purchased) ? "is giving you" : "would give you") + " +" + (getHeirloomBonus("Shield", "critChance") / 2) + "% additional Crit Chance.</p>";
 				else text += "<p>However, you do not currently have Crit Chance on your Shield.</p>";
->>>>>>> master-en
 				return text;
 			},
 			name: "Charged Crits",
@@ -2078,13 +1909,9 @@ var toReturn = {
 			radLocked: true,
 			priceBase: 1000000,
 			heliumSpent: 0,
-<<<<<<< HEAD
-			tooltip: "你已经完成了一个超凡脱俗的目标，那就是获得超额伤害(超出敌人生命值的伤害)，出类拔萃！每个等级的能力将会允许你的超额伤害的0.5%去伤害下一个敌人。如果这个伤害杀死了下一个敌人，你就不用再经过那个方块了。最高30层。",
-=======
 			radLevel: 0,
 			radSpent: 0,
-			tooltip: "You have overcome the otherworldly objective of obtaining Overkill, outstanding! Each level of this perk will allow 0.5% of your overkill damage to harm the next enemy. If this damage kills the next enemy, you will lose no time moving through that cell. Maximum of 30 levels.",
->>>>>>> master-en
+			tooltip: "你已经完成了一个超凡脱俗的目标，那就是获得超额伤害(超出敌人生命值的伤害)，出类拔萃！每个等级的能力将会允许你的超额伤害的0.5%去伤害下一个敌人。如果这个伤害杀死了下一个敌人，你就不用再经过那个方块了。最高30层。",
 			max: 30
 		},
 		Resourceful: {
@@ -2262,32 +2089,23 @@ var toReturn = {
 			modifier: 0.05,
 			priceBase: 4,
 			heliumSpent: 0,
-<<<<<<< HEAD
-			tooltip: "把你的传送门搞成超速，需要额外的氦气，但是增加了宇宙的时钟速度。 每个级别都会将脆皮与坏人的攻击间隔缩短5％（复合）。 最高20级。",
-			max: 20
-=======
 			tooltip: "Crank your portal into overdrive, increasing the clock speed of the Universe. Each level reduces the time between Trimp and Bad Guy attacks by 5% <b>of the current time (compounds)</b>. Maximum of 20 levels.",
 			max: 20,
 			radLevel: 0,
 			radSpent: 0,
 			locked: false,
 			radLocked: false
->>>>>>> master-en
 		},
 		Bait: {
 			level: 0,
 			modifier: 1,
 			priceBase: 4,
 			heliumSpent: 0,
-<<<<<<< HEAD
-			tooltip: "放一些这个在你的陷阱中，一定会给你带来额外的脆皮的。 每个级别允许陷阱捕捉到 $modifier$ 额外的脆皮。"
-=======
 			tooltip: "A few of these in your traps are sure to bring in extra Trimps. Each level allows traps to catch $modifier$ extra Trimp.",
 			radLevel: 0,
 			radSpent: 0,
 			locked: false,
 			radLocked: false
->>>>>>> master-en
 		},
 		Trumps: {
 		//fiveTrimpMax worldUnlock
@@ -2296,15 +2114,11 @@ var toReturn = {
 			modifier: 1,
 			priceBase: 3,
 			heliumSpent: 0,
-<<<<<<< HEAD
-			tooltip: "练习进攻性的策略允许你从每次战斗的领土红利中获得 $modifier$ 额外的最大人口。"
-=======
 			tooltip: "Practicing aggressive strategizing allows you to earn $modifier$ extra max population from each battle territory bonus.",
 			radLevel: 0,
 			radSpent: 0,
 			locked: false,
 			radLocked: false
->>>>>>> master-en
 		},
 		//breed main
 		Pheromones: {
@@ -2312,15 +2126,11 @@ var toReturn = {
 			modifier: 0.1,
 			priceBase: 3,
 			heliumSpent: 0,
-<<<<<<< HEAD
-			tooltip: "你可以带上一些费洛蒙，以确保你的脆皮能够永久性地增加10%的繁殖速度。"
-=======
 			tooltip: "Bring some pheromones with you to ensure that your Trimps will permanently breed 10% faster.",
 			radLevel: 0,
 			radSpent: 0,
 			locked: false,
 			radLocked: false
->>>>>>> master-en
 		},
 		//trapThings main
 		Packrat: {
@@ -2353,42 +2163,29 @@ var toReturn = {
 			modifier: 0.05,
 			priceBase: 1,
 			heliumSpent: 0,
-<<<<<<< HEAD
 			tooltip: "脆皮们通过例子来学习。 花一些时间去卧推死掉的大象来使今后的脆皮们变得更加强大。 永久性增加脆皮5%攻击力。"
-=======
-			tooltip: "Trimps learn through example. Spending some time bench pressing dead Elephimps should inspire any future Trimps to become stronger too. Adds 5% attack permanently to your Trimps.",
 			radLevel: 0,
 			radSpent: 0,
 			locked: false,
 			radLocked: false
->>>>>>> master-en
 		},
 		//startFight main
 		Toughness: {
 			modifier: 0.05,
 			priceBase: 1,
 			heliumSpent: 0,
-<<<<<<< HEAD
-			tooltip: "让你的脆皮学习如何变得像个硬汉，而不是一个老实巴交的容易受欺负的。 永久性增加脆皮5%的生命值。",
-			level: 0
-=======
 			tooltip: "Pay your Trimps to knock you around a little bit. By learning to not be such a wuss, your Trimps will be less wussy as well. Adds 5% health permanently to your Trimps.",
 			level: 0,
 			radLevel: 0,
 			radSpent: 0,
 			locked: false,
 			radLocked: false
->>>>>>> master-en
 		},
 		//rewardResources main
 		Looting: {
 			modifier: 0.05,
 			priceBase: 1,
 			heliumSpent: 0,
-<<<<<<< HEAD
-			tooltip: "从空荡荡的区域往回走，让他们学会如何榨干敌人的每一分血汗钱。 每一级永久性增加5%的战利品资源。",
-			level: 0
-=======
 			tooltip: "Walk back through the empty Zones, learning how to milk them for every last drop. Each level permanently increases the amount of resources gained from battle by 5%.",
 			level: 0,
 			radLevel: 0,
@@ -2407,7 +2204,6 @@ var toReturn = {
 			onChange: function(){
 				if (!game.upgrades.Prismatic.done) document.getElementById("blockDiv").style.visibility = "visible";
 			}
->>>>>>> master-en
 		},
 	},
 	c2: {
@@ -2463,13 +2259,9 @@ var toReturn = {
 				return res;
 			},
 			fireAbandon: true,
-<<<<<<< HEAD
-			unlockString: "到达区域 100"
-=======
 			get unlockString(){
 				return (portalUniverse == 2) ? "reach Zone 30" : "reach Zone 100";
 			}
->>>>>>> master-en
 		},
 		Discipline: {
 			description: "调整传送门，让你回到脆皮不那么被训练的世界，以教你如何做一个更好的脆皮教练。 你的脆皮的最小伤害将大大降低，但是他们的极限伤害会更高。 完成愤怒维度将导致脆皮伤害恢复正常。",
@@ -2712,12 +2504,8 @@ var toReturn = {
 				game.challenges.Decay.abandon();
 				message("You have completed the Decay challenge! All stats have been returned to normal, and you can now create more powerful Gardens maps at will!", "Notices")	
 			},
-<<<<<<< HEAD
-			unlockString: "到达区域55",
-=======
 			completeAfterZone: 55,
 			unlockString: "reach Zone 55",
->>>>>>> master-en
 		},
 		Trimp: {
 			description: "调整传送门，让你进入一个维度，如果有超过1只脆皮在同时战斗，他们会爆炸。 你将不能学习协作， 但是完成 <b>'障碍区' (11)</b> 将教会你如何让你的脆皮存活更长时间。",
@@ -2746,9 +2534,6 @@ var toReturn = {
 			onLoad: function () {
 				this.start();
 			},
-<<<<<<< HEAD
-			unlockString: "到达区域 60"
-=======
 			onComplete: function(){
 				game.global.challengeActive = "";
 				game.challenges.Trimp.abandon();
@@ -2756,7 +2541,6 @@ var toReturn = {
 				message("You have completed the <b>Trimp Challenge!</b> You have unlocked the 'Resilience' perk, and your Trimps can fight together again.", "Notices");
 			},
 			unlockString: "reach Zone 60"
->>>>>>> master-en
 		},
 		Trapper: {
 			description: "旅行到一个地方，在那里，脆皮拒绝在人工饲养的环境中繁殖，为你自己学习如何利用繁殖率较低的新环境。 清理 <b>'末日之神殿' (33)</b> 有了这个挑战，你的繁殖率就会恢复到正常水平。",
@@ -2783,9 +2567,6 @@ var toReturn = {
 					unlockUpgrade("Potency");
 				}
 			},
-<<<<<<< HEAD
-			unlockString: "到达区域 70"
-=======
 			onComplete: function(){
 				game.global.challengeActive = "";
 				game.challenges.Trapper.abandon();
@@ -2793,7 +2574,6 @@ var toReturn = {
 				message("You have completed the 'Trapper' challenge! Your Trimps now remember how to breed, and you have unlocked a new perk!", "Notices");
 			},
 			unlockString: "reach Zone 70"
->>>>>>> master-en
 		},
 		Electricity: {
 			description: "使用你在监狱中找到的钥匙，将你传送至一个极其危险的维度。在这个维度中，敌人会电击你的脆皮，敌人对脆皮的每次攻击会叠加一个减益效果，每层效果会在每个回合对脆皮造成10%最大血量的伤害，并减少脆皮10%的伤害(死亡后效果重置)。清除 <b>'监狱' (80)</b>将会奖励你200%的你所获得的氦(不包括区域80及以上所获得)。这个挑战是可重复的！",
@@ -5213,242 +4993,8 @@ var toReturn = {
 		}
 
 	},
-<<<<<<< HEAD
-
-
-	worldText: {
-		w2: "你的脆皮在那里杀死了很多坏人。 看起来你似乎已经弄清楚这是怎么一回事了。 然而这个世界很大，依然有去多区域需要探索，“砍”“砍”...",
-		w3: "根据您的命令，您的科学家们已经开始尝试了解这个星球有多大。",
-		w4: "您命令脆皮在该地区搜索您的船只的钥匙，但没有人找到任何东西。真令人失望。",
-		w5: "你看到尽头的那个东西了吗？多么的巨大！多么的可怕！ 你以前从未见过这样的东西,但是你知道这是一个顽固的守卫。你是怎么知道的？别问为什么了，去杀死它！",
-		w6: "你踩过了Blimp的尸体，它迅速的瘪了下去。你的其中一个脆皮听到这个声音，顿时咯咯地笑了起来。你们穿过了含硫的河流，来到了下一个区域，在这里你们感受到古代知识的存在。进行更好的探索吧。",
-		w7: "慢而稳事必成， 除非跟你竞争的人比你更努力。",
-		w8: "你住的地方变得越来越拥挤，街道上到处都是脆皮，你感觉自己越来越热。你突然有强烈的愿望想要创建一个地图，尽管你不太确定这会有什么帮助。",
-		w9: "你不能排除那种你以前来过这里的感觉，似曾相识。",
-		w10: "看起来像另一个顽固的守卫。但很难说，特别是从这么远的地方，不过它看起来比上次那个多了一个头。",
-		w11: "你不可阻挡，只要没人阻拦你。 不幸的是，看起来有些东西像是真的想阻止你。",
-		w12: "你看到绿光一闪而过吗？奇怪。噢，好吧。",
-		w13: "你们的科学家们终于完成了他们关于这世界大小的分析报告。根据报告，它们很确信这个世界是无限大的，但你也很确信它们只是对这项检查厌倦了。",
-		w14: "你试图帮助带回脆皮在上一个区域留在地上的一些装备，并且你得到了一个碎片。这个星球正在变得危险起来，保持警惕。",
-		w15: "另一天,又是一个顽固的守卫在区域的尽头。",
-		w16: "你是认真的吗？又一个守卫！",
-		w17: "你爬上一个巨大的悬崖，俯瞰着一片新的区域。红色的泥土，烧焦的地面，一片荒芜。 那是一头龙在飞来飞去吗？！",
-		w18: "似乎有一种奇怪的力量鼓励你继续前行。气氛变得有点，愤怒的感觉。 你的身体的一部分想转身回去,但其他大部分想继续前行。",
-		w19: "你回头看看你的王国，你拥有宝石、殖民地和领土。 你在想你的脆皮是不是已经在战斗中牺牲了。 沉思之后，两个字从你的嘴里蹦了出来 “算了”",
-		w20: "你感觉到你离你的目标已经不远了。",
-		get w22 () {
-			if (game.global.challengeActive == "Trimp" && game.jobs.Amalgamator.owned > 0) return toZalgo("你听到一种奇怪的哼唱声，似乎在吸引你靠近它，尽管你也分辨不出它是来源于哪个方向。你能感觉到这个声音是由" + ((game.jobs.Amalgamator.owned == 1) ? "" : "") + "合并者发出的,即使你从来没有听到过这个声音。它既令人不安又迷人，宇宙似乎很讨厌它。", 4, 1);
-			return "奇怪，天空似乎变得更暗了。你询问其中一只脆皮现在是几点钟了，但是他都不知道什么是时钟。";
-		},
-		w25: "你是个叛逆者。宇宙指引你进入那个传送门，但是你执意向前推进。你感觉……自己好像没有来过这里。",
-		w27: "似乎你越向前进，你知道的就越少。你仍然有使用传送门的冲动，但是这冲动已经开始减少了。",
-		w29: "你的脆皮创造了一首非常吸引人的战歌，这首歌一直萦绕在你的脑海中。但是他们没有一人在下一场战斗中活下来，而且其中大部分的脆皮你也记不得了。生活是真的艰难。",
-		w33: "你爬过一座将两个地区分开的大山。天空一片漆黑，远处有闪电划过。这里是一个腐化严重的地方。",
-		w35: "你想知道自己一遍遍地重复同样的事情已经多久了。你一定能做些什么来打破这个循环。或许你能对传送门做些修改……",
-		w40: "你不禁注意到，脆皮可能是这个星球上唯一不会立刻对外界敌对的生物。你询问附近的一个脆皮士兵，他认为你是什么？然后他有点流口水(迷恋？)。",
-		w42: "这个世界看起来如此贫瘠。你觉得自己终于开始走在前面了，但你现在知道，这并不能让你感到舒服。",
-		w44: "白天和黑夜似乎都比以前更长了。是时间变慢了吗？啊！你跪倒在地，头痛欲裂，并有一种强烈的想使用传送门的渴望。几分钟后，这个感觉消退了，你也忘记了刚才发生了什么。我们刚才在讨论什么来着？",
-		w46: "回头望去，越过的山的痕迹越来越长。这个世界是平的，并充满了敌意。你希望你的脆皮们能更健谈一些。",
-		w48: "当脆皮们从Blimp身上提取最后一点氦时，其中一只开始发狂。他跑来跑去，挥舞着他的小胳膊，其中一段时间发出了有趣的声音，吃了一些泥土，然后就开始小睡。你很好奇他是否还正常。是的……可能他还算不错。.",
-		w50: "你很久没有在地图上找到蓝图了。你开始怀疑这些东西是从哪里来的。",
-		w51: "你的科学家预测在59区域的尽头会有一个异常现象。他们建议你停止做任何你正在做的事情。",
-		w53: "随着你越来越接近异常现象，你开始注意到越来越多脆皮的奇怪举动。当多种存在融合在一起时，你记忆中的漏洞开始变得明显。迷茫。",
-		w54: "随着你越来越接近异常现象，你开始注意到越来越多脆皮的奇怪举动。当多种存在融合在一起时，你记忆中的漏洞开始变得明显。迷茫。",
-		w56: "远处传来一阵响亮的隆隆声，然后一只脆皮伸出双手向你跑来，看起来他有些害怕。他可能只是想要一些武器和护甲！你递给他一些装备，他兴奋地接受了。",
-		w58: "一场巨大的风暴已经形成，白昼已经成为一种你几乎忘记的奢侈品。你的脆皮似乎想回家，但你很确定你们应该继续向前走，所以你们继续前行。你已经离异常现象非常近了。",
-		w59: "它……就在那里。那个异常现象，就在这个区域的尽头。你能看得见它，但是你不知道你正在看的这个东西究竟是什么。这个……东西……是从哪来的？！这个东西太无序了。",
-		w60: "地面瞬间裂开，大量的绿色气体从星球核心向大气中逸出。这个星球给人的感觉不同了。一切事物给人的感觉都不同了。这个宇宙正在变得不稳定，这个星球已经破碎。你都做了些什么？",
-		w61: "除了那些死去的脆皮以外，情况还没有变得那么差。",
-		get w65 () {
-			if (game.global.challengeActive == "Trimp" && game.jobs.Amalgamator.owned > 0) return toZalgo("这个宇宙似乎比你想象中更混乱，但是你的合并者" + ((game.jobs.Amalgamator.owned == 1) ? "" : "们") + "并不介意。你走向" + ((game.jobs.Amalgamator.owned == 1) ? "它" : "其中一只") + "来看的更清楚一点, 但是你发现你距离它更远了。", 2, 2);
-			return "你感觉自己比起过去更加强大了。这个宇宙似乎在不断地调整自己来摆脱你，但是你奋起反抗并坚持下去。你如此渺小，却对抗着整个宇宙！";
-		},
-		w68: "你觉得有一些娱乐活动会很不错，并决定教你的脆皮怎样踢足球。几个小时后，没有任何进展，你非常后悔当时的决定。",
-		w70: "无序似乎没有放慢速度。你明白你需要制定一个计划，但你不知道该计划什么。",
-		w72: "你相对轻松地击碎并通过了又一个无序，但却感到有些不对劲。一股酸味扑鼻而来，让你感到恶行。你转头去寻找气味的来源。噢，等等，那只是一只脆皮而已。",
-		w80: "你上一次制作地图是什么时候了？你有种感觉，你可能应该做张地图了。",
-		w82: "哇哦，刚才那场战斗真令人振奋。你决定赏给你的脆皮一些炖无序。那真的很好吃。",
-		w83: "现在觉得吃炖无序这个想法可能并不好。有人感觉难受吗？",
-		w85: "一段古老而模糊的记忆悄悄地回到你的脑海。你不确定这段记忆是从哪里来的，但你知道这是你的记忆。你记得你在一艘太空船上，从轨道上看着这个行星。当时有个人在你身边！",
-		w87: "当你继续和愤怒的源头保持距离的时候，零碎的记忆碎片仍在不断流回。你几乎能在脑海中看到是谁和你一起来到了这里。他们会在哪里……",
-		w90: "你决定去让你的科学家发明一种花费巨大的机器来扫描你的大脑，来找回过去的记忆，看看其中是否有有用的信息。他们似乎对这个新项目很兴奋，很快就开始工作了。",
-		w92: "你听到科学实验室中传来一阵巨大的爆炸声，你明白大脑扫描仪可能永远也无法完成了。",
-		get w95 () {
-			if (game.global.challengeActive == "Trimp" && game.jobs.Amalgamator.owned > 0) return toZalgo(((game.jobs.Amalgamator.owned == 1) ? "" : "") + "合并者开始在不同颜色间快速切换。如果它周围的东西没有四分五裂的话，就很迷人了。" + ((game.jobs.Amalgamator.owned == 1) ? "" : ""), 3, 2);
-			return "需要一些动力吗?你可以做到的!或许吧。";
-		},
-		w100: "你在前行中突然停了下来。你想起来了是谁和你一起来到这里，你也记起来了你当时并不喜欢德鲁普提船长把你带到这里。你知道他和你一起降落了。你明白太空船仍在这里。他就在这里。",
-		w105: "你叫来你所有的脆皮开了一次会，解释了一下现在的状况。在做了一段非常长的、史诗般的、振奋人心的演讲后，却没有听到任何脆皮们的回应，你明白你的脆皮们是无法理解你的。你有记得这个吗？",
-		w106: "你在这个星球上被困多久了？几个月？几十年？多次穿梭时间确实扰乱了你的时间观念。",
-		w109: "虽然你不知道你的母星在什么方位，你仍然相信这艘太空船的GPS可以带你回家。也许德鲁普提船长有这艘船的钥匙。你真的想找到他。",
-		w115: "你刚刚想起了什么是墨西哥卷。你现在可以自己做墨西哥卷吃了。",
-		w120: "你的耐力正快速下降。每个区域都让如此多额外脆皮加入军队让你感觉非常疲惫。为了成功，你需要训练一只更强的、更小型化的部队。",
-		w123: "哇，你现在有这么多的脆皮。你没有真正地停下一会来思考有多少脆皮直接被你领导。简单！",
-		w125: "你感觉到了金属和装备的气息，突然觉得自己应该打打地图。",
-		w130: "你决定坐下来休息一会，突然一个脆皮摇摇摆摆地快速向你走来，手里拿着一张纸。这张纸上潦草地画着一个奇怪的武器和一种护甲，以及看起来像维度坐标一样的数字。你本来还想问他在哪里找到这个的，但看了坐标后你已经了解了。",
-		w132: "你一直在想那只脆皮究竟从哪里找到迟钝维度坐标的。为什么那些想帮助你的东西不直接跳出来帮助你呢？",
-		w135: "阿，你的背开始疼了。似乎通过传送回溯时间并不能逆转你衰老的过程。难受。",
-		w136: "你的一位科学家告诉你，他的团队已经研究出一种治愈疗法，能够治愈一种不存在的疾病。他解释说要防患于未然。你沉重的叹了口气。",
-		w137: "你的一位科学家告诉你，在实验室中检测到了一种新疾病的爆发。你去向你的科学家核实情况，很明显他们是为了引起注意而假装的。你沉重的叹了口气。",
-		w138: "你看到另一个科学家正全速向你跑来。他迅速地表示他们在区域35附近发现了一个新的维度，被巨大的脆皮所占领。你沉重的叹了口气",
-		w139: "另一个科学家过来了。你沉重的叹了口气。他也说了些愚蠢的话。你决定暂时忽略科学家们所说的话。",
-		w140: "现在这里确实平静祥和。你看到一只Falcimp在空中转了几个圈。你不会介意拥有翅膀，但总的来说你对自己的种族很满意。",
-		w143: "有个科学家围着你跳来跳去，想引起你的注意。天空中没有什么有趣的东西，所以你假装被石头吸引住了。科学家看到你很忙，耐心等待。",
-		w145: "你的科学家很吵，想忽视它们可真不容易。你暴躁地问他们到底想要干什么。其中一个科学家表示他们发现了一个有大量额外氦的新维度。你可能会去看看，但你不会告诉他们。",
-		w150: "哇哦。这些建筑物变得越来越贵了。或许有个维度能解决这个问题……",
-		w153: "你回想起你过去遇到的一个人。在你曾经的生活中。你需要去找一个人。你会让他回来的。",
-		w156: "你惊讶地看着一只脆皮抓着他们其中一个奇怪树状的东西摆来摆去。他们似乎变得更聪明了。",
-		w157: "你并不那么惊讶地看着一只脆皮试图对着岩石咬一大口。他们并没有变得更聪明。",
-		w159: "太阳下山了。你知道，一旦你最终走出这里，你绝对不会忘记这里的风景。当然，除非你刻意忘记。",
-		w160: "一小群脆皮发出激动的声音朝你跑来。其中一只走在最前面，自豪地递来一只靴子。这个靴子有点大，但是和你的是一种款式的。这靴子一定是德鲁普提船长的，证明了你在向正确的方向前进。你奖励发现靴子的脆皮一些食物并拍拍它的头，之后便把靴子送到实验室，去寻找更多线索。你很奇怪，他为什么要脱下靴子呢？",
-		w163: "你的科学家告诉你，由于一项“重要的”测试，现在有一半的靴子丢在了另一个维度。结果仍然是不确定的。你请他们把剩下一半靴子好好地留在这个维度，他们看起来好像有些失望。",
-		w165: "这个是什么?! 你发现了一个小块的绿色金属。你的科学家告诉你这个东西来源于一个带有毒性、但氦量丰富的维度。他们表示如果你想去那里看看，他们可以调节传送门让你到达那个维度。",
-		w166: "那个无序看起来是个不错的家伙。",
-		w168: "希望太空船没有生锈。",
-		w170: "你登上了一座极其巨大的高山的顶峰。你能看到至少有50个区域在你的前方延伸。大约在30个区域远的地方，你可以看到一个巨大的尖塔。它看起来就像你家乡的建筑。你希望这不是海市蜃楼……",
-		w172: "周围有种气味，闻起来让你只能想到紫色。这可能不是一个好兆头。",
-		w174: "这种奇怪的气味仍然在你周围不断扩大。从风向的变化来看，这个气味来源于尖塔。除了紫色，你仍然无法用其他文字来形容这个味道。",
-		w175: "你的脆皮看起来很开心。它们不曾有过目标，现在有一个目标似乎对它们有着正面的影响！你叫来一只脆皮，问他感觉怎么样，然后你才想起来他不能说话。",
-		w178: "你仍然不能确定这种气味究竟是什么。你感觉自己略微变强了一些，你担心你的敌人是不是也会这么觉得。",
-		get w180 () {
-		if (game.global.challengeActive != "Corrupted") return "在清理完之前的区域后，你决定花一天时间登上另一座极其巨大高山的顶峰，去寻找有关这个味道的信息。当你登上顶峰时，你惊得下巴都要掉了下来。你清清楚楚地看到，大量的紫色物质从塔尖的顶端倾泻到大气中。你看到你面前的区域开始改变。这真的不是好事情。";
-		return "在清理完之前的区域后，你决定花一天时间登上另一座极其巨大高山的顶峰，去寻找有关这个味道的信息。当你登上顶峰时，你惊得下巴都要掉了下来。你清清楚楚地看到，大量的紫色物质从塔尖的顶端倾泻到大气中。这一定就是导致你一路上遇到的腐败的原因。这个星球似乎已经被严重腐化了，你怀疑你是否已经来得太晚了。";
-		},
-		w182: "好吧，对于这个已经没有疑问了。某种有智能的东西有意让你和你的脆皮遇到更多的困难。你觉得这代表着你是很重要的，为什么其他的某种东西会冒着毁灭整个星球的危险来阻止你?你的父母会为你自豪的。",
-		get w184 () {
-				return "越接近尖塔，腐化现象就变得越明显。看起来这个区域有" + mutations.Corruption.cellCount() + "个腐化房间。"
-			},
-		w185: "你很难准确地用语言表达腐化对这个星球上的生物的影响。它们似乎被剥夺了所有的自然能力，并赋予了某种可以存在于主维度中的，你不知道的力量。 ",
-		w187: "这些被腐化的敌人似乎都没有眼睛，所以你想通过从一只旁边快速过去来试试能否躲过它们。当它愤怒地咆哮并跺脚时，你明白这些敌人已经足够强大，不再需要眼睛来观察这个世界。究竟<i>这些东西</i>是什么?!",
-		w190: "从你睡觉的洞穴后面传来一阵狂乱而又令人恐惧的声音，使你从梦中惊醒，浑身冒着冷汗。你急忙地跑向噪音的源头，想确保你的脆皮是否还好。当你到那里时，你发现一小部分脆皮试图用一只很小但是非常生气的Snimp来作为乐器。你在耳朵中塞了些沙子，回去睡觉了。",
-		w193: "当你靠近尖塔时，腐化继续加剧。你开始习惯了从尖塔中散发出的气味，并且不再介意它了。它让你想起蓝莓。邪恶的蓝莓。",
-		w198: "你是如此接近腐化的源头，以至于你都可以尝到它的味道，但它并不好吃。",
-		get w205 () {
-			if (game.global.spireRows < 10)
-				return "当你回头看尖塔时，仍然有很多腐败的东西从塔尖上冒出来，你觉得很失落，但你总有一天会打败他的。";
-			return "你并不是很怀念德鲁普提。重点在于，你没有那么多记忆可供你怀念。";
-		},
-		get w210 () {
-			if (game.global.spireRows < 10)
-				return "闻起来腐化的程度更高了。那座尖塔对环境肯定不好。";
-			return "腐化仍然存在，但是已经没那么有威胁性了。你在这个星球上感到更加平静，并觉得自己在不断修复它。你确信已经没有什么好害怕的了。";
-		},
-		get w220 () {
-			if (game.global.spireRows < 10)
-				return "你的脆皮看起来很满足。它们有点希望那座尖塔不要再向他们世界释放紫色的东西了，但是它们没那么介意。";
-			return "你的脆皮看起来很满足。你教给他们一些基本的木偶戏，然后它们和被打败的Snimps一起上演了一场精彩的演出。";
-		},
-		w225: "你在一个凉爽、黑暗的洞穴一觉醒来后全身都是汗。你梦到你非常的热，尽管在过去温度从未成为一个问题。好吧，奇怪的梦和之前的记忆也没有真正表明什么重要的东西，可能没有什么事。",
-		w231: "这里非常热。",
-		w232: "The heat intensifies as you move further and further through the Zones. Instinct says to turn away from the heat, but that wouldn't be any fun.",
-		w234: ["As you finish clearing out the Zone, you notice a green cloud fall from the sky. It hovers above you for a few moments and shoots some sort of energy at you in a quick, painless burst. Seeming satisfied by the results of this blast, it hurriedly shoots forward a couple of Zones. Before you can even really think about what it could be, ten more green clouds of various sizes appear! They zip down, zap you, then zealously zoom off to the same zone. The clouds look toxic to you, but your Trimps seem to want to follow them.", "natureMessage poison"],
-		w236: ["As you climb over a rather large mountain and into the next Zone, you see that the green clouds have finally made it to the ground. Your worries about their toxicity seem to have been needless though, as your Trimps appear to greatly enjoy this rare treat. You watch in amazement as your Trimps begin to grow spines that drip with toxic sludge, and they immediately use their new powers to try to stick each other. You bet they're a bit stronger now.", "natureMessage poison"],
-		w240: ["You and your Trimps have been really enjoying the benefits of what your Scientists call an \"Empowerment of Nature\". However, something up ahead seems to be absorbing all of the Poisonous clouds. Oh no! Your scientists think this will be your last zone with the Poison Empowerment, but they seem convinced that there will be another Empowerment to take its place!", "natureMessage poison"],
-		w241: ["As you reach the new Zone, you happen to see a Bad Guy finish absorbing the last bit of Poison in the entire Zone, leaving no trace of your new ally, Nature. Before you get too upset about the thought of having to tackle the Magma alone again, Wind floods in to take Poison's place. The spikes on your Trimps stop dripping sludge and begin to spin like propellers, the sound resembling a gigantic swarm of beeimps. These controllable Trimp-generated gusts of wind should be helpful for knocking extra resources into your reach, but you'll still need to deal with that Bad Guy that sucked in all of the Poison...", "natureMessage wind"],
-		w243: ["The middle of these Windy Zones are the most beautiful you've seen yet. The Magma and Wind bring all sorts of nutrients and seeds here, leaving the area rich in plant biodiversity. For the first time since you arrived on this planet, you feel truly peaceful. Nature is repairing itself, and you've become one of its tools (but like in a good way).", "natureMessage wind"],
-		get w244 () {
-			if (game.jobs.Magmamancer.owned > 0)
-				return "Your Magmamancers have figured out how to make little fountains in the Magma around the base. You like the effect.";
-			return "You remember Magmamancers as being pretty cool.";
-		},
-		w245: ["Something in the next zone appears to be sucking up all of the Wind again. You've enjoyed all of the extra resources, but you're excited to see what Nature has next for you!", "natureMessage wind"],
-		w246: ["Once again, a Bad Guy in this Zone has absorbed every trace of your Windy friends. But once again, Nature has replaced them with new, colder ones. Suddenly your Trimps\' new spikes stop spinning and start spewing snow! You feel incredibly cold, but your Trimps seem perfectly comfortable. This cold will surely slow down your enemies!", "natureMessage ice"],
-		w248: ["While the Windy Zones were beautiful, the Ice Zones are nearly indescribable. Deep blues from the frozen ground contrast sharply with the fiery reds of the Magma rivers, and these two systems have equalized at a very comfortable ambient temperature. Your Trimps are too cold to touch though, your hand is still stuck to the one you high-fived at the start of the last zone.", "natureMessage ice"],
-		w251: ["Right on cue, another enemy has absorbed the Empowerment of Ice, and Nature has reacted by refilling the Zone with familiar green clouds. Poison is back! Your Trimps\' spikes resume spewing toxic sludge, and finally the Trimp stuck to your hand warms up enough to fall off. No more high-fiving Trimps in the Ice Zones.", "natureMessage poison"],
-		w255: "The Magma continues to sap your Trimps\' strength as you press through the Zones, but they seem to be adapting well in spirits. It seems like each generation likes the heat more and more.",
-		w256: ["You're detecting a pattern here! Poison has once again given way to Wind, and you have a feeling that this Wind will soon give way to Ice. The Bad Guys can absorb as much Nature as they want! Their Tokens will only help you to strengthen Nature, and Nature will always be back. With your new ally, you can totally handle the Magma.", "natureMessage wind"],
-		w261: "You asked that Omnipotrimp nicely not to explode after you killed it, but it exploded anyways. Pretty rude.",
-		w264: ["Good job not high-fiving any Trimps so far this time. You are worried morale might fall if you spend too much time with such a difficult restriction, but you're pretty sure Poison is coming up soon.", "natureMessage ice"],
-		w267: ["You're determined to repair the planet, and now that Nature is on your side you feel it might actually be possible. Either way, you know you must be doing something right to have earned the loyalty of Trimps and Nature.", "natureMessage poison"],
-		w270: "This planet is really freaking big. You feel like you've been walking around it for years and still haven't seen everything there is to offer. Shouldn't there be another spire around here or something?",
-		w277: "It's starting to smell purple again. You must be getting close to another spire.",
-		get w283() {
-			var soldiers = game.resources.trimps.getCurrentSend();
-			return "During a boring night while waiting to cross a particularly rough Magma river, you managed to teach your Trimps how to stack on each other to create some funny shapes. You almost feel bad for the first Snimp to come across " + prettify(soldiers) + " Trimps stuck together in the shape of a humongous Mongooseimp.";
-		},
-		get w285(){
-			if (game.global.spireRows >= 10)
-				return "你终于可以看到了它，在你的视野中十分清晰。在不超过15个区域的距离中矗立着一个巨大的尖塔，这一座甚至比你遇到的第一座更具威胁性。一个巨大的、回响着的声音从尖塔涌出，语调和节律都和德鲁普提一致。你离得有点远，听不太清楚，但是似乎他在请你离开他。";
-			return "你感觉哪里有些不对劲，但你却不知道到底是哪里有问题。你最后在你的鞋子中发现了一颗鹅卵石，然后一切似乎都变得更好了一些!";
-		},
-		get w286() {
-			if (game.global.spireRows >= 10)
-				return "你再一次听到了那个声音，并且你敢说这其中一定有古怪-这个声音是来自于鬼魂或者是什么东西。你的推测是有道理的，因为你亲手杀死了德鲁普提。";
-			return "你听到灌木丛中有什么东西在沙沙作响，并为这种新的东西而完全激动起来。当你小心地走向灌木丛时，一只Rabbimp迅速跑出来并远去了。"
-		},
-		get w290() {
-			if (game.global.spireRows >= 10)
-				return "随着你距离尖塔越来越近，那个声音也越来越清晰。无论那上面是什么生物，你可以从他那听到恐怖的声音，好像他想独自毁灭世界一样。但你对他并没有什么同情心。";
-			return "你被岩石绊了一下并蹒跚地走了两步，但在完全摔倒前稳定了脚步。你环顾四周，似乎没有脆皮注意到你的失误！";
-		},
-		get w295() {
-			if (game.global.spireRows >= 10)
-				return "你现在距离这座新尖塔非常的近，你都可以尝到它，真正地品尝到。这些东西令人作呕。";
-			return "你想知道你的科学家能否发明出口香糖……"
-		},
-		get w298() {
-			if (game.global.spireRows >= 10)
-				return "尖塔上那个疯狂的意志在恳求你退后。很明显，他知道你摧毁了上一座尖塔，而且不希望你再摧毁一座。很不幸的是，你来了。";
-			return "你内心深处的声音告诉你，应该很快就会有大事发生，但你什么也没有看到。噢，好吧。"
-		},
-		get w303() {
-			if (game.global.spireRows >= 15 || game.portal.Capable.level > 0) return "你很高兴现在有蓬松陪伴着你。他似乎和其他脆皮相处的很好，而且似乎很高兴找到了和他一样精神正常的生命。他看起来比其他的脆皮聪明不了多少，所以你确信你可以从他身上发现不少乐趣。";
-			return "你希望有一只宠物。";
-		},
-		get w315(){
-			if (game.global.lastSpireCleared == 2) return "随着尖塔向空气喷射的越来越多，陆地上的健康地点似乎也变得越来越多！希望这是一件好事。你问：蓬松，你怎么看？蓬松点点头表示同意。";
-			return "天啊，这种腐化现象开始变得相当严重。需要赶紧摧毁那些尖塔……";
-		},
-		w340: "注意脚下，那里有一些岩浆。",
-		w350: "如果德鲁普提真的在无限数量的尖塔中永生，你可能要在这里多待一段时间。",
-		get w360(){
-			if (game.global.spireRows >= 15 || game.portal.Capable.level > 0) return "你试图让蓬松参与严格的科学家训练计划，但是他并不想参加。他不会有任何问题，但他不想要这个标签。有这个小东西跟在身边，你还是开心不起来。";
-			return "你确实地觉得你的生活中缺少了什么。感觉一切都是空虚和悲伤。";
-		},
-		w375: "应该很快就要到另一个尖塔的区域了。你停下来，坐在一条美丽的岩浆河旁，并思考前方会有怎样疯狂的事物在等待着你。不久后你明白前方可能只是另一个尖塔而已，所以你站起身，继续前进。",
-		w385: "一股熟悉的尖塔的气味再次直击你的鼻腔，你打了个喷嚏，如此滑稽，让你的脆皮们感到惊讶。年轻的心不会变老。",
-		get w390(){
-			if (game.global.lastSpireCleared == 2) return "你终于可以看到远处的下一个塔尖，一团紫色的厚云从塔顶滚滚展开。很难相信这里有如此多的腐化，这个星球有多大?";
-			return "很奇怪，你觉得你现在应该能看到下一个塔尖，但它不在那里。也许你应该更彻底地检查一下之前的塔尖。";
-		},
-		get w395(){
-			if (game.global.lastSpireCleared == 2) return "啊，又是那股令人作呕的尖塔味道。你永远也无法习惯这个味道。你大多数的脆皮都试图坐在树下，但是蓬松在跑来跑去，并将舌头伸出来，就像在追赶雪花一样。";
-			return "你把烤箱打开了吗?噢，你没有烤箱。现在你甚至想知道什么是烤箱。哦，好吧。";
-		},
-		get w405(){
-			if (game.global.lastSpireCleared == 3) return "似乎在刚才你真的把德鲁普提削弱了。或许只要再来一个尖塔，你就能关闭他所有的意识部分？";
-			return "你无法摆脱这种感觉，就像你忘记了做一些事情一样。";
-		},
-		get w415(){
-			if (game.global.lastSpireCleared == 3) return "健康变异现在已经传播得很好了。敌人的攻击变得更强，但是你很确定你做的是正确的事情，这让你感觉很好。";
-			if (game.global.lastSpireCleared == 2) return "看起来健康的突变已经停止扩散。不过没关系，其他时间上的你可能会解决这个问题。";
-			if (game.global.spireRows >= 15 || game.portal.Capable.level > 0) return "这片土地看起来确实很可怕而且腐化严重，但至少你有蓬松。";
-			return "你对蓬松有什么不满吗?";
-		},
-		w430: "脆皮们试图将两个Turkimps绑在这棵高高的树上，然后Turkimps打败了脆皮们，并将脆皮摔向那棵树。脆皮们真的很累。那个Turkimps真的很强硬。",
-		w440: "哇哦，您出已经走了很远了。你曾经完全想不到这里有如此多的区域，但是现在你已经抵达了如此远的地方。",
-		w450: "是时候快要遇到另一个尖塔了，你不这样认为吗？",
-		w460: "世界的这一部分似乎比你去过的任何其他地方都要高得多。空气出奇的清新，你可以看到天空中许多的行星围绕着你，比以往任何时候都要多。看到你为之奋斗的一切让你感觉很好，觉得非常值得。",
-		w470: "这个地区的海拔似乎很低，而且腐化程度也在不断增加。令人恶心。",
-		get w485(){
-			if (game.global.lastSpireCleared == 3) return "又一次，你可以尝到尖塔的味道，那座尖塔一定就在下一座山丘的背后。蓬松似乎很激动。";
-			return "嘿！这个是……噢，不是，这只是一些泥土。";
-		},
-		get w495(){
-			if (game.global.lastSpireCleared == 3) return "是时候了。他很虚弱。你明白这点。是时候让这个星球恢复健康了。";
-			return "你今天觉得很痒。你让一些脆皮抓抓你的后背，但他们并不想这么做。";
-		},
-		get w505(){
-			if (game.global.lastSpireCleared == 4) return "那么你已经完全100％根除了德鲁普提的意识，现在你认为现在是时候将其余的无脑回声从其余的尖塔中清除掉了。";
-			return "德鲁普提就在那里变得越来越强大，必须有人对他做点什么。";
-		}
-	},
-	trimpDeathTexts: ["不再是", "化为尘土", "入土为安", "断气", "翘辫子了", "蒸发", "需要更多的装甲", "爆炸", "融化了", "摔死了", "游冥河", "脖子扭断", "忘了穿装备", "嘶哑的", "死了", "不会跟着你再次战斗", "死了。 瘸", "落后了", "魔脉"],
-	badGuyDeathTexts: ["杀了", "被杀死的", "摧毁", "熄灭", "清算", "蒸发", "拆除", "破败", "遇难", "抹杀"],
-=======
 	trimpDeathTexts: ["ceased to be", "bit the dust", "took a dirt nap", "expired", "kicked the bucket", "evaporated", "needed more armor", "exploded", "melted", "fell over", "swam the river Styx", "turned into jerky", "forgot to put armor on", "croaked", "flatlined", "won't follow you to battle again", "died. Lame", "lagged out", "imp-loded"],
 	badGuyDeathTexts: ["slew", "killed", "destroyed", "extinguished", "liquidated", "vaporized", "demolished", "ruined", "wrecked", "obliterated"],
->>>>>>> master-en
 
 	settings: {
 		speed: 10,
@@ -6000,20 +5546,9 @@ var toReturn = {
 					amt = 1;
 					if (game.global.challengeActive == "Domination") amt *= 3;
 					amt = rewardResource("helium", amt, level);
-<<<<<<< HEAD
-					message("那个守卫掉落了氦罐！你从中提取了 " + prettify(amt) + " 氦气！", "Loot", "oil", "helium", "helium");
-					if (game.global.world >= 40 && game.global.challengeActive == "Balance") {
-						if (game.challenges.Balance.highestStacks <= 100) giveSingleAchieve("Underbalanced");
-						var reward = game.challenges.Balance.heldHelium;
-						message("你已经完成了平衡挑战! 你获得了 " + prettify(reward) + " 氦, 你可以重复这个挑战。", "Notices");
-						game.challenges.Balance.abandon();
-						game.global.challengeActive = "";
-						addHelium(reward);
-=======
 					message("You were able to extract " + prettify(amt) + " " + heliumOrRadon(true) + "s from that Blimp!", "Loot", heliumIcon(true), "helium", "helium");
 					if (game.global.world >= 40 && game.global.challengeActive == "Balance") {
 						game.challenges.Balance.onComplete();
->>>>>>> master-en
 					}
 				}
 			}
@@ -6239,22 +5774,10 @@ var toReturn = {
 				message("Indianimp 掉落了 " + prettify(amt) + " 金属!", "Loot", "*cubes", null, 'primary');
 				if (game.global.runningChallengeSquared) return;
 				if (game.global.challengeActive == "Trapper"){
-<<<<<<< HEAD
-					game.global.challengeActive = "";
-					game.challenges.Trapper.abandon();
-					game.portal.Anticipation.locked = false;
-					message("你完成了 '捕手' 挑战! 你的脆皮现在还记得如何繁殖，而且你已经解锁了一个新的能力!", "Notices");
-				}
-				if (game.global.challengeActive == "Meditate"){
-					game.global.challengeActive = "";
-					game.portal.Meditation.locked = false;
-					message("你完成了 '冥想' 挑战! 这个维度已经恢复正常了，你已经解锁了一个新福利！", "Notices");
-=======
 					game.challenges.Trapper.onComplete();
 				}
 				if (game.global.challengeActive == "Meditate"){
 					game.challenges.Meditate.onComplete();
->>>>>>> master-en
 				}
 			}
 		},
@@ -6269,23 +5792,7 @@ var toReturn = {
 				checkAchieve("prisonTimed");
 				if (game.global.runningChallengeSquared) return;
 				if (game.global.challengeActive == "Electricity" || game.global.challengeActive == "Mapocalypse") {
-<<<<<<< HEAD
-					var reward = Math.floor(game.challenges.Electricity.heldHelium * 2);
-					if (game.global.challengeActive == "Electricity") message("你已经完成了电力挑战! 你获得了 " + prettify(reward) + " 氦, 你可以重复这个挑战。", "Notices");
-					else if (game.global.challengeActive == "Mapocalypse") {
-						message("你已经完成了Mapocalypse挑战! 你解锁了 '虹吸学' 能力,并且获得了 " + prettify(reward) + " 氦。", "Notices");
-						game.portal.Siphonology.locked = false;
-						game.challenges.Mapocalypse.abandon();
-					}
-					game.challenges.Electricity.heldHelium = 0;
-					game.global.challengeActive = "";
-					addHelium(reward);
-					game.challenges.Electricity.stacks = 0;
-					updateElectricityStacks();
-					refreshMaps();
-=======
 					game.challenges[game.global.challengeActive].onComplete();
->>>>>>> master-en
 				}
 			}
 		},
@@ -6306,17 +5813,7 @@ var toReturn = {
 				var amt2 = rewardResource("food", 1, level, true);
 				message("Robotrimp惊慌失措。战利品检查显示: " + prettify(amt1) + " 木头和 " + prettify(amt2) + " 食物。极好的。", "Loot", "*cogs", null, 'primary');
 				if (game.global.challengeActive == "Crushed") {
-<<<<<<< HEAD
-					var heliumAdded = (game.challenges.Crushed.heldHelium * 4);
-					message("您完成了“粉碎挑战”! 你得到了 " + prettify(heliumAdded) + " 氦。", "Notices");
-					game.challenges.Crushed.heldHelium = 0;
-					game.global.challengeActive = "";
-					addHelium(heliumAdded);
-					if (game.challenges.Crushed.critsTaken == 0) giveSingleAchieve("Thick Skinned");
-					game.challenges.Crushed.abandon();
-=======
 					game.challenges.Crushed.onComplete();
->>>>>>> master-en
 				}
 			}
 		},
@@ -6390,15 +5887,7 @@ var toReturn = {
 				var amt2 = rewardResource("metal", 1.5, level, true);
 				message("Neutrimp发出喘息、闪烁、尖叫，然后噗的一声变成了迅速消散的紫色云。你花了一些时间试图弄懂你刚刚看到的，但环顾四周，你发现了 " + prettify(amt1) + " 木头和 " + prettify(amt2) + " 金属!", "Loot", "*cogs", null, 'primary');
 				if (game.global.challengeActive == "Devastation") {
-<<<<<<< HEAD
-					message("您已经完成了破坏性挑战!你的世界已经恢复正常，你已经解锁了超杀技能!", "Notices");
-					game.global.challengeActive = "";
-					game.portal.Overkill.locked = false;
-					addNewSetting('overkillColor');
-					refreshMaps();
-=======
 					game.challenges.Devastation.onComplete();
->>>>>>> master-en
 				}
 				if (game.global.challengeActive == "Obliterated"){
 					giveSingleAchieve("Imploderated")
@@ -6596,21 +6085,12 @@ var toReturn = {
 				}
 				game.unlocks.impCount.Tauntimp++;
 				game.unlocks.impCount.TauntimpAdded += amt;
-<<<<<<< HEAD
-				amt = (game.global.challengeActive == "Trapper") ? addMaxHousing(amt, false) : addMaxHousing(amt, true);
-				var msg = "这是一个不错的，温暖并且宽敞的死亡Tauntimp。";
-				if (game.global.challengeActive != "Trapper"){
-					msg += "你发现了 ";
-					if (amt == 1) msg += prettify(amt) + " 脆皮在里面，它看起来很无聊。";
-					else msg += prettify(amt) + " 脆皮在里面, 他们都似乎满足于留在那里！";
-=======
 				amt = (game.global.challengeActive == "Trapper" || game.global.challengeActive == "Trappapalooza") ? addMaxHousing(amt, false) : addMaxHousing(amt, true);
 				var msg = "It's nice, warm, and roomy in that dead Tauntimp. ";
 				if (game.global.challengeActive != "Trapper" && game.global.challengeActive != "Trappapalooza"){
 					msg += "You found ";
 					if (amt == 1) msg += prettify(amt) + " Trimp inside, and it looks hella bored.";
 					else msg += prettify(amt) + " Trimps inside, and they all seem content to stay living there!";
->>>>>>> master-en
 					message(msg, "Loot", "gift", "exotic", "exotic");
 				}
 				else {
@@ -7080,13 +6560,9 @@ var toReturn = {
 			canRunOnce: true,
 			fire: function (level, fromGenerator) {
 				if (!this.canRunOnce) return;
-<<<<<<< HEAD
-				var messageText = (fromGenerator) ? "当你启动你的传送门时，这个世界就不会那么愤怒了。你明白，在某个维度的某个地方，Megablimp已经不复存在。在你面前, " + ((game.global.runningChallengeSquared) ? "一个绿色闪耀的盒子出现" : "45 氦以及一个绿色闪耀的盒子出现") + "在地面上。盒子上有一行小字，你可以认清那行字是“时间传送门。此面向上”。" : "不要让任何人告诉你你刚才没有杀死那个Megablimp，因为你确实杀死它了。当它逐渐溶解消散时，你发现在地上有一个绿色的，发光的盒子。盒子上有一行小字，你能辨认出上面的字是“时间传送门。此端向上。”";
-=======
 				var color = (game.global.universe == 2) ? "blue" : "green";
 				var resource = heliumOrRadon();
 				var messageText = (fromGenerator) ? "The world feels a little bit less angry as you fire off your handy Portal Generator. You can tell that somewhere in some dimension, a Megablimp is no more. In front of you, " + ((game.global.runningChallengeSquared) ? "a " + color + ", shining box appears" : "45 " + resource + " and a " + color + ", shining box appear") + " on the ground. In tiny writing on the box, you can make out the words 'Time portal. THIS SIDE UP'." : "Don't ever let anyone tell you that you didn't just kill that Megablimp. Because you did. As he melts away into nothingness, you notice a " + color + ", shining box on the ground. In tiny writing on the box, you can make out the words 'Time portal. THIS SIDE UP'.";
->>>>>>> master-en
 				message(messageText, "Story");
 				game.global.portalActive = true;
 				fadeIn("portalBtn", 10);
@@ -7137,23 +6613,10 @@ var toReturn = {
 				unlockUpgrade("Shieldblock");
 				if (game.global.runningChallengeSquared) return;
 				if (game.global.challengeActive == "Scientist"){
-<<<<<<< HEAD
-					game.global.challengeActive = "";
-					game.global.sLevel = getScientistLevel();
-					game.challenges.Scientist.abandon();
-					message("你已经完成了 <b>科学家</b> 的挑战！ 每次游戏你都将从 " + getScientistInfo(game.global.sLevel, true) + " 开始。 你已经解锁了科学家，别忘了你可以再次点击研究你的科学！", "Notices");
-				}
-				if (game.global.challengeActive == "Trimp"){
-					game.global.challengeActive = "";
-					game.challenges.Trimp.abandon();
-					game.portal.Resilience.locked = false;
-					message("你已经完成了<b>脆皮挑战!</b>你解锁了'弹性'能力,你的脆皮又能协同作战了。", "Notices");
-=======
 					game.challenges.Scientist.onComplete();
 				}
 				if (game.global.challengeActive == "Trimp"){
 					game.challenges.Trimp.onComplete();
->>>>>>> master-en
 				}
 			}
 		},
@@ -7596,12 +7059,8 @@ var toReturn = {
 		Nursery: {
 			world: -1,
 			startAt: 23,
-<<<<<<< HEAD
-			message: "你找到了一些可以从宝石中获得更多能量的托儿所的蓝图。",
-=======
 			blockU2: true,
 			message: "You found blueprints for some sort of nursery that can harness more power from gems.",
->>>>>>> master-en
 			level: [5, 20],
 			icon: "home",
 			title: "Nursery",
@@ -7930,15 +7389,9 @@ var toReturn = {
 			icon: "book",
 			title: "",
 			fire: function () {
-<<<<<<< HEAD
-				if (game.global.challengeActive == "Trapper"){
-					message("你的科学家让你知道，你的脆皮不会理解这本书，但是他们会为你保留它。真是太好了!", "Notices");
-					game.challenges.Trapper.heldBooks++;
-=======
 				if (game.global.challengeActive == "Trapper" || game.global.challengeActive == "Trappapalooza"){
 					message("Your Scientists let you know that your Trimps won't understand the book, but they offer to hold on to it for you for later. How nice of them!", "Notices");
 					game.challenges[game.global.challengeActive].heldBooks++;
->>>>>>> master-en
 					return;
 				}
 				unlockUpgrade("Potency");
@@ -7962,28 +7415,18 @@ var toReturn = {
 			icon: "book",
 			title: "矿工",
 			fire: function () {
-<<<<<<< HEAD
-				if (game.global.challengeActive == "Metal"){
-					message("你的脆皮根本不理解这本书在说什么。这是他们的想法。什么是“矿工”? !", "Notices");
-					game.challenges.Metal.fireAbandon = true;
-=======
 				if (game.global.challengeActive == "Metal" || game.global.challengeActive == "Transmute"){
 					var challenge = game.challenges[game.global.challengeActive];
 					message("Your Trimps simply do not understand what this book is talking about. It's blowing their minds. What is a 'Miner'?!", "Notices");
 					challenge.fireAbandon = true;
->>>>>>> master-en
 					return;
 				}
 				unlockUpgrade("Miners");
 			}
 		},
 		Trainer: {
-<<<<<<< HEAD
-			message: "你找到了一本关于适当的体能训练的书！",
-=======
 			message: "You found a book about proper physical training!",
 			blockU2: true,
->>>>>>> master-en
 			world: 3,
 			level: 3,
 			icon: "book",
@@ -8127,16 +7570,10 @@ var toReturn = {
 			icon: "book",
 			title: "Magmamancers",
 			fire: function () {
-<<<<<<< HEAD
-				if (game.global.challengeActive == "Metal"){
-					game.challenges.Metal.holdMagma = true;
-					message("这本书在你处理这个维度的矿物元素的过程中真的没什么帮助。最好让你的科学家为你保留这一点。", "Notices");
-=======
 				if (game.global.challengeActive == "Metal" || game.global.challengeActive == "Transmute"){
 					var challenge = game.challenges[game.global.challengeActive];
 					challenge.holdMagma = true;
 					message("This book really doesn't help too much while you're dealing with the minerlessness of this dimension. Better let your scientists hold this one for you for a bit.", "Notices");
->>>>>>> master-en
 					return;
 				}
 				unlockUpgrade("Magmamancers");
@@ -8200,11 +7637,6 @@ var toReturn = {
 			icon: "book",
 			title: "Speedminer",
 			fire: function() {
-<<<<<<< HEAD
-				if (game.global.challengeActive == "Metal"){
-					message("你的科学家茫然地盯着你看了一会儿，然后慢慢地静静地把新书放在书架上。", "Notices");
-					game.challenges.Metal.heldBooks++;
-=======
 				if (game.global.challengeActive == "Metal" || game.global.challengeActive == "Transmute"){
 					var challenge = game.challenges[game.global.challengeActive];
 					if (game.jobs.Scientist.owned > 0){
@@ -8215,7 +7647,6 @@ var toReturn = {
 						message("You don't have any Scientists to not know how to handle this book, so everything's chill.", "Notices");
 					}
 					challenge.heldBooks++;
->>>>>>> master-en
 					return;
 				}
 				unlockUpgrade("Speedminer");
@@ -8473,15 +7904,9 @@ var toReturn = {
 			purchased: 0,
 			craftTime: 5,
 			tooltip: function () {
-<<<<<<< HEAD
-				var catchAmt = (game.portal.Bait.level + 1);
-				var s = (catchAmt > 1) ? "" : "";
-				return "每个陷阱都能让你抓住 " + prettify(catchAmt) + " 东西" + s + ".";
-=======
 				var catchAmt = (getPerkLevel("Bait") + 1);
 				var s = (catchAmt > 1) ? "s" : "";
 				return "Each Trap allows you to catch " + prettify(catchAmt) + " thing" + s + ".";
->>>>>>> master-en
 			},
 			cost: {
 				food: 10,
@@ -8548,11 +7973,7 @@ var toReturn = {
 			purchased: 0,
 			craftTime: 10,
 			AP: true,
-<<<<<<< HEAD
-			tooltip: "棚屋可以居住$incby$更可爱的脆皮。 所有的脆皮住房都有足够的工作空间，只有一半的脆皮可以住在那里。",
-=======
 			tooltip: "Has room for $incby$ more lovely Trimp{s}. All Trimp housing has enough workspaces for only half of the Trimps that can live there.",
->>>>>>> master-en
 			cost: {
 				food: [125, 1.24],
 				wood: [75, 1.24]
@@ -8568,11 +7989,7 @@ var toReturn = {
 			purchased: 0,
 			craftTime: 20,
 			AP: true,
-<<<<<<< HEAD
-			tooltip: "一个更好的房子对于您的脆皮！ 每个房子支持$incby$更多的脆皮。",
-=======
 			tooltip: "A better house for your Trimps! Each house supports up to $incby$ more Trimp{s}.",
->>>>>>> master-en
 			cost: {
 				food: [1500, 1.22],
 				wood: [750, 1.22],
@@ -8589,11 +8006,7 @@ var toReturn = {
 			purchased: 0,
 			craftTime: 60,
 			AP: true,
-<<<<<<< HEAD
-			tooltip: "一个相当恶心的豪宅，让你的脆皮住在里面。 每个可以住 $incby$ 脆皮",
-=======
 			tooltip: "A pretty sick mansion for your Trimps to live in. Each Mansion supports $incby$ more Trimp{s}.",
->>>>>>> master-en
 			cost: {
 				gems: [100, 1.2],
 				food: [3000, 1.2],
@@ -8612,11 +8025,7 @@ var toReturn = {
 			purchased: 0,
 			craftTime: 120,
 			AP: true,
-<<<<<<< HEAD
-			tooltip: "看上去不错的旅馆，成为很多脆皮的住所。提供客房服务和一个迷你酒吧完成。 可以住 $incby$ 脆皮。",
-=======
 			tooltip: "A fancy hotel for many Trimps to live in. Complete with room service and a mini bar. Supports $incby$ Trimp{s}.",
->>>>>>> master-en
 			cost: {
 				gems: [2000, 1.18],
 				food: [10000, 1.18],
@@ -8635,11 +8044,7 @@ var toReturn = {
 			purchased: 0,
 			craftTime: 240,
 			AP: true,
-<<<<<<< HEAD
-			tooltip: "对于你的脆皮来说，这是一个巨大的胜地。 可以住 $incby$ 脆皮。",
-=======
 			tooltip: "A huge resort for your Trimps to live in. Sucks for the ones still stuck in huts. Supports $incby$ Trimp{s}.",
->>>>>>> master-en
 			cost: {
 				gems: [20000, 1.16],
 				food: [100000, 1.16],
@@ -8658,11 +8063,7 @@ var toReturn = {
 			purchased: 0,
 			craftTime: 480,
 			AP: true,
-<<<<<<< HEAD
-			tooltip: "另一个维度的传送门，你的脆皮可以睡觉和工作. 可以住 $incby$ 脆皮。",
-=======
 			tooltip: "A Gateway to another dimension, where your Trimps can sleep and work. Supports $incby$ Trimp{s}.",
->>>>>>> master-en
 			cost: {
 				fragments: [3000, 1.14],
 				gems: [20000, 1.14],
@@ -8696,11 +8097,7 @@ var toReturn = {
 			purchased: 0,
 			craftTime: 1200,
 			AP: true,
-<<<<<<< HEAD
-			tooltip: "每个收集器都可以让你收获更多的家庭之星的力量，让你的脆皮能够在你的太阳系中占据更大的比例。 每个可以住 $incby$ 脆皮.",
-=======
 			tooltip: "Each collector allows you to harvest more of the power of your home star, allowing your Trimps to colonize a larger chunk of your solar system. Each supports $incby$ Trimp{s}.",
->>>>>>> master-en
 			cost: {
 				gems: [500000000000, 1.12]
 			},
@@ -8716,12 +8113,8 @@ var toReturn = {
 			craftTime: 1200,
 			origTime: 1200,
 			AP: true,
-<<<<<<< HEAD
-			tooltip: "创造一个巨大的经纱站，能够容纳大量的脆皮，并在需要时立即将它们运回家园。可以住 $incby$ 脆皮。",
-=======
 			blockU2: true,
 			tooltip: "Create a gigantic Warpstation, capable of housing tons of Trimps and instantly transporting them back to the home planet when needed. Supports $incby$ Trimps.",
->>>>>>> master-en
 			cost: {
 				gems: [100000000000000, 1.4],
 				metal: [1000000000000000, 1.4]
@@ -8738,12 +8131,8 @@ var toReturn = {
 			purchased: 0,
 			craftTime: 20,
 			AP: true,
-<<<<<<< HEAD
-			tooltip: "你的脆皮可以锻炼的建筑物。 每个健身房都可以增加每个脆皮$incby$〜格挡的伤害量",
-=======
 			blockU2: true,
 			tooltip: "A building where your Trimps can work out. Each Gym increases the amount of damage each trimp can block by $incby$~",
->>>>>>> master-en
 			cost: {
 				wood: [400, 1.185]
 			},
@@ -8882,13 +8271,8 @@ var toReturn = {
 			owned: 0,
 			blockU2: true,
 			tooltip: function () {
-<<<<<<< HEAD
-				var text = "每个训练员都将增加你的士兵防御";
-				var heirloomBonus = game.heirlooms.Shield.trainerEfficiency.currentBonus;
-=======
 				var text = "Each trainer will increase the base amount your soldiers can block by ";
 				var heirloomBonus = getHeirloomBonus("Shield", "trainerEfficiency");
->>>>>>> master-en
 				var modifier = game.jobs.Trainer.modifier;
 				if (heirloomBonus > 0){
 					modifier = calcHeirloomBonus("Shield", "trainerEfficiency", modifier).toFixed(1);
@@ -9082,11 +8466,7 @@ var toReturn = {
 	goldenUpgrades: {
 		Helium: {
 			tooltip: function() {
-<<<<<<< HEAD
-				return "增加氦获得量 " + prettify(game.goldenUpgrades.Helium.nextAmt() * 100) + "%.";
-=======
 				return "Increase " + heliumOrRadon() + " gain by " + prettify(game.goldenUpgrades.Helium.nextAmt() * 100) + "%.";
->>>>>>> master-en
 			},
 			nextAmt: function() {
 				return 0.01 * (game.global.goldenUpgrades + 1);
@@ -10019,14 +9399,10 @@ var toReturn = {
 	triggers: {
 		Trap: {
 			done: 0,
-<<<<<<< HEAD
-			message: "也许这里能捕获到一些美味多肉的东西。",
-=======
 			message: function(){
 				if (game.global.universe == 2) return "It's time to get some Trimps up in here.";
 				return "Maybe there's something meaty and delicious here to Trap."
 			},
->>>>>>> master-en
 			cost: {
 				resources: {
 					food: 5,
@@ -10044,14 +9420,10 @@ var toReturn = {
 		},
 		wood: {
 			done: 0,
-<<<<<<< HEAD
-			message: "你需要一些木材来建造东西...",
-=======
 			message: function(){
 				if (game.global.universe == 2) return "Ah wood, the building material of kings. The building material of everyone else too, but still.";
 				return "You'll need some wood to build stuff..."
 			},
->>>>>>> master-en
 			cost: {
 				resources: {
 					food: 5
@@ -10064,14 +9436,10 @@ var toReturn = {
 		},
 		Barn: {
 			done: 0,
-<<<<<<< HEAD
-			message: "食品存储的很满了,也许你应该开始考虑建一个谷仓。",
-=======
 			message: function(){
 				if (game.global.universe == 2) return "You almost forgot how to build a Barn, but now you remember. Proud of you!";
 				return "The food stores are getting pretty full, maybe you should start thinking about a Barn."
 			},
->>>>>>> master-en
 			cost: {
 				resources: {
 					food: 350
@@ -10083,14 +9451,10 @@ var toReturn = {
 		},
 		Shed: {
 			done: 0,
-<<<<<<< HEAD
-			message: "一个棚子能让你存储更多的木头。",
-=======
 			message: function(){
 				if (game.global.universe == 2) return "Wet wood won't work! Better get a Shed going.";
 				return "A nice Shed would allow you to keep more wood on hand."
 			},
->>>>>>> master-en
 			cost: {
 				resources: {
 					wood: 350
@@ -10102,14 +9466,10 @@ var toReturn = {
 		},
 		Forge: {
 			done: 0,
-<<<<<<< HEAD
-			message: "一个熔炼能让你存储更多的金属。",
-=======
 			message: function(){
 				if (game.global.universe == 2) return "What better place to store metal than a building that can smelt it?";
 				return "A nice Forge would allow you to store more metal."
 			},
->>>>>>> master-en
 			cost: {
 				resources: {
 					metal: 350
@@ -10121,14 +9481,10 @@ var toReturn = {
 		},
 		jobs: {
 			done: 0,
-<<<<<<< HEAD
-			message: "陷阱里抓住了一个奇怪的小鬼似得小生物。 一个脆皮，你决定这么称呼它。既然你是如此富有创造力，那你也可以训练这个脆皮来帮你的忙。",
-=======
 			message: function(){
 				if (game.global.universe == 2) return "You caught your very first Trimp in this new dimension! It can smell other Trimps on you and looks confused. You promptly send him off to work!";
 				return "There's a weird impish little creature in the trap. A Trimp, you decide to call it. Since you're so creative, you could probably train this Trimp to help out."
 			},
->>>>>>> master-en
 			cost: {
 				resources: {
 					trimps: 1
@@ -10156,14 +9512,10 @@ var toReturn = {
 		},
 		upgrades: {
 			done: 0,
-<<<<<<< HEAD
-			message: "这个星球感觉起来如此熟悉，又那么陌生。也许，是时候开始研究一些东西了。",
-=======
 			message: function(){
 				if (game.global.universe == 2) return "Where would you be in life without Science? Not this dimension, that's for sure.";
 				return "This planet feels so familiar, yet so foreign. Maybe it's time to start sciencing things."
 			},
->>>>>>> master-en
 			cost: {
 				resources: {
 					trimps: 2,
@@ -10179,16 +9531,11 @@ var toReturn = {
 		},
 		Battle: {
 			done: 0,
-<<<<<<< HEAD
-			once: function() {document.getElementById("upgradesTitleSpan").innerHTML = "升级";},
-			message: "战争...它到底有什么好处呢？探索或是别的什么吧。",
-=======
 			once: function() {document.getElementById("upgradesTitleSpan").innerHTML = "Upgrades";},
 			message: function(){
 				if (game.global.universe == 2) return "As you finally step out into the Battle Zones, the first thing you notice is that your Heirlooms feel weaker here. Oh well, 1000 more times into the fray... ";
 				return "War... what is it good for? Exploration, or something."
 			},
->>>>>>> master-en
 			cost: {
 				special: function () {
 					return (game.triggers.upgrades.done > 0 && game.resources.science.owned > 0 && game.triggers.jobs.done > 0);
@@ -10201,14 +9548,10 @@ var toReturn = {
 		},
 		Hut: {
 			done: 0,
-<<<<<<< HEAD
-			message: "看起来并不是所有的脆皮都能适合住你的船。幸运的是，你还记得如何去建造小屋。",
-=======
 			message: function(){
 				if (game.global.universe == 2) return "The newly established Trimp zoning committee is too busy drooling to approve anything, so you take it on yourself to start building some Huts.";
 				return "Doesn't seem like all of these little guys will fit in your ship. Luckily, you remember how to make small huts for shelter."
 			},
->>>>>>> master-en
 			cost: {
 				resources: {
 					trimps: 8
@@ -10220,15 +9563,11 @@ var toReturn = {
 		},
 		House: {
 			done: 0,
-<<<<<<< HEAD
-			message: "这里开始变得非常拥挤了，也许你应该开始建造一些更好的住房。",
-=======
 			message: function(){
 				if (game.global.universe == 2) return "The TZC has finally approved a House blueprint. To your surprise, it looks fairly decent! You decide to immediately build some.";
 				return "Doesn't seem like all of these little guys will fit in your ship. Luckily, you remember how to make small huts for shelter."
 			},
 			message: "It's starting to get pretty crowded up in here. Maybe you should start building some better housing.",
->>>>>>> master-en
 			cost: {
 				resources: {
 					trimps: 65
@@ -10241,14 +9580,9 @@ var toReturn = {
 		breeding: {
 			done: 0,
 			message: function () {
-<<<<<<< HEAD
-				if (game.global.challengeActive == "Trapper") return "你的脆皮看起来很无聊。";
-				else return "很明显， 这些脆皮不工作的时候就在进行繁殖活动（#_#！）。看起来不像岛国爱情动作片那么美~~ ";
-=======
 				if (game.global.challengeActive == "Trapper" || game.global.challengeActive == "Trappapalooza") return "Your Trimps look really bored.";
 				else if (game.global.universe == 2) return "Better hurry up to the fighting Zones so you don't have to sit around here all day watching Trimps breed.";
 				else return "Apparently the Trimps breed if they're not working. Doesn't look pleasant.";
->>>>>>> master-en
 			},
 			cost: {
 				special: function () {
