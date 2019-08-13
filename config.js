@@ -7094,41 +7094,7 @@ var toReturn = {
 				fadeIn("helium", 10);
 				addHelium(45);
 				if (!fromGenerator){
-<<<<<<< HEAD
-					message("<span class='glyphicon glyphicon-oil'></span> 你从那个Blimp上提取到了45个氦!既然你知道了该如何得到氦，你现在就能从普通的Blimp身上提取出氦了。", "Story");
-				}
-				if (game.global.challengeActive == "Metal"){
-					game.global.challengeActive = "";
-					game.challenges.Metal.abandon();
-					game.portal.Artisanistry.locked = false;
-					game.challenges.Metal.completed = true;
-					message("你已经完成了<b>金属挑战!</b>你解锁了一个新能力,在本轮中可以重新雇佣矿工", "Notices");
-				}
-				if (game.global.challengeActive == "Size"){
-					game.global.challengeActive = "";
-					game.challenges.Size.abandon();
-					game.challenges.Size.completed = true;
-					game.portal.Carpentry.locked = false;
-					message("你已经完成了<b>尺寸挑战!</b>你解锁了一个新能力, 你的脆皮也缩小回原来的尺寸。", "Notices");
-				}
-				if (game.global.challengeActive == "Discipline"){
-					game.global.challengeActive = "";
-					game.challenges.Discipline.completed = true;
-					game.portal.Range.locked = false;
-					message("你已经完成了<b>纪律挑战!</b>你解锁了一个新能力,你的脆皮也重新变得有纪律。", "Notices");
-				}
-				if (game.global.challengeActive == "Frugal"){
-					game.global.challengeActive = "";
-					game.global.frugalDone = true;
-					game.challenges.Frugal.abandon();
-					message("你已经完成了'Frugal'挑战!你现在可以一次获得2级锻造书，巨型书也多增加10%收集速度!", "Notices");
-				}
-				if (game.global.challengeActive == "Coordinate"){
-					game.global.challengeActive = "";
-					game.portal.Coordinated.locked = false;
-					message("你已经完成了'协同'挑战!本世界敌人不再协同作战,但又可以先攻. 你解锁了'协调'能力!", "Notices");
-=======
-					message("<span class='" + heliumIcon() + "'></span> You were able to extract 45 " + heliumOrRadon(true) + "s from that Blimp! Now that you know how to do it, you'll be able to extract " + resource + " from normal Blimps.", "Story");
+					message("<span class='" + heliumIcon() + "'></span> 你从那个Blimp上提取到了 45 " + heliumOrRadon(true) + "! 既然你知道了该如何得到氦，你现在就能从普通的Blimp身上提取出 " + resource + " 。", "Story");
 				}
 				if (game.global.challengeActive == "Metal"){
 					game.challenges.Metal.onComplete();
@@ -7144,7 +7110,6 @@ var toReturn = {
 				}
 				if (game.global.challengeActive == "Coordinate"){
 					game.challenges.Coordinate.onComplete();
->>>>>>> master-en
 				}
 			}
 		},

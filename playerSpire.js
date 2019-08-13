@@ -1847,41 +1847,25 @@ var playerSpireTraps = {
         icon: "funnel",
         upgrades: [
             {   //level 2
-<<<<<<< HEAD
-                description: "每个冷凝塔都可以从所有来源获得额外的5％氦气。", //500 
-=======
-                get description(){ return "Each Condenser Tower grants an additional 5% " + heliumOrRadon() + " earned from all sources.";}, //500 
->>>>>>> master-en
+                get description(){ return "每个冷凝塔都可以从所有来源获得额外的5％ " + heliumOrRadon() + " 。";}, //500 
                 unlockAt: -1,
                 cost: 2e6
             },
             {
                 //level 3
-<<<<<<< HEAD
-                description: "每个冷凝塔都可以从所有来源获得额外的5％氦气。", //5000
-=======
-                get description(){ return "Each Condenser Tower grants an additional 5% " + heliumOrRadon() + " earned from all sources.";}, //5000
->>>>>>> master-en
+                get description(){ return "每个冷凝塔都可以从所有来源获得额外的5％ " + heliumOrRadon() + " 。";}, //5000
                 unlockAt: -1,
                 cost: 2e10
             },
             {
                 //level 4
-<<<<<<< HEAD
-                description: "每个冷凝塔都可以从所有来源获得额外的5％氦气。", //50000
-=======
-                get description(){ return "Each Condenser Tower grants an additional 5% " + heliumOrRadon() + " earned from all sources.";}, //50000
->>>>>>> master-en
+                get description(){ return "每个冷凝塔都可以从所有来源获得额外的5％ " + heliumOrRadon() + " 。";}, //50000
                 unlockAt: -1,
                 cost: 2e14
             },
             {
                 //level 5
-<<<<<<< HEAD
-                description: "每个冷凝塔都可以从所有来源获得额外的5％氦气。", //500000
-=======
-                get description(){ return "Each Condenser Tower grants an additional 5% " + heliumOrRadon() + " earned from all sources.";}, //500000
->>>>>>> master-en
+                get description(){ return "每个冷凝塔都可以从所有来源获得额外的 " + heliumOrRadon() + " 。";}, //500000
                 unlockAt: -1,
                 cost: 2e18
             },
@@ -1916,41 +1900,25 @@ var playerSpireTraps = {
         icon: "book2",
         upgrades: [
             {   //level 2
-<<<<<<< HEAD
-                description: "每个知识塔提供从所有来源获得的额外7.5％蓬松经验加成。", //500 
-=======
-                get description(){ return "Each Knowledge Tower grants an additional 7.5% " + Fluffy.getName() + " Exp earned from all sources.";}, //500 
->>>>>>> master-en
+                get description(){ return "每个知识塔提供从所有来源获得的额外7.5％ " + Fluffy.getName() + " 经验加成。";}, //500 
                 unlockAt: -1,
                 cost: 3e6
             },
             {
                 //level 3
-<<<<<<< HEAD
-                description: "每个知识塔提供从所有来源获得的额外7.5％蓬松经验加成。", //5000
-=======
-                get description(){ return "Each Knowledge Tower grants an additional 7.5% " + Fluffy.getName() + " Exp  earned from all sources.";}, //5000
->>>>>>> master-en
+                get description(){ return "每个知识塔提供从所有来源获得的额外7.5％ " + Fluffy.getName() + " 经验加成。";}, //5000
                 unlockAt: -1,
                 cost: 3e10
             },
             {
                 //level 4
-<<<<<<< HEAD
-                description: "每个知识塔提供从所有来源获得的额外7.5％蓬松经验加成。", //50000
-=======
-                get description(){ return "Each Knowledge Tower grants an additional 7.5% " + Fluffy.getName() + " Exp earned from all sources.";}, //50000
->>>>>>> master-en
+                get description(){ return "每个知识塔提供从所有来源获得的额外7.5％ " + Fluffy.getName() + " 经验加成。";}, //50000
                 unlockAt: -1,
                 cost: 3e14
             },
             {
                 //level 4
-<<<<<<< HEAD
-                description: "每个知识塔提供从所有来源获得的额外7.5％蓬松经验加成。", //50000
-=======
-                get description(){ return "Each Knowledge Tower grants an additional 7.5% " + Fluffy.getName() + " Exp earned from all sources.";}, //50000
->>>>>>> master-en
+                get description(){ return "每个知识塔提供从所有来源获得的额外7.5％ " + Fluffy.getName() + " 经验加成。";}, //50000
                 unlockAt: -1,
                 cost: 3e18
             }
@@ -1966,11 +1934,7 @@ var playerSpireTraps = {
         },
         noDirectDamage: true,
         get description(){
-<<<<<<< HEAD
-            return "当被冰冷的敌人踩到时，冰冷变为冻结，使目标减速至33％（一格三步），持续5格。此外，每个知识塔都会提供" + prettify(this.getWorldBonus(true)) + "%蓬松经验加成(additive with other Knowledge Towers). 请注意，知识塔涂有防冻剂，可防止冰冷或冻结直到敌人离开此塔。<br/><br/>你的知识塔一共提供<b>" + prettify(this.getWorldBonus()) + "%</b>蓬松经验加成。<br/><br/>(快捷键 7)";
-=======
-            return "When stepped on by a Chilled enemy, Chilled becomes Frozen, slowing the target to 33% speed for 5 moves. In addition, each Knowledge Tower increases " + Fluffy.getName() + "'s Experience gain by " + prettify(this.getWorldBonus(true)) + "% (additive with other Knowledge Towers). Note that Knowledge Towers are coated with antifreeze, preventing chill effects from working until the enemy steps off of this Tower.<br/><br/>Your Knowledge Towers are currently granting a total of <b>" + prettify(this.getWorldBonus()) + "%</b> additional " + Fluffy.getName() + " Exp.<br/><br/>(Hotkey 7)";
->>>>>>> master-en
+            return "当被冰冷的敌人踩到时，冰冷变为冻结，使目标减速至33％持续5格。 此外，每个知识塔都会提供 " + Fluffy.getName() + "' 经验加成 " + prettify(this.getWorldBonus(true)) + "% (添加剂与其他知识塔). 请注意，知识塔涂有防冻剂，可防止冰冷或冻结直到敌人离开此塔。<br/><br/>你的知识塔一共提供 <b>" + prettify(this.getWorldBonus()) + "%</b> 额外 " + Fluffy.getName() + " 经验.<br/><br/>(Hotkey 7)";
         },
         totalDamage: function (enemy){
             var level = this.level;
