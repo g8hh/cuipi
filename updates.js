@@ -997,7 +997,12 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		if (document.queryCommandSupported('copy')){
 			costText += "<div id='clipBoardBtn' class='btn btn-success'>复制到粘贴板</div>";
 		}
-		costText += "<a id='downloadLink' target='_blank' download='Trimps Save P" + game.global.totalPortals + " Z" + game.global.world + ".txt', href=";
+		var saveName = 'Trimps Save P' + game.global.totalPortals;
+		if (game.global.universe == 2 || game.global.totalRadPortals > 0){
+			saveName += " " + game.global.totalRadPortals + " U" + game.global.universe;
+		}
+		saveName += " Z" + game.global.world;
+		costText += "<a id='downloadLink' target='_blank' download='" + saveName + ".txt', href=";
 		if (Blob !== null) {
 			var blob = new Blob([saveText], {type: 'text/plain'});
 			var uri = URL.createObjectURL(blob);
@@ -1332,6 +1337,11 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 	if (ondisplay !== null)
 		ondisplay();
 	if (event != "update") positionTooltip(elem, event, renameBtn);
+}
+
+function screenReaderAssert(text){
+	var elem = document.getElementById('screenReaderTooltip');
+	if (elem) elem.innerHTML = text;
 }
 
 function getExtraScryerText(fromForm){
@@ -2349,6 +2359,14 @@ function getBattleStatBd(what) {
 		var voidE = ((game.talents.fluffyAbility.purchased) ? "8" : "9");
 		textString += "<tr><td class='bdTitle'>Void Siphon (" + Fluffy.getName() + " E" + voidE + ")</td><td>+ " + (voidWeight * 100) + "%</td><td>" + voids + "</td><td>+ " + prettify(amt * 100) + "%</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>"
 	}
+		//Magma
+		if (mutations.Magma.active() && (what == "attack" || what == "health")){
+			mult = mutations.Magma.getTrimpDecay();
+			var lvls = game.global.world - mutations.Magma.start() + 1;
+			currentCalc *= mult;
+			var display = (mult > 0.0001) ? mult.toFixed(4) : mult.toExponential(3);
+			textString += "<tr style='color: red'><td class='bdTitle'>Overheating (Magma)</td><td>x 0.8</td><td>" + lvls + "</td><td class='bdPercent'>x " + display + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td>" + ((what == "attack") ? getFluctuation(currentCalc, minFluct, maxFluct) : "") + "</tr>";
+		}
 	//Amalgamator health
 	if (what == "health" && game.jobs.Amalgamator.owned > 0){
 		amt = game.jobs.Amalgamator.getHealthMult();
@@ -2379,14 +2397,7 @@ function getBattleStatBd(what) {
 		textString += "<tr><td class='bdTitle'>锋利脆皮</td><td></td><td></td><td>+ 50%</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>"
 		
 	}
-	//Magma
-	if (mutations.Magma.active() && (what == "attack" || what == "health")){
-		mult = mutations.Magma.getTrimpDecay();
-		var lvls = game.global.world - mutations.Magma.start() + 1;
-		currentCalc *= mult;
-		var display = (mult > 0.0001) ? mult.toFixed(4) : mult.toExponential(3);
-		textString += "<tr style='color: red'><td class='bdTitle'>过热 (岩浆)</td><td>x 0.8</td><td>" + lvls + "</td><td class='bdPercent'>x " + display + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td>" + ((what == "attack") ? getFluctuation(currentCalc, minFluct, maxFluct) : "") + "</tr>";
-	}
+
 	if (what == "attack" && game.global.challengeActive == "Unbalance"){
 		var mult = game.challenges.Unbalance.getAttackMult()
 		currentCalc *= mult;
@@ -3233,6 +3244,7 @@ function resetGame(keepPortal) {
 	var autoUpgrades;
 	var heirloomBoneSeed;
 	var voidMaxLevel;
+	var voidMaxLevel2;
 	var autoUpgradesAvailable;
 	var rememberInfo;
 	var playFabLoginType;
@@ -3317,8 +3329,11 @@ function resetGame(keepPortal) {
 		}
 		bestHelium = (game.global.universe == 1 && game.global.tempHighHelium > game.global.bestHelium) ? game.global.tempHighHelium : game.global.bestHelium;
 		bestRadon = (game.global.universe == 2 && game.global.tempHighRadon > game.global.bestRadon) ? game.global.tempHighRadon : game.global.bestRadon;
-		if (game.stats.bestHeliumHour.valueTotal < game.stats.heliumHour.value(true)){
+		if (game.global.universe == 1 && game.stats.bestHeliumHour.valueTotal < game.stats.heliumHour.value(true)){
 			game.stats.bestHeliumHour.valueTotal = game.stats.heliumHour.value(true);
+		}
+		else if (game.global.universe == 2 && game.stats.bestRadonHour.valueTotal < game.stats.heliumHour.value(true)){
+			game.stats.bestRadonHour.valueTotal = game.stats.heliumHour.value(true);
 		}
 		if (Fluffy.getBestExpStat().value > 0 && Fluffy.getBestExpHourStat().valueTotal < game.stats.fluffyExpHour.value()){
 			Fluffy.getBestExpHourStat().valueTotal = game.stats.fluffyExpHour.value();
@@ -3366,6 +3381,19 @@ function resetGame(keepPortal) {
 		heirloomBoneSeed = game.global.heirloomBoneSeed;
 		heirloomSeed = game.global.heirloomSeed;
 		voidMaxLevel = game.global.voidMaxLevel;
+		voidMaxLevel2 = game.global.voidMaxLevel2;
+		if (game.global.universe == 2){
+			if (lastRadonPortal < voidMaxLevel2) {
+				voidMaxLevel2 = Math.floor(voidMaxLevel2 * 0.95);
+				if (voidMaxLevel2 < lastRadonPortal) voidMaxLevel2 = lastRadonPortal;
+			}
+		}
+		else {
+			if (lastPortal < voidMaxLevel) {
+				voidMaxLevel = Math.floor(voidMaxLevel * 0.95);
+				if (voidMaxLevel < lastPortal) voidMaxLevel = lastPortal;
+			}
+		}
 		playFabLoginType = game.global.playFabLoginType;
 		rememberInfo = game.global.rememberInfo;
 		GeneticistassistSetting = game.global.GeneticistassistSetting;
@@ -3440,6 +3468,7 @@ function resetGame(keepPortal) {
 		game.global.highestRadonLevelCleared = highestRadonLevel;
 		game.global.challengeActive = challenge;
 		game.global.universe = newUniverse;
+		portalUniverse = newUniverse;
 		game.global.recentDailies = recentDailies;
 		if (challenge == "Daily") game.global.dailyChallenge = getDailyChallenge(readingDaily, true, false);
 		game.global.sLevel = sLevel;
@@ -3549,11 +3578,8 @@ function resetGame(keepPortal) {
 		if (game.global.totalPortals == 5) message("Heavy use of the portal has created a chance for the Void to seep into your world. Be alert.", "Story", null, "voidMessage");
 		if (game.global.totalPortals >= 5) document.getElementById("heirloomBtnContainer").style.display = "block";
 		recalculateHeirloomBonuses();
-		if (lastPortal < voidMaxLevel) {
-			voidMaxLevel = Math.floor(voidMaxLevel * 0.95);
-			if (voidMaxLevel < lastPortal) voidMaxLevel = lastPortal;
-		}
 		game.global.voidMaxLevel = voidMaxLevel;
+		game.global.voidMaxLevel2 = voidMaxLevel2;
 		for (var cItem in c2s){
 			game.c2[cItem] = c2s[cItem];
 		}
@@ -5053,7 +5079,7 @@ function toggleSetting(setting, elem, fromPortal, updateOnly, backwards){
 					}
 					if (one && achievement.filters[x] == -1 && !achievement.finished[x]) continue;
 					htmlString += "<td>";
-					if ((!one && achievement.finished == x) || (one && !achievement.finished[x] && achievement.highestLevel() >= achievement.filters[x])) {
+					if ((!one && achievement.finished == x) || (one && !achievement.finished[x] && achievement.filterLevel() >= achievement.filters[x])) {
 						if (item == "humaneRun" || item == "mapless")
 						htmlString += (achievement.evaluate() == 0) ? "Not complete, failed for this run." : "Not complete";
 						else

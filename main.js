@@ -339,8 +339,8 @@ function load(saveString, autoLoad, fromPf) {
 				if (game.options.menu[itemO]) game.options.menu[itemO].enabled = savegame.options.menu[itemO].enabled;
 				if (itemO == "mapAtZone"){
 					game.options.menu.mapAtZone.setZone = savegame.options.menu.mapAtZone.setZone;
-					if (savegame.options.menu.mapAtZone.setZone2)
-						game.options.menu.mapAtZone.setZone2 = savegame.options.menu.mapAtZone.setZone2;
+					if (savegame.options.menu.mapAtZone.setZoneU2)
+						game.options.menu.mapAtZone.setZoneU2 = savegame.options.menu.mapAtZone.setZoneU2;
 				}
 			}
 			if (typeof savegame.options.menu.GeneticistassistTarget !== 'undefined' && savegame.options.menu.GeneticistassistTarget.disableOnUnlock) game.options.menu.GeneticistassistTarget.disableOnUnlock = true;
@@ -817,7 +817,15 @@ function load(saveString, autoLoad, fromPf) {
 			noOfflineTooltip = true;
 		}
 	}
-
+	if (compareVersion([5,0,3], oldStringVersion)){
+		if (game.global.highestRadonLevelCleared > 0){
+			game.global.voidMaxLevel2 = game.global.highestRadonLevelCleared;
+			game.global.voidMaxLevel = game.global.lastPortal;
+		}
+	}
+	if (compareVersion([5,0,4], oldStringVersion)){
+		game.portal.Trumps.locked = false;
+	}
 	//End compatibility
 	//Test server only
 
@@ -825,6 +833,7 @@ function load(saveString, autoLoad, fromPf) {
 	//Temporary until next patch
 	game.portal.Classy.max = 75;
 	//End Temporary
+	portalUniverse = game.global.universe;
 	Fluffy.handleBox();
 	if (!getCurrentMapObject()) {
 		game.global.currentMapId = "";
@@ -1147,11 +1156,17 @@ function displayRoboTrimp() {
 		var swapIn = (game.global.useShriek) ? 'shriekStateEnabled' : 'shriekStateDisabled';
 		swapClass("shriekState", swapIn, elem);
 	}
+	if (usingScreenReader){
+		elem.title = (game.global.useShriek) ? "Deactivate MagnetoShriek" : "Activate MagnetoShriek";
+	}
 }
 
 function magnetoShriek() {
 	if (game.global.roboTrimpCooldown > 0 || !game.global.roboTrimpLevel || game.global.world < 60) return;
 	game.global.useShriek = !game.global.useShriek;
+	if (usingScreenReader){
+		screenReaderAssert("MagnetoShriek " + ((game.global.useShriek) ? "activated and will be used on this Zone's boss" : "deactivated") + ". Click again to " + ((game.global.useShriek) ? "deactivate" : "activate"));
+	}
 	displayRoboTrimp();
 	if (game.global.useShriek && !game.global.mapsActive){
         var cell = getCurrentWorldCell();
@@ -1806,6 +1821,18 @@ function getHighestLevelCleared(usePortalUniverse, obsidianLimit){
 	return level;
 }
 
+function getVoidMaxLevel(){
+	var universe = game.global.universe;
+	if (universe == 2) return game.global.voidMaxLevel2;
+	else return game.global.voidMaxLevel;
+}
+
+function setVoidMaxLevel(amt){
+	var universe = game.global.universe;
+	if (universe == 2) game.global.voidMaxLevel2 = amt;
+	else game.global.voidMaxLevel = amt;
+}
+
 function unlockPerk(what){
 	var perk = game.portal[what];
 	if (game.global.universe == 2){
@@ -2430,7 +2457,7 @@ function savePerkPreset(){
 	var levelName = (portalUniverse == 2) ? "radLevel" : "level";
 	for(var item in game.portal){
 		var temp = (game.portal[item].levelTemp) ? game.portal[item].levelTemp : 0;
-		if ((game.global.universe == 1 && game.portal[item].locked !== false) || (game.global.universe == 2 && game.portal[item].radLocked !== false) || game.portal[item][levelName] + temp == 0) continue;
+		if ((portalUniverse == 1 && game.portal[item].locked !== false) || (portalUniverse == 2 && game.portal[item].radLocked !== false) || game.portal[item][levelName] + temp == 0) continue;
 		saved[item] = game.portal[item][levelName] + temp;
 	}
 	if (presetGroup["perkPreset" + to].Name) saved.Name = presetGroup["perkPreset" + to].Name;
@@ -2545,7 +2572,7 @@ function importPerks() {
 		heNeeded += price[perk];
 	}
 	if (heNeeded > game.resources.helium.respecMax - game.resources.helium.totalSpentTemp)
-		return "You don't have enough Helium to afford this perk setup.";
+		return "You don't have enough " + heliumOrRadon(false, true) + " to afford this perk setup.";
 
 	if (respecNeeded && !game.global.canRespecPerks)
 		return "This perk setup would require a respec, but you don't have one available.";
@@ -2806,6 +2833,9 @@ function activatePortal(){
 	}
 	if (game.global.challengeActive == "Daily"){
 		abandonDaily();
+	}
+	if (game.global.challengeActive == "Bublé"){
+		game.challenges.Bublé.abandon();
 	}
 	if (game.global.runningChallengeSquared && game.global.challengeActive){
 		if (game.global.world > game.c2[game.global.challengeActive])
@@ -5004,13 +5034,12 @@ function buyMap() {
 function checkVoidMap() {
 	if (game.global.totalPortals < 5) return;
 	if (game.global.universe == 2 && game.global.totalRadPortals < 1) return;
-	var dif = game.global.lastVoidMap;
-	var max = game.global.voidMaxLevel;
+	var max = getVoidMaxLevel();
 	if (getLastPortal() != -1){
-			if (game.global.voidMaxLevel < game.global.world){
-				game.global.voidMaxLevel = game.global.world;
+			if (max < game.global.world){
+				setVoidMaxLevel(game.global.world);
 				if ((getLastPortal() + 25) < game.global.world)
-					game.global.voidMaxLevel = getHighestLevelCleared(false, true);
+					setVoidMaxLevel(getHighestLevelCleared(false, true));
 			}
 		if ((max - getLastPortal()) < 25) {
 			max = getLastPortal();
@@ -5057,7 +5086,7 @@ function createVoidMap(forcePrefix, forceSuffix, skipMessage) {
 	var mapName = prefixes[prefixNum] + " " + suffixes[suffixNum];
 	var stackedMap = false;
 	var stackCount = Fluffy.getVoidStackCount();
-	if (game.talents.voidMastery.purchased) stackCount = 999;
+	if (game.talents.voidMastery.purchased && stackCount > 1) stackCount = 999;
 	if (game.global.totalVoidMaps > 0 && stackCount > 1){
 		for (var x = 0; x < game.global.mapsOwnedArray.length; x++){
 			var newMap = game.global.mapsOwnedArray[x];
@@ -6076,7 +6105,7 @@ function getHeirloomRarityRanges(zone, forBones){
 	var rarities = game.heirlooms.rarities[getHeirloomZoneBreakpoint(zone, forBones)];
 	var canLower = 0;
 	var addBonus = false;
-	if (Fluffy.isRewardActive("stickler")){
+	if (Fluffy.isRewardActive("stickler") && !(forBones && game.global.universe == 1 && game.global.totalRadPortals > 0)){
 		canLower = 500;
 		addBonus = true;
 	}
@@ -8584,6 +8613,7 @@ function mapsClicked(confirmed) {
 
 function mapsSwitch(updateOnly, fromRecycle) {
 	game.global.titimpLeft = 0;
+	updateGammaStacks(true);
 	updateTitimp();
     if (!updateOnly) {
 		//Coming out of maps or world (not necessarily to map chamber)
@@ -8797,10 +8827,6 @@ function runMap() {
 		}
 	}
 	document.getElementById('togglemapAtZone2').style.display = (game.global.canMapAtZone) ? "block" : "none";
-	if (!game.global.mapHealthActive && game.talents.mapHealth.purchased && game.global.soldierHealth > 0 && game.global.difs.health < 0){
-		game.global.difs.health += (game.global.health * 1.5);
-		game.global.mapHealthActive = true;
-	}
 }
 
 function getHousingMultiplier(){
@@ -9379,9 +9405,10 @@ function startFight() {
 		if (game.global.challengeActive == "Revenge") game.global.soldierHealthMax *= game.challenges.Revenge.getMult();
 		if (game.global.challengeActive == "Duel" && game.challenges.Duel.trimpStacks < 20) game.global.soldierHealthMax *= game.challenges.Duel.healthMult;	
 		if (game.talents.voidPower.purchased && game.global.voidBuff){
-			var vpAmt = (game.talents.voidPower2.purchased) ? ((game.talents.voidPower3.purchased) ? 65 : 35) : 15;
-			game.global.soldierHealthMax *= ((vpAmt / 100) + 1);
+			game.global.soldierHealthMax *= ((game.talents.voidPower.getTotalVP() / 100) + 1);
+			game.global.voidPowerActive = true;
 		}
+		else game.global.voidPowerActive = false;
 		if (game.global.challengeActive == "Wither"){
 			game.global.soldierHealthMax *= game.challenges.Wither.getTrimpHealthMult();
 		}
@@ -9420,6 +9447,30 @@ function startFight() {
 				game.global.maxSoldiersAtStart = game.resources.trimps.maxSoldiers;
 			}
 		}
+		//Check map health differences
+		if (game.talents.mapHealth.purchased){
+			if (game.global.mapHealthActive && !map){
+				game.global.soldierHealthMax /= 2;
+				if (game.global.soldierHealth > game.global.soldierHealthmax) game.global.soldierHealth = game.global.soldierHealthMax;
+				game.global.mapHealthActive = false;
+			}
+			else if (!game.global.mapHealthActive && map){
+				game.global.soldierHealthMax *= 2;
+				game.global.mapHealthActive = true;
+			}
+		}
+		if (game.talents.voidPower.purchased){
+			var mod = 1 + (game.talents.voidPower.getTotalVP() / 100);
+			if (game.global.voidPowerActive && (!map || map.location != "Void")){
+				game.global.soldierHealthMax /= mod;
+				if (game.global.soldierHealth > game.global.soldierHealthmax) game.global.soldierHealth = game.global.soldierHealthMax;
+				game.global.voidPowerActive = false;
+			}
+			else if (!game.global.voidPowerActive && map && map.location == "Void"){
+				game.global.soldierHealthMax *= mod;
+				game.global.voidPowerActive = true;
+			}
+		}
 		//Check differences in equipment, apply perks, bonuses, and formation
 		if (game.global.difs.health !== 0) {
 			var healthTemp = trimpsFighting * game.global.difs.health * ((game.portal.Toughness.modifier * getPerkLevel("Toughness")) + 1);
@@ -9428,7 +9479,7 @@ function startFight() {
 			}
 			if (getPerkLevel("Toughness_II")) healthTemp *= (1 + (game.portal.Toughness_II.modifier * getPerkLevel("Toughness_II")));
 			if (game.talents.mapHealth.purchased && game.global.mapsActive) healthTemp *= 2;
-			if (Fluffy.isRewardActive("Healthy")) healthTemp *= 1.5;
+			if (Fluffy.isRewardActive("healthy")) healthTemp *= 1.5;
 			if (game.jobs.Geneticist.owned > 0) healthTemp *= Math.pow(1.01, game.global.lastLowGen);
 			if (game.goldenUpgrades.Battle.currentBonus > 0) healthTemp *= game.goldenUpgrades.Battle.currentBonus + 1;
 			if (game.global.universe == 2 && game.buildings.Smithy.owned > 0) healthTemp *= game.buildings.Smithy.getMult();
@@ -9644,8 +9695,7 @@ function calculateDamage(number, buildString, isTrimp, noCheckAchieve, cell, noF
 			number *= game.goldenUpgrades.Battle.currentBonus + 1;
 		}
 		if (game.talents.voidPower.purchased && game.global.voidBuff){
-			var vpAmt = (game.talents.voidPower2.purchased) ? ((game.talents.voidPower3.purchased) ? 65 : 35) : 15;
-			number *= ((vpAmt / 100) + 1);
+			number *= ((game.talents.voidPower.getTotalVP() / 100) + 1);
 		}
 		if (game.global.totalSquaredReward > 0){
 			number *= ((game.global.totalSquaredReward / 100) + 1)
@@ -10365,7 +10415,7 @@ function nextWorld() {
 		else{
 			game.global.highestLevelCleared = game.global.world;
 		}
-		game.global.voidMaxLevel = game.global.world;
+		setVoidMaxLevel(game.global.world);
 		if (game.global.universe == 1){
 			if (game.global.world == 199) addNewSetting('mapsOnSpire');
 			else if (game.global.world == 180) {
@@ -11057,7 +11107,12 @@ function buyGoldenUpgrade(what) {
 		toggleAutoGolden(true);
 		return;
 	}
+	var oldBonus = upgrade.currentBonus;
 	upgrade.currentBonus += upgrade.nextAmt();
+	if (what == "Battle"){
+		var increase = (((1 + upgrade.currentBonus) / (1 + oldBonus)) - 1);
+		addSoldierHealth(increase);
+	}
 	upgrade.purchasedAt.push(game.global.goldenUpgrades);
 	game.global.goldenUpgrades++;
 	removeGoldenUpgrades();
@@ -12343,10 +12398,6 @@ function fight(makeUp) {
 				else if (isVoid && game.global.preMapsActive && game.global.totalVoidMaps > 0) {
 					toggleVoidMaps();
 				}
-				if (game.global.mapHealthActive && game.talents.mapHealth.purchased){
-					game.global.difs.health -= (game.global.health * 1.5);
-					game.global.mapHealthActive = false;
-				}
 				return;
 			}
 		}
@@ -12561,12 +12612,15 @@ function fight(makeUp) {
 				var burstDamage = calcHeirloomBonus("Shield", "gammaBurst", trimpAttack)
 				cell.health -= burstDamage;
 				burst.stacks = 0;
-				if (getUberEmpowerment() == "Wind" && getEmpowerment() == "Wind" && game.global.formation == 5) {
+				if (cell.health > 0 && getPlaguebringerModifier() > 0){
+					plaguebringer += (burstDamage * getPlaguebringerModifier());
+				}
+				if (getUberEmpowerment() == "Wind" && getEmpowerment() == "Wind" && game.global.formation == 5 && cell.health < 1) {
 					cell.health = 1;
 				}
-				else{
+				else if (cell.health <= 0){
 					overkill = Math.abs(cell.health);
-					if (cell.health <= 0) thisKillsTheBadGuy();	
+					thisKillsTheBadGuy();
 				}
 				if (getEmpowerment() == "Poison") stackPoison(burstDamage);
 			}
@@ -12809,6 +12863,15 @@ function reduceSoldierHealth(amt){
 	}
 }
 
+function addSoldierHealth(modifier){
+	if (game.global.soldierHealth > 0){
+		var increase = game.global.soldierHealthMax * modifier;
+		game.global.soldierHealth += increase;
+		game.global.soldierHealthMax += increase;
+		if (game.global.soldierHealth > game.global.soldierHealthMax) game.global.soldierHealth = game.global.soldierHealthMax;
+	}
+}
+
 function getPlaguebringerModifier(){
 	var amt = 0;
 	var shieldBonus = (getHeirloomBonus("Shield", "plaguebringer") / 100);
@@ -12987,9 +13050,9 @@ function updateBalanceStacks(){
 	else elem.style.display = "none";
 }
 
-function updateGammaStacks(){
+function updateGammaStacks(reset){
 	var bonus = getHeirloomBonus("Shield", "gammaBurst");
-	if (bonus <= 0){
+	if (bonus <= 0 || reset){
 		game.heirlooms.Shield.gammaBurst.stacks = 0;
 		manageStacks(null, null, true, 'gammaSpan', null, null, true);
 		return;
@@ -15137,6 +15200,7 @@ var Fluffy = {
 	getVoidStackCount: function () {
 		var count = 1;
 		if (this.isRewardActive('void')) count++;
+		else return 1;
 		if (this.isRewardActive('superVoid')) count += 4;
 		if (game.talents.voidSpecial2.purchased) count++;
 		return count;

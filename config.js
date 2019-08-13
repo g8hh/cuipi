@@ -22,7 +22,7 @@ function newGame () {
 var toReturn = {
 	global: {
 		//New and accurate version
-		stringVersion: '5.0.1',
+		stringVersion: '5.0.5',
 		//Leave 'version' at 4.914 forever, for compatability with old saves
 		version: 4.914,
 		isBeta: false,
@@ -173,6 +173,7 @@ var toReturn = {
 		playFabLoginType: -1,
 		lastCustomExact: 1,
 		voidMaxLevel: -1,
+		voidMaxLevel2: -1,
 		rememberInfo: false,
 		spireActive: false,
 		spireDeaths: 0,
@@ -253,6 +254,7 @@ var toReturn = {
 		hemmTimer: 150,
 		armyAttackCount: 0,
 		mapHealthActive: false,
+		voidPowerActive: false,
 		mapPresets: {
 			p1: {
 				loot: 0,
@@ -1240,7 +1242,10 @@ var toReturn = {
 			name: "Void Power I",
 			tier: 2,
 			purchased: false,
-			icon: "*heart5"
+			icon: "*heart5",
+			getTotalVP: function(){
+				return (game.talents.voidPower2.purchased) ? ((game.talents.voidPower3.purchased) ? 65 : 35) : 15;
+			}
 		},
 		pierce: {
 			description: "减少敌人25%的穿刺伤害。",
@@ -1748,6 +1753,7 @@ var toReturn = {
 		},
 		liquification3: {
 			get description () {
+				if (game.global.universe == 2) return "Liquification is disabled in Universe 2, but <b>Hyperspeed II's bonus will now function up to 75% of your Highest Zone Reached rather than a measly 50%</b>"
 				var text = (this.purchased) ? "This mastery is increasing " : "This mastery would increase ";
 				var totalSpires = game.global.spiresCompleted;
 				if (game.talents.liquification.purchased) totalSpires++;
@@ -2109,7 +2115,6 @@ var toReturn = {
 		},
 		Trumps: {
 		//fiveTrimpMax worldUnlock
-			locked: 0,
 			level: 0,
 			modifier: 1,
 			priceBase: 3,
@@ -3231,8 +3236,17 @@ var toReturn = {
 			},
 			addStacks: function(){
 				if (!game.global.mapsActive || getCurrentMapObject().level >= game.global.world){
-					if (this.trimpStacks < 10000)
-						this.trimpStacks++;
+					if (this.trimpStacks < 10000){
+						if (game.global.soldierHealth > 0){
+							var increase = this.getTrimpHealthMult();
+							this.trimpStacks++;
+							increase = ((this.getTrimpHealthMult() / increase) - 1);
+							addSoldierHealth(increase);
+						}
+						else{
+							this.trimpStacks++;
+						}
+					}
 					this.enemyStacks++;
 				}
 				if (this.healImmunity > 0) this.healImmunity--;
@@ -3245,8 +3259,14 @@ var toReturn = {
 				this.drawStacks();
 			},
 			abandon: function(){
-				manageStacks(null, null, true, 'witherTrimpStacks', null, null, true);
-				manageStacks(null, null, false, 'witherEnemyStacks', null, null, true);
+				var healthReduce = (1 / this.getTrimpHealthMult()) - 1;
+				if (healthReduce < 0)
+					addSoldierHealth(healthReduce);
+				this.trimpStacks = 0;
+				this.enemyStacks = 0;
+				this.healImmunity = 0;
+				manageStacks(null, null, true, 'witherHardenedStacks', null, null, true);
+				manageStacks(null, null, false, 'witherHorrorStacks', null, null, true);
 				manageStacks(null, null, true, 'witherImmunityStacks', null, null, true);
 			},
 			drawStacks: function(){
@@ -3579,6 +3599,22 @@ var toReturn = {
 				return (game.global.universe == 1);
 			},
 			value: 0,
+			valueTotal: 0
+		},
+		totalRadon: {
+			title: "Total Radon Earned",
+			display: function () {
+				return (game.global.totalRadonEarned > 0);
+			},
+			valueTotal: function () {
+				return game.global.totalRadonEarned;
+			}
+		},
+		bestRadonHour: {
+			title: "Best Rn/Hour all Runs",
+			display: function () {
+				return (this.valueTotal > 0);
+			},
 			valueTotal: 0
 		},
 		dailyBonusRadon: {
@@ -8164,6 +8200,7 @@ var toReturn = {
 				return Math.pow(1.25, this.owned);
 			},
 			fire: function(){
+				addSoldierHealth(0.25);
 				if (game.global.challengeActive == "Quest" && game.challenges.Quest.questId == 6) game.challenges.Quest.checkQuest();
 			}
 		},
