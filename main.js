@@ -1382,7 +1382,7 @@ function portalClicked(noUniChange) {
 	fadeIn("portalWrapper", 10);
 	var titleText = "Time Portal";
 	if (getSLevel(true) >= 1) titleText += " Mk. " + romanNumeral(getSLevel(true) + 1);
-	var portalStory = (getSLevel(true) >= 1) ? heliumOrRadon(false, true) + " goes in, victory comes out" : ((portalUniverse == 1) ? "Well, you did it. You followed your instincts through this strange world, made your way through the Dimension of Anger, and obtained this portal. But why? Maybe there will be answers through this portal... Your scientists tell you they can overclock it to bring more memories and items back, but they'll need helium to cool it." : "The Radon Universe is harsh. Your Portal still retains some information about the Scientist upgrades, but it'll need an upgrade of its own to be able to utilize them in this new Universe.<br/><b>Be ready to manually Gather some Food!</b>");
+	var portalStory = (getSLevel(true) >= 1) ? heliumOrRadon(false, true) + " 进去，胜利出来了" : ((portalUniverse == 1) ? "Well, you did it. You followed your instincts through this strange world, made your way through the Dimension of Anger, and obtained this portal. But why? Maybe there will be answers through this portal... Your scientists tell you they can overclock it to bring more memories and items back, but they'll need helium to cool it." : "The Radon Universe is harsh. Your Portal still retains some information about the Scientist upgrades, but it'll need an upgrade of its own to be able to utilize them in this new Universe.<br/><b>Be ready to manually Gather some Food!</b>");
 	document.getElementById("portalTitle").innerHTML = titleText;
 	document.getElementById("portalStory").innerHTML = portalStory;
 	var resName = (portalUniverse == 1) ? "Helium" : "Radon";
@@ -1398,7 +1398,7 @@ function portalClicked(noUniChange) {
 	var className = (game.global.highestRadonLevelCleared >= 64) ? "thingColorInfinite" : "thingColorSquared";
 	swapClass("thingColor", className, document.getElementById('inPortalC2Button'))
 	document.getElementById("challengeDescription").style.height = (getSLevel(true) >= 1) ? "19vw" : "22.5vw";
-	document.getElementById("challengeDescriptionPre").innerHTML = (getSLevel(true) >= 1) ? "Don't forget to bring a challenge<br/>" : 'You can also choose to activate a challenge before using your portal. Completing a challenge will earn you a permanent reward. You can abandon or view an active challenge at any time by clicking the "View Perks" button.';
+	document.getElementById("challengeDescriptionPre").innerHTML = (getSLevel(true) >= 1) ? "别忘了带一个挑战<br/>" : 'You can also choose to activate a challenge before using your portal. Completing a challenge will earn you a permanent reward. You can abandon or view an active challenge at any time by clicking the "View Perks" button.';
 	if (game.global.canRespecPerks) {
 		document.getElementById("respecPortalBtn").innerHTML = "天赋";
 		document.getElementById("respecPortalBtn").style.display = "inline-block";
@@ -1983,15 +1983,15 @@ function displayPortalUpgrades(fromTab){
 		if (game.options.menu.smallPerks.enabled) htmlClass += (game.options.menu.smallPerks.enabled == 1) ? " smallPerk" : " tinyPerk";
 		if (portUpgrade.additive) htmlClass += " additive";
 		htmlClass += " changingOff";
-		html += htmlClass + '" id="' + what + '" onclick="buyPortalUpgrade(\'' + what + '\')"><span class="thingName">' + what.replace('_', ' ');
+		html += htmlClass + '" id="' + what + '" onclick="buyPortalUpgrade(\'' + what + '\')"><span class="thingName">' + cnItem(what.replace('_', ' '));
 		if (usingScreenReader) html += "<span id='screenReaderPerkAfford" + what + "'></span>";
 		html += '</span>';
 
 		if (game.options.menu.detailedPerks.enabled == 1 || usingScreenReader){
-		html += '<br/>Level:&nbsp;<span class="thingOwned"><b><span id="' + what + 'Owned">' + ((game.options.menu.formatPerkLevels.enabled) ? prettify(level) : level) + '</span></b>';
-		if (!portUpgrade.max || portUpgrade.max > combinedLevel) html += "<br/>Price: <span id='" + what + "Price'>" + prettify(getPortalUpgradePrice(what)) + "</span>";
-		else html += "<br/>Price: <span id='" + what + "Price'>Max</span>";
-		html += '<br/>Spent: <span id="' + what + 'Spent">' + prettify(spentRes) + '</span>';
+		html += '<br/>等级:&nbsp;<span class="thingOwned"><b><span id="' + what + 'Owned">' + ((game.options.menu.formatPerkLevels.enabled) ? prettify(level) : level) + '</span></b>';
+		if (!portUpgrade.max || portUpgrade.max > combinedLevel) html += "<br/>价格: <span id='" + what + "Price'>" + prettify(getPortalUpgradePrice(what)) + "</span>";
+		else html += "<br/>价格: <span id='" + what + "Price'>最大</span>";
+		html += '<br/>花费: <span id="' + what + 'Spent">' + prettify(spentRes) + '</span>';
 		}
 		else html += '<br/><span class="thingOwned">Lv:&nbsp;<span id="' + what + 'Owned">' + ((game.options.menu.formatPerkLevels.enabled) ? prettify(level) : level) + '</span>';
 		html += '</span></div>';
