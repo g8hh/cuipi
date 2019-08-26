@@ -2244,7 +2244,7 @@ var offlineProgress = {
 		this.repeatSetting = game.global.repeatMap;
 		this.repeatUntil = game.options.menu.repeatUntil.enabled;
 		this.exitTo = game.options.menu.exitTo.enabled;
-		this.timeOfflineElem.innerHTML = "Welcome back! You were offline for " + this.formatTime(Math.floor(offlineTime / 1000)) + ".";
+		this.timeOfflineElem.innerHTML = "欢迎回来！你离线了 " + this.formatTime(Math.floor(offlineTime / 1000)) + ".";
 		this.updateBar(0);
 		var x = 0;
 		this.nextFluffIn = -1;

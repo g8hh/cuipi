@@ -52,16 +52,16 @@
 	<div id="offlineWrapper">
 		<div id="offlineInnerWrapper">
 			<div id="offlineTitle">
-				Making up lost time...
+				弥补失去的时间......
 			</div>
 			<div id="offlineProgressWrapper" class='progress'>
-				<span id='offlineProgressText'>Starting...</span>
+				<span id='offlineProgressText'>开始...</span>
 				<div class="progress-bar" role="progressbar" id="offlineProgress">&nbsp;</div>
 			</div>
 			<div class='row'>
 				<div class='col-xs-3'>
-					<div id='offlineZoneNumber'>Zone</div>
-					<div id='offlineCellNumber'>Cell </div>
+					<div id='offlineZoneNumber'>区域</div>
+					<div id='offlineCellNumber'>格子 </div>
 				</div>
 				<div class='col-xs-9'>
 					<div id='offlineExtraInfo'></div>
@@ -69,22 +69,22 @@
 			</div>
 			<div class='row'>
 				<div id='offlineMapBtns' class='col-xs-6'>
-					<div id='offlineMapText' style='text-align: center;'>Wanna run a map?</div>
+					<div id='offlineMapText' style='text-align: center;'>想运行一张地图吗？</div>
 					<div id='offlineMapBtnsInner'>
-						<span id="offlineMapBtn0" class="offlineMapBtn btn btn-md btn-success" onclick="offlineProgress.runFirstMap(0);">World Level Map</span>
-						<span id="offlineMapBtn1" class="offlineMapBtn btn btn-md btn-success" onclick="offlineProgress.runFirstMap(-1);">-1 Level map</span>
-						<span id="offlineMapBtn2" class="offlineMapBtn btn btn-md btn-success" onclick="offlineProgress.runFirstMap(-2);">-2 Level map</span>
-						<span id="offlineMapBtn3" class="offlineMapBtn btn btn-md btn-success" onclick="offlineProgress.runFirstMap(-3);">-3 Level map</span>
+						<span id="offlineMapBtn0" class="offlineMapBtn btn btn-md btn-success" onclick="offlineProgress.runFirstMap(0);">世界等级地图</span>
+						<span id="offlineMapBtn1" class="offlineMapBtn btn btn-md btn-success" onclick="offlineProgress.runFirstMap(-1);">-1 级地图</span>
+						<span id="offlineMapBtn2" class="offlineMapBtn btn btn-md btn-success" onclick="offlineProgress.runFirstMap(-2);">-2 级地图</span>
+						<span id="offlineMapBtn3" class="offlineMapBtn btn btn-md btn-success" onclick="offlineProgress.runFirstMap(-3);">-3 级地图</span>
 					</div>
 				</div>
 				<div id='offlineZoneBtns' class='col-xs-6'>
 					<div id='offlineInMapDescription' style='text-align: center;'></div>
-					<span id='offlineZoneBtn' onclick="offlineProgress.leaveMap();" class="offlineExtraBtn btn btn-md btn-primary">Back to World</span>
+					<span id='offlineZoneBtn' onclick="offlineProgress.leaveMap();" class="offlineExtraBtn btn btn-md btn-primary">返回世界</span>
 				</div>
 				<div id='offlineExtraBtnsContainer' class='col-xs-6' style='position: absolute; left: 50%; width: 25%;'>
 					<div id='offlineTimeOffline'></div>
-					<div class='btn btn-lg btn-info offlineExtraBtn' onclick="tooltip('Lost Time', null, 'update');">What is This?!</div>
-					<div class='btn btn-lg btn-danger offlineExtraBtn' onclick='usingRealTimeOffline = false'>Stop Here</div>
+					<div class='btn btn-lg btn-info offlineExtraBtn' onclick="tooltip('Lost Time', null, 'update');">这是什么?!</div>
+					<div class='btn btn-lg btn-danger offlineExtraBtn' onclick='usingRealTimeOffline = false'>点这里停止</div>
 					<div id='offlineSettingContainer'></div>
 					<div id='offlineEffective'></div>
 				</div>
