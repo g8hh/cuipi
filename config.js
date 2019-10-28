@@ -22,7 +22,7 @@ function newGame () {
 var toReturn = {
 	global: {
 		//New and accurate version
-		stringVersion: '5.1.1',
+		stringVersion: '5.1.3',
 		//Leave 'version' at 4.914 forever, for compatability with old saves
 		version: 4.914,
 		isBeta: false,
@@ -1172,19 +1172,19 @@ var toReturn = {
 				},
 				secondLocation: ["togglegeneratorStartPopup"]
 			},
-//			showSnow: {
-//				enabled: 1,
-//				extraTags: "general",
-//				description: "禁用世界上的雪花效果。 <b>此设置更改后，此功能将在下一个区域生效</b>。 这个设置是暂时的，并且在下雪时会融化。",
-//				titles: ["No Snow", "Show Snow"]
-//			},
-/*			showHoliday: {
+			// showSnow: {
+			// 	enabled: 1,
+			// 	extraTags: "general",
+			// 	description: "Disable the snow effect in the world. <b>This will take effect on the next Zone after this setting is changed</b>. This setting is temporary, and will melt when the snow does.",
+			// 	titles: ["No Snow", "Show Snow"]
+			// },
+			showHoliday: {
 				enabled: 1,
 				extraTags: "general",
 				description: "<p>Choose between <b>Show Pumpkimps</b>, <b>Bordered Pumpkimps</b>, and <b>No Pumpkimps</b>. This setting applies only to the visual effect of Pumpkimp Zones in the world, does not apply to maps, and has no impact on how many Pumpkimps or Pumpkimp Zones actually spawn. This setting is temporary and will rot away after the Pumpkimp season!</p><p><b>Show Pumpkimps</b> is the default, and displays Pumpkimp Zones as normal.</p><p><b>Bordered Pumpkimps</b> displays Pumpkimp cells by changing the border color instead of the background color.</p><p><b>No Pumpkimps</b> will not show any indicator at all that a world Zone is a Pumpkimp Zone. Pumpkimps will still spawn at the same rate.</p>",
 				titles: ["No Pumpkimps", "Show Pumpkimps", "Bordered Pumpkimps"],
-				locked: true
-			},*/
+				locked: false
+			},
 			geneSend: {
 				enabled: 0,
 				locked: true,
@@ -3523,7 +3523,7 @@ var toReturn = {
 			completeQuest: function(){			
 				this.questComplete = true;
 				this.finishedQuests++;
-				if (this.finishedQuests == 80) giveSingleAchieve("Level Up");
+				if (this.finishedQuests == 80 && this.questsMade == 80) giveSingleAchieve("Level Up");
 				message("You have completed your quest! You've completed " + this.finishedQuests + " / " + this.questsMade + " quests.", "Notices", "*question2", "questMessage questSuccess")
 			},
 			failQuest: function(){
@@ -4904,7 +4904,7 @@ var toReturn = {
 				return (Fluffy.checkU2Allowed());
 			},
 			get descriptions () {
-				return ["Reach exactly 1337 Rn/Hr", "One-shot a Dimension of Rage enemy on Unlucky while Unlucky", "Complete Downsize with an equal amount of Huts, Houses, Mansions, Hotels and Resorts", "Complete Transmute without hiring a single Trimp", "Complete Unbalance with 500 stacks of Unbalance", "Complete Bublé without using Prismal or respeccing Perks", "Complete Duel without ever falling below 20 points", "Complete Melt without ever having more than 150 stacks", "Complete Trappapalooza without Trapping on or above Z50", "Complete Wither with " + prettify(10000) + " stacks of Hardened", "Complete Revenge with exactly 19 stacks", "Complete Quest after completing all 80 quests"];
+				return ["Reach exactly 1337 Rn/Hr", "One-shot a Dimension of Rage enemy on Unlucky while Unlucky", "Complete Downsize with an equal amount of Huts, Houses, Mansions, Hotels and Resorts", "Complete Transmute without hiring a single Trimp", "Complete Unbalance with 500 stacks of Unbalance", "Complete Bublé without using Prismal or respeccing Perks", "Complete Duel without ever falling below 20 points", "Complete Melt without ever having more than 150 stacks", "Complete Trappapalooza without Trapping on or above Z50", "Complete Wither with " + prettify(10000) + " stacks of Hardened", "Complete Revenge with exactly 19 stacks", "Complete 80/80 quests on Quest"];
 			},
 			tiers: [10,10,10,11,11,11,11,11,12,12,12,12],
 			description: function (number) {
@@ -5436,7 +5436,7 @@ var toReturn = {
 			}
 		},
 		Pumpkimp: {
-			location: "None",
+			location: "Maps",
 			attack: 0.9,
 			health: 1.5,
 			fast: false,

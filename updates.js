@@ -4480,8 +4480,8 @@ function unlockJob(what) {
 	drawAllJobs();
 }
 
-function drawAllJobs(){
-	if (usingRealTimeOffline) return;
+function drawAllJobs(force){
+	if (usingRealTimeOffline && !force) return;
 	var elem = document.getElementById("jobsHere");
 	elem.innerHTML = "";
 	for (var item in game.jobs){
@@ -5903,6 +5903,7 @@ function screenReaderSummary(){
 	var srSumMapNameContainer = document.getElementById('srSumMapNameContainer');
 	var srSumMapCellContainer = document.getElementById('srSumMapCellContainer');
 	var srSumTrimps = document.getElementById('srSumTrimps');
+	var srSumBreed = document.getElementById('srSumBreed');
 	var srSumAttackScore = document.getElementById('srSumAttackScore');
 	var srSumHealthScore = document.getElementById('srSumHealthScore');
 	var srSumBlock = document.getElementById('srSumBlock');
@@ -5931,7 +5932,7 @@ function screenReaderSummary(){
 	}
 
 	srSumTrimps.innerHTML = prettify(game.resources.trimps.soldiers) + " Fighting, " + prettify(game.resources.trimps.owned) + " owned, " + prettify((game.resources.trimps.owned / game.resources.trimps.realMax()) * 100) + "% full";
-
+	srSumBreed.innerHTML = srLastBreedTime;
 	if (cell){
 		var trimpAttack = calculateDamage(game.global.soldierCurrentAttack, false, true, false, false, true);
 		var trimpHealth = game.global.soldierHealthMax;
