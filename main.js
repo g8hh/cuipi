@@ -2123,6 +2123,7 @@ function activateKongBonus(oldWorld){
 var usingRealTimeOffline = false;
 var offlineProgress = {
 	wrapperElem: document.getElementById('offlineWrapper'),
+	innerWrapperElem: document.getElementById('innerWrapper'),
 	progressElem: document.getElementById('offlineProgress'),
 	progressTextElem: document.getElementById('offlineProgressText'),
 	cellElem: document.getElementById('offlineCellNumber'),
@@ -2237,6 +2238,7 @@ var offlineProgress = {
 		this.ticksProcessed = 0;
 		this.mapsAllowed = Math.floor(this.progressMax / 288000);
 		this.wrapperElem.style.display = 'block';
+		this.innerWrapperElem.style.display = 'none';
 		this.startTime = rightNow;
 		this.repeatSetting = game.global.repeatMap;
 		this.repeatUntil = game.options.menu.repeatUntil.enabled;
@@ -2285,9 +2287,14 @@ var offlineProgress = {
 		this.loop = null;
 		usingRealTimeOffline = false;
 		this.wrapperElem.style.display = 'none';
+		this.innerWrapperElem.style.display = 'block';
 		game.global.repeatMap = this.repeatSetting;
+		repeatClicked(true);
 		game.options.menu.repeatUntil.enabled = this.repeatUntil;
+		toggleSetting("repeatUntil", null, false, true);
 		game.options.menu.exitTo.enabled = this.exitTo;
+		toggleSetting("exitTo", null, false, true);
+		toggleSetting("mapAtZone", null, false, true);
 		var secondsRemaining = Math.floor((this.progressMax - this.ticksProcessed) / 10);
 		this.progressMax = -1;
 		this.ticksProcessed = 0;
@@ -3349,7 +3356,8 @@ function rewardResource(what, baseAmt, level, checkMapLootScale, givePercentage)
 	var amt = 0;
 	if (what == "food" || what == "metal" || what == "wood"){
 		//Base * speed books
-		var tempModifier = 0.5 * Math.pow(1.25, (game.global.world >= 59) ? 59 : game.global.world);
+		var maxSpeedBookLevel = (game.global.universe == 2 || (game.global.universe == 1 && game.global.world <= 59)) ? game.global.world : 59;
+		var tempModifier = 0.5 * Math.pow(1.25, maxSpeedBookLevel);
 		//Mega books
 		if (game.global.world >= 60 && game.global.universe == 1) {
 			if (game.global.frugalDone) tempModifier *= Math.pow(1.6, game.global.world - 59);
@@ -3913,6 +3921,7 @@ function buyBuilding(what, confirmed, fromAuto, forceAmt) {
 	var purchaseAmt = 1;
 	if (forceAmt) purchaseAmt = Math.min(forceAmt, calculateMaxAfford(toBuy, true, false, false, true));
 	else if (!toBuy.percent) purchaseAmt = (game.global.buyAmt == "Max") ? calculateMaxAfford(toBuy, true, false) : game.global.buyAmt;
+	if (purchaseAmt > 1e10) purchaseAmt = 1e10;
     if (typeof toBuy === 'undefined') return false;
 	var canAfford = ((forceAmt) ? canAffordBuilding(what, false, false, false, false, purchaseAmt) : canAffordBuilding(what));
 	if (purchaseAmt == 0) return false;
@@ -4536,6 +4545,7 @@ function getDesiredGenes(ovr){
 
 var DecimalBreed = Decimal.clone({precision: 30, rounding: 4});
 var missingTrimps = new DecimalBreed(0);
+var srLastBreedTime = "";
 function breed() {
     var trimps = game.resources.trimps;
 	checkAchieve("trimps", trimps.owned);
@@ -4548,6 +4558,7 @@ function breed() {
     if (breeding.cmp(2) == -1 || game.global.challengeActive == "Trapper" || game.global.challengeActive == "Trappapalooza") {
         updatePs(0, true);
 		document.getElementById("trimpsTimeToFill").innerHTML = "";
+		srLastBreedTime = "";
         return;
 	}
 	var potencyMod = new DecimalBreed(trimps.potency);
@@ -4607,6 +4618,13 @@ function breed() {
 		else if (new Date().getTime() > lastGAToggle + 2000){
 			lastGAToggle = -1;
 			canRun = true;
+		}
+		if (!GAElem){
+			if (usingRealTimeOffline){
+				drawAllJobs(true);
+				GAElem = document.getElementById('Geneticistassist');
+				GAIndicator = document.getElementById('GAIndicator');
+			}
 		}
 		if (GAElem && canRun){
 			var thresh = new DecimalBreed(totalTime.mul(0.02));
@@ -4674,13 +4692,15 @@ function breed() {
 			if (remainingTime == 0.0)
 				updateGenes = true;
 		}
-		document.getElementById("trimpsTimeToFill").innerHTML = (fullBreed) ? fullBreed : "";
+		srLastBreedTime = (fullBreed) ? fullBreed : "";
+		document.getElementById("trimpsTimeToFill").innerHTML = srLastBreedTime;
 		if (updateGenes || (!game.global.fighting && totalTimeText == "0.0")){
 			updateStoredGenInfo(breeding.toNumber());
 		}
         return;
     }
 	document.getElementById("trimpsTimeToFill").innerHTML = timeRemaining;
+	srLastBreedTime = timeRemaining;
 	var oldTrimps = trimps.owned;
 	trimps.owned = decimalOwned.toNumber();
 	if (decimalOwned.cmp(trimps.owned) != 0 && breeding.cmp(0) > 0){
@@ -7751,11 +7771,11 @@ var mutationEffects = {
 var visualMutations = {
 	Pumpkimp: {
 		active: function (){
-			return false;
+			//return false;
 
 			if (game.global.world == 1) return false;
 			if (checkIfSpireWorld()) return false;
-			return (getRandomIntSeeded(game.global.holidaySeed++, 0, 100) < 5);
+			return (getRandomIntSeeded(game.global.holidaySeed++, 0, 100) < 8);
 		},
 		pattern: function(currentArray) {
 			var loc = getRandomIntSeeded(game.global.mutationSeed++, 0, 4);
@@ -11097,14 +11117,17 @@ function runMapAtZone(index){
 	if (!setting || !setting.check) return;
 	if (setting.repeat) {
 		game.global.repeatMap = (setting.repeat == 1);
+		if (usingRealTimeOffline) offlineProgress.repeatSetting = game.global.repeatMap;
 		repeatClicked(true);
 	}
 	if (setting.exit){
 		game.options.menu.exitTo.enabled = (setting.exit - 1);
+		if (usingRealTimeOffline) offlineProgress.exitTo = game.options.menu.exitTo.enabled;
 		toggleSetting('exitTo', null, false, true);
 	}
 	if (setting.until && setting.until != 5){
 		game.options.menu.repeatUntil.enabled = (setting.until - 1);
+		if (usingRealTimeOffline) offlineProgress.repeatUntil = game.options.menu.repeatUntil.enabled;
 		toggleSetting('repeatUntil', null, false, true);
 	}
 	if (setting.preset == 3){
@@ -14457,7 +14480,8 @@ function onPurchaseResult(result) {
 
 var sugarRush = {
 	getAttackStrength: function () {
-		return (2 + Math.floor((game.global.world - 200) / 100));
+		var minWorld = (game.global.universe == 2) ? 60 : 200;
+		return (2 + Math.floor((game.global.world - minWorld) / 100));
 	},
 	icon: 'icomoon icon-bag',
 	timeEach: 600,
@@ -14521,7 +14545,9 @@ function givePumpkimpLoot(){
 		"That Pumpkimp was so smashed that he gave you ",
 		"You dig through what's left of the Pumpkimp and find ",
 		"Aww man, there's seeds and orange stuff everywhere. At least you found ",
-		"You're not wearing a costume, but you'll still take this "
+		"You're not wearing a costume, but you'll still take this ",
+		"Heck yes, this Pumpkimp has your favorite treat! You picked up ",
+		"What a haunting sight! The Pumpkimp was punted by a plump Trimp after the fight. As it flies away, it drops "
 	];
 	var failures = [
 		"That Pumpkimp gave you nothing! What a jerk!",
@@ -14530,7 +14556,9 @@ function givePumpkimpLoot(){
 		"Right before you finish the Pumpkimp off, it winks at you and rolls away. That was pretty weird.",
 		"As the Pumpkimp takes his final breath, he manages to mutter the word 'Trick'. No loot here.",
 		"You search the Pumpkimp for loot, but find nothing. Someone wasn't in the holiday spirit!",
-		"That Pumpkimp rolled away before you could finish him off, yelling stuff about tricks."
+		"That Pumpkimp rolled away before you could finish him off, yelling stuff about tricks.",
+		"Thanks, you hate getting tricks instead of treats.",
+		"You might have hit that Pumpkimp a bit too hard, there's nothing left to give you candy."
 	];
 	var attackBuff = [
 		"The Pumpkimp suddenly bursts, spewing huge amounts of candy into the air. Your Trimps scramble about to pick up all they can and gain Sugar Rush!",
@@ -14540,10 +14568,16 @@ function givePumpkimpLoot(){
 	];
 	if (game.jobs.Dragimp.owned > 0) eligible.push("gems");
 	if (game.upgrades.Explorers.allowed > 0) eligible.push("fragments");
-	if (game.global.world > 200 && !game.global.mapsActive) eligible.push("attack");
+	if (game.global.universe == 1){
+		if (game.global.world > 200 && !game.global.mapsActive) eligible.push("attack");
+	}
+	else if (game.global.universe == 2){
+		if (game.global.world > 60 && !game.global.mapsActive) eligible.push("attack");
+	}
 	//I really wanted to call it Pumpkin Seed, but this can probably be useful for other holidays without bogging down the save file more.
 	var roll = (game.global.mapsActive) ? Math.floor(Math.random() * eligible.length) : getRandomIntSeeded(game.global.holidaySeed++, 0, eligible.length);
 	var item = eligible[roll];
+	if (item == "metal" && (game.global.challengeActive == "Metal" || game.global.challengeActive == "Transmute")) item = "nothing";
 	if (item == "nothing") {
 		var failNumber = Math.floor(Math.random() * failures.length);
 		message(failures[failNumber], "Loot", "*magic-wand", "pumpkimp", "events");
