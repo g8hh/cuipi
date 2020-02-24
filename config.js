@@ -22,7 +22,7 @@ function newGame () {
 var toReturn = {
 	global: {
 		//New and accurate version
-		stringVersion: '5.1.3',
+		stringVersion: '5.3.1',
 		//Leave 'version' at 4.914 forever, for compatability with old saves
 		version: 4.914,
 		isBeta: false,
@@ -122,6 +122,8 @@ var toReturn = {
 		breedBack: -1,
 		titimpLeft: 0,
 		mapBonus: 0,
+		mapRunCounter: 0,
+		mapCounterGoal: 0,
 		slowDone: false,
 		turkimpTimer: 0,
 		statsMode: "current",
@@ -200,6 +202,11 @@ var toReturn = {
 		lastBonePresimpt: 0,
 		runningChallengeSquared: false,
 		totalSquaredReward: 0,
+		ArchaeologyDone: false,
+		archString: "",
+		archThresh: 50,
+		trackedAchieve: null,
+		mayhemCompletions: 0,
 		perkPresetU1: {
 			perkPreset1: {},
 			perkPreset2: {},
@@ -214,6 +221,7 @@ var toReturn = {
 		firstCustomAmt: -1,
 		firstCustomExact: -1,
 		autoGolden: -1,
+		autoGoldenU2: -1,
 		autoStructureSetting: {enabled: false},
 		autoStructureSettingU2: {enabled: false},
 		autoJobsSetting: {enabled: false},
@@ -335,6 +343,7 @@ var toReturn = {
 			metal: {average:0, accumulator: 0},
 			gems: {average:0, accumulator: 0},
 			fragments: {average:0, accumulator: 0},
+			science: {average:0, accumulator: 0}
 		},
 		menu: {
 			buildings: true,
@@ -793,8 +802,18 @@ var toReturn = {
 			},
 			repeatUntil: {
 				enabled: 0,
-				description: "<p><b>永远重复</b> 如果启用了重复地图，将导致地图不断重复。</p><p><b>重复10次</b> 会重复，除非你有10个地图奖励叠加。</p><p><b>重复项目</b> 将重复，除非没有更多特殊项目留给该级别的地图。</p><p><b>重复任何</b> 将重复，除非没有可用的特殊项目，你不能获得更多地图奖励叠加。</p><p><b>此设置仅在重复打开时才有意义。 切换重复关闭仍然会在完成后离开地图，无论如何。</b></p>",
-				titles: ["永远重复", "重复10次", "重复项", "重复所有"],
+				description: "<p><b>Repeat Forever</b> will cause the map to continually repeat if Repeat Maps is enabled.</p><p><b>Repeat to 10</b> will repeat unless you have 10 Map Bonus stacks.</p><p><b>Repeat for Items</b> will repeat unless there are no more special items left for that level of map.</p><p><b>Repeat for Any</b> will repeat unless there are no special items available AND you can not earn more Map Bonus stacks.</p><p><b>This setting only matters if Repeat is on. Toggling Repeat off will still leave the map when it is finished no matter what.</b></p>",
+				get titles(){
+					var arr = ["Repeat Forever", "Repeat to 10", "Repeat for Items", "Repeat for Any"];
+					if (this.enabled == 0 && game.global.mapCounterGoal > game.global.mapRunCounter){
+						var count = (game.global.mapCounterGoal - game.global.mapRunCounter);
+						arr[0] = "Repeat " + count + " Time" + needAnS(count);
+					}
+					return arr;
+				},
+				onToggle: function(){
+					game.global.mapCounterGoal = 0;
+				},
 				locked: true,
 				secondLocation: ['togglerepeatUntilCM']
 			},
@@ -926,6 +945,7 @@ var toReturn = {
 				lockUnless: function () {
 					return (game.global.totalPortals > 0)
 				},
+				secondLocation: ["toggleextraMapBtnsCM"]
 			},
 			GeneticistassistTarget: {
 				enabled: 0,
@@ -983,14 +1003,14 @@ var toReturn = {
 			mapAtZone: {
 				enabled: 0,
 				extraTags: "other",
-				description: "启用后，您将自动放弃世界中的脆皮，并在达到指定的区域编号后立即进入地图室。",
+				description: "When enabled, you will automatically abandon your Trimps in the World and enter the Map Chamber as soon as you hit your specified Zone number.<br/><br/><b>Configure with hotkey Z</b>",
 				get titles(){
 					var nextZone = "";
 					var setZone = this.getSetZone();
 					if (setZone.length == 1) nextZone = setZone[0].world;
 					else {
 						for (var x = 0; x < setZone.length; x++){
-							if (game.global.world < setZone[x].world){
+							if (game.global.world < setZone[x].world || (game.global.world == setZone[x].world && (game.global.lastClearedCell + 2) < setZone[x].cell)){
 								nextZone = setZone[x].world;
 								if (x < setZone.length - 1) nextZone += "+";
 								break;
@@ -999,16 +1019,55 @@ var toReturn = {
 						if (nextZone == "") 
 							nextZone = (setZone.length) ? setZone[0].world : "one";
 					}
-				return ["区域内无地图", "地图在Z" + nextZone];
-
+					if (game.talents.maz.purchased){
+						nextZone += " (";
+						if (game.global.universe == 2) nextZone += this.U2Mode.toUpperCase();
+						else nextZone += this.U1Mode.toUpperCase();
+						nextZone += ")";
+					}
+					return ["No Map At Zone", "Map At Z" + nextZone];
 				},
-				setZone: [200],
-				setZoneU2: [10],
+				setZone: [{world: 200}],
+				setZoneB: [{world: 200}],
+				setZoneU2: [{world: 10}],
+				setZoneU2B: [{world: 10}],
+				U1Mode: 'a',
+				U2Mode: 'a',
 				getSetZone: function(){
-					return (game.global.universe == 2) ? this.setZoneU2 : this.setZone;
+					if (game.global.universe == 2){
+						if (this.U2Mode == 'a') return this.setZoneU2;
+						return this.setZoneU2B;
+					}
+					if (this.U1Mode == 'a') return this.setZone;
+					return this.setZoneB;
+				},
+				swapPreset: function(){
+					cancelTooltip();
+					if (game.global.universe == 2){
+						this.U2Mode = (this.U2Mode == 'a') ? 'b' : 'a';
+					}
+					else{
+						this.U1Mode = (this.U1Mode == 'a') ? 'b' : 'a';
+					}
+					tooltip('Set Map At Zone', null, 'update');
+				},
+				storeSetting: function(setting){
+					if (game.global.universe == 2){
+						if (this.U2Mode == 'a') {
+							this.setZoneU2 = setting;
+							return;
+						}
+						this.setZoneU2B = setting;
+						return;
+					}
+					if (this.U1Mode == 'a') {
+						this.setZone = setting;
+						return;
+					}
+					this.setZoneB = setting;
 				},
 				addRow: function(){
-					for (var x = 0; x < 5; x++){
+					for (var x = 0; x < 6; x++){
 						var elem = document.getElementById('mazWorld' + x);
 						if (!elem) continue;
 						if (elem.value == -1) {
@@ -1022,7 +1081,7 @@ var toReturn = {
 						}
 					}
 					var btnElem = document.getElementById('mazAddRowBtn');
-					for (var y = 0; y < 5; y++){
+					for (var y = 0; y < 6; y++){
 						var elem = document.getElementById('mazWorld' + y);
 						if (elem && elem.value == "-1"){			
 							btnElem.style.display = 'inline-block';
@@ -1038,6 +1097,9 @@ var toReturn = {
 					var checkBox = document.getElementById('mazCheckbox' + index);
 					swapClass("icon-", "icon-checkbox-unchecked", checkBox);
 					checkBox.setAttribute('data-checked', false);
+					checkBox = document.getElementById('mazEnableSetting' + index);
+					swapClass("icon-", "icon-checkbox-checked", checkBox);
+					checkBox.setAttribute('data-checked', true);
 					document.getElementById('mazPreset' + index).value = 0;
 					document.getElementById('mazRepeat' + index).value = 0;
 					document.getElementById('mazRepeatUntil' + index).value = 0;
@@ -1047,10 +1109,13 @@ var toReturn = {
 				},
 				save: function(){
 					var setting = [];
+					var error = "";
 					loop1: 
-					for (var x = 0; x < 5; x++){
+					for (var x = 0; x < 6; x++){
 						var world = document.getElementById('mazWorld' + x);
-						if (!world || world.value == "-1") continue;
+						if (!world || world.value == "-1") {
+							continue;
+						};
 						world = parseInt(world.value, 10);
 						var check = readNiceCheckbox(document.getElementById('mazCheckbox' + x));
 						var preset = parseInt(document.getElementById('mazPreset' + x).value, 10);
@@ -1058,20 +1123,150 @@ var toReturn = {
 						var until = parseInt(document.getElementById('mazRepeatUntil' + x).value, 10);
 						var exit = parseInt(document.getElementById('mazExit' + x).value, 10);
 						var bwWorld = parseInt(document.getElementById('mazBwWorld' + x).value, 10);
+						var cell = parseInt(document.getElementById('mazCell' + x).value, 10);
+						var enableCheck = readNiceCheckbox(document.getElementById('mazEnableSetting' + x));
+						var times = parseInt(document.getElementById('mazTimes' + x).value, 10);
 						if (isNaN(world) || world < 10){
-							world = 10;
+							error += " Preset " + (x + 1) + " needs a value for Exit At Zone that's greater than 10.";
+							continue;
 						}
-						else if (world > 1000) world = game.global.world;
+						else if (world > 1000) {
+							error += " Preset " + (x + 1) + " needs a value for Exit At Zone that's less than 1000.";
+							continue;
+						}
+						if (times != -1 && times != 1 && times != 2 && times != 3 && times != 5 && times != 10 && times != 30) times = -1;
+						if (cell < 1) cell = 1;
+						if (cell > 99) cell = 99;
 						for (var y = 0; y < setting.length; y++){
-							if (setting[y].world == world) {
-								continue loop1;
+							//Only run conflict detection if both presets match on cell
+							if (setting[y].cell == cell){
+								var errorText = " Preset " + (x + 1) + " and Preset " + (y + 1) + " would conflict with this setup."
+								//If both presets repeat, check for conflicts
+								if (times != -1 && setting[y].times != -1){
+									//Repeat every zone always conflicts
+									if (times == 1 || setting[y].times == 1){
+										error += errorText;
+										continue loop1;
+									}
+									//Repeat every 2 zones always conflicts with 1, 3, and 5. Conflicts with 2 and 10 if both starts are odd or even.
+									else if (times == 2){
+										//If preset y repeats every 2, 10 or 30, check that one world is odd and one is even
+										if (setting[y].times == 10 || setting[y].times == 2 || setting[y].times == 30){
+											if ((world % 2) == (setting[y].world % 2)){
+												error += errorText;
+												continue loop1;
+											}
+										}
+										//If preset y repeats at anything other than 0, 2, 10 or 30, it fails
+										else {
+											error += errorText;
+											continue loop1;
+										}
+									}
+									//Repeat every 3 zones always conflicts with anything that doesn't repeat every 3 or 30 zones
+									else if (times == 3){
+										//If both presets repeat every 3 zones, see if they would intersect
+										if (setting[y].times == 3 || setting[y].times == 30){
+											if (setting[y].world % 3 == world % 3) {
+												error += errorText;
+												continue loop1;
+											}
+										}
+										//If preset y repeats at anything other than 3, it will conflict
+										else{
+											error += errorText;
+											continue loop1;
+										}
+									}
+									//Repeat every 5 zones always conflicts with 1, 2, 3.
+									else if (times == 5){
+										//If preset y doesn't repeat, or repeats at 5 or 10 or 30, check if both worlds % 5 match
+										if (setting[y].times == 5 || setting[y].times == 10 || setting[y].times == 30){
+											var intersect = ((world - setting[y].world) % 5);
+											if (intersect == 0) {
+												error += errorText;
+												continue loop1;
+											}
+										}
+										//Anything else fails
+										else {
+											error += errorText;
+											continue loop1;
+										}
+									}
+									//Repeat every 10 zones conflicts with 2 if both are even or odd, conflicts with 3 always, conflicts with 5 if both % 5 match, conflicts with 10 or 30 if both % 10 match
+									//Repeat every 30 zones conflicts with 2 if both are even or odd, conflicts with 3 if both % 3 match, conflicts with 5 if both % 5 match, conflicts with 10 if both % 10 match, and 30 if both % 30 match
+									else if (times == 10 || times == 30){
+										if (setting[y].times == 2){
+											if ((world % 2) == (setting[y].world % 2)){
+												error += errorText;
+												continue loop1;
+											}
+										}
+										//3 For 10
+										else if (times == 10 && setting[y].times == 3){
+											error += errorText;
+											continue loop1;
+										}
+										//3 For 30
+										else if (setting[y].times == 3){
+											if (setting[y].world % 3 == world % 3){
+												error += errorText;
+												continue loop1;
+											}
+										}
+										else if (setting[y].times == 5){
+											if ((world % 5) == (setting[y].world % 5)){
+												error += errorText;
+												continue loop1;
+											}
+										}
+										//10 for 10 and 30, and 30 for 10
+										else if (setting[y].times == 10 || (setting[y].times == 30 && times == 10)){
+											if ((world % 10) == (setting[y].world % 10)){
+												error += errorText;
+												continue loop1;
+											}
+										}
+										else if (setting[y].times == 30){
+											if ((world % 30) == (setting[y].world % 30)){
+												error += errorText;
+												continue loop1;
+											}
+										}
+									}
+								}
+								else {
+									//Either none repeats or only 1 repeats
+									if (setting[y].world == world) {
+										error += " Preset " + (x + 1) + " and Preset " + (y + 1) + " cannot exit at the same Zone and Cell number.";
+										continue loop1;
+									}
+									//If this preset doesn't repeat and y does, and if y starts on a lower zone than this preset, check for conflict
+									if (setting[y].times != -1 && times == -1 && setting[y].world < world){
+										if ((world - setting[y].world) % setting[y].times == 0){
+											error += errorText;
+											continue loop1;
+										}
+									}
+									//If this preset repeats and y does not, and if this preset starts at a lower zone than y, check for conflict
+									if (setting[y].times == -1 && times != -1 && world < setting[y].world){
+										if ((setting[y].world - world) % times == 0){
+											error += errorText;
+											continue loop1;
+										}
+									}
+								}
 							}
 						}
-						if (preset < 0 || preset > 3) preset = 0;
+						var presetMax = 4;
+						if (game.global.universe == 2 && game.global.highestRadonLevelCleared >= 69) presetMax = 5;
+						if (preset < 0 || preset > presetMax) preset = 0;
 						if (repeat < 0 || repeat > 2) repeat = 0;
-						if (until < 0 || until > 5) until = 0;
+						if (until < 0 || until > 8) until = 0;
 						if (until == 5 && preset != 3) until = 0;
 						if (exit < 0 || exit > 2) exit = 0;
+
 						if (!bwWorld || preset < 3 || isNaN(bwWorld) || bwWorld < 125 || bwWorld > 1000) bwWorld = 125;
 						if (bwWorld > 125){
 							var adj = bwWorld - 125;
@@ -1079,17 +1274,24 @@ var toReturn = {
 						}
 						setting.push({
 							world: world,
+							cell: cell,
 							check: check,
 							preset: preset,
 							repeat: repeat,
 							until: until,
 							exit: exit,
-							bwWorld: bwWorld
+							bwWorld: bwWorld,
+							times: times,
+							on: enableCheck
 						})
 					}
-					setting.sort(function(a, b){return (a.world > b.world) ? 1 : -1});
-					if (game.global.universe == 2) this.setZoneU2 = setting;
-					else this.setZone = setting;
+					if (error){
+						var elem = document.getElementById('mazError');
+						if (elem) elem.innerHTML = error;
+						return;
+					}
+					setting.sort(function(a, b){if (a.world == b.world) return (a.cell > b.cell) ? 1 : -1; return (a.world > b.world) ? 1 : -1});
+					this.storeSetting(setting);
 					this.enabled = 1;
 					toggleSetting('mapAtZone', null, false, true);
 					cancelTooltip(true);
@@ -1183,7 +1385,7 @@ var toReturn = {
 				extraTags: "general",
 				description: "<p>Choose between <b>Show Pumpkimps</b>, <b>Bordered Pumpkimps</b>, and <b>No Pumpkimps</b>. This setting applies only to the visual effect of Pumpkimp Zones in the world, does not apply to maps, and has no impact on how many Pumpkimps or Pumpkimp Zones actually spawn. This setting is temporary and will rot away after the Pumpkimp season!</p><p><b>Show Pumpkimps</b> is the default, and displays Pumpkimp Zones as normal.</p><p><b>Bordered Pumpkimps</b> displays Pumpkimp cells by changing the border color instead of the background color.</p><p><b>No Pumpkimps</b> will not show any indicator at all that a world Zone is a Pumpkimp Zone. Pumpkimps will still spawn at the same rate.</p>",
 				titles: ["No Pumpkimps", "Show Pumpkimps", "Bordered Pumpkimps"],
-				locked: false
+				locked: true
 			},
 			geneSend: {
 				enabled: 0,
@@ -1229,7 +1431,7 @@ var toReturn = {
 				titles: ["Don&apos;t Climb BW", "Climb BW"],
 				secondLocation: ["toggleclimbBwCM", "toggleclimbBw2"],
 				lockUnless: function(){
-					game.global.highestLevelCleared >= 124;
+					return (game.global.highestLevelCleared >= 124);
 				}
 			},
 			offlineProgress: {
@@ -1239,6 +1441,15 @@ var toReturn = {
 				//description: "Disables or enables earning resources while offline. <b>Warning: If this is toggled off, no resources will be earned from Trustworthy Trimps when coming back to the game after being offline.</b> This also stops the current run timer when offline and can be helpful if you are analysing stats and do not want resources counted when there is no timer running",
 				titles: ["禁止离线进度", "离线进度", "只时间扭曲", "Trustworthy Trimps Only"],
 				secondLocation: ["toggleofflineProgresstimewarp"]
+			},
+			archAutomator: {
+				enabled: 0,
+				extraTags: "other",
+				description: "Customize the Archaeology Automator. Has no effect unless running the Archaeology Challenge.",
+				titles: ["Archaeology Automator"],
+				lockUnless: function(){
+					return (game.global.highestRadonLevelCleared >= 94);
+				}
 			},
 			pauseGame: {
 				enabled: 0,
@@ -1366,20 +1577,17 @@ var toReturn = {
 			purchased: false,
 			icon: "grain"
 		},
-		foreman: {
-			description: "召集50000名工头帮助施工。",
-			name: "Foremany",
+		herbalist: {
+			get description(){ 
+				return "Your Trimps learn to harvest special Herbs while collecting Food! Increases Trimp Attack by a number based on your total stored food. Grants +30% Attack at " + prettify(1e25) + " Food, or +300% at " + prettify(1e250) + ". At your current total of " + prettify(game.resources.food.owned) + " Food, <b>you " + ((this.purchased) ? "are gaining" : "would gain") + " +" + prettify((this.getBonus() - 1) * 100) + "% Trimp Attack</b>.";
+			},
+			getBonus: function(){
+				return 1 + (log10(game.resources.food.owned) / 83.3)
+			},
+			name: "Herbalist",
 			tier: 2,
 			purchased: false,
-			onPurchase: function () {
-				game.global.autoCraftModifier += 12500;
-				updateForemenCount();
-			},
-			onRespec: function () {
-				game.global.autoCraftModifier -= 12500;
-				updateForemenCount();
-			},
-			icon: "user",
+			icon: "*tree",
 		},
 		headstart: {
 			description: "Corruption begins 5 levels earlier, at Zone 176.",
@@ -1419,12 +1627,12 @@ var toReturn = {
 			purchased: false,
 			icon: "italic",
 		},
-		doubleBuild: {
-			description: "在建筑队列中的多个建筑将被一次构造两个。",
-			name: "Double Build",
+		mapHealth: {
+			description: "Your Trimps gain +100% health in maps.",
+			name: "Safe Mapping",
 			tier: 3,
 			purchased: false,
-			icon: "*hammer"
+			icon: "*map-signs"
 		},
 		headstart2: {
 			description: "Corruption begins an additional 10 levels earlier, at Zone 166.",
@@ -1475,24 +1683,12 @@ var toReturn = {
 
 			}
 		},
-		autoStructure: {
-			get description(){
-				 var text = "Unlock the AutoStructure tool, allowing you to automatically purchase structures. In addition, all housing and battle territory bonuses will come with ready-to-fight Trimps inside";
-				 if (getHighestLevelCleared() >= 229) text += " (Not including the Dimensional Generator)";
-				 text += "!";
-				 return text;
-			},
-			name: "AutoStructure",
+		magimp: {
+			description: "Grants a 2% chance to find a Magimp in World and Maps. Magimps will grant the bonus of a random World or Map Exotic Import (based on current location) on death.",
+			name: "Magimp",
 			tier: 4,
 			purchased: false,
-			icon: "home",
-			requires: "doubleBuild",
-			onPurchase: function () {
-				toggleAutoStructure(true);
-			},
-			onRespec: function () {
-				toggleAutoStructure(true, true);
-			}
+			icon: "*magic-wand"
 		},
 		headstart3: {
 			description: "Corruption begins an additional 15 levels earlier, at Zone 151.",
@@ -1502,18 +1698,12 @@ var toReturn = {
 			icon: "road",
 			requires: "headstart2"
 		},
-		autoJobs: {
-			description: "解锁自动工作，它使全宇宙的人力资源部门感到羡慕。",
-			name: "AutoJobs",
+		mapBattery: {
+			description: "Doubles the Zone bonus for completing maps once you reach 10 stacks.",
+			name: "Map Battery",
 			tier: 4,
 			purchased: false,
-			icon: "*group",
-			onPurchase: function () {
-				toggleAutoJobs(true);
-			},
-			onRespec: function () {
-				toggleAutoJobs(true, true);
-			}
+			icon: "*battery-3"
 		},
 		hyperspeed2: {
 			get description(){
@@ -1546,8 +1736,8 @@ var toReturn = {
 			requires: "skeletimp"
 		},
 		quickGen: {
-			description: "维度发生器生产房子的速度增加50%.",
-			name: "Quick Gen",
+			description: "Increase the amount of speed that the Dimensional Generator gains per Zone by 50%. In addition, completing a Void Map at or above Z230 grants +10 Magmite.",
+			name: "Expert Gen",
 			tier: 5,
 			purchased: false,
 			icon: "*diamonds"
@@ -1619,12 +1809,16 @@ var toReturn = {
 			purchased: false,
 			icon: "*water"
 		},
-		mapHealth: {
-			description: "Your Trimps gain +100% health in maps.",
-			name: "Safe Mapping",
+		maz:{
+			description: "Unlock a second preset to use with Map At Zone!",
+			name: "Map at Zonier",
 			tier: 6,
 			purchased: false,
-			icon: "*map-signs"
+			onRespec: function(){
+				game.options.menu.mapAtZone.U1Mode = 'a';
+				game.options.menu.mapAtZone.U2Mode = 'a';
+			},
+			icon: "*map-o"
 		},
 		scry2: {
 			description: "以占卜者阵型完成整个虚空地图，可以额外获得50%的氦。",
@@ -1661,8 +1855,7 @@ var toReturn = {
 			name: "Deca Build",
 			tier: 7,
 			purchased: false,
-			icon: "*hammer",
-			requires: "doubleBuild"
+			icon: "*hammer"
 		},
 		stillRowing: {
 			description: "连续完成一个完整的尖塔增加50%掠夺奖励,从2％每行的额外奖励增加到3％。",
@@ -1858,7 +2051,7 @@ var toReturn = {
 		},
 		liquification3: {
 			get description () {
-				if (game.global.universe == 2) return "Liquification is disabled in Universe 2, but <b>Hyperspeed II's bonus will now function up to 75% of your Highest Zone Reached rather than a measly 50%</b>"
+				if (game.global.universe == 2) return "Liquification is disabled in Universe 2, but <b>Hyperspeed II's bonus will now function up to 75% of your Highest Zone Reached (through Z" + Math.floor(game.global.highestLevelCleared * 0.75) + ") rather than a measly 50%</b>";
 				var text = (this.purchased) ? "This mastery is increasing " : "This mastery would increase ";
 				var totalSpires = game.global.spiresCompleted;
 				if (game.talents.liquification.purchased) totalSpires++;
@@ -1870,7 +2063,7 @@ var toReturn = {
 					else fluffyText += " and your two Fluffy bonuses as another"
 					totalSpires += (fluffyCount * 0.5);
 				}
-				return "Increase your Liquification bonus by <b>10%</b>, as if you had completed <b>2 extra Spires</b>. In addition, <b>Hyperspeed II's bonus will also now function up to 75% of your Highest Zone Reached rather than a measly 50%</b>.<br/><br/>Counting Liquification I and II as two Spires" + fluffyText + ", you have completed the equivalent of " + totalSpires + " unique Spire" + ((totalSpires == 1) ? "" : "s") + ", giving you " + (totalSpires * 5) + "% of your highest Zone reached (through Z" + Math.floor((totalSpires / 20) * (getHighestLevelCleared(false, true) + 1)) + "). " + text + " your bonus to " + ((totalSpires + 2) * 5) + "% of your highest Zone reached (through Z" + Math.floor(((totalSpires + 2) / 20) * (getHighestLevelCleared(false, true) + 1)) + ").";
+				return "Increase your Liquification bonus by <b>10%</b>, as if you had completed <b>2 extra Spires</b>. In addition, <b>Hyperspeed II's bonus will also now function up to 75% of your Highest Zone Reached (through Z" + Math.floor(game.global.highestLevelCleared * 0.75) + ") rather than a measly 50%</b>.<br/><br/>Counting Liquification I and II as two Spires" + fluffyText + ", you have completed the equivalent of " + totalSpires + " unique Spire" + ((totalSpires == 1) ? "" : "s") + ", giving you " + (totalSpires * 5) + "% of your highest Zone reached (through Z" + Math.floor((totalSpires / 20) * (getHighestLevelCleared(false, true) + 1)) + "). " + text + " your bonus to " + ((totalSpires + 2) * 5) + "% of your highest Zone reached (through Z" + Math.floor(((totalSpires + 2) / 20) * (getHighestLevelCleared(false, true) + 1)) + ").";
 			},
 			name: "Liquification III",
 			tier: 10,
@@ -1880,9 +2073,9 @@ var toReturn = {
 		},
 		mesmer: {
 			get description(){
-				var number = (game.global.highestRadonLevelCleared >= 64) ? "2/3" : "2";
-				var totalDesc = (game.global.highestRadonLevelCleared >= 64) ? "<span class='icomoon icon-infinity'></span>" : "2";
-				var challengeList = (game.global.highestRadonLevelCleared >= 64) ? "Trappapalooza, " : "";
+				var number = (game.global.highestRadonLevelCleared >= 49) ? "2/3" : "2";
+				var totalDesc = (game.global.highestRadonLevelCleared >= 49) ? "<span class='icomoon icon-infinity'></span>" : "2";
+				var challengeList = (game.global.highestRadonLevelCleared >= 49) ? "Trappapalooza, " : "";
 				challengeList += "Trapper, Coordinate, Trimp, Obliterated or Eradicated"
 				var text = "<p>Triples the Challenge<sup>" + number + "</sup> bonus for all Challenge<sup>" + number + "</sup>s that have normal reward scaling (Does not include " + challengeList + ").</p>";
 				var currentC2 = countChallengeSquaredReward(true);
@@ -2117,6 +2310,27 @@ var toReturn = {
 			tooltip: "你已经看到太多的失败了，是时候进行更积极的训练了。 带回这些记忆会使你的脆皮在1级时获得5％的几率造成+ 130％的伤害，并且每级将获得额外的5％暴击几率和30％的爆击伤害。 最多10个级别。",
 			max: 10
 		},
+		Greed: {
+			priceBase: 10e9,
+			radLocked: true,
+			radLevel: 0,
+			radSpent: 0,
+			getMult: function(){
+				return Math.pow(this.getBonusAmt(), getPerkLevel("Greed"));
+			},
+			getBonusAmt: function(){
+				var tribs = game.buildings.Tribute.owned;
+				if (tribs > 1250) tribs = 1250;
+				tribs -= 600;
+				var mod = 1.025;
+				if (tribs <= 0) return mod;
+				mod += (0.00015 * tribs); //+0.015% per tribute above 600
+				mod += (Math.floor(tribs / 25) * 0.0035); //+0.35% per 25 tributes above 600
+				return mod;
+			},
+			tooltip: "Feeling poor? Just get more resources! Each level increases all loot gained by 2.5% (compounding). Starting once you have 600 Tributes, every Tribute you purchase (up to 1250) will <b>add</b> 0.015% to the compounding bonus. Every 25th Tribute you purchase will also add an additional 0.35% to the compounding bonus. For example: If you have 750 Tributes, you'll earn a 6.8% compounding Loot bonus for each level of Greed.",
+			max: 40
+		},
 		Tenacity: {
 			priceBase: 50e6,
 			radLocked: true,
@@ -2309,7 +2523,7 @@ var toReturn = {
 			radLocked: false,
 			radLevel: 0,
 			radSpent: 0,
-			tooltip: "Crystallize some Radon, creating an interdimensional Prism that you can carry back through Portals. Each level adds 1% to your Trimps' Prismatic Shield and makes your Trimps feel 5% more comfortable in battle.",
+			tooltip: "Crystallize some Radon, creating an interdimensional Prism that you can carry back through Portals. Each level adds 1% to your Trimps' Prismatic Shield and makes your Trimps feel 5% more comfortable in battle. Once you have 20 or more points of Prismal, you will automatically collect Prismalicious from the Prismatic Palace after completing Z20.",
 			max: 100,
 			onChange: function(){
 				if (!game.upgrades.Prismatic.done) document.getElementById("blockDiv").style.visibility = "visible";
@@ -2653,7 +2867,7 @@ var toReturn = {
 			unlockString: "reach Zone 60"
 		},
 		Trapper: {
-			description: "旅行到一个地方，在那里，脆皮拒绝在人工饲养的环境中繁殖，为你自己学习如何利用繁殖率较低的新环境。 清理 <b>'末日之神殿' (33)</b> 有了这个挑战，你的繁殖率就会恢复到正常水平。",
+			description: "Travel to a dimension where Trimps refuse to breed in captivity, teaching yourself new ways to take advantage of situations where breed rate is low. Clearing <b>'Trimple Of Doom' (33)</b> with this challenge active will return your breeding rate to normal. Note that any bonuses that cause housing to come prefilled with Trimps will not work in a dimension where Trimps cannot breed.",
 			completed: false,
 			heldBooks: 0,
 			fireAbandon: true,
@@ -2861,11 +3075,11 @@ var toReturn = {
 			unlockString: "到达区域 130"
 		},
 		Nom: {
-			description: "传送到一个敌人喜欢吃脆皮的维度。每当一队脆皮死亡，敌人将会吃掉他们，增加25%(叠乘)的伤害，并恢复最大生命值5%的血量。富含甲烷的大气使你的脆皮每次攻击后血量都会减少最大生命值的5%。但是敌人由于体型过大，行动迟缓，无法先攻。清除<b>区域145</b>将奖励你350%的你所获得的氦。这个挑战是可重复的！",
+			description: "Travel to a dimension where Bad Guys enjoy the taste of Trimp. Whenever a group of Trimps dies, the Bad Guy will eat them, gaining 25% (compounding) more attack damage and healing for 5% of their maximum health. The methane-rich atmosphere causes your Trimps to lose 5% of their total health after each attack, but the Bad Guys are too big and slow to attack first. Clearing <b>Zone 145</b> will reward you with an additional 450% of all helium earned up to that point. This is repeatable!",
 			completed: false,
 			allowSquared: true,
-			squaredDescription: "传送到一个敌人觉得脆皮美味，喜欢吃脆皮的维度。每当一队脆皮死亡，敌人将会吃掉他们，并增加25%(叠乘)的伤害以及血量恢复最大生命值的5%。富含甲烷的大气使你的脆皮每次攻击后血量都会减少最大生命值的5%。但是敌人由于体型过大，行动迟缓，无法先攻。",
-			heliumMultiplier: 3.5,
+			squaredDescription: "Travel to a dimension where Bad Guys enjoy the taste of Trimp. Whenever a group of Trimps dies, the Bad Guy will eat them, gaining 25% (compounding) more attack damage and healing for 5% of their maximum health. The methane-rich atmosphere causes your Trimps to lose 5% of their total health after each attack, but the Bad Guys are too big and slow to attack first.",
+			heliumMultiplier: 4.5,
 			filter: function () {
 				return (getHighestLevelCleared(true) >= 144);
 			},
@@ -2899,7 +3113,7 @@ var toReturn = {
 			unlockString: "到达区域 150"
 		},
 		Toxicity: {
-			description: "传送至一个富含氦，同时也有大量毒性敌人的维度。所有的敌人都有5倍攻击和2倍生命值。每次你攻击敌人，你的脆皮都会损失最大生命值5%的血量，而且使毒素释放到大气中，减少你脆皮0.3%(当前的)的繁殖速度，但也会增加所有资源获取0.15%，最多叠1500层。当你清除一个区域后效果重置。带有本挑战完成<b>区域165</b>将奖励你200%的你所获得的氦(不包括区域165及以上所获得)。这个挑战是可重复的！",
+			description: "Travel to a dimension rich in helium, but also rich in toxic Bad Guys. All Bad Guys have 5x attack and 2x health. Each time you attack a Bad Guy, your Trimps lose 5% of their health, and toxins are released into the air which reduce the breeding speed of your Trimps by 0.3% (of the current amount), but also increase all resources obtained by 0.15% (including Helium), stacking up to 1500 times. These stacks will reset when you clear a Zone. Completing <b>Zone 165</b> with this challenge active will reward you with an additional 400% of all helium earned up to that point. This is repeatable!",
 			completed: false,
 			filter: function () {
 				return (getHighestLevelCleared(true) >= 164);
@@ -2907,7 +3121,7 @@ var toReturn = {
 			highestStacks: 0,
 			heldHelium: 0,
 			heliumThrough: 165,
-			heliumMultiplier: 2,
+			heliumMultiplier: 4,
 			stacks: 0,
 			maxStacks: 1500, //Changing this breaks the feat spaghetti
 			stackMult: 0.997,
@@ -3170,7 +3384,7 @@ var toReturn = {
 			unlocks: "Equality"
 		},
 		Bublé: {
-			description: "Tweak the portal to bring you to an alternate reality where Trimps really really don't like taking damage. Your Trimps start in this reality with an extra 100% Prismatic Shield, but as soon as they take any damage to health at all, they will refuse to fight again and the challenge will end. Clearing <b>Zone 40</b> without failing will complete this Challenge - granting an additional 300% of all Radon earned up to that point. Failing this Challenge will grant an additional 100% of all Radon earned up to the spot where you failed.",
+			description: "Tweak the portal to bring you to an alternate reality where Trimps really really don't like taking damage. Your Trimps start in this reality with an extra 250% Prismatic Shield, but as soon as they take any damage to health at all, they will refuse to fight again and the challenge will end. Clearing <b>Zone 40</b> without failing will complete this Challenge - granting an additional 300% of all Radon earned up to that point. Failing this Challenge will grant an additional 100% of all Radon earned up to the spot where you failed.",
 			completed: false,
 			allowU2: true,
 			blockU1: true,
@@ -3246,7 +3460,7 @@ var toReturn = {
 			completeAfterZone: 45
 		},
 		Melt: {
-			description: "Tweak the portal to bring you to an alternate reality, where there's plenty of risk and Radon. You will gain 10x loot (excluding Radon), 10x gathering, and 5x Trimp attack, but a stack of Melt will accumulate every second. Each stack of Melt reduces loot, gathering, and Trimp attack by 1% of the current amount. These stacks reset each time a Zone is cleared and cap at 500. Clearing <b>Melting Point (Zone 50) <i>or</i> Zone 55</b> will complete this Challenge - granting an additional 200% of all Radon collected through Z50. This Challenge is repeatable!",
+			description: "Tweak the portal to bring you to an alternate reality, where there's plenty of risk and Radon. You will gain 10x loot (excluding Radon), 10x gathering, and 5x Trimp attack, but a stack of Melt will accumulate every second. Each stack of Melt reduces loot, gathering, and Trimp attack by 1% of the current amount. These stacks reset each time a Zone is cleared and cap at 500. Clearing <b>Melting Point (Zone 50) <i>or</i> Zone 55</b> will complete this Challenge - granting an additional 400% of all Radon collected through Z50. This Challenge is repeatable!",
 			completed: false,
 			abandon: function () {
 				this.stacks = 0;
@@ -3267,7 +3481,7 @@ var toReturn = {
 			onComplete: function(){
 				if (this.largestStacks <= 150) giveSingleAchieve("Solid");
 				var reward = game.challenges.Melt.heldHelium;
-				reward *= 2;
+				reward *= 4;
 				message("You have completed the Melt challenge! You have been rewarded with " + prettify(reward) + " Radon, and you may repeat the challenge.", "Notices");
 				game.global.challengeActive = "";
 				game.challenges.Melt.abandon();
@@ -3315,6 +3529,95 @@ var toReturn = {
 				message("You have completed the 'Trappapalooza' challenge! Your Trimps now remember how to breed, and you have unlocked a new perk!", "Notices");
 			},
 			unlockString: "reach Zone 60"
+		},
+		Quagmire: {
+			description: "Travel to an extremely muddy dimension. It's hard to walk out here, making Overkill useless and Agility difficult. Your Trimps start each run with 100 stacks of Motivated, increasing all Loot gained by 40% per stack (including Radon). After each Zone, your Trimps gain 1 stack of Exhausted, reducing Trimp damage and breed speed by 10% per stack in the World, and 5% per stack in maps (compounding). For every 10 stacks of Exhausted, your Trimps will also attack 100ms slower. You'll also have access to run a special map called 'The Black Bog', which will always scale to Zone level and is such a terrifying map that Exotic Imp-orts are unable to spawn there. Completing 'The Black Bog' will reduce your Trimps' Exhausted by 1 stack, but will also reduce their Motivated by 1 stack. Exhausted stacks can be negative, and will increase damage and breed speed. Completing Z70 or reaching 0 Motivated stacks with this Challenge active will end the Challenge, returning the World to normal. If the Challenge is ended by completing Z70, you will gain an additional 150% of all Radon earned.",
+			motivatedStacks: 100,
+			exhaustedStacks: 0,
+			completed: false,
+			blockU1: true,
+			allowU2: true,
+			allowSquared: false,
+			completeAfterZone: 70,
+			heldHelium: 0,
+			heliumThrough: 70,
+			unlockString: " reach Zone 70",
+			fireAbandon: true,
+			filter: function(){
+				return (getHighestLevelCleared(true) >= 69);
+			},
+			start: function(){
+				createMap(-1, "The Black Bog", "Darkness", 10, 150, 3, true);
+				this.drawStacks();
+			},
+			onComplete: function(){
+				var reward = game.challenges.Quagmire.heldHelium;
+				reward *= 1.5;
+				message("You have completed the Quagmire challenge! You have gained an extra " + prettify(reward) + " Radon, and your world has been returned to normal.", "Notices");
+				addHelium(reward);
+				game.challenges.Quagmire.abandon();
+			},
+			drawStacks: function(){
+				manageStacks('Motivated', this.motivatedStacks, true, 'quagmireMotivatedStacks', 'glyphicon glyphicon-gift iconPadLeft', this.stackTooltip("Motivated"), false);
+				manageStacks('Exhausted', this.exhaustedStacks, true, 'quagmireExhaustedStacks', 'glyphicon glyphicon-bed iconPadLeft', this.stackTooltip("Exhausted"), false);
+			},
+			onLoad: function() {
+				this.drawStacks();
+			},
+			onNextWorld: function(){
+				this.exhaustedStacks++;
+				this.drawStacks();
+			},
+			stackTooltip: function(which){
+				if (which == "Motivated"){
+					return "Your Trimps are Motivated, increasing all Loot gained (including Radon) by " + prettify((game.challenges.Quagmire.getLootMult() - 1) * 100) + "%.";
+				}
+				var exhaustMult = game.challenges.Quagmire.getExhaustMult();
+				if (exhaustMult < 1) return "Your Trimps are exhausted, having only " + prettify(exhaustMult * 100) + "% of their normal damage and breed speed.";
+				return "Your Trimps are not at all exhausted, and have " + prettify((exhaustMult - 1) * 100) + "% more damage and breed speed.";
+			},
+			abandon: function(){
+				this.motivatedStacks = 100;
+				this.exhaustedStacks = 0;
+				game.global.challengeActive = "";
+				manageStacks('Motivated', null, true, 'quagmireMotivatedStacks', null, null, true);
+				manageStacks('Exhausted', null, true, 'quagmireExhaustedStacks', null, null, true);
+				this.removeBog();
+			},
+			getSpeedPenalty: function(){
+				if (this.exhaustedStacks < 10) return 0;
+				var slowCount = Math.floor(this.exhaustedStacks / 10);
+				return (slowCount * 100);
+			},
+			getLootMult: function(){
+				return 1 + (this.motivatedStacks * 0.4);
+			},
+			removeBog: function(){
+				var bogMap = this.getBogMap();
+				if (!bogMap) return;
+				if (game.global.mapsActive && game.global.currentMapId == bogMap.id){
+					mapsClicked(true);
+				}
+				bogMap.noRecycle = false;
+				recycleMap(getMapIndex(bogMap.id), false, false, true);
+				if (game.global.preMapsActive) mapsSwitch(true, true);
+			},
+			getBogMap: function(){
+				for (var x = 0; x < game.global.mapsOwnedArray.length; x++){
+					if (game.global.mapsOwnedArray[x].location == "Darkness"){
+						return game.global.mapsOwnedArray[x];
+					}
+				}
+				return false;
+			},
+			getExhaustMult: function(){
+				if (this.exhaustedStacks == 0) return 1;
+				var mult = 1;
+				var mod = (game.global.mapsActive) ? 0.05 : 0.1;
+				if (this.exhaustedStacks < 0) mult = Math.pow((1 + mod), Math.abs(this.exhaustedStacks));
+				else mult = Math.pow((1 - mod), this.exhaustedStacks);
+				return mult;
+			}
 		},
 		Wither: {
 			description: "Travel to an ultra scary alternate reality with horrific Bad Guys. Enemies heal for 25% of their maximum health before each attack. If an enemy ever heals itself back to 100% health, your army will fall to despair and instantly wither away. Every enemy slain by your Trimps in the World or World-level Maps grants 1 stack of Hardness to your Trimps (stacking up to 10,000 and increasing Health by 0.1% per stack) and 1 stack of Horror to all enemies (increasing Attack by 0.05% per stack). Whenever a group of Trimps is killed by Wither, Trimps lose half of their stacks of Hardness and block the enemy's ability to heal and Wither for an amount of cells equal to 10% of the Hardness stacks lost. Clearing <b>Zone 70</b> will complete this Challenge.",
@@ -3453,13 +3756,11 @@ var toReturn = {
 			unlockString: "reach Zone 80"
 		},
 		Quest: {
-			description: "Travel to an alternate reality with lots of extra Radon... if you're willing to complete some quests for it. Enemies in this reality gain 10% extra health each zone starting at Z6 (compounding). However, you'll also get a random Quest each Zone starting at 6. Completing this quest will grant a 2x Radon multiplier for the rest of the Zone (does not stack), and will increase your Trimps' attack by 10% for the rest of the Challenge (compounding). Check messages or the Zone info tooltip for quest progress. Clearing <b>Zone 85</b> will complete this Challenge - granting an extra 200% of all Radon earned, and returning Trimp Attack and Enemy Health to normal. This Challenge is repeatable!",
+			description: "Travel to an alternate reality where Trimps really love questing. Enemies in this reality gain 10% extra health each zone starting at Z6 (compounding). However, you'll also get a random Quest each Zone starting at 6. Completing this quest will grant a 2x Radon multiplier for the rest of the Zone (does not stack), and will increase your Trimps' attack by 10% for the rest of the Challenge (compounding). Check messages or the Zone info tooltip for quest progress. Clearing <b>Zone 85</b> will complete this Challenge, returning Trimp Attack and Enemy Health to normal.",
 			squaredDescription: "Travel to an alternate reality where Trimps really love questing. Enemies in this reality gain 10% extra health each zone starting at Z6 (compounding). However, you'll also get a random Quest each Zone starting at 6. Completing this quest will grant a 2x Radon multiplier for the rest of the Zone (does not stack), and will increase your Trimps' attack by 10% for the rest of the Challenge (compounding). Check messages or the Zone info tooltip for quest prorgress.",
 			completed: false,
 			allowU2: true,
 			blockU1: true,
-			heliumThrough: 85,
-			heldHelium: 0,
 			completeAfterZone: 85,
 			questId: -1,
 			questComplete: false,
@@ -3468,7 +3769,7 @@ var toReturn = {
 			finishedQuests: 0,
 			questsMade: 0,
 			allowSquared: true,
-			questDescriptions: ["Quintuple (x5) your {resource}", "Double your {resource}", "Complete 5 Maps at Zone level", "One-shot 5 world enemies", "Don't let your shield break before Cell 100", "Don't run a map before Cell 100", "Buy a Smithy"],
+			questDescriptions: ["Quintuple (x5) your {resource}", "Double your {resource}", "Complete 5 Maps at Zone level", "One-shot 5 world enemies (Overkill is disabled in World until complete)", "Don't let your shield break before Cell 100", "Don't run a map before Cell 100", "Buy a Smithy"],
 			filter: function(){
 				return (getHighestLevelCleared(true) >= 84);
 			},
@@ -3499,6 +3800,7 @@ var toReturn = {
 			onStartFight: function(){
 				if (this.questId == -1) return;
 				if (this.questComplete) return;
+				if (this.questId < 2) return; //resource quests checked from gather
 				if (this.questId <= 3) this.checkQuest();
 				else if (this.questId <= 5 && game.global.lastClearedCell == 98) this.checkQuest();
 				//Do nothing for 6, checkQuest called from smithy purchase
@@ -3529,14 +3831,31 @@ var toReturn = {
 			failQuest: function(){
 				message("Oh no, you failed your quest! You've completed " + this.finishedQuests + " / " + this.questsMade + " quests.", "Notices", "*exclamation", "questMessage questFail")
 			},
+			disableOverkill: function(){
+				if (!game.global.challengeActive == "Quest" || this.questComplete || game.global.mapsActive || this.questId != 3) return false;
+				return true;
+			},
 			getNextQuest: function(){
 				if (this.questId != -1 && !this.questComplete) this.failQuest();
-				var roll = Math.floor(seededRandom(game.global.u2WorldSeed++) * this.questDescriptions.length);
+				var quests = [];
+				for (var y = 0; y < this.questDescriptions.length; y++){
+					if (y != 6 || this.questId != 6) quests.push(y);
+				}
+				var roll = Math.floor(seededRandom(game.global.u2WorldSeed++) * quests.length);
+				roll = quests[roll];
 				this.questId = roll;
 				this.questComplete = false;
 				this.questsMade++;
 				if (roll <= 1){
-					var res = ["food", "wood", "metal", "gems", "science"];
+					var resCheck = ["food", "wood", "metal", "gems", "science"];
+					var res = [];
+					for (var x = 0; x < resCheck.length; x++){
+						if (game.resources[resCheck[x]].owned > 0) res.push(resCheck[x]);
+					}
+					if (res.length == 0){
+						res.push("food");
+						game.resources.food.owned = 5;
+					}
 					var resRoll = Math.floor(seededRandom(game.global.u2WorldSeed++) * res.length);
 					this.resource = res[resRoll];
 					var mult = (roll == 0) ? 5 : 2;
@@ -3561,14 +3880,286 @@ var toReturn = {
 				}
 			},
 			onComplete: function(){
-				var reward = game.challenges.Quest.heldHelium;
-				reward *= 2;
-				message("You have completed the Quest challenge! You have been rewarded with " + prettify(reward) + " Radon, and you may repeat the challenge.", "Notices");
+				message("You have completed the Quest challenge! Your World has been returned to normal and you have unlocked the Greed Perk!", "Notices");
 				game.global.challengeActive = "";
-				addHelium(reward);
+				unlockPerk("Greed");
 			},
 			unlockString: "reach Zone 85",
+			unlocks: "Greed"
 		},
+		Archaeology: {
+			description: "Travel to a dimension with lots of buried Relics. When starting this challenge, you'll be granted access to 5 special new upgrades called Relics that grant a compounding increase to your Attack, Breed Speed, Radon, Resource Gain (Food, Wood, Metal, Science and Gems), and one that decreases Enemy Attack. These upgrades all cost science and increase in cost whenever any of them are purchased. However, your Attack, Breed Speed, Radon, Resource Gain, and Enemy Health Relics all decrease by 1 Relic level every Zone and can go negative. All Radon drops have a base increase of +200% in this dimension, but taking the time to find the relics and extra Radon disables the possibility of using Overkill in the World. Completing <b>Z95</b> with this Challenge active will grant an additional +500% of all Radon earned. After the first time you complete this Challenge, you'll gain the ability to create maps with Small and Large Research Caches!",
+			completed: false,
+			blockU1: true,
+			allowU2: true,
+			allowSquared: false,
+			completeAfterZone: 95,
+			heldHelium: 0,
+			heliumThrough: 95,
+			unlockString: " reach Zone 95",
+			fireAbandon: true,
+			pauseAuto: false,
+			overZero: false,
+			points: {
+				attack: 0,
+				enemyAttack: 0,
+				radon: 0,
+				science: 0,
+				breed: 0
+			},
+			purchases: 0,
+			filter: function(){
+				return (getHighestLevelCleared(true) >= 94);
+			},
+			automatorTooltip: function(){
+				var text = "<div id='ArchaeologyAutomatorError' style='color: red'></div>";
+				text += "<div>The Archaeology Automator is any Archaeologist's best friend (once they figure out how to use it)! Below you'll need to enter a string for the Automator to parse. Your string should be separated by commas, and will indicate priority for Relic purchases.<br/><br/>An example of a viable string would be '-10a,5s,5r,10s,10r,5a'. <b>Use 'a' for trimp Attack, 'e' for Enemy attack, 'r' for Radon, 's' for reSource, and 'b' for Breed speed.</b><br/><br/>As previously stated, each rule (separated by commas) in this string dictates the priority of that particular upgrade. With the given example string, the Automator will first buy Trimp Attack Relics until they're at or above -10, then will attempt to get the Resource Relic up to positive 5 points, then it will do the same with Radon. Once all of these Relics lose a point, the Automator will go back and fill Attack back up to -10 first, then Resource back up to 5, then Radon back to 5, then will move on to trying to get Resource to 10. Each time points are lost in a Relic, or if the Automator string is modified, the Automator will start back at the first rule and work its way back up.</div>";
+				var selectedPerc = game.global.archThresh;
+				var options = "<option value='0.1'" + ((selectedPerc == 0.1) ? " selected" : "") + ">0.1%</option><option value='1'" + ((selectedPerc == 1) ? " selected" : "") + ">1%</option><option value='5'" + ((selectedPerc == 5) ? " selected" : "") + ">5%</option><option value='10'" + ((selectedPerc == 10) ? " selected" : "") + ">10%</option><option value='25'" + ((selectedPerc == 25) ? " selected" : "") + ">25%</option><option value='50'" + ((selectedPerc == 50) ? " selected" : "") + ">50%</option><option value='99'" + ((selectedPerc == 99) ? " selected" : "") + ">99%</option>";
+				text += "<br/>Purchase when the Relic cost is less than or equal to <select id='ArchaeologyAutomatorSelect'>" + options + "</select> of your total Science";
+				text += "<br/><input style='width: 100%' value='" + game.global.archString + "' type='text' id='ArchaeologyAutomatorInput'/>"
+				return text;
+			},
+			getDefs: function(){
+				return {
+					a: "attack",
+					e: "enemyAttack",
+					r: "radon",
+					b: "breed",
+					s: "science"
+				}
+			},
+			saveAutomator: function(){
+				var elem = document.getElementById('ArchaeologyAutomatorInput');
+				var error = "";
+				var val = "";
+				if (elem !== null) val = htmlEncode(elem.value);
+				val = val.replace(/\s/g, '')
+				if (val == "" || !val){
+					game.global.archString = "";
+					return;
+				}
+				var defs = this.getDefs();
+				var split = val.split(',');
+				if (!split.length) {
+					game.global.archString = "";
+					cancelTooltip();
+					return;
+				}
+				if (split.length > 25){
+					error += "You can only have a maximum of 25 separate Automator rules for this Challenge. You currently have " + split.length + " in your string.<br/>"
+				}
+				for (var x = 0; x < split.length; x++){
+					var rule = split[x];
+					rule = rule.split(/(\d+)/);
+					var letter = rule[2];
+					var number = parseInt(rule[1], 10);
+					if (isNumberBad(number)){
+						error += "Unable to parse number in rule " + (x + 1) + " at '" + split[x] + "'. Please make sure this is a valid number.<br/>";
+						continue;
+					}
+					if (rule[0] == "-") number *= -1;
+					if (!defs[letter]) {
+						error += "Unable to parse rule " + (x + 1) + " at '" + split[x] + "'. Please use a, e, r, s, or b as the only letters in your string.<br/>";
+						continue;
+					}
+					if (number > 50) {
+						error += "Rule " + (x + 1) + " is attempting to set a value of " + number + ", but the maximum Relic level is 50. Please use a number less than or equal to 50.<br/>";
+						continue;
+					}
+				}
+				if (error != "") {
+					var errElem = document.getElementById('ArchaeologyAutomatorError');
+					if (!errElem) return;
+					errElem.innerHTML = error;
+					return;
+				}
+				var selectElem = document.getElementById("ArchaeologyAutomatorSelect");
+				var thresh = (selectElem == null) ? 50 : parseInt(selectElem.value, 10);
+				game.global.archString = val;
+				game.global.archThresh = thresh;
+				cancelTooltip();
+			},
+			checkAutomator: function(makePurchase){
+				if (this.pauseAuto || game.global.archString == "") return "off";
+				var costMax = game.resources.science.owned;
+				costMax *= (game.global.archThresh / 100);
+				var nextCost = this.getNextCost();		
+				var defs = this.getDefs();
+				var split = game.global.archString.split(',');
+				for (var x = 0; x < split.length; x++){
+					var rule = split[x];
+					rule = rule.split(/(\d+)/);
+					var letter = rule[2];
+					var number = parseInt(rule[1], 10);
+					if (rule[0] == "-") number *= -1;
+					var points = this.getPoints(defs[letter]);
+					if (points < number) {
+						if (nextCost > costMax) return defs[letter] + "RelicCost";
+						if (makePurchase) buyUpgrade(defs[letter] + "Relic", undefined, true);
+						return defs[letter];
+					}
+				}
+				return "satisfied";
+			},
+			getTooltip: function(what){
+				var cap = what[0].toUpperCase() + what.slice(1);
+				var extra = "";
+				if (cap == "Breed") {
+					cap = "Breed Speed";
+				}
+				else if (cap == "Science"){
+					cap = "Resource Gain"
+					extra = " (Food, Wood, Metal, Science, and Gems)";
+				}
+				var text;
+				var statPercent = prettify((this.getStatMult(what) - 1) * 100);
+				if (what == "enemyAttack"){
+					text = "Decreases all Enemy Attack by " + Math.floor((this.getBaseStatMult(what) -1) * 100) + "%. You currently have " + ((statPercent >= 0) ? "+" : "") + statPercent + "% to Enemy Attack.";
+				}
+				else{
+					text = "Increases all " + cap + extra + " by " + Math.floor((this.getBaseStatMult(what) -1) * 100) + "%. You currently have " + ((statPercent >= 0) ? "+" : "") + statPercent + "% to " + cap + ".";
+				}
+				text += "<br/><br/><b>Hold Ctrl while clicking any relic upgrade to access the Relic Automator!</b>";
+				text += "<br/><br/>You have discovered " + (this.getPoints(what) + game.global.world - 1) + " of these Relics and " + this.purchases + " total Relics. Each Relic has a max of 50 positive levels at a time. Cost increases based on total purchased Relics.";
+				return text;
+			},
+			buyRelic: function(what, noTip){
+				var increase = game.upgrades[what].relic;
+				this.points[increase]++;
+				if (this.points[increase] >= 1) this.overZero = true;
+				this.purchases++;
+				this.updateButton(increase);
+				if (!noTip)
+				tooltip(what, "upgrades", "update");
+			},
+			updateButton: function(what){
+				var ownedElem = document.getElementById(what + "RelicOwned");
+				if (ownedElem != null)
+					ownedElem.innerHTML = this.points[what];
+			},
+			getBaseStatMult: function(what){
+				if (what == "breed") return 1.1;
+				return 1.05;
+			},
+			getStatMult: function(what, forcePoints){
+				var points = (typeof forcePoints === 'undefined') ? this.points[what] : forcePoints;
+				if (what == "enemyAttack") points *= -1;
+				var amt = Math.pow(this.getBaseStatMult(what), points);
+				if (what == "radon") amt *= 3;
+				return amt;
+			},
+			getNextCost: function(){
+				return (Math.floor(Math.pow(1.1, this.purchases) * 1e6));
+			},
+			getPoints: function(what){
+				return this.points[what];
+			},
+			start: function(){
+				for (var item in this.points){
+					unlockUpgrade(item + "Relic");
+				}
+			},
+			onComplete: function(){
+				var reward = game.challenges.Archaeology.heldHelium;
+				reward *= 5;
+				if (this.overZero == false) giveSingleAchieve("Unassisted");
+				message("You have completed the Archaeology challenge! You have gained an extra " + prettify(reward) + " Radon, and your world has been returned to normal.", "Notices");
+				addHelium(reward);
+				game.global.ArchaeologyDone = true;
+				game.challenges.Archaeology.abandon();
+			},
+			onNextWorld: function(){
+				for (var item in this.points){
+					this.points[item]--;
+					this.updateButton(item);
+				}
+			},
+			abandon: function(){
+				game.global.challengeActive = "";
+				for (var item in this.points){
+					game.upgrades[item + "Relic"].locked = 1;
+				}
+				drawAllUpgrades();
+			},
+		},
+		Mayhem: {
+			get description(){
+				var text = "Travel to a very hectic dimension. The final Cell of each Zone is a Poisonous boss enemy, and all Map enemies are also Poisonous. Poisonous Enemies stack 20% of their damage on your Trimps as poison, which is taken as damage after each attack until your Trimps die. Each Zone starts with 1000 stacks of Mayhem, and each stack increases the damage and health of the final Cell Boss Enemy for that Zone by 10%. Completing a map reduces the Mayhem stacks for that Zone by 1 and an additional 1 for each level of the Map above the Zone's level (For example, a level 15 map will remove 3 stacks per completion when at Z13). Completing <b>Z100</b> with this Challenge active will grant your Trimps a permanent, stacking, additive <b>" + prettify((game.global.mayhemCompletions * 10) + 10) + "%</b> bonus to Radon in U2 and to Trimp Attack and Health in Universes 1 and 2. Each time Mayhem is completed, the reward for next time increases by an additional 10% and Enemies gain 3x damage and health for all future runs of Mayhem.";
+				text += " <b>You have completed Mayhem " + game.global.mayhemCompletions + " time" + needAnS(game.global.mayhemCompletions) + ". Your Trimps have +" + prettify((this.getTrimpMult() - 1) * 100) + "% Attack, Health, and Radon, and your next run of Mayhem will spawn Bad Guys with " + prettify(Math.pow(3, game.global.mayhemCompletions)) + "x Attack and Health.</b>";
+				return text;
+			},
+			stacks: 1000,
+			poison: 0,
+			filter: function(){
+				return (getHighestLevelCleared(true) >= 99);
+			},
+			getEnemyMult: function(){
+				return Math.pow(3, game.global.mayhemCompletions);
+			},
+			getBossMult: function(){
+				return 1 + (0.1 * this.stacks);
+			},
+			getTrimpMult: function(){
+				var comps = game.global.mayhemCompletions;
+				return 1 + (((comps / 2) * (comps + 1)) / 10);
+			},
+			onNextWorld: function(){
+				this.stacks = 1000;
+				this.drawStacks();
+			},
+			clearedMap: function(level){
+				var dif = level - game.global.world + 1;
+				if (dif > 0){
+					this.stacks -= dif;
+					this.drawStacks();
+				}
+				if (this.stacks <= 0) this.stacks = 0;
+				if (game.global.lastClearedCell == 98){
+					var cell = game.global.gridArray[99];
+					cell.maxHealth = cell.preMayhemHealth * this.getBossMult();
+					if (cell.health > cell.maxHealth)
+						cell.health = cell.maxHealth;
+				}
+			},
+			abandon: function(){
+				manageStacks(null, null, true, 'mayhemChallengeStacks', null, null, true);
+				manageStacks(null, null, true, 'mayhemPoisonStacks', null, null, true);
+			},
+			drawStacks: function(){
+				manageStacks('Mayhem', this.stacks, true, 'mayhemChallengeStacks', 'icomoon icon-bomb', this.stackTooltip(), false);
+				if (this.poison > 0){
+					manageStacks('Poison', prettify(this.poison), true, 'mayhemPoisonStacks', 'icomoon icon-flask', this.poisonTooltip(), false);
+				}
+				else {
+					manageStacks(null, null, true, 'mayhemPoisonStacks', null, null, true);
+				}
+			},
+			onLoad: function(){
+				this.drawStacks();
+			},
+			poisonTooltip: function(){
+				return "Your Trimps are Poisoned! They take <b>" + prettify(this.poison) + "</b> damage after each attack. Poison bypasses Prismatic Shield!";
+			},
+			stackTooltip: function(){
+				var text = "The Final Enemy of this Zone has " + this.stacks + " stacks of Mayhem, granting +" + prettify((this.getBossMult() - 1) * 100) + "% Damage and Health. Complete Maps to lower these stacks.";
+				return text;
+			},
+			onComplete: function(){
+				var oldAmt = this.getTrimpMult();
+				game.global.mayhemCompletions++;
+				var newAmt = this.getTrimpMult();
+				message("You have completed the Mayhem Challenge! Your Trimps have gained +" + prettify((newAmt - oldAmt) * 100) + "% Radon in Universe 2 and Damage and Health in Universe 1 and 2, and future runs of this Challenge will be 3x more difficult. You have now completed Mayhem " + game.global.mayhemCompletions + " time" + needAnS(game.global.mayhemCompletions) + ". Your new total Mayhem bonus is +" + prettify((newAmt - 1) * 100) + "%", "Notices");
+				game.global.challengeActive = "";
+				game.challenges.Mayhem.abandon();
+			},
+			completed: false,
+			blockU1: true,
+			allowU2: true,
+			allowSquared: false,
+			completeAfterZone: 100,
+			unlockString: " reach Zone 100",
+		}
 	},
 	stats:{
 		trimpsKilled: {
@@ -4436,11 +5027,11 @@ var toReturn = {
 				return "<span style='font-size: .8em'>Reach U2 Z" + number + " without ever entering a Map.</span>";
 			},
 			evaluate: function () {
-				if (!this.earnable || this.universe == 1) return 0;
+				if (!this.earnable || game.global.universe == 1) return 0;
 				return game.global.world;
 			},
 			progress: function () {
-				if (this.universe == 1) return "You must be in Universe 2!"
+				if (game.global.universe == 1) return "You must be in Universe 2!"
 				if (!this.earnable && this.lastZone == -1) return "You need to portal to become eligible";
 				if (!this.earnable) return "You ran a Map on Z" + this.lastZone;
 				return "Still Earnable!";
@@ -4465,14 +5056,14 @@ var toReturn = {
 				return "<span style='font-size: .8em'>Reach U2 Z" + number1 + " without your Shield falling below " + number2 + "%.</span>";
 			},
 			evaluate: function (number) {
-				if (this.universe == 1) return 0;
+				if (game.global.universe == 1) return 0;
 				var nextBreakpoint = (number) ? this.breakpoints2[number] : this.breakpoints2[this.finished];
 				if (game.global.lowestShield < nextBreakpoint) return 0;
 				return game.global.world;
 			},
 			progress: function (index) {
 				if (index < this.finished) return "Already earned!";
-				if (this.universe == 1) return "You must be in Universe 2!";
+				if (game.global.universe == 1) return "You must be in Universe 2!";
 				var breakpoint2 = this.breakpoints2[index];
 				if (game.global.lowestShield < breakpoint2) return "Your Shield has already hit " + game.global.lowestShield + "% this run.";
 				return "Still Earnable! Lowest is " + game.global.lowestShield + "%";
@@ -4503,6 +5094,7 @@ var toReturn = {
 			display: function () {
 				return (game.global.totalPortals >= 1 || this.finished >= 1);
 			},
+			u: 1,
 			highest: 0,
 			reverse: true,
 			timed: true,
@@ -4529,6 +5121,7 @@ var toReturn = {
 			progress: function () {
 				return "最好成绩是 " + formatMinutesForDescriptions(this.highest);
 			},
+			u: 1,
 			highest: 0,
 			reverse: true,
 			timed: true,
@@ -4555,6 +5148,7 @@ var toReturn = {
 			progress: function () {
 				return "最好成绩是 " + formatMinutesForDescriptions(this.highest);
 			},
+			u: 1,
 			highest: 0,
 			reverse: true,
 			timed: true,
@@ -4581,6 +5175,7 @@ var toReturn = {
 			progress: function () {
 				return "最好成绩是 " + formatMinutesForDescriptions(this.highest);
 			},
+			u: 1,
 			highest: 0,
 			reverse: true,
 			timed: true,
@@ -4607,6 +5202,7 @@ var toReturn = {
 			progress: function () {
 				return "最好成绩是 " + formatMinutesForDescriptions(this.highest);
 			},
+			u: 1,
 			highest: 0,
 			reverse: true,
 			timed: true,
@@ -4633,6 +5229,7 @@ var toReturn = {
 			progress: function () {
 				return "最好成绩是 " + formatMinutesForDescriptions(this.highest);
 			},
+			u: 1,
 			highest: 0,
 			reverse: true,
 			timed: true,
@@ -4659,6 +5256,7 @@ var toReturn = {
 			progress: function () {
 				return "最好成绩是 " + formatMinutesForDescriptions(this.highest);
 			},
+			u: 1,
 			highest: 0,
 			reverse: true,
 			timed: true,
@@ -4685,6 +5283,7 @@ var toReturn = {
 			progress: function () {
 				return "最好成绩是 " + formatMinutesForDescriptions(this.highest);
 			},
+			u: 1,
 			highest: 0,
 			reverse: true,
 			timed: true,
@@ -4711,6 +5310,7 @@ var toReturn = {
 			progress: function () {
 				return "最好成绩是 " + formatMinutesForDescriptions(this.highest);
 			},
+			u: 1,
 			highest: 0,
 			reverse: true,
 			timed: true,
@@ -4737,6 +5337,7 @@ var toReturn = {
 			progress: function () {
 				return "最好成绩是 " + formatMinutesForDescriptions(this.highest);
 			},
+			u: 1,
 			highest: 0,
 			reverse: true,
 			timed: true,
@@ -4763,6 +5364,7 @@ var toReturn = {
 			progress: function () {
 				return "最好成绩是 " + formatMinutesForDescriptions(this.highest);
 			},
+			u: 1,
 			highest: 0,
 			reverse: true,
 			timed: true,
@@ -4789,6 +5391,7 @@ var toReturn = {
 			progress: function () {
 				return "Best run is " + formatMinutesForDescriptions(this.highest);
 			},
+			u: 1,
 			highest: 0,
 			reverse: true,
 			timed: true,
@@ -4815,6 +5418,7 @@ var toReturn = {
 			progress: function () {
 				return "Best run is " + formatMinutesForDescriptions(this.highest);
 			},
+			u: 2,
 			highest: 0,
 			reverse: true,
 			timed: true,
@@ -4841,6 +5445,7 @@ var toReturn = {
 			progress: function () {
 				return "Best run is " + formatMinutesForDescriptions(this.highest);
 			},
+			u: 2,
 			highest: 0,
 			reverse: true,
 			timed: true,
@@ -4867,6 +5472,7 @@ var toReturn = {
 			progress: function () {
 				return "Best run is " + formatMinutesForDescriptions(this.highest);
 			},
+			u: 2,
 			highest: 0,
 			reverse: true,
 			timed: true,
@@ -4898,24 +5504,24 @@ var toReturn = {
 		},
 		oneOffs2: {
 			//Turns out this method of handling the feats does NOT scale well... adding stuff to the middle is a nightmare. Yet I copy/pasted it again for Universe 2 and probably will do the same for U3. Oh well.
-			finished: [false, false, false, false, false, false, false, false, false, false, false, false],
+			finished: [false, false, false, false, false, false, false, false, false, false, false, false, false],
 			title: "Feats",
 			display: function(){
 				return (Fluffy.checkU2Allowed());
 			},
 			get descriptions () {
-				return ["Reach exactly 1337 Rn/Hr", "One-shot a Dimension of Rage enemy on Unlucky while Unlucky", "Complete Downsize with an equal amount of Huts, Houses, Mansions, Hotels and Resorts", "Complete Transmute without hiring a single Trimp", "Complete Unbalance with 500 stacks of Unbalance", "Complete Bublé without using Prismal or respeccing Perks", "Complete Duel without ever falling below 20 points", "Complete Melt without ever having more than 150 stacks", "Complete Trappapalooza without Trapping on or above Z50", "Complete Wither with " + prettify(10000) + " stacks of Hardened", "Complete Revenge with exactly 19 stacks", "Complete 80/80 quests on Quest"];
+				return ["Reach exactly 1337 Rn/Hr", "One-shot a Dimension of Rage enemy on Unlucky while Unlucky", "Complete Downsize with an equal amount of Huts, Houses, Mansions, Hotels and Resorts", "Complete Transmute without hiring a single Trimp", "Complete Unbalance with 500 stacks of Unbalance", "Complete Bublé without using Prismal or respeccing Perks", "Complete Duel without ever falling below 20 points", "Complete Melt without ever having more than 150 stacks", "Complete Trappapalooza without Trapping on or above Z50", "Complete Wither with " + prettify(10000) + " stacks of Hardened", "Complete Revenge with exactly 19 stacks", "Complete 80/80 quests on Quest", "Complete Archaeology without ever having more than 0 of one Relic"];
 			},
-			tiers: [10,10,10,11,11,11,11,11,12,12,12,12],
+			tiers: [10,10,10,11,11,11,11,11,12,12,12,12,12],
 			description: function (number) {
 				return this.descriptions[number];
 			},
-			filters: [-1,14,19,24,34,39,44,49,59,69,79,84],
+			filters: [-1,14,19,24,34,39,44,49,59,69,79,84,94],
 			filterLevel: function(){
 				return game.global.highestRadonLevelCleared;
 			},
 			icon: "glyphicon glyphicon-flag",
-			names: ["Eliter Feat", "Don't Need Luck", "Perfectly Balanced", "Resourceyphobe", "Upsized", "Unpoppable", "Pwnd", "Solid", "Coastapalooza", "Witherproof", "Close Call", "Level Up"],
+			names: ["Eliter Feat", "Don't Need Luck", "Perfectly Balanced", "Resourceyphobe", "Upsized", "Unpoppable", "Pwnd", "Solid", "Coastapalooza", "Witherproof", "Close Call", "Level Up", "Unassisted"],
 			newStuff: []
 		},
 	},
@@ -5435,8 +6041,29 @@ var toReturn = {
 				activateTurkimpPowers();
 			}
 		},
+		Magimp: {
+			location: "All",
+			locked: 1,
+			attack: 1, 
+			health: 1,
+			fast: false,
+			loot: function(level){
+				var imports = [];
+				for (var item in game.unlocks.imps){
+					var badGuy = game.badGuys[item];
+					if (((game.global.mapsActive && badGuy.location == "Maps") || (!game.global.mapsActive && badGuy.location == "World")) && badGuy.world <= game.global.world){
+						imports.push(item);
+					}
+				}
+				var enemySeed = (game.global.mapsActive) ? Math.floor(Math.random() * 10000000) : game.global.enemySeed++;
+				var selected = imports[getRandomIntSeeded(enemySeed, 0, imports.length)];
+				game.badGuys[selected].loot(level, true);
+
+			}
+		},
 		Pumpkimp: {
 			location: "Maps",
+			locked: 1,
 			attack: 0.9,
 			health: 1.5,
 			fast: false,
@@ -5743,7 +6370,12 @@ var toReturn = {
 					amt *= fluffyBonus;
 					amt *= fluffyCount;
 				}
-
+				var bonusMagmite = 10;
+				if (fluffyCount) bonusMagmite *= fluffyCount;
+				if (game.talents.quickGen.purchased && game.global.world >= 230 && game.global.universe == 1){
+					game.global.magmite += bonusMagmite;
+					updateGeneratorInfo();
+				}
 				if (game.talents.scry2.purchased && game.global.canScryCache) amt *= 1.5;
 
 				//Void map helium modifiers above here
@@ -6166,6 +6798,24 @@ var toReturn = {
 				message("Radioactive waste spills to the ground as the Hulking Mutimp falls. You send a few Trimps to grab the shiny stuff in the toxic sludge, which ends up being " + prettify(amt) + " bars of metal!", "Loot", "*cubes", null, 'primary');
 			}
 		},
+		Darknimp: {
+			location: "Darkness",
+			locked: 0,
+			last: true,
+			fast: true,
+			attack: 2,
+			health: 3,
+			world: 6,
+			loot: function(){
+				if (game.global.challengeActive == "Quagmire"){
+					message("You have completed The Black Bog! 1 stack of Exhausted and Motivated have been removed from your Trimps.", "Notices");
+					game.challenges.Quagmire.motivatedStacks--;
+					game.challenges.Quagmire.exhaustedStacks--;
+					if (game.challenges.Quagmire.motivatedStacks <= 0) game.challenges.Quagmire.abandon();
+					else game.challenges.Quagmire.drawStacks();
+				}
+			}
+		},
 		//Exotics
 		Goblimp: {
 			location: "Maps",
@@ -6175,9 +6825,10 @@ var toReturn = {
 			health: 1,
 			dropDesc: "掉落 6x 宝石",
 			fast: false,
-			loot: function (level) {
+			loot: function (level, fromMagimp) {
+				var name = (fromMagimp) ? "Magimp" : "Goblimp";
 				var amt = rewardResource("gems", 3, level, true);
-				message("那个Goblimp掉落了 " + prettify(amt) + " 宝石! 多好的兄弟!", "Loot", "*diamond", "exotic", 'exotic');
+				message("That " + name + " dropped " + prettify(amt) + " gems! What a bro!", "Loot", "*diamond", "exotic", 'exotic');
 				game.unlocks.impCount.Goblimp++;
 			}
 		},
@@ -6189,10 +6840,11 @@ var toReturn = {
 			health: 1,
 			dropDesc: "掉落 15x 宝石",
 			fast: false,
-			loot: function (level) {
-				if (game.resources.gems.owned == 0) 	fadeIn("gems", 10);
+			loot: function (level, fromMagimp) {
+				var name = (fromMagimp) ? "Magimp" : "Feyimp";
+				if (game.resources.gems.owned == 0) fadeIn("gems", 10);
 				var amt = rewardResource("gems", 7.5, level);
-				message("那个Feyimp给了你 " + prettify(amt) + " 宝石! 谢谢，Feyimp!", "Loot", "*diamond", "exotic", "exotic");
+				message("That " + name + " gave you " + prettify(amt) + " gems! Thanks Feyimp!", "Loot", "*diamond", "exotic", "exotic");
 				game.unlocks.impCount.Feyimp++;
 			}
 		},
@@ -6203,10 +6855,11 @@ var toReturn = {
 			attack: 1,
 			health: 1,
 			fast: false,
-			dropDesc: "掉落碎片",
-			loot: function (level) {
+			dropDesc: "Drops Fragments",
+			loot: function (level, fromMagimp) {
+				var name = (fromMagimp) ? "Magimp" : "Flutimp";
 				var amt = rewardResource("fragments", 1, level, true);
-				message("你偷了 " + prettify(amt) + " 碎片从那个小恶魔那里 !虽然看起来她并不需要他们，但也不要觉得不好。", "Loot", "th", "exotic", "exotic");
+				message("You stole " + prettify(amt) + " fragments from that " + name + "! It really didn't look like she needed them though, don't feel bad.", "Loot", "th", "exotic", "exotic");
 				game.unlocks.impCount.Flutimp++;
 			}
 		},
@@ -6217,8 +6870,9 @@ var toReturn = {
 			attack: 1,
 			health: 1,
 			fast: false,
-			dropDesc: "现有的脆皮最大值增加0.3%",
-			loot: function () {
+			dropDesc: "Grants an extra 0.3% of current Trimps",
+			loot: function (level, fromMagimp) {
+				var name = (fromMagimp) ? "Magimp" : "Tauntimp";
 				var amt = Math.ceil(game.resources.trimps.max * 0.003);
 				if (game.global.challengeActive == "Downsize"){
 					amt = game.global.totalGifts + game.unlocks.impCount.TauntimpAdded + 10;
@@ -6228,7 +6882,7 @@ var toReturn = {
 				game.unlocks.impCount.Tauntimp++;
 				game.unlocks.impCount.TauntimpAdded += amt;
 				amt = (game.global.challengeActive == "Trapper" || game.global.challengeActive == "Trappapalooza") ? addMaxHousing(amt, false) : addMaxHousing(amt, true);
-				var msg = "It's nice, warm, and roomy in that dead Tauntimp. ";
+				var msg = "It's nice, warm, and roomy in that dead " + name + ". ";
 				if (game.global.challengeActive != "Trapper" && game.global.challengeActive != "Trappapalooza"){
 					msg += "You found ";
 					if (amt == 1) msg += prettify(amt) + " Trimp inside, and it looks hella bored.";
@@ -6247,8 +6901,9 @@ var toReturn = {
 			attack: 1,
 			health: 1,
 			fast: false,
-			dropDesc: "脆皮资源生产速度增加0.3%",
-			loot: function () {
+			dropDesc: "Grants 0.3% Trimp resource production speed",
+			loot: function (level, fromMagimp) {
+				var name = (fromMagimp) ? "Magimp" : "Whipimp";
 				game.unlocks.impCount.Whipimp++;
 				game.jobs.Farmer.modifier *= 1.003;
 				game.jobs.Lumberjack.modifier *= 1.003;
@@ -6258,8 +6913,8 @@ var toReturn = {
 				game.jobs.Explorer.modifier *= 1.003;
 				var amt = Math.pow(1.003, game.unlocks.impCount.Whipimp);
 				amt = (amt - 1) * 100;
-				var s = (game.unlocks.impCount.Whipimp == 1) ? "" : "";
-				message("看见惠皮普" + s + " 坠落，会让你的所有脆皮工作效率提升 " + amt.toFixed(2) + "% !", "Loot", "star", "exotic", "exotic");
+				var s = (game.unlocks.impCount.Whipimp == 1) ? "" : "s";
+				message("Seeing the " + name + s + " fall is causing all of your Trimps to work " + amt.toFixed(2) + "% harder!", "Loot", "star", "exotic", "exotic");
 			}
 		},
 		Venimp: {
@@ -6269,12 +6924,13 @@ var toReturn = {
 			attack: 1,
 			health: 1,
 			fast: false,
-			dropDesc: "脆皮繁殖速度增加0.3%",
-			loot: function () {
+			dropDesc: "Grants 0.3% Trimp breed speed",
+			loot: function (level, fromMagimp) {
+				var name = (fromMagimp) ? "Magimp" : "Venimp";
 				game.unlocks.impCount.Venimp++;
 				var amt = Math.pow(1.003, game.unlocks.impCount.Venimp);
 				amt = (amt - 1) * 100;
-				message("The ground up Venimp now increases your Trimps' breed speed by " + amt.toFixed(2) + "%!", "Loot", "glass", "exotic", "exotic");
+				message("The ground up " + name + " now increases your Trimps' breed speed by " + amt.toFixed(2) + "%!", "Loot", "glass", "exotic", "exotic");
 			}
 		},
 		Jestimp: {
@@ -6285,7 +6941,8 @@ var toReturn = {
 			health: 1,
 			fast: false,
 			dropDesc: "45秒生产1个随机资源",
-			loot: function () {
+			loot: function (level, fromMagimp) {
+				var name = (fromMagimp) ? "Magimp" : "Jestimp";
 				var eligible = ["food", "wood", "metal", "science"];
 				if (game.jobs.Dragimp.owned > 0) eligible.push("gems");
 				var roll = Math.floor(Math.random() * eligible.length);
@@ -6293,7 +6950,7 @@ var toReturn = {
 				var amt = simpleSeconds(item, 45);
 				amt = scaleToCurrentMap(amt);
 				addResCheckMax(item, amt, null, null, true);
-				message("那个Jestimp给了你 " + prettify(amt) + " " + item + "!", "Loot", "*dice", "exotic", "exotic");
+				message("That " + name + " gave you " + prettify(amt) + " " + item + "!", "Loot", "*dice", "exotic", "exotic");
 				game.unlocks.impCount.Jestimp++;
 			}
 		},
@@ -6304,8 +6961,9 @@ var toReturn = {
 			attack: 1,
 			health: 1,
 			fast: false,
-			dropDesc: "+100% 攻击在本地图中",
-			loot: function () {
+			dropDesc: "+100% damage for 30 seconds in maps",
+			loot: function (level, fromMagimp) {
+				var name = (fromMagimp) ? "Magimp" : "Titimp";
 				var timeRemaining = parseInt(game.global.titimpLeft, 10);
 				if (timeRemaining > 0) {
 					timeRemaining += 30;
@@ -6313,7 +6971,10 @@ var toReturn = {
 				}
 				else timeRemaining = 30;
 				game.global.titimpLeft = timeRemaining;
-				message("那个Titimp使你的脆皮非常强壮!", "Loot", "*hammer", "exotic", "exotic");
+				var roll = Math.floor(Math.random() * 100);
+				var text = "That " + name + " made your Trimps super strong!";
+				if (roll == 1 && !fromMagimp) text += "(Titimp wishes to remind you that his name is pronounced \"Tie Timp\")";
+				message(text, "Loot", "*hammer", "exotic", "exotic");
 			}
 		},
 		Chronoimp: {
@@ -6323,11 +6984,12 @@ var toReturn = {
 			attack: 1,
 			health: 1,
 			fast: false,
-			dropDesc: "所有基本资源5秒的产量",
-			loot: function () {
+			dropDesc: "5 seconds of production for all basic resources",
+			loot: function (level, fromMagimp) {
+				var name = (fromMagimp) ? "Magimp" : "Chronoimp";
 				var eligible = ["food", "wood", "metal", "science"];
 				if (game.jobs.Dragimp.owned > 0) eligible.push("gems");
-				var cMessage = "那个Chronoimp掉落了 ";
+				var cMessage = "That " + name + " dropped ";
 				for (var x = 0; x < eligible.length; x++){
 					var item = eligible[x];
 					var amt = simpleSeconds(item, 5);
@@ -6349,12 +7011,13 @@ var toReturn = {
 			attack: 1,
 			health: 1,
 			fast: false,
-			dropDesc: "0.3%额外的战利品从地图和区域（除了氦）",
-			loot: function () {
+			dropDesc: "0.3% extra loot from maps and Zones (Not Helium)",
+			loot: function (level, fromMagimp) {
+				var name = (fromMagimp) ? "Magimp" : "Magnimp";
 				game.unlocks.impCount.Magnimp++;
 				var amt = Math.pow(1.003, game.unlocks.impCount.Magnimp);
 				amt = (amt - 1) * 100;
-				message("你杀死了一个Magnimp! 强大的磁力现在会增加你的战利品 " + amt.toFixed(2) + "%!", "Loot", "magnet", "exotic", "exotic");
+				message("You killed a " + name + "! The strong magnetic forces now increase your loot by " + amt.toFixed(2) + "%!", "Loot", "magnet", "exotic", "exotic");
 			}
 		},
 		Skeletimp: {
@@ -6459,6 +7122,9 @@ var toReturn = {
 			Star: {
 				resourceType: "Metal"
 			},
+			Darkness: {
+				resourceType: "Any"
+			},
 			All: {
 				resourceType: "Metal"
 			}
@@ -6507,10 +7173,12 @@ var toReturn = {
 				}
 				if (fromTalent === true) return;
 				if (bionicTier - 1 == game.global.roboTrimpLevel) {
+					checkNewBionicUpgrades(level);
 					if (game.global.roboTrimpLevel == 0){
 						cancelTooltip();
 						var text = "你接近了一个孤立着的小机械脆皮。因为你很擅长训练别人，所以你决定带着他一起走。他增加你<b>20%</b>的额外伤害，而且有特殊的能力。你可以通过鼠标悬停在新的<span class='icomoon icon-chain'></span>图标上来了解更多有关特殊能力的信息。<br/><br/>你同时发现了一张加强版的仿生仙境地图。你相信那里有另一只机械脆皮正需要'拯救'。";
 						if (game.options.menu.tooltips.enabled == 0) text += '<br/><br/><b>Just a heads up</b>: You have tooltips disabled, so you will need to hold shift when you mouse over the <span class="icomoon icon-chain"></span> to read about it.';
+						text += "<br/><br/><b>Speial Bionic Wonderland QOL Bonuses</b><br/>You will also find some special new Quality of Life bonuses in Bionic Wonderland maps! If you see a Bionic Wonderland map with a yellow background, that means there's a permanent QOL unlock inside. For your first map, you've unlocked Foremany!<br/><br/><b>Foremany</b><br/>" + game.bwRewards.Foremany.description;
 						tooltip('confirm', null, 'update', text, null, 'RoboTrimp');
 						game.global.roboTrimpLevel = 1;
 						document.getElementById("chainHolder").style.visibility = 'visible';
@@ -6525,6 +7193,7 @@ var toReturn = {
 			}
 		},
 		Geneticistassist: {
+			//depricated upgrade, leave in for compatibility in case someone was on this map
 			world: 170,
 			level: 79,
 			icon: "*clipboard",
@@ -6532,18 +7201,18 @@ var toReturn = {
 			canRunOnce: true,
 			filterUpgrade: true,
 			specialFilter: function (){
-				return (!game.global.Geneticistassist);
+				return false;
 			},
 			fire: function () {
-				tooltip('The Geneticistassist', null, 'update');
-				game.global.Geneticistassist = true;
-				unlockJob("Geneticist");
-				addNewSetting("GeneticistassistTarget");
-				addNewSetting("geneSend");
+				// tooltip('The Geneticistassist', null, 'update');
+				// game.global.Geneticistassist = true;
+				// unlockJob("Geneticist");
+				// addNewSetting("GeneticistassistTarget");
+				// addNewSetting("geneSend");
 			}
 		},
 		AutoStorage: {
-			world: 75,
+			world: 50,
 			level: "last",
 			icon: "*eye4",
 			title: "吉祥的存在",
@@ -6562,7 +7231,7 @@ var toReturn = {
 			}
 		},
 		ImprovedAutoStorage: {
-			world: 150,
+			world: 100,
 			level: "last",
 			icon: "*eye4",
 			title: "Auspicious Presence Part II",
@@ -6580,7 +7249,7 @@ var toReturn = {
 			}
 		},
 		MapAtZone: {
-			world: 225,
+			world: 150,
 			level: "last",
 			icon: "*eye4",
 			title: "Auspicious Presence Part III",
@@ -7975,8 +8644,8 @@ var toReturn = {
 			fire: function () {
 				var amt = 5 + (game.portal.Trumps.modifier * getPerkLevel("Trumps"));
 				game.global.totalGifts += amt;
-				amt = addMaxHousing(amt, game.talents.autoStructure.purchased);
-				message("你已经清除了足够的土地来容纳更多 " + prettify(amt) + " 的脆皮!", "Loot", "gift", null, "secondary");
+				amt = addMaxHousing(amt, bwRewardUnlocked("AutoStructure"));
+				message("You have cleared enough land to support " + prettify(amt) + " more Trimps!", "Loot", "gift", null, "secondary");
 			}
 		},
 		fruit: {
@@ -8641,6 +9310,92 @@ var toReturn = {
 	},
 
 	upgrades: {
+	//Archaeology Upgrades
+		attackRelic: {
+			name: "Attack Relic",
+			isRelic: true,
+			relic: "attack",
+			get tooltip() {return game.challenges.Archaeology.getTooltip("attack")},
+			locked: 1,
+			done: 0,
+			allowed: -1,
+			cost: {
+				resources: {
+					get science(){ return game.challenges.Archaeology.getNextCost()}
+				}
+			},
+			fire: function(){
+				game.challenges.Archaeology.buyRelic("attack");
+			}
+		},
+		enemyAttackRelic: {
+			name: "Enemy Attack Relic",
+			isRelic: true,
+			relic: "enemyAttack",
+			get tooltip() {return game.challenges.Archaeology.getTooltip("enemyAttack")},
+			locked: 1,
+			done: 0,
+			allowed: -1,
+			cost: {
+				resources: {
+					get science(){ return game.challenges.Archaeology.getNextCost()}
+				}
+			},
+			fire: function(){
+				game.challenges.Archaeology.buyRelic("enemyAttack");
+			}
+		},
+		radonRelic: {
+			name: "Radon Relic",
+			isRelic: true,
+			relic: "radon",
+			get tooltip() {return game.challenges.Archaeology.getTooltip("radon")},
+			locked: 1,
+			done: 0,
+			allowed: -1,
+			cost: {
+				resources: {
+					get science(){ return game.challenges.Archaeology.getNextCost()}
+				}
+			},
+			fire: function(){
+				game.challenges.Archaeology.buyRelic("radon");
+			}
+		},
+		scienceRelic: {
+			name: "Resource Relic",
+			isRelic: true,
+			relic: "science",
+			get tooltip() {return game.challenges.Archaeology.getTooltip("science")},
+			locked: 1,
+			done: 0,
+			allowed: -1,
+			cost: {
+				resources: {
+					get science(){ return game.challenges.Archaeology.getNextCost()}
+				}
+			},
+			fire: function(){
+				game.challenges.Archaeology.buyRelic("science");
+			}
+		},
+		breedRelic: {
+			name: "Breed Relic",
+			isRelic: true,
+			relic: "breed",
+			get tooltip() {return game.challenges.Archaeology.getTooltip("breed")},
+			locked: 1,
+			done: 0,
+			allowed: -1,
+			cost: {
+				resources: {
+					get science(){ return game.challenges.Archaeology.getNextCost()}
+				}
+			},
+			fire: function(){
+				game.challenges.Archaeology.buyRelic("breed");
+			}
+		},
 	//Important Upgrades
 		Coordination: {
 			locked: 1,
@@ -8683,7 +9438,7 @@ var toReturn = {
 				game.buildings.Warpstation.cost.metal[0] *= 1.75;
 				game.buildings.Warpstation.purchased = 1;
 				game.buildings.Warpstation.owned = 1;
-				addMaxHousing(game.buildings.Warpstation.increase.by, game.talents.autoStructure.purchased);
+				addMaxHousing(game.buildings.Warpstation.increase.by, bwRewardUnlocked("AutoStructure"));
 				if (!noTip) noTip = false;
 				if ((ctrlPressed || heldCtrl) && oldAmt > 1) buyBuilding("Warpstation", false, noTip, oldAmt - 1);
 			}
@@ -8713,7 +9468,7 @@ var toReturn = {
 					unlockEquipment("Gambeson");
 					unlockEquipment("Arbalest");
 				}
-				if (game.talents.autoJobs.purchased){
+				if (bwRewardUnlocked("AutoJobs")){
 					unlockJob("Lumberjack");
 					buyAutoJobs(true);
 				}
@@ -9070,7 +9825,7 @@ var toReturn = {
 					}
 				},
 				fire: function () {
-					addMaxHousing(game.buildings.Hut.owned * game.buildings.Hut.increase.by, game.talents.autoStructure.purchased);
+					addMaxHousing(game.buildings.Hut.owned * game.buildings.Hut.increase.by, bwRewardUnlocked("AutoStructure"));
 					game.buildings.Hut.increase.by *= 2;
 				}
 			},
@@ -9087,7 +9842,7 @@ var toReturn = {
 					}
 				},
 				fire: function () {
-					addMaxHousing(game.buildings.House.owned * game.buildings.House.increase.by, game.talents.autoStructure.purchased);
+					addMaxHousing(game.buildings.House.owned * game.buildings.House.increase.by, bwRewardUnlocked("AutoStructure"));
 					game.buildings.House.increase.by *= 2;
 				}
 			},
@@ -9104,7 +9859,7 @@ var toReturn = {
 					}
 				},
 				fire: function () {
-					addMaxHousing(game.buildings.Mansion.owned * game.buildings.Mansion.increase.by, game.talents.autoStructure.purchased);
+					addMaxHousing(game.buildings.Mansion.owned * game.buildings.Mansion.increase.by, bwRewardUnlocked("AutoStructure"));
 					game.buildings.Mansion.increase.by *= 2;
 				}
 			},
@@ -9121,7 +9876,7 @@ var toReturn = {
 					}
 				},
 				fire: function () {
-					addMaxHousing(game.buildings.Hotel.owned * game.buildings.Hotel.increase.by, game.talents.autoStructure.purchased);
+					addMaxHousing(game.buildings.Hotel.owned * game.buildings.Hotel.increase.by, bwRewardUnlocked("AutoStructure"));
 					game.buildings.Hotel.increase.by *= 2;
 				}
 			},
@@ -9138,7 +9893,7 @@ var toReturn = {
 					}
 				},
 				fire: function () {
-					addMaxHousing(game.buildings.Resort.owned * game.buildings.Resort.increase.by, game.talents.autoStructure.purchased);
+					addMaxHousing(game.buildings.Resort.owned * game.buildings.Resort.increase.by, bwRewardUnlocked("AutoStructure"));
 					game.buildings.Resort.increase.by *= 2;
 				}
 			},
@@ -9762,6 +10517,50 @@ var toReturn = {
 			Titimp: 0,
 			Chronoimp: 0,
 			Magnimp: 0
+		}
+	},
+	bwRewards:{
+		Foremany: {
+			requires: 125,
+			description: "Repurpose some of those RoboTrimps you found into an army of Robotic Foremen. Permanently adds 50000 Foreman to your town to aid in construction.",
+			fire: function(){
+				game.global.autoCraftModifier += 12500;
+				updateForemenCount();
+			}
+		},
+		AutoJobs: {
+			requires: 140,
+			description: "Unlock the Job Automator, the envy of Human Resourceimps across the Universe.",
+			fire: function(){
+				toggleAutoJobs(true);
+			}
+		},
+		AutoStructure: {
+			requires: 155,
+			get description(){
+				var text = "Unlock the AutoStructure tool, allowing you to automatically purchase structures. In addition, all housing and battle territory bonuses will come with ready-to-fight Trimps inside";
+				if (game.global.highestLevelCleared >= 229) text += " (Not including the Dimensional Generator)";
+				text += "!";
+				return text;
+			},
+			fire: function(){
+				toggleAutoStructure(true);
+			}
+		},
+		Geneticistassist: {
+			requires: 170,
+			description: "Unlock Geneticistassist, the most powerful Geneticist Automator in this side of the galaxy!",
+			fire: function() {
+				tooltip('The Geneticistassist', null, 'update');
+				game.global.Geneticistassist = true;
+				unlockJob("Geneticist");
+				addNewSetting("GeneticistassistTarget");
+				addNewSetting("geneSend");
+			}
+		},
+		DoubleBuild: {
+			requires: 185,
+			description: "Stacked items in the Building Queue will be constructed two at a time.",
 		}
 	},
 	get workspaces () {

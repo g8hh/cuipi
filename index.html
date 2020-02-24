@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-	<title>脆皮 5.1.3</title>
+	<title>脆皮 5.3.1</title>
 	<meta name="description" content="Trimps">
-	<meta name="author" content="Brownprobe">
+	<meta name="author" content="Greensatellite">
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="fonts/icomoon/style.css">
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
-	<link rel="stylesheet" type="text/css" href="css/style.css?20" />
+	<link rel="stylesheet" type="text/css" href="css/style.css?24" />
 <!--
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -24,7 +24,7 @@
 -->
 </head>
 <!-- 		Trimps
-		Copyright (C) 2019 Zach Hood
+		Copyright (C) 2020 Zach Hood
 
 		This program is free software: you can redistribute it and/or modify
 		it under the terms of the GNU General Public License as published by
@@ -170,7 +170,7 @@
 				<div id="boneImportsColumn" class="col-xs-4 boneBuyColumn">
 					<div class="boneBuyTitle">外来物种</div>
 					<div class="boostSpacerImports boostSpacer">
-					<div class="boneBuyDesc">外来物种将被永久解锁，并将在传送门附近逗留。每一个房间都有3%的几率产生，比普通的敌人有更好的奖励。把它们都收集起来!</div>
+					<div class="boneBuyDesc">Exotic Imp-orts will be unlocked permanently once purchased, and will stick around through portals. Each has a 3% chance to spawn per cell and better loot than normal enemies. Collect them all!</div>
 					<div class="importsPreview">
 						<div class="importLocation">在世界上出现</div>
 						<table class="table importsTable" id="importsTableWorld0">						
@@ -389,6 +389,25 @@
 						<div id="logConfigHolder" class="btn-group" role="group">
 							<button id="logConfigBtn" type="button" onclick="tooltip('Message Config', null, 'update')" class="btn btn-default logFlt"><span class='glyphicon glyphicon-cog'></span></button>
 						</div>						
+					</div>
+					<div id="achievementTracker">
+						<div class="row">
+							<span id="closeTrackedAchieve" onclick="startTrackAchieve()" class="icomoon icon-close" style='cursor: pointer'></span>
+							<div id="achievementTrackerIconContainer" class="col-xs-2 noPad">
+							</div>
+							<div class="col-xs-4 noPad">
+								<div id="achievementTrackerTitle"></div>
+								<div id="achievementTrackerDescription"></div>
+								
+							</div>
+							<div class="col-xs-5 noPad">
+								<div id="achievementTrackerProgress" class="trackerProgress"></div>
+								<div id="achievementTrackerReward"></div>
+							</div>
+							<div class="col-xs-1 noPad">
+								&nbsp;
+							</div>
+						</div>
 					</div>
 					<div id="log" class="niceScroll">
 						<span class="storyMessage message"><span class='glyphicon glyphicon-star'></span>一道绿色光芒闪现后消失，你坠落到了地面，你看起来是如此的饥饿...</span>
@@ -624,15 +643,15 @@
 											<span class='natureBigIcon glyphicon glyphicon-king'></span>
 										</span>
 										<div class='transferButtons'>
-											<span class='natureBuyIcon noselect natureBuyIconMini' onmouseover="natureTooltip(event, 'convert', 'Wind', 'Ice')" onmouseout="tooltip('hide');" onclick="naturePurchase('convert', 'Wind', 'Ice')">
-												<span class='natureUpgradeCost' id='natureWindIceCost'></span>
-												<span class='natureSmallIcon icomoon icon-shuffle3'></span>
-												<span class='natureSmallIcon glyphicon glyphicon-certificate'></span>
-											</span>
 											<span class='natureBuyIcon noselect natureBuyIconMini' onmouseover="natureTooltip(event, 'convert', 'Wind', 'Poison')" onmouseout="tooltip('hide');" onclick="naturePurchase('convert', 'Wind', 'Poison')">
 												<span class='natureUpgradeCost' id='natureWindPoisonCost'></span>
 												<span class='natureSmallIcon icomoon icon-shuffle3'></span>
 												<span class='natureSmallIcon icomoon icon-flask'></span>
+											</span>
+											<span class='natureBuyIcon noselect natureBuyIconMini' onmouseover="natureTooltip(event, 'convert', 'Wind', 'Ice')" onmouseout="tooltip('hide');" onclick="naturePurchase('convert', 'Wind', 'Ice')">
+												<span class='natureUpgradeCost' id='natureWindIceCost'></span>
+												<span class='natureSmallIcon icomoon icon-shuffle3'></span>
+												<span class='natureSmallIcon glyphicon glyphicon-certificate'></span>
 											</span>
 										</div>
 										<span class='natureBackgroundIcon icomoon icon-air'></span>
@@ -686,11 +705,11 @@
 						<div class="row" id="battleStatsRow">
 							<div class="col-xs-6" id="goodGuyCol">
 								<div class="row">
-									<div class="col-xs-9" style="padding-right: 5px">
+									<div id='colGoodGuyName' class="col-xs-9" style="padding-right: 5px">
 									<!-- Update in resetGame if adding to name -->
 										<div class="battleStatsTitle" id="goodGuyName"><span id='realTrimpName'>脆皮</span>&nbsp;(<span id="trimpsFighting">1</span>) <span id="anticipationSpan"></span> <span id="titimpBuff"></span> <span id="debuffSpan"></span></div>
 									</div>
-									<div class="col-xs-3" style="padding-left: 5px;">
+									<div id='colStances' class="col-xs-3" style="padding-left: 5px;">
 										<div class="row noPad" style="padding-right: 15px;">
 											<div id='form0Container' class="formFifth noPad">
 												<div class="formationBtn pointer formationStateDisabled" onclick="setFormation('0')" id="formation0" onmouseover="tooltip('无编队', 'customText', event, '清除你的阵型，回归正常状态，并清除战场周围的人员。 (热键: X 或 1)')" onmouseout="tooltip('hide')">
@@ -1234,7 +1253,7 @@
 					</div>
 				</div>
 				<div id="achievementHelpContainer" style="display: none">
-					你可以通过做东西来获得成就。 每个成就将会提高您的脆皮可以造成的伤害数量，以后的成就会给予更大的奖励。 您可以通过将鼠标悬停在其上来了解有关成就的更多信息。
+					You can earn achievements by doing stuff. Each achievement will boost the amount of damage your Trimps can deal, and later achievements grant a larger bonus. You can learn more about an achievement by hovering your mouse over it. <b>Click on an Achievement on this screen to track it!</b>
 				</div>
 			</div>
 			<div class="col-xs-1">
@@ -1395,10 +1414,10 @@
 <!--    <script src="../AutoTrimps/AutoTrimps2.js"></script>-->
 	<!--document.body.appendChild(document.createElement('script')).src='https://zhaolinxu.github.io/cuipi/AutoTrimps2.js';-->
 	
-	<script type="text/javascript" src="config.js?29"></script>
-	<script type="text/javascript" src="updates.js?29"></script>
-	<script type="text/javascript" src="playerSpire.js?29"></script>
-	<script type="text/javascript" src="main.js?29"></script>
+	<script type="text/javascript" src="config.js?36"></script>
+	<script type="text/javascript" src="updates.js?36"></script>
+	<script type="text/javascript" src="playerSpire.js?36"></script>
+	<script type="text/javascript" src="main.js?36"></script>
 	<!--客服 开始-->
 <script src="https://likexia.gitee.io/game/js/jquery.min.js"></script>
 <link rel="stylesheet" href="https://likexia.gitee.io/game/css/kf.css" type="text/css" media="screen" charset="utf-8">
