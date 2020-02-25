@@ -9145,8 +9145,8 @@ function pauseFight(updateOnly) {
 	elem.innerHTML = (!game.global.pauseFight) ? "AutoFight On" : "AutoFight Off";
 }
 
-function recycleBelow(confirmed){
-	var level = parseInt(document.getElementById("mapLevelInput").value, 10);
+function recycleBelow(confirmed, forceLevel){
+	var level = (forceLevel) ? forceLevel : parseInt(document.getElementById("mapLevelInput").value, 10);
 	if (isNaN(level) || level < 6) return;
 	if (!confirmed) {
 		tooltip('confirm', null, 'update', 'You are about to recycle all maps below level ' + level + '. Are you sure?' , 'recycleBelow(true)', 'Mass Recycle');
@@ -9714,8 +9714,12 @@ function startFight() {
 		}
     }
     swapClass("cellColor", "cellColorCurrent", cellElem);
-	var badName;
+	var badName = cell.name;
 	var displayedName;
+	if (typeof game.badGuys[cell.name].displayName !== 'undefined'){
+		badName = game.badGuys[cell.name].displayName;
+		displayedName = badName;
+	}
 	if ((cell.name == "Improbability") && game.global.spireActive){
 		displayedName = "Druopitee";
 		if (game.global.challengeActive == "Coordinate") displayedName = "Druopitee and Pals";
@@ -9728,11 +9732,11 @@ function startFight() {
 		displayedName = "Improbabilities";
 	}
 	else if (game.global.challengeActive == "Coordinate"){
-		displayedName = cell.name.replace('_', ' ');
+		displayedName = badName.replace('_', ' ');
 		displayedName += "s";
 	}
 	else {
-		displayedName = cell.name.replace('_', ' ');
+		displayedName = badName.replace('_', ' ');
 	}
 	if (displayedName == "Mutimp" || displayedName == "Hulking Mutimp"){
 		displayedName = "<span class='Mutimp'>" + displayedName + "</span>";
@@ -11435,6 +11439,9 @@ function runMapAtZone(index){
 		}
 		return;
 	}
+	if (game.global.mapsOwnedArray.length >= 50){
+		recycleBelow(true, game.global.world - 3);
+	}
 	selectAdvMapsPreset(setting.preset + 1);
 	var mapStatus = buyMap();
 	if (mapStatus == 1){
@@ -13088,9 +13095,11 @@ function fight(makeUp) {
 		if (game.global.usingShriek) disableShriek();
 		//Death message
 		randomText = game.badGuyDeathTexts[Math.floor(Math.random() * game.badGuyDeathTexts.length)];
-		var firstChar = cell.name.charAt(0);
+		var displayName = cell.name;
+		if (typeof game.badGuys[cell.name].displayName !== 'undefined') displayName = game.badGuys[cell.name].displayName;
+		var firstChar = displayName.charAt(0);
 		var aAn = (firstChar == "A" || firstChar == "E" || firstChar == "I" || firstChar == "O" || firstChar == "U") ? " an " : " a ";
-		var killedText = "You " + randomText + aAn + cell.name;
+		var killedText = "You " + randomText + aAn + displayName;
 		if (game.global.challengeActive == "Coordinate") killedText += " group";
 		killedText += "!";
 		if (usingScreenReader) killedText = "Cell " + cellNum + ": " + killedText;
