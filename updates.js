@@ -4113,7 +4113,8 @@ function postMessages(){
         var log = document.getElementById("log");
         var needsScroll = ((log.scrollTop + 10) > (log.scrollHeight - log.clientHeight));
         var pendingMessages = pendingLogs.all.join('');
-        log.innerHTML += pendingMessages;
+        //log.innerHTML += pendingMessages;
+		$(log).append(pendingMessages);
         pendingLogs.all = [];
         for (var item in pendingLogs){
             if (item == "all" || item == "RAF") continue;
