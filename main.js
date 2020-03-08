@@ -24,7 +24,7 @@
 if (typeof kongregate === 'undefined' && document.getElementById("boneBtn") !== null) {
 	var boneBtn = document.getElementById("getBonesBtn");
 	boneBtn.onclick = "";
-	boneBtn.innerHTML = "Kongregate API没有加载！ 您不能提交高分或花费Kreds。 尝试刷新或联系Kongregate支持！";
+	boneBtn.innerHTML = "Kongregate API not loaded! You cannot submit high scores or spend Kreds. Try refreshing or contacting Kongregate support!";
 	boneBtn.style.backgroundColor = "#d9534f";
 	document.getElementById("getBundleBtn").style.display = "none";
 }
@@ -200,25 +200,25 @@ function save(exportThis, fromManual) {
     saveString = LZString.compressToBase64(JSON.stringify(saveGame));
     if (exportThis) return saveString;
 	if (disableSaving) {
-		message("由于发生错误，已禁用保存以防止损坏", "Notices");
+		message("Due to an error occuring, saving has been disabled to prevent corruption", "Notices");
 		postMessages();
 		return;
 	}
 	try{
 		localStorage.setItem("trimpSave1",saveString);
 		if (localStorage.getItem("trimpSave1") == saveString){
-			message("游戏已保存!", "Notices");
+			message("Game Saved!", "Notices");
 		}
 		else {
-			message("出于某些原因,你的游戏未能保存。请确保你已经导出并备份你的存档！", "Notices");
+			message("For some reason, your game is not saving. Make sure you export and back up your save!", "Notices");
 		}
 	}
 	catch(e){
 		if(e.name == "NS_ERROR_FILE_CORRUPTED") {
-        message("对不起，您的浏览器存储看起来已损坏。 请通过转到工具 - >清除最近历史记录 - > Cookies清除存储空间，并将时间范围设置为“一切”。 这将删除所有站点上损坏的浏览器存储。", "Notices");
+        message("Sorry, it looks like your browser storage has been corrupted. Please clear your storage by going to Tools -> Clear Recent History -> Cookies and set time range to 'Everything'. This will remove the corrupted browser storage across all sites.", "Notices");
 		}
 		else
-		message("由于某些原因，您的游戏不会保存。 确保导出并备份您的存档！", "Notices");
+		message("For some reason, your game is not saving. Make sure you export and back up your save!", "Notices");
 		}
 
 	if (game.options.menu.usePlayFab.enabled == 1 && playFabId){
@@ -245,7 +245,7 @@ function load(saveString, autoLoad, fromPf) {
         savegame = JSON.parse(LZString.decompressFromBase64(((fromImport) ? document.getElementById("importBox").value.replace(/(\r\n|\n|\r|\s)/gm,"") : saveString)));
         tooltip('hide');
 		if (!savegame) {
-			message("看起来您的导入代码不能正常工作。请确保您的导出代码保存在与所有字符兼容的文本文件中。如果您认为这段代码应该有效，您可以将它发送到Trimpsgame@gmail.com，我将尽我最大的努力为您恢复它!", "Notices");
+			message("It looks like your import code isn't working properly. Please make sure that your export code is saved in a text file compatible with all of the characters. If you believe this code should be working, you can Email it to Trimpsgame@gmail.com and I will do my best to restore it for you!", "Notices");
 			return false;
 		}
 		else if (fromImport){
@@ -258,30 +258,30 @@ function load(saveString, autoLoad, fromPf) {
 			unparsedSave = localStorage.getItem("trimpSave1");
 		}
 		catch (e) {
-			message("您的浏览器正在阻止脆皮访问浏览器的本地存储，您将无法保存或加载您的进程。请检查您的浏览器设置，以确保第三方cookie没有被禁用，并且您没有使用任何可能中断存储的插件! <br/><br/> 自动保存已被禁用，以防止对您的存档造成损害。如果您以前有一个保存文件，它应该还在等待您修复您的浏览器设置。", "Notices");
+			message("Your browser is preventing Trimps from accessing localStorage, and you will not be able to save or load your progress. Please check your browser settings to ensure that 3rd party cookies are not disabled, and that you're not using any addons that might interrupt storage! <br/><br/> AutoSave has been disabled to prevent damage to your save. If you previously had a save file, it should still be waiting for you once you fix your browser settings.", "Notices");
 			game.options.menu.autoSave.enabled = 0;
 			game.options.menu.autoSave.onToggle();
 			return false;
 		}
         if (unparsedSave !== null) savegame = JSON.parse(LZString.decompressFromBase64(unparsedSave));
 		else {
-			tooltip("欢迎", null, "update");
+			tooltip("Welcome", null, "update");
 			return false;
 		}
     }
 	if (typeof savegame === 'undefined' || savegame === null || typeof savegame.global === 'undefined') {
-		tooltip("欢迎", null, "update");
+		tooltip("Welcome", null, "update");
 		return false;
 	}
 	oldVersion = savegame.global.version;
 	oldStringVersion = (savegame.global.stringVersion) ? savegame.global.stringVersion.split('.') : null;
 	betaV = savegame.global.betaV;
 	if (savegame.global.isBeta && !game.global.isBeta){
-		message("您不能把beta版的存档导入到这个版本!", "Notices");
+		message("You can't import a save from the beta version to this version!", "Notices");
 		return false;
 	}
 	if ((oldStringVersion && oldStringVersion.length && (compareVersion(oldStringVersion, game.global.stringVersion.split('.'), true)))) {
-		message("您的存档文件来自一个比你当前脆皮的版本更新的 (v" + savegame.global.stringVersion + ") 当前脆皮版本是 (v" + game.global.stringVersion + "). 请刷新或者重启你的浏览器以获取最新版", "Notices");
+		message("Your save file is from a newer version of Trimps (v" + savegame.global.stringVersion + ") than what your computer is running (v" + game.global.stringVersion + "). Refresh or restart your browser!", "Notices");
 		return false;
 	}
 	resetGame();
@@ -292,11 +292,11 @@ function load(saveString, autoLoad, fromPf) {
 			activateKongBonus(savegame.global.world);
 			return false;
 		}
-        message("我很抱歉,但是你以前保存的游戏 （版本 " + savegame.global.version + "） 无法在新版本中运行。这应该是最后一次重置！", "Notices");
+        message("I'm so terribly sorry, but your previous save game (version " + savegame.global.version + ") does not work in the new version. This should be the last reset!", "Notices");
         return false;
     }
 	else if (game.global.isBeta) {
-		message("注意:您正在使用beta/dev版本。您将无法将您的save从这个版本导出到live版本，并且此服务器可能会在没有警告的情况下进行更改或更改。感谢您的帮助测试!", "Notices");
+		message("Note: You are playing on the beta/dev version. You will be unable to export your save from this version to the live version, and this server may go down or change without warning. Thank you for helping test!", "Notices");
 		savegame.global.isBeta = true;
 	}
 	savegame.global.version = game.global.version;
@@ -446,11 +446,11 @@ function load(saveString, autoLoad, fromPf) {
 	if (oldVersion < 2.3){
 		if (game.global.highestLevelCleared >= 80) game.global.prisonClear++;
 		if (game.global.world >= 70) {
-			message("欢迎来到 2.3! 截止现在你已经达到区域70了，你已经自动开启了新的挑战——“猎人”和新工作——“遗传学家”", "Notices");
+			message("Welcome to 2.3! Since you are currently past Zone 70, you have automatically unlocked the new Challenge - 'Trapper' and the new Job - 'Geneticist'", "Notices");
 			unlockJob("Geneticist");
 		}
 		else if (game.global.highestLevelCleared >= 69){
-			message("欢迎来到 2.3! 因为你之前已经清理了至少70区，你已经打开了新的挑战——“猎人”!", "Notices");
+			message("Welcome to 2.3! Since you have previously cleared up to at least Zone 70, you have unlocked the new Challenge - 'Trapper'!", "Notices");
 		}
 	}
 	if (oldVersion < 2.7){
@@ -495,7 +495,7 @@ function load(saveString, autoLoad, fromPf) {
 	}
 	if (oldVersion < 2.9){
 		if (game.options.menu.showFullBreed.enabled == 2) game.options.menu.showFullBreed.enabled = 1;
-		if (game.global.totalPortals >= 5) message("对传送门的大量使用创造了一个机会让它渗入你的世界。保持警惕。", "Story", null, "voidMessage");
+		if (game.global.totalPortals >= 5) message("Heavy use of the portal has created a chance for the Void to seep into your world. Be alert.", "Story", null, "voidMessage");
 	}
 	if (oldVersion < 3){
 		game.global.heirloomSeed = getRandomIntSeeded(game.global.voidSeed, 0, 1000000);
@@ -568,7 +568,7 @@ function load(saveString, autoLoad, fromPf) {
 			if (typeof savegame.talents.foreman2 !== 'undefined' && savegame.talents.foreman2.purchased) game.global.autoCraftModifier -= 3750;
 			game.global.essence += game.global.spentEssence;
 			game.global.spentEssence = 0;
-			message("由于现在的Masteries的返工，所有您所使用的Dark Essence已经免费退还！ 不要忘了回购你的师父！", "Notices");
+			message("Due to a rework of the current Masteries, all of your spent Dark Essence has been refunded for free! Don't forget to repurchase your Masteries!", "Notices");
 			updateTalentNumbers();
 		}
 		game.global.messages.Loot.magma = true;
@@ -610,7 +610,7 @@ function load(saveString, autoLoad, fromPf) {
 	if (oldVersion < 4.5 && typeof game.portal.Looting_II !== 'undefined' && game.portal.Looting_II.locked == false){
 		game.global.spiresCompleted = 1;
 		game.global.b += 20;
-		message("欢迎来到补丁4.5！ 由于你已经清除了尖塔 I，你已经获得了20块骨头并且获得了5％的区域液化。 点击“版本号”，看看有什么新东西！", "Story");
+		message("Welcome to Patch 4.5! Since you have already cleared Spire I, you have been given 20 bones and earned 5% Zone Liqufication. Click 'What's New' to see what's new!", "Story");
 	}
 	if (oldVersion < 4.6){
 		if (game.global.highestLevelCleared >= 79) addNewSetting('bigPopups');
@@ -1007,7 +1007,7 @@ function load(saveString, autoLoad, fromPf) {
 	if (game.jobs.Explorer.locked === 0) fadeIn("fragmentsPs", 10);
 	if (game.buildings.Tribute.locked === 0 || game.options.menu.useAverages.enabled) fadeIn("gemsPs", 10);
     if (game.global.autoCraftModifier > 0)
-        document.getElementById("foremenCount").innerHTML = (game.global.autoCraftModifier * 4) + " 工头";
+        document.getElementById("foremenCount").innerHTML = (game.global.autoCraftModifier * 4) + " Foremen";
     if (game.global.fighting) startFight();
 	if (game.options.menu.darkTheme.enabled != 1) game.options.menu.darkTheme.onToggle();
 	updateLabels();
@@ -1368,9 +1368,7 @@ function displayAllStats(buildAll) {
 		if (mode == 'total' && typeof stat.valueTotal !== 'function' && typeof stat.value !== 'undefined' && !stat.noAdd) value += stat.value;
 		if (!stat.noFormat) value = prettify(value);
 		if (buildAll){
-//            console.log(stat.title);
-//            stat.title
-			document.getElementById("statCol" + column).innerHTML += '<div class="statContainer" id="stat' + item + 'Container"><span class="statTitle">' + cnItem(stat.title) + '</span><br/><span class="statValue" id="stat' + item + 'Value">' + value + '</span></div>'
+			document.getElementById("statCol" + column).innerHTML += '<div class="statContainer" id="stat' + item + 'Container"><span class="statTitle">' + stat.title + '</span><br/><span class="statValue" id="stat' + item + 'Value">' + value + '</span></div>'
 			column++;
 			if (column == 5) column = 1;
 		}
@@ -1483,7 +1481,7 @@ function portalClicked(noUniChange) {
 	fadeIn("portalWrapper", 10);
 	var titleText = "Time Portal";
 	if (getSLevel(true) >= 1) titleText += " Mk. " + romanNumeral(getSLevel(true) + 1);
-	var portalStory = (getSLevel(true) >= 1) ? heliumOrRadon(false, true) + " 进去，胜利出来了" : ((portalUniverse == 1) ? "Well, you did it. You followed your instincts through this strange world, made your way through the Dimension of Anger, and obtained this portal. But why? Maybe there will be answers through this portal... Your scientists tell you they can overclock it to bring more memories and items back, but they'll need helium to cool it." : "The Radon Universe is harsh. Your Portal still retains some information about the Scientist upgrades, but it'll need an upgrade of its own to be able to utilize them in this new Universe.<br/><b>Be ready to manually Gather some Food!</b>");
+	var portalStory = (getSLevel(true) >= 1) ? heliumOrRadon(false, true) + " goes in, victory comes out" : ((portalUniverse == 1) ? "Well, you did it. You followed your instincts through this strange world, made your way through the Dimension of Anger, and obtained this portal. But why? Maybe there will be answers through this portal... Your scientists tell you they can overclock it to bring more memories and items back, but they'll need helium to cool it." : "The Radon Universe is harsh. Your Portal still retains some information about the Scientist upgrades, but it'll need an upgrade of its own to be able to utilize them in this new Universe.<br/><b>Be ready to manually Gather some Food!</b>");
 	document.getElementById("portalTitle").innerHTML = titleText;
 	document.getElementById("portalStory").innerHTML = portalStory;
 	var resName = (portalUniverse == 1) ? "Helium" : "Radon";
@@ -1493,15 +1491,15 @@ function portalClicked(noUniChange) {
 	document.getElementById("totalHeliumSpent").innerHTML = prettify(countHeliumSpent(false, true));
 	document.getElementById("totalPortals").innerHTML = getTotalPortals(true);
 	document.getElementById("activatePortalBtn").style.display = "inline-block";
-	document.getElementById("activatePortalBtn").innerHTML = "激活传送门";
+	document.getElementById("activatePortalBtn").innerHTML = "Activate Portal";
 	document.getElementById("challengeSquaredBonusAmt").innerHTML = prettify(game.global.totalSquaredReward);
 	document.getElementById('inPortalC2Name').innerHTML = (game.global.highestRadonLevelCleared >= 49) ? "<span class='icomoon icon-infinity'></span>" : "2";
 	var className = (game.global.highestRadonLevelCleared >= 49) ? "thingColorInfinite" : "thingColorSquared";
 	swapClass("thingColor", className, document.getElementById('inPortalC2Button'))
 	document.getElementById("challengeDescription").style.height = (getSLevel(true) >= 1) ? "19vw" : "22.5vw";
-	document.getElementById("challengeDescriptionPre").innerHTML = (getSLevel(true) >= 1) ? "别忘了带一个挑战<br/>" : 'You can also choose to activate a challenge before using your portal. Completing a challenge will earn you a permanent reward. You can abandon or view an active challenge at any time by clicking the "View Perks" button.';
+	document.getElementById("challengeDescriptionPre").innerHTML = (getSLevel(true) >= 1) ? "Don't forget to bring a challenge<br/>" : 'You can also choose to activate a challenge before using your portal. Completing a challenge will earn you a permanent reward. You can abandon or view an active challenge at any time by clicking the "View Perks" button.';
 	if (game.global.canRespecPerks) {
-		document.getElementById("respecPortalBtn").innerHTML = "天赋";
+		document.getElementById("respecPortalBtn").innerHTML = "Respec";
 		document.getElementById("respecPortalBtn").style.display = "inline-block";
 	}
 	document.getElementById('swapToCurrentChallengeBtn').style.display = (game.global.challengeActive) ? 'inline-block' : 'none';
@@ -1532,8 +1530,8 @@ function displayChallenges() {
 	var challengeCount = 0;
 	game.global.selectedChallenge = "";
 	var challengesHere = document.getElementById("challengesHere");
-	document.getElementById("specificChallengeDescription").innerHTML = "<br/><br/><br/>点击下面的挑战来了解更多和/或运行它！";
-	var challengeHTML = '<div class="noselect pointer challengeThing thing" id="challenge0" onclick="selectChallenge(0)"><span class="thingName">一个也没有</span></div>';
+	document.getElementById("specificChallengeDescription").innerHTML = "<br/><br/><br/>Click a challenge below to learn more about and/or run it!";
+	var challengeHTML = '<div class="noselect pointer challengeThing thing" id="challenge0" onclick="selectChallenge(0)"><span class="thingName">None</span></div>';
 	var firstFail = false;
 	var extraClass = "";
 	for (var what in game.challenges){
@@ -1592,8 +1590,7 @@ function displayChallenges() {
 		if (thisFail) done = "nextChallenge";
 		if (!name) name = what;
 		//make sure the challengeSquaredMode color still works after messing with line below
-		challengeHTML += '<div class="noselect pointer challengeThing thing ' + done + '" id="challenge' + what + '" onclick="selectChallenge(\'' + what + '\')"><span class="thingName">' + cnItem(name) + '</span></div>';
-//        console.log(what.replace('_', ' '))
+		challengeHTML += '<div class="noselect pointer challengeThing thing ' + done + '" id="challenge' + what + '" onclick="selectChallenge(\'' + what + '\')"><span class="thingName">' + name + '</span></div>';
 	}
 	challengesHere.innerHTML = challengeHTML;
 	if (challengeCount > 0) document.getElementById("challenges").style.display = "block";
@@ -1620,7 +1617,7 @@ function selectChallenge(what) {
 	var addChallenge = document.getElementById("addChallenge");
 	if (what === 0){
 		game.global.selectedChallenge = "";
-		document.getElementById("specificChallengeDescription").innerHTML = "<br/><br/><br/>点击下面的挑战了解更多相关信息，或运行它！";
+		document.getElementById("specificChallengeDescription").innerHTML = "<br/><br/><br/>Click a challenge below to learn more about and/or run it!";
 		document.getElementById("flagMustRestart").style.display = "none";
 		swapClass('challengeDescription', 'challengeDescriptionLg', document.getElementById('specificChallengeDescription'));
 		if (addChallenge !== null) addChallenge.innerHTML = "";
@@ -1628,7 +1625,7 @@ function selectChallenge(what) {
 	}
 	if (!game.challenges[what].filter()){
 		var unlockString = (typeof game.challenges[what].unlockString === 'function') ? game.challenges[what].unlockString() : game.challenges[what].unlockString;
-		document.getElementById("specificChallengeDescription").innerHTML = "你会解锁这个挑战" + unlockString;
+		document.getElementById("specificChallengeDescription").innerHTML = "You will unlock this challenge once you " + unlockString;
 		game.global.selectedChallenge = "";
 		document.getElementById("flagMustRestart").style.display = "none";
 		swapClass('challengeDescription', 'challengeDescriptionLg', document.getElementById('specificChallengeDescription'));
@@ -1657,7 +1654,7 @@ function selectChallenge(what) {
 	else if (game.portal[game.challenges[what].unlocks]) desc += (isPerkUnlocked(game.challenges[what].unlocks, true)) ? " You will not earn a new perk." : " You will also earn a new Perk!";
 	else if (what == "Scientist") {
 		var sciLev = getScientistLevel();
-		if (sciLev == game.global.sLevel) desc += " 你已经完成了这个挑战!";
+		if (sciLev == game.global.sLevel) desc += " You have already completed this challenge!";
 		desc = desc.replace("_", getScientistInfo(sciLev));
 		desc = desc.replace("*", getScientistInfo(sciLev, true));
 	}
@@ -1669,7 +1666,7 @@ function selectChallenge(what) {
 	swapClass('challengeDescription', descSize, document.getElementById('specificChallengeDescription'));
 
 	if (addChallenge !== null){
-		addChallenge.innerHTML = "你有 <b>" + what + " 个挑战</b> 激活。";
+		addChallenge.innerHTML = "You have the <b>" + what + " Challenge</b> active.";
 		addChallenge.className = (challengeSquaredMode) ? "colorSquared" : "";
 	}
 	if (what == "Daily") updateDailyClock();
@@ -1694,13 +1691,13 @@ function getScientistLevel() {
 function getScientistInfo(number, reward){
 	switch (number){
 		case 1: {
-			return (reward) ? "从5000科学，100食物，100木，10陷阱和1工头开始" : 11500;
+			return (reward) ? "start with 5000 Science, 100 Food, 100 Wood, 10 Traps, and 1 Foreman" : 11500;
 		}
 		case 2: {
-			return (reward) ? "启动5个谷仓，5个棚屋，5个锻造，T2装备解锁。" : 8000;
+			return (reward) ? "start with 5 Barns, 5 Sheds, 5 Forges, and T2 Equipment unlocked" : 8000;
 		}
 		case 3: {
-			return (reward) ? "以完整的脆皮和200%的手动效率开始" : 1500;
+			return (reward) ? "start with full Trimps and 200% player efficiency" : 1500;
 		}
 		case 4: {
 			return (reward) ? "earn two levels of each prestige upgrade per map" + ((game.global.universe == 1) ? ", unlock AutoPrestiges, and your Warpstations will build instantly, skipping the queue" : "") + ". This bonus will apply" : 70;
@@ -1719,7 +1716,7 @@ function confirmAbandonChallenge(){
 	var text = "Are you sure you want to abandon this challenge?";
 	if (game.challenges[game.global.challengeActive].mustRestart) text += " <b>Abandoning this challenge will cause the portal to become unstable and start you from the beginning of this run. (You'll keep your permanent rewards like helium and perks)</b><br/><br/>Click Confirm to abandon the challenge and restart at Z1, Cancel to go back, or Restart to go back to Z1 with the same challenge.";
 	tooltip('confirm', null, 'update', text, 'abandonChallenge()', 'Abandon Challenge');
-	if (game.challenges[game.global.challengeActive].mustRestart) document.getElementById("confirmTipCost").innerHTML += '<div class="btn btn-success" onclick="abandonChallenge(true); cancelTooltip()">重新挑战</div>';
+	if (game.challenges[game.global.challengeActive].mustRestart) document.getElementById("confirmTipCost").innerHTML += '<div class="btn btn-success" onclick="abandonChallenge(true); cancelTooltip()">Restart Challenge</div>';
 }
 
 function abandonChallenge(restart){
@@ -1769,18 +1766,18 @@ function getSpecialSquaredRewards(challenge){
 		var reward = (challenge.replaceSquareReward) ? challenge.replaceSquareReward : squaredConfig.rewardEach;
 		var freq = (challenge.replaceSquareFreq) ? challenge.replaceSquareFreq : squaredConfig.rewardFreq;
 		var rewardIncrease = (challenge.replaceSquareGrowth) ? challenge.replaceSquareGrowth : squaredConfig.rewardGrowth;
-		description += "<span class='colorSquared'>本挑战的奖励分配与其他大多数的挑战<sup>" + ((portalUniverse == 1) ? "2" : "3") + "</sup>不同.";
-		description += ((challenge.replaceSquareReward) ? "<b>" : "")  + " 你将获得 " + reward + "% " + ((portalUniverse == 1) ? "% 的攻击与生命, 以及 " + prettify(reward / 10) + "% 的氦获得" : "to your bonus") + ((challenge.replaceSquareReward) ? "</b>" : "");
-		description += ((challenge.replaceSquareFreq) ? "<b>" : "") + " 每达到 " + freq + " 区域" + needAnS(freq) + " reached." + ((challenge.replaceSquareFreq) ? "</b>" : "");
-		description += ((challenge.replaceSquareThresh) ? "<b>" : "") + " 每达到 " + threshes + " 区域" + needAnS(threshes) + " reached," + ((challenge.replaceSquareThresh) ? "</b>" : "");
-		description += ((challenge.replaceSquareGrowth) ? "<b>" : "") + " 每次的奖励都会增加 " + rewardIncrease + "%" + ((portalUniverse == 1) ? " 的攻击与生命, 以及 " + prettify(rewardIncrease / 10) + "% 氦" : "") + ".</span> " + ((challenge.replaceSquareGrowth) ? "</b>" : "");
+		description += "<span class='colorSquared'>This challenge issues rewards differently than most other Challenge<sup>" + ((portalUniverse == 1) ? "2" : "3") + "</sup>s.";
+		description += ((challenge.replaceSquareReward) ? "<b>" : "")  + " You will gain " + reward + "% " + ((portalUniverse == 1) ? "attack and health, and " + prettify(reward / 10) + "% Helium" : "to your bonus") + ((challenge.replaceSquareReward) ? "</b>" : "");
+		description += ((challenge.replaceSquareFreq) ? "<b>" : "") + " for every " + freq + " Zone" + needAnS(freq) + " reached." + ((challenge.replaceSquareFreq) ? "</b>" : "");
+		description += ((challenge.replaceSquareThresh) ? "<b>" : "") + " Every " + threshes + " Zone" + needAnS(threshes) + " reached," + ((challenge.replaceSquareThresh) ? "</b>" : "");
+		description += ((challenge.replaceSquareGrowth) ? "<b>" : "") + " this bonus will increase by " + rewardIncrease + "%" + ((portalUniverse == 1) ? " attack and health, and " + prettify(rewardIncrease / 10) + "% Helium" : "") + ".</span> " + ((challenge.replaceSquareGrowth) ? "</b>" : "");
 	}
 	return description;
 }
 
 function needAnS(number){
 	//this will save so many lines if I don't forget about it
-	return (number == 1) ? "" : "";
+	return (number == 1) ? "" : "s";
 }
 
 function getSquaredDescriptionInRun(hideDesc){
@@ -1790,8 +1787,8 @@ function getSquaredDescriptionInRun(hideDesc){
 	if (!hideDesc){
 		description = "\"" + challenge.squaredDescription + "\" " + getSpecialSquaredRewards(challenge);
 	}
-	description += "<b>你现在位于区域" + game.global.world;
-	var portalText = (game.global.viewingUpgrades) ? "放弃挑战" : "使用传送门";
+	description += "<b>You are currently at Zone " + game.global.world;
+	var portalText = (game.global.viewingUpgrades) ? "abandon the challenge " : "use the portal ";
 	var dif = getIndividualSquaredReward(game.global.challengeActive, game.global.world) - getIndividualSquaredReward(game.global.challengeActive);
 	var highest = game.c2[game.global.challengeActive];
 	var rewards = countChallengeSquaredReward(false, false, true);
@@ -1855,7 +1852,7 @@ function viewPortalUpgrades() {
 		challengeText = getCurrentChallengePane();
 	}
 	else
-		challengeText = "你没有进行中的挑战.";
+		challengeText = "You don't have an active challenge.";
 	if (game.global.universe == 2 && !game.global.portalActive){
 		document.getElementById('extraChallengeStuff').innerHTML = "<br/>If you can't handle this Universe, you can always return to Universe 1. However, returning before finding the Portal Device will invalidate all Scruffy Exp and Radon earned.<br/><span onclick='screwThisUniverse()' class='inPortalBtn btn btn-danger'>Return to Universe 1</span>"
 	}
@@ -1863,19 +1860,19 @@ function viewPortalUpgrades() {
 	document.getElementById("wrapper").style.display = "none";
 	swapClass("portalMk", "portalMkPreview", document.getElementById("portalWrapper"));
 	fadeIn("portalWrapper", 10);
-	document.getElementById("portalTitle").innerHTML = "查看福利";
+	document.getElementById("portalTitle").innerHTML = "View Perks";
 	var totalAvailable = (portalUniverse == 1) ? game.global.heliumLeftover : game.global.radonLeftover;
 	var resName = (portalUniverse == 1) ? "Helium" : "Radon";
-	document.getElementById("portalHelium").innerHTML = '<span id="portalHeliumOwned">' + prettify(parseInt(totalAvailable, 10)) + '</span> ' + resName + ' 剩余';
-	document.getElementById("portalStory").innerHTML = "这些都是你的福利！你每运行一次可以重置他们。";
+	document.getElementById("portalHelium").innerHTML = '<span id="portalHeliumOwned">' + prettify(parseInt(totalAvailable, 10)) + '</span> ' + resName + ' Left Over';
+	document.getElementById("portalStory").innerHTML = "These are all of your perks! You can reset them once per run.";
 	document.getElementById("totalHeliumSpent").innerHTML = prettify(countHeliumSpent(false, true));
 	var totalEarned = (portalUniverse == 1) ? game.global.totalHeliumEarned : game.global.totalRadonEarned;
 	document.getElementById("totalHeliumEarned").innerHTML = prettify(totalEarned);
 	document.getElementById("totalPortals").innerHTML = getTotalPortals(true);
-	document.getElementById("cancelPortalBtn").innerHTML = "取消";
+	document.getElementById("cancelPortalBtn").innerHTML = "Cancel";
 	document.getElementById("activatePortalBtn").style.display = "none";
 	if (game.global.canRespecPerks) {
-		document.getElementById("respecPortalBtn").innerHTML = "修改";
+		document.getElementById("respecPortalBtn").innerHTML = "Respec";
 		document.getElementById("respecPortalBtn").style.display = "inline-block";
 	}
 	document.getElementById("swapToCurrentChallengeBtn").style.display = "none";
@@ -1921,7 +1918,7 @@ function swapToCurrentChallenge(updateOnly){
 		challengesElem.style.display = 'none';
 		document.getElementById('viewChallengeText').innerHTML = getCurrentChallengePane();
 		updatePortalChallengeAbandonButton();
-		btnElem.innerHTML = "选择新的挑战";
+		btnElem.innerHTML = "Select New Challenge";
 		var c2Reward = document.getElementById('challengeSquaredBonusAmtView');
 		if (c2Reward !== null)
 			c2Reward.innerHTML = prettify(game.global.totalSquaredReward);
@@ -1929,7 +1926,7 @@ function swapToCurrentChallenge(updateOnly){
 	else {
 		viewChallengeElem.style.display = 'none';
 		challengesElem.style.display = 'block';
-		btnElem.innerHTML = "查看当前的挑战";
+		btnElem.innerHTML = "View Current Challenge";
 	}
 }
 
@@ -1947,8 +1944,8 @@ function getCurrentChallengePane(){
 		description = description.replace('_', getScientistInfo(sciLevel));
 		description = description.replace('*', getScientistInfo(sciLevel, true));
 	}
-	challengeText = "你正在进行 ";
-	challengeText += (game.global.challengeActive == "Daily") ? formatDailySeedDate() + " " + game.global.challengeActive + " 挑战激活. " + description : game.global.challengeActive + " 挑战激活. " + description;
+	challengeText = "You have the ";
+	challengeText += (game.global.challengeActive == "Daily") ? formatDailySeedDate() + " " + game.global.challengeActive + " challenge active. " + description : game.global.challengeActive + " challenge active. " + description;
 	return challengeText;
 }
 
@@ -1958,10 +1955,10 @@ function updatePortalChallengeAbandonButton(){
 		abandonElem.style.display = "inline-block";
 		if (game.global.challengeActive == "Daily") {
 			swapClass('btn-', 'btn-success', abandonElem);
-			abandonElem.innerHTML = "完成日常";
+			abandonElem.innerHTML = "Finish Daily";
 		}
 		else{
-			abandonElem.innerHTML = "放弃挑战";
+			abandonElem.innerHTML = "Abandon Challenge";
 			swapClass('btn-', 'btn-warning', abandonElem);
 		}
 	}
@@ -2056,7 +2053,7 @@ function getLastPortal(){
 }
 
 function displayPortalUpgrades(fromTab){
-	document.getElementById('ptabInfoText').innerHTML = (game.options.menu.detailedPerks.enabled) ? "较少信息" : "更多信息";
+	document.getElementById('ptabInfoText').innerHTML = (game.options.menu.detailedPerks.enabled) ? "Less Info" : "More Info";
 	toggleRemovePerks(true);
 	var elem = document.getElementById("portalUpgradesHere");
 	elem.innerHTML = "";
@@ -2084,15 +2081,15 @@ function displayPortalUpgrades(fromTab){
 		if (game.options.menu.smallPerks.enabled) htmlClass += (game.options.menu.smallPerks.enabled == 1) ? " smallPerk" : " tinyPerk";
 		if (portUpgrade.additive) htmlClass += " additive";
 		htmlClass += " changingOff";
-		html += htmlClass + '" id="' + what + '" onclick="buyPortalUpgrade(\'' + what + '\')"><span class="thingName">' + cnItem(what.replace('_', ' '));
+		html += htmlClass + '" id="' + what + '" onclick="buyPortalUpgrade(\'' + what + '\')"><span class="thingName">' + what.replace('_', ' ');
 		if (usingScreenReader) html += "<span id='screenReaderPerkAfford" + what + "'></span>";
 		html += '</span>';
 
 		if (game.options.menu.detailedPerks.enabled == 1 || usingScreenReader){
-		html += '<br/>等级:&nbsp;<span class="thingOwned"><b><span id="' + what + 'Owned">' + ((game.options.menu.formatPerkLevels.enabled) ? prettify(level) : level) + '</span></b>';
-		if (!portUpgrade.max || portUpgrade.max > combinedLevel) html += "<br/>价格: <span id='" + what + "Price'>" + prettify(getPortalUpgradePrice(what)) + "</span>";
-		else html += "<br/>价格: <span id='" + what + "Price'>最大</span>";
-		html += '<br/>花费: <span id="' + what + 'Spent">' + prettify(spentRes) + '</span>';
+		html += '<br/>Level:&nbsp;<span class="thingOwned"><b><span id="' + what + 'Owned">' + ((game.options.menu.formatPerkLevels.enabled) ? prettify(level) : level) + '</span></b>';
+		if (!portUpgrade.max || portUpgrade.max > combinedLevel) html += "<br/>Price: <span id='" + what + "Price'>" + prettify(getPortalUpgradePrice(what)) + "</span>";
+		else html += "<br/>Price: <span id='" + what + "Price'>Max</span>";
+		html += '<br/>Spent: <span id="' + what + 'Spent">' + prettify(spentRes) + '</span>';
 		}
 		else html += '<br/><span class="thingOwned">Lv:&nbsp;<span id="' + what + 'Owned">' + ((game.options.menu.formatPerkLevels.enabled) ? prettify(level) : level) + '</span>';
 		html += '</span></div>';
@@ -2200,21 +2197,21 @@ function activateKongBonus(oldWorld){
 	var addText = "";
 	if (oldWorld > 0){
 		helium = Math.floor(oldWorld / 2);
-		addText = "你得到了 " + helium + " 奖励点，作为探索世界 " + oldWorld + "的奖励。";
+		addText = "You earned " + helium + " bonus points for reaching World " + oldWorld + ".";
 	}
 	else {
 		helium = game.resources.helium.owned;
-		addText = "你还有 " + helium + " 奖励点可以花!";
+		addText = "You still have " + helium + " bonus points to spend!";
 	}
 	document.getElementById("wrapper").style.display = "none";
 	var portalWrapper = document.getElementById("portalWrapper");
 	portalWrapper.style.backgroundColor = "black";
 	portalWrapper.style.color = "white";
-	document.getElementById("portalTitle").innerHTML = "测试奖励";
-	document.getElementById("portalStory").innerHTML = "非常感谢你帮助测试脆皮的beta版本。所有的支持和反馈是惊人的！这个版本仍然需要一些反馈和调整，在这之前它并不是是完美的,不过不会故意再次重置。所以享受吧! " + addText;
+	document.getElementById("portalTitle").innerHTML = "Beta Bonus";
+	document.getElementById("portalStory").innerHTML = "Thank you so much for helping test the beta version of Trimps. All of the support and feedback was amazing! This version still needs some feedback and tweaks before it will be perfect, but saves will not be purposely reset again. Enjoy! " + addText;
 	document.getElementById("portalHelium").innerHTML = '<span id="portalHeliumOwned">' + helium + '</span> Bonus Points';
-	document.getElementById("cancelPortalBtn").innerHTML = "不用谢";
-	document.getElementById("activatePortalBtn").innerHTML = "已完成";
+	document.getElementById("cancelPortalBtn").innerHTML = "No Thanks";
+	document.getElementById("activatePortalBtn").innerHTML = "Finished";
 		document.getElementById("activatePortalBtn").style.display = "inline-block";
 
 	fadeIn("portalWrapper", 10);
@@ -2347,7 +2344,7 @@ var offlineProgress = {
 		this.repeatSetting = game.global.repeatMap;
 		this.repeatUntil = game.options.menu.repeatUntil.enabled;
 		this.exitTo = game.options.menu.exitTo.enabled;
-		this.timeOfflineElem.innerHTML = "欢迎回来！你离线了 " + this.formatTime(Math.floor(offlineTime / 1000)) + ".";
+		this.timeOfflineElem.innerHTML = "Welcome back! You were offline for " + this.formatTime(Math.floor(offlineTime / 1000)) + ".";
 		this.updateBar(0);
 		var x = 0;
 		this.nextFluffIn = -1;
@@ -2626,30 +2623,30 @@ function trustworthyTrimps(noTip, forceTime){
 						newMax = calcHeirloomBonus("Shield", "storageSize", newMax);
 						if (newMax > (resource.owned + amt)) break;
 					}
-					var s = (count > 1) ? "" : "";
-					storageBought.push(count + " " + cnItem(storages[x]) + s + ", ");
+					var s = (count > 1) ? "s" : "";
+					storageBought.push(count + " " + storages[x] + s + ", ");
 				}
 			}
 		}
 		if (amt > 0){
 			resource.owned += amt;
-			textString = prettify(amt) + " " + cnItem(resName) + ", ";
+			textString = prettify(amt) + " " + resName + ", ";
 			textArray.push(textString);
 			if (resName == "gems") game.stats.gemsCollected.value += amt;
 		}
 	}
 	if (textArray.length === 0) return;
-	textString = "当你离开时，你的脆皮生产了 ";
+	textString = "While you were away, your Trimps were able to produce ";
 	for (var y = 0; y < textArray.length; y++){
 		textString += textArray[y];
-		if (y == textArray.length -2) textString += "和 ";
+		if (y == textArray.length -2) textString += "and ";
 	}
 	textString = textString.slice(0, -2);
 	if (storageBought.length) {
-		textString += " <b>购买了</b> ";
+		textString += " <b>after buying</b> ";
 		for (var z = 0; z < storageBought.length; z++){
 			textString += storageBought[z];
-			if (z == storageBought.length - 2) textString += "和 ";
+			if (z == storageBought.length - 2) textString += "and ";
 		}
 		textString = textString.slice(0, -2);
 	}
@@ -2659,7 +2656,7 @@ function trustworthyTrimps(noTip, forceTime){
 		if (!isNumberBad(avg)){
 			var rsReward = (dif * 0.75 * avg);
 			playerSpire.runestones += rsReward;
-			textString += "<br/>你的尖塔陷阱和塔也产生了 <b>" + prettify(rsReward) + "</b> 符文石，在你离开的时候!";
+			textString += "<br/>Your Spire Traps and Towers have also produced <b>" + prettify(rsReward) + "</b> Runestones while you were away!";
 		}
 	}
 	if (!noTip) tooltip("Trustworthy Trimps", null, "update", textString);
@@ -2681,8 +2678,8 @@ function respecPerks(fromPortal){
 	document.getElementById("portalHeliumOwned").innerHTML = prettify(game.resources.helium.respecMax - game.resources.helium.totalSpentTemp);
 	document.getElementById("respecPortalBtn").style.display = "none";
 	if (!fromPortal){
-		document.getElementById("portalStory").innerHTML = "你每次运行只能替换一次。点击取消不会消耗这次使用。";
-		document.getElementById("portalTitle").innerHTML = "替换能力";
+		document.getElementById("portalStory").innerHTML = "You can only respec once per run. Clicking cancel will not consume this use.";
+		document.getElementById("portalTitle").innerHTML = "Respec Perks";
 	}
 	document.getElementById("ptabRemove").style.display = "table-cell";
 	document.getElementById("clearPerksBtn").style.display = "inline-block";
@@ -2735,7 +2732,7 @@ function clearPerks(){
 	document.getElementById("portalHeliumOwned").innerHTML = prettify(game.resources.helium.respecMax);
 	if (game.global.viewingUpgrades) {
 		document.getElementById("respecPortalBtn").style.display = "none";
-		document.getElementById("activatePortalBtn").innerHTML = "确定";
+		document.getElementById("activatePortalBtn").innerHTML = "Confirm";
 		document.getElementById("activatePortalBtn").style.display = "inline-block";
 	}
 	document.getElementById("totalHeliumSpent").innerHTML = prettify(countHeliumSpent(true, true));
@@ -2778,28 +2775,28 @@ function activateClicked(){
 	var newText = "";
 	if (game.global.selectedChallenge){
 		if (challengeSquaredMode)
-			newText += " <span id='addChallenge' class='colorSquared'>你即将进行 <b style='font-size: 1.1em'>" + game.global.selectedChallenge + " 挑战<sup>" + ((portalUniverse == 1) ? "2" : "3") + "</sup></b></span><br/>";
+			newText += " <span id='addChallenge' class='colorSquared'>You are about to run the <b style='font-size: 1.1em'>" + game.global.selectedChallenge + " Challenge<sup>" + ((portalUniverse == 1) ? "2" : "3") + "</sup></b></span><br/>";
 		else
-			newText += " <span id='addChallenge'>你即将进行<b style='font-size: 1.1em'>" + cnItem(game.global.selectedChallenge) + "挑战</b></span><br/>";
+			newText += " <span id='addChallenge'>You are about to run the <b style='font-size: 1.1em'>" + game.global.selectedChallenge + " Challenge</b></span><br/>";
 	}
 	else newText += " <span id='addChallenge'></span>";
 	if (game.global.kongBonusMode){
 		newText = "All set?";
 	}
-	else newText += "<div id='portalConfirmStory'>你确定你想要进入传送门吗? 你将失去所有进度，除了你所获得的能通过传送门的升级，比如氦、能力、骨头以及外来物种。谁知道这些东西将在哪里或是在何时才能给你。</div><br/>";
+	else newText += "<div id='portalConfirmStory'>Are you sure you want to enter the portal? You will lose all progress other than the portal-compatible upgrades you've earned, such as Helium, Perks, Bones, and Exotic Imports. Who knows where or when it will send you.</div><br/>";
 
 	if (game.global.challengeActive == "Daily") newText += "<span class='dailyError portalError'>You still have the Daily challenge active! If you portal right now, your reward will be applied at the beginning of your next run. Alternatively, click 'Finish Daily' in the World or inside 'View Perks' to get the bonus now.</span>";
 	if (game.global.runningChallengeSquared) newText += "<div class='squaredError portalError'>" + getSquaredDescriptionInRun(true) + "</div>";
 	if (game.global.heirloomsExtra.length){
 		var s = (game.global.heirloomsExtra.length > 1) ? "s" : "";
 		var spirestones = recycleAllExtraHeirlooms(false, true);
-		newText += "<div class='heirloomRecycleWarning portalError'>你拥有 " + game.global.heirloomsExtra.length + " 个额外传家宝" + s + ", 如果你现在传送，它们将会被回收成 " + prettify(recycleAllExtraHeirlooms(true)) + " 虚空物质 " + ((spirestones > 0) ? " 和 " + prettify(spirestones) + " 尖塔石头 " : "") + "。确保你携带了任何你想保存的东西!</div>";
+		newText += "<div class='heirloomRecycleWarning portalError'>You have " + game.global.heirloomsExtra.length + " extra Heirloom" + s + ", which will be recycled for " + prettify(recycleAllExtraHeirlooms(true)) + " Nullifium " + ((spirestones > 0) ? " and " + prettify(spirestones) + " Spirestones " : "") + "if you portal now. Make sure you carry any that you want to save!</div>";
 	}
 	if (game.global.world >= 230 && canAffordGeneratorUpgrade()){
-		newText += "<div class='magmiteError portalError'>You have " + prettify(game.global.magmite) + " Magmite, which is enough purchase an upgrade for your Dimensional Generator! If you portal now, " + ((game.permanentGeneratorUpgrades.Shielding.owned) ? "20" : "30") + "% of your Magmite will decay.<div style='text-align: center'><span onclick='cancelTooltip(); tooltip(\"Upgrade Generator\", null, \"update\")' class='btn btn-lg btn-success'>花费 Magmite</span></div></div><br/>";
+		newText += "<div class='magmiteError portalError'>You have " + prettify(game.global.magmite) + " Magmite, which is enough purchase an upgrade for your Dimensional Generator! If you portal now, " + ((game.permanentGeneratorUpgrades.Shielding.owned) ? "20" : "30") + "% of your Magmite will decay.<div style='text-align: center'><span onclick='cancelTooltip(); tooltip(\"Upgrade Generator\", null, \"update\")' class='btn btn-lg btn-success'>Spend Magmite</span></div></div><br/>";
 	}
-	var btnText = "<div class='btn btn-info btn-lg' onclick='activatePortal()'>就这么干。</div>&nbsp;<div class='btn btn-lg btn-warning' onclick='cancelTooltip()'>等等, 我还没准备好!</div>";
-	tooltip('运行传送门', 'customText', 'update', newText, btnText);
+	var btnText = "<div class='btn btn-info btn-lg' onclick='activatePortal()'>Let's do it.</div>&nbsp;<div class='btn btn-lg btn-warning' onclick='cancelTooltip()'>Wait, I'm not ready!</div>";
+	tooltip('Activate Portal', 'customText', 'update', newText, btnText);
 	game.global.lockTooltip = true;
 	var tooltipElem = document.getElementById('tooltipDiv');
 	tooltipElem.style.left = "33.75%";
@@ -2808,7 +2805,7 @@ function activateClicked(){
 
 function enablePerkConfirmBtn(){
 	if (portalWindowOpen && game.global.selectedChallenge == "Daily") return;
-	document.getElementById("activatePortalBtn").innerHTML = "确认";
+	document.getElementById("activatePortalBtn").innerHTML = "Confirm";
 	document.getElementById("activatePortalBtn").style.display = "inline-block";
 }
 
@@ -2905,7 +2902,7 @@ function resetPresets(){
 	for (var x = 1; x <= 3; x++){
 		var preset = presetGroup["perkPreset" + x];
 		swapClass('tab', 'tabNotSelected', document.getElementById('presetTab' + x));
-		document.getElementById('presetTab' + x + 'Text').innerHTML = (preset.Name) ? preset.Name : "预设 " + x;
+		document.getElementById('presetTab' + x + 'Text').innerHTML = (preset.Name) ? preset.Name : "Preset " + x;
 	}
 }
 
@@ -2926,7 +2923,7 @@ function savePerkPreset(){
 	}
 	if (presetGroup["perkPreset" + to].Name) saved.Name = presetGroup["perkPreset" + to].Name;
 	presetGroup["perkPreset" + to] = saved;
-	document.getElementById('presetTab' + to + 'Text').innerHTML = ((saved.Name) ? saved.Name : "预设 " + to);
+	document.getElementById('presetTab' + to + 'Text').innerHTML = ((saved.Name) ? saved.Name : "Preset " + to);
 }
 
 function renamePerkPreset(needTooltip, name){
@@ -2943,7 +2940,7 @@ function renamePerkPreset(needTooltip, name){
 	cancelTooltip();
 	for (var x = 1; x <= 3; x++){
 		var preset = presetGroup["perkPreset" + x];
-		document.getElementById('presetTab' + x + 'Text').innerHTML = (preset.Name) ? preset.Name : "预设 " + x;
+		document.getElementById('presetTab' + x + 'Text').innerHTML = (preset.Name) ? preset.Name : "Preset " + x;
 	}
 }
 
@@ -3260,7 +3257,7 @@ function canCommitCarpentry(noInfinity){ //Uh, and Coordinated. This checks coor
 	var good = true;
 	var soldiers = game.resources.trimps.getCurrentSend(true);
     if (newMax < (soldiers * 2.4)) {
-        error.innerHTML += "使用此天赋设置，您没有足够的最大脆皮来维持您的协调。 ";
+        error.innerHTML += "You do not have enough max Trimps with this Perk setup to sustain your Coordination. ";
 		error.style.display = "block";
 		good = false;
 	}
@@ -3269,7 +3266,7 @@ function canCommitCarpentry(noInfinity){ //Uh, and Coordinated. This checks coor
 		if (!noInfinity && freeManyWorkspaces(over)){
 			return canCommitCarpentry(true);
 		}
-		error.innerHTML += "你有太多的工作人员分配给这个福利设置";
+		error.innerHTML += "You have too many workers assigned for this Perk setup.";
 		error.style.display = "block";
 		good = false;
 	}
@@ -3294,7 +3291,7 @@ function clearQueue(specific) {
 function activatePortal(){
 	if (game.global.selectedChallenge == "Daily"){
 		if (getDailyChallenge(readingDaily, false, true) !== nextDaily) {
-			document.getElementById("portalStory").innerHTML = "<span style='color: red'>自从你看以后，日常的挑战已经改变了。 挑战描述已刷新，点击激活传送门运行它！</span>";
+			document.getElementById("portalStory").innerHTML = "<span style='color: red'>The daily challenge has changed since you looked at it. The challenge description has been refreshed, click Activate Portal to run it!</span>";
 			getDailyChallenge();
 			return;
 			}
@@ -3335,7 +3332,7 @@ function activatePortal(){
 		message("A blue shimmer erupts then disappears as you gracefully take its place. You look like you don't belong here... Well, better start gathering some food.", "Story")
 	}
 	else{
-		message("绿色微光一闪而过，你摔在了地上。看起来你很饿...", "Story");
+		message("A green shimmer erupts then disappears, and you hit the ground. You look pretty hungry...", "Story");
 	}
 }
 
@@ -3345,7 +3342,7 @@ function cancelPortal(keep){
 	if (game.global.kongBonusMode){
 		game.global.kongBonusMode = false;
 		if (!keep) resetGame();
-		message("绿色微光一闪而过，你摔在了地上。看起来你很饿...", "Story");
+		message("A green shimmer erupts then disappears, and you hit the ground. You look pretty hungry...", "Story");
 	}
 	game.global.viewingUpgrades = false;
 	game.global.respecActive = false;
@@ -3709,13 +3706,13 @@ function fireMode(noChange) {
     var elem = document.getElementById("fireBtn");
     if (game.global.firing) {
         elem.className = elem.className.replace("fireBtnNotFiring", "fireBtnFiring");
-        elem.innerHTML = "解雇中";
+        elem.innerHTML = "Firing";
     } else {
         elem.className = elem.className.replace("fireBtnFiring", "fireBtnNotFiring");
-        elem.innerHTML = "解雇";
+        elem.innerHTML = "Fire";
     }
     if (!noChange && !game.global.lockTooltip)
-		 tooltip("解雇脆皮", null, "update");
+		 tooltip("Fire Trimps", null, "update");
 }
 
 function setGather(what, updateOnly) {
@@ -3756,17 +3753,17 @@ function setGatherTextAs(what, on) {
     var trimpTrapText = '(<span id="trimpTrapText">' + prettify(game.buildings.Trap.owned) + '</span>)';
     switch (what) {
     case "food":
-        return (on) ? "收集中" : "采集";
+        return (on) ? "Gathering" : "Gather";
     case "wood":
-        return (on) ? "砍伐中" : "伐木";
+        return (on) ? "Chopping" : "Chop";
     case "metal":
-        return (on) ? "采矿中" : "采矿";
+        return (on) ? "Mining" : "Mine";
     case "science":
-        return (on) ? "研究中" : "研究";
+        return (on) ? "Researching" : "Research";
     case "buildings":
-        return (on) ? "建造中" : "建造";
+        return (on) ? "Building" : "Build";
     case "trimps":
-        return (on) ? ("诱捕中 " + trimpTrapText) : ("检查陷阱 " + trimpTrapText);
+        return (on) ? ("Trapping " + trimpTrapText) : ("Check Traps " + trimpTrapText);
     }
 }
 
@@ -3870,15 +3867,15 @@ function calculateTimeToMax(resource, perSec, toNumber, fromGather) {
 		minutes = 0;
 		toFill++;
 	}
-	if (!isFinite(years)) return "很长时间";
+	if (!isFinite(years)) return "Long Time";
 	if (toFill < 60) {
 		if (toFill < 1 && fromGather) return "";
-		return Math.floor(seconds) + " 秒" + ((Math.floor(seconds) == 1) ? "" : "");
+		return Math.floor(seconds) + " Sec" + ((Math.floor(seconds) == 1) ? "" : "s");
 	}
-	if (toFill < 3600) return minutes + " 分" + ((minutes == 1) ? "" : "") + " " + seconds + " 秒" + ((seconds == 1) ? "" : "");
-	if (toFill < 86400) return hours + " 时" + ((hours == 1) ? "" : "") + " " + minutes + " 分" + ((minutes == 1) ? "" : "");
-	if (toFill < 31536000) return days + " 天" + ((days == 1) ? "" : "") + " " + hours + " 时" + ((hours == 1) ? "" : "");
-	return prettify(years) + " 年" + ((years == 1) ? "" : "") + " " + days + " 天" + ((days == 1) ? "" : "");
+	if (toFill < 3600) return minutes + " Min" + ((minutes == 1) ? "" : "s") + " " + seconds + " Sec" + ((seconds == 1) ? "" : "s");
+	if (toFill < 86400) return hours + " Hour" + ((hours == 1) ? "" : "s") + " " + minutes + " Min" + ((minutes == 1) ? "" : "s");
+	if (toFill < 31536000) return days + " Day" + ((days == 1) ? "" : "s") + " " + hours + " Hour" + ((hours == 1) ? "" : "s");
+	return prettify(years) + " Year" + ((years == 1) ? "" : "s") + " " + days + " Day" + ((days == 1) ? "" : "s");
 }
 
 function checkTriggers(force) {
@@ -4005,7 +4002,7 @@ function canAffordBuilding(what, take, buildCostString, isEquipment, updatingLab
 				percent = (game.resources[costItem].owned > 0) ? prettify(((price / game.resources[costItem].owned) * 100).toFixed(1)) : 0;
 				percent = "(" + percent + "%)";
 			}
-			costString += '<span class="' + color + '">' + cnItem(costItem) + ':&nbsp;' + prettify(price) + '&nbsp;' + percent + '</span>, ';
+			costString += '<span class="' + color + '">' + costItem + ':&nbsp;' + prettify(price) + '&nbsp;' + percent + '</span>, ';
 		}
 		if (take) game.resources[costItem].owned -= price;
 	}
@@ -4045,7 +4042,7 @@ function buyBuilding(what, confirmed, fromAuto, forceAmt) {
 	if (purchaseAmt == 0) return false;
 	if (canAfford){
 		if (what == "Wormhole" && !confirmed && game.options.menu.confirmhole.enabled && !fromAuto){
-			tooltip('Confirm Purchase', null, 'update', '你将要购买 ' + purchaseAmt + ' 虫洞, <b>需要消耗氦</b>. 请确保你有能力去赚回你花费的氦气!', 'buyBuilding(\'Wormhole\', true, false, ' + purchaseAmt + ')');
+			tooltip('Confirm Purchase', null, 'update', 'You are about to purchase ' + purchaseAmt + ' Wormholes, <b>which cost helium</b>. Make sure you can earn back what you spend!', 'buyBuilding(\'Wormhole\', true, false, ' + purchaseAmt + ')');
 			return false;
 		}
 		if (forceAmt) canAffordBuilding(what, true, false, false, false, purchaseAmt);
@@ -4114,7 +4111,7 @@ function craftBuildings(makeUp) {
 
 		var timeLeft = (game.global.timeLeftOnCraft / modifier).toFixed(1);
 		if (timeLeft < 0.1 || isNumberBad(timeLeft)) timeLeft = 0.1;
-        if (timeRemaining) timeRemaining.textContent = " - " + timeLeft + " 秒";
+        if (timeRemaining) timeRemaining.textContent = " - " + timeLeft + " Seconds";
 		if (game.options.menu.queueAnimation.enabled) buildingsBar.style.opacity = percent;
 		else buildingsBar.style.opacity = "0";
         if (game.global.timeLeftOnCraft > 0) return;
@@ -4178,7 +4175,7 @@ function setNewCraftItem() {
 		var timeElem = document.getElementById("queueTimeRemaining");
 		if (timeLeft < 0.1 || isNumberBad(timeLeft)) timeLeft = 0.1;
 		if (!timeElem) elem.innerHTML += "<span id='queueTimeRemaining'> - " + timeLeft + " Seconds</span><div id='animationDiv'></div>";
-		else timeElem.textContent = " - " + timeLeft + " 秒";
+		else timeElem.textContent = " - " + timeLeft + " Seconds";
 	}
 	if (elem && timeLeft <= 0.1) {timeLeft = 0.1; if (game.options.menu.queueAnimation.enabled) document.getElementById("animationDiv").style.opacity = '1'}
 }
@@ -4237,7 +4234,7 @@ function toggleAutoTooltipHelp(){
 	}
 	else {
 		helpElem.style.display = "block";
-		btnElem.innerHTML = "隐藏帮助";
+		btnElem.innerHTML = "Hide Help";
 	}
 	verticalCenterTooltip();
 }
@@ -4533,7 +4530,7 @@ function getTooltipJobText(what, toBuy) {
     for (var item in job.cost) {
 		var result = (checkJobItem(what, false, item, false, toBuy))
         var color =  (result === 0) ? "orange" : ((result == true) ? "green" : "red");
-        fullText += '<span class="' + color + '">' + cnItem(item) + ':&nbsp;' + checkJobItem(what, false, item, true, toBuy) + '</span>, ';
+        fullText += '<span class="' + color + '">' + item + ':&nbsp;' + checkJobItem(what, false, item, true, toBuy) + '</span>, ';
     }
     fullText = fullText.slice(0, -2);
     return fullText;
@@ -4622,7 +4619,7 @@ function buyUpgrade(what, confirmed, noTip, heldCtrl) {
     var canAfford = canAffordTwoLevel(upgrade);
     if (!canAfford) return false;
 	if (what == "Gigastation" && !confirmed && !noTip && game.options.menu.confirmhole.enabled){
-		tooltip('Confirm Purchase', null, 'update', '您将要购买一个千兆站， <b>这不是可再生的升级</b>。确保您已经购买了所有可以买得起的经纱站工作站！', 'buyUpgrade(\'Gigastation\', true, false, ' + usingCtrl + ')');
+		tooltip('Confirm Purchase', null, 'update', 'You are about to purchase a Gigastation, <b>which is not a renewable upgrade</b>. Make sure you have purchased all of the Warpstations you can afford first!', 'buyUpgrade(\'Gigastation\', true, false, ' + usingCtrl + ')');
 		return;
 	}
 	if (what == "Shieldblock" && !confirmed && game.options.menu.confirmhole.enabled && getHighestLevelCleared() >= 30){
@@ -4810,11 +4807,11 @@ function breed() {
 	decimalOwned = decimalOwned.add(breeding.div(10));
 	timeRemaining = (game.options.menu.showFullBreed.enabled > 0) ? timeRemaining.toFixed(1) : Math.ceil(timeRemaining);
 	var remainingTime = timeRemaining;
-	timeRemaining += " 秒";
+	timeRemaining += " Secs";
 		//Display full breed time if desired
 	var totalTimeText = Math.ceil(totalTime * 10) / 10;
 	if (game.options.menu.showFullBreed.enabled){
-		fullBreed = totalTimeText + " 秒";
+		fullBreed = totalTimeText + " Secs";
 		timeRemaining += " / " + fullBreed;
 	}
 
@@ -4893,10 +4890,10 @@ function toggleGeneticistassist(updateOnly){
 	currentStep = steps[currentStep];
 	var text = "";
 	if (currentStep == -1) {
-		text = "禁用";
+		text = "Disabled";
 		swapClass("state", "stateDanger", elem);
 	}
-	else text = "<span class='icomoon icon-target'></span> " + currentStep + " 秒" + ((currentStep > 1) ? "" : "");
+	else text = "<span class='icomoon icon-target'></span> " + currentStep + " Second" + ((currentStep > 1) ? "s" : "");
 	document.getElementById("GeneticistassistSetting").innerHTML = text;
 }
 
@@ -4996,7 +4993,7 @@ function getNextPrestigeValue(what){
 	var equipment = game.equipment[name];
 	var stat;
 	if (equipment.blockNow) stat = "block";
-	else stat = (typeof equipment.health !== 'undefined') ? "生命" : "攻击";
+	else stat = (typeof equipment.health !== 'undefined') ? "health" : "attack";
 	var toReturn = Math.round(equipment[stat] * Math.pow(1.19, ((equipment.prestige) * game.global.prestige[stat]) + 1));
 	return prettify(toReturn) + " " + stat;
 }
@@ -5052,7 +5049,7 @@ function createMap(newLevel, nameOverride, locationOverride, lootOverride, sizeO
 		newMap.bonus = "fa";
 	}
 	game.global.mapsOwnedArray.push(newMap);
-    if (!messageOverride) message("你制作了 " + mapName[0] + "!", "Loot", "th-large", null, 'secondary');
+    if (!messageOverride) message("You just made " + mapName[0] + "!", "Loot", "th-large", null, 'secondary');
     unlockMap(game.global.mapsOwnedArray.length - 1);
 }
 
@@ -5130,7 +5127,7 @@ function resetAdvMaps(fromClick) {
 	//biome
 	var biomeElem = document.getElementById("biomeAdvMapsSelect");
 	if (game.global.decayDone && document.getElementById('gardenOption') === null) 
-		biomeElem.innerHTML += "<option id='gardenOption' value='Plentiful'>花园</option>";
+		biomeElem.innerHTML += "<option id='gardenOption' value='Plentiful'>Gardens</option>";
 	biomeElem.value = (preset.biome && !fromClick) ? preset.biome : "Random";
 	//bottom row
 	hideAdvMaps(true);
@@ -5218,14 +5215,14 @@ function populateSpecialModifiers(){
 	var setting = elem.value;
 	if (!setting) setting = "0";
 	elem.innerHTML = "";
-	var newOptions = "<option value='0'>没有修饰语</option>";
+	var newOptions = "<option value='0'>No Modifier</option>";
 	for (var item in mapSpecialModifierConfig){
 		var bonusItem = mapSpecialModifierConfig[item];
 		var unlocksAt = (game.global.universe == 2) ? bonusItem.unlocksAt2 : bonusItem.unlocksAt;
 		if ((typeof unlocksAt === 'function' && !unlocksAt()) || unlocksAt == -1 || getHighestLevelCleared() + 1 < unlocksAt){
 			continue;
 		}
-		newOptions += "<option value='" + item + "'>" + cnItem(bonusItem.name) + "</option>";
+		newOptions += "<option value='" + item + "'>" + bonusItem.name + "</option>";
 	}
 	elem.innerHTML = newOptions;
 	elem.value = setting;
@@ -5245,7 +5242,7 @@ function setAdvExtraZoneText(){
 		elem.innerHTML = text;
 	}
 	for (var x = 0; x <= 10; x++){
-		document.getElementById("advExtra" + x).innerHTML = "+" + x + " (区域 " + (game.global.world + x) + ")";
+		document.getElementById("advExtra" + x).innerHTML = "+" + x + " (Zone " + (game.global.world + x) + ")";
 	}
 }
 
@@ -5330,7 +5327,7 @@ function adjustMap(what, value) {
 	if (checkPerfectChecked())
 		text = (what == "loot") ? minMax[1] : minMax[0];
 	else 
-		text = "最低 " + minMax[0] + ", 最高 " + minMax[1];
+		text = "Min " + minMax[0] + ", Max " + minMax[1];
 	document.getElementById(what + "AdvMapsText").innerHTML = text;
 	updateMapCost();
 	hideAdvMaps(true);
@@ -5348,7 +5345,7 @@ var mapSpecialModifierConfig = {
 		unlocksAt: 60,
 		unlocksAt2: 15,
 		get description(){
-			var text = "这张地图上的所有攻击速度都要快100毫秒。";
+			var text = "All attacks in this map happen 100ms faster.";
 			if (game.talents.hyperspeed2.purchased) text += " <span style='color: red'>Does not stack with Hyperspeed II</span>";
 			return text;
 		},
@@ -5395,7 +5392,7 @@ var mapSpecialModifierConfig = {
 		name: "Small Metal Cache",
 		unlocksAt: 85,
 		unlocksAt2: 25,
-		description: "每次完成这张地图，你都可以获得10秒钟的金属产量。",
+		description: "Earn 10 seconds of metal production each time you complete this map.",
 		costIncrease: 10,
 		cache: true,
 		onCompletion: function () {
@@ -5498,11 +5495,11 @@ function cacheReward(resourceName, time, cacheName){
 	var amt = simpleSeconds(resourceName, time);
 	amt = scaleToCurrentMap(amt, false, !game.global.canScryCache);
 	addResCheckMax(resourceName, amt, null, null, true);
-	message("你在地图的终点打开了 " + cacheName + " 去寻找 " + prettify(amt) + " " + resourceName + "!", "Loot", "*dice", null, "cache");
+	message("You open the " + cacheName + " at the end of the map to find " + prettify(amt) + " " + resourceName + "!", "Loot", "*dice", null, "cache");
 	if (Fluffy.isRewardActive("lucky")){
 		if (Math.floor(Math.random() * 100) < 25) {
 			addResCheckMax(resourceName, amt, null, null, true);
-			message("蓬松发现了另一个 " + cacheName + " 和另外一个 " + prettify(amt) + " " + resourceName + "!", "Loot", "*dice", null, "cache");
+			message("Fluffy found another " + cacheName + " with another " + prettify(amt) + " " + resourceName + "!", "Loot", "*dice", null, "cache");
 		}
 	}
 }
@@ -5588,12 +5585,12 @@ function buyMap() {
 	var cost = updateMapCost(true);
 	var newLevel = parseInt(document.getElementById("mapLevelInput").value, 10);
 	if (!newLevel || newLevel <= 5 || newLevel > game.global.world || isNaN(newLevel) || isNaN(cost)) {
-		message("你必须在第6级和你的最高区域之间创建一张地图， " + game.global.world + ".", "Notices");
+		message("You must create a map between level 6 and your highest Zone, " + game.global.world + ".", "Notices");
 		return -1;
 	}
 	if (cost > 0 && game.resources.fragments.owned >= cost){
 		if (game.global.mapsOwnedArray.length >= 100) {
-			message("哇，地图真多啊。你可以肯定，如果你再多做一些，你的科学家就会失去它们。最好回收其中的一些，这对环境有好处。", "Notices");
+			message("Woah, that's a lot of maps. You're certain your Scientists will just lose them if you make any more. Better recycle a few of them, it's good for the environment anyways.", "Notices");
 			return -2;
 		}
 		game.resources.fragments.owned -= cost;
@@ -5601,7 +5598,7 @@ function buyMap() {
 		if (!game.global.currentMapId) selectMap(game.global.mapsOwnedArray[game.global.mapsOwnedArray.length - 1].id);
 		return 1;
 	}
-	else message("你负担不起这张地图! 你需要 " + prettify(cost) + " 碎片。", "Notices");
+	else message("You can't afford this map! You need " + prettify(cost) + " fragments.", "Notices");
 	return -3;
 }
 
@@ -5733,23 +5730,23 @@ function addVoidAlert(){
 var voidBuffConfig = {
 		doubleAttack: {
 			icon: 'icomoon icon-pushpin',
-			text: '这个坏家伙攻击两次，一次在你之前，一次在你之后。',
-			title: '虚空攻击',
+			text: 'This Bad Guy attacks twice - once before you, and once again after you.',
+			title: 'Void Attack',
 		},
 		slowBreed: {
 			icon: 'icomoon icon-cloudy2',
-			text: '这张地图将脆皮的繁殖速度降低了80％。',
-			title: '虚空气体',
+			text: 'This map is reducing the repopulation speed of your Trimps by 80%.',
+			title: 'Void Gas',
 		},
 		getCrit: {
 			icon: 'icomoon icon-heart6',
-			text: '这个坏家伙有25％的几率对你造成400％的额外伤害。',
-			title: '虚空力量',
+			text: 'This Bad Guy has a 25% chance to crit you for 400% extra damage.',
+			title: 'Void Strength',
 		},
 		bleed: {
 			icon: "icomoon icon-drop",
-			text: '每次当这个坏家伙攻击时，你就会失去 <b>当前</b> 20％的生命。',
-			title: '虚空流血',
+			text: 'Every time this Bad Guy attacks, you will lose an additional 20% of your <b>current</b> health.',
+			title: 'Void Bleed',
 		}
 }
 
@@ -5810,10 +5807,10 @@ function populateHeirloomWindow(){
 	hideHeirloomSelectButtons();
 	//Equipped hat
 	document.getElementById("ShieldEquipped").innerHTML = generateHeirloomIcon(game.global.ShieldEquipped, "Equipped");
-	document.getElementById("ShieldEquippedName").innerHTML = (typeof game.global.ShieldEquipped.name !== 'undefined') ? cnItem(game.global.ShieldEquipped.name) : "无.";
+	document.getElementById("ShieldEquippedName").innerHTML = (typeof game.global.ShieldEquipped.name !== 'undefined') ? game.global.ShieldEquipped.name : "Nothing.";
 	//Equipped staff
 	document.getElementById("StaffEquipped").innerHTML = generateHeirloomIcon(game.global.StaffEquipped, "Equipped");
-	document.getElementById("StaffEquippedName").innerHTML = (typeof game.global.StaffEquipped.name !== 'undefined') ? cnItem(game.global.StaffEquipped.name) : "无.";
+	document.getElementById("StaffEquippedName").innerHTML = (typeof game.global.StaffEquipped.name !== 'undefined') ? game.global.StaffEquipped.name : "Nothing.";
 	var coreContainer = document.getElementById('CoreEquippedContainer');
 	var staffContainer = document.getElementById('StaffEquippedContainer');
 	var shieldContainer = document.getElementById('ShieldEquippedContainer');
@@ -5822,7 +5819,7 @@ function populateHeirloomWindow(){
 		swapClass('col', 'col-xs-4', staffContainer);
 		swapClass('col', 'col-xs-4', shieldContainer);
 		document.getElementById("CoreEquipped").innerHTML = generateHeirloomIcon(game.global.CoreEquipped, "Equipped");
-		document.getElementById("CoreEquippedName").innerHTML = (typeof game.global.CoreEquipped.name !== 'undefined') ? cnItem(game.global.CoreEquipped.name) : "无.";
+		document.getElementById("CoreEquippedName").innerHTML = (typeof game.global.CoreEquipped.name !== 'undefined') ? game.global.CoreEquipped.name : "Nothing.";
 	}
 	else{
 		coreContainer.style.display = 'none';
@@ -5853,7 +5850,7 @@ function displayCarriedHeirlooms(){
 		}
 		tempHtml += generateHeirloomIcon(game.global.heirloomsCarried[x], "Carried", x);
 	}
-	if (!tempHtml) tempHtml += "你没有携带任何传家宝";
+	if (!tempHtml) tempHtml += "You are not carrying any Heirlooms";
 	document.getElementById("carriedHeirloomsHere").innerHTML = tempHtml;
 }
 
@@ -5869,7 +5866,7 @@ function getMaxCarriedHeirlooms(){
 
 function displayAddCarriedBtn(){
 	var realMaxHeirlooms = getMaxCarriedHeirlooms();
-	document.getElementById("carriedHeirloomsText").innerHTML = " - 你可以随身携带 <b>" + realMaxHeirlooms + "</b> 额外的传家宝" + needAnS(realMaxHeirlooms) + " 通过传送门时";
+	document.getElementById("carriedHeirloomsText").innerHTML = " - You can carry <b>" + realMaxHeirlooms + "</b> additional Heirloom" + needAnS(realMaxHeirlooms) + " through the Portal.";
 	var elem = document.getElementById("addCarriedBtn");
 	if (game.global.maxCarriedHeirlooms > game.heirlooms.values.length){
 		elem.style.display = "none";
@@ -5877,7 +5874,7 @@ function displayAddCarriedBtn(){
 	}
 	elem.style.display = "inline-block";
 	var cost = getNextCarriedCost();
-	elem.innerHTML = "添加插槽 (" + cost + " 虚空物质)";
+	elem.innerHTML = "Add Slot (" + cost + " Nu)";
 	if (game.global.nullifium < cost) swapClass("heirloomBtn", "heirloomBtnInactive", elem);
 	else swapClass("heirloomBtn", "heirloomBtnActive", elem);
 }
@@ -5890,7 +5887,7 @@ function addCarried(confirmed){
 	var cost = getNextCarriedCost();
 	if (game.global.nullifium < cost) return;
 	if (!confirmed) {
-		tooltip('confirm', null, 'update', '你正要花费' + cost + '虚空物质，来增加一个额外的传家宝携带栏，以携带传家宝通过传送门。你确定吗？' , 'addCarried(true)', '升级携带栏');
+		tooltip('confirm', null, 'update', 'You are about to purchase 1 extra slot to carry Heirlooms through the Portal for ' + cost + ' Nullifium. Are you sure?' , 'addCarried(true)', 'Upgrade Carried Slots');
 		return;
 	}
 	game.global.nullifium -= cost;
@@ -5914,7 +5911,7 @@ function displayExtraHeirlooms(){
 	var tempHtml = "";
 	var extraExtraText = game.global.heirloomsExtra.length;
 	if (!extraExtraText) {
-		document.getElementById("extraHeirloomsHere").innerHTML = "你没有多余的传家宝。";
+		document.getElementById("extraHeirloomsHere").innerHTML = "You have no extra Heirlooms";
 		document.getElementById("extraHeirloomsText").innerHTML = "";
 		return;
 	}
@@ -5950,11 +5947,11 @@ function selectHeirloom(number, location, noScreenUpdate){
 			break;
 		case "heirloomsCarried":
 			document.getElementById("carriedHeirloomsBtnGroup").style.visibility = "visible";
-			document.getElementById("equipHeirloomBtn").innerHTML = (typeof game.global[heirloom.type + "Equipped"].name === 'undefined') ? "装备" : "交换";
+			document.getElementById("equipHeirloomBtn").innerHTML = (typeof game.global[heirloom.type + "Equipped"].name === 'undefined') ? "Equip" : "Swap";
 			break;
 		case "heirloomsExtra":
 			document.getElementById("extraHeirloomsBtnGroup").style.visibility = "visible";
-			document.getElementById("equipHeirloomBtn2").innerHTML = (typeof game.global[heirloom.type + "Equipped"].name === 'undefined') ? "装备" : "交换";
+			document.getElementById("equipHeirloomBtn2").innerHTML = (typeof game.global[heirloom.type + "Equipped"].name === 'undefined') ? "Equip" : "Swap";
 			if (game.global.heirloomsCarried.length < getMaxCarriedHeirlooms()) swapClass("heirloomBtn", "heirloomBtnActive", document.getElementById("carryHeirloomBtn"));
 			document.getElementById("recycleHeirloomBtn").innerHTML = "Recycle (+" + prettify(getHeirloomRecycleValue(heirloom)) + ((heirloom.type == "Core") ? " Spirestones)" : " Nullifium)");
 			break;
@@ -5976,7 +5973,7 @@ function recycleHeirloom(confirmed){
 		resource = "Nullifium";
 	}
 	if (!confirmed) {
-		tooltip('confirm', null, 'update', '你正在回收 ' + heirloom.name + ' 以得到 ' + prettify(value) + ' ' + resource + '.你确定吗?' , 'recycleHeirloom(true)', 'Recycle Heirloom');
+		tooltip('confirm', null, 'update', 'You are about to recycle ' + heirloom.name + ' for ' + prettify(value) + ' ' + resource + '. Are you sure?' , 'recycleHeirloom(true)', 'Recycle Heirloom');
 		return;
 	}
 	if (heirloom.type == "Core") playerSpire.giveSpirestones(value);
@@ -6147,7 +6144,7 @@ function generateHeirloomIcon(heirloom, location, number){
 	var icon = getHeirloomIcon(heirloom);
 	var animated = (game.options.menu.showHeirloomAnimations.enabled) ? "animated " : "";
 	var html = '<span role="button" aria-label="' + heirloom.name + '"  class="heirloomThing ' + animated + 'heirloomRare' + heirloom.rarity;
-	if (location == "Equipped") html += ' 已装备';
+	if (location == "Equipped") html += ' equipped';
 	var locText = "";
 	if (location == "Equipped") locText += '-1,\'' + heirloom.type + 'Equipped\'';
 	else locText += number + ', \'heirlooms' + location + '\'';
@@ -6205,13 +6202,13 @@ function displaySelectedHeirloom(modSelected, selectedIndex, fromTooltip, locati
 	var animated = (game.options.menu.showHeirloomAnimations.enabled) ? "animated " : "";
 	var html = '<div class="selectedHeirloomItem ' + animated + 'heirloomRare' + heirloom.rarity + '"><div class="row selectedHeirloomRow"><div onclick="tooltip(\'Change Heirloom Icon\', null, \'update\')" class="col-xs-2 selectedHeirloomIcon" id="' + ((fromTooltip) ? 'tooltipHeirloomIcon' : 'selectedHeirloomIcon') + '"><span class="' + icon + '"></span></div><div class="col-xs-10"><h5 aria-label="Rename Heirloom" onclick="renameHeirloom(';
 	if (fromPopup) html += 'false, true';
-	html += ')" id="selectedHeirloomTitle" style="margin: 10px 0">' + cnItem(heirloom.name) + '</h5> '
+	html += ')" id="selectedHeirloomTitle" style="margin: 10px 0">' + heirloom.name + '</h5> '
 	if (!fromTooltip) html += '<span id="renameContainer"></span>';
 	html+= '</div></div>';
 	var isEquipped = (game.global.selectedHeirloom[1] == "StaffEquipped" || game.global.selectedHeirloom[1] == "ShieldEquipped" || game.global.selectedHeirloom[1] == "CoreEquipped");
 	var addBr = false;
 	if (!fromPopup && !fromTooltip && isEquipped){
-		html += '<span class="heirloomEquipped">已装备</span>&nbsp;';
+		html += '<span class="heirloomEquipped">Equipped</span>&nbsp;';
 		addBr = true;
 	}
 	var spent = getTotalHeirloomRefundValue(heirloom, true);
@@ -6240,7 +6237,7 @@ function displaySelectedHeirloom(modSelected, selectedIndex, fromTooltip, locati
 				if (modSelected && selectedIndex != x) html += opacity;
 				html += 'onclick="selectMod(' + x;
 				if (fromPopup) html += ', true';
-				html+= ')">空</span><br/>';
+				html+= ')">Empty</span><br/>';
 			}
 		else{
 			var nextCost = getModUpgradeCost(heirloom, x, 1);
@@ -6256,7 +6253,7 @@ function displaySelectedHeirloom(modSelected, selectedIndex, fromTooltip, locati
 	}
 	if (fromTooltip) return html;
 	if (usingScreenReader){
-		document.getElementById('screenReaderTooltip').innerHTML = srText + "<br/><br/>按5或按下shift 5然后按B查看此传家宝及其shux。";
+		document.getElementById('screenReaderTooltip').innerHTML = srText + "<br/><br/>Press 5 or shift 5 then B to view this Heirloom and its mods.";
 	}
 	if (fromPopup){
 		document.getElementById("heirloomsPopupHere").innerHTML = html;
@@ -6281,7 +6278,7 @@ function renameHeirloom(cancel, fromPopup){
 		return;
 	}
 	if (!inputText){
-		containerElem.innerHTML = "<input maxlength='25' id='heirloomNameInput' value='" + cnItem(heirloom.name) + "'/> <span onclick='renameHeirloom()' class='renameHeirloomBtn'>保存</span><span class='renameHeirloomBtn' onclick='renameHeirloom(true)'>取消</span>";
+		containerElem.innerHTML = "<input maxlength='25' id='heirloomNameInput' value='" + heirloom.name + "'/> <span onclick='renameHeirloom()' class='renameHeirloomBtn'>Save</span><span class='renameHeirloomBtn' onclick='renameHeirloom(true)'>Cancel</span>";
 		titleElem.innerHTML = "";
 		return;
 	}
@@ -6338,18 +6335,18 @@ function selectMod(which, fromPopup){
 	swapClass("heirloomBtn", newClass, upgradeBtn);
 	newClass = (upgradeCost10 > resourceCount) ? "heirloomBtnInactive" : "heirloomBtnActive";
 	swapClass("heirloomBtn", newClass, upgradeBtn10);
-	replaceBtn.innerHTML = (mod[0] == "empty") ? "增加 (" + prettify(replaceCost) + " " + cnItem(resourceShort) + ")" : "替换 (" + prettify(replaceCost) + " " + cnItem(resourceShort) + ")";
+	replaceBtn.innerHTML = (mod[0] == "empty") ? "Add (" + prettify(replaceCost) + " " + resourceShort + ")" : "Replace (" + prettify(replaceCost) + " " + resourceShort + ")";
 	var step = (typeof modConfig.steps !== 'undefined') ? modConfig.steps : game.heirlooms.defaultSteps;
 	step = step[heirloom.rarity];
-	var upgradeCostText = "每项升级增加 " + prettify(scaleHeirloomModUniverse(heirloom.type, mod[0], step[2])) + "%";
+	var upgradeCostText = "Each upgrade adds " + prettify(scaleHeirloomModUniverse(heirloom.type, mod[0], step[2])) + "%";
 	if (modConfig.max){
 		if (mod[1] < modConfig.max[heirloom.rarity])
 			upgradeCostText = "<span class='upgradeCostTextMax'><span>" + upgradeCostText + "</span><span>Max of " + scaleHeirloomModUniverse(heirloom.type, mod[0], modConfig.max[heirloom.rarity]) + "%</span></span>"
 		else upgradeCostText = "At Max!";
 	}
 	document.getElementById("modUpgradeCost").innerHTML = upgradeCostText;
-	upgradeBtn.innerHTML = "升级 x1<br/>(" + prettify(upgradeCost) + " " + cnItem(resourceShort) + ")";
-	upgradeBtn10.innerHTML = "升级 x10<br/>(" + prettify(upgradeCost10) + " " + cnItem(resourceShort) + ")";
+	upgradeBtn.innerHTML = "Upgrade x1<br/>(" + prettify(upgradeCost) + " " + resourceShort + ")";
+	upgradeBtn10.innerHTML = "Upgrade x10<br/>(" + prettify(upgradeCost10) + " " + resourceShort + ")";
 	var modDescElem = document.getElementById("specialModDescription");
 	if (modConfig.specialDescription){
 		modDescElem.style.display = "block";
@@ -6526,7 +6523,7 @@ function replaceMod(confirmed){
 	if (resourceCount < cost) return;
 	if (!confirmed && game.options.menu.boneAlerts.enabled == 1) {
 		var oldName = game.heirlooms[heirloom.type][heirloom.mods[selectedMod][0]].name;
-		var text = (oldName == "Empty") ? "你准备要增加 " : "你准备要替换 " + oldName + " 用 ";
+		var text = (oldName == "Empty") ? "You are about to add " : "You are about to replace " + oldName + " with ";
 		text += newMod.name + ' for ' + prettify(cost) + ' ' + resourceLong + '. ';
 		text += " Are you sure?";
 		var tipName = (oldName == "Empty") ? "Add Mod" : "Replace Mod";
@@ -6579,7 +6576,7 @@ function buildModOptionDdl(type, rarity, selectedMod){
 		document.getElementById('modReplaceBtn').style.display = 'none';
 		document.getElementById('modReplaceSelect').style.display = 'none';
 		document.getElementById('modCantReplace').style.display = 'block';
-		document.getElementById('modCantReplace').innerHTML = "不能在此层替换除“空”之外的属性。"
+		document.getElementById('modCantReplace').innerHTML = "Can't replace mods other than 'Empty' at this tier."
 		return;
 	}
 	else {
@@ -6588,14 +6585,14 @@ function buildModOptionDdl(type, rarity, selectedMod){
 		document.getElementById('modCantReplace').style.display = 'none';
 	}
 	var html = '';
-	html += '<option value="-1">选择一个模式</option>';
+	html += '<option value="-1">Select a Mod</option>';
 	for (var item in game.heirlooms[type]){
 		if (item == 'empty') continue;
 		if (checkSelectedModsFor(item)) continue;
 		var thisMod = game.heirlooms[type][item];
 		if (thisMod.steps && thisMod.steps[rarity] === -1) continue;
 		if (typeof thisMod.filter !== 'undefined' && !thisMod.filter()) continue;
-		html += '<option value="' + item + '">' + cnItem(thisMod.name) + '</option>';
+		html += '<option value="' + item + '">' + thisMod.name + '</option>';
 	}
 	document.getElementById("modReplaceSelect").innerHTML = html;
 }
@@ -6608,17 +6605,17 @@ function setHeirRareText(forBones){
 		var breakpoint = getHeirloomZoneBreakpoint();
 		if (breakpoint == game.heirlooms.rarityBreakpoints.length) nextAt = "Max Rarity";
 		else{
-			nextAt = "接下来稀有度增加在区域" + game.heirlooms.rarityBreakpoints[breakpoint];
+			nextAt = "Next Rarity Increase at Z" + game.heirlooms.rarityBreakpoints[breakpoint];
 			if (game.heirlooms.universeBreakpoints[breakpoint] > game.global.universe) nextAt += " in Universe " + game.heirlooms.universeBreakpoints[breakpoint];
 		}
-		html = "<b>当前传家宝掉落几率</b> - " + nextAt + "<br/>";
+		html = "<b>Current Heirloom Drop Rates</b> - " + nextAt + "<br/>";
 	}
 	var rarities = getHeirloomRarityRanges(game.global.world, forBones);
 	var canLower = (Fluffy.isRewardActive("stickler")) ? 500 : 0;
 	for (var x = 0; x < rarities.length; x++){
 		var rarity = rarities[x];
 		if (rarity == -1) continue;
-		if (!forBones) html += "<div class='rarityBdBox heirloomRare" + x + "'>" + cnItem(game.heirlooms.rarityNames[x]) + "<br/>" + (rarity / 100) + "%</div>";
+		if (!forBones) html += "<div class='rarityBdBox heirloomRare" + x + "'>" + game.heirlooms.rarityNames[x] + "<br/>" + (rarity / 100) + "%</div>";
 		else html += "<div class='rarityBdBox heirloomRare" + x + " forBones' title='" + game.heirlooms.rarityNames[x] + "'>" + (rarity / 100) + "%</div>";
 	}
 	if (forBones) document.getElementById("heirloomRarityMisc").innerHTML = html;
@@ -6973,7 +6970,7 @@ function setEmpowerTab(){
 		Wind: "icomoon icon-air"
 	}
 	swapClass("empowerTab", "empowerTab" + empowerMod, empowerTab);
-	document.getElementById('natureA').innerHTML = "<span class='" + icons[empowerMod] + "'></span>自然";
+	document.getElementById('natureA').innerHTML = "<span class='" + icons[empowerMod] + "'></span> Nature";
 }
 
 function updateEmpowerCosts(){
@@ -6994,7 +6991,7 @@ function updateEmpowerCosts(){
 
 function checkAndFormatTokens(tokenCost, empowerment){
 	var canAfford = (game.empowerments[empowerment].tokens >= tokenCost);
-	return "<span class='" + ((canAfford) ? "green" : "orange") + "'>" + prettify(tokenCost) + "&nbsp;符记</span>";
+	return "<span class='" + ((canAfford) ? "green" : "orange") + "'>" + prettify(tokenCost) + "&nbsp;Tokens</span>";
 }
 
 function getRetainModifier(empowermentName){
@@ -7022,46 +7019,46 @@ function natureTooltip(event, doing, spending, convertTo){
 	var tipText = "";
 	var tipCost = 0;
 	if (doing == 'upgrade'){
-		tipTitle = "升级赋权 " + spending;
+		tipTitle = "Upgrade Empowerment of " + spending;
 		var emp = game.empowerments[spending];
 		tipText = emp.upgradeDescription();
 		tipCost = getNextNatureCost(spending);
 	}
 	else if (doing == 'description'){
-		tipTitle = "赋权 " + cnItem(spending);
+		tipTitle = "Empowerment of " + spending;
 		tipText = game.empowerments[spending].description();
 	}
 	else if (doing == 'convert'){
-		tipTitle = "转换 " + cnItem(spending) + " 为 " + cnItem(convertTo);
+		tipTitle = "Convert " + spending + " to " + convertTo;
 		tipCost = ctrlPressed ? Math.floor(game.empowerments[spending].tokens / 10) * 10 : 10;
 		var convertRate = (game.talents.nature.purchased) ? 8 : 5;
-		tipText = "<p>花费 " + tipCost + " 符记交易 " + spending + " 得到 " + (tipCost / 10 * convertRate) + " 符记 " + convertTo + ".</p>";
-		if (!ctrlPressed) tipText += "<p><b>按住Ctrl键可以一次转换所有符记。</b></p>";
+		tipText = "<p>Trade " + tipCost + " Tokens of " + spending + " and get back " + (tipCost / 10 * convertRate) + " Tokens of " + convertTo + ".</p>";
+		if (!ctrlPressed) tipText += "<p><b>Hold Ctrl to convert as many tokens as you can afford!</b></p>";
 	}
 	else if (doing == 'stackTransfer'){
-		tipTitle = "升级 " + cnItem(spending) + " 效果的传递比例";
+		tipTitle = "Upgrade " + spending + " Stack Transfer Rate";
 		var retainLevel = game.empowerments[spending].retainLevel;
 		var cap = 80;
 		var bonusLevels = game.empowerments[spending].getRetainBonus();
 		retainLevel += bonusLevels;
 		cap += bonusLevels;
 		if (retainLevel >= cap){
-			tipText = "您目前处于该效果传递比例的最高水平, 可以传递 <b>" + cap + "%</b> 的赋权Debuff。";
+			tipText = "You are currently at the maximum level for Stack Transfer Rate, allowing <b>" + cap + "%</b> of your stacks to transfer.";
 			tipCost = 0;
 		}
 		else{
-			tipText = "现在，当你击败一个敌人后 <b>" + prettify(getRetainModifier(spending) * 100) + "%</b> 在授权期间杀死一个坏人后你的筹码转移 " + spending + ". 每一次升级会使这个传递比例增加  <b>1%</b>, 也就是会达到 <b>" + prettify((getRetainModifier(spending) + 0.01) * 100) + "%</b>. 这个传递的最高等级是 " + cap + " 级.";
+			tipText = "Currently, a minimum of <b>" + prettify(getRetainModifier(spending) * 100) + "%</b> of your stacks transfer after you kill a Bad Guy during the Empowerment of " + spending + ". Each level of this upgrade will increase the transfer rate by <b>1%</b>, bringing you to <b>" + prettify((getRetainModifier(spending) + 0.01) * 100) + "%</b>. Maximum of " + cap + " levels.";
 			tipCost = getNextNatureCost(spending, true);
 		}
 	}
 	else if (doing == 'uberEmpower'){
 		if (game.empowerments[spending].getLevel() < 50){
-			tipTitle = "未解锁";
-			tipText = "升级赋权 " + spending + " 到50级解锁.";
+			tipTitle = "Locked";
+			tipText = "Upgrade Empowerment of " + spending + " to Level 50 to unlock.";
 			tipCost = 0;
 		}
 		else{
-			tipTitle = "激活开明 " + spending;
+			tipTitle = "Activate Enlightened " + spending;
 			tipText = "<p>Sacrifice your Tokens and return them back to Nature, enlightening your Trimps on how to be one with " + spending + "!</p><p>While Enlightened, " + game.empowerments[spending].enlightenDesc + ".";
 			var cost = game.empowerments[spending].nextUberCost;
 			tipText += "</p><p>This bonus lasts until your next Portal, and only one Enlightenment can be activated per Portal. Enlightenments can be purchased at any point in your run, but the effects will not activate until Nature enters your World.</p><p>Each time this Enlightenment is activated, its cost increases by 150 Tokens of " + spending + ". Each time you start a Daily Challenge, the costs of all 3 Enlightenments will decrease by 33% or 50 Tokens, whichever number is greater, but never more than 100.</p>";
@@ -7078,7 +7075,7 @@ function natureTooltip(event, doing, spending, convertTo){
 		tipCost = "";
 	}
 	if (tipCost == 0) tipCost = "";
-	else tipCost = (game.empowerments[spending].tokens < tipCost) ? "<span class='red'>" + prettify(tipCost) +" "+ cnItem(spending) +" 符记"+"</span>" : "<span class='green'>" + prettify(tipCost) + " 符记 " + spending + "</span>";
+	else tipCost = (game.empowerments[spending].tokens < tipCost) ? "<span class='red'>" + prettify(tipCost) + " Tokens of " + spending + "</span>" : "<span class='green'>" + prettify(tipCost) + " Tokens of " + spending + "</span>";
 	tooltip(tipTitle, 'customText', event, tipText, tipCost, null, null, null, null, true);
 	tooltipUpdateFunction = function () {natureTooltip(event, doing, spending, convertTo)}
 }
@@ -7104,7 +7101,7 @@ function rewardToken(empowerment, countOnly, atZone){
 	tokens = Math.floor(tokens);
 	if (countOnly) return tokens;
 	game.empowerments[empowerment].tokens += tokens;
-	message("你找到了 " + prettify(tokens) + " 符记" + ((tokens == 1) ? "" : "") + " of " + empowerment + "!", "Loot", "*medal2", "empoweredCell" + empowerment, 'token');
+	message("You found " + prettify(tokens) + " Token" + ((tokens == 1) ? "" : "s") + " of " + empowerment + "!", "Loot", "*medal2", "empoweredCell" + empowerment, 'token');
 	if (game.global.buyTab == "nature")
 		updateNatureInfoSpans();
 	game.stats.bestTokens.value += unbuffedTokens;
@@ -7117,9 +7114,9 @@ function updateNatureInfoSpans(){
 		document.getElementById('infoSpan' + item).innerHTML = "<span class='icomoon icon-info2'></span>&nbsp" + emp.formatModifier(emp.getModifier(0, true)) + "%";
 		document.getElementById('tokenCount' + item).innerHTML = prettify(emp.tokens);
 		var bonusLevels = emp.getRetainBonus();
-		document.getElementById('natureUpgrade' + item + 'Level').innerHTML = "等级: " + prettify(emp.getLevel());
-		document.getElementById('natureStackTransfer' + item + 'Level').innerHTML = "等级: " + prettify(emp.retainLevel + bonusLevels);
-		document.getElementById('uber' + item + "Name").innerHTML = ((emp.getLevel() < 50) ? "锁定" : (game.global.uberNature != "") ? "<span class='red'>" + game.global.uberNature + " 激活</span>" : "开明 " + item);
+		document.getElementById('natureUpgrade' + item + 'Level').innerHTML = "Lv: " + prettify(emp.getLevel());
+		document.getElementById('natureStackTransfer' + item + 'Level').innerHTML = "Lv: " + prettify(emp.retainLevel + bonusLevels);
+		document.getElementById('uber' + item + "Name").innerHTML = ((emp.getLevel() < 50) ? "Locked" : (game.global.uberNature != "") ? "<span class='red'>" + game.global.uberNature + " active</span>" : "Enlightened " + item);
 		var unlockZone = 235;
 		var mainWindow = document.getElementById('tabCol' + item);
 		if (item == "Wind") unlockZone = 240;
@@ -7394,20 +7391,20 @@ var mutations = {
 			var baseValue = (game.global.world >= this.start(true)) ? 10 : 5;
 			if (mutations.Magma.active()) baseValue *= 3;
 			var amt = rewardResource("helium", baseValue, 99, false, percentage);
-			var text = "腐败迅速蔓延到空中并消散. <span class='helium'>你看到 " + prettify(amt) + " 氦气罐留在地上并捡起来。 有用！</span>";
+			var text = "The corruption quickly swirls into the air and dissipates. <span class='helium'>You see " + prettify(amt) + " canisters of Helium left on the ground and pick them up. Useful!</span>";
 			message(text, "Loot", heliumIcon(true), "voidMessage", "helium");
 		},
 		tooltip: function (effectName) {
 			var mutText = mutationEffects[effectName].text;
 			var text = "";
 			if (game.global.spireActive){
-				if (effectName == "none") return "感谢蓬松，这个敌人缺少效果！ 它仍会掉落 " + ((game.global.challengeActive == "Corrupted") ? "7.5%" : "15%") + " 通常从完成此区域获得的氦气。";
+				if (effectName == "none") return "This enemy is missing an effect thanks to Fluffy! It will still drop " + ((game.global.challengeActive == "Corrupted") ? "7.5%" : "15%") + " of the helium you would normally get from completing this Zone.";
 				text = mutText[0].toUpperCase() + mutText.substring(1);
 			}
 			else {
-				text = "所有腐化敌人现在拥有" + prettify(this.statScale(3)) + "倍攻击并拥有" + prettify(this.statScale(10)) + "倍生命值。此外，" + mutText;
+				text = "All corrupted enemies currently deal " + prettify(this.statScale(3)) + "X damage and have " + prettify(this.statScale(10)) + "X health. In addition, " + mutText;
 			}
-			text += " 它也会掉落你在该区域所得氦的 " + ((game.global.challengeActive == "Corrupted") ? "7.5%" : "15%") + "。";
+			text += " It will also drop " + ((game.global.challengeActive == "Corrupted") ? "7.5%" : "15%") + " of the helium you would normally get from completing this Zone.";
 			return text;
 		},
 		effects: ['corruptDbl', 'corruptBleed', 'corruptStrong', 'corruptTough', 'corruptDodge', 'corruptCrit'],
@@ -7753,7 +7750,7 @@ var mutations = {
 						var rate = getFuelBurnRate();
 						var aboveCap = game.global.magmaFuel - cap;
 						rate = Math.ceil(aboveCap / rate);
-						text = "你得到了 " + prettify(amt) + " 燃料, 触发 " + rate + " 超频" + ((rate > 1) ? "" : "") + "!";
+						text = "You earned " + prettify(amt) + " fuel, triggering " + rate + " Overclock" + ((rate > 1) ? "s" : "") + "!";
 						for (var x = 0; x < rate; x++){
 							generatorTick(true);
 						}
@@ -7765,17 +7762,17 @@ var mutations = {
 						if (dif <= 0) dif = 0;
 						amt -= dif;
 						if (amt <= 0.001) amt = 0;
-						text = "你得到了 " + prettify(amt) + " 燃料! (" + prettify(dif) + " 损毁了，没有足够的容量)";
+						text = "You earned " + prettify(amt) + " fuel! (" + prettify(dif) + " destroyed, not enough capacity)";
 						game.global.magmaFuel = cap;
 					}
 				}
 				else
-					text = "你得到了 " + prettify(amt) + " 燃料!";
+					text = "You earned " + prettify(amt) + " fuel!";
 				changeGeneratorState(null, true);
 			}
 			else{
 				amt = getMagmiteReward();
-				text = "你得到了 " + prettify(amt) + " Magmite!";
+				text = "You earned " + prettify(amt) + " Magmite!";
 				game.global.magmite += amt;
 				updateGeneratorUpgradeHtml();
 				var elem = document.getElementById('upgradeMagmiteTotal');
@@ -7888,57 +7885,57 @@ var mutationEffects = {
 	},
 	corruptDbl: {
 		icon: 'icomoon icon-pushpin',
-		text: '这个敌人攻击两次，一次在你之前，一次在你之后。',
-		title: '腐化耐力'
+		text: 'this Bad Guy attacks twice - once before you, and once again after you.',
+		title: 'Corrupted Stamina'
 	},
 	corruptCrit: {
 		icon: 'icomoon icon-heart6',
-		text: '这个敌人有25％的几率对你造成400％的额外伤害。',
-		title: '腐化精准'
+		text: 'this Bad Guy has a 25% chance to crit you for 400% extra damage.',
+		title: 'Corrupted Precision'
 	},
 	corruptBleed: {
 		icon: "icomoon icon-drop",
-		text: '每次当这个敌人攻击时，你就会失去<b>当前</b>生命值的20％。',
-		title: '腐化锋利'
+		text: 'every time this Bad Guy attacks, you will lose an additional 20% of your <b>current</b> health.',
+		title: 'Corrupted Sharpness'
 	},
 	corruptStrong: {
 		icon: 'icomoon icon-hammer',
-		text: '这个敌人有额外的2倍攻击。',
-		title: '腐化力量'
+		text: 'this Bad Guy has an additional 2x attack.',
+		title: 'Corrupted Strength'
 	},
 	corruptTough: {
 		icon: 'icomoon icon-shield2',
-		text: '这个敌人有额外的5倍生命值。',
-		title: '腐化坚韧'
+		text: 'this Bad Guy has an additional 5x health.',
+		title: 'Corrupted Toughness'
 	},
 	corruptDodge: {
 		icon: 'icomoon icon-air',
-		text: '这个敌人有30%的几率闪躲你的攻击。',
-		title: '腐化敏捷'
+		text: 'this Bad Guy has a 30% chance to dodge your attacks.',
+		title: 'Corrupted Agility'
 	},
 	healthyDbl: {
 		icon: 'icomoon icon-pushpin',
-		text: '这个敌人以1.5倍伤害攻击你两次，一次在你之前，一次在你之后。',
+		text: 'this Bad Guy attacks twice for 1.5x damage - once before you, and once again after you.',
 		title: 'Healthy and Tireless'
 	},
 	healthyCrit: {
 		icon: 'icomoon icon-heart6',
-		text: '这个敌人有25%的概率以600%的额外伤害对你暴击。',
+		text: 'this Bad Guy has a 25% chance to crit you for 600% extra damage.',
 		title: 'Healthy and Precise'
 	},
 	healthyBleed: {
 		icon: "icomoon icon-drop",
-		text: '每次这个敌人攻击时，你都会损失你<b>当前</b>生命值的30%。',
+		text: 'every time this Bad Guy attacks, you will lose an additional 30% of your <b>current</b> health.',
 		title: 'Healthy and Sharp'
 	},
 	healthyStrong: {
 		icon: 'icomoon icon-hammer',
-		text: '这个敌人有额外2.5倍的伤害。',
+		text: 'this Bad Guy has an additional 2.5x attack.',
 		title: 'Healthy and Strong'
 	},
 	healthyTough: {
 		icon: 'icomoon icon-shield2',
-		text: '这个敌人有额外7.5倍的生命值。',
+		text: 'this Bad Guy has an additional 7.5x health.',
 		title: 'Healthy and Tough'
 	},
 	none: {
@@ -8127,7 +8124,7 @@ function updateGeneratorInfo(){
 	if (game.permanentGeneratorUpgrades.Supervision.owned) document.getElementById('generatorStateConfigBtn').style.display = 'inline-block';
 	updateGeneratorFuel();
 	document.getElementById('generatorTrimpsPs').innerHTML = prettify(scaleNumberForBonusHousing(nextTickAmount));
-	document.getElementById('upgradeMagmiteTotal').innerHTML = prettify(game.global.magmite) + " 岩浆岩";
+	document.getElementById('upgradeMagmiteTotal').innerHTML = prettify(game.global.magmite) + " Mi";
 }
 
 function saveGenStateConfig(){
@@ -8154,7 +8151,7 @@ function saveGenStateConfig(){
 }
 
 function getGenStateConfigTooltip(){
-	var tooltipText = "<div id='genStateConfigTop'><div style='font-size: 1.2vw; text-align: right; width: 40%; margin-right: 10%; display: inline-block;'>开始设置: </div>" + getSettingHtml(game.options.menu.generatorStart, 'generatorStart', null, "Popup") + "</div>";
+	var tooltipText = "<div id='genStateConfigTop'><div style='font-size: 1.2vw; text-align: right; width: 40%; margin-right: 10%; display: inline-block;'>Starting Setting: </div>" + getSettingHtml(game.options.menu.generatorStart, 'generatorStart', null, "Popup") + "</div>";
 	var savedSettings = game.global.genStateConfig;
 	var btnsAllowed = 2;
 	for (var x = 0; x < btnsAllowed; x++){
@@ -8217,13 +8214,13 @@ function getGeneratorHtml(getContainer){
 	var html = "";
 	if (getContainer)
 		html += "<div class='thing generatorState' id='generatorWindow'>"
-	html += "<div id='genTitleContainer'><div id='generatorTitle'>维度发生器</div>";
-	html += "<div id='dgChangeBtnContainer'" + ((game.global.challengeActive == "Eradicated") ? " class='eradicatedBtns'" : "") + "><span id='generatorActiveBtn' onclick='changeGeneratorState(1)' class='dgChangeBtn pointer noselect colorDanger hoverColor'>获得燃料</span> <span onclick='changeGeneratorState(0)' id='generatorPassiveBtn' class='dgChangeBtn pointer noselect colorPrimary hoverColor'>获得岩浆岩</span> <span onclick='changeGeneratorState(2)' id='generatorHybridBtn' class='dgChangeBtn pointer noselect colorTeal hoverColor' style='display: none'>混合动力</span> <span style='display: none' onclick='tooltip(\"Configure Generator State\", null, \"update\")' id='generatorStateConfigBtn' class='pointer noselect hoverColor dgChangeBtn colorDefault'><span class='glyphicon glyphicon-cog'></span></span></div>";
-	html += "<div id='generatorUpgradeBtn' onclick='tooltip(\"Upgrade Generator\", null, \"update\")'class='workBtn pointer noselect colorDark hoverColor'>升级 (<span id='upgradeMagmiteTotal'></span>)</div></div><div id='genGaugeContainer'><div class='row'><div class='col-xs-4'><div id='fuelContainer'><div id='fuelBar'></div><div id='fuelStorageBar'></div><div id='fuelGlass'></div><div id='fuelOwnedText'>燃料<br/><span id='generatorFuelOwned'>0</span> / <span id='generatorFuelMax'>0</span></div></div></div>"
+	html += "<div id='genTitleContainer'><div id='generatorTitle'>Dimensional Generator</div>";
+	html += "<div id='dgChangeBtnContainer'" + ((game.global.challengeActive == "Eradicated") ? " class='eradicatedBtns'" : "") + "><span id='generatorActiveBtn' onclick='changeGeneratorState(1)' class='dgChangeBtn pointer noselect colorDanger hoverColor'>Gain Fuel</span> <span onclick='changeGeneratorState(0)' id='generatorPassiveBtn' class='dgChangeBtn pointer noselect colorPrimary hoverColor'>Gain Mi</span> <span onclick='changeGeneratorState(2)' id='generatorHybridBtn' class='dgChangeBtn pointer noselect colorTeal hoverColor' style='display: none'>Hybrid</span> <span style='display: none' onclick='tooltip(\"Configure Generator State\", null, \"update\")' id='generatorStateConfigBtn' class='pointer noselect hoverColor dgChangeBtn colorDefault'><span class='glyphicon glyphicon-cog'></span></span></div>";
+	html += "<div id='generatorUpgradeBtn' onclick='tooltip(\"Upgrade Generator\", null, \"update\")'class='workBtn pointer noselect colorDark hoverColor'>Upgrade (<span id='upgradeMagmiteTotal'></span>)</div></div><div id='genGaugeContainer'><div class='row'><div class='col-xs-4'><div id='fuelContainer'><div id='fuelBar'></div><div id='fuelStorageBar'></div><div id='fuelGlass'></div><div id='fuelOwnedText'>Fuel<br/><span id='generatorFuelOwned'>0</span> / <span id='generatorFuelMax'>0</span></div></div></div>"
 	if (game.permanentGeneratorUpgrades.Supervision.owned)
-		html += "<div class='col-xs-4 hasSlider' id='generatorProducingColumn'><div id='generatorProducingContainer'>生产<br/><span id='generatorTrimpsPs'>0</span><br/>房屋/轮</div><div id='generatorSliderBox'><input id='generatorSlider' onchange='saveSupervisionSetting()' type='range' min='1' max='100' value='" + game.global.supervisionSetting + "' /></div></div>";
+		html += "<div class='col-xs-4 hasSlider' id='generatorProducingColumn'><div id='generatorProducingContainer'>Producing<br/><span id='generatorTrimpsPs'>0</span><br/>Housing/Tick</div><div id='generatorSliderBox'><input id='generatorSlider' onchange='saveSupervisionSetting()' type='range' min='1' max='100' value='" + game.global.supervisionSetting + "' /></div></div>";
 	else
-		html += "<div class='col-xs-4' id='generatorProducingColumn'><div id='generatorProducingContainer'>生产<br/><span id='generatorTrimpsPs'>0</span><br/>人口上限/次</div></div>";
+		html += "<div class='col-xs-4' id='generatorProducingColumn'><div id='generatorProducingContainer'>Producing<br/><span id='generatorTrimpsPs'>0</span><br/>Housing/Tick</div></div>";
 	html += "<div class='col-xs-4'><div id='generatorTickContainer' onclick='pauseGenerator()' onmouseover='updatePauseBtn(true)' onmouseout='updatePauseBtn(false)'" + ((game.permanentGeneratorUpgrades.Supervision.owned) ? " style='cursor: pointer'" : "") + "> <div id='generatorRadialContainer' class='radial-progress'> <div class='radial-progress-circle'> <div class='radial-progress-arrow static''></div></div><div id='generatorRadial' class='radial-progress-circle'> <div class='radial-progress-arrow mobile'></div> </div> <div id='clockKnob' class='radial-progress-knob generatorState'></div></div><span id='generatorNextTick' style='pointer-events: none;'>0</span></div></div></div></div>";
 	if (getContainer) html += "</div>";
 	return html;
@@ -8319,15 +8316,15 @@ function buyPermanentGeneratorUpgrade(item){
 
 function getGeneratorUpgradeHtml(){
 		var tooltipText = "<div id='generatorUpgradeTooltip'>";
-		tooltipText += "<div class='generatorUpgradeTitle'>多次升级项</div>";
+		tooltipText += "<div class='generatorUpgradeTitle'>Multi Upgrades</div>";
 		for (var item in game.generatorUpgrades){
 			tooltipText += "<div class='thing pointer noselect thingColor' onclick='showGeneratorUpgradeInfo(\"" + item + "\")' id='generatorUpgrade" + item + "'></div>";
 		}
-		tooltipText += "<div class='generatorUpgradeTitle'>单次升级项</div>";
+		tooltipText += "<div class='generatorUpgradeTitle'>One and Done Upgrades</div>";
 		for (var item in game.permanentGeneratorUpgrades){
 			tooltipText += "<div class='thing pointer noselect thingColor permGenUpgrade' onclick='showGeneratorUpgradeInfo(\"" + item + "\", true)' id='generatorUpgrade" + item + "'></div>";
 		}
-		tooltipText += "<br/><div id='generatorUpgradeDescription' class='noselect'><b>点击一项升级来了解更多!</b><br/></div>";
+		tooltipText += "<br/><div id='generatorUpgradeDescription' class='noselect'><b>Click an upgrade to learn more about it!</b><br/></div>";
 		tooltipText += "</div>";
 		return tooltipText;
 }
@@ -8339,7 +8336,7 @@ function updateGeneratorUpgradeHtml(){
 		if (elem == null) continue;
 		var upgrade = game.generatorUpgrades[item];
 		var cost = upgrade.cost();
-		var text = cnItem(item) + "<br/>" + upgrade.upgrades;
+		var text = item + "<br/>" + upgrade.upgrades;
 		elem.innerHTML = text;
 		var state = (game.global.magmite >= cost) ? "CanAfford" : "CanNotAfford";
 		if (item == "Overclocker" && (!game.permanentGeneratorUpgrades.Hybridization.owned || !game.permanentGeneratorUpgrades.Storage.owned))
@@ -8351,8 +8348,8 @@ function updateGeneratorUpgradeHtml(){
 		if (elem == null) continue;
 		var upgrade = game.permanentGeneratorUpgrades[item];
 		var cost = upgrade.cost;
-		var text = cnItem(item) + "<br/>";
-		text += (upgrade.owned) ? "已完成" : prettify(cost) + " 岩浆岩";
+		var text = item + "<br/>";
+		text += (upgrade.owned) ? "Done" : prettify(cost) + " Mi";
 		elem.innerHTML = text;
 		var state;
 		if (upgrade.owned)
@@ -8362,7 +8359,7 @@ function updateGeneratorUpgradeHtml(){
 		swapClass('thingColor', 'thingColor' + state, elem);
 	}
 	var magmiteElem = document.getElementById('magmiteOwned');
-	if (magmiteElem != null) magmiteElem.innerHTML = "岩浆岩: " + prettify(game.global.magmite) + "<br/>";
+	if (magmiteElem != null) magmiteElem.innerHTML = "Magmite: " + prettify(game.global.magmite) + "<br/>";
 	if (document.getElementById('magmiteCost') != null && lastViewedDGUpgrade)
 		showGeneratorUpgradeInfo(lastViewedDGUpgrade[0], lastViewedDGUpgrade[1]);
 }
@@ -8399,10 +8396,10 @@ function showGeneratorUpgradeInfo(item, permanent){
 	var text;
 	if (permanent && game.permanentGeneratorUpgrades[item].owned){
 		color = "Grey";
-		text = "已完成";
+		text = "Done";
 	}
-	else text = "购买: " + prettify(cost) + " 岩浆岩";
-	elem.innerHTML = "<div id='generatorUpgradeName'>" + cnItem(item) + "</div><div onclick='buyGeneratorUpgrade(\"" + item + "\")' id='magmiteCost' class='pointer noSelect hoverColor color" + color + "'>" + text + "</div>" + description + "<br/>";
+	else text = "Buy: " + prettify(cost) + " Magmite";
+	elem.innerHTML = "<div id='generatorUpgradeName'>" + item + "</div><div onclick='buyGeneratorUpgrade(\"" + item + "\")' id='magmiteCost' class='pointer noSelect hoverColor color" + color + "'>" + text + "</div>" + description + "<br/>";
 	lastViewedDGUpgrade = [item, permanent];
 	verticalCenterTooltip();
 }
@@ -8663,11 +8660,11 @@ function setVoidCorruptionIcon(regularMap){
 		attackScale = (mutations.Corruption.statScale(3));
 		healthScale = (mutations.Corruption.statScale(10));
 	}
-	var text = "这个 " + ((regularMap) ? "地图" : "虚空地图") + "因为腐化而变得不稳定。敌人的攻击增长" + prettify(attackScale) + "倍,生命值增长" + prettify(healthScale) + "倍。";
+	var text = "This " + ((regularMap) ? "map" : "Void Map") + " has become unstable due to Corruption. Enemy attack increased by " + prettify(attackScale) + "X, and health increased by " + prettify(healthScale) + "X.";
 	var title = "";
 	if (!regularMap){
-		text += "地图末尾的氦现在变为你在世界区域赚得的两倍，包括腐化房间！";
-		title = "虚空腐化";
+		text += " Helium at the end of the map is now double what you would earn from a World Zone, including Corrupted cells!";
+		title = "Void Corruption";
 	}
 	else title = "Map Corruption";
 	document.getElementById('corruptionBuff').innerHTML = '<span class="badge badBadge voidBadge" onmouseover="tooltip(\'' + title + '\', \'customText\', event, \'' + text + '\')" onmouseout="tooltip(\'hide\')"><span class="glyphicon glyphicon-plus"></span></span>&nbsp;';
@@ -9145,7 +9142,7 @@ function pauseFight(updateOnly) {
 	var elem = document.getElementById("pauseFight");
 	elem.className = "";
 	elem.className = "btn fightBtn " + color;
-	elem.innerHTML = (!game.global.pauseFight) ? "自动战斗 开启" : "自动战斗 关闭";
+	elem.innerHTML = (!game.global.pauseFight) ? "AutoFight On" : "AutoFight Off";
 }
 
 function recycleBelow(confirmed, forceLevel){
@@ -9165,7 +9162,7 @@ function recycleBelow(confirmed, forceLevel){
 			total++;
 			}
 	}
-	if (total > 0) message("回收 " + total + " 地图 " + prettify(refund) + " 碎片.", "Notices");
+	if (total > 0) message("Recycled " + total + " maps for " + prettify(refund) + " fragments.", "Notices");
 }
 
 function recycleMap(map, fromMass, killVoid, noRefund) {
@@ -9200,7 +9197,7 @@ function recycleMap(map, fromMass, killVoid, noRefund) {
 	if (!killVoid && !noRefund) {
 		refund = getRecycleValue(mapObj.level);
 		game.resources.fragments.owned += refund;
-		if (!fromMass) message("回收 " + mapObj.name + " 的 " + prettify(refund) + " 碎片.", "Notices");
+		if (!fromMass) message("Recycled " + mapObj.name + " for " + prettify(refund) + " fragments.", "Notices");
 	}
 	game.global.mapsOwnedArray.splice(map, 1);
     if (killVoid) {
@@ -9222,19 +9219,19 @@ function getRecycleValue(level) {
 }
 
 function updateMapCredits() {
-	var s = (game.challenges.Mapology.credits == 1) ? "" : ""
-	document.getElementById("mapCreditsLeft").innerHTML = game.challenges.Mapology.credits + " 地图点数" + s;
+	var s = (game.challenges.Mapology.credits == 1) ? "" : "s"
+	document.getElementById("mapCreditsLeft").innerHTML = game.challenges.Mapology.credits + " Map Credit" + s;
 }
 
 function messageMapCredits() {
-	var s = (game.challenges.Mapology.credits == 1) ? "" : ""
-	message("你还剩余" + game.challenges.Mapology.credits + " 地图点数！", "Notices");
+	var s = (game.challenges.Mapology.credits == 1) ? "" : "s"
+	message("You have " + game.challenges.Mapology.credits + " Map Credit" + s + " left!", "Notices");
 }
 
 function mapsClicked(confirmed) {
 	if (game.options.menu.pauseGame.enabled) return;
 	if (game.global.mapsActive && getCurrentMapObject().location == "Void" && !confirmed && !game.global.switchToMaps){
-		tooltip('confirm', null, 'update', '你将放弃这张虚空地图，这将使你失去在这张地图上所有当前的进展。”你确定吗?' , 'mapsClicked(true)', 'Abandon Void Map');
+		tooltip('confirm', null, 'update', 'You are about to abandon this Void Map, which will cause you to lose all current progress in this map. Are you sure?' , 'mapsClicked(true)', 'Abandon Void Map');
 		return;
 	}
 	if (game.global.mapsActive && getCurrentMapObject().location == "Darkness" && !confirmed && !game.global.switchToMaps){
@@ -9280,10 +9277,10 @@ function mapsClicked(confirmed) {
         return;
     }
     if (game.global.fighting && !game.global.preMapsActive) {
-		message("待你的士兵牺牲后继续前往地图。", "Notices");
+		message("Waiting to travel until your soldiers are finished.", "Notices");
 
 		document.getElementById("mapsBtn").className = "btn btn-warning fightBtn shrinkBtnText";
-		document.getElementById("mapsBtnText").innerHTML = "抛弃士兵";
+		document.getElementById("mapsBtnText").innerHTML = "Abandon Soldiers";
 	}
     if (game.global.preMapsActive) {
         mapsSwitch();
@@ -9318,7 +9315,7 @@ function mapsSwitch(updateOnly, fromRecycle) {
 	if (game.global.currentMapId !== "") currentMapObj = getCurrentMapObject();
 	var mapsBtnText = document.getElementById("mapsBtnText");
 	var recycleBtn = document.getElementById("recycleMapBtn");
-	recycleBtn.innerHTML = "回收地图";
+	recycleBtn.innerHTML = "Recycle Map";
 	document.getElementById("mapsBtn").className = "btn btn-warning fightBtn";
     if (game.global.preMapsActive) {
 		//Switching to Map Chamber
@@ -9335,7 +9332,7 @@ function mapsSwitch(updateOnly, fromRecycle) {
         document.getElementById("grid").style.display = "none";
         document.getElementById("preMaps").style.display = "block";
         toggleMapGridHtml();
-        mapsBtnText.innerHTML = "世界";
+        mapsBtnText.innerHTML = "World";
         if (game.global.lookingAtMap && !game.global.currentMapId) selectMap(game.global.lookingAtMap, true);
 		else if (game.global.currentMapId === "") {
 			clearMapDescription();
@@ -9409,14 +9406,14 @@ function toggleMapGridHtml(on, currentMapObj){
 	if (!currentMapObj) return;
 	var worldNumElem = document.getElementById("worldNumber");
 	worldNumElem.style.display = 'inline';
-	worldNumElem.innerHTML = "<br/>等级: " + currentMapObj.level;
-	document.getElementById("worldName").innerHTML = cnItem(currentMapObj.name);
+	worldNumElem.innerHTML = "<br/>Lv: " + currentMapObj.level;
+	document.getElementById("worldName").innerHTML = currentMapObj.name;
 }
 
 function clearMapDescription(){
 	document.getElementById("selectMapBtn").style.visibility = "hidden";
 	document.getElementById("recycleMapBtn").style.visibility = "hidden";
-	document.getElementById("selectedMapName").innerHTML = "请选择一个地图!";
+	document.getElementById("selectedMapName").innerHTML = "Select a Map!";
 	document.getElementById("mapStatsSize").innerHTML = "";
 	document.getElementById("mapStatsDifficulty").innerHTML = "";
 	document.getElementById("mapStatsLoot").innerHTML = "";
@@ -9425,7 +9422,7 @@ function clearMapDescription(){
 }
 
 function setNonMapBox(){
-	document.getElementById("mapsBtnText").innerHTML = "地图";
+	document.getElementById("mapsBtnText").innerHTML = "Maps";
 	if (game.global.totalVoidMaps > 0) addVoidAlert();
 	var worldNumElem = document.getElementById("worldNumber");
 	worldNumElem.style.display = (game.global.spireActive) ? 'none' : 'inline';
@@ -9435,7 +9432,7 @@ function setNonMapBox(){
 	if (game.talents.mapBattery.purchased && bonus == 10) bonus *= 2;
 	if (bonus > 0) mapBonus.innerHTML = prettify(bonus * 20) + "% Map Bonus";
 	else mapBonus.innerHTML = "";
-	document.getElementById("worldName").innerHTML = (game.global.spireActive) ? ((checkIfSpireWorld(true) == 1) ? "尖塔" : "尖塔 " + romanNumeral(checkIfSpireWorld(true))) : "区域";	
+	document.getElementById("worldName").innerHTML = (game.global.spireActive) ? ((checkIfSpireWorld(true) == 1) ? "Spire" : "Spire " + romanNumeral(checkIfSpireWorld(true))) : "Zone";	
 }
 
 function repeatClicked(updateOnly){
@@ -9445,29 +9442,29 @@ function repeatClicked(updateOnly){
 	var elem2 = document.getElementById("repeatBtn2");
 	elem.className = "";
 	elem.className = "btn fightBtn " + color;
-	elem.innerHTML = (game.global.repeatMap) ? "重复:开" : "重复:关";
+	elem.innerHTML = (game.global.repeatMap) ? "Repeat On" : "Repeat Off";
 	if (elem2 !== null){
 		color = (game.global.repeatMap) ? "settingBtn1" : "settingBtn0"; 
 		swapClass("settingBtn", color, elem2);
-		elem2.innerHTML = (game.global.repeatMap) ? "重复:开" : "重复:关";
+		elem2.innerHTML = (game.global.repeatMap) ? "Repeat On" : "Repeat Off";
 	}
 }
 
 function selectMap(mapId, force) {
 	if (game.options.menu.pauseGame.enabled && !force) return;
     if (!force && game.global.currentMapId !== "") {
-        message("你必须在完成或移动之前回收当前的地图。", "Notices");
+        message("You must finish or recycle your current map before moving on.", "Notices");
         return;
     }
     var map = getMapIndex(mapId);
     map = game.global.mapsOwnedArray[map];
-    document.getElementById("selectedMapName").innerHTML = cnItem(map.name);
-
+	if (!map) return;
+    document.getElementById("selectedMapName").innerHTML = map.name;
 	document.getElementById("mapStatsSize").innerHTML = (Math.floor(map.size));
 	document.getElementById("mapStatsDifficulty").innerHTML = Math.floor(map.difficulty * 100) + "%";
 	document.getElementById("mapStatsLoot").innerHTML = Math.floor(map.loot * 100) + "%";
 	document.getElementById("mapStatsItems").innerHTML = (map.location == "Void") ? "&nbsp;" : addSpecials(true, true, map);
-	document.getElementById("mapStatsResource").innerHTML = cnItem(game.mapConfig.locations[map.location].resourceType);
+	document.getElementById("mapStatsResource").innerHTML = game.mapConfig.locations[map.location].resourceType;
 	if (typeof game.global.mapsOwnedArray[getMapIndex(game.global.lookingAtMap)] !== 'undefined') {
 		var prevSelected = document.getElementById(game.global.lookingAtMap);
 		prevSelected.className = prevSelected.className.replace("mapElementSelected","mapElementNotSelected");
@@ -9475,7 +9472,7 @@ function selectMap(mapId, force) {
 	var currentSelected = document.getElementById(mapId);
 	currentSelected.className = currentSelected.className.replace("mapElementNotSelected", "mapElementSelected");
     game.global.lookingAtMap = mapId;
-    document.getElementById("selectMapBtn").innerHTML = "运行地图";
+    document.getElementById("selectMapBtn").innerHTML = "Run Map";
     document.getElementById("selectMapBtn").style.visibility = "visible";
 	document.getElementById("recycleMapBtn").style.visibility = (map.noRecycle) ? "hidden" : "visible";
 }
@@ -9724,7 +9721,7 @@ function startFight() {
 		displayedName = badName;
 	}
 	if ((cell.name == "Improbability") && game.global.spireActive){
-		displayedName = "德鲁普提";
+		displayedName = "Druopitee";
 		if (game.global.challengeActive == "Coordinate") displayedName = "Druopitee and Pals";
 	}
 	else if (cell.name == "Omnipotrimp" && game.global.spireActive){
@@ -9745,7 +9742,7 @@ function startFight() {
 		displayedName = "<span class='Mutimp'>" + displayedName + "</span>";
 	}
 	if (mutations.Living.active()){
-		badName = "<span id='livingMutationContainer'" + ((cell.mutation == "Living") ? " class='badNameMutation Living'" : "") + "><span id='livingMutationName'>" + ((cell.mutation == "Living") ? "复活 " : "") + "</span>" + displayedName + "</span>";
+		badName = "<span id='livingMutationContainer'" + ((cell.mutation == "Living") ? " class='badNameMutation Living'" : "") + "><span id='livingMutationName'>" + ((cell.mutation == "Living") ? "Living " : "") + "</span>" + displayedName + "</span>";
 	}
 	else if (cell.vm && visualMutations[cell.vm].highlightMob && (displayedName == visualMutations[cell.vm].highlightMob)){
 		var tempName = (cell.mutation) ? mutations[cell.mutation].namePrefix + " " + displayedName : displayedName;
@@ -9768,15 +9765,15 @@ function startFight() {
 		badName += " (" + prettify(badCoord) + ")";
 	}
 	if (cell.name == "Omnipotrimp" && game.global.world % 5 == 0 && !game.global.spireActive){
-		badName += ' <span class="badge badBadge Magma" onmouseover="tooltip(\'Superheated\', \'customText\', event, \'这个Omnipotrimp是过热的,并且会在死亡时爆炸\')" onmouseout="tooltip(\'hide\')"><span class="icomoon icon-fire2"></span></span>';
+		badName += ' <span class="badge badBadge Magma" onmouseover="tooltip(\'Superheated\', \'customText\', event, \'This Omnipotrimp is Superheated, and will explode on death.\')" onmouseout="tooltip(\'hide\')"><span class="icomoon icon-fire2"></span></span>';
 	}
 	if (game.global.brokenPlanet && !game.global.mapsActive){
-		badName += ' <span class="badge badBadge" onmouseover="tooltip(\'Pierce\', \'customText\', event, \'这个坏家伙造成的伤害包含 ' + prettify(getPierceAmt() * 100) + '% 的穿透伤害。\')" onmouseout="tooltip(\'hide\')"><span class="glyphicon glyphicon-tint"></span></span>';
+		badName += ' <span class="badge badBadge" onmouseover="tooltip(\'Pierce\', \'customText\', event, \'' + prettify(getPierceAmt() * 100) + '% of the damage from this Bad Guy pierces through block\')" onmouseout="tooltip(\'hide\')"><span class="glyphicon glyphicon-tint"></span></span>';
 	}
 	if (game.global.challengeActive == "Slow" || ((game.badGuys[cell.name].fast || cell.mutation == "Corruption") && game.global.challengeActive != "Coordinate" && game.global.challengeActive != "Nom"))
-		badName += ' <span class="badge badBadge" onmouseover="tooltip(\'Fast\', \'customText\', event, \'这个坏家伙速度非常快，并且会先攻击你\')" onmouseout="tooltip(\'hide\')"><span class="glyphicon glyphicon-forward"></span></span>';
+		badName += ' <span class="badge badBadge" onmouseover="tooltip(\'Fast\', \'customText\', event, \'This Bad Guy is fast and attacks first\')" onmouseout="tooltip(\'hide\')"><span class="glyphicon glyphicon-forward"></span></span>';
 	if ((game.global.challengeActive == "Electricity" || game.global.challengeActive == "Mapocalypse")){
-		badName += ' <span class="badge badBadge" onmouseover="tooltip(\'带电\', \'customText\', event, \'这个坏家伙是带电的，并且会给你的脆皮叠加减益效果\')" onmouseout="tooltip(\'hide\')"><span class="icomoon icon-power-cord"></span></span>';
+		badName += ' <span class="badge badBadge" onmouseover="tooltip(\'Electric\', \'customText\', event, \'This Bad Guy is electric and stacks a debuff on your Trimps\')" onmouseout="tooltip(\'hide\')"><span class="icomoon icon-power-cord"></span></span>';
 	}
 	document.getElementById("badGuyName").innerHTML = badName;
 	if (game.global.challengeActive == "Domination") handleDominationDebuff();
@@ -10613,7 +10610,7 @@ function calculateDamage(number, buildString, isTrimp, noCheckAchieve, cell, noF
 }
 
 function updateForemenCount(){
-	document.getElementById("foremenCount").innerHTML = (game.global.autoCraftModifier * 4) + " 工头";
+	document.getElementById("foremenCount").innerHTML = (game.global.autoCraftModifier * 4) + " Foremen";
 	updateBuildSpeed();
 }
 
@@ -10638,7 +10635,7 @@ function tryScry(){
 		message("You have no more use for Dark Essence!", "Loot", "*cloud3", "essenceMessage", "essence");
 	}
 	else {
-		message("你找到了 " + prettify(reward) + " Dark Essence!", "Loot", "*cloud3", "essenceMessage", "essence");
+		message("You found " + prettify(reward) + " Dark Essence!", "Loot", "*cloud3", "essenceMessage", "essence");
 	}
 	updateTalentNumbers();
 	return reward;
@@ -10748,8 +10745,8 @@ function displayTalents(){
 	var respecBtn = document.getElementById('talentRespecBtn');
 	var respecAvailable = (game.global.b >= 20 || game.global.freeTalentRespecs) ? 'colorDanger' : 'colorBuyOff';
 	swapClass('color', respecAvailable, respecBtn)
-	if (game.global.freeTalentRespecs > 0) respecBtn.innerHTML = "洗点 (" + game.global.freeTalentRespecs + " 免费!)";
-	else respecBtn.innerHTML = "洗点 (20 骨头)";
+	if (game.global.freeTalentRespecs > 0) respecBtn.innerHTML = "Respec (" + game.global.freeTalentRespecs + " Free!)";
+	else respecBtn.innerHTML = "Respec (20 Bones)";
 	updateTalentNumbers();
 }
 
@@ -11032,7 +11029,7 @@ function rewardLiquidZone(){
 	var addUniques = (unlocks[0] !== "" && game.global.messages.Unlocks.unique);
 	var addRepeateds = (unlocks[1] !== "" && game.global.messages.Unlocks.repeated);
 	if ((addUniques || addRepeateds) && game.global.messages.Unlocks.enabled){
-		 text += "解锁发现: ";
+		 text += "Unlocks Found: ";
 		 if (addUniques){
 			 text += unlocks[0];
 			 if (addRepeateds) text += ", ";
@@ -11042,19 +11039,19 @@ function rewardLiquidZone(){
 		text += "<br/>";
 	}
 	if (game.global.messages.Loot.enabled && (game.global.messages.Loot.primary || game.global.messages.Loot.secondary)){
-		text += "发现资源：";
+		text += "Resources Found:";
 		var heCount = game.resources.helium.owned - helium;
 		if (game.global.messages.Loot.helium && heCount > 0){
-			text += " 氦 - " + prettify(heCount) + ",";
+			text += " Helium - " + prettify(heCount) + ",";
 		}
 		if (game.global.messages.Loot.secondary){
-			text += " 脆皮最大上限 - " + prettify(game.resources.trimps.realMax() - trimpsCount) + ",";
-			text += " 碎片 - " + prettify(game.resources.fragments.owned - fragments) + ",";
+			text += " Max Trimps - " + prettify(game.resources.trimps.realMax() - trimpsCount) + ",";
+			text += " Fragments - " + prettify(game.resources.fragments.owned - fragments) + ",";
 		}
 		if (game.global.messages.Loot.primary){
-			text += " 食物 - " + prettify(game.resources.food.owned - food) + ",";
-			text += " 木头 - " + prettify(game.resources.wood.owned - wood) + ",";
-			text += " 金属 - " + prettify(game.resources.metal.owned - metal) + ",";
+			text += " Food - " + prettify(game.resources.food.owned - food) + ",";
+			text += " Wood - " + prettify(game.resources.wood.owned - wood) + ",";
+			text += " Metal - " + prettify(game.resources.metal.owned - metal) + ",";
 		}
 		
 		text = text.slice(0, -1);
@@ -11073,11 +11070,11 @@ function rewardLiquidZone(){
 		}
 	}
 	if (trackedList != "" && game.global.messages.Loot.exotic && game.global.messages.Loot.enabled){
-		trackedList = "罕见的小鬼: " + trackedList + "<br/>";
+		trackedList = "Rare Imps: " + trackedList + "<br/>";
 		text += trackedList;
 	}
 	if (bones != "" && game.global.messages.Loot.bone && game.global.messages.Loot.enabled){
-		bones = "找到了一个 " + bones + "!<br/>";
+		bones = "Found a " + bones + "!<br/>";
 		text += bones;
 	}
 	if (tokText != null){
@@ -11590,13 +11587,13 @@ function getSpireStats(cellNum, name, what){
 function deadInSpire(){
 	game.global.spireDeaths++;
 	if (game.global.spireDeaths >= 10) {
-		message("你还没准备好。也许你下次能够完成它。", "Story");
+		message("You're not yet ready. Maybe you'll be of use in the next lifetime.", "Story");
 		endSpire();
 		return;
 	}
 	var s = (game.global.spireDeaths > 1) ? "s" : "";
 	var has = (game.global.spireDeaths > 1) ? "have" : "has";
-	message(game.global.spireDeaths + " 组脆皮在尖塔中已被击败。", "Notices");
+	message(game.global.spireDeaths + " group" + s + " of Trimps " + has + " perished in the Spire.", "Notices");
 }
 
 function endSpire(cancelEarly){
@@ -11637,31 +11634,31 @@ function clearSpireMetals(){
 function getSpireStory(spireNum, row){
 	var spires = {
 		spire2: {
-			r2: "这座尖塔的一切似乎都没有上一座整洁，他从没想过你能通过第一座尖塔。你在一些虚空物质中发现了一张小纸条。<br/><span class='spirePoem'>健康变异是糟糕的...<br/>它减缓了生物的狂乱</span>嗯，这听起来不是一件坏事。",
-			r4: "你逐渐接近了尖塔的中部，没有太多的敌人，此时尖塔似乎有了生命。德鲁普提已死，你不知道是什么将它激活，所以你低下头，看看脚下。<br/><br/>有一些小容器漂浮在地面上，距离地面只有很小的距离，你要去检查一下它们。" ,
-			r6: "空气中突然充满了嗡嗡的震动声，从墙壁中传来了低沉有力的声音。<span class='spirePoem'>每一个尖塔中都有一部分我<br/>我将确保腐化永远传播<br/>即使我对你的决心敬佩甚颇<br/>你的小小计划必会将自己打破<br/></span>似乎所有尖塔都被德鲁普提赋予了知觉。你很高兴讲述者不再念诗了。嘿，等等……<br/><br/>",
-			r7: "<span class='spirePoem'>我看到你找到我健康变异的笔记<br/>我读你将其作为你的计划所依<br/>拯救这个世界确实令人着迷<br/>但是你的旅途必然结束于失意</span>好吧，你现在确实想接触一些有关健康变异的东西。",
-			r8: "这里什么都没有，只有一堆盒子，所以你决定翻翻它们。 ",
-			r9: "<span class='spirePoem'>你觉得自己可以，但其实并不<br/>一个健康世界不会加速你的脚步<br/>健康的力量会令你厌恶<br/>未来的更多困难是你自己所筑</span>这个声音似乎试图告诉你，健康变异会使你的敌人拥有更强的力量。尽管如此，释放它仍然是一件正确的事情。",
-			r10: "在德鲁普提的回响倒下时，你注意到一个装着棕色液体的大罐子，你看到许多管道从罐子连接到到塔顶。罐子上的标签表明这个是健康突变，并且你不应该触碰它。但是你知道你需要什么，与德鲁普提所要是完全不同的，所以你打开了所有你能找到的喷嘴。一缕细细的棕色薄雾从塔尖开始喷出来，你可以看出世界终于开始复原了。现在你只希望健康突变令敌人强大只是一个谎言……"
+			r2: "Everything in this Spire seems less tidy than the last, he never thought the first was something you could pass. You find a small note amongst some Nullifium.<br/><span class='spirePoem'>Healthy mutation bad...<br/>Slows delirium</span>Well that doesn't really sound like a bad thing. ",
+			r4: "As you near the halfway point without too much strife, the Spire itself seems to become alive. You don't know what could be activating it since Druopitee is dead, so you keep your head down and you watch where you tread.<br/><br/>There's also some little containers floating a tiny bit off the ground, so you go check em out. " ,
+			r6: "A humming vibration suddenly fills the air, and a voice booms from the walls. <span class='spirePoem'>There is a piece of me in every last Spire<br/>I will ensure that Corruption is never retired<br/>Though your resolve is something that I admire<br/>Your little plan will surely backfire<br/></span>So it seems like all of the Spires are actually sentient thanks to Druopitee. You're just glad the narrator isn't trying to do the poetry anymore. Hey wait...<br/><br/>",
+			r7: "<span class='spirePoem'>I see you found my notes on my Healthy mutation<br/>I bet you even think it could be your salvation<br/>Improving this world must be quite the temptation<br/>But your journey will surely end in frustration</span>Well, you definitely want to get your hands on some of that Healthy mutation now. ",
+			r8: "Nothing here but a bunch of boxes, so you decide to rummage through them. ",
+			r9: "<span class='spirePoem'>Even if you were able, which you surely are not<br/>A Healthier world would not hasten your trot<br/>For there's strength in Health and you would be distraught<br/>At the difficult challenge you yourself had wrought</span>It sounds like he's trying to tell you that the Healthy mutation would make your enemies even stronger. Still seems like releasing it would be the right thing to do, though. ",
+			r10: "As the Echo of Druopitee falls, you notice a large tank of some brown looking liquid, and you see pipes and tubes running from it to the top of the Spire. A label on the tank seems to indicate that this is the Healthy mutation and that you shouldn't touch it. But you know that what you want and what Druopitee wants are different things, so you start turning all the nozzles you can find. A fine brown mist begins to spout from the top of the Spire and you can tell that the world is finally healing. Now you just hope he was lying about this making the enemies stronger... "
 		},
 		spire3: {
-			r2: "每座尖塔似乎都有一个图案，每个图案都比上一座的要废弃得多。墙壁很冷，内部的震动非常微弱。没有人在看你，所以你在周围挖掘，想找到一些材料。 ",
-			r4: "墙壁内的振动随着你走向顶部的每一步而变得更加强烈。空气明显变暖了，你认为墙壁能很快开始和你说话。 ",
-			r6: "<span class='spirePoem'>什么<br/>谁<br/>如何...</span>这听起来不是很连贯。似乎你在上一座尖塔摧毁的回响已经产生了某种影响。",
-			r7: "<span class='spirePoem'>我看到你在试图将星球治好<br/>让我在不适感中倍受煎熬<br/>你的随心所欲与偷窃行为已达到最高<br/>现在跪下臣服或是被我打爆</span>至少他已经恢复了足够的意识继续面对威胁。你知道现在不是退让的时候。",
-			r8: "<span class='spirePoem'>明显你想要使腐化减慢<br/>所以我指出你可能还未知的事件<br/>我的尖塔没有终止，它数量无限<br/>你必将失败，这早已预言</span>他的尖塔可能是无限的，但他的意识是不可能的。你决定一旦你打败了德鲁普提所有的意识，你再考虑剩下的塔尖。",
-			r9: "<span class='spirePoem'>你还在攀爬，你的力量不会变弱？<br/>你已决定将此星球拯救于灾祸？<br/>停下来想想，我们可以有更宏伟的杰作<br/>或者像一个奴隶，继续旅行于时间枷锁</span>奴隶?! 你的脆皮们都明白只要他们愿意，随时可以离开。他只是想惹你生气！！ ",
-			r10: "很好，现在已经打倒了一个德鲁普提和两个德鲁普提的回响。他说他拥有无数的尖塔，也有无数个版本的他，但是在刚才你可以看出他的回响最后失去了力量。你可能只需要再清理一座尖塔就能够使所有尖塔中的他都失去意识！你的目光看向前方的100区域，打开更多喷嘴，向世界各地散布更多的健康，你拿走了氦，在尖塔的地上吐了一口唾沫，然后继续前进。 "
+			r2: "There seems to be a pattern here of each spire looking considerably more trashed than the one before it. The walls feel cold and the vibration inside is very faint. Nobody's watching you, so you dig around looking for some stuff to take. ",
+			r4: "The vibrations within the walls grow stronger with each step you take towards the top. The air has become noticeably warmer, and you expect the walls to start talking to you again soon. ",
+			r6: "<span class='spirePoem'>WHAT<br/>WHO<br/>How...</span>That didn't seem very coherent. It seems like destroying his Echo in the last Spire has made some sort of impact. ",
+			r7: "<span class='spirePoem'>I see that you're attempting some planetary healing<br/>Leaving me steaming in an unappealing feeling<br/>Your freewheeling and stealing has just reached the ceiling<br/>Now commence kneeling or be sent off reeling</span>At least he's gained enough consciousness back to continue with the threats. You know that now is not the time to back down. ",
+			r8: "<span class='spirePoem'>It's obvious that you want the Corruption to slow<br/>So I'll point out something you might not yet know<br/>My Spires are infinite, there is no plateau<br/>You are doomed and you've been so since long long ago</span>His Spires might be infinite, but it's not possible for his consciousness to be. You decide you'll worry about the rest of the spires once you've beaten Druopitee into nothingness. ",
+			r9: "<span class='spirePoem'>Still you climb on, won't your strength ever waver?<br/>You're determined to be this planet's true savior?<br/>Stop to reconsider, we could be something greater<br/>Or continue your path as a time traveling slaver</span>Slaver?! Your Trimps all know that they're free to leave whenever they want. He's just trying to get under your skin! ",
+			r10: "Well, that's one Druopitee and two Echoes of Druopitee down now. He says that he has infinite Spires and infinite versions of himself, but you could tell at the end there that his Echoes are losing power. You might be able to knock the sentience out of all of his Spires by just clearing one more! You set your sights 100 Zones forward, turn some more nozzles to spread some more Health around the world, you take your helium, spit on the floor of the Spire, and move on. "
 		},
 		spire4: {
-			r2: "正如你在踏进尖塔之前就猜到的那样，这个塔尖的状况比之前的更差。空气更冷，墙壁更安静，有一种空虚的感觉。或许你可以拿走一些东西!",
-			r4: "你想知道德鲁普提的回响是否还能说话。你知道他会在尖塔的顶端等待着你，就像其他无数的尖塔一样，但是可能这次之后他就会永远的离开你了。",
-			r6: "尖塔又在警告你了。可能德鲁普提一会就会再来一次最后的现身。",
-			r7: "<span class='spirePoem'>请转身离开，这里没什么可看<br/>为何我的死亡就是你的期盼?<br/>我再次求你，请听我的宏愿<br/>永久的时间中，你我统治各半</span>不了，谢谢, 德鲁普提。 看到他这么害怕可真高兴! ",
-			r8: "<span class='spirePoem'>接下来是我平常未说之言<br/>因为你似乎不会折返<br/>你杀死的每一个回响都使我的思想腐烂<br/>今天之后我可能就不会交谈</span>是的，这已经很明显了。如果他认为这样的承认除了激励人之外，还能有什么意义的话，那么他的头脑肯定正在迅速腐坏。 ",
-			r9: "<span class='spirePoem'>为何你不在意你使事情更加困难?<br/>为了修复这个星球，你使敌人更加强悍?<br/>我带你来这时, 我以为你聪明能干<br/>但是现在似乎已经没有余地可谈</span>不，是无法谈的，你就在那里了。 ",
-			r10: "当第三个德鲁普提的回响倒下时，尖塔突然变冷了两倍。德鲁普提曾经和你说在无限的尖塔中有无限个版本的他，但是其他的他应该不会再有意识了。你转动另一组旋钮，向世界释放更多的健康突变，你觉得再没有什么事能比寻找并释放更多健康突变更好的了。不能再次听到德鲁普提的话，你并不感到惊讶，至少不会在这个时间线。 "
+			r2: "As you guessed before you even stepped in, this Spire is in even worse condition than the one before. The air is colder, the walls are more still, and there's a feeling of vacancy. Might as well look for stuff to take! ",
+			r4: "You wonder if the Echo of Druopitee will even be able to speak anymore. You know he'll be at the top waiting, just like the infinite other Spires, but maybe he'll just leave you be this time. ",
+			r6: "The Spire is warming up again. Maybe Druopitee will make his final appearance soon. ",
+			r7: "<span class='spirePoem'>Please just go around, there's nothing to see<br/>Why is my demise something you must guarantee?<br/>I beg you once more, please hear my plea<br/>We could rule for all time, just you and me</span>No thanks, Druopitee. It's kinda nice to see him scared though! ",
+			r8: "<span class='spirePoem'>Well here is something I wouldn't normally say<br/>Since it seems like you won't be going away<br/>Each of my Echoes you slay makes my mind decay<br/>I may not be able to communicate after today</span>Yes, that was becoming pretty obvious. His mind must really be decaying fast if he thought this admission would be anything other than motivating. ",
+			r9: "<span class='spirePoem'>Why don't you care that you're making things harder?<br/>To repair the planet you'd give enemies armor?<br/>When I brought you here, I thought you'd be smarter<br/>But it seems like there's no room left to barter</span>No, there's not. You're almost there. ",
+			r10: "As this third Echo of Druopitee falls, the Spire suddenly feels twice as cold. Druopitee told you that he placed infinite versions of himself in infinite Spires, but his will should no longer be conscious in any of them. You turn another set of knobs to release some more of the Healthy mutation into the world, and you figure there's nothing better to do than to keep looking for more to release. You just wouldn't be surprised to not hear from Druopitee again, at least not in this timeline. "
 		},
 		spire5: {
 			r2: "While you walk through the Spire, you whistle a tune. You haven't yet tired, your motivations zoom. As Fluffy checks for loot in this dark, dusty room, you suddenly see fire and hear a huge boom. ",
@@ -11693,12 +11690,12 @@ function giveSpireReward(level){
 		case(20):
 			var nuReward = 200 * Math.pow(2, spireWorld - 2);
 			game.global.nullifium += nuReward;
-			message(getSpireStory(spireWorld, 2) + "你找到了 " + nuReward + " 虚空物质!", "Story");
+			message(getSpireStory(spireWorld, 2) + "You found " + nuReward + " Nullifium!", "Story");
 			break;
 		case(40):
 			if (!game.global.runningChallengeSquared){
 				amt = giveHeliumReward(15);
-				message(getSpireStory(spireWorld, 4) + "你装走了 " + prettify(amt) + " 氦!", "Story");
+				message(getSpireStory(spireWorld, 4) + "You help yourself to a container filled with " + prettify(amt) + " Helium!", "Story");
 			}
 			else message(getSpireStory(spireWorld, 4) + ((spireWorld == 2) ? "Gah! They're all empty!" : ""), "Story");
 			break;
@@ -11708,7 +11705,7 @@ function giveSpireReward(level){
 					message("Out of the corner of your eye, you notice a creature who doesn't seem like he belongs. You walk up closer and notice that it's Fluffy! You turn around expecting to see your other Fluffy, but there is only one. You turn back as he waves at you in recognition, you feel a bit lightheaded, but you've had weirder things happen on this planet. You decide to keep moving up the Spire with your new old friend.", "Story");					
 				}
 				else {
-					message("在你视野的角落，你发现了一个生物，似乎不属于德鲁普提。你走近一看，发现它是一只脆皮！只有这一只脆皮是紫色的，而不是蓝色的，显然这是德鲁普提实验的产物，你让它明白已经没有什么好害怕的了，你会保证它的安全。你将它命名为蓬松，并且发誓不会让它受到任何伤害。 <b>获得 1 脆皮!</b>", "Story");
+					message("Out of the corner of your eye, you notice a creature who doesn't seem like he belongs. You walk up closer and notice that it's a Trimp! Only this Trimp is purple instead of blue, obviously a result of some experiments by Druopitee. You let him know not to worry, and that you'll keep him safe. You name him Fluffy, and vow to never let any harm come to him. <b>Gained 1 Trimp!</b>", "Story");
 					//I know that adding 1 trimp doesn't do anything at all, but I'm no liar (on purpose)
 					game.resources.trimps.owned++;
 				}
@@ -11718,18 +11715,18 @@ function giveSpireReward(level){
 				//Spire III+
 				var fluffReward = Fluffy.rewardExp(2);
 				if (fluffReward)
-					message("蓬松突然四肢着地，开始仔细观察墙壁。过了一会儿，他选定了一个地方，在上面砸了一个洞，然后从洞里拿出了一本小书。他甚至没有把书打开，就把书吃掉了，并且获得 " + prettify(fluffReward) + " 经验!多么华丽的生物。", "Story");
+					message("Fluffy suddenly drops to all of his extremities and begins closely inspecting the walls. After a few moments he chooses a location and smashes a hole in it, then pulls a small book out of said hole. Without even opening it up, he eats the book and gains " + prettify(fluffReward) + " experience! What a magnificent creature.", "Story");
 			}
 			break;
 		case(60):
 			var nuReward = 300 * Math.pow(2, spireWorld - 2);
 			game.global.nullifium += nuReward;
-			message(getSpireStory(spireWorld, 6) + "你找到了 " + nuReward + " 虚空物质!</span>", "Story");
+			message(getSpireStory(spireWorld, 6) + "You found " + nuReward + " Nullifium!</span>", "Story");
 			break;
 		case(70):			
 			var heirloomLevel = 400;
 			if (spireWorld > 3) heirloomLevel = ((spireWorld + 1) * 100);
-			message(getSpireStory(spireWorld, 7) + "你找到了区域" + heirloomLevel + "级别的传家宝!", "Story");
+			message(getSpireStory(spireWorld, 7) + "You found a Z" + heirloomLevel + " Heirloom!", "Story");
 			createHeirloom(heirloomLevel);
 			break;
 		case(80):
@@ -11738,14 +11735,14 @@ function giveSpireReward(level){
 			game.empowerments.Wind.tokens += tokReward;
 			game.empowerments.Ice.tokens += tokReward;
 			game.stats.bestTokens.value += (tokReward * 3);
-			message(getSpireStory(spireWorld, 8) + "你找到了" + tokReward + "个各种类型的自然符记!", "Story");
+			message(getSpireStory(spireWorld, 8) + "You found " + tokReward + " of each type of Nature Token!", "Story");
 			if (game.global.buyTab == "nature")
 				updateNatureInfoSpans();
 			break;
 		case(90):
 			if (!game.global.runningChallengeSquared){
 				amt = giveHeliumReward(30);
-				message(getSpireStory(spireWorld, 9) + "你找到另一个容器，里面有 " + prettify(amt) + " 氦!", "Story");
+				message(getSpireStory(spireWorld, 9) + "You figure you'll help yourself to another container filled with " + prettify(amt) + " Helium!", "Story");
 			}
 			else message(getSpireStory(spireWorld, 9) + "You search around for some more resources but find nothing. Lame.", "Story");
 			break;
@@ -11755,9 +11752,9 @@ function giveSpireReward(level){
 			var text = getSpireStory(spireWorld, 10);
 			if (!game.global.runningChallengeSquared){
 				var amt = giveHeliumReward(100);
-				text += " 你找到了大量库存的 <b>" + prettify(amt) + " 氦</b> 和 <b>全新的尖塔核心</b>!";
+				text += " You find a large stockpile of <b>" + prettify(amt) + " Helium</b> and <b>a brand new Spire Core</b>!";
 			}
-			else text += " 你找到了一个 <b>全新的尖塔核心</b>!";
+			else text += " You find a <b>brand new Spire Core</b>!";
 			if (spireWorld == 6){
 				var talentCount = countPurchasedTalents();
 				var maxTalents = Object.keys(game.talents).length;
@@ -11776,22 +11773,22 @@ function giveSpireReward(level){
 			if (game.global.spiresCompleted < spireWorld){
 				game.global.spiresCompleted = spireWorld;
 				game.global.b += 20;
-				text += " 你第一次在任何时间轴上消灭这个回响，你已经永久地增加了5%的液化加成，增加了你的黑暗本质增益乘以4x，并获得了 <b>20个骨头!</b>"
+				text += " For your first time killing this Echo in any timeline, you have permanently added another 5% to your Liquification bonus, increased your Dark Essence gains by 4x, and earned <b>20 bones!</b>"
 				switch (spireWorld){
 					case 2: 
-						text += " 您还解锁了 <b>能力</b> 能力，而且还可以携带额外的传家宝!";
+						text += " You have also unlocked the <b>Capable</b> perk and can carry an additional Heirloom!";
 						game.portal.Capable.locked = false;
 						break;
 					case 3:
-						text += " 您还解锁了 <b>狡猾</b> 能力，而且还可以携带额外的传家宝!"
+						text += " You have also unlocked the <b>Cunning</b> perk and can carry an additional Heirloom!"
 						game.portal.Cunning.locked = false;
 						break;
 					case 4:
-						text += " 您还解锁了 <b>好奇</b> 能力!"
+						text += " You have also unlocked the <b>Curious</b> perk!"
 						game.portal.Curious.locked = false;
 						break;
 					case 5:
-						text += " 您还解锁了 <b>优等</b> 能力!<b>";
+						text += " You have also unlocked the <b>Classy</b> perk!<b>";
 						game.portal.Classy.locked = false;
 				}
 			}
@@ -11812,7 +11809,7 @@ function giveSpireReward(level){
 			amt = 0.5;
 			amt *= Math.pow(1.01, level);
 			amt = giveHeliumReward(amt);
-			message("在你离开时，你找到了 " + prettify(amt) + " 氦!", "Loot", heliumIcon(true), "helium", "helium");
+			message("As you're leaving, you find " + prettify(amt) + " helium!", "Loot", heliumIcon(true), "helium", "helium");
 			return;				
 	}
 }
@@ -11822,70 +11819,70 @@ function rewardSpire1(level){
 	var text = "";
 	switch(level){
 		case 10:
-			text = "一阵低沉的声音响起，这声音似乎来源于墙壁本身。<br/><br/><span class='spirePoem'>像是经过了永远,如今相遇于同一轨迹,<br/>我并不奇怪你已经把我忘记。<br/>我相信我就是你所寻觅,<br/>我就是过去的德鲁普提。</span>";
-			if (game.portal.Toughness_II.locked) text += "<br/>你很高兴你正确地记得他的名字！当记忆开始恢复的时候让你感觉自己变得更加坚韧，并且<b>解锁 韧性II</b>!";
+			text = "The voice booms again, and sounds as if it is coming from the walls themselves.<br/><br/><span class='spirePoem'>It has been forever, yet now we meet,<br/>I'm not surprised you don't remember me.<br/>I believe it is I who you currently seek,<br/>Lifetimes ago I was Druopitee.</span>";
+			if (game.portal.Toughness_II.locked) text += "<br/>You're glad you remembered his name correctly! You feel tougher as memories begin to flood back, and <b>unlocked Toughness II</b>!";
 			message(text, "Story");
 			game.portal.Toughness_II.locked = false;
 			break;
 		case 20:
-			message("<span class='spirePoem'>在母星上我们共同研究时间,<br/>我们发现曲速可以影响时间线。<br/>我将成果安置在我的飞船之间,<br/>来测试新范式能做出什么改变。</span><br/>噢，是的。那里就是你认识他的地方！等等，他不是还欠你些钱吗？你从研究桌上取走了<b>40虚空物质</b>，你感觉很公平。", "Story");
+			message("<span class='spirePoem'>On our planet you and I studied time,<br/>We realized Warp Speed could affect that line.<br/>I took our work in a ship of my own design,<br/>To test the effects of our new paradigm.</span><br/>Oh yeah. That's where you knew him from! Wait doesn't he owe you some money? You feel fair taking a vial of <b>40 Nullifium</b> from a research table.", "Story");
 			game.global.nullifium += 40;
 			break;
 		case 30:
-			text += "<span class='spirePoem'>那测试使其他维度出现,<br/>某维度中，我发现这星球并飞来这边。<br/>如果不清理，大量敌人在此露面,<br/>在这里发现巨大，但威胁仍然未变。</span><br/>啊，所以你和你的朋友和家人处在一个不同的维度，真是令人安心。";
-			if (game.portal.Power_II.locked) text += " 你想要某天回家的愿望让你充满了力量,并且你<b>解锁了 力量II</b>!";
+			text += "<span class='spirePoem'>My tests made other dimensions appear,<br/>I found this planet in one and flew here.<br/>There were hordes of enemies, if that wasn't clear,<br/>The finding was huge but the threat severe.</span><br/>Ah, so you're in a different dimension than your friends and family, comforting.";
+			if (game.portal.Power_II.locked) text += " Your desire to go home some day causes strength to flow through you, and you <b>unlocked Power II</b>!";
 			message(text, "Story");
 			game.portal.Power_II.locked = false;
 			break;
 		case 40:
 
-			text = "<span class='spirePoem'>为了安全，我建造许多尖塔。<br/>爬到顶峰，数小时向外观察。<br/>多年研究，意识被吞噬变化,<br/>突然一天，找到变强的方法。</span><br/>该死的德鲁普提。归根结底这一切都是他的错，不是吗? ";
+			text = "<span class='spirePoem'>To stay safe, I built many large towers.<br/>I'd climb up, and I'd peer out for hours.<br/>I searched for lifetimes, my mind became devoured,<br/>then one day I found a way to gain power.</span><br/>Dammit Druopitee. This is all going to end up being his fault, isn't it? ";
 			if (!game.global.runningChallengeSquared){
 				amt = giveHeliumReward(15);
-				text += "你帮助自己充满容器，使用 " + prettify(amt) + " 氦, 当你听到更多的消息时，他会比你更感激你。";
+				text += "You help yourself to a container filled with " + prettify(amt) + " Helium, and figure he'll owe you a lot more than that once you hear some more.";
 				}
 			else
-				text += "你想要尝试去偷些什么东西，甚至是玩游戏，但什么都找不到。好吧。";
+				text += "You look for something to steal to try and even the playing field, but can't find anything. Oh well.";
 			message(text, "Story");
 			break;
 		case 50:
-			text = "<span class='spirePoem'>经过多年观察的帮助，<br/>我找到了我的救赎。<br/>空气传播诱导变异的化学产物,<br/>腐化便是我新的造物。</span><br/>是的,完全是他的错。";
-			if (game.portal.Motivation_II.locked) text += "你想要阻止他的欲望是如此强烈，以至于你解锁了<b>动机 II</b>!"
+			text = "<span class='spirePoem'>After many lifetimes of observation,<br/>I had finally found my salvation.<br/>An airborne chemical to cause great mutation,<br/>the Corruption was my new creation.</span><br/>Yup, totally his fault.";
+			if (game.portal.Motivation_II.locked) text += "Your desire to stop him is so strong that you've <b>unlocked Motivation II</b>!"
 			message(text, "Story");
 			game.portal.Motivation_II.locked = false;
 			break;
 		case 60:
 			game.global.nullifium += 60;
-			message("<span class='spirePoem'>我将腐化从尖塔抽出,<br/>看着它像野火蔓延飞速。<br/>它们臣服于我，无数意识连接成束,<br/>我几乎已拥有所要全部。</span><br/>你觉得任何想要把叫做“腐化”的东西注入大气层的人都能叫做超级恶棍。你拿走一个小瓶，其中装着<b>60虚空物质</b>!你觉得你不会后悔。", "Story");
+			message("<span class='spirePoem'>I pumped Corruption up from my spires,<br/>I watched as it spread outward like wildfires.<br/>They now bowed to me, their brains freshly rewired,<br/>I had almost all that I desired.</span><br/>You feel like anyone willing to pump something called 'Corruption' into a planet's atmosphere probably qualifies as a supervillain. You feel no remorse taking another vial filled with <b>60 Nullifium</b>!", "Story");
 			break;
 		case 70:
-			message("<span class='spirePoem'>但是脆皮，像岩石般顽固,<br/>从不改变，无法独自收服。<br/>驾驶飞船，回到母星船库,<br/>将你带至，脆皮生活之处。</span><br/>你不记得这些，但你很确定你对这件事很不满。他绑架了你，所以你拿走刚发现的研究用<b>传家宝</b>也是合理的。 ", "Story");
+			message("<span class='spirePoem'>But Trimps, who in numbers are tough as stone,<br/>weren't changed and I couldn't control them alone.<br/>So I got in my ship and I went to our home,<br/>I brought you here to the native Trimp Zones.</span><br/>You don't remember that, but are pretty sure you weren't OK with it. Kidnapping definitely justifies taking this research <b>Heirloom</b> you just found. ", "Story");
 			createHeirloom(201);
 			break;
 		case 80:
-			text = "<span class='spirePoem'>你不满我的计划，我只好强迫,<br/>我抹去你的记忆，规划你的路程经过。<br/>思索出有关装备与帮助的举措,<br/>我写下一切计划，向你诉说。</span><br/>噢，他写下了这些？现在你再想想，你能看到很多方法来改进这个计划。";
-			text += (game.portal.Carpentry_II.locked) ? ", 并 <b>解锁木工 II</b>!" : "。";
+			text = "<span class='spirePoem'>You disliked my plan and had to be forced,<br/>so I wiped your mind and plotted your course.<br/>I came up with plans for equipment and resorts,<br/>I wrote all I knew and left you reports.</span><br/>Oh HE wrote those? Now that you think about it, you can see a lot of ways the designs could be improved";
+			text += (game.portal.Carpentry_II.locked) ? ", and <b>unlocked Carpentry II</b>!" : ".";
 			message(text, "Story");
 			game.portal.Carpentry_II.locked = false;
 			break;
 		case 90:
-			text = "<span class='spirePoem'>当我观察等待，脆皮不断飞跃,<br/>它们非常忠诚，这无法否决。<br/>你不知我的计划，但仍然参与入列,<br/>现在选择臣服，或是选择毁灭。</span><br/>你不太喜欢臣服，你也不会对他臣服。";
+			text = "<span class='spirePoem'>Your Trimps grew strong while I watched and waited,<br/>Their loyalty can not be debated.<br/>You knew not of my plan, yet participated,<br/>Now bow to me or be terminated.</span><br/>Yeah you don't really feel too much like bowing and probably won't be doing that.";
 			if (!game.global.runningChallengeSquared){
 				amt = giveHeliumReward(30);
-				text += "你发现有" + prettify(amt) + "氦散落在周围，你会毫不犹豫地使用它们。";
+				text += " You did however find " + prettify(amt) + " more Helium just sitting around, which you feel no qualms about taking.";
 			}
 			message(text, "Story");
 			break;
 		case 100:
 			if (game.global.spireDeaths == 0) giveSingleAchieve("Invincible");
-			text = "德鲁普提瘫倒在地板上。你希望他能恢复理智。不管怎样，你关闭了腐化装置，并希望这星球能够不久后自我恢复，然后你在他的物品中翻找，找到了一把钥匙，这一定是飞船的钥匙！";
+			text = "Druopitee collapses to the floor. You were hoping he'd be a little more sane, but whatever. You shut down the corruption device and hope the planet will repair itself soon, then you rummage through his stuff and find keys, surely for the ship!";
 			if (!game.global.runningChallengeSquared){
 				amt = giveHeliumReward(100);
-				text += "你同时发现了<b>" + prettify(amt) + "氦</b>。";
+				text += " You also find a massive stockpile of <b>" + prettify(amt) + " Helium</b>.";
 			}
-			if (game.portal.Looting_II.locked) text += "你在尖塔中寻找东西的技巧帮助你<b>解锁掠夺 II</b>.";
+			if (game.portal.Looting_II.locked) text += " Your skills at salvaging things from this Spire have helped you <b>unlock Looting II</b>.";
 			if (game.global.spiresCompleted < 1){
-				text += "<br/> <br/>你注意到房间后面有一个小小的破旧箱子，在那里，Druopitee储存了他在许多时间线上收集的Skeletimp骨头。 你打开它然后找到<b> 20个完美的Skeletimp Bones！</b>你可以说下次这些骨头不在这里。尖塔的力量为你收集的所有黑暗精华提供永久的4倍加值，你可以通过传送门带回一个额外的传家宝，你的传送门也将自己修改为现在的液化区域等于你达到的最高区域的5％。 你不太清楚液化是什么，但你很高兴找到答案！"
+				text += "<br/><br/>You notice a small timeworn chest in the back of the room, where Druopitee had been storing the Skeletimp bones that he had collected over many timelines. You open it and find <b>20 Perfect Skeletimp Bones!</b> You can tell though that these bones won't be here next time. The Spire's power grants you a permanent 4x bonus to all Dark Essence you collect, you can carry an additional Heirloom back through the Portal, and your Portal has also modified itself to now Liquify Zones equal to 5% of your highest Zone reached. You're not quite sure what a liquify is, but you're excited to find out! "
 				game.global.b += 20;
 				updateSkeleBtn();
 				game.global.spiresCompleted = 1;
@@ -11895,9 +11892,9 @@ function rewardSpire1(level){
 			}
 			else{
 				createHeirloom(200, false, true);
-				text += "<br/><br/><b>你这次能够正确地移除Core，并找到了一个普通尖塔核心传家宝！</b>";
+				text += "<br/><br/><b>You were able to properly remove the Core this time, and have found a Common Spire Core Heirloom!</b>";
 			}
-			text += "<br/><br/>你帮助脆皮建立了能够流传于世的人口和经济，并且已经击败了使这个世界混乱的人。你现在可以离开，因为你的存在，这个宇宙永远都会变得更好。只要脆皮的文明存在，它们就会为你竖起一座雕像。但是你知道世界上仍然存在其他的尖塔，将腐化释放到这个星球上。如果你留下来并且帮助解决这些问题，或许你的雕像能更大一些？";
+			text += "<br/><br/>You've helped the Trimps establish a legendary population and economy, and have brought down the man responsible for the chaos in this world. You could leave now and the Universe will forever be better because you existed. Trimps will erect statues of you as long as their civilization survives. But you know there are still other spires out there, pumping Corruption into the planet. Maybe the statues would be bigger if you stayed and helped out?";
 			message(text, "Story");
 			game.portal.Looting_II.locked = false;
 			checkAchieve("spireTimed");
@@ -11912,7 +11909,7 @@ function rewardSpire1(level){
 			amt = 0.5;
 			amt *= Math.pow(1.01, level);
 			amt = giveHeliumReward(amt);
-			message("你找到了 " + prettify(amt) + " helium!", "Loot", heliumIcon(true), "helium", "helium");
+			message("You found " + prettify(amt) + " helium!", "Loot", heliumIcon(true), "helium", "helium");
 	}
 }
 
@@ -11935,10 +11932,10 @@ function displayGoldenUpgrades(redraw) {
 		var displayName = item;
 		if (displayName == "Helium" && game.global.universe == 2) displayName = "Radon";
 		if (usingScreenReader){
-			html += '<button id="srTooltip' + item + '" class="thing goldenUpgradeThing noSelect pointer upgradeThing" onclick="tooltip(\'' + item + '\',\'goldenUpgrades\',\'screenRead\')">Golden ' + item + ' Info</button><button onmouseover="tooltip(\'' + item + '\',\'goldenUpgrades\',event)" onmouseout="tooltip(\'hide\')" class="' + color + ' thing goldenUpgradeThing noselect pointer upgradeThing" id="' + item + 'Golden" onclick="buyGoldenUpgrade(\'' + item + '\')"><span class="thingName">金色 ' + displayName + ' ' + prettify(game.global.goldenUpgrades + 1) + '</span>, <span class="thingOwned" id="golden' + item + 'Owned">' + upgrade.purchasedAt.length + '</span></button>';
+			html += '<button id="srTooltip' + item + '" class="thing goldenUpgradeThing noSelect pointer upgradeThing" onclick="tooltip(\'' + item + '\',\'goldenUpgrades\',\'screenRead\')">Golden ' + item + ' Info</button><button onmouseover="tooltip(\'' + item + '\',\'goldenUpgrades\',event)" onmouseout="tooltip(\'hide\')" class="' + color + ' thing goldenUpgradeThing noselect pointer upgradeThing" id="' + item + 'Golden" onclick="buyGoldenUpgrade(\'' + item + '\')"><span class="thingName">Golden ' + displayName + ' ' + prettify(game.global.goldenUpgrades + 1) + '</span>, <span class="thingOwned" id="golden' + item + 'Owned">' + upgrade.purchasedAt.length + '</span></button>';
 		}
 		else{
-			html += '<div onmouseover="tooltip(\'' + item + '\', \'goldenUpgrades\', event)" onmouseout="tooltip(\'hide\')" class="' + color + ' thing goldenUpgradeThing noselect pointer upgradeThing" id="' + item + 'Golden" onclick="buyGoldenUpgrade(\'' + item + '\'); tooltip(\'hide\')"><span class="thingName">金色 ' + displayName + ' ' + romanNumeral(game.global.goldenUpgrades + 1) + '</span><br/><span class="thingOwned" id="golden' + item + 'Owned">' + upgrade.purchasedAt.length + '</span></div>';
+			html += '<div onmouseover="tooltip(\'' + item + '\', \'goldenUpgrades\', event)" onmouseout="tooltip(\'hide\')" class="' + color + ' thing goldenUpgradeThing noselect pointer upgradeThing" id="' + item + 'Golden" onclick="buyGoldenUpgrade(\'' + item + '\'); tooltip(\'hide\')"><span class="thingName">Golden ' + displayName + ' ' + romanNumeral(game.global.goldenUpgrades + 1) + '</span><br/><span class="thingOwned" id="golden' + item + 'Owned">' + upgrade.purchasedAt.length + '</span></div>';
 		}
 	}
 	var elem = document.getElementById('upgradesHere');
@@ -12055,7 +12052,7 @@ function distributeToChallenges(amt) {
 var dailyModifiers = {
 	minDamage: {
             description: function (str) {
-                return "脆皮的最小伤害降低 " + prettify(this.getMult(str) * 100) + "% (附加的)。";
+                return "Trimp min damage reduced by " + prettify(this.getMult(str) * 100) + "% (additive).";
             },
             getMult: function (str) {
                 return 0.1 + ((str - 1) * 0.01);
@@ -12068,7 +12065,7 @@ var dailyModifiers = {
         },
         maxDamage: {
             description: function (str) {
-                return "脆皮最大伤害增加 " + prettify(this.getMult(str) * 100) + "% (附加的)。";
+                return "Trimp max damage increased by " + prettify(this.getMult(str) * 100) + "% (additive).";
             },
             getMult: function (str) {
                 return str;
@@ -12081,7 +12078,7 @@ var dailyModifiers = {
         },
 		plague: { //Half of electricity
 			description: function (str) {
-                return "敌人的每次攻击叠加一个负面效果，每层效果在每回合对脆皮造成 " + prettify(this.getMult(str, 1) * 100) + "%总血量的伤害，直到脆皮死亡后重置。"
+                return "Enemies stack a debuff with each attack, damaging Trimps for " + prettify(this.getMult(str, 1) * 100) + "% of total health per turn per stack, resets on Trimp death."
             },
             getMult: function (str, stacks) {
                 return 0.01 * str * stacks;
@@ -12095,12 +12092,12 @@ var dailyModifiers = {
 			icon: "*bug2",
 			incompatible: ["rampage", "weakness"],
 			stackDesc: function (str, stacks) {
-				return "你的脆皮每次攻击后都会造成 " + prettify(this.getMult(str, stacks) * 100) + "% 伤害。";
+				return "Your Trimps are taking " + prettify(this.getMult(str, stacks) * 100) + "% damage after each attack.";
 			}
         },
 		weakness: {
 			description: function (str) {
-				return "敌人的每次攻击叠加一层负面效果，每层效果减少脆皮" + prettify(100 - this.getMult(str, 1) * 100) + "%的攻击。最高叠加9次，直到脆皮死亡后重置。";
+				return "Enemies stack a debuff with each attack, reducing Trimp attack by " + prettify(100 - this.getMult(str, 1) * 100) + "% per stack. Stacks cap at 9 and reset on Trimp death.";
 			},
 			getMult: function (str, stacks) {
 				return 1 - (0.01 * str * stacks);
@@ -12113,12 +12110,12 @@ var dailyModifiers = {
 			icon: "fire",
 			incompatible: ["bogged", "plague"],
 			stackDesc: function (str, stacks) {
-				return "你的脆皮攻击减少 " + prettify(100 - this.getMult(str, stacks) * 100) + "% 。";
+				return "Your Trimps have " + prettify(100 - this.getMult(str, stacks) * 100) + "% less attack.";
 			}
 		},
 		large: {
             description: function (str) {
-                return "所有房屋的脆皮容量减少 " + prettify(100 - this.getMult(str) * 100) + "%。";
+                return "All housing can store " + prettify(100 - this.getMult(str) * 100) + "% fewer Trimps";
             },
             getMult: function(str) {
                 return 1 - (0.01 * str);
@@ -12137,7 +12134,7 @@ var dailyModifiers = {
         },
 		dedication: {
 			description: function (str) {
-				return "通过收集获得的资源增加 " + prettify((this.getMult(str) * 100) - 100) + "%";
+				return "Gain " + prettify((this.getMult(str) * 100) - 100) + "% more resources from gathering";
 			},
 			getMult: function(str) {
 				return 1 + (0.1 * str);
@@ -12151,7 +12148,7 @@ var dailyModifiers = {
 		},
 		famine: {
             description: function (str) {
-                return "所有来源的金属，食物，木材和宝石收益减少" + prettify(100 - (this.getMult(str) * 100)) + "%。";
+                return "Gain " + prettify(100 - (this.getMult(str) * 100)) + "% less Metal, Food, Wood, and Gems from all sources";
             },
             getMult: function (str) {
                 return 1 - (0.01 * str);
@@ -12165,7 +12162,7 @@ var dailyModifiers = {
         },
 		badStrength: {
 			description: function (str) {
-				return "敌人攻击增加 " + prettify((this.getMult(str) * 100) - 100) + "%。";
+				return "Enemy attack increased by " + prettify((this.getMult(str) * 100) - 100) + "%.";
 			},
 			getMult: function (str) {
 				return 1 + (0.2 * str);
@@ -12178,7 +12175,7 @@ var dailyModifiers = {
 		},
 		badHealth: {
 			description: function (str) {
-				return "敌人血量增加 " + prettify((this.getMult(str) * 100) - 100) + "%.";
+				return "Enemy health increased by " + prettify((this.getMult(str) * 100) - 100) + "%.";
 			},
 			getMult: function (str) {
 				return 1 + (0.2 * str);
@@ -12191,7 +12188,7 @@ var dailyModifiers = {
 		},
 		badMapStrength: {
             description: function (str) {
-                return "地图上的敌人攻击增加 " + prettify((this.getMult(str) * 100) - 100) + "%.";
+                return "Enemy attack in maps increased by " + prettify((this.getMult(str) * 100) - 100) + "%.";
             },
             getMult: function (str) {
                 return 1 + (0.3 * str);
@@ -12204,7 +12201,7 @@ var dailyModifiers = {
         },
         badMapHealth: {
             description: function (str) {
-                return "地图上的敌人血量增加 " + prettify((this.getMult(str) * 100) - 100) + "%.";
+                return "Enemy health in maps increased by " + prettify((this.getMult(str) * 100) - 100) + "%.";
             },
             getMult: function (str) {
                 return 1 + (0.3 * str);
@@ -12217,7 +12214,7 @@ var dailyModifiers = {
         },
 		crits: {
             description: function (str) {
-                return "敌人有25%的机率产生重击，为普通伤害的 " + prettify(this.getMult(str) * 100) + "%。";
+                return "Enemies have a 25% chance to crit for " + prettify(this.getMult(str) * 100) + "% of normal damage.";
             },
             getMult: function (str) {
                 return 1 + (0.5 * str);
@@ -12230,7 +12227,7 @@ var dailyModifiers = {
 		},
 		trimpCritChanceUp: {
 			description: function (str) {
-				return "脆皮的暴击概率增加" + prettify(this.getMult(str) * 100) + "%。";
+				return "Your Trimps have +" + prettify(this.getMult(str) * 100) + "% Crit Chance.";
 			},
 			getMult: function(str) {
 				return str / 10;
@@ -12244,7 +12241,7 @@ var dailyModifiers = {
 		},
 		trimpCritChanceDown: {
             description: function (str) {
-                return "脆皮的暴击概率减少" + prettify(this.getMult(str) * 100) + "%。";
+                return "Your Trimps have -" + prettify(this.getMult(str) * 100) + "% Crit Chance.";
             },
             getMult: function (str) {
                 return str / 10;
@@ -12258,7 +12255,7 @@ var dailyModifiers = {
 		},
         bogged: {
             description: function (str) {
-                return "你的脆皮在每次攻击后减少最大生命值的 " + prettify(this.getMult(str) * 100) + "% 血量.";
+                return "Your Trimps lose " + prettify(this.getMult(str) * 100) + "% of their max health after each attack.";
             },
             getMult: function (str) {
                 return 0.01 * str;
@@ -12273,7 +12270,7 @@ var dailyModifiers = {
         },
 		dysfunctional: {
             description: function (str) {
-                return "减少 " + prettify(100 - (this.getMult(str) * 100)) + "% 的脆皮繁殖速度";
+                return "Your Trimps breed " + prettify(100 - (this.getMult(str) * 100)) + "% slower";
             },
             getMult: function (str) {
                 return 1 - (str * 0.05);
@@ -12286,7 +12283,7 @@ var dailyModifiers = {
         },
 		oddTrimpNerf: {
             description: function (str) {
-                return "脆皮在奇数区域减少 " + prettify(100 - (this.getMult(str) * 100)) + "% 攻击";
+                return "Trimps have " + prettify(100 - (this.getMult(str) * 100)) + "% less attack on odd numbered Zones";
             },
             getMult: function (str) {
                 return 1 - (str * 0.02);
@@ -12299,7 +12296,7 @@ var dailyModifiers = {
         },
         evenTrimpBuff: {
             description: function (str) {
-                return "脆皮在偶数区域增加 " + prettify((this.getMult(str) * 100) - 100) + "% 攻击";
+                return "Trimps have " + prettify((this.getMult(str) * 100) - 100) + "% more attack on even numbered Zones";
             },
             getMult: function (str) {
                 return 1 + (str * 0.2);
@@ -12315,7 +12312,7 @@ var dailyModifiers = {
 				return 'Gain a stack after killing an enemy, increasing all non ' + heliumOrRadon(false, true) + ' loot by ' + prettify((this.getMult(str, 1) * 100) - 100) + '%. Stacks cap at ' + this.getMaxStacks(str) + ', and reset after clearing a Zone.';
 			},
 			stackDesc: function (str, stacks){
-				return "你的脆皮额外找到 " + prettify((this.getMult(str, stacks) * 100) - 100) + "%的战利品!";
+				return "Your Trimps are finding " + prettify((this.getMult(str, stacks) * 100) - 100) + "% more loot!";
 			},
 			getMaxStacks: function (str) {
 				return Math.floor((str % 9) * 25) + 300;
@@ -12333,10 +12330,10 @@ var dailyModifiers = {
 		},
 		toxic: {
 			description: function (str) {
-				return "每杀死一个敌人叠一层减益效果,减少" + prettify(100 - (this.getMult(str, 1) * 100)) + '% (叠乘)的繁殖速度。最高叠' + this.getMaxStacks(str) + '层,每打通一个区域效果重置。';
+				return "Gain a stack after killing an enemy, reducing breed speed by " + prettify(100 - (this.getMult(str, 1) * 100)) + '% (compounding). Stacks cap at ' + this.getMaxStacks(str) + ', and reset after clearing a Zone.';
 			},
 			stackDesc: function (str, stacks){
-				return "脆皮的繁殖速度减缓了" + prettify(100 - (this.getMult(str, stacks) * 100)) + "%。";
+				return "Your Trimps are breeding " + prettify(100 - (this.getMult(str, stacks) * 100)) + "% slower.";
 			},
 			getMaxStacks: function (str) {
 				return Math.floor((str % 9) * 25) + 300;
@@ -12354,21 +12351,21 @@ var dailyModifiers = {
 		},
 		bloodthirst: {
 			description: function (str) {
-				return "当脆皮死后敌人叠加一层嗜血效果。每" + this.getFreq(str) + "层效果，敌人将回满生命，并获得50%的额外攻击。最高叠" + this.getMaxStacks(str) + "层，并在杀死敌人后重置效果。";
+				return "Enemies gain a stack of Bloodthirst whenever Trimps die. Every " + this.getFreq(str) + " stacks, enemies will heal to full and gain an additive 50% attack. Stacks cap at " + this.getMaxStacks(str) + " and reset after killing an enemy.";
 			},
 			stackDesc: function (str, stacks) {
 				var freq = this.getFreq(str);
 				var max = this.getMaxStacks(str);
-				var text = "这个敌人";
+				var text = "This Bad Guy";
 				if (stacks < max) {
 					var next = (freq - (stacks % freq));
-					text += "再叠" + next + "层嗜血后回满生命并增加攻击" + ((next == 1) ? "" : "") + ", " + ((stacks >= freq) ? "" : "") + "当脆皮死亡后增加一层";
+					text += " will heal to full and gain attack in " + next + " stack" + ((next == 1) ? "" : "s") + ", " + ((stacks >= freq) ? "" : " and") + " gains 1 stack whenever Trimps die";
 				}
 				if (stacks >= freq){
-					if (stacks < max) text += ",";
-					text += "现在已经增加" + prettify((this.getMult(str, stacks) * 100) - 100) + "%的攻击";
+					if (stacks < max) text += ", and";
+					text += " currently has " + prettify((this.getMult(str, stacks) * 100) - 100) + "% more attack";
 				}
-				text += "。";
+				text += ".";
 				return text;
 			},
 			getMaxStacks: function (str) {
@@ -12391,11 +12388,11 @@ var dailyModifiers = {
 		},
 		explosive: {
 			description: function (str) {
-				var text = "当敌人被杀死时，会瞬间造成相当于其攻击伤害" + prettify(this.getMult(str) * 100) + "%的伤害";
+				var text = "Enemies instantly deal " + prettify(this.getMult(str) * 100) + "% of their attack damage when killed";
 				if (str > 15) {
-					text += "，除非你的防御和超过最大生命值";
+					text += " unless your block is as high as your maximum health";
 				}
-				text += "。";
+				text += ".";
 				return text;
 			},
 			getMult: function (str) {
@@ -12418,7 +12415,7 @@ var dailyModifiers = {
 		},
 		slippery: {
 			description: function (str) {
-				return "敌人有" + prettify(this.getMult(str) * 100) + "%的概率闪躲你的攻击，该效果会在" + ((str <= 15) ? "奇数" : "偶数") + "区域出现。";
+				return "Enemies have a " + prettify(this.getMult(str) * 100) + "% chance to dodge your attacks on " + ((str <= 15) ? "odd" : "even") + " Zones.";
 			},
 			getMult: function (str){
 				if (str > 15) str -= 15;
@@ -12432,10 +12429,10 @@ var dailyModifiers = {
 		},
 		rampage: {
 			description: function (str) {
-				return "每杀死一个敌人叠一层暴怒效果,每层暴怒脆皮的攻击增加" + prettify((this.getMult(str, 1) * 100) - 100) + '% (叠加)。最高叠' + this.getMaxStacks(str) + '层,当脆皮死后效果重置。';
+				return "Gain a stack after killing an enemy, increasing Trimp attack by " + prettify((this.getMult(str, 1) * 100) - 100) + '% (additive). Stacks cap at ' + this.getMaxStacks(str) + ', and reset when your Trimps die.';
 			},
 			stackDesc: function (str, stacks){
-				return "你的脆皮增加了" + prettify((this.getMult(str, stacks) * 100) - 100) + "%伤害。";
+				return "Your Trimps are dealing " + prettify((this.getMult(str, stacks) * 100) - 100) + "% more damage.";
 			},
 			getMaxStacks: function (str) {
 				return Math.floor((str % 10 + 1) * 10);
@@ -12456,10 +12453,10 @@ var dailyModifiers = {
 			description: function (str) {
 				var size = str % 5;
 				if (size == 0) size = "";
-				else size = "前" + prettify(size * 2) + "行";
+				else size = "the first " + prettify(size * 2) + " rows of";
 
 				var name = (str < 4) ? "Mutimps" : "Hulking Mutimps";
-				return "世界上" + size + "的敌人将有40%概率变异成" + name + "。";
+				return "40% of Bad Guys in " + size + " the World will be mutated into " + name + ".";
 			},
 			getWeight: function (str) {
 				return (str / 10) * 1.5;
@@ -12476,13 +12473,13 @@ var dailyModifiers = {
 		empower: {
 			description: function (str) {
 				var s = (str == 1) ? "" : "s";
-				return "无论何时，当你的脆皮在世界中死亡，所有敌人会获得" + str + " 层赋能效果。每层赋能效果会使世界中的敌人增加0.2%的攻击与生命，最高可以叠9999层，此效果本轮永不重置";
+				return "All enemies gain " + str + " stack" + s + " of Empower whenever your Trimps die in the World. Empower increases the attack and health of Bad Guys in the World by 0.2% per stack, can stack to 9999, and never resets.";
 			},
 			getWeight: function (str) {
 				return (str / 6) * 2;
 			},
 			stackDesc: function (str, stacks){
-				return "这个敌人已被赋能，且增加了" + prettify((this.getMult(str, stacks) * 100) - 100) + "%的攻击与生命值。";
+				return "This Bad Guy is Empowered and has " + prettify((this.getMult(str, stacks) * 100) - 100) + "% more health and attack.";
 			},
 			stacksToAdd: function (str){
 				return str;
@@ -12501,7 +12498,7 @@ var dailyModifiers = {
 		},
 		pressure: {
 			description: function (str) {
-				return "每过" + Math.round(this.timePerStack(str)) + "秒脆皮们会叠一层压力效果。每层压力会减少脆皮1%的最大生命值。最高叠" + Math.round(this.getMaxStacks(str)) + "层,效果在打通区域后重置";
+				return "Trimps gain a stack of Pressure every " + Math.round(this.timePerStack(str)) + " seconds. Each stack of pressure reduces Trimp health by 1%. Max of " + Math.round(this.getMaxStacks(str)) + " stacks, stacks reset after clearing a Zone.";
 			},
 			getWeight: function(str){
 				var time = (105 - this.timePerStack(str));
@@ -12546,7 +12543,7 @@ var dailyModifiers = {
 				updateDailyStacks('pressure');
 			},
 			stackDesc: function(str, stacks){
-				return "你的脆皮正处于巨大的压力当中。最大生命值已经减少" + prettify((1 - this.getMult(str, stacks)) * 100) + "%。";
+				return "Your Trimps are under a lot of pressure. Maximum health is reduced by " + prettify((1 - this.getMult(str, stacks)) * 100) + "%.";
 			},
 			getMaxStacks: function(str){
 				var thisStr = Math.floor(str % 4);
@@ -12559,7 +12556,7 @@ var dailyModifiers = {
 		mirrored: {
 			description: function (str) {
 				var reflectChance = this.getReflectChance(str);
-				return "敌人有" + (reflectChance.toString()[0] == '8' ? '' : '') + " " + prettify(reflectChance) + "%的概率反弹一次攻击，将此次伤害的" + prettify(this.getMult(str) * 100) + "%返还给你的脆皮。";
+				return "Enemies have a" + (reflectChance.toString()[0] == '8' ? 'n' : '') + " " + prettify(reflectChance) + "% chance to reflect an attack, dealing " + prettify(this.getMult(str) * 100) + "% of damage taken back to your Trimps.";
 			},
 			getReflectChance: function(str){
 				return (Math.ceil(str / 10)) * 10;
@@ -12597,7 +12594,7 @@ var dailyModifiers = {
 		},
 		metallicThumb: {
 			description: function (str) {
-				return "装备的价格下降" + prettify((1 - this.getMult(str)) * 100) + "%。";
+				return "Equipment is " + prettify((1 - this.getMult(str)) * 100) + "% cheaper.";
 			},
 			getWeight: function (str) {
 				return ((str + 3) / 26);
@@ -12754,7 +12751,7 @@ function abandonDaily(){
 		checkAchieve('dailyHelium');
 	}
 	else console.log('attempted to give ' + reward + ' as daily challenge reward.');
-	message("你已经完成了每日挑战！ 你得到了回报 " + prettify(reward) + " 额外的 " + heliumOrRadon() + "!", "Notices");
+	message("You have completed the Daily challenge! You have been rewarded with " + prettify(reward) + " extra " + heliumOrRadon() + "!", "Notices");
 	game.global.dailyChallenge = {};
 	handleFinishDailyBtn();
 	return reward;
@@ -12845,20 +12842,20 @@ function getDailyTopText(add){
 			returnText += 'colorGrey';
 		else
 			returnText += 'colorSuccess';
-		returnText += "'>" + cnItem(dayOfWeek(getDailyTimeString(dayIndex, false, true))).charAt(1);
+		returnText += "'>" + dayOfWeek(getDailyTimeString(dayIndex, false, true)).charAt(0);
 		if (!dayDone){
 			var heliumValue = getDailyHeliumValue(countDailyWeight(getDailyChallenge(dayIndex, true)));
 			returnText += "<br/>" + prettify(heliumValue) + "%";
 		}
-		else returnText += "<br/>完成";
+		else returnText += "<br/>Done";
 		returnText += "</div>";
 	}
 	returnText += "</div>";
 	//returnText += "<div style='text-align: left; padding: 10px;'><span class='btn btn-md btn-primary' onclick='lastAdd += 7; selectChallenge(\"Daily\");'>Test Server Only - Travel To Next Week</span></div>"
-	returnText += "<div class='row' style='margin: 0'><div class='col-xs-6 lowPad dailyTop' style='font-weight: bold'>" + cnItem(dayOfWeek(getDailyTimeString(add, false, true))) + " " + getDailyTimeString(add, true) + "</div><div class='col-xs-6 dailyTop lowPad'>" + cnItem(dayOfWeek(getDailyTimeString(1, false, true))) + " 重置倒计时 <span id='dailyResetTimer'>00:00:00</span></div></div>";
+	returnText += "<div class='row' style='margin: 0'><div class='col-xs-6 lowPad dailyTop' style='font-weight: bold'>" + dayOfWeek(getDailyTimeString(add, false, true)) + " " + getDailyTimeString(add, true) + "</div><div class='col-xs-6 dailyTop lowPad'>" + dayOfWeek(getDailyTimeString(1, false, true)) + " resets in <span id='dailyResetTimer'>00:00:00</span></div></div>";
 
 	if (checkedDayDone)
-		returnText += "<b class='redText'>你已经尝试过这个每日挑战！</b><br/><br/>";
+		returnText += "<b class='redText'>You have already attempted this Daily Challenge!</b><br/><br/>";
 	return [returnText, !checkedDayDone];
 }
 
@@ -13715,11 +13712,11 @@ function fight(makeUp) {
 		}
 		challenge.drawStacks();
 	}
-	if (critTier == -1) critSpan.innerHTML = "<span style='color: cyan'>虚弱!</span>";
-	if (critTier == 1) critSpan.innerHTML = "暴击!";
-	if (critTier == 2) critSpan.innerHTML = "<span style='color: orange'>暴击!</span>";
+	if (critTier == -1) critSpan.innerHTML = "<span style='color: cyan'>Weak!</span>";
+	if (critTier == 1) critSpan.innerHTML = "Crit!";
+	if (critTier == 2) critSpan.innerHTML = "<span style='color: orange'>CRIT!</span>";
 	if (critTier == 3){
-		critSpan.innerHTML = "<span style='color: red'>暴击!!</span>";
+		critSpan.innerHTML = "<span style='color: red'>CRIT!!</span>";
 		redCritCounter++;
 	}
 	else if (critTier == 4){
@@ -13729,8 +13726,8 @@ function fight(makeUp) {
 	else redCritCounter = 0;
 	if (redCritCounter >= 10) giveSingleAchieve("Critical Luck");
 	var badCritText;
-	if (badDodge) badCritText = "躲闪!";
-	else if (badCrit && wasAttacked) badCritText = "暴击!";
+	if (badDodge) badCritText = "Dodge!";
+	else if (badCrit && wasAttacked) badCritText = "Crit!";
 	else badCritText = "";
 	document.getElementById("badCrit").innerHTML =  badCritText;
 	if (cell.health <= 0) game.global.battleCounter = 800;
@@ -13947,8 +13944,8 @@ function updateElectricityStacks(tipOnly){
 	var elem = document.getElementById("debuffSpan");
 	if (game.challenges.Electricity.stacks > 0){
 		var number = game.challenges.Electricity.stacks * 10;
-		var addText = '脆皮的攻击减少' + number + '%，且每个回合扣除' + number + '%的最大生命值数额的生命';
-		elem.innerHTML = '<span class="badge trimpBadge" onmouseover="tooltip(\'通电\', \'customText\', event, \'' + addText + '\'); updateElectricityTip()" onmouseout="tooltip(\'hide\')">' + game.challenges.Electricity.stacks + '<span class="icomoon icon-power"></span></span>';
+		var addText = 'Your Trimps are dealing ' + number + '% less damage and taking ' + number + '% of their total health as damage per attack.';
+		elem.innerHTML = '<span class="badge trimpBadge" onmouseover="tooltip(\'Electrified\', \'customText\', event, \'' + addText + '\'); updateElectricityTip()" onmouseout="tooltip(\'hide\')">' + game.challenges.Electricity.stacks + '<span class="icomoon icon-power"></span></span>';
 		if (tipOnly){
 			document.getElementById('tipText').innerHTML = addText;
 			return;
@@ -13970,8 +13967,8 @@ function updateAntiStacks(){
 		var number = ((game.global.antiStacks * getPerkLevel("Anticipation") * game.portal.Anticipation.modifier));
 		number = Math.floor(number * 100);
 		var verb = game.jobs.Amalgamator.owned > 0 ? "prepare" : "populate";
-		var s = game.global.antiStacks == 1 ? '' : '';
-		elem.innerHTML = '<span class="badge antiBadge" onmouseover="tooltip(\'Anticipation\', \'customText\', event, \'你的脆皮获得了 ' + number + '% 的额外伤害，因为需要 ' + game.global.antiStacks + ' 秒' + s + ' 来生产 ' + verb + '.\')" onmouseout="tooltip(\'hide\')">' + game.global.antiStacks + '<span class="icomoon icon-target2"></span></span>';
+		var s = game.global.antiStacks == 1 ? '' : 's';
+		elem.innerHTML = '<span class="badge antiBadge" onmouseover="tooltip(\'Anticipation\', \'customText\', event, \'Your Trimps are dealing ' + number + '% extra damage for taking ' + game.global.antiStacks + ' second' + s + ' to ' + verb + '.\')" onmouseout="tooltip(\'hide\')">' + game.global.antiStacks + '<span class="icomoon icon-target2"></span></span>';
 	}
 	else elem.innerHTML = "";
 }
@@ -13983,13 +13980,13 @@ function updateTitimp(){
 		return;
 	}
 		var number = Math.floor(game.global.titimpLeft);
-		elem.innerHTML = '<span class="badge antiBadge" onmouseover="tooltip(\'Titimp\', \'customText\', event, \'多亏了Titimp！你的脆皮攻击翻倍\');" onmouseout="tooltip(\'hide\')">' + number + '<span class="icomoon icon-hammer"></span></span>';
+		elem.innerHTML = '<span class="badge antiBadge" onmouseover="tooltip(\'Titimp\', \'customText\', event, \'Your Trimps are dealing double damage, thanks to the Titimp!\');" onmouseout="tooltip(\'hide\')">' + number + '<span class="icomoon icon-hammer"></span></span>';
 }
 
 function updateNomStacks(number){
 	var elem = document.getElementById('nomStack');
 	if (elem == null){
-		document.getElementById('badGuyName').innerHTML += ' <span class="badge badBadge" onmouseover="tooltip(\'Nom\', \'customText\', event, \'这个坏家伙因为吃脆皮而变得丰满。 每堆增加25％攻击伤害\');" onmouseout="tooltip(\'hide\')"><span id="nomStack">' + number + '</span><span class="glyphicon glyphicon-scale"></span></span>';
+		document.getElementById('badGuyName').innerHTML += ' <span class="badge badBadge" onmouseover="tooltip(\'Nom\', \'customText\', event, \'This Bad Guy is nice and plump from eating Trimps. Increases attack damage by 25% per stack\');" onmouseout="tooltip(\'hide\')"><span id="nomStack">' + number + '</span><span class="glyphicon glyphicon-scale"></span></span>';
 	}
 	else elem.innerHTML = number;
 }
@@ -14288,7 +14285,7 @@ function showBones() {
 		}
 		else document.getElementById("buyHeirloomArea").style.display = "none";
 	}
-	updateImportButton("首先，选中一个外来物种", false);
+	updateImportButton("First, select an Imp", false);
 	var heliumGainedArea = document.getElementById("heliumGainedMisc");
 	var heDescElem = document.getElementById("bonePortalDescription");
 	var heText = "+ " + prettify(boostHe(true)) + " " + heliumOrRadon();
@@ -14304,7 +14301,7 @@ function showBones() {
 		heText += ", " + prettify(fluffyStat.valueTotal) + " " + Fluffy.getName() + " Exp";
 	}
 	else document.getElementById('boneBuyRow').style.height = "27vw";
-	heDesc += " 其数量与你最好的一轮所获取的数量相同.";
+	heDesc += " equal to the amount you earned on your best run.";
 	if (fluffyStat.valueTotal > 0){
 		if (Fluffy.getLevel() == 10) {
 			heDesc += "<br/><b>" + Fluffy.getName() + " is at Level 10 and will not gain Exp!";
@@ -14341,7 +14338,7 @@ function heliumIcon(includePrefix){
 
 function updateImportButton(text, enabled){
 	var elem = document.getElementById("importPurchaseBtn");
-	elem.innerHTML = text + " (50 骨头)";
+	elem.innerHTML = text + " (50 bones)";
 	swapClass('boneBtnState', 'boneBtnState' + ((enabled) ? 'On' : 'Off'), elem);
 }
 
@@ -14377,7 +14374,7 @@ function selectImp(name){
 	if (boneTemp.selectedImport) document.getElementById(boneTemp.selectedImport).className = "";
 	document.getElementById(name).className = "tealColor";
 	boneTemp.selectedImport = name;
-	updateImportButton("购买 " + name, true);
+	updateImportButton("Buy " + name, true);
 
 }
 
@@ -14688,7 +14685,7 @@ function purchaseSingleRunBonus(what){
 
 function displaySingleRunBonuses(){
 	var anyPortals = (getTotalPortals() == 0);
-	var html = "<div class='boneBuyTitle'>单轮加成</div><div class='boneBuyDesc'>这些加成本轮生效，下一 " + ((anyPortals) ? "soft reset" : "Portal") + ". 明智地使用它们!</div>";
+	var html = "<div class='boneBuyTitle'>Single Run Bonuses</div><div class='boneBuyDesc'>These all last until your next " + ((anyPortals) ? "soft reset" : "Portal") + ". Use them wisely!</div>";
 	for (var item in game.singleRunBonuses){
 		var bonus = game.singleRunBonuses[item];
 		html += "<div id='" + item + "SingleBonusBox' class='singleBonusBox'>";
@@ -14713,7 +14710,7 @@ function displaySingleRunBonuses(){
 					btnClass = 'boneBtnStateOff'
 				else 
 					btnClass = 'boneBtnStateOn';
-				btnText = bonus.name + " (" + bonus.cost + " 骨头)";
+				btnText = bonus.name + " (" + bonus.cost + " bones)";
 			}
 		}
 		html += "<div class='boneBtn " + btnClass + " pointer noselect' id='" + item + "PurchaseBtn'";
@@ -14730,11 +14727,11 @@ function displaySingleRunBonuses(){
 }
 
 function successPurchaseFlavor(){
-	document.getElementById("boneFlavorRow").innerHTML = "骨法商人拿走了骨头，施展法术，然后开始做汤";
+	document.getElementById("boneFlavorRow").innerHTML = "The Bone Trader takes the bones, casts a spell, then begins to make soup";
 }
 
 function updateBones() {
-	document.getElementById("bonesOwned").innerHTML = prettify(game.global.b) + " " + ((game.global.b == 1) ? "骨头" : "骨头");
+	document.getElementById("bonesOwned").innerHTML = prettify(game.global.b) + " " + ((game.global.b == 1) ? "Bone" : "Bones");
 	updateSkeleBtn();
 	displaySingleRunBonuses();
 	updateBoneBtnColors();
@@ -14869,7 +14866,7 @@ function onPurchaseResult(result) {
 		var tooltipText = "Your purchase of ";
 		tooltipText += (split[0] > 0) ? split[0] + " bones has completed successfully!" : "the Exotic Imp-Ort Bundle has completed successfully, and your new Bad Guys will start spawning in your next Zone/map!";
 		tooltipText += " Below is the export code for your save file. <b>Please copy, paste, and back this up to somewhere safe, just in case.</b> Thank you for your support!";
-		tooltip('导出', null, 'update', tooltipText);
+		tooltip('Export', null, 'update', tooltipText);
 		boneTemp.waitingFor = "";
 	}
 }
@@ -14935,18 +14932,18 @@ function givePumpkimpLoot(){
 	var success = [
 		"Oops, that Pumpkimp just wanted to give you some candy. You found ",
 		"When checking the Pumpkimp for loot, you find a pouch that says to take one. You take all ",
-		"那个Pumpkimp给了你 ",
+		"That Pumpkimp gave you ",
 		"Right before you finish the Pumpkimp off, it throws a large bag at you and rolls away. Inside, you find ",
-		"这个Pumpkimp仍然很好，所以你让你的脆皮雕刻它。在里面,他们发现了 ",
-		"那个Pumpkimp被砸得粉碎，他给了你。 ",
-		"你挖掘出Pumpkimp的剩余部分，然后找到了 ",
+		"This Pumpkimp was still in pretty good shape, so you let your Trimps carve it. Inside, they found ",
+		"That Pumpkimp was so smashed that he gave you ",
+		"You dig through what's left of the Pumpkimp and find ",
 		"Aww man, there's seeds and orange stuff everywhere. At least you found ",
 		"You're not wearing a costume, but you'll still take this ",
 		"Heck yes, this Pumpkimp has your favorite treat! You picked up ",
 		"What a haunting sight! The Pumpkimp was punted by a plump Trimp after the fight. As it flies away, it drops "
 	];
 	var failures = [
-		"那个Pumpkimp什么也没给你!真是个混蛋!",
+		"That Pumpkimp gave you nothing! What a jerk!",
 		"Lame, this one just has stringy stuff in it.",
 		"You crack open your newly captured Pumpkimp and find... Nothing!",
 		"Right before you finish the Pumpkimp off, it winks at you and rolls away. That was pretty weird.",
@@ -15102,14 +15099,14 @@ function formatMinutesForDescriptions(number){
 	var text;
 	var minutes = Math.floor(number % 60);
 	var hours = Math.floor(number / 60);
-	if (hours == 0) text = minutes + " 分钟" + ((minutes == 1) ? "" : "");
+	if (hours == 0) text = minutes + " min" + ((minutes == 1) ? "" : "s");
 	else if (minutes > 0) {
 		if (minutes < 10) minutes = "0" + minutes;
 		text = hours + ":" + minutes;
 	}
 	else {
-		var s = (hours == 1) ? "" : "";
-		text = hours + " 小时" + s;
+		var s = (hours == 1) ? "" : "s";
+		text = hours + " hour" + s;
 	}
 	return text;
 }
@@ -15162,7 +15159,7 @@ function toggleVoidMaps(updateOnly){
 		mapsHere.style.display = "block";
 		mapsCreate.style.display = "block";
 		heirRare.style.display = "none";
-		elem.innerHTML = "虚空地图 (" + game.global.totalVoidMaps + ")";
+		elem.innerHTML = "Void Maps (" + game.global.totalVoidMaps + ")";
 		elem.style.display = (game.global.totalVoidMaps <= 0 || !game.global.preMapsActive) ? "none" : "block";
 		hideAdvMaps(true);
 		return;
@@ -15174,7 +15171,7 @@ function toggleVoidMaps(updateOnly){
 	heirRare.style.display = "block";
 	setHeirRareText();
 	hideAdvMaps(true, true);
-	elem.innerHTML = "返回";
+	elem.innerHTML = "Back";
 }
 
 function toggleAllAutoStructures(btnElem){
@@ -15216,7 +15213,7 @@ function toggleAutoStructure(noChange, forceOff){
 	}
 	var color = (setting.enabled) ? "colorSuccess" : "colorDanger";
 	swapClass("color", color, btnElem);
-	var text = (setting.enabled) ? "打开自动建筑" : "关闭自动建筑";
+	var text = (setting.enabled) ? "AutoStructure On" : "AutoStructure Off";
 	document.getElementById('autoStructureText').innerHTML = text;
 }
 
@@ -15236,7 +15233,7 @@ function toggleAutoJobs(noChange, forceOff){
 	}
 	var color = (setting.enabled) ? "colorSuccess" : "colorDanger";
 	swapClass("color", color, btnElem);
-	var text = (setting.enabled) ? "自动工作 开启" : "自动工作 关闭";
+	var text = (setting.enabled) ? "AutoJobs On" : "AutoJobs Off";
 	document.getElementById('autoJobsText').innerHTML = text;
 }
 
@@ -15284,7 +15281,7 @@ function toggleAutoGolden(noChange){
 	}
 	var color = "settingBtn" + setting;
 	swapClass("settingBtn", color, btnElem);
-	var texts = ["自动金色升级关闭", "自动金色升级-氦", "自动金色升级-战斗"];
+	var texts = ["AutoGold Off", "AutoGold Helium", "AutoGold Battle"];
 	if (getTotalPortals() > 0){
 		texts.push("AutoGold Voidlium");
 		texts.push("AutoGold Voidtle")
@@ -15524,7 +15521,7 @@ function toggleAutoTrap(updateOnly) {
 	var elem = document.getElementById("autoTrapBtn");
 	if (!game.global.trapBuildAllowed){
 		elem.style.display = "none";
-		elem.innerHTML = "关闭自动陷阱";
+		elem.innerHTML = "AutoTraps Off";
 		swapClass("color", "colorDanger", elem);
 		return;
 	}
@@ -15532,11 +15529,11 @@ function toggleAutoTrap(updateOnly) {
 	if (!updateOnly) game.global.trapBuildToggled = !game.global.trapBuildToggled;
 	if (game.global.trapBuildToggled){
 		swapClass("color", "colorSuccess", elem);
-		elem.innerHTML = "打开自动陷阱";
+		elem.innerHTML = "AutoTraps On";
 		return;
 	}
 	swapClass("color", "colorDanger", elem);
-	elem.innerHTML = "关闭自动陷阱";
+	elem.innerHTML = "AutoTraps Off";
 }
 
 function toggleAutoStorage(noChange){
@@ -15544,11 +15541,11 @@ function toggleAutoStorage(noChange){
 	var elem = document.getElementById("autoStorageBtn");
 	if (game.global.autoStorage) {
 		swapClass("color", "colorSuccess", elem);
-		elem.innerHTML = "打开自动存储";
+		elem.innerHTML = "AutoStorage On";
 	}
 	else {
 		swapClass("color", "colorDanger", elem);
-		elem.innerHTML = "关闭自动存储";
+		elem.innerHTML = "AutoStorage Off";
 	}
 }
 
@@ -15576,18 +15573,18 @@ function toggleAutoUpgrades(noChange){
 	if (!noChange) game.global.autoUpgrades = !game.global.autoUpgrades;
 	if (game.global.autoUpgrades){
 		swapClass("color", "colorSuccess", elem);
-		elem.innerHTML = "打开自动升级";
+		elem.innerHTML = "AutoUpgrade On";
 	}
 	else {
 		swapClass("color", "colorDanger", elem);
-		elem.innerHTML = "关闭自动升级";
+		elem.innerHTML = "AutoUpgrade Off";
 	}
 }
 
 var lastAutoPrestigeToggle = -1;
 var pantsMode = false;
 function toggleAutoPrestiges(noChange){
-	var autoPrestigeToggles = ["自动重铸关闭", "自动重铸所有装备", "只重铸武器", "优先重铸武器"];
+	var autoPrestigeToggles = ["AutoPrestige Off", "AutoPrestige All", "Weapons Only", "Weapons First"];
 	if (pantsMode) autoPrestigeToggles.push("PANTS ONLY");
 	if (!noChange) {
 		game.global.autoPrestiges++;
@@ -15855,7 +15852,7 @@ var Fluffy = {
 			possibilities = [name + "'s just chillin.", name + " can now predict the future, though he won't tell you what's going to happen.", name + "'s looking pretty buff.", name.toUpperCase() + " SMASH", name + "'s smelling great today.", name + " is a model Trimp.", name + " can do anything.", name + " once killed a Snimp with a well-timed insult.", name + " can juggle 3 dozen scientists without breaking a sweat.", name + " does a barrel roll.", name + "'s thinking about writing a book."];
 		}
 		else {
-			possibilities = ["He's enjoying the grind.", "He can't wait to get stronger.", "He could probably use a shower.", "He's growing up so fast.", "His fur is looking healthy today.", "He's feeling quite capable.", "He still drools a bit in his sleep.", "他喜欢一个精彩的游戏。", "He's been practicing juggling.", "He does a flip.", "He's the only Trimp not scared by your campfire ghost stories."];
+			possibilities = ["He's enjoying the grind.", "He can't wait to get stronger.", "He could probably use a shower.", "He's growing up so fast.", "His fur is looking healthy today.", "He's feeling quite capable.", "He still drools a bit in his sleep.", "He loves a good game of fetch.", "He's been practicing juggling.", "He does a flip.", "He's the only Trimp not scared by your campfire ghost stories."];
 		}
 		return possibilities[getRandomIntSeeded(timeSeed, 0, possibilities.length)];
 	},
@@ -16102,17 +16099,17 @@ var Fluffy = {
 		var bottomText = "";
 		var topText = "<div style='width: 100%; font-size: 0.95em;'><div class='fluffyThird'>";
 		var minZoneForExp = Fluffy.getMinZoneForExp() + 1;
-		if (this.getCurrentPrestige() > 0 || this.currentLevel == rewardsList.length) topText += "<span style='color: #740774'>进化 " + this.getCurrentPrestige() + " </span>";
-		topText += "等级 " + fluffyInfo[0] + "</div><div class='fluffyThird'>";
+		if (this.getCurrentPrestige() > 0 || this.currentLevel == rewardsList.length) topText += "<span style='color: #740774'>Evolution " + this.getCurrentPrestige() + " </span>";
+		topText += "Level " + fluffyInfo[0] + "</div><div class='fluffyThird'>";
 		if (savedLevel >= rewardsList.length) {
-			topText += "最大"
+			topText += "Max"
 		}
 		else {
 			topText += (Fluffy.canGainExp()) ? "<span>" : "<span class='red'>"
-			topText += prettify(fluffyInfo[1]) + " / " + prettify(fluffyInfo[2]) + " 经验";
+			topText += prettify(fluffyInfo[1]) + " / " + prettify(fluffyInfo[2]) + " Exp";
 			topText += "</span>";
 		}
-		topText += "</div><div class='fluffyThird'>+" + prettify((Fluffy.getDamageModifier() - 1) * 100) + "% 伤害"
+		topText += "</div><div class='fluffyThird'>+" + prettify((Fluffy.getDamageModifier() - 1) * 100) + "% damage"
 		topText += "</div></div>";
 		if (!Fluffy.isMaxLevel()){
 			if (savedLevel > fluffyInfo[0]) topText += "<span class='red'>- " + name + "'s level and damage bonus are currently reduced. " + name + " will return to level " + savedLevel + " when points are placed back in Capable.</span>";
@@ -16138,7 +16135,7 @@ var Fluffy = {
 		//clicked
 
 		if (Fluffy.currentLevel == 10 && this.getCurrentPrestige() < prestigeRewardsList.length)
-			topText += "<span class='fluffyEvolveText'>" + name + " 准备好进化了! 这将会重置它的伤害加成和所有特殊能力到等级0， 但是，他将会比以往任何时候都更加强大。你可以在任何时候取消这个进化，回到第10级。<br/><span class='btn btn-md btn-success' onclick='Fluffy.prestige(); Fluffy.refreshTooltip(true);'>进化!</span></span><br/>";
+			topText += "<span class='fluffyEvolveText'>" + name + " is ready to Evolve! This will reset his damage bonus and most abilities back to level 0, but he will regrow to be stronger than ever. You can cancel this Evolution at any point to return to level 10.<br/><span class='btn btn-md btn-success' onclick='Fluffy.prestige(); Fluffy.refreshTooltip(true);'>Evolve!</span></span><br/>";
 		if (Fluffy.canGainExp() && game.global.world >= minZoneForExp) {
 			topText += "- " + name + "'s Exp gain at the end of each Zone is equal to: ";
 			var fluffFormula = "<br/><span style='padding-left: 1em'>";
@@ -16149,7 +16146,7 @@ var Fluffy = {
 			else if (game.global.universe == 2) fluffFormula += Fluffy.baseExp + " * (" + Fluffy.expGrowth + "^(Zone * 3))";
 			else fluffFormula += Fluffy.baseExp + " * (" + Fluffy.expGrowth + "^(Zone - " + startNumber + "))";
 			fluffFormula += "</span>";
-			if (getHighestLevelCleared() >= 29) fluffFormula += ' * <span class="fluffFormDaily" onmouseover="Fluffy.expBreakdown(\'daily\')" onmouseout="Fluffy.expBreakdown(\'clear\')">每日' + heliumOrRadon() + '修饰符</span>';
+			if (getHighestLevelCleared() >= 29) fluffFormula += ' * <span class="fluffFormDaily" onmouseover="Fluffy.expBreakdown(\'daily\')" onmouseout="Fluffy.expBreakdown(\'clear\')">daily' + heliumOrRadon() + 'Modifier</span>';
 			if (game.talents.fluffyExp.purchased) fluffFormula += ' * <span class="fluffFormFlufffocus" onmouseover="Fluffy.expBreakdown(\'flufffocus\')" onmouseout="Fluffy.expBreakdown(\'clear\')">Flufffocus</span>';
 			if (getHeirloomBonus("Staff", "FluffyExp") > 0) fluffFormula += ' * <span class="fluffFormStaff" onmouseover="Fluffy.expBreakdown(\'staff\')" onmouseout="Fluffy.expBreakdown(\'clear\')">Staff</span>';
 			if (playerSpireTraps.Knowledge.owned) fluffFormula += ' * <span class="fluffFormKnowledge" onmouseover="Fluffy.expBreakdown(\'knowledge\')" onmouseout="Fluffy.expBreakdown(\'clear\')">Knowledge</span>';
@@ -16209,16 +16206,16 @@ var Fluffy = {
 	},
 	rewardConfig: {
 		stickler: {
-			description: "增加5%最高级传家宝的掉落几率, 并降低5%最低级传家宝的掉落几率。"
+			description: "Adds a 5% chance to earn the highest available heirloom tier, and subtracts a 5% chance from the lowest tier."
 		},
 		purifier: {
-			description: "尖塔中的腐败和健康细胞有50%概率失去它们的特性。"
+			description: "Corrupt and Healthy enemies in active Spires have a 50% chance to be missing their special ability."
 		},
 		lucky: {
-			description: "当完成地图获得一个隐藏奖励时, 你有25%概率找到第二个。"
+			description: "When completing a map with a cache, you have a +25% chance to find a second cache."
 		},
 		overkiller: {
-			description: "超杀有机会击中额外的一个敌人。"
+			description: "Overkill can now reach one extra enemy."
 		},
 		helium: {
 			get description(){
@@ -16226,16 +16223,16 @@ var Fluffy = {
 			}
 		},
 		void: {
-			description: "允许有两个相同名字的虚空地图粘在一起。在完成了这张2x的虚空地图之后，蓬松将会立即清除多余的那张，比正常的和第二次传家宝的氦要多一半的氦。"
+			description: "Allows up to two Void Maps with the same name to stick together. After completing this 2x Void Map, Fluffy will clear the extra one instantly, granting 50% more Helium than normal and a second Heirloom."
 		},
 		eliminator: {
-			description: "尖塔中的腐败和健康细胞会失去它们的所有特性。"
+			description: "Corrupt and Healthy enemies in active Spires no longer have any special abilities."
 		},
 		liquid: {
-			description: "增加2.5%的液化奖金。 (半个尖塔)。"
+			description: "Adds 2.5% to your liquification bonus (half of a Spire)."
 		},
 		voidance: {
-			description: "每个传送门，从两个双层的虚空地图开始。"
+			description: "Each Portal, start with two double stacked Void Maps."
 		},
 		dailies: {
 			get description(){
@@ -16243,14 +16240,14 @@ var Fluffy = {
 			}
 		},
 		critChance: {
-			description: "给予你的脆皮额外50%暴击几率。"
+			description: "Gives your Trimps an additional 50% crit chance."
 		},
 		megaCrit: {
 			get description(){
-				var text = "增加2倍的Mega暴击倍数，增加橙色暴击至 ";
+				var text = "Adds +2x to your MegaCrit multiplier, increasing Orange crits to ";
 				var current = [getMegaCritDamageMult(2), getMegaCritDamageMult(3)];
 				if (!Fluffy.isRewardActive('megaCrit')) current = [current[0] + 2, Math.pow((current[0] + 2), 2)] 
-				text += Math.floor(current[0]) + "x 和红色暴击 " + Math.floor(current[1]) + "x."
+				text += Math.floor(current[0]) + "x and Red crits to " + Math.floor(current[1]) + "x."
 				return text;
 			}
 		},
@@ -16262,10 +16259,10 @@ var Fluffy = {
 			}
 		},
 		voidelicious: {
-			description: "每一个传送门都有一个独一无二的虚空地图(总共16个)"
+			description: "Start each Portal with 1 of each uniquely named Void Map (16 total)."
 		},
 		naturesWrath: {
-			description: "提高大自然的力量！毒药增益+10到堆叠转移率，来自风的氦奖励增加5倍，来自冰的伤害加成加倍。"
+			description: "Improves Empowerments of Nature! Poison gains +10 to Stack Transfer rate, Helium rewards from Wind are increased by 5x, and the damage bonus from Ice is doubled."
 		},
 		voidSiphon: {
 			description: "Your Trimps gain 5% attack each time you clear a Void Map. This bonus stacks additively and resets on Portal."
@@ -16359,10 +16356,10 @@ function getPlayFabLoginHTML(){
 	if (game.global.rememberInfo) {
 		info = readPlayFabInfo();
 	}
-		tipHtml[0] += "<div id='playFabLoginContainer' class='col-xs-6'><b id='playFabLoginTitle'>登录PlayFab</b><br/><span id='playFabEmailHidden' style='display: none'>你的邮箱<br/><span id='emailNotice' style='font-size: 0.8em'>(为了恢复，必需)<br/></span><input type='text' id='registerEmail' /></span><span id='usernameBox'>PlayFab用户名<br/><input type='text' id='loginUserName' " + ((info) ? "value='" + info[0] + "'" : "") + "/></span><span id='playFabPasswordBox'><br/>密码 <span style='font-size: 0.8em'>(6-30 字符 )</span><br/><input type='password' id='loginPassword'" + ((info) ? " value='" + info[1] + "'" : "") + "/></span><br/><div id='playFabConfirmPasswordHidden' style='display: none'>重复密码<br/><input type='password' id='confirmPassword' /><br/></div><span id='rememberInfoBox'>记住账号信息<br/><input type='checkbox' id='rememberInfo' " + ((info) ? "checked='true'" : "") + "/><br/></span><div id='playFabLoginBtn' class='btn btn-sm btn-info' onclick='playFabLoginWithPlayFab()'>登录</div><div id='playFabRegisterBtn' class='btn btn-sm btn-info' style='display: none' onclick='playFabRegisterPlayFabUser()'>注册</div><span style='display: none' id='playFabRecoverBtns'><div class='btn btn-sm btn-info' onclick='playFabRecoverInfo(false)' style='display: none'>找回用户名</div><div class='btn btn-sm btn-primary' onclick='playFabRecoverInfo(true)'>发送密码重置邮件</div></span><div id='playFabSwitchRegisterBtn' onclick='switchForm(true)' class='btn btn-sm btn-primary'>注册Playfab账号</div><div id='playFabSwitchRecoveryBtn' onclick='switchForm(false)' class='btn btn-sm btn-warning'>恢复帐户信息</div></div>"
+		tipHtml[0] += "<div id='playFabLoginContainer' class='col-xs-6'><b id='playFabLoginTitle'>Login to PlayFab</b><br/><span id='playFabEmailHidden' style='display: none'>Your Email<br/><span id='emailNotice' style='font-size: 0.8em'>(For recovery, not required)<br/></span><input type='text' id='registerEmail' /></span><span id='usernameBox'>PlayFab Username<br/><input type='text' id='loginUserName' " + ((info) ? "value='" + info[0] + "'" : "") + "/></span><span id='playFabPasswordBox'><br/>Password <span style='font-size: 0.8em'>(6-30 Chars)</span><br/><input type='password' id='loginPassword'" + ((info) ? " value='" + info[1] + "'" : "") + "/></span><br/><div id='playFabConfirmPasswordHidden' style='display: none'>Confirm Password<br/><input type='password' id='confirmPassword' /><br/></div><span id='rememberInfoBox'>Remember Account Info<br/><input type='checkbox' id='rememberInfo' " + ((info) ? "checked='true'" : "") + "/><br/></span><div id='playFabLoginBtn' class='btn btn-sm btn-info' onclick='playFabLoginWithPlayFab()'>Login</div><div id='playFabRegisterBtn' class='btn btn-sm btn-info' style='display: none' onclick='playFabRegisterPlayFabUser()'>Register</div><span style='display: none' id='playFabRecoverBtns'><div class='btn btn-sm btn-info' onclick='playFabRecoverInfo(false)' style='display: none'>Get Username</div><div class='btn btn-sm btn-primary' onclick='playFabRecoverInfo(true)'>Send Password Reset Email</div></span><div id='playFabSwitchRegisterBtn' onclick='switchForm(true)' class='btn btn-sm btn-primary'>Register Playfab Account</div><div id='playFabSwitchRecoveryBtn' onclick='switchForm(false)' class='btn btn-sm btn-warning'>Recover Account Info</div></div>"
 	}
-	tipHtml[0] += "<div id='playFabLoginInfo' class='col-xs-6'><ul><li>连接到PlayFab时，每次手动保存时，每30分钟自动保存<b>一次</ b>，您的存档文件也将发送到PlayFab的服务器。</ li> <li>如果3个月内没有更新存档，存档将被从PlayFab的服务器删除，这不是一个永久保存！</li></ul>"
-	tipHtml[1] = "<div class='btn btn-sm btn-danger' onclick='cancelTooltip()'>取消</div>";
+	tipHtml[0] += "<div id='playFabLoginInfo' class='col-xs-6'><ul><li>While connected to PlayFab, every time you manually save and <b>once per 30 minutes when auto-saving</b>, your file will also be sent to PlayFab's servers.</li><li>Data will be cleared from PlayFab's servers after 3 months of inactivity, this is not a permanent save!</li></ul>"
+	tipHtml[1] = "<div class='btn btn-sm btn-danger' onclick='cancelTooltip()'>Cancel</div>";
 	return tipHtml;
 }
 
@@ -16390,7 +16387,7 @@ function switchForm(register){ //true for register, false for recovery
 	if (rememberBox != null && !register) rememberBox.style.display = "none";
 	if (switchRecoveryBtn != null) switchRecoveryBtn.style.display = "none";
 	if (confirmPasswordBtn != null && register) confirmPasswordBtn.style.display = "block";
-	if (title != null) title.innerHTML = (register) ? "注册一个PlayFab账号" : "恢复帐户信息 - <i>必须在注册期间提供电子邮件</ i>";
+	if (title != null) title.innerHTML = (register) ? "Register a PlayFab Account" : "Recover PlayFab Account Info - <i>Must have provided Email during registration</i>";
 }
 
 function playFabRecoverInfo(needsPassword){
@@ -16672,7 +16669,7 @@ var playFabSaveErrors = 0;
 function saveToPlayFabCallback(data, error){
 	if (error){
 		playFabSaveErrors++;
-		message("无法将您的保存备份到PlayFab！ 仔细检查您的互联网连接，不要忘记手动备份您的保存。", "Notices");
+		message("Unable to back up your save to PlayFab! Double check your internet connection, and don't forget to back up your save manually.", "Notices");
 		swapClass("iconState", "iconStateBad", document.getElementById('playFabIndicator'));
 		console.log(error);
 		if (playFabId != -1) {
@@ -16683,7 +16680,7 @@ function saveToPlayFabCallback(data, error){
 	if (data){
 		swapClass("iconState", "iconStateGood", document.getElementById('playFabIndicator'));
 		lastOnlineSave = performance.now();
-		message("游戏保存并备份到PlayFab！ 下次自动在线保存30分钟。", "Notices", null, "save");
+		message("Game saved and backed up to PlayFab! Next automatic online save in 30 minutes.", "Notices", null, "save");
 		return true;
 	}
 }
@@ -16692,7 +16689,7 @@ function playFabAttemptReconnect(reconnected){
 	console.log((reconnected) ? "Reconnected" : "Attempting to reconnect");
 	if (reconnected){
 		playFabSaveErrors = 0;
-		message("重新连接到PlayFab！", "Notices", null, "save");
+		message("Reconnected to PlayFab!", "Notices", null, "save");
 		swapClass("iconState", "iconStateGood", document.getElementById('playFabIndicator'));
 		return;
 	}
@@ -17132,9 +17129,6 @@ document.addEventListener('keyup', function(e) {
 	}
 
 }, true);
-
-
-
 
 
 load();
