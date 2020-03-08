@@ -1509,11 +1509,19 @@ var cnItems = {
     'Housing': '房屋',
     'Territory Bonus': '领土奖励',
     'Select a Mod': '选择一个模式',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
+    'Don\'t forget to bring a challenge': '别忘了带一个挑战',
+    'Click a challenge below to learn more about and/or run it!': '点击下面的挑战来了解更多和/或运行它！',
+    'None': '无',
+    'Level: ': '等级: ',
+    'Price': '价格',
+    'Spent': '花费',
+    "You can sense great power within Fluffy, but he'll need some training. Each level of Capable allows Fluffy to gain 1 level of Experience. Respeccing to remove Capable will temporarily remove any bonuses associated with Fluffy's level and Experience, but all Exp will be saved until you add points back. Each level of Capable is 10x more expensive than the last, and buying the first level will allow Fluffy to take Portals with you.": '你可以在蓬松中感受到巨大的力量，但他需要一些训练。 能力的每个级别都允许蓬松获得1级的经验。 降低能力等级将暂时移除蓬松的等级和经验以及相关的任何奖励，但所有的经验都将被保存，直到重新提升能力等级为止。 能力的每个级别比上一级贵10倍，购买第一级将允许蓬松陪你一起传过传送门。',
+    "Fluffy demands more helium! Each level of Cunning will increase the final amount of Experience Fluffy gains from each Zone by 25% (additive).": '蓬松需要更多的氦气！ 每个级别的狡猾将增加 25% 经验(线性)',
+    "Fluffy is coming along, but he's coming along slowly. Each point of Curious will speed up Fluffy's progression by adding 60 Exp to the base amount he gains per Zone clear.": '蓬松进步中, 但他进步的有点慢。 每一级的好奇都将加速蓬松的发展。每级增加 60 点每个区域的基础经验。',
+    "You have overcome the otherworldly objective of obtaining Overkill, outstanding! Each level of this perk will allow 0.5% of your overkill damage to harm the next enemy. If this damage kills the next enemy, you will lose no time moving through that cell. Maximum of 30 levels.": "你已经完成了一个超凡脱俗的目标，那就是获得超额伤害(超出敌人生命值的伤害)，出类拔萃！每个等级的能力将会允许你的超额伤害的0.5%去伤害下一个敌人。如果这个伤害杀死了下一个敌人，你就不用再经过那个方块了。最高30层。",
+    "Spending time with limited maps has taught you how to be more resourceful. Each level will allow you to spend 5% fewer resources": '经历了对地图的限制教会了你如何变得更足智多谋。每级都能让你少花5%的资源',
+    'than the current cost': '(比当前的成本)',
+    'per level on all structures.': '，作用于所有建筑物',
     '': '',
     '': '',
     '': '',
@@ -1662,7 +1670,7 @@ var cnPostfix = {
 var cnExcludeWhole = [
     /^x?\d+(\.\d+)?(e[+\-]?\d+)?\s*\-?$/, //12.34e+4
     /^\s*$/, //纯空格
-	/^[\s\d\(]+$/,
+	/^[e\s\d\(]+$/,
 	/^\d+(\.\d+)?(e[+\-]?\d+)?\s*工作空间$/,
 	/^\d+(\.\d+)?(e[+\-]?\d+)?\s*\/秒$/,
 	/^\d+\s*工头$/,
@@ -1855,5 +1863,6 @@ var cnRegReplace = new Map([
 	[/^(.*)Storage Size/, '$1存储上限'],
 	[/^Add \((.+) Nu/, '添加 ($1虚空物质'],
 	[/^Replace \((.+) Nu/, '替换 ($1虚空物质'],
+	[/^You have spent (.+) Helium on this Perk/, '你已经花费 $1 氦在这个附带福利上'],
 
 ]);
