@@ -1,8 +1,4 @@
 var playerSpire = {
-    // 数值计算开始
-    LastShangHai: 0,
-    LastDiaoLuo: 0,
-    // 数值计算结束
     layout: [],
     rowsAllowed: 1,
     resetToRows: 1,
@@ -1338,9 +1334,6 @@ var playerSpire = {
                         if (newLocation != x) playerSpire.drawEnemy(newLocation);
                     }
                 }
-                // 数值计算开始
-                cnLog(x,cells,enemy,rsBonus,this.LastDiaoLuo,this.getRsReward(enemy, rsBonus),this.LastShangHai);
-                // 数值计算结束
             }
             if (drawCell && !catchingUp) playerSpire.drawEnemy(x);
         }
