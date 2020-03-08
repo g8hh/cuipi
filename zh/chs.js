@@ -1382,8 +1382,8 @@ var cnItems = {
     'Each trainer will increase the base amount your soldiers can block by 20%.': '每位训练师都会将您的士兵可以格挡的基础伤害数量提高20％。',
     'This Bad Guy is fast and attacks first': '这个坏家伙速度快并且首先攻击',
     'Reach Z5 after losing no more than one fight per Zone.': '每个区域最多输完一场战斗后达到Z5。',
-    '45 seconds of production for 1 random resource': '1个随机资源的生产时间为45秒',
-    '5 seconds of production for all basic resources': '所有基本资源的制作时间为5秒',
+    '45 seconds of production for 1 random resource': '1个随机资源的45秒产量',
+    '5 seconds of production for all basic resources': '所有基本资源的5秒产量',
     '50% Trimp Damage': '50% 脆皮伤害',
     'Automatically gain Helium equal to the amount you earned on your best run.': '自动获得等于您在最佳运行中获得的氦气量。',
     'Buy Chronoimp (50 bones': '购买 Chronoimp（50骨头',
@@ -1443,6 +1443,7 @@ var cnItems = {
     'building,': '建筑,',
     'CRIT!!': '暴击!!',
     'CRIT!': '暴击!',
+    'Crit!': '暴击!',
     'Got it!': '得到它！',
     'Use them wisely...': '明智地使用它们...',
     'What\'s New': '最新消息',
@@ -1473,9 +1474,14 @@ var cnItems = {
     'In addition, having at least one Amalgamator will cause Anticipation stacks to increase based on when the last soldiers were sent, rather than being based on time spent actually breeding.': '此外，至少有一个混血师会导致预期堆叠的增加是基于最后一名士兵被派遣的时间，而不是基于实际繁殖的时间。',
     'MagnetoShriek is NOT active and will not fire.': '磁力护盾未激活，将不会触发。',
     'No Formation': '没有阵型',
-    '': '',
-    '': '',
-    '': '',
+    'Gardens': '花园',
+    'FluffyExp': '蓬松经验',
+    'AutoEquip On': '自动装备 开启',
+    'AutoEquip Off': '自动装备 关闭',
+    'AutoGold Off': '自动金色 关闭',
+    'AutoPrestige All': '自动重铸 全部',
+    'Gain Mi': '获得岩浆岩',
+    'Maps (': '地图 (',
     '': '',
     '': '',
     '': '',
@@ -1618,15 +1624,24 @@ var cnPostfix = {
 var cnExcludeWhole = [
     /^x?\d+(\.\d+)?(e[+\-]?\d+)?\s*\-?$/, //12.34e+4
     /^\s*$/, //纯空格
-	/^\d+(\.\d+)?(e[+\-]?\d+)?\s*工作空间$/, //12.34e+4
-	/^\d+(\.\d+)?(e[+\-]?\d+)?\s*\/秒$/, //12.34e+4
-	/^\d+\s*工头$/, //12.34e+4
-	/^\d+\s*级地图$/, //12.34e+4
-	/^\d+\s*岩浆岩$/, //12.34e+4
-	/^\d+\s*Mi$/, //12.34e+4
-	/^(\d+\s*分\s*)?\d+\s*秒$/, //12.34e+4
-	/^(\d+\s*时\s*)?\d+\s*分$/, //12.34e+4
-	/^(\d+\s*天\s*)?\d+\s*时$/, //12.34e+4
+	/^\d+(\.\d+)?(e[+\-]?\d+)?\s*工作空间$/,
+	/^\d+(\.\d+)?(e[+\-]?\d+)?\s*\/秒$/,
+	/^\d+\s*工头$/,
+	/^\d+\s*级地图$/,
+	/^\d+\s*岩浆岩$/,
+	/^\d+\s*Mi$/,
+	/^(\d+\s*分\s*)?\d+\s*秒$/,
+	/^(\d+\s*时\s*)?\d+\s*分$/,
+	/^(\d+\s*天\s*)?\d+\s*时$/,
+	/^你击毁了一个.+$/,
+	/^你灭绝了一个.+$/,
+	/^你捣毁了一个.+$/,
+	/^你毁灭了一个.+$/,
+	/^你摧毁了一个.+$/,
+	/^你抹杀了一个.+$/,
+	/^你清算了一个.+$/,
+	/^你杀害了一个.+$/,
+	/^你杀死了一个.+$/,
 ];
 var cnExcludePostfix = [
     /:?\s*x?\d+(\.\d+)?(e[+\-]?\d+)?\s*$/, //12.34e+4
@@ -1654,13 +1669,14 @@ var cnRegReplace = new Map([
     [/^Z (.+) map$/, '区域 $1 地图'],
     [/^You have (.+) Fragments.$/, '您有$1片段。'],
     [/^(.+) Mins (.+) Sec$/, '$1 分 $2 秒'],
-    [/^(.+) Day (.+) Hour$/, '$1 天 $2 小时'],
-    [/^(.+) Day (.+) Hours$/, '$1 天 $2 小时'],
-    [/^(.+) Days (.+) Hours$/, '$1 天 $2 小时'],
+    [/^(.+) Days? (.+) Hours?$/, '$1 天 $2 小时'],
+    [/^(.+) Years? (.+) Days?$/, '$1 年 $2 天'],
     [/^It takes some patience, but you can teach these Trimps to do some research for you. Each Scientist records (.+) units of pure science each second.$/, '这需要一些耐心，但是您可以教这些Trimps为您做一些研究。 每位科学家每秒记录$1单位纯科学。'],
     [/^Train one of your Trimps in the ancient art of farming. Each Farmer harvests (.+) food per second.$/, '在古老的耕作艺术中训练您的脆皮之一。 每个农民每秒收获$1粮食。'],
     [/^Show a Trimp how to cut one of those weird trees down. Each Lumberjack hauls back (.+) logs per second.$/, '向脆皮展示如何砍掉其中一棵怪异的树木。 每个伐木工人每秒钟可拖回$1根原木。'],
     [/^Send your misbehaving Trimps to the mines for some therapeutic work. Each Miner can find and smelt (.+) bars of metal per second.$/, '将行为不端的脆皮送到地雷进行一些治疗工作。 每个矿工每秒可以发现和冶炼$1金属条。'],
+    [/^Each trainer will increase the base amount your soldiers can block by (.+).$/, '每个培训师增加你的战士 $1 防御'],
+    [/^Each explorer will find an average of (.+) fragments each second.$/, '每个探险家每秒收集 $1 碎片'],
     [/^Welcome back! You were offline for (.+) days and (.+) hours.$/, '欢迎回来!你离线$1天$2小时。'],
     [/^Welcome back! You were offline for (.+) minutes and (.+) seconds.$/, '欢迎回来!你离线$1分$2秒。'],
     [/^Welcome back! You were offline for (.+) minutes.$/, '欢迎回来!你离线$1分钟。'],
@@ -1675,6 +1691,9 @@ var cnRegReplace = new Map([
     [/^metal:(.+)\($/, '金属: $1 \('],
     [/^wood:(.+)\($/, '木头: $1 \('],
     [/^science:(.+)\($/, '科学: $1 \('],
+    [/^fragments:(.+)\($/, '碎片: $1 \('],
+    [/^gems:(.+)\($/, '宝石: $1 \('],
+    [/^helium:(.+)\($/, '氦: $1 \('],
     [/^([\d\.]+) Trimp$/, '$1 脆皮'],
     [/^([\d\.]+) Trimps$/, '$1 脆皮'],
     [/^(.+) \/ (.+) ticks \($/, '$1 \/ $2 \('],
