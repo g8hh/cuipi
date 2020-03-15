@@ -219,6 +219,7 @@ function TransSubTextNode(node) {
                 mutation.target.innerText = cnItem(mutation.target.innerText, mutation.target);
             } else if (mutation.addedNodes.length > 0) {
                 for (let node of mutation.addedNodes) {
+					if (!targetNode.contains(node)) continue; //不要和空气斗智斗勇
                     if (node.nodeName === "#text") {
                         node.textContent = cnItem(node.textContent, node);
                         //console.log(node);
