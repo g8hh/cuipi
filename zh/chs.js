@@ -1609,6 +1609,20 @@ var cnItems = {
 	"By your orders, your scientists have begun to try and figure out how large this planet is.": "根据您的命令，您的科学家们已经开始尝试了解这个星球有多大。",
 	"You found plans for a Polearm!": "你找到了一个长柄武器的图纸！",
 	"You found plans for Pants!": "你找到了一个裤子的图纸！",
+	"You order your Trimps to search the area for the keys to your ship, but nobody finds anything. Bummer.": "您命令脆皮在该地区搜索您的船只的钥匙，但没有人找到任何东西。真令人失望。",
+	"Do you see that thing at the end of this zone? It's huge! It's terrifying! You've never seen anything like it before, but you know that it is a Blimp. How did you know that? Stop knowing things and go kill it.": "你看到尽头的那个东西了吗？多么的巨大！多么的可怕！ 你以前从未见过这样的东西,但是你知道这是一个顽固的守卫。你是怎么知道的？别问为什么了，去杀死它！",
+	"Slow and steady wins the race. Unless you're racing someone who is actually trying.": "慢而稳事必成， 除非跟你竞争的人比你更努力。",
+	"You can't shake the feeling that you've been here before. Déjà-vu?": "你不能排除那种你以前来过这里的感觉，似曾相识。",
+	"Looks like another Blimp up ahead. Hard to tell from far away, but it looks like it has more heads than the last one.": "看起来像另一个顽固的守卫。但很难说，特别是从这么远的地方，不过它看起来比上次那个多了一个头。",
+	"You're unstoppable as long as nothing stops you. Unfortunately, it seems like something really wants to stop you.": "你不可阻挡，只要没人阻拦你。 不幸的是，看起来有些东西像是真的想阻止你。",
+	"Did you see that green light flash by? Weird. Oh well.": "你看到绿光一闪而过吗？奇怪。噢，好吧。",
+	"Another day, another Blimp at the end of the zone": "另一天,又是一个顽固的守卫在区域的尽头。",
+	"Seriously? Another Blimp so soon?": "你是认真的吗？又一个守卫！",
+	"You climb a large cliff and look out over the new zone. Red dirt, scorched ground, and devastation. Is that a Dragimp flying around out there?!": "你爬上一个巨大的悬崖，俯瞰着一片新的区域。红色的泥土，烧焦的地面，一片荒芜。 那是一头龙在飞来飞去吗？！",
+	"There seems to be a strange force urging you to keep going. The atmosphere is becoming... angrier. Part of you wants to turn around and go back, but most of you wants to keep going.": "似乎有一种奇怪的力量鼓励你继续前行。气氛变得有点，愤怒的感觉。 你的身体的一部分想转身回去,但其他大部分想继续前行。",
+	"You look behind and see your kingdom. You have gems, a colony, and territory. You wonder if enough Trimps have already fallen in battle. After contemplation, one word falls out of your mouth as you begin to move forward. 'Nah'": "你回头看看你的王国，你拥有宝石、殖民地和领土。 你在想你的脆皮是不是已经在战斗中牺牲了。 沉思之后， 两个字从你的嘴里蹦了出来 “算了”",
+	"You can sense that you're close to your goal.": "你感觉到你离你的目标已经不远了。",
+	"": "",
 	
 
 
