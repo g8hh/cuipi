@@ -1908,6 +1908,7 @@ var cnItems = {
     "Heirnuum II": "传家 II",
     "Herbalist": "草药师",
     "When fighting Corrupted or Healthy cells in Scryer Formation, grants 50% more Dark Essence and doubles your attack.": "当使用占卜者阵型对付一个腐败或健康敌人时，获得50%额外的黑暗精华，并使你的攻击翻倍",
+    "When fighting Corrupted cells in Scryer Formation, grants 50% more Dark Essence and doubles your attack.": "当使用占卜者阵型对付一个腐败敌人时，获得50%额外的黑暗精华，并使你的攻击翻倍",
     "Corruption begins 5 levels earlier, at Zone 176.": "腐败早 5 个区域出现, 在区域176.",
     "Corruption begins an additional 10 levels earlier, at Zone 166.": "腐败更早 10 个区域出现, 在区域166.",
     "Corruption begins an additional 15 levels earlier, at Zone 151.": "腐败更早 15 个区域出现, 在区域151.",
