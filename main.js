@@ -9317,6 +9317,7 @@ function mapsSwitch(updateOnly, fromRecycle) {
 	var recycleBtn = document.getElementById("recycleMapBtn");
 	recycleBtn.innerHTML = "Recycle Map";
 	document.getElementById("mapsBtn").className = "btn btn-warning fightBtn";
+	document.getElementById('togglemapAtZone2').style.display = (game.global.canMapAtZone) ? "block" : "none";
     if (game.global.preMapsActive) {
 		//Switching to Map Chamber
 		if (currentMapObj && (currentMapObj.location == "Void" || currentMapObj.location == "Darkness")) {
@@ -9520,7 +9521,6 @@ function runMap() {
 			setVoidBuffTooltip();
 		}
 	}
-	document.getElementById('togglemapAtZone2').style.display = (game.global.canMapAtZone) ? "block" : "none";
 }
 
 function getHousingMultiplier(){
@@ -9688,7 +9688,12 @@ function startFight() {
 	var map = false;
     if (game.global.mapsActive) {
         cellNum = game.global.lastClearedMapCell + 1;
-        cell = game.global.mapGridArray[cellNum];
+		cell = game.global.mapGridArray[cellNum];
+		if (!cell){
+			mapsSwitch();
+			console.log('Crash from missing map cell averted!')
+			return;
+		}
         cellElem = document.getElementById("mapCell" + cellNum);
 		map = game.global.mapsOwnedArray[getMapIndex(game.global.currentMapId)];
     } else {
@@ -9713,7 +9718,7 @@ function startFight() {
 			return;
 		}
     }
-    swapClass("cellColor", "cellColorCurrent", cellElem);
+	swapClass("cellColor", "cellColorCurrent", cellElem);
 	var badName = cell.name;
 	var displayedName;
 	if (typeof game.badGuys[cell.name].displayName !== 'undefined'){
@@ -10162,10 +10167,15 @@ function startFight() {
 				game.global.soldierHealthMax /= 2;
 				if (game.global.soldierHealth > game.global.soldierHealthmax) game.global.soldierHealth = game.global.soldierHealthMax;
 				game.global.mapHealthActive = false;
+				if (game.global.universe == 2){ 
+					game.global.soldierEnergyShieldMax /= 2;
+					if (game.global.soldierEnergyShield > game.global.soldierEnergyShieldMax) game.global.soldierEnergyShield = game.global.soldierEnergyShieldMax;
+				}
 			}
 			else if (!game.global.mapHealthActive && map){
 				game.global.soldierHealthMax *= 2;
 				game.global.mapHealthActive = true;
+				if (game.global.universe == 2) game.global.soldierEnergyShieldMax *= 2;
 			}
 		}
 		if (game.talents.voidPower.purchased){
@@ -11375,9 +11385,12 @@ function checkMapAtZoneWorld(runMap){
 }
 
 function runMapAtZone(index){
-	mapsClicked(true);
-	toggleSetting('mapAtZone', null, false, true);
 	var setting = game.options.menu.mapAtZone.getSetZone()[index];
+	if (setting.preset == 5 && !game.global.challengeActive == "Quagmire" && setting.check) return;
+	if (setting.preset == 4 && !getNextVoidId() && setting.check) return;
+	mapsClicked(true);
+	if (game.global.spireActive) deadInSpire();
+	toggleSetting('mapAtZone', null, false, true);
 	if (!setting || !setting.check) return;
 	//Don't change repeat if the setting is to run void maps, instead change void repeat
 	if (setting.repeat && setting.preset != 4) {
@@ -15264,8 +15277,9 @@ function setAutoGoldenSetting(setTo){
 
 var lastAutoGoldenToggle = -1;
 function toggleAutoGolden(noChange){
+	var max = (getTotalPortals() > 0) ? 5 : 3;
+	if (getAutoGoldenSetting() >= max) setAutoGoldenSetting(0);
 	if (!noChange && getAutoGoldenSetting() != -1){
-		var max = (getTotalPortals() > 0) ? 5 : 3;
 		setAutoGoldenSetting(getAutoGoldenSetting() + 1);
 		if (getAutoGoldenSetting() == max)
 			setAutoGoldenSetting(0);
@@ -17050,7 +17064,7 @@ document.addEventListener('keydown', function (e) {
 				break;
 			}
 		case 87: //W
-			if (checkStatus() && getUberEmpowerment() == "Wind") setFormation('5');
+			if (checkStatus() && game.global.uberNature == "Wind") setFormation('5');
 		case 55: //7
 		case 103: //num7
 			if (playerSpire.popupOpen && !playerSpireTraps.Knowledge.locked)
@@ -17100,6 +17114,7 @@ document.addEventListener('keydown', function (e) {
 			break;
 		case 90: //z for map at zone
 			if (checkLettersOk() && game.global.canMapAtZone){
+				cancelTooltip();
 				toggleSetting("mapAtZone", undefined, false, false, false, true);
 			}
 			break;

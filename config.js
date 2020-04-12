@@ -22,7 +22,7 @@ function newGame () {
 var toReturn = {
 	global: {
 		//New and accurate version
-		stringVersion: '5.3.4',
+		stringVersion: '5.3.6',
 		//Leave 'version' at 4.914 forever, for compatability with old saves
 		version: 4.914,
 		isBeta: false,
@@ -1135,7 +1135,7 @@ var toReturn = {
 						}
 						if (times != -1 && times != 1 && times != 2 && times != 3 && times != 5 && times != 10 && times != 30) times = -1;
 						if (cell < 1) cell = 1;
-						if (cell > 99) cell = 99;
+						if (cell > 100) cell = 100;
 						for (var y = 0; y < setting.length; y++){
 							//Only run conflict detection if both presets match on cell
 							if (setting[y].cell == cell){
@@ -4118,6 +4118,7 @@ var toReturn = {
 				if (this.stacks <= 0) this.stacks = 0;
 				if (game.global.lastClearedCell == 98){
 					var cell = game.global.gridArray[99];
+					if (cell.health < 0) return;
 					cell.maxHealth = cell.preMayhemHealth * this.getBossMult();
 					if (cell.health > cell.maxHealth)
 						cell.health = cell.maxHealth;
@@ -6845,7 +6846,7 @@ var toReturn = {
 				var name = (fromMagimp) ? "Randimp" : "Feyimp";
 				if (game.resources.gems.owned == 0) fadeIn("gems", 10);
 				var amt = rewardResource("gems", 7.5, level);
-				message("That " + name + " gave you " + prettify(amt) + " gems! Thanks Feyimp!", "Loot", "*diamond", "exotic", "exotic");
+				message("That " + name + " gave you " + prettify(amt) + " gems! Thanks " + name + "!", "Loot", "*diamond", "exotic", "exotic");
 				game.unlocks.impCount.Feyimp++;
 			}
 		},
@@ -10465,7 +10466,7 @@ var toReturn = {
 			done: 0,
 			message: function(){
 				if (game.global.universe == 2) return "The TZC has finally approved a House blueprint. To your surprise, it looks fairly decent! You decide to immediately build some.";
-				return "Doesn't seem like all of these little guys will fit in your ship. Luckily, you remember how to make small huts for shelter."
+				return "It's starting to get pretty crowded up in here. Maybe you should start building some better housing."
 			},
 			cost: {
 				resources: {
