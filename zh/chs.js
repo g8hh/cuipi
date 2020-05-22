@@ -101,7 +101,7 @@ var cnItems = {
     'You caught your very first Trimp in this new dimension! It can smell other Trimps on you and looks confused. You promptly send him off to work!': '你在新的维度中抓住了第一个脆皮！它闻到了其他脆皮的气息，看起来一脸懵逼。你赶紧把它派去干活了。',
     'Where would you be in life without Science? Not this dimension, that\'s for sure.': '如果没有科学，生活会变得怎么样？至少，你不会在这个维度，这点可以肯定。',
     'You\'ll need some wood to build stuff...': '你需要木头来造东西。',
-    'There\'s a weird impish little creature in the trap. A Trimp, you decide to call it. Since you\'re so creative, you could probably train this Trimp to help out.': '陷阱里有一个看起来很皮的脆弱小动物，你决定叫它“脆皮”。既然你这么有创造力，或许可以考虑训练它帮你干活。',
+    'There\'s a weird impish little creature in the trap. A Trimp, you decide to call it. Since you\'re so creative, you could probably train this Trimp to help out.': '陷阱里有一个看起来很皮的脆弱小动物，你决定叫它 脆皮 。既然你这么有创造力，或许可以考虑训练它帮你干活。',
     'Building': '建造中',
     'Mining': '挖矿中',
     'BLK': '格挡',
