@@ -10,8 +10,7 @@
 //1.汉化杂项
 var cnItems = {
     _OTHER_: [],
-    //小白牙：
-    //阵型相关
+    //自然赋能相关
     'When this Empowerment is active, each successful attack by your Trimps stacks a debuff on the enemy, causing it to take': '当此赋能激活时，每次脆皮的攻击都可以使敌人获得一层减益，每次攻击时，敌人受到的伤害增加 ',
     'of the damage you dealt every attack until it dies. Each attack by your Trimps will further add to the poison effect.': '，直到其死亡。脆皮每次攻击可以叠加此毒效果。',
     'Increases the percentage of damage that sticks to enemies as poison during the Empowerment of Poison by': '毒赋能生效期间增加敌人 ',
@@ -26,16 +25,16 @@ var cnItems = {
     'per stack when the Empowerment of Wind is active. Your current bonus is': '。你当前的加成为 ',
     'Helium, and next level will bring your bonus to': '，下一级加成变为 ',
     'extra helium. Non-Helium resource gain is always 10x that of Helium, and the Helium bonus does not apply in maps.': '氦。非氦资源获取量总是氦的十倍，地图中的氦不受加成。',
+    'you gain a 10x increase in all non-Helium loot, Wind stacks accumulate twice as fast, Wind can stack to 300, Wind gains an additional 5% stack transfer rate, and your Trimps gain access to the Wind Formation. This new Formation prevents any enemies in Wind Zones from falling below 1HP before they have 300 stacks of Wind. Wind Formation also grants all bonuses of Scrying Formation and allows collection of Dark Essence with no Trimp stat penalty': '所有非氦资源获取量变为10倍，风层数叠加速度加倍，并可以叠加到300层，层数传递率增加5%，脆皮可以使用风阵型。此阵型可以使风区域中的敌人在达到300层风之前生命值不会小于1。风阵型可以获得占卜者阵型的全部加成，并允许在无属性惩罚的前提下收集黑暗精华。',
+    'You have been Enlightened by Wind! While in this Formation in a Wind Zone, enemies will never fall below 1HP before they have 300 stacks of Wind.': '你已获得风之启迪！当在风区域使用此阵型时，敌人在达到300层风之前生命值不会小于1',
+    'This Formation also allows collection of Dark Essence, and grants all bonuses of the Scryer Formation.': '此阵型可以收集黑暗精华，并有占卜者阵型的全部加成。',
     '': '',
     '': '',
     '': '',
     '': '',
     '': '',
     '': '',
-    '': '',
-    '': '',
-    '': '',
-    //阵型相关结束
+    //自然赋能相关结束
     'Researching': '研究中',
     'Are you sure you want to reset? This will really actually reset your game. You won\'t get anything cool. It will be gone.': '确定要重置吗？这真的会重置你的游戏。你不会因此得到任何酷酷的东西。你的存档会消失的。',
     'This is not the soft-reset you\'re looking for. This will delete your save.': '这不是你要找的软重置。这将删除您的所有存档。',
