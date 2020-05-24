@@ -16,7 +16,7 @@ var cnItems = {
     'Increases the percentage of damage that sticks to enemies as poison during the Empowerment of Poison by': '毒赋能生效期间增加敌人 ',
     '. You currently poison for': ' 受到的伤害。你目前的毒赋能效果为 ',
     'and next level will cause you to poison for': '下一级毒赋能效果为 ',
-    'While Enlightened, your Trimps deal 3x damage, and Poison Nature stacks deal 2x damage.': '当获得启迪时，你的脆皮伤害变为3倍，毒赋能伤害加倍',
+    'While Enlightened, your Trimps deal 3x damage, and Poison Nature stacks deal 2x damage.': '当获得启迪时，你的脆皮伤害变为3倍，毒赋能伤害加倍。',
     'When this Empowerment is active, each successful attack by your Trimps stacks a debuff on the enemy, causing winds to swell and knock extra resources into your reach. Each stack increases Helium gained from the World by': '当此赋能激活时，每次脆皮的攻击都可以使敌人获得一层减益，鼓起大风，将更多的资源吹入你怀中。每层提高 ',
     'and increases all other basic resources gained from all sources by': '世界上获得的氦量，并将所有基本资源获取量提高 ',
     'until that enemy dies (maximum of 200 stacks). This bonus does not apply to Fragments, and the helium bonus does not apply to maps.': ' ，直到敌人死亡（最大200层）。碎片不受加成，地图中的氦也一样不受加成。',
