@@ -16,7 +16,7 @@ var cnItems = {
     'of the damage you dealt every attack until it dies. Each attack by your Trimps will further add to the poison effect.': '，直到其死亡。脆皮每次攻击可以叠加此毒效果。',
     'Increases the percentage of damage that sticks to enemies as poison during the Empowerment of Poison by': '毒赋能生效期间增加敌人 ',
     '. You currently poison for': '受到的伤害。你目前的毒赋能效果为 ',
-    'and next level will cause you to poison for': '，下一级毒赋能效果为 ',
+    'and next level will cause you to poison for': '下一级毒赋能效果为 ',
     //阵型相关结束
     'Researching': '研究中',
     'Are you sure you want to reset? This will really actually reset your game. You won\'t get anything cool. It will be gone.': '确定要重置吗？这真的会重置你的游戏。你不会因此得到任何酷酷的东西。你的存档会消失的。',
