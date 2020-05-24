@@ -44,7 +44,7 @@ var cnItems = {
     'While Enlightened, your Trimps gain +2 maximum Overkill cells  and +0.25% increased Fluffy Exp per Ice level': '当获得启迪时，本轮游戏中超杀格子上限加2，且每级冰赋能增加0.25%蓬松经验 ',
     'currently': '目前',
     'for your entire run. In Ice Zones, Ice stacks accumulate twice as fast, and if an enemy is hit by your Trimps while it has 20 or more stacks of Ice and is below 50% health, it will instantly shatter! The shards of Ice from the shattered enemy destroy everything in their path, triggering your maximum Overkill regardless of your damage.': '。在冰区域中，冰层数叠加速度加倍，攻击一个有20层以上冰，生命值低于50%的敌人将立刻将它打碎。且无论对该敌人造成了多少伤害，该伤害都会触发最大格子数的超杀。',
-    'Trimps gain +2 maximum Overkill cells  for your entire run. In Ice Zones, Ice stacks accumulate twice as fast, and if an enemy is hit by your Trimps while it has 20 or more stacks of Ice and is below 50% health, it will instantly shatter! The shards of Ice from the shattered enemy destroy everything in their path, triggering your maximum Overkill regardless of your damage.': '当获得启迪时，本轮游戏中超杀格子上限加2。在冰区域中，冰层数叠加速度加倍，攻击一个有20层以上冰，生命值低于50%的敌人将立刻将它打碎。且无论对该敌人造成了多少伤害，该伤害都会触发最大格子数的超杀。',
+    'Trimps gain +2 maximum Overkill cells for your entire run. In Ice Zones, Ice stacks accumulate twice as fast, and if an enemy is hit by your Trimps while it has 20 or more stacks of Ice and is below 50% health, it will instantly shatter! The shards of Ice from the shattered enemy destroy everything in their path, triggering your maximum Overkill regardless of your damage.': '当获得启迪时，本轮游戏中超杀格子上限加2。在冰区域中，冰层数叠加速度加倍，攻击一个有20层以上冰，生命值低于50%的敌人将立刻将它打碎。且无论对该敌人造成了多少伤害，该伤害都会触发最大格子数的超杀。',
     '': '',
     '': '',
     //自然赋能相关结束
