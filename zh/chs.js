@@ -15,7 +15,7 @@ var cnItems = {
     'When this Empowerment is active, each successful attack by your Trimps stacks a debuff on the enemy, causing it to take': '当此赋能激活时，每次脆皮的攻击都可以使敌人获得一层减益，每次攻击时，敌人受到的伤害增加 ',
     'of the damage you dealt every attack until it dies. Each attack by your Trimps will further add to the poison effect.': '，直到其死亡。脆皮每次攻击可以叠加此毒效果。',
     'Increases the percentage of damage that sticks to enemies as poison during the Empowerment of Poison by': '毒赋能生效期间增加敌人 ',
-    '. You currently poison for': '受到的伤害。你目前的毒赋能效果为 ',
+    '. You currently poison for': ' 受到的伤害。你目前的毒赋能效果为 ',
     'and next level will cause you to poison for': '下一级毒赋能效果为 ',
     //阵型相关结束
     'Researching': '研究中',
