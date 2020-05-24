@@ -12,8 +12,8 @@ var cnItems = {
     _OTHER_: [],
     //小白牙：
     //阵型相关
-    'When this Empowerment is active, each successful attack by your Trimps stacks a debuff on the enemy, causing it to take': '当此赋能激活时，每次脆皮的攻击都可以使敌人增加一层减益，每次攻击时，敌人受到的伤害增加为 ',
-    'of the damage you dealt every attack until it dies. Each attack by your Trimps will further add to the poison effect.': '，直到其死亡。脆皮的攻击可以增加此毒效果。',
+    //'When this Empowerment is active, each successful attack by your Trimps stacks a debuff on the enemy, causing it to take': '当此赋能激活时，每次脆皮的攻击都可以使敌人增加一层减益，每次攻击时，敌人受到的伤害增加',
+    //'of the damage you dealt every attack until it dies. Each attack by your Trimps will further add to the poison effect.': '，直到其死亡。脆皮的攻击可以增加此毒效果。',
     //阵型相关结束
     'Researching': '研究中',
     'Are you sure you want to reset? This will really actually reset your game. You won\'t get anything cool. It will be gone.': '确定要重置吗？这真的会重置你的游戏。你不会因此得到任何酷酷的东西。你的存档会消失的。',
@@ -2206,4 +2206,5 @@ var cnRegReplace = new Map([
 	[/^(\d+) remaining enemy?(ies)? in your current Zone are holding Dark Essence. Your current enemy at this Zone would be worth (.+) Essence if it were holding any.$/, '当前区域剩余 $1 敌人拥有黑暗精华。如果当前敌人拥有黑暗精华，它会掉落 $3'],
 	[/^Your Trimps learn to harvest special Herbs while collecting Food! Increases Trimp Attack by a number based on your total stored food. (.*) At your current total of (.*) Food,$/, '你的脆皮学会了如何从收集的食物中找到草药！根据你储存的食物量，你的脆皮增加攻击。$1 你当前总计 $2 食物,'],
 	[/^you are gaining \+(\d+)% Trimp Attack$/, '你将获得 +$1% 攻击'],
+	[/^When this Empowerment is active, each successful attack by your Trimps stacks a debuff on the enemy, causing it to take \+(\d+)% of the damage you dealt every attack until it dies. Each attack by your Trimps will further add to the poison effect.$/, '当此赋能激活时，每次脆皮的攻击都可以使敌人增加一层减益，每次攻击时，敌人受到的伤害增加 $1% ，直到其死亡。脆皮的攻击可以增加此毒效果。'],
 ]);
