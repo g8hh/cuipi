@@ -11,7 +11,7 @@
 var cnItems = {
     _OTHER_: [],
     //骨头相关
-    'Golden Maps (20 bones': '金色地图 (20 骨头',
+    'Golden Maps (20 bones': '金色地图 (20骨头',
     'You are about to purchase Golden Maps for 20 bones. All of your current and future maps will gain +100% loot added to their normal loot roll': '你将花费20骨头购买金色地图。购买后，所有当前和之后的地图中获取资源加倍，',
     'until your next Portal': '直到你使用传送门为止',
     '. Is this what you wanted to do?': '。你确定要购买吗？',
@@ -2128,8 +2128,8 @@ var cnRegReplace = new Map([
     [/^Spirestones: (.+) \/$/, '尖塔石头: $1 \/'],
     [/^You see (.+) canisters of Helium left on the ground and pick them up. Useful!$/, '你看到$1的氦气罐留在地上并捡起来。 很有用！'],
     [/^(.+) Foremen$/, '$1 工头'],
-    [/^(\d+) Helium$/, '$1 氦'],
-    [/^(\d+) Radon$/, '$1 氡'],
+    [/^\+(.+) Helium$/, '$1 氦'],
+    [/^\+(.+) Radon$/, '$1 氡'],
     [/^(\d+) Bones$/, '$1 骨头'],
     [/^(.+) Tokens$/, '$1 符记'],
     [/^(.+) damage for (.+) seconds in maps$/, '地图中$2秒造成$1的伤害'],
