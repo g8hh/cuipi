@@ -354,7 +354,7 @@ var cnItems = {
     'Increase your token trading ratio from 10:5 to 10:8.': '将符记的转换比率由10:5提高到10:8',
     'Deca Build': '十重建造',
     'Buildings in the queue are constructed 10 at a time. In addition, buildings added to the queue via AutoStructure are added 10 at a time if needed.': '可以同时建造十个建筑。另外，建筑能以10为单位加入队列。',
-    'Still Rowing I': '静静排行 I',
+    'Still Rowing I': '尖塔排行 I',
     'Increase the looting bonus for completing a full row in a Spire by 50%, from 2% extra loot to 3%.': '完成尖塔一行的劫掠加成增加50%，从2%增加为3%。',
     'Patience': '耐心',
     'Anticipation can now reach 45 stacks.': '预期特权时间上限提高为45秒。',
@@ -368,21 +368,49 @@ var cnItems = {
     'Natural Diplomacy II': '自然斡旋 II',
     'Add 5 levels to the Upgrade and Stack Transfer of all 3 Empowerments of Nature, without increasing the costs.': '将全部3种自然赋能的赋能等级和层数传递率等级提高5级，且不增加成本。',
     'Liquification II': '液化 II',
-    'Still Rowing II': '静静排行 II',
+    'Still Rowing II': '尖塔排行 II',
     'Your Trimps will now gain attack equal to 2x their looting bonus from each Spire row cleared.': '完成尖塔一行的劫掠加成现在还可以增加脆皮的攻击力，数值为劫掠加成的2倍。',
     'Amalgagreater': '超级合并者',
     'Causes the 50% damage bonus from each Amalgamator to be compounding rather than additive.': '合并者的50%伤害加成从叠加变为叠乘。',
     'Void Specialization II': '虚空特化 II',
-    'Gain a second Void Map per 100 Zones cleared last run, but the first one is earned at Z50 (then 150, 250 etc). In addition, if Fluffy\'s level 6 bonus is active, this allows Fluffy to stack 1 additional Void Map, adding another 50% Helium bonus to the stack.': '在虚空特化 I的基础上，从区域50开始，上轮游戏每通过100个区域，本轮游戏开始时就多获得一张虚空地图。另外，绒绒的5级加成如果激活，则绒绒的虚空地图融合上限再增加1。',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
+    'Gain a second Void Map per 100 Zones cleared last run, but the first one is earned at Z50 (then 150, 250 etc). In addition, if Fluffy\'s level 6 bonus is active, this allows Fluffy to stack 1 additional Void Map, adding another 50% Helium bonus to the stack.': '在虚空特化 I的基础上，从区域50开始，上轮游戏每通过100个区域，本轮游戏开始时就多获得一张虚空地图。另外，绒绒的6级加成如果激活，则绒绒的虚空地图融合上限再增加1。',
+    'Bionic Magnet II': '仿生磁铁 II',
+    'Adds Prestigious to Bionic Wonderland maps. This will make every Bionic Wonderland have two Prestige upgrades, including your first run that normally just has a RoboTrimp upgrade. In addition, gain +50% attack whenever you\'re in a map that is higher than your current World.': '重铸仿生仙境地图，使每张仿生仙境地图都可以获得两个升级，一个是正常的脆皮机器人升级，另一个是当您进入大于当前区域等级的地图时，攻击力增加50%。',
+    'Flufffocus': '绒绒专注',
+    'Scrufffocus': '污污专注',
+    'Flufffinity': '绒绒限界',
+    'Scrufffinity': '污污限界',
+    'Gain one extra Fluffy ability. This works as if Fluffy Evolved, but doesn\'t increase Fluffy\'s damage bonus.': '绒绒获得一个额外的能力。效果与多进化了一次类似，不同的是没有伤害加成。',
+    'Gain one extra Scruffy ability. This works as if Scruffy Evolved, but doesn\'t increase Scruffy\'s damage bonus.': '污污获得一个额外的能力。效果与多进化了一次类似，不同的是没有伤害加成。',
+    'Excessive': '超超杀',
+    'Allows you to Overkill yet another cell.': '超杀格子上限增加1个。',
+    'Charged Crits': '蓄力暴击',
+    'Adds +1 to your MegaCrit modifier, and adds 50% of your Shield Heirloom\'s Crit Chance to your Crit Chance again.': '超暴击倍率加1，并且暴击率增加您盾牌暴击率的50%。',
+    'However, you do not currently have Crit Chance on your Shield.': '但目前您的盾牌并没有暴击率的加成。',
+    'Master of the Void': '虚空大师',
+    'Grants 3 spectacular bonuses to your Void Maps, though the first two are incompatible with Scruffy. Scruffy tries but seriously just can\'t figure out the whole stacking thing yet.': '虚空地图获得以下三个强大的加成，但前两个对污污无效。污污很努力了，但是它真的搞不明白地图融合之类的事。',
+    'Grants 3 spectacular bonuses to your Void Maps!': '虚空地图获得以下三个强大的加成！',
+    '1. The Fluffy bonus for stacked Void Maps calculates with compounding gains, rather than additive. Each Void Map in the stack increases the Helium gain from the stack by x1.5 rather than +50%.': '1. 绒绒的融合虚空地图加成从叠加变为叠乘。融合每张虚空地图的氦加成从增加50%变为乘以1.5倍。',
+    '3. Your Trimps gain 5x damage inside Void Maps': '3. 您的脆皮在虚空地图中获得5倍攻击力。',
+    'Strength in Health II': '健康之力 II',
+    'Adds 1 extra Healthy cell for every Spire completed this run. Healthy cells will also drop an additional 20% of the Zone\'s value in Helium, bringing the total up to 65%. Spire I will count for 1 Healthy cell once Healthy cells begin to appear in the World, but does not cause them to start spawning earlier.': '本轮每通过1个尖塔，就额外生成1个健康格子。健康格子额外掉落本区域氦数量的20%，将该掉落量总和提升到65%。当健康格子开始出现在世界中以后，尖塔就开始生成健康格子，但健康格子不会提前出现。',
+    'On your current run, you have cleared no Spires, so this Mastery is granting 0 extra Healthy cells. On your current Zone, you\'re finding 0 Healthy cells.': '本轮游戏中您还没有通过尖塔，此专精可获得 0 个额外健康格子。目前区域中有 0 个健康格子。',
+    'Still Magmamancing': '尖塔岩浆巫术',
+    'Start every post-magma Zone with an additional 60 seconds of credit already applied to your Magmamancers per Spire row completed this run. In addition, every 2 Spires you complete this run increases the maximum time that Magmamancers can stack by 10 minutes!': '本轮游戏中每完成1个尖塔，进入岩浆以后的区域时岩浆巫师就额外获得60秒的加成。另外，本轮游戏每完成2个尖塔，岩浆巫师的时间上限就增加10分钟。',
+    'Liquification III': '液化 III',
+    'Liquification is disabled in Universe 2, but': '液化在宇宙2中无法生效，但',
+    'Increase your Liquification bonus by': '增加液化效果 ',
+    'as if you had completed': '等同于额外完成了',
+    '2 extra Spires': '2个尖塔',
+    '. In addition,': '。另外，',
+    'Mesmer': '梅斯梅尔',
+    'Triples the Challenge': '将所有挑战',
+    'bonus for all Challenge': '的加成变为三倍，但只对挑战',
+    's that have normal reward scaling (Does not include Trappapalooza, Trapper, Coordinate, Trimp, Obliterated or Eradicated).': '中奖励递增正常的生效(不包括陷阱盛宴、捕手、协同、脆皮、抹杀、灭绝)',
+    's that have normal reward scaling (Does not include Trapper, Coordinate, Trimp, Obliterated or Eradicated).': '中奖励递增正常的生效(不包括捕手、协同、脆皮、抹杀、灭绝)',
+    'You currently have a C': '您目前挑战',
+    'Angelic': '天之赐福',
+    'Your Trimps heal for 50% of their remaining health immediately before each attack. Due to the intense amount of evil present, Trimps cannot heal in never-before-cleared Spires.': '每次脆皮被攻击前恢复剩余生命值的50%。由于尖塔中邪恶存在过多，脆皮无法在未通过的尖塔中恢复生命值。',
     //专精相关结束
     //自然赋能相关
     'When this Empowerment is active, each successful attack by your Trimps stacks a debuff on the enemy, causing it to take': '当此赋能激活时，每次脆皮的攻击都可以使敌人获得一层减益，每次攻击时，敌人受到的伤害增加 ',
@@ -411,8 +439,8 @@ var cnItems = {
     '(compounding), and increases the damage your Trimps deal to that enemy by the same amount (with diminishing returns, max of 100%). Your current bonus is': '敌人的伤害(叠乘)，并且您的脆皮会增加等量的攻击力(效果递减，直到100%)，您当前的加成为 ',
     '(compounding), and increases the damage your Trimps deal to that enemy by twice that amount (with diminishing returns, max of +200% attack). Your current bonus is': '敌人的伤害(叠乘)，并且您的脆皮会增加该数值两倍的攻击力(效果递减，直到200%)，您当前的加成为 ',
     'and next level will bring your bonus to': '下一级加成变为 ',
-    'You will earn +1 Overkill during Ice Zones once you reach Level 50, and a second Overkill cell at Level 100!': '当您到达50级后在冰区域超杀格子加1，到达100级后格子再加1！',
-    'You are earning +1 Overkill during Ice Zones! Earn another at Level 100!': '您已经在冰区域获得了超杀格子加1！到达100级后可以再加1！',
+    'You will earn +1 Overkill during Ice Zones once you reach Level 50, and a second Overkill cell at Level 100!': '当您到达50级后在冰区域超杀格子加1，到达100级后超杀格子再加1！',
+    'You are earning +1 Overkill during Ice Zones! Earn another at Level 100!': '您已经在冰区域获得了超杀格子加1！到达100级后超杀格子可以再加1！',
     'Your Ice level is over 100, and you are gaining an additional 2 cells of Overkill during Ice Zones!': '您的冰赋能等级超过了100，冰区域中您获得了超杀格子加2！',
     'Your Ice level is 100, and you are gaining an additional 2 cells of Overkill during Ice Zones!': '您的冰赋能等级达到了100，冰区域中您获得了超杀格子加2！',
     'While Enlightened, your Trimps gain +2 maximum Overkill cells  and +0.25% increased Fluffy Exp per Ice level': '当获得启迪时，本轮游戏中超杀格子上限加2，且每级冰赋能增加0.25%绒绒经验 ',
@@ -610,7 +638,7 @@ var cnItems = {
     'Penguimp': '脆皮企鹅',
     'Magma': '岩浆',
     'Healthy': '健康的',
-    'Obliterated': '湮没',
+    'Obliterated': '抹杀',
     'Common Core': '普通核心',
     'Rare Core': '稀有核心',
     'Uncommon Core': '罕见核心',
@@ -702,7 +730,7 @@ var cnItems = {
     'Golden Upgrades': '黄金升级数',
     'Heirlooms Found': '传家宝收集数',
     'Daily Challenge Helium': '日常挑战的氦',
-    'World Cells Overkilled': '格子超杀总和',
+    'World Cells Overkilled': '世界格子超杀总和',
     'Trimps from Generator': '维度发生器生产的脆皮数',
     'Nurseries Closed by Magma': '由岩浆封闭的幼儿园数',
     'Zones Liquified': '区域液化数',
@@ -999,7 +1027,6 @@ var cnItems = {
     'Import Perk Preset': '导入特权预设',
     'Export Perk Setup': '导出特权设置',
     //专精
-    'Bionic Magnet II': '仿生磁铁 II',
     'Foremany': '大群工头',
     'Quick Gen': '快速发生',
     'AutoStructure': '自动建造',
@@ -1036,10 +1063,6 @@ var cnItems = {
     'Map Corruption': '地图腐化',
     'Food/Wood/Metal Loot Breakdown': '食物/木头/金属 劫掠明细',
     'Breezy': '微风',
-    'Flufffocus': '绒绒专注',
-    'Excessive': '过度',
-    'Flufffinity': '绒绒有限性',
-    'Charged Crits': '蓄力暴击',
     'Confirm Respec Masteries': '确认专精洗点',
     //成就
     'Zone Progress': '区域进度',
@@ -2264,21 +2287,36 @@ var cnRegReplace = new Map([
     [/^Map At Z(\d+)\+$/, '进图区域：$1+'], //自动进图
     [/^Map At Z(\d+)(\+*) \((\D)$/, '区域$1$2进图($3'], //自动进图
 	[/^Your Trimps learn to harvest special Herbs while collecting Food! Increases Trimp Attack by a number based on your total stored food. Grants \+30% Attack at (.*) Food, or \+300% at (.*). At your current total of (.*) Food,$/, '您的脆皮现在可以在采集食物时同时采集百草！根据食物储存量增加攻击力。在 $1 食物时增加30%攻击力，在 $2 食物时增加300%攻击力。您当前共有 $3 食物，'], //神农专精
-	[/^you are gaining \+(\d+)% Trimp Attack$/, '您获得了 +$1% 攻击力。'], //神农专精
-	[/^you would gain \+(\d+)% Trimp Attack$/, '您可获得 +$1% 攻击力。'], //神农专精
-	[/^Each cleared Zone through Z(\d+) \(half of your highest Zone reached\) will drop all available equipment prestiges from maps.$/, '直到区域$1(最高通过区域的一半)之前，所有通过的区域都可以掉落地图中所有的装备重铸升级。'], //锻铁术 I专精
-    [/^Reduce the time in between fights and attacks by an additional 100ms through Z(\d+) \((\d+)% of your highest Zone reached\).$/, '直到区域$1(最高通过区域的$2%)之前，将战斗间隔和攻击间隔减少100ms。'], //风驰电掣专精
-	[/^Each cleared Zone through Z(\d+) \(75% of your highest Zone reached\) will drop all available equipment prestiges from maps.$/, '直到区域$1(最高通过区域的75%)之前，所有通过的区域都可以掉落地图中所有的装备重铸升级。'], //锻铁术 II专精
-	[/^Each cleared Zone through Z(\d+) \(90% of your highest Zone reached\) will drop all available equipment prestiges from maps.$/, '直到区域$1(最高通过区域的90%)之前，所有通过的区域都可以掉落地图中所有的装备重铸升级。'], //锻铁术 III专精
-	[/^Increase your Liquification bonus by 5%, as if you had completed 1 extra Spire. You have completed ([\d+\.]+) unique Spire(\D*), giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '增加液化5%的效果，等同于额外完成了1个尖塔。您已完成了$1个尖塔，液化效果持续到最高通过区域的$3%(区域$4)，此专精将液化效果提高到最高通过区域的$6%(区域$7)。'], //液化 I专精
-	[/^Increase your Liquification bonus by 5%, as if you had completed 1 extra Spire. Counting your Fluffy bonus as half of a Spire, you have completed ([\d+\.]+) unique Spire(\D*), giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '增加液化5%的效果，等同于额外完成了1个尖塔。加上绒绒的半个尖塔额外加成，您已完成了$1个尖塔，液化效果持续到最高通过区域的$3%(区域$4)，此专精将液化效果提高到最高通过区域的$6%(区域$7)。'], //液化 I专精
-	[/^Increase your Liquification bonus by 5%, as if you had completed 1 extra Spire. Counting your two Fluffy bonuses as one Spire, you have completed ([\d+\.]+) unique Spire(\D*), giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '增加液化5%的效果，等同于额外完成了1个尖塔。加上绒绒的1个尖塔额外加成，您已完成了$1个尖塔，液化效果持续到最高通过区域的$3%(区域$4)，此专精将液化效果提高到最高通过区域的$6%(区域$7)。'], //液化 I专精
-    [/^last Portal,  (earning you a bonus of|which would earn you a bonus of) (\d+)% extra Helium and (\d+) Void Maps.$/, '，本轮氦获得$2%额外的加成，并且获得$3张虚空地图。'], //虚空特化 I专精
-    [/^last Portal,  (earning you a bonus of|which would earn you a bonus of) (\d+)% extra Radon and (\d+) Void Maps.$/, '，本轮氡获得$2%额外的加成，并且获得$3张虚空地图。'], //虚空特化 I专精
-	[/^Increase your Liquification bonus by another 5%, as if you had completed 1 extra Spire. Counting Liquification I as one Spire, you have completed the equivalent of ([\d+\.]+) unique Spire(\D*), giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '再增加液化5%的效果，等同于额外完成了1个尖塔。加上液化 I的1个尖塔额外加成，您已相当于完成了$1个尖塔，液化效果持续到最高通过区域的$3%(区域$4)，此专精将液化效果提高到最高通过区域的$6%(区域$7)。'], //液化 II专精
-	[/^Increase your Liquification bonus by another 5%, as if you had completed 1 extra Spire. Counting Liquification I as one Spire and your Fluffy bonus as half of a Spire, you have completed the equivalent of ([\d+\.]+) unique Spire(\D*), giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '再增加液化5%的效果，等同于额外完成了1个尖塔。加上液化 I的1个尖塔额外加成和绒绒的半个尖塔额外加成，您已相当于完成了$1个尖塔，液化效果持续到最高通过区域的$3%(区域$4)，此专精将液化效果提高到最高通过区域的$6%(区域$7)。'], //液化 II专精
-	[/^Increase your Liquification bonus by another 5%, as if you had completed 1 extra Spire. Counting Liquification I as one Spire and your two Fluffy bonuses as another, you have completed the equivalent of ([\d+\.]+) unique Spire(\D*), giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '再增加液化5%的效果，等同于额外完成了1个尖塔。加上液化 I的1个尖塔额外加成和绒绒的1个尖塔额外加成，您已相当于完成了$1个尖塔，液化效果持续到最高通过区域的$3%(区域$4)，此专精将液化效果提高到最高通过区域的$6%(区域$7)。'], //液化 II专精
-    [/^last Portal, (earning you a bonus of|which would earn you a bonus of) (\d+) more Void Maps \((\d+) including Void Specialization I\).$/, '，本轮获得$2张虚空地图(加上虚空特化 I的效果，共可获得$3张虚空地图)。'], //虚空特化 II专精
+	[/^you are gaining \+([\d+\.]+)% Trimp Attack$/, '您获得了 +$1% 攻击力。'], //神农专精
+	[/^you would gain \+([\d+\.]+)% Trimp Attack$/, '您可获得 +$1% 攻击力。'], //神农专精
+	[/^Each cleared Zone through Z(\d+) \(half of your highest Zone reached\) will drop all available equipment prestiges from maps.$/, '直到区域 $1 (最高通过区域的一半)之前，所有通过的区域都可以掉落地图中所有的装备重铸升级。'], //锻铁术 I专精
+    [/^Reduce the time in between fights and attacks by an additional 100ms through Z(\d+) \((\d+)% of your highest Zone reached\).$/, '直到区域 $1 (最高通过区域的$2%)之前，将战斗间隔和攻击间隔减少100ms。'], //风驰电掣 II专精
+	[/^Each cleared Zone through Z(\d+) \(75% of your highest Zone reached\) will drop all available equipment prestiges from maps.$/, '直到区域 $1 (最高通过区域的75%)之前，所有通过的区域都可以掉落地图中所有的装备重铸升级。'], //锻铁术 II专精
+	[/^Each cleared Zone through Z(\d+) \(90% of your highest Zone reached\) will drop all available equipment prestiges from maps.$/, '直到区域 $1 (最高通过区域的90%)之前，所有通过的区域都可以掉落地图中所有的装备重铸升级。'], //锻铁术 III专精
+	[/^Increase your Liquification bonus by 5%, as if you had completed 1 extra Spire. You have completed ([\d+\.]+) unique Spire(s*), giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '增加液化效果 5% ，等同于额外完成了1个尖塔。您已完成了 $1 个尖塔，液化效果持续到最高通过区域的 $3% (区域 $4 )，此专精将液化效果提高到最高通过区域的 $6% (区域 $7 )。'], //液化 I专精
+	[/^Increase your Liquification bonus by 5%, as if you had completed 1 extra Spire. Counting your Fluffy bonus as half of a Spire, you have completed ([\d+\.]+) unique Spire(s*), giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '增加液化效果 5% ，等同于额外完成了1个尖塔。加上绒绒的半个尖塔额外加成，您已完成了 $1 个尖塔，液化效果持续到最高通过区域的 $3% (区域 $4 )，此专精将液化效果提高到最高通过区域的 $6% (区域 $7 )。'], //液化 I专精
+	[/^Increase your Liquification bonus by 5%, as if you had completed 1 extra Spire. Counting your two Fluffy bonuses as one Spire, you have completed ([\d+\.]+) unique Spire(s*), giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '增加液化效果 5% ，等同于额外完成了1个尖塔。加上绒绒的1个尖塔额外加成，您已完成了 $1 个尖塔，液化效果持续到最高通过区域的 $3% (区域 $4 )，此专精将液化效果提高到最高通过区域的 $6% (区域 $7 )。'], //液化 I专精
+    [/^last Portal,  (earning you a bonus of|which would earn you a bonus of) (.*)% extra Helium and (\d+) Void Maps.$/, '，本轮氦获得 $2% 额外的加成，并且获得 $3 张虚空地图。'], //虚空特化 I专精
+    [/^last Portal,  (earning you a bonus of|which would earn you a bonus of) (.*)% extra Radon and (\d+) Void Maps.$/, '，本轮氡获得 $2% 额外的加成，并且获得 $3 张虚空地图。'], //虚空特化 I专精
+	[/^Increase your Liquification bonus by another 5%, as if you had completed 1 extra Spire. Counting Liquification I as one Spire, you have completed the equivalent of ([\d+\.]+) unique Spire(s*), giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '再增加液化效果 5% ，等同于额外完成了1个尖塔。加上液化 I的1个尖塔额外加成，您已相当于完成了 $1 个尖塔，液化效果持续到最高通过区域的 $3% (区域 $4 )，此专精将液化效果提高到最高通过区域的 $6% (区域 $7 )。'], //液化 II专精
+	[/^Increase your Liquification bonus by another 5%, as if you had completed 1 extra Spire. Counting Liquification I as one Spire and your Fluffy bonus as half of a Spire, you have completed the equivalent of ([\d+\.]+) unique Spire(s*), giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '再增加液化效果 5% ，等同于额外完成了1个尖塔。加上液化 I的1个尖塔额外加成和绒绒的半个尖塔额外加成，您已相当于完成了 $1 个尖塔，液化效果持续到最高通过区域的 $3% (区域 $4 )，此专精将液化效果提高到最高通过区域的 $6% (区域 $7 )。'], //液化 II专精
+	[/^Increase your Liquification bonus by another 5%, as if you had completed 1 extra Spire. Counting Liquification I as one Spire and your two Fluffy bonuses as another, you have completed the equivalent of ([\d+\.]+) unique Spire(s*), giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '再增加液化效果 5% ，等同于额外完成了1个尖塔。加上液化 I的1个尖塔额外加成和绒绒的1个尖塔额外加成，您已相当于完成了 $1 个尖塔，液化效果持续到最高通过区域的 $3% (区域 $4 )，此专精将液化效果提高到最高通过区域的 $6% (区域 $7 )。'], //液化 II专精
+    [/^last Portal, (earning you a bonus of|which would earn you a bonus of) (\d+) more Void Maps \((\d+) including Void Specialization I\).$/, '，本轮获得 $2 张虚空地图(加上虚空特化 I的效果，共可获得 $3 张虚空地图)。'], //虚空特化 II专精
+    [/^Fluffy gains \+25% more Exp per Zone for each completed Evolution. Fluffy has Evolved (\d+) time(s*), (earning|which would earn) you a bonus of \+(.*)% Exp.$/, '绒绒每进化一次，每区域就多获得25%经验值。绒绒目前进化了 $1 次，多获得 $4% 经验值。'], //绒绒专注专精
+    [/^Scruffy gains \+25% more Exp per Zone for each completed Evolution. Scruffy has Evolved (\d+) time(s*), (earning|which would earn) you a bonus of \+(.*)% Exp.$/, '污污每进化一次，每区域就多获得25%经验值。污污目前进化了 $1 次，多获得 $4% 经验值。'], //污污专注专精
+    [/^Your Shield currently has a bonus of ([\d+\.]+)%, so this Mastery (is giving you|would give you) \+([\d+\.]+)% additional Crit Chance.$/, '您的盾牌目前暴击率为 $1% ，因此该精通额外增加 $3% 暴击率。'], //蓄力暴击专精
+    [/^2. If Fluffy's level 6 bonus is active, allows Void Maps to infinitely stack. HOWEVER, this requires  the bonus Helium does not increase past the amount that Fluffy can normally stack, which for you would cap the bonus to a (\d+) stack. To clarify, a 100 stack or a (\d+) stack map would both grant (.*)% bonus Helium to each map in the stack, but the entire stack will still be completed instantly and each map in the stack will receive the maximum bonus.$/, '2. 只要绒绒的6级加成激活了，虚空地图就可以无限融合。但前提条件是氦加成不能超过绒绒融合的上限。对您来说，这个上限为 $1 次。换句话说，融合100次的虚空地图或者融合 $2 次的虚空地图都给予每张虚空地图 $3% 的氦加成，不过，所有融合后的地图仍然可以一起完成，并且融合的每张地图都可以获得最大的加成。'], //虚空大师专精
+    [/^2. If Fluffy's level 6 bonus is active, allows Void Maps to infinitely stack. HOWEVER, this requires  the bonus Radon does not increase past the amount that Fluffy can normally stack, which for you would cap the bonus to a (\d+) stack. To clarify, a 100 stack or a (\d+) stack map would both grant (.*)% bonus Radon to each map in the stack, but the entire stack will still be completed instantly and each map in the stack will receive the maximum bonus.$/, '2. 只要绒绒的6级加成激活了，虚空地图就可以无限融合。但前提条件是氡加成不能超过绒绒融合的上限。对您来说，这个上限为 $1 次。换句话说，融合100次的虚空地图或者融合 $2 次的虚空地图都给予每张虚空地图 $3% 的氡加成，不过，所有融合后的地图仍然可以一起完成，并且融合的每张地图都可以获得最大的加成。'], //虚空大师专精
+    [/^On your current run, you have cleared through Spire (.*), so this Mastery is granting (\d+) extra Healthy cell(s*). On your current Zone, you're finding (\d+) Healthy cells.$/, '本轮游戏中您通过了尖塔 $1 ，此专精可获得 $2 个额外健康格子。目前区域中有 $4 个健康格子。'], //健康之力 II专精
+    [/^Hyperspeed II's bonus will now function up to 75% of your Highest Zone Reached \(through Z(\d+)\) rather than a measly$/, '风驰电掣 II专精的效果上限提升为最高通过区域(区域 $1 )的75%，而不是只有之前的'], //液化 III专精
+    [/^Hyperspeed II's bonus will also now function up to 75% of your Highest Zone Reached \(through Z(\d+)\) rather than a measly$/, '风驰电掣 II专精的效果上限同时提升为最高通过区域(区域 $1 )的75%，而不是只有之前的'], //液化 III专精
+	[/^Counting Liquification I and II as two Spires, you have completed the equivalent of ([\d+\.]+) unique Spire(s*), giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '加上液化 I和液化 II的2个尖塔额外加成，您已相当于完成了 $1 个尖塔，液化效果持续到最高通过区域的 $3% (区域 $4 )，此专精将液化效果提高到最高通过区域的 $6% (区域 $7 )。'], //液化 III专精
+	[/^Counting Liquification I and II as two Spires and your Fluffy bonus as half of a Spire, you have completed the equivalent of ([\d+\.]+) unique Spire(s*), giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '加上液化 I和液化 II的2个尖塔额外加成和绒绒的半个尖塔额外加成，您已相当于完成了 $1 个尖塔，液化效果持续到最高通过区域的 $3% (区域 $4 )，此专精将液化效果提高到最高通过区域的 $6% (区域 $7 )。'], //液化 III专精
+	[/^Counting Liquification I and II as two Spires and your two Fluffy bonuses as another, you have completed the equivalent of ([\d+\.]+) unique Spire(s*), giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '加上液化 I和液化 II的2个尖塔额外加成和绒绒的1个尖塔额外加成，您已相当于完成了 $1 个尖塔，液化效果持续到最高通过区域的 $3% (区域 $4 )，此专精将液化效果提高到最高通过区域的 $6% (区域 $7 )。'], //液化 III专精
+    [/^bonus of (.*)%. Removing this Mastery would reduce your bonus by (.*)%, bringing your total Challenge$/, '的加成为 $1% 。去掉这个专精以后加成将减少 $2% ，总挑战'], //梅斯梅尔专精
+    [/^bonus down to (.*)%.$/, '加成减少为 $1% 。'], //梅斯梅尔专精
+    [/^bonus of (.*)%. Purchasing this Mastery would increase your bonus by (.*)%, bringing your total Challenge$/, '的加成为 $1% 。购买这个专精以后加成将增加 $2% ，总挑战'], //梅斯梅尔专精
+    [/^bonus up to (.*)%.$/, '加成增加为 $1% 。'], //梅斯梅尔专精
     [/^\n							([\d\.]+) hours\n						$/, '$1 小时'],
     [/^(\d+) Barns, (\d+) Sheds, and (\d+) Forges.$/, '$1个谷仓，$2个窝棚和$3个锻造厂。'],
     [/^While you were away, your Trimps were able to produce (.+) food, (.+) wood, (.+) metal, (.+) gems, and (.+) fragments$/, '当您不在时，您的脆皮产生了$1的食物，$2的木材，$3的金属，$4的宝石和$5的碎片'],
