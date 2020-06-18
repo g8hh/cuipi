@@ -2773,6 +2773,9 @@ var cnRegReplace = new Map([
     [/^Reach U2 Z(.+) without your Shield falling below (.+)%.$/, '棱镜护盾从未低于 $2% 的前提下，通过宇宙2的区域 $1 。'], //成就等
     [/^Progress: Your Shield has already hit (.+)% this run.$/, '进度：护盾曾经低至 $1% ，因此无法完成了。'], //成就等
     [/^Clear The Block in less than (.+) from start of run$/, '使用传送门后，在 $1 内通过障碍区'], //成就等
+    [/^Progress: Best run is (\d+)$/, '进度：最快为 $1'], //成就等
+    [/^Progress: Too slow! Best run is (\d+)$/, '进度：因太慢失败了！最快为 $1'], //成就等
+    [/^Row Finished! \(Best run is (\d+)$/, '此类成就全部完成！(最快为 $1'], //成就等
     [/^Progress: Best run is (.*) min(s*)$/, '进度：最快为 $1 分钟'], //成就等
     [/^Progress: Too slow! Best run is (.*) min(s*)$/, '进度：因太慢失败了！最快为 $1 分钟'], //成就等
     [/^Row Finished! \(Best run is (.*) min(s*)$/, '此类成就全部完成！(最快为 $1 分钟'], //成就等
