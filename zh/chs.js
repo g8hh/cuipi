@@ -14,15 +14,6 @@ var cnItems = {
     '"': '',
     //段末标点处理结束
     //敌人名称相关
-    //'Corrupt': 'Corrupt', //五个前缀记录
-    //'Magma': 'Magma', //五个前缀记录
-    //'Hardened': 'Hardened', //五个前缀记录
-    //'Healthy': 'Healthy', //五个前缀记录
-    //'Snowy': 'Snowy', //前缀记录
-    //Living //前缀记录
-    //Toxic //前缀记录
-    //Gusty //前缀记录
-    //Frozen //前缀记录
     //'s': 's', //协同挑战中后缀带s，查阅badName.replace，且最后有括号部分
     'Liquimp': '液化者',
     'Presimpt': '脆皮小礼',
@@ -100,17 +91,232 @@ var cnItems = {
     'Fusimp': '脆皮聚变怪', //特殊敌人
     'Hydrogimp': '脆皮氢怪', //特殊敌人
     'Carbimp': '脆皮碳怪', //特殊敌人
-    'Druopitee': '德罗披提', //特殊敌人
-    'Druopitee and Pals': '德罗披提和随从们', //特殊敌人
-    'Echo of Druopitee': '德罗披提的幻影', //特殊敌人
-    'Echoes of Druopitee and Pals': '德罗披提的幻影和随从们', //特殊敌人
     'Prismimp': '脆皮棱镜怪', //特殊敌人
     'Rainbimp': '脆皮彩虹兽', //特殊敌人
     'Lightimp': '脆皮光怪', //特殊敌人
     'Meltimp': '脆皮熔怪', //特殊敌人
     'Sweltimp': '脆皮酷热者', //特殊敌人
     'Darknimp': '脆皮暗罪者', //特殊敌人
-    '': '',
+    'Druopitee': '德罗披提', //特殊敌人
+    'Druopitee and Pals': '德罗披提和随从们', //特殊敌人
+    'Echo of Druopitee': '德罗披提的幻影', //特殊敌人
+    'Echoes of Druopitee and Pals': '德罗披提的幻影和随从们', //特殊敌人
+    'Corrupt Liquimp': '腐化液化者',
+    'Corrupt Presimpt': '腐化脆皮小礼',
+    'Corrupt Turkimp': '腐化脆皮火鸡',
+    'Corrupt Randimp': '腐化脆皮百变怪',
+    'Corrupt Squimp': '腐化脆皮乌贼',
+    'Corrupt Elephimp': '腐化脆皮象',
+    'Corrupt Turtlimp': '腐化脆皮龟',
+    'Corrupt Chimp': '腐化脆皮黑猩猩',
+    'Corrupt Penguimp': '腐化脆皮企鹅',
+    'Corrupt Snimp': '腐化脆皮鹬',
+    'Corrupt Gorillimp': '腐化脆皮大猩猩',
+    'Corrupt Blimp': '腐化脆皮飞艇',
+    'Corrupt Dragimp': '腐化脆皮龙',
+    'Corrupt Improbability': '腐化乌有者',
+    'Corrupt Omnipotrimp': '腐化全能者',
+    'Corrupt Mutimp': '腐化脆皮变异者',
+    'Corrupt Hulking Mutimp': '腐化脆皮大型变异者',
+    'Corrupt Feyimp': '腐化脆皮小妖',
+    'Corrupt Tauntimp': '腐化脆皮咚咚',
+    'Corrupt Whipimp': '腐化脆皮鞭者',
+    'Corrupt Venimp': '腐化脆皮爱神',
+    'Corrupt Magnimp': '腐化脆皮磁王',
+    'Corrupt Skeletimp': '腐化脆皮骷髅',
+    'Corrupt Megaskeletimp': '腐化脆皮超级骷髅',
+    'Magma Liquimp': '岩浆液化者',
+    'Magma Presimpt': '岩浆脆皮小礼',
+    'Magma Turkimp': '岩浆脆皮火鸡',
+    'Magma Randimp': '岩浆脆皮百变怪',
+    'Magma Squimp': '岩浆脆皮乌贼',
+    'Magma Elephimp': '岩浆脆皮象',
+    'Magma Turtlimp': '岩浆脆皮龟',
+    'Magma Chimp': '岩浆脆皮黑猩猩',
+    'Magma Penguimp': '岩浆脆皮企鹅',
+    'Magma Snimp': '岩浆脆皮鹬',
+    'Magma Gorillimp': '岩浆脆皮大猩猩',
+    'Magma Blimp': '岩浆脆皮飞艇',
+    'Magma Dragimp': '岩浆脆皮龙',
+    'Magma Improbability': '岩浆乌有者',
+    'Magma Omnipotrimp': '岩浆全能者',
+    'Magma Mutimp': '岩浆脆皮变异者',
+    'Magma Hulking Mutimp': '岩浆脆皮大型变异者',
+    'Magma Feyimp': '岩浆脆皮小妖',
+    'Magma Tauntimp': '岩浆脆皮咚咚',
+    'Magma Whipimp': '岩浆脆皮鞭者',
+    'Magma Venimp': '岩浆脆皮爱神',
+    'Magma Magnimp': '岩浆脆皮磁王',
+    'Magma Skeletimp': '岩浆脆皮骷髅',
+    'Magma Megaskeletimp': '岩浆脆皮超级骷髅',
+    'Hardened Liquimp': '硬化液化者',
+    'Hardened Presimpt': '硬化脆皮小礼',
+    'Hardened Turkimp': '硬化脆皮火鸡',
+    'Hardened Randimp': '硬化脆皮百变怪',
+    'Hardened Squimp': '硬化脆皮乌贼',
+    'Hardened Elephimp': '硬化脆皮象',
+    'Hardened Turtlimp': '硬化脆皮龟',
+    'Hardened Chimp': '硬化脆皮黑猩猩',
+    'Hardened Penguimp': '硬化脆皮企鹅',
+    'Hardened Snimp': '硬化脆皮鹬',
+    'Hardened Gorillimp': '硬化脆皮大猩猩',
+    'Hardened Blimp': '硬化脆皮飞艇',
+    'Hardened Dragimp': '硬化脆皮龙',
+    'Hardened Improbability': '硬化乌有者',
+    'Hardened Omnipotrimp': '硬化全能者',
+    'Hardened Mutimp': '硬化脆皮变异者',
+    'Hardened Hulking Mutimp': '硬化脆皮大型变异者',
+    'Hardened Feyimp': '硬化脆皮小妖',
+    'Hardened Tauntimp': '硬化脆皮咚咚',
+    'Hardened Whipimp': '硬化脆皮鞭者',
+    'Hardened Venimp': '硬化脆皮爱神',
+    'Hardened Magnimp': '硬化脆皮磁王',
+    'Hardened Skeletimp': '硬化脆皮骷髅',
+    'Hardened Megaskeletimp': '硬化脆皮超级骷髅',
+    'Healthy Liquimp': '健康液化者',
+    'Healthy Presimpt': '健康脆皮小礼',
+    'Healthy Turkimp': '健康脆皮火鸡',
+    'Healthy Randimp': '健康脆皮百变怪',
+    'Healthy Squimp': '健康脆皮乌贼',
+    'Healthy Elephimp': '健康脆皮象',
+    'Healthy Turtlimp': '健康脆皮龟',
+    'Healthy Chimp': '健康脆皮黑猩猩',
+    'Healthy Penguimp': '健康脆皮企鹅',
+    'Healthy Snimp': '健康脆皮鹬',
+    'Healthy Gorillimp': '健康脆皮大猩猩',
+    'Healthy Blimp': '健康脆皮飞艇',
+    'Healthy Dragimp': '健康脆皮龙',
+    'Healthy Improbability': '健康乌有者',
+    'Healthy Omnipotrimp': '健康全能者',
+    'Healthy Mutimp': '健康脆皮变异者',
+    'Healthy Hulking Mutimp': '健康脆皮大型变异者',
+    'Healthy Feyimp': '健康脆皮小妖',
+    'Healthy Tauntimp': '健康脆皮咚咚',
+    'Healthy Whipimp': '健康脆皮鞭者',
+    'Healthy Venimp': '健康脆皮爱神',
+    'Healthy Magnimp': '健康脆皮磁王',
+    'Healthy Skeletimp': '健康脆皮骷髅',
+    'Healthy Megaskeletimp': '健康脆皮超级骷髅',
+    'Snowy Liquimp': '积雪液化者',
+    'Snowy Presimpt': '积雪脆皮小礼',
+    'Snowy Turkimp': '积雪脆皮火鸡',
+    'Snowy Randimp': '积雪脆皮百变怪',
+    'Snowy Squimp': '积雪脆皮乌贼',
+    'Snowy Elephimp': '积雪脆皮象',
+    'Snowy Turtlimp': '积雪脆皮龟',
+    'Snowy Chimp': '积雪脆皮黑猩猩',
+    'Snowy Penguimp': '积雪脆皮企鹅',
+    'Snowy Snimp': '积雪脆皮鹬',
+    'Snowy Gorillimp': '积雪脆皮大猩猩',
+    'Snowy Blimp': '积雪脆皮飞艇',
+    'Snowy Dragimp': '积雪脆皮龙',
+    'Snowy Improbability': '积雪乌有者',
+    'Snowy Omnipotrimp': '积雪全能者',
+    'Snowy Mutimp': '积雪脆皮变异者',
+    'Snowy Hulking Mutimp': '积雪脆皮大型变异者',
+    'Snowy Feyimp': '积雪脆皮小妖',
+    'Snowy Tauntimp': '积雪脆皮咚咚',
+    'Snowy Whipimp': '积雪脆皮鞭者',
+    'Snowy Venimp': '积雪脆皮爱神',
+    'Snowy Magnimp': '积雪脆皮磁王',
+    'Snowy Skeletimp': '积雪脆皮骷髅',
+    'Snowy Megaskeletimp': '积雪脆皮超级骷髅',
+    'Living Liquimp': '非亡灵液化者',
+    'Living Presimpt': '非亡灵脆皮小礼',
+    'Living Turkimp': '非亡灵脆皮火鸡',
+    'Living Randimp': '非亡灵脆皮百变怪',
+    'Living Squimp': '非亡灵脆皮乌贼',
+    'Living Elephimp': '非亡灵脆皮象',
+    'Living Turtlimp': '非亡灵脆皮龟',
+    'Living Chimp': '非亡灵脆皮黑猩猩',
+    'Living Penguimp': '非亡灵脆皮企鹅',
+    'Living Snimp': '非亡灵脆皮鹬',
+    'Living Gorillimp': '非亡灵脆皮大猩猩',
+    'Living Blimp': '非亡灵脆皮飞艇',
+    'Living Dragimp': '非亡灵脆皮龙',
+    'Living Improbability': '非亡灵乌有者',
+    'Living Omnipotrimp': '非亡灵全能者',
+    'Living Mutimp': '非亡灵脆皮变异者',
+    'Living Hulking Mutimp': '非亡灵脆皮大型变异者',
+    'Living Feyimp': '非亡灵脆皮小妖',
+    'Living Tauntimp': '非亡灵脆皮咚咚',
+    'Living Whipimp': '非亡灵脆皮鞭者',
+    'Living Venimp': '非亡灵脆皮爱神',
+    'Living Magnimp': '非亡灵脆皮磁王',
+    'Living Skeletimp': '非亡灵脆皮骷髅',
+    'Living Megaskeletimp': '非亡灵脆皮超级骷髅',
+    'Toxic Liquimp': '毒性液化者',
+    'Toxic Presimpt': '毒性脆皮小礼',
+    'Toxic Turkimp': '毒性脆皮火鸡',
+    'Toxic Randimp': '毒性脆皮百变怪',
+    'Toxic Squimp': '毒性脆皮乌贼',
+    'Toxic Elephimp': '毒性脆皮象',
+    'Toxic Turtlimp': '毒性脆皮龟',
+    'Toxic Chimp': '毒性脆皮黑猩猩',
+    'Toxic Penguimp': '毒性脆皮企鹅',
+    'Toxic Snimp': '毒性脆皮鹬',
+    'Toxic Gorillimp': '毒性脆皮大猩猩',
+    'Toxic Blimp': '毒性脆皮飞艇',
+    'Toxic Dragimp': '毒性脆皮龙',
+    'Toxic Improbability': '毒性乌有者',
+    'Toxic Omnipotrimp': '毒性全能者',
+    'Toxic Mutimp': '毒性脆皮变异者',
+    'Toxic Hulking Mutimp': '毒性脆皮大型变异者',
+    'Toxic Feyimp': '毒性脆皮小妖',
+    'Toxic Tauntimp': '毒性脆皮咚咚',
+    'Toxic Whipimp': '毒性脆皮鞭者',
+    'Toxic Venimp': '毒性脆皮爱神',
+    'Toxic Magnimp': '毒性脆皮磁王',
+    'Toxic Skeletimp': '毒性脆皮骷髅',
+    'Toxic Megaskeletimp': '毒性脆皮超级骷髅',
+    'Gusty Liquimp': '阵风液化者',
+    'Gusty Presimpt': '阵风脆皮小礼',
+    'Gusty Turkimp': '阵风脆皮火鸡',
+    'Gusty Randimp': '阵风脆皮百变怪',
+    'Gusty Squimp': '阵风脆皮乌贼',
+    'Gusty Elephimp': '阵风脆皮象',
+    'Gusty Turtlimp': '阵风脆皮龟',
+    'Gusty Chimp': '阵风脆皮黑猩猩',
+    'Gusty Penguimp': '阵风脆皮企鹅',
+    'Gusty Snimp': '阵风脆皮鹬',
+    'Gusty Gorillimp': '阵风脆皮大猩猩',
+    'Gusty Blimp': '阵风脆皮飞艇',
+    'Gusty Dragimp': '阵风脆皮龙',
+    'Gusty Improbability': '阵风乌有者',
+    'Gusty Omnipotrimp': '阵风全能者',
+    'Gusty Mutimp': '阵风脆皮变异者',
+    'Gusty Hulking Mutimp': '阵风脆皮大型变异者',
+    'Gusty Feyimp': '阵风脆皮小妖',
+    'Gusty Tauntimp': '阵风脆皮咚咚',
+    'Gusty Whipimp': '阵风脆皮鞭者',
+    'Gusty Venimp': '阵风脆皮爱神',
+    'Gusty Magnimp': '阵风脆皮磁王',
+    'Gusty Skeletimp': '阵风脆皮骷髅',
+    'Gusty Megaskeletimp': '阵风脆皮超级骷髅',
+    'Frozen Liquimp': '冻结液化者',
+    'Frozen Presimpt': '冻结脆皮小礼',
+    'Frozen Turkimp': '冻结脆皮火鸡',
+    'Frozen Randimp': '冻结脆皮百变怪',
+    'Frozen Squimp': '冻结脆皮乌贼',
+    'Frozen Elephimp': '冻结脆皮象',
+    'Frozen Turtlimp': '冻结脆皮龟',
+    'Frozen Chimp': '冻结脆皮黑猩猩',
+    'Frozen Penguimp': '冻结脆皮企鹅',
+    'Frozen Snimp': '冻结脆皮鹬',
+    'Frozen Gorillimp': '冻结脆皮大猩猩',
+    'Frozen Blimp': '冻结脆皮飞艇',
+    'Frozen Dragimp': '冻结脆皮龙',
+    'Frozen Improbability': '冻结乌有者',
+    'Frozen Omnipotrimp': '冻结全能者',
+    'Frozen Mutimp': '冻结脆皮变异者',
+    'Frozen Hulking Mutimp': '冻结脆皮大型变异者',
+    'Frozen Feyimp': '冻结脆皮小妖',
+    'Frozen Tauntimp': '冻结脆皮咚咚',
+    'Frozen Whipimp': '冻结脆皮鞭者',
+    'Frozen Venimp': '冻结脆皮爱神',
+    'Frozen Magnimp': '冻结脆皮磁王',
+    'Frozen Skeletimp': '冻结脆皮骷髅',
+    'Frozen Megaskeletimp': '冻结脆皮超级骷髅',
     '': '',
     '': '',
     //敌人名称相关结束
@@ -875,8 +1081,8 @@ var cnItems = {
     'Disable Hotkeys': '关闭快捷键',
     'Enable Hotkeys': '开启快捷键',
     'Enable or disable hotkeys.': '切换快捷键的开关。',
-    'Don\'t Climb BW': '关闭仿生仙境自动冲层',
-    'Climb BW': '开启仿生仙境自动冲层',
+    'Don\'t Climb BW': '关闭仿生冲层',
+    'Climb BW': '开启仿生冲层',
     'Decide whether or not you want your Trimps to automatically run the next Bionic Wonderland once they\'ve gotten all of the items from their current one. Repeat Maps must be toggled on for Climb BW to work.': '切换是否在通过当前仿生仙境地图后继续进入下一层仿生仙境地图。必须开启重复地图才能使此选项生效。',
     'No Offline Progress': '关闭离线进度',
     'Hybrid Offline': '混合离线',
@@ -1538,11 +1744,11 @@ var cnItems = {
     //自然赋能相关结束
     //脚本3相关
     'Various bug fixes.': '多个BUG修复。',
-    'CHANGED THE WAY TF GATHER WORKS! CHECK TF SETTINGS!': '修改了定时刷图的工作机制！详见定时刷图设置！',
-    'CHANGED THE WAY MELTING POINT SETTING WORKS PLEASE CHECK SETTING IN MAPS!': '修改了熔点设置的工作机制，详见地图设置！',
-    'Added Arch. Automated Quest. Fixed bugs. Updated calc.': '增加了高级自动任务。修复了BUG。升级了计算器。',
-    'Added Quagmire functionality. Added time and tribute farming. Added option to run Dailies in either universe. Added check to c2runner to not run a challenge if you have not unlocked it. Autoallocation sort of fixed. Added Greed to loot dumping. Graphs are still bad when moving between universes. Removed autonu due to being broken.': '增加了泥淖挑战相关设置。增加了定时刷图和刷祭品。增加了在两个宇宙刷日常的选项。增加了一个判断条件，如果还没有解锁一个挑战，自动C2挑战将不会尝试它。自动分配修复了一些问题。将贪婪加入主加特权列表。切换宇宙时，图表还是会有问题。移除了自动分配虚空物质，因为它无法正常工作。',
-    'CHECK COMBAT FOR BETTERAUTOFIGHT, IF MIGHT BE A BLACK BAR, CLICK IT!': '检查战斗选项下的改良自动战斗选项，它可能变成了一个黑条，记得点一下！',
+    'CHANGED THE WAY TF GATHER WORKS! CHECK TF SETTINGS!': '修改定时刷图的工作机制！详见定时刷图设置！',
+    'CHANGED THE WAY MELTING POINT SETTING WORKS PLEASE CHECK SETTING IN MAPS!': '修改熔点设置的工作机制，详见地图设置！',
+    'Added Arch. Automated Quest. Fixed bugs. Updated calc.': '增加考古学。增加自动任务。修复BUG。升级计算器。',
+    'Added Quagmire functionality. Added time and tribute farming. Added option to run Dailies in either universe. Added check to c2runner to not run a challenge if you have not unlocked it. Autoallocation sort of fixed. Added Greed to loot dumping. Graphs are still bad when moving between universes. Removed autonu due to being broken.': '增加泥淖挑战相关设置。增加定时刷图和刷祭品。增加在两个宇宙刷日常的选项。增加一个判断条件，如果还没有解锁一个挑战，自动C2挑战将不会尝试它。自动分配修复一些问题。将贪婪加入主加特权列表。切换宇宙时，图表还是会有问题。移除了自动分配虚空物质，因为它无法正常工作。',
+    'CHECK COMBAT FOR BETTERAUTOFIGHT, IF MIGHT BE A BLACK BAR, CLICK IT!': '检查战斗选项下的改良自动战斗选项，它可能变成一个黑条，记得点一下！',
     'A bunch of U2 stuff added, offline progress still being worked on.': '添加了许多宇宙2相关内容，离线进度仍需要完善。',
     'Report any bugs/problems please': '如果发现BUG或问题，请向我反馈',
     'Talk with the dev': '欲联系开发者，可以联系',
@@ -1652,89 +1858,94 @@ var cnItems = {
     'Scruffy XP/Hour (Cumulative': '污污经验/小时 (总量',
     'Scruffy XP/Hour': '污污经验/小时',
     'Overkilled Cells': '超杀格子数',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
+    'Toggle Automapping': '切换自动地图开关',
+    'Toggle automapping on and off.': '切换自动地图是打开还是关闭。',
+    'Health to Damage ratio': '生命伤害比',
+    'This status box displays the current mode Automaps is in. The number usually shown here during Farming or Want more Damage modes is the \'HDratio\' meaning EnemyHealth to YourDamage Ratio (in X stance). Above 16 will trigger farming, above 4 will trigger going for Map bonus up to 10 stacks.': '此状态框内显示目前自动地图的模式。在刷资源模式或者需要更多伤害模式下，此处会显示生命伤害比，意思是敌人生命值与您伤害的比值。此数值高于16时，会触发刷资源模式，高于4时，会进入地图获得10层地图奖励。',
+    'enoughHealth': '生命值足够',
+    'enoughDamage': '伤害足够',
+    'shouldFarm': '应该刷资源',
+    'H:D ratio =': '生命伤害比 =',
+    'true': '真',
+    'false': '假',
+    'Helium/Hr Info': '氦/小时 信息',
+    '1st is Current He/hr % out of Lifetime He(not including current+unspent).': '第1行为目前氦/小时与氦总量的百分比(不包含本轮的和未花费的)。',
+    '0.5% is an ideal peak target. This can tell you when to portal...': '0.5%是一个比较理想的目标。在这个数字附近使用传送门会较好…………',
+    '2nd is Current run Total He earned / Lifetime He(not including current': '第2行为本轮氦获取量与氦总量的比值(不包含本轮的',
+    'Radon/Hr Info': '氡/小时 信息',
+    '1st is Current Rn/hr % out of Lifetime Rn(not including current+unspent).': '第一行为目前氡/小时与氡总量的百分比(不包含本轮的和未花费的)。',
+    '2nd is Current run Total Rn earned / Lifetime Rn(not including current': '第2行为本轮氡获取量与氡总量的比值(不包含本轮的',
+    'Core': '核心',
+    'Core - Main Controls for the script': '核心 - 脚本主要内容的控制',
+    'Buildings': '建筑',
+    'Building Settings': '建筑设置',
+    'Jobs': '工作',
+    'Jobs - Worker Settings': '工作 - 工人设置',
+    'Gear': '装备',
+    'Gear - Equipment Settings': '装备 - 装备设置',
+    'Maps': '地图',
+    'Maps - AutoMaps & VoidMaps Settings': '地图 - 自动地图及虚空地图设置',
+    'Spire': '尖塔',
+    'Spire - Settings for Spires': '尖塔 - 尖塔相关设置',
+    'Raiding': '突袭',
+    'Raiding - Settings for Raiding': '突袭 - 突袭相关设置',
+    'Dailies - Settings for Dailies': '日常 - 日常相关设置',
+    'C2': 'C2',
+    'C2 - Settings for C': 'C2 - 相关设置：C',
+    'Challenges': '挑战',
+    'Challenges - Settings for Specific Challenges': '挑战 - 特定挑战相关设置',
+    'Combat': '战斗',
+    'Combat & Stance Settings': '战斗及阵型设置',
+    'Windstacking': '风层数叠加',
+    'Windstacking Settings': '风层数叠加设置',
+    'ATGA': '自动基因学家',
+    'Geneticassist Settings': '基因学家设置',
+    'Scryer': '占卜阵型',
+    'Scryer Settings': '占卜阵型设置',
+    'Magma': '岩浆',
+    'Dimensional Generator & Magmite Settings': '维度发生器及岩浆岩设置',
+    'Heirlooms': '传家宝',
+    'Heirloom Settings': '传家宝设置',
+    'Golden': '金色',
+    'Golden Upgrade Settings': '金色升级设置',
+    'Nature': '自然',
+    'Nature Settings': '自然设置',
+    'Display': '显示',
+    'Display & Spam Settings': '显示及屏蔽设置',
+    'Import Export': '导入导出',
+    'Import & Export Settings': '导入及导出设置',
+    'Minimize all tabs': '最小化所有选项卡',
+    'Minimize all AT settings tabs.': '最小化所有脚本设置选项卡。',
+    'Maximize all tabs': '最大化所有选项卡',
+    'Maximize all AT settings tabs.': '最大化所有脚本设置选项卡。',
+    'Exit (duplicate': '退出 (界面',
+    'Closes/toggles/hides AutoTrimps (just a UI shortcut': '关闭脚本界面 (只是快捷按钮',
+    'Manual Gather/Build': '手动采集和建造',
+    'Auto Gather/Build': '自动采集和建造',
+    'Mining/Building Only': '只采矿和建造',
+    'Science Research OFF': '不进行科学研究',
+    'Manual Gather/Build / Auto Gather/Build / Mining/Building Only / Science Research OFF': '手动采集和建造 / 自动采集和建造 / 只采矿和建造 / 不进行科学研究',
+    'Controls what you gather/build do. Manual does nothing': '控制您自己资源采集和建造。手动采集和建造不会做任何事。',
+    'Auto Gathering of Food,Wood,Metal(w/turkimp) & Science. Auto speed-Builds your build queue.': '自动采集会采集食物，木头，金属(有脆皮火鸡效果的时候)及科学点。自动建造会加速建造队列。',
+    'Mining/Building only does exactly what it says. Only use if you are passed the early stages of the game and have the mastery foremany unlocked (No longer need to trap, food and wood are useless).': '只采矿和建造的效果与它的称呼完全一致。建议只在您渡过游戏前期阶段获得50000工头后开启。',
+    'You can disable science researching for the achievement: Reach Z120 without using manual research.': '您可以关闭科学研究，以获得成就：在不使用手动研究的前提下，到达区域120。',
+    'Metal Only': '只采矿',
+    'For use with Mining/Gather Only. Only gathers Metal if you have foremany unlocked.': '用于 只采矿和建造 选项。当有工头以后，只进行采矿。',
+    'Manual Upgrades': '手动升级',
+    'Buy All Upgrades': '购买所有升级',
+    'Upgrades no Coords': '不升级协作',
+    'Manual Upgrades / Buy All Upgrades / Upgrades no Coords': '手动升级 / 购买所有升级 / 不升级协作',
+    'Autobuys non-equipment upgrades (equipment is controlled in the Gear tab). The second option does NOT buy coordination (use this': '自动购买装备以外的升级(装备升级在装备选项卡下)。最后一个选项不会购买协作升级( ',
+    'ONLY': '只',
+    'if you know what you\'re doing).': '在您知道这个用途时才选择)。',
+    'Amal Boost': '合并者提升',
+    'Boost your Amal count for more Mi. Will not buy coords until your H:D ratio is below a certain value. This means that you will get amals quicker. Will not activate higher than your Amal Boost End Zone Setting!': '提升合并者数量，以获得更多的岩浆岩。只在生命伤害比低于特定的值以后才会购买协作。这意味着您可以更快获得合并者。超过您的合并者提升结束区域后不会激活！',
+    'Amal Target': '合并者目标',
+    'Set the amount of Amals you wish to aim for. Once this target is reached, it will buy coords below your Amal ratio regardless of your H:D, just enough to keep the Amal. -1 to disable and use H:D for entire boost.': '设置合并者的数量目标。当达到目标数量时，将只考虑在保持数量的前提下购买协作升级，忽略掉生命伤害比。设为-1则全程只考虑生命伤害比。',
+    'Amal Boost H:D': '合并者提升生命伤害比',
+    'Set your H:D for Amal Boost here. The higher it is the less coords AT will buy. 0.0000025 is the default.': '设置合并者提升的生命伤害比。数值越高，脚本购买的协作升级就越少。0.0000025为默认值。',
+    'Amal Boost End Z': '合并者提升结束区域',
+    'Amal Boost End Zone. Set the zone you want to stop Amal Boosting. -1 to do it infinitely.': '合并者提升结束区域。设置停止使用合并者提升的区域。设为-1则无限持续不会停止。',
     '': '',
     '': '',
     '': '',
@@ -2077,7 +2288,6 @@ var cnItems = {
     'Saturday': '周六',
     'Sunday': '周日',
     'Corrupt': '腐化',
-    'Magma': '岩浆',
     'Healthy': '健康的',
     'Nullifium': '虚空物质',
     'Nu': '虚空物质',
@@ -2111,7 +2321,6 @@ var cnItems = {
     'Tribute X': '贡品 X',
     'Loot': '战利品',
     'Unlocks': '解锁',
-    'Combat': '战斗',
     'enabled': '启用',
     //修饰符
     'Fast Attacks': '快速攻击',
@@ -2246,7 +2455,6 @@ var cnItems = {
     'AutoGolden': '自动黄金升级',
     'Harmbalest': '高强弩',
     'GambesOP': '强棉甲',
-    'Maps': '地图',
     'Rename Preset': '重命名预设',
     'Pierce': '穿透',
     'Fast': '快速',
@@ -2477,7 +2685,6 @@ var cnItems = {
     'Allocate Perks': '分配特权',
     'Always Level': '始终等级',
     'AM Portal': 'AM 传送门',
-    'Amal Boost': '希望提升',
     'Any': '任何',
     'Black Bog': '黑色沼泽',
     'Battle Radon': '战斗氡',
@@ -2518,7 +2725,6 @@ var cnItems = {
     //未分类20190806
     'Smithy': '铁匠铺',
     'Items': '物品',
-    'Jobs': '工作',
     'Layout': '布局',
     'Load': '加载',
     'Mine': '采矿',
@@ -2557,16 +2763,13 @@ var cnItems = {
     'Forest': '森林',
     'Import': '导入',
     'Help': '帮助',
-    'Nature': '自然',
     'More Info': '更多信息',
     'Chop': '伐木',
     'Continue': '继续',
     'Close': '关闭',
     'Earned All Time': '一直赚的',
     'Equipment': '装备',
-    'Challenges': '挑战',
     'Challenge': '挑战',
-    'Buildings': '建筑',
     'Cancel': '取消',
     'Gathering': '收集中',
     'Chopping': '伐木中',
@@ -2580,14 +2783,12 @@ var cnItems = {
     'Trimps': '脆皮',
     'Trimps Info': '脆皮信息',
     'Trapping (': '陷阱 (',
-    'Spire': '尖塔',
     'Auto Saving': '自动保存',
     'AutoEquip': '自动装备',
     'AutoFight Off': '自动战斗 关闭',
     'Save': '保存',
     'Settings': '设置',
     'Sea': '海洋',
-    'Heirlooms': '传家宝',
     'Heirlooms - Gifts to past you from future you': '传家宝-来自于未来，生效于过去',
     'Activate Portal': '激活传送门',
     'Boosts': '提升',
@@ -2811,7 +3012,7 @@ var cnItems = {
     'Where one minute ago there was dirt, grass, and noxious fog, there are now rivers of molten rock (and noxious fog). You\'d really like to try and repair the planet somehow, so you decide to keep pushing on. It\'s been working out well so far, there was some useful stuff in that chest!': '一分钟前有泥土，草丛和有害雾气的地方，现在有熔岩河（有毒雾气）。 您真的很想尝试以某种方式修复地球，因此您决定继续前进。 到目前为止，效果一直很好，那个箱子里有一些有用的东西！',
     'The heat is tough on your Trimps, causing each Zone to reduce their attack and health by 20% more than the last. 10% of your Nurseries will permanently close after each Zone to avoid Magma flows, and Corruption has seeped into both Void and regular Maps, further increasing their difficulty.': '热浪对您的脆皮不利，导致每个区域的攻击力和生命值都比上一个区域减少20％。 每个区域结束后，您的苗圃中有10％将永久关闭，以避免岩浆流动，并且腐败渗透到了虚空地图和常规地图中，进一步增加了难度。',
     'Though you\'ve seen the Corruption grow since the planet broke, you can now see a giant spire pumping out tons of the purple goo. Things seem to be absorbing it at a higher rate now.': '尽管自从行星破裂以来您已经看到了腐败的增长，但是现在您可以看到一个巨大的尖顶抽出大量的紫色粘胶。 现在看来，事物正在以更高的速度吸收它。',
-    'For your past completions of 50 unique Bionic Wonderland Tiers, you have unlocked the following permanent special bonuses: Foremany (Permanently adds 50000 Foreman to your town to aid in construction), AutoJobs, AutoStructure, and Double Build (Stacked items in the Building Queue will be constructed two at a time). As these bonuses were previously Masteries and are now not, new Masteries have been added to replace these!': '对于你过去完成的50个独特的仿生仙境层，你已经解锁了以下永久的特殊奖励:大群工头(永久增加50000工头到你的城市，以协助建设)，自动工作, 自动建造，和双重建造(堆叠项目的建设队列将建设两个一次)。由于这些加值以前是高精而现在不是，新的高精被添加来代替!',
+    'For your past completions of 50 unique Bionic Wonderland Tiers, you have unlocked the following permanent special bonuses: Foremany (Permanently adds 50000 Foreman to your town to aid in construction), AutoJobs, AutoStructure, and Double Build (Stacked items in the Building Queue will be constructed two at a time). As these bonuses were previously Masteries and are now not, new Masteries have been added to replace these!': '对于你过去完成的50个独特的仿生仙境层，你已经解锁了以下永久的特殊奖励:大群工头(永久增加50000工头到你的城市，以协助建设)，自动工作, 自动建造，和双重建造(堆叠项目的建造队列将建设两个一次)。由于这些加值以前是高精而现在不是，新的高精被添加来代替!',
     'A lot of other new stuff has just been added to Trimps as well, click': '脆皮刚刚添加了许多其他新内容，请点击',
     'Bring it on': '来吧',
     'Improbabilities and Void Maps are now more difficult.': '乌有者发生虚空地图现在都比较困难。',
@@ -2876,21 +3077,13 @@ var cnItems = {
     'which cost helium': '需要消耗氦',
     '. Make sure you can earn back what you spend!': '。请确保你有能力去赚回你花费的氦气!',
     'Make Purchase': '购买',
-    'Core': '核心',
     'Cores': '核心',
     'critChance': '暴击率',
     'critDamage': '暴击伤害',
-    'Display': '显示',
     'empty': '空',
-    'Gear': '装备',
-    'Golden': '金色',
-    'Import Export': '导入导出',
-    'Jobs - Worker Settings': '工作 - 工人设置',
     'trimpAttack': '脆皮攻击',
     'trimpBlock': '脆皮防御',
     'trimpHealth': '脆皮生命',
-    'Scryer': '占卜者',
-    'Scryer Settings': '占卜者设置',
     'Shields': '盾牌',
     'AutoPortal': '自动传送',
     'AutoTraps On': '自动陷阱开启',
@@ -3049,7 +3242,6 @@ var cnItems = {
     'Auto Magmamancers': '自动岩浆巫师',
     'AutoAbandon': '自动放弃',
     'AutoGoldenUpgrades': '自动金色升级',
-    'Building Settings': '建筑设置',
     'Buy Buildings & Storage': '购买建筑和仓库',
     'Buy Armor on Death': '死亡时购买护甲',
     'Custom Portal': '自定义传送',
@@ -3129,8 +3321,154 @@ var cnPostfix = {
     "%": "%",
     "Bone": "骨头",
     "Bones": "骨头",
-    "Snimp!": "脆皮鹬!", //击杀消息末尾
-    "Snimp group!": "脆皮鹬群!", //击杀消息末尾
+    "Liquimp!": "液化者！", //击杀消息末尾
+    "Liquimp group!": "液化者集团！", //击杀消息末尾
+    "Presimpt!": "脆皮小礼！", //击杀消息末尾
+    "Presimpt group!": "脆皮小礼集团！", //击杀消息末尾
+    "Turkimp!": "脆皮火鸡！", //击杀消息末尾
+    "Turkimp group!": "脆皮火鸡集团！", //击杀消息末尾
+    "Randimp!": "脆皮百变怪！", //击杀消息末尾
+    "Randimp group!": "脆皮百变怪集团！", //击杀消息末尾
+    "Squimp!": "脆皮乌贼！", //击杀消息末尾
+    "Squimp group!": "脆皮乌贼集团！", //击杀消息末尾
+    "Elephimp!": "脆皮象！", //击杀消息末尾
+    "Elephimp group!": "脆皮象集团！", //击杀消息末尾
+    "Turtlimp!": "脆皮龟！", //击杀消息末尾
+    "Turtlimp group!": "脆皮龟集团！", //击杀消息末尾
+    "Chimp!": "脆皮黑猩猩！", //击杀消息末尾
+    "Chimp group!": "脆皮黑猩猩集团！", //击杀消息末尾
+    "Penguimp!": "脆皮企鹅！", //击杀消息末尾
+    "Penguimp group!": "脆皮企鹅集团！", //击杀消息末尾
+    "Snimp!": "脆皮鹬！", //击杀消息末尾
+    "Snimp group!": "脆皮鹬集团！", //击杀消息末尾
+    "Gorillimp!": "脆皮大猩猩！", //击杀消息末尾
+    "Gorillimp group!": "脆皮大猩猩集团！", //击杀消息末尾
+    "Blimp!": "脆皮飞艇！", //击杀消息末尾
+    "Blimp group!": "脆皮飞艇集团！", //击杀消息末尾
+    "Dragimp!": "脆皮龙！", //击杀消息末尾
+    "Dragimp group!": "脆皮龙集团！", //击杀消息末尾
+    "Improbability!": "乌有者！", //击杀消息末尾
+    "Improbability group!": "乌有者集团！", //击杀消息末尾
+    "Omnipotrimp!": "全能者！", //击杀消息末尾
+    "Omnipotrimp group!": "全能者集团！", //击杀消息末尾
+    "Mutimp!": "脆皮变异者！", //击杀消息末尾
+    "Mutimp group!": "脆皮变异者集团！", //击杀消息末尾
+    "Hulking Mutimp!": "脆皮大型变异者！", //击杀消息末尾
+    "Hulking Mutimp group!": "脆皮大型变异者集团！", //击杀消息末尾
+    "Feyimp!": "脆皮小妖！", //击杀消息末尾
+    "Feyimp group!": "脆皮小妖集团！", //击杀消息末尾
+    "Tauntimp!": "脆皮咚咚！", //击杀消息末尾
+    "Tauntimp group!": "脆皮咚咚集团！", //击杀消息末尾
+    "Whipimp!": "脆皮鞭者！", //击杀消息末尾
+    "Whipimp group!": "脆皮鞭者集团！", //击杀消息末尾
+    "Venimp!": "脆皮爱神！", //击杀消息末尾
+    "Venimp group!": "脆皮爱神集团！", //击杀消息末尾
+    "Magnimp!": "脆皮磁王！", //击杀消息末尾
+    "Magnimp group!": "脆皮磁王集团！", //击杀消息末尾
+    "Skeletimp!": "脆皮骷髅！", //击杀消息末尾
+    "Skeletimp group!": "脆皮骷髅集团！", //击杀消息末尾
+    "Megaskeletimp!": "脆皮超级骷髅！", //击杀消息末尾
+    "Megaskeletimp group!": "脆皮超级骷髅集团！", //击杀消息末尾
+    "Pumpkimp!": "脆皮南瓜怪！", //击杀消息末尾
+    "Pumpkimp group!": "脆皮南瓜怪集团！", //击杀消息末尾
+    "Shrimp!": "脆皮虾！", //击杀消息末尾
+    "Shrimp group!": "脆皮虾集团！", //击杀消息末尾
+    "Mountimp!": "脆皮山怪！", //击杀消息末尾
+    "Mountimp group!": "脆皮山怪集团！", //击杀消息末尾
+    "Frimp!": "脆皮森精！", //击杀消息末尾
+    "Frimp group!": "脆皮森精集团！", //击杀消息末尾
+    "Chickimp!": "脆皮小鸡！", //击杀消息末尾
+    "Chickimp group!": "脆皮小鸡集团！", //击杀消息末尾
+    "Hippopotamimp!": "脆皮河马！", //击杀消息末尾
+    "Hippopotamimp group!": "脆皮河马集团！", //击杀消息末尾
+    "Onoudidimp!": "脆皮蜗牛！", //击杀消息末尾
+    "Onoudidimp group!": "脆皮蜗牛集团！", //击杀消息末尾
+    "Kittimp!": "脆皮小猫！", //击杀消息末尾
+    "Kittimp group!": "脆皮小猫集团！", //击杀消息末尾
+    "Grimp!": "脆皮护林者！", //击杀消息末尾
+    "Grimp group!": "脆皮护林者集团！", //击杀消息末尾
+    "Golimp!": "脆皮魔像！", //击杀消息末尾
+    "Golimp group!": "脆皮魔像集团！", //击杀消息末尾
+    "Seirimp!": "脆皮矿精！", //击杀消息末尾
+    "Seirimp group!": "脆皮矿精集团！", //击杀消息末尾
+    "Slagimp!": "脆皮炉渣怪！", //击杀消息末尾
+    "Slagimp group!": "脆皮炉渣怪集团！", //击杀消息末尾
+    "Moltimp!": "脆皮熔金怪！", //击杀消息末尾
+    "Moltimp group!": "脆皮熔金怪集团！", //击杀消息末尾
+    "Lavimp!": "脆皮火岩怪！", //击杀消息末尾
+    "Lavimp group!": "脆皮火岩怪集团！", //击杀消息末尾
+    "Flowimp!": "脆皮花妖！", //击杀消息末尾
+    "Flowimp group!": "脆皮花妖集团！", //击杀消息末尾
+    "Kangarimp!": "脆皮袋鼠！", //击杀消息末尾
+    "Kangarimp group!": "脆皮袋鼠集团！", //击杀消息末尾
+    "Gnomimp!": "脆皮侏儒！", //击杀消息末尾
+    "Gnomimp group!": "脆皮侏儒集团！", //击杀消息末尾
+    "Slosnimp!": "脆皮慢鹬！", //击杀消息末尾
+    "Slosnimp group!": "脆皮慢鹬集团！", //击杀消息末尾
+    "Entimp!": "脆皮树人！", //击杀消息末尾
+    "Entimp group!": "脆皮树人集团！", //击杀消息末尾
+    "Squirrimp!": "脆皮松鼠！", //击杀消息末尾
+    "Squirrimp group!": "脆皮松鼠集团！", //击杀消息末尾
+    "Gravelimp!": "脆皮碎石怪！", //击杀消息末尾
+    "Gravelimp group!": "脆皮碎石怪集团！", //击杀消息末尾
+    "Cthulimp!": "脆皮克苏鲁！", //击杀消息末尾
+    "Cthulimp group!": "脆皮克苏鲁集团！", //击杀消息末尾
+    "Shadimp!": "脆皮暗影怪！", //击杀消息末尾
+    "Shadimp group!": "脆皮暗影怪集团！", //击杀消息末尾
+    "Voidsnimp!": "脆皮虚空鹬！", //击杀消息末尾
+    "Voidsnimp group!": "脆皮虚空鹬集团！", //击杀消息末尾
+    "Goblimp!": "脆皮地精！", //击杀消息末尾
+    "Goblimp group!": "脆皮地精集团！", //击杀消息末尾
+    "Flutimp!": "脆皮飘兽！", //击杀消息末尾
+    "Flutimp group!": "脆皮飘兽集团！", //击杀消息末尾
+    "Jestimp!": "脆皮弄臣！", //击杀消息末尾
+    "Jestimp group!": "脆皮弄臣集团！", //击杀消息末尾
+    "Titimp!": "脆皮泰坦！", //击杀消息末尾
+    "Titimp group!": "脆皮泰坦集团！", //击杀消息末尾
+    "Chronoimp!": "脆皮时者！", //击杀消息末尾
+    "Chronoimp group!": "脆皮时者集团！", //击杀消息末尾
+    "Megablimp!": "脆皮超级飞艇！", //击杀消息末尾
+    "Megablimp group!": "脆皮超级飞艇集团！", //击杀消息末尾
+    "Mitschimp!": "脆皮巨猩猩！", //击杀消息末尾
+    "Mitschimp group!": "脆皮巨猩猩集团！", //击杀消息末尾
+    "Brickimp!": "脆皮砖汉！", //击杀消息末尾
+    "Brickimp group!": "脆皮砖汉集团！", //击杀消息末尾
+    "Indianimp!": "脆皮印第安人！", //击杀消息末尾
+    "Indianimp group!": "脆皮印第安人集团！", //击杀消息末尾
+    "Warden!": "典狱长！", //击杀消息末尾
+    "Warden group!": "典狱长集团！", //击杀消息末尾
+    "Robotrimp!": "脆皮机器人！", //击杀消息末尾
+    "Robotrimp group!": "脆皮机器人集团！", //击杀消息末尾
+    "Mechimp!": "脆皮机甲！", //击杀消息末尾
+    "Mechimp group!": "脆皮机甲集团！", //击杀消息末尾
+    "Destructimp!": "脆皮破灭者！", //击杀消息末尾
+    "Destructimp group!": "脆皮破灭者集团！", //击杀消息末尾
+    "Terminatimp!": "脆皮终结者！", //击杀消息末尾
+    "Terminatimp group!": "脆皮终结者集团！", //击杀消息末尾
+    "Autoimp!": "脆皮汽车！", //击杀消息末尾
+    "Autoimp group!": "脆皮汽车集团！", //击杀消息末尾
+    "Artimp!": "脆皮机器艺术家！", //击杀消息末尾
+    "Artimp group!": "脆皮机器艺术家集团！", //击杀消息末尾
+    "Neutrimp!": "脆皮中子怪！", //击杀消息末尾
+    "Neutrimp group!": "脆皮中子怪集团！", //击杀消息末尾
+    "Fusimp!": "脆皮聚变怪！", //击杀消息末尾
+    "Fusimp group!": "脆皮聚变怪集团！", //击杀消息末尾
+    "Hydrogimp!": "脆皮氢怪！", //击杀消息末尾
+    "Hydrogimp group!": "脆皮氢怪集团！", //击杀消息末尾
+    "Carbimp!": "脆皮碳怪！", //击杀消息末尾
+    "Carbimp group!": "脆皮碳怪集团！", //击杀消息末尾
+    "Prismimp!": "脆皮棱镜怪！", //击杀消息末尾
+    "Prismimp group!": "脆皮棱镜怪集团！", //击杀消息末尾
+    "Rainbimp!": "脆皮彩虹兽！", //击杀消息末尾
+    "Rainbimp group!": "脆皮彩虹兽集团！", //击杀消息末尾
+    "Lightimp!": "脆皮光怪！", //击杀消息末尾
+    "Lightimp group!": "脆皮光怪集团！", //击杀消息末尾
+    "Meltimp!": "脆皮熔怪！", //击杀消息末尾
+    "Meltimp group!": "脆皮熔怪集团！", //击杀消息末尾
+    "Sweltimp!": "脆皮酷热者！", //击杀消息末尾
+    "Sweltimp group!": "脆皮酷热者集团！", //击杀消息末尾
+    "Darknimp!": "脆皮暗罪者！", //击杀消息末尾
+    "Darknimp group!": "脆皮暗罪者集团！", //击杀消息末尾
 }
 
 //需排除的，正则匹配
@@ -3573,16 +3911,16 @@ var cnRegReplace = new Map([
     [/^(.*) Trimp(s*) just died. Lame.$/, '$1个脆皮挂了。弱爆了。'], //死亡消息
     [/^(.*) Trimp(s*) just lagged out.$/, '$1个脆皮卡死了。'], //死亡消息
     [/^(.*) Trimp(s*) just imp-loded.$/, '$1个脆皮皮爆了。'], //死亡消息
-    [/^(.*)You slew a(n*) $/, '$1您击杀了一只'], //击杀消息
-    [/^(.*)You killed a(n*) $/, '$1您杀死了一只'], //击杀消息
-    [/^(.*)You destroyed a(n*) $/, '$1您毁灭了一只'], //击杀消息
-    [/^(.*)You extinguished a(n*) $/, '$1您消灭了一只'], //击杀消息
-    [/^(.*)You liquidated a(n*) $/, '$1您清算了一只'], //击杀消息
-    [/^(.*)You vaporized a(n*) $/, '$1您蒸发了一只'], //击杀消息
-    [/^(.*)You demolished a(n*) $/, '$1您摧毁了一只'], //击杀消息
-    [/^(.*)You ruined a(n*) $/, '$1您破坏了一只'], //击杀消息
-    [/^(.*)You wrecked a(n*) $/, '$1您击毁了一只'], //击杀消息
-    [/^(.*)You obliterated a(n*) $/, '$1您抹消了一只'], //击杀消息
+    [/^(.*)You slew a(n*) $/, '$1您击杀了一个'], //击杀消息
+    [/^(.*)You killed a(n*) $/, '$1您杀死了一个'], //击杀消息
+    [/^(.*)You destroyed a(n*) $/, '$1您毁灭了一个'], //击杀消息
+    [/^(.*)You extinguished a(n*) $/, '$1您消灭了一个'], //击杀消息
+    [/^(.*)You liquidated a(n*) $/, '$1您清算了一个'], //击杀消息
+    [/^(.*)You vaporized a(n*) $/, '$1您蒸发了一个'], //击杀消息
+    [/^(.*)You demolished a(n*) $/, '$1您摧毁了一个'], //击杀消息
+    [/^(.*)You ruined a(n*) $/, '$1您破坏了一个'], //击杀消息
+    [/^(.*)You wrecked a(n*) $/, '$1您击毁了一个'], //击杀消息
+    [/^(.*)You obliterated a(n*) $/, '$1您抹消了一个'], //击杀消息
     [/^(.*) Seconds$/, '$1 秒'], //脚本3图表
     [/^Portal (.*): Daily$/, '传送门 $1：日常'], //脚本3图表
     [/^Portal (.*): Discipline$/, '传送门 $1：纪律'], //脚本3图表
