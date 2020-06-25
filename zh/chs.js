@@ -98,9 +98,7 @@ var cnItems = {
     'Sweltimp': '脆皮酷热者', //特殊敌人
     'Darknimp': '脆皮暗罪者', //特殊敌人
     'Druopitee': '德罗披提', //特殊敌人
-    'Druopitee and Pals': '德罗披提和随从们', //特殊敌人
     'Echo of Druopitee': '德罗披提的幻影', //特殊敌人
-    'Echoes of Druopitee and Pals': '德罗披提的幻影和随从们', //特殊敌人
     'Corrupt Liquimp': '腐化液化者',
     'Corrupt Presimpt': '腐化脆皮小礼',
     'Corrupt Turkimp': '腐化脆皮火鸡',
@@ -319,6 +317,9 @@ var cnItems = {
     'Frozen Megaskeletimp': '冻结脆皮超级骷髅',
     '': '',
     '': '',
+    'Improbabilities': '乌有者们',
+    'Druopitee and Pals': '德罗披提和随从们', //特殊敌人
+    'Echoes of Druopitee and Pals': '德罗披提的幻影和随从们', //特殊敌人
     //敌人名称相关结束
     //装备相关
     'Shield': '盾牌',
@@ -1869,7 +1870,7 @@ var cnItems = {
     'false': '条件为假',
     'Helium/Hr Info': '氦/小时 信息',
     '1st is Current He/hr % out of Lifetime He(not including current+unspent).': '第1行为目前氦/小时与氦总量的百分比(不包含本轮的和未花费的)。',
-    '0.5% is an ideal peak target. This can tell you when to portal...': '0.5%是一个比较理想的目标。在这个数字附近使用传送门会较好…………',
+    '0.5% is an ideal peak target. This can tell you when to portal...': '0.5%是一个比较理想的目标。在这个数字附近使用传送门会较好……',
     '2nd is Current run Total He earned / Lifetime He(not including current': '第2行为本轮氦获取量与氦总量的比值(不包含本轮的',
     'Radon/Hr Info': '氡/小时 信息',
     '1st is Current Rn/hr % out of Lifetime Rn(not including current+unspent).': '第一行为目前氡/小时与氡总量的百分比(不包含本轮的和未花费的)。',
@@ -2014,28 +2015,42 @@ var cnItems = {
     'below 25% of your health.': '生命值不超过25%时自动激活。',
     'Daily VM Scryer': '日常虚空地图占卜阵型',
     'Only use in Dailies if you have Scryhard II, for er, obvious reasons. Works without the scryer options.': '请只在拥有努力占卜 II精通时开启，原因不用多说。当未开启占卜阵型相关设置时无效。',
+    'Daily Ignore Spires Until': '日常塔无效层',
+    'Spire specific settings like end-at-cell are ignored until at least this zone is reached in Dailies (0 to disable).': '日常挑战中，尖塔的相关设置直到相应层数前无效(设为0则关闭此选项)。',
+    'Daily Exit Spire Cell': '日常塔退出格',
+    'What cell to exit spire in dailys.': '日常挑战中，在哪一格退出尖塔。',
+    'Daily Nurseries pre-Spire': '日常塔托儿所',
+    'Set the maximum number of Nurseries to build for Spires in Dailies. Overrides No Nurseries Until z and Max Nurseries so you can keep them seperate! Disable with -1.': '设置在日常挑战中，进入尖塔前的托儿所数量上限。先于建筑选项卡的托儿所起始区和托儿所上限生效，这样您就可以单独管理日常挑战时的设置了！设为-1则关闭此选项。',
+    'Daily Windstacking': '日常风层数叠加',
+    'This must be on for Daily windstacking settings to appear!': '此选项打开后才能设置日常风层数的详细参数！',
+    'Overrides your Autostance settings to use the WS stance on Dailies.': '日常挑战中，先于自动阵型生效，自动使用风阵型。',
+    'Daily Windstack Min Zone': '日常风层数叠加最小区域',
+    'For use with Windstacking Stance, enables windstacking in zones above and inclusive of the zone set for dailys. (Get specified windstacks then change to D, kill bad guy, then repeat). This is designed to force S use until you have specified stacks in wind zones, overriding scryer settings. All windstack settings apart from Daily WS MAX work off this setting.': '用于风阵型，日常挑战中，在相应数值以上的区域才触发风层数叠加。(达到特定的风层数，然后切换为D阵型，击杀敌人，再重复此流程。)此项先于占卜阵型生效。但后面两个日常风层数叠加的设置会使此选项无效。',
+    'Daily Windstack H:D': '日常风层数叠加生命伤害比',
+    'For use with Windstacking Stance in Dailies, fiddle with this to maximise your stacks in wind zones for Dailies. If H:D is above this setting it will not use W stance. If it is below it will.': '用于日常挑战的风阵型。此选项可以用来最大化风区域的风层数。当生命伤害比高于相应数值时不会使用风阵型。当低于的时候会使用。',
+    'Daily Windstack Stacks': '日常风层数叠加层数',
+    'For use with Windstacking Stance in Dailies. Amount of windstacks to obtain before switching to D stance. Default is 200, but I recommend anywhere between 175-190. In Wind Enlightenment it will add 100 stacks to your total automatically. So if this setting is 200 It will assume you want 300 stacks instead during enlightenment.': '用于日常挑战的风阵型。达到相应风层数后，再切换到D阵型。默认值为200，但个人建议设置为175至190之间的数字。如果开启了风之启迪，则自动在此数值上追加100。所以假设您将此项设置为200，那么在风之启迪开启时，会自动叠加到300层。',
+    'Daily Wind Damage Cutoff': '日常风装备界限',
+    'Set this value to optimise your windstacking in dailys. Can work without Windstacking Stance, but not recommended. AT normally uses 4 as its cutoff. I.e if the cutoff is above 4 it will buy max equipment. If you set this to 160, it will not get more damage till you are above x160. Essentially, the higher the value, the less damage AT wants to get, this will enable you to windstack to incredibly high amounts. -1 to disable/go back to default. Must set your windstacking min zone to use.': '设置数值来优化日常挑战中的风层数叠加。可以在没有风阵型的情况下生效，但不推荐。脚本通常使用4作为装备界限数值，例如：界限数值超过4的时候，会购买最大数量的装备。如果您将此项设为160，则只在界限数值超过160的时候才会购买。简而言之，此数值越高，脚本升级装备就越少，此项可以让您将风层数叠加到非常高。设为-1则关闭此选项，恢复默认设置。必须设置日常风层数叠加最小区域才能正常使用。',
+    'Daily Wind Map Cutoff': '日常风地图界限',
+    'Set this value to optimise your windstacking in dailys. Can work without Windstacking Stance, but not recommended. AT normally uses 4 as its cutoff. I.e if the cutoff is above 4 it will do map bonus. If you set this to 160, it will not do maps till you are above x160. Essentially, the higher the value, the less damage AT wants to get, this will enable you to windstack to incredibly high amounts. -1 to disable/go back to default. Must set your windstacking min zone to use.': '设置数值来优化日常挑战中的风层数叠加。可以在没有风阵型的情况下生效，但不推荐。脚本通常使用4作为地图界限数值，例如：界限数值超过4的时候，会去获得地图奖励。如果您将此项设为160，则只在界限数值超过160的时候才会去获得奖励。简而言之，此数值越高，脚本获得地图奖励就越少，此项可以让您将风层数叠加到非常高。设为-1则关闭此选项，恢复默认设置。必须设置日常风层数叠加最小区域才能正常使用。',
+    'Stack Liquification': '液化风层数叠加',
+    'Stack Wind zones during Wind Enlight during Liquification.': '开启风之启迪并在风区域触发液化时，叠加风层数。',
+    'Daily WS MAX': '日常风层数叠加上限',
+    'For maximising Windstacking an entire Daily. Withholds damage to try and get your max windstacks every wind zone. Not recommended for terrible Dailies.': '设置日常挑战中风层数叠加层数的上限。每个风区域会控制伤害，尽可能达到最大风层数。不建议在条件过于苛刻的日常挑战中使用。',
+    'Daily WSM H:D': '日常风层数叠加上限生命伤害比',
+    'Fiddle with this to maximise your DWSM settings. Default is 0.00025.': '此项可以用来最大化日常风层数叠加上限的数值。默认值为0.00025。',
     '': '',
     '': '',
     '': '',
     '': '',
     '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
+    'BAF': '更好自动战斗',
+    'No Nurseries Until z': '托儿所起始区',
+    'Max Nurseries': '托儿所上限',
+    'Autostance': '自动阵型',
+    'Equipment Cut Off': '装备界限',
+    'Map Cut Off': '地图界限',
     '': '',
     '': '',
     '': '',
@@ -3730,11 +3745,11 @@ var cnRegReplace = new Map([
     [/^(.*)That Slagimp fell over, and (.*) gems popped out! How about that\?!$/, '$1脆皮炉渣怪倒下了， $2 宝石冒了出来！什么情况？！'], //特定敌人
     [/^(.*)The Moltimp thanked you for the combat, and handed you (.*) bars of metal! Then he died.$/, '$1脆皮熔金怪感谢您与它作战，并交给您 $2 金属！然后它就凉了。'], //特定敌人
     [/^(.*)The Entimp is no more. You manage to salvage (.*) logs of wood from his trunk!$/, '$1脆皮树人再也不会动了。您从它的树干上获取了 $2 木头！'], //特定敌人
-    [/^(.*)Time for some stew! You scored (.*) food from that Squirrimp!$/, '$1该炖点什么吃了！您将脆皮松鼠烹饪后获得了 $2 食物！'], //特定敌人
+    [/^(.*)Time for some stew! You scored (.*) food from that $/, '$1该炖点什么吃了！您获得了 $2 食物，因为您烹饪了那只'], //特定敌人
     [/^(.*)You sift through the Gravelimp, and manage to find (.*) bars of metal! Good on you!$/, '$1您筛了一下碎石怪留下的东西，找到了 $2 金属！真不错！'], //特定敌人
     [/^(.*)That Blimp dropped (.*) Food, Wood and Metal! That should be useful.$/, '$1脆皮飞艇掉落了 $2 食物，木头和金属！一定能用得上的。'], //特定敌人
-    [/^(.*)You were able to extract (.*) Helium Canisters from that Blimp!$/, '$1您从脆皮飞艇上提取了 $2 氦。'], //特定敌人
-    [/^(.*)You were able to extract (.*) Radon Vials from that Blimp!$/, '$1您从脆皮飞艇上提取了 $2 氡。'], //特定敌人
+    [/^(.*)You were able to extract (.*) Helium Canisters from that $/, '$1您提取了 $2 氦，取自'], //特定敌人
+    [/^(.*)You were able to extract (.*) Radon Vials from that $/, '$1您提取了 $2 氡，取自'], //特定敌人
     [/^(.*)Cthulimp and the map it came from crumble into the darkness. You find yourself instantly teleported to the next Void map.$/, '$1脆皮克苏鲁及它藏身的地图遁入了黑暗。您被传送到了下一张虚空地图。'], //特定敌人
     [/^(.*)Cthulimp and the map it came from crumble into the darkness. You find yourself instantly teleported to the next Void map with an extra (.*) Helium!$/, '$1脆皮克苏鲁及它藏身的地图遁入了黑暗。您被传送到了下一张虚空地图，并额外获取了 $2 氦！'], //特定敌人
     [/^(.*)Cthulimp and the map it came from crumble into the darkness. You find yourself instantly teleported to the next Void map with an extra (.*) Radon!$/, '$1脆皮克苏鲁及它藏身的地图遁入了黑暗。您被传送到了下一张虚空地图，并额外获取了 $2 氡！'], //特定敌人
@@ -3779,8 +3794,8 @@ var cnRegReplace = new Map([
     [/^(.*)That Randimp dropped (.*) gems! What a bro!$/, '$1脆皮百变怪掉落了 $2 宝石！真是好兄弟！'], //特定敌人
     [/^(.*)That Goblimp dropped (.*) gems! What a bro!$/, '$1脆皮地精掉落了 $2 宝石！真是好兄弟！'], //特定敌人
     [/^Drops (.*)x Gems$/, '掉落 $1 倍的宝石'], //特定敌人
-    [/^(.*)That Randimp gave you (.*) gems! Thanks Randimp!$/, '$1脆皮百变怪交给您 $2 宝石！谢了！'], //特定敌人
-    [/^(.*)That Feyimp gave you (.*) gems! Thanks Feyimp!$/, '$1脆皮小妖交给您 $2 宝石！谢了！'], //特定敌人
+    [/^(.*)That Randimp gave you (.*) gems! Thanks $/, '$1脆皮百变怪交给您 $2 宝石！谢了'], //特定敌人
+    [/^(.*)That Feyimp gave you (.*) gems! Thanks $/, '$1脆皮小妖交给您 $2 宝石！谢了'], //特定敌人
     [/^(.*)You stole (.*) fragments from that Randimp! It really didn't look like she needed them though, don't feel bad.$/, '$1您从脆皮百变怪那顺走了 $2 碎片！反正她看起来也不需要，别有负罪感。'], //特定敌人
     [/^(.*)You stole (.*) fragments from that Flutimp! It really didn't look like she needed them though, don't feel bad.$/, '$1您从脆皮飘兽那顺走了 $2 碎片！反正她看起来也不需要，别有负罪感。'], //特定敌人
     [/^(.*)It's nice, warm, and roomy in that dead Randimp. You found (.*) Trimp inside, and it looks hella bored.$/, '$1死去的脆皮百变怪体内环境舒适，温暖，而且宽敞。您在里面发现了 $2 个脆皮，它看起来很无聊。'], //特定敌人
@@ -3814,7 +3829,7 @@ var cnRegReplace = new Map([
     [/^(.*)That Chronoimp dropped (.*) food, (.*) wood, (.*) metal, (.*) science, and (.*) gems!$/, '$1脆皮时者掉落了 $2 食物， $3 木头， $4 金属， $5 科学点，和 $6 宝石！'], //特定敌人
     [/^(.*)You killed a Randimp! The strong magnetic forces now increase your loot by (.*)%!$/, '$1您击杀了一个脆皮百变怪！它的强大磁力使您战利品数量增加 $2% ！'], //特定敌人
     [/^(.*)You killed a Magnimp! The strong magnetic forces now increase your loot by (.*)%!$/, '$1您击杀了一个脆皮磁王！它的强大磁力使您战利品数量增加 $2% ！'], //特定敌人
-    [/^(.*)Your Trimps managed to pull 1 perfectly preserved bone from that Skeletimp!$/, '$1脆皮们从脆皮骷髅身上取得了1块保存完好的骨头！'], //特定敌人
+    [/^(.*)Your Trimps managed to pull 1 perfectly preserved bone from that $/, '$1脆皮们获得了1块保存完好的骨头，取自'], //特定敌人
     [/^(.*)That was a pretty big Skeletimp. Your Trimps scavenged the remains and found 2 perfectly preserved bones!$/, '$1这个脆皮骷髅相当巨大。脆皮们搜寻了残骸，找到了2块保存完好的骨头！'], //特定敌人
     [/^A big, wooden shield. Adds (.*) health to each soldier per level.$/, '一面大木盾，每级增加每名士兵 $1 生命值。'], //装备
     [/^A big, wooden shield. Adds (.*) block to each soldier per level.$/, '一面大木盾，每级增加每名士兵 $1 格挡。'], //装备
