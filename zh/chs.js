@@ -2028,7 +2028,7 @@ var cnItems = {
     'Daily Windstack H:D': '日常风层数叠加生命伤害比',
     'For use with Windstacking Stance in Dailies, fiddle with this to maximise your stacks in wind zones for Dailies. If H:D is above this setting it will not use W stance. If it is below it will.': '用于日常挑战的风阵型。此选项可以用来最大化风区域的风层数。当生命伤害比高于相应数值时不会使用风阵型。当低于的时候会使用。',
     'Daily Windstack Stacks': '日常风层数叠加层数',
-    'For use with Windstacking Stance in Dailies. Amount of windstacks to obtain before switching to D stance. Default is 200, but I recommend anywhere between 175-190. In Wind Enlightenment it will add 100 stacks to your total automatically. So if this setting is 200 It will assume you want 300 stacks instead during enlightenment.': '用于日常挑战的风阵型。达到相应风层数后，再切换到D阵型。默认值为200，但个人建议设置为175至190之间的数字。如果开启了风之启迪，则自动在此数值上追加100。所以假设您将此项设置为200，那么在风之启迪开启时，会自动叠加到300层。',
+    'For use with Windstacking Stance in Dailies. Amount of windstacks to obtain before switching to D stance. Default is 200, but I recommend anywhere between 175-190. In Wind Enlightenment it will add 100 stacks to your total automatically. So if this setting is 200 It will assume you want 300 stacks instead during enlightenment.': '用于日常挑战的风阵型。达到相应风层数后，再切换到D阵型。默认值为200，但个人建议设置为175至190之间的数字。如果开启了风之启迪，则自动在此数值上追加100。所以如果您将此项设置为200，那么在风之启迪开启时，会自动叠加到300层。',
     'Daily Wind Damage Cutoff': '日常风装备界限',
     'Set this value to optimise your windstacking in dailys. Can work without Windstacking Stance, but not recommended. AT normally uses 4 as its cutoff. I.e if the cutoff is above 4 it will buy max equipment. If you set this to 160, it will not get more damage till you are above x160. Essentially, the higher the value, the less damage AT wants to get, this will enable you to windstack to incredibly high amounts. -1 to disable/go back to default. Must set your windstacking min zone to use.': '设置数值来优化日常挑战中的风层数叠加。可以在没有风阵型的情况下生效，但不建议。脚本通常使用4作为装备界限数值，例如：界限数值超过4的时候，会购买最大数量的装备。如果您将此项设为160，则只在界限数值超过160的时候才会购买。简而言之，此数值越高，脚本升级装备就越少，此项可以让您将风层数叠加到非常高。设为-1则关闭此选项，恢复默认设置。必须设置日常风层数叠加最小区域才能正常使用。',
     'Daily Wind Map Cutoff': '日常风地图界限',
@@ -2401,6 +2401,52 @@ var cnItems = {
     'Will buy Weapons and Armor in Spire regardless of your H:D ratio. Respects your max gear level and ignore spires setting.': '在尖塔中无视生命伤害比购买装备。装备等级限制仍然有效，但尖塔相关设置则无效。',
     'Skip Spires': '跳过尖塔',
     'Will disregard your H:D ratio after Farm Before Spire is done (if set). Useful to die in spires if farming takes too long': '当完成尖塔前刷资源以后，无视生命伤害比进入尖塔。如果刷资源花费时间过长，可以强行死在尖塔中以跳过尖塔',
+    'Raids Maps for prestiges at zone specified. Example: 495, will raid Maps at 501-505 sequentially. Once all gear is obtained from the maps, it will revert back to regular farming. Use P Raiding HD to determine how many extra maps you wish you raid. Extremely helpful for spire. Best used in poison zones.': '在特定区域袭劫地图以获得重铸升级。例如：输入495，则将在区域501至区域505袭劫地图。当获得了所有重铸升级后，将回到正常的刷资源模式。使用重铸袭劫生命伤害比来设定袭劫的地图数量。对于通过尖塔的帮助非常大。最好在毒区域中使用。',
+    'P Raiding Cell': '重铸袭劫格子',
+    'P Raiding HD': '重铸袭劫生命伤害比',
+    'P Raiding Poison': '重铸袭劫毒上限',
+    'P Raiding Ice': '重铸袭劫冰上限',
+    'Hardcore P Raiding': '重铸硬核袭劫',
+    'List of maximum zones to Praid corresponding to the list specified in Praiding zones.  e.g. if P raiding zones setting is 491,495 and this setting is 495,505, AT will P raid up to 495 from 491, and 505 from 495. Set to -1 to always buy highest available prestige map.  If no corrsponding value, or value is invalid, defaults to max available (up to +': '根据重铸袭劫区域的数值。限制重铸袭劫地图的最大等级。例如：如果重铸袭劫区域设为 491,495 ，而此选项设为 495,505 ，那么脚本将会从区域491开始重铸袭劫，并且地图最大等级为495，然后从区域495开始，地图最大等级变为505。设为-1则永远制造最高等级的地图。如果两个选项数值对应不上，或者是数值不合法，则默认设为最高等级 (最高等级为区域层数加',
+    'BW Raiding': '仿生袭劫',
+    'Raids BW at zone specified in BW Raiding Z/max.': '切换是否在特定区域袭劫仿生仙境地图。',
+    'BW Raiding Cell': '仿生袭劫格子',
+    'Raids BWs at zone specified. Example: 495, will raid all BWs for all gear starting from 495. Will skip lower BWs if you have enough damage. Once all gear is obtained, will return to regular farming. Accepts comma separated lists, and raids up to the value in the corrsponding position in the Max BW to raid setting. So if this is set to 480,495 and Max BW to Raid is set to 500,515 AT will BW raid up to 500 from 480, and 515 from 495. Make sure these lists are the same length or BW raiding may fail.': '在特定区域袭劫仿生仙境地图。例如：输入495，则将在区域495袭劫所有仿生仙境地图以获得装备升级。如果伤害值足够，则会忽略低级的仿生仙境地图。当获得了所有装备升级后，将回到正常的刷资源模式。可以以括号分隔的形式输入多个数字，袭劫的最大区域与袭劫最大区域选项的设置对应。所以，如果此项设为 480,495 而日常仿生袭劫最大区域设为 500,515 ，那么脚本将会从区域480开始仿生袭劫，并且地图最大等级为500，然后从区域495开始，地图最大等级变为515。请让两者的数值能够一一对应，否则仿生袭劫可能失效。',
+    'Raids BWs until zone specified. Example: 515, will raid all BWs for all gear until 515. Will skip lower BWs if you have enough damage. Once all gear is obtained, will return to regular farming. Now accepts comma separated lists - see description of Z to BW raid setting for details.': '限制仿生袭劫地图的最大等级。例如：设为515，则会仿生袭劫地图直到515级。如果伤害值足够，则会忽略低级的仿生仙境地图。当获得了所有装备升级后，将回到正常的刷资源模式。可以以括号分隔的形式输入多个数字，具体设置规则见仿生袭劫区域选项的相关说明。',
+    'Raids Maps for prestiges at zone specified. Example: 495, will raid Maps at 501. Once all gear is obtained from the map, it will revert back to regular farming. Extremely helpful for spire. Best used in poison zones.': '在特定区域袭劫地图以获得重铸升级。例如：输入495，则将在区域501袭劫地图。当获得了所有重铸升级后，将回到正常的刷资源模式。对于通过尖塔的帮助非常大。最好在毒区域中使用。',
+    'Praiding': '宇宙2重铸袭劫',
+    'MASTER BUTTON': '总开关',
+    'Toggle Prestige Raiding. Use PR: Zone, PR: Raid and PR: Cell to Raid Prestiges in higher Maps.': '切换是否开启宇宙2重铸袭劫。详细设置宇宙2重铸袭劫：区域、宇宙2重铸袭劫：地图、宇宙2重铸袭劫：格子后可以在高等级地图中袭劫重铸升级。',
+    'I.e: World is 95, PR: Zone is [95,105], PR: Raid is [105,115], PR: Cell is 1. Will go into map creation at cell 1, create maps 101, 102, 103, 104, 105 with Prestige option. If you can\'t afford P maps, it will try without. If still unable to afford will buy the highest maps first without buying 101 and 102 for example. Raiding will take longer if you can\'t afford it. Once all maps are created it will run the lowest created then move onto the next till all created maps are finished. If you have enabled PR: Recycle it will then recycle those maps. There may be more options in the future depending on content added.': '例如：当前为区域95，宇宙2重铸袭劫：区域设为 95,105 ，宇宙2重铸袭劫：地图设为 105,115 ，宇宙2重铸袭劫：格子设为1。那么将会在格子1开始进入地图界面，并以重铸修饰符制造101，102，103，104，105级的地图。如果碎片不够制造重铸修饰符地图，那么将改为制造无修饰符的地图。如果仍然不够碎片，那么将会从最高级的地图开始制造，直到碎片耗尽。碎片不够可能导致宇宙2重铸袭劫花费更久时间。所有地图都制造好了以后，将从最低级的地图开始运行，然后按顺序运行，直到所有地图运行完毕。如果您开启了宇宙2重铸袭劫：回收，那么此时所有地图将被回收。基于今后添加的内容，未来可能有更多选项。',
+    'Zones to Prestige Raid. Can use 95,105,115!': '宇宙2重铸袭劫的区域。可以输入多个数值，格式类似 95,105,115 这样！',
+    'What Maps to Raid. Corrosponds to PR: Zone, so first value will corrospond to first value in PR: Zone. Can use 105,115,125!': '宇宙2重铸袭劫的地图。与宇宙2重铸袭劫：区域选项一一对应，可以输入多个数值，格式类似 105,115,125 这样！',
+    'PR: Cell': '宇宙2重铸袭劫：格子',
+    'What Cell to start Prestige Raiding at. Recommend below your BW Raiding cell if used together. -1 to Raid at cell 1.': '在哪一个格子开始宇宙2重铸袭劫。如果与仿生袭劫格子一起使用，建议设置的比仿生袭劫格子低。设为-1则在格子1开始袭劫。',
+    'PR: Frag': '宇宙2重铸袭劫：正常碎片',
+    'PR: Frag Min': '宇宙2重铸袭劫：最小碎片',
+    'PR: Frag Max': '宇宙2重铸袭劫：最大碎片',
+    'PR: Frag / PR: Frag Min / PR: Frag Max': '宇宙2重铸袭劫：正常碎片 / 宇宙2重铸袭劫：最小碎片 / 宇宙2重铸袭劫：最大碎片',
+    'Farm for fragments to afford the maps you want to create. PR: Frag Min is used for absolute minimum frag costs (which includes no Prestige special, perfect sliders, random map and the difficulty and size options, however it will try to afford those options first!) and prioritises buying the most maps for a smoother sequential raid. PR: Frag Max is used for the ultimate Raiding experience. This option will probably take the most time to farm but may save you time in the actual raid. I would recommend using Min Mode if you don\'t have frag drop or explorer effic on your heirloom and Max if you are confident in your Fragment gains.': '切换如何刷碎片以制造地图。宇宙2重铸袭劫：最小碎片只获得最少的碎片来制造地图(意味着地图基本上无修饰符，无完美滑块，选项全随机，但仍然会尽可能的尝试这些选项)，优先购买尽可能多的地图以使袭劫过程更平滑。宇宙2重铸袭劫：最大碎片则相反，将所有选项全部开至最大。此项可能需要更多时间来刷资源，但袭劫则可能节省一些时间。请根据您的碎片收益情况进行选择。',
+    'PR: Recycle': '宇宙2重铸袭劫：回收',
+    'Recycle maps created in Prestige Raiding.': '切换是否回收宇宙2重铸袭劫制造的地图。',
+    'Turn WS On!': '请开启风层数叠加！',
+    'Turn on Windstacking Stance in Combat to see the settings!': '战斗选项卡下将自动阵型切换为风层数叠加以看到相关选项！（此项无实际作用）',
+    'Windstack Min Zone': '风层数叠加最小区域',
+    'For use with Windstacking Stance, enables windstacking in zones above and inclusive of the zone set. (Get specified windstacks then change to D, kill bad guy, then repeat). This is designed to force S use until you have specified stacks in wind zones, overriding scryer settings. All windstack settings apart from WS MAX work off this setting.': '用于风阵型，在相应数值以上的区域才触发风层数叠加。(达到特定的风层数，然后切换为D阵型，击杀敌人，再重复此流程。)此项先于占卜阵型生效。但后面两个日常风层数叠加的设置会使此选项无效。',
+    'Windstack H:D': '风层数叠加生命伤害比',
+    'For use with Windstacking Stance, fiddle with this to maximise your stacks in wind zones.': '用于风阵型。此选项可以用来最大化风区域的风层数。当生命伤害比高于相应数值时不会使用风阵型。当低于的时候会使用。',
+    'Windstack Stacks': '风层数叠加层数',
+    'For use with Windstacking Stance. Amount of windstacks to obtain before switching to D stance. Default is 200, but I recommend anywhere between 175-190.  In Wind Enlightenment it will add 100 stacks to your total automatically. So if this setting is 200 It will assume you want 300 stacks instead during enlightenment.': '用于风阵型。达到相应风层数后，再切换到D阵型。默认值为200，但个人建议设置为175至190之间的数字。如果开启了风之启迪，则自动在此数值上追加100。所以如果您将此项设置为200，那么在风之启迪开启时，会自动叠加到300层。',
+    'Wind Damage Cutoff': '风装备界限',
+    'Set this value to optimise your windstacking. Can work without AS3, but not recommended. AT normally uses 4 as its cutoff. I.e if the cutoff is above 4 it will buy max equipment. If you set this to 160, it will not get more damage till you are above x160. Essentially, the higher the value, the less damage AT wants to get, this will enable you to windstack to incredibly high amounts. -1 to disable/go back to default. Must set your windstacking min zone to use.': '设置数值来优化风层数叠加。可以在没有风阵型的情况下生效，但不建议。脚本通常使用4作为装备界限数值，例如：界限数值超过4的时候，会购买最大数量的装备。如果您将此项设为160，则只在界限数值超过160的时候才会购买。简而言之，此数值越高，脚本升级装备就越少，此项可以让您将风层数叠加到非常高。设为-1则关闭此选项，恢复默认设置。必须设置日常风层数叠加最小区域才能正常使用。',
+    'Wind Map Cutoff': '风地图界限',
+    'Set this value to optimise your windstacking. Can work without AS3, but not recommended. AT normally uses 4 as its cutoff. I.e if the cutoff is above 4 it will get map bonus. If you set this to 160, it will not get more map bonus till you are above x160. Essentially, the higher the value, the less damage AT wants to get, this will enable you to windstack to incredibly high amounts. -1 to disable/go back to default. Must set your windstacking min zone to use.': '设置数值来优化风层数叠加。可以在没有风阵型的情况下生效，但不建议。脚本通常使用4作为地图界限数值，例如：界限数值超过4的时候，会去获得地图奖励。如果您将此项设为160，则只在界限数值超过160的时候才会去获得奖励。简而言之，此数值越高，脚本获得地图奖励就越少，此项可以让您将风层数叠加到非常高。设为-1则关闭此选项，恢复默认设置。必须设置日常风层数叠加最小区域才能正常使用。',
+    'WS MAX': '风层数叠加上限',
+    'For maximising Windstacking an entire run. Withholds damage to try and get your max windstacks every wind zone. Not recommended for normal usage. Good for BPs.': '设置风层数叠加层数的上限。每个风区域会控制伤害，尽可能达到最大风层数。不建议在通常情况下使用。仅建议用于刷骨头传送门的数值。',
+    'WSM H:D': '风层数叠加上限生命伤害比',
+    'Fiddle with this to maximise your WSM settings. Default is 0.00025.': '此项可以用来最大化风层数叠加上限的数值。默认值为0.00025。',
+    '': '',
+    '': '',
     '': '',
     '': '',
     '': '',
@@ -4549,6 +4595,23 @@ var cnRegReplace = new Map([
     [/^Melting Point((?! \(Zone).*)$/, '熔点$1'], //脚本3地图设置
     [/^BB: Zone(.*)$/, '黑色沼泽：区域$1'], //脚本3地图设置
     [/^BB: Amount(.*)$/, '黑色沼泽：数量$1'], //脚本3地图设置
+    [/^P Raiding Z(.*)$/, '重铸袭劫区域$1'], //脚本3袭劫设置
+    [/^Max P Raid Zones(.*)$/, '重铸袭劫最大区域$1'], //脚本3袭劫设置
+    [/^Farm Fragments Z(.*)$/, '刷碎片区域$1'], //脚本3袭劫设置
+    [/^Raid before farm Z(.*)$/, '刷碎片前袭劫区域$1'], //脚本3袭劫设置
+    [/^Z to BW Raid(.*)$/, '仿生袭劫区域$1'], //脚本3袭劫设置
+    [/^Max BW to raid(.*)$/, '仿生袭劫最大区域$1'], //脚本3袭劫设置
+    [/^PR: Zone(.*)$/, '宇宙2重铸袭劫：区域$1'], //脚本3袭劫设置
+    [/^PR: Raid(.*)$/, '宇宙2重铸袭劫：地图$1'], //脚本3袭劫设置
+
+
+
+
+
+
+
+
+
 
 
 
