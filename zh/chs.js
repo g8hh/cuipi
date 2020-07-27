@@ -1741,13 +1741,14 @@ var cnItems = {
     '': '',
     //自然赋能相关结束
     //脚本3相关
+    'Its beta time': 'Beta版本',
     'Various bug fixes.': '多个BUG修复。',
     'CHANGED THE WAY TF GATHER WORKS! CHECK TF SETTINGS!': '修改定时刷图的工作机制！详见定时刷图设置！',
     'CHANGED THE WAY MELTING POINT SETTING WORKS PLEASE CHECK SETTING IN MAPS!': '修改熔点设置的工作机制，详见地图设置！',
     'Added Arch. Automated Quest. Fixed bugs. Updated calc.': '增加考古学。增加自动任务。修复BUG。升级计算器。',
-    'Added Quagmire functionality. Added time and tribute farming. Added option to run Dailies in either universe. Added check to c2runner to not run a challenge if you have not unlocked it. Autoallocation sort of fixed. Added Greed to loot dumping. Graphs are still bad when moving between universes. Removed autonu due to being broken.': '增加泥淖挑战相关设置。增加定时刷图和刷祭品。增加在两个宇宙刷日常的选项。增加一个判断条件，如果还没有解锁一个挑战，自动C2挑战将不会尝试它。自动分配修复一些问题。将贪婪加入主加特权列表。切换宇宙时，图表还是会有问题。移除了自动分配虚空物质，因为它无法正常工作。',
-    'CHECK COMBAT FOR BETTERAUTOFIGHT, IF MIGHT BE A BLACK BAR, CLICK IT!': '检查战斗选项下的改良自动战斗选项，它可能变成一个黑条，记得点一下！',
-    'A bunch of U2 stuff added, offline progress still being worked on.': '添加了许多宇宙2相关内容，离线进度仍需要完善。',
+    //'Added Quagmire functionality. Added time and tribute farming. Added option to run Dailies in either universe. Added check to c2runner to not run a challenge if you have not unlocked it. Autoallocation sort of fixed. Added Greed to loot dumping. Graphs are still bad when moving between universes. Removed autonu due to being broken.': '增加泥淖挑战相关设置。增加定时刷图和刷祭品。增加在两个宇宙刷日常的选项。增加一个判断条件，如果还没有解锁一个挑战，自动C2挑战将不会尝试它。自动分配修复一些问题。将贪婪加入主加特权列表。切换宇宙时，图表还是会有问题。移除了自动分配虚空物质，因为它无法正常工作。',
+    //'CHECK COMBAT FOR BETTERAUTOFIGHT, IF MIGHT BE A BLACK BAR, CLICK IT!': '检查战斗选项下的改良自动战斗选项，它可能变成一个黑条，记得点一下！',
+    //'A bunch of U2 stuff added, offline progress still being worked on.': '添加了许多宇宙2相关内容，离线进度仍需要完善。',
     'Report any bugs/problems please': '如果发现BUG或问题，请向我反馈',
     'Talk with the dev': '欲联系开发者，可以联系',
     'Zeks Discord Channel': 'Zeks Discord 频道',
@@ -2445,15 +2446,73 @@ var cnItems = {
     'For maximising Windstacking an entire run. Withholds damage to try and get your max windstacks every wind zone. Not recommended for normal usage. Good for BPs.': '设置风层数叠加层数的上限。每个风区域会控制伤害，尽可能达到最大风层数。不建议在通常情况下使用。仅建议用于刷骨头传送门的数值。',
     'WSM H:D': '风层数叠加上限生命伤害比',
     'Fiddle with this to maximise your WSM settings. Default is 0.00025.': '此项可以用来最大化风层数叠加上限的数值。默认值为0.00025。',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
+    'ATGA MASTER BUTTON': '自动遗传学家总开关',
+    'AT Geneticassist. Do not use vanilla GA, as it will conflict otherwise. May get fucky with super high values.': '切换是否启用自动遗传学家。请不要同时启用通常的遗传学家助手，否则可能会冲突。数值过大时可能会出问题。',
+    'ATGA: Gen %': '自动遗传学家：通常 %',
+    'ATGA: Gen ': '自动遗传学家：通常 ',
+    'ATGA: Geneassist ': '自动遗传学家：遗传学家助手 ',
+    'ATGA will only hire geneticists if they cost less than this value. E.g if this setting is 1 it will only buy geneticists if they cost less than 1% of your food. Default is 1%.': '自动遗传学家只会在花费低于此百分比时雇佣遗传学家。例如：如果此项设为1，则只在遗传学家花费低于食物总量1%时雇佣遗传学家。默认值为1%。',
+    'ATGA: Timer': '自动遗传学家：计时',
+    'ATGA Timer': '自动遗传学家计时',
+    'This is the default time your ATGA will use.': '自动遗传学家使用的默认计时。',
+    'ATGA: T: Before Z': '自动遗传学家：计时：前生效区域',
+    'ATGA Timer: Before Z': '自动遗传学家计时：前生效区域',
+    'ATGA will use the value you define in ATGA: T: BZT before the zone you have defined in this setting, overwriting your default timer. Useful for Liq or whatever.': '在此区域之前，将使用自动遗传学家计时：前生效区域计时中的数值，忽略默认计时。对液化等有帮助。',
+    'ATGA: T: BZT': '自动遗传学家：计时：前生效区域计时',
+    'ATGA Timer: Before Z Timer': '自动遗传学家计时：前生效区域计时',
+    'ATGA will use this value before the zone you have defined in ATGA: T: Before Z, overwriting your default timer. Useful for Liq or whatever. Does not work on challenges.': '在自动遗传学家计时：前生效区域中设定的区域之前，使用此项的计时，忽略默认计时。对液化等有帮助。在挑战中无效。',
+    'ATGA: T: After Z': '自动遗传学家：计时：后生效区域',
+    'ATGA Timer: After Z': '自动遗传学家计时：后生效区域',
+    'ATGA will use the value you define in ATGA: T: AZT after the zone you have defined in this setting, overwriting your default timer. Useful for super push runs or whatever. Does not work on challenges.': '在此区域之后，将使用自动遗传学家计时：后生效区域计时中的数值，忽略默认计时。对极限冲层等有帮助。在挑战中无效。',
+    'ATGA: T: AZT': '自动遗传学家：计时：后生效区域计时',
+    'ATGA Timer: After Z Timer': '自动遗传学家计时：后生效区域计时',
+    'ATGA will use this value after the zone that has been defined in ATGA: T: After Z, overwriting your default timer. Useful for super push runs or whatever.': '在自动遗传学家计时：后生效区域中设定的区域之后，使用此项的计时，忽略默认计时。对极限冲层等有帮助。',
+    'ATGA: T: Spire': '自动遗传学家：计时：尖塔',
+    'ATGA Timer: Spire': '自动遗传学家计时：尖塔',
+    'ATGA will use this value in Spires. Respects your ignore Spires setting. Do not use this if you use the setting in the Spire tab! (As that uses vanilla GA) Nothing overwrites this except Daily Spire.': '尖塔中使用相应数值计时。会考虑您的尖塔无效层设置。请不要与尖塔选项卡下的繁殖计时同时使用！除了日常尖塔以外，优先于其他任何选项生效。',
+    'ATGA: T: Daily Spire': '自动遗传学家：计时：日常尖塔',
+    'ATGA Timer: Daily Spire': '自动遗传学家计时：日常尖塔',
+    'ATGA will use this value in Daily Spires. Respects your ignore Spires setting. Do not use this if you use the setting in the Spire tab! (As that uses vanilla GA) Nothing overwrites this.': '日常挑战中，尖塔中使用相应数值计时。会考虑您的尖塔无效层设置。请不要与尖塔选项卡下的繁殖计时同时使用！优先于其他任何选项生效。',
+    'ATGA: Manual': '自动遗传学家：手动日常',
+    'ATGA: Auto No Spire': '自动遗传学家：自动无塔',
+    'ATGA: Auto Dailies': '自动遗传学家：自动日常',
+    'ATGA: Manual / ATGA: Auto No Spire / ATGA: Auto Dailies': '自动遗传学家：手动日常 / 自动遗传学家：自动无塔 / 自动遗传学家：自动日常',
+    'EXPERIMENTAL': '实验性功能',
+    'ATGA Timer: Auto Dailies': '自动遗传学家计时：自动日常',
+    'ATGA will use automatically set breed timers in plague and bogged, overwriting your default timer.': '切换是否在日常挑战中使用相应数值计时，忽略默认计时。',
+    'Set No Spire to not override in spire, respecting ignore spire settings.': '设为自动无塔则不会忽略尖塔的设置，会考虑您的尖塔无效层设置。',
+    'ATGA: T: Dailies': '自动遗传学家：计时：日常',
+    'ATGA Timer: Normal Dailies': '自动遗传学家计时：普通日常',
+    'ATGA will use this value for normal Dailies such as ones without plague etc, overwriting your default timer. Useful for pushing your dailies that extra bit at the end. Overwrites Default, Before Z and After Z.': '非天灾等的日常挑战中使用相应数值计时，忽略默认计时。对日常挑战极限冲层有帮助。忽略默认、前生效区域和后生效区域的设置。',
+    'ATGA: T: D: Hard': '自动遗传学家：计时：困难日常',
+    'ATGA Timer: Hard Dailies': '自动遗传学家计时：困难日常',
+    'ATGA will use this value in Dailies that are considered Hard. Such Dailies include plaged, bloodthirst and Dailies with a lot of negative mods. Overwrites Default, Before Z and After Z and normal Daily ATGA Timer.': '在困难的日常挑战中使用相应数值计时，例如有天灾，嗜血或者是负面效果太多的日常挑战。忽略默认、前生效区域、后生效区域和普通日常的设置。',
+    'ATGA: T: C': '自动遗传学家：计时：挑战',
+    'ATGA Timer: ': '自动遗传学家计时：',
+    'ATGA will use this value in C2s. Overwrites Default, Before Z and After Z.': '挑战2中使用相应数值计时。忽略默认、前生效区域和后生效区域的设置。',
+    'ATGA: T: C: Hard': '自动遗传学家：计时：困难挑战',
+    'ATGA Timer: Hard ': '自动遗传学家计时：困难',
+    'ATGA will use this value in C2s that are considered Hard. Electricity, Nom, Toxicity. Overwrites Default, Before Z and After Z and C2 ATGA': '在困难的挑战2中使用相应数值计时，例如电流、美味、毒性等。忽略默认、前生效区域、后生效区域和挑战2的设置。',
+    'Turn on Archaeology settings.': '切换是否启用考古学设置。',
+    'First string to use in Archaeology. Put the zone you want to stop using this string and start using the second string (Make sure the second string has a value) at the start. I.e: 70,10a,': '考古学中使用的第一个字符串。将想要切换到第二个字符串的区域输入到最前面(并确保第二字符串有相应内容)。例如：70,10a,',
+    'Second string to use in Archaeology. Put the zone you want to stop using this string and start using the third string (Make sure the third string has a value) at the start. I.e: 94,10a,': '考古学中使用的第二个字符串。将想要切换到第三个字符串的区域输入到最前面(并确保第三字符串有相应内容)。例如：94,10a,',
+    'Third string to use in Archaeology. Make sure this is just your Archaeology string and nothing else. I.e: 10a,': '考古学中使用的第三个字符串。请确保您只输入了相应字符串，不要输入其他内容。例如：10a,',
+    'Turn on Mayhem settings.': '切换是否启用暴乱设置。',
+    'M: Attack': '暴乱：攻击',
+    'Turn this on to ignore your farm settings so It will do maps if you cannot survive the hits you have defined in Maps.': '启用此项后将忽略通常的刷资源设定，在低于地图选项卡下设定的伤害承受次数时就运行地图。',
+    'M: Health': '暴乱：生命值',
+    'Turn this on to ignore your farm settings so It will do maps if your HD is above the target you have defined in Maps.': '启用此项后将忽略通常的刷资源设定，在高于地图选项卡下设定的生命伤害比时就运行地图。',
+    'M: Attack Boss': '暴乱：攻击首领',
+    'What cut-off to use when farming for the boss using M: Attack. If this setting is 100, the script will farm till you can kill the boss in 100 average hits.': '当使用暴乱：攻击时，为了击杀首领刷资源的界限值。如果此项设为100，则会刷资源，直到可以在平均100次攻击内击杀首领。',
+    'M: Attack Map': '暴乱：攻击地图',
+    'What cut-off to use when farming maps using M: Attack and M: Smart Map. If this setting is 10, the script will do maps you can kill cells in 10 average hits.': '当使用暴乱：攻击和暴乱：智能地图时地图的界限值。如果此项设为10，则会选择可以在平均10次攻击内通过格子的地图。',
+    'M: Health Cut-off': '暴乱：生命值界限',
+    'What cut-off to use when using M: Health.': '当使用暴乱：生命值时的界限值。',
+    'M: Maps Off': '暴乱：关闭地图',
+    'M: Highest Map': '暴乱：最高地图',
+    'M: Smart Map': '暴乱：智能地图',
+    'M: Maps Off / M: Highest Map / M: Smart Map': '暴乱：关闭地图 / 暴乱：最高地图 / 暴乱：智能地图',
+    'Control what maps you do to farm M: Attack and/or M: Health. M: Highest map always selects the highest map you have whether it be from Praiding, Time Farming or any you have manually created. M: Smart Map attempts to create a map best suited to the situation. Will calculate if you can survive and kill the map, and will try to buy all the necessary map attributes such as FA.': '控制在暴乱：攻击及暴乱：生命值激活时选择的地图。暴乱：最高地图总是选择最高级的地图，无论是重铸袭劫、定时刷图还是手动制造的地图。暴乱：智能地图会尝试制造最适合当前情况的地图。会计算您是否能够承受住伤害并通过地图，并且在有必要的时候会使用特殊修饰符。',
     '': '',
     '': '',
     'BAF': '改良自动战斗',
@@ -3916,6 +3975,7 @@ var cnPrefix = {
     "Enemy attack in maps increased by ": '地图上的敌人攻击力增加 ',
 	'of all Helium, ': '所有的氦，',
 	' Nu from Heirlooms earned during the run': '上次传送后传家宝回收的虚空物质',
+    'C3s': '挑战3',
 }
 
 //需处理的后缀
@@ -3932,6 +3992,7 @@ var cnPostfix = {
     "%": "%",
     "Bone": "骨头",
     "Bones": "骨头",
+    "C2s": "挑战2",
     "Liquimp!": "液化者！", //击杀消息末尾
     "Liquimp group!": "液化者集团！", //击杀消息末尾
     "Presimpt!": "脆皮小礼！", //击杀消息末尾
@@ -4603,11 +4664,9 @@ var cnRegReplace = new Map([
     [/^Max BW to raid(.*)$/, '仿生袭劫最大区域$1'], //脚本3袭劫设置
     [/^PR: Zone(.*)$/, '宇宙2重铸袭劫：区域$1'], //脚本3袭劫设置
     [/^PR: Raid(.*)$/, '宇宙2重铸袭劫：地图$1'], //脚本3袭劫设置
-
-
-
-
-
+    [/^First String(.*)$/, '第一字符串$1'], //脚本3挑战设置
+    [/^Second String(.*)$/, '第二字符串$1'], //脚本3挑战设置
+    [/^Third String(.*)$/, '第三字符串$1'], //脚本3挑战设置
 
 
 
