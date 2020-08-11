@@ -9,12 +9,13 @@
 
 var cnItems = {
     _OTHER_: [],
+    //脚本3地图模块，末尾名字需列入cnpostfix
+    //协同挑战中后缀带s，查阅badName.replace，且最后有括号部分
     //段末标点处理
     '.': '。',
     '"': '',
     //段末标点处理结束
     //敌人名称相关
-    //'s': 's', //协同挑战中后缀带s，查阅badName.replace，且最后有括号部分
     'Liquimp': '液化者',
     'Presimpt': '脆皮小礼',
     'Turkimp': '脆皮火鸡',
@@ -728,7 +729,7 @@ var cnItems = {
     'Peacekeeper': '和平使者',
     'Reach Zone 10 with 5 or fewer dead Trimps': '在脆皮死亡数未超过5的前提下，到达区域10',
     'Elite Feat': '精英壮举',
-    'Reach exactly 1337 He/Hr': '氦每小时正好达到1337',
+    'Reach exactly 1337 He/Hr': '氦/小时正好达到1337',
     'Grounded': '踏实',
     'Attack 20 times without dying in Electricity': '在电流挑战中，连续攻击20次不死亡',
     'Maptastic': '有图有资源',
@@ -832,7 +833,7 @@ var cnItems = {
     'Screwed': '万事皆休',
     'Break the Planet on Eradicated': '灭绝挑战中，破碎行星',
     'Eliter Feat': '超精英壮举',
-    'Reach exactly 1337 Rn/Hr': '氡每小时正好达到1337',
+    'Reach exactly 1337 Rn/Hr': '氡/小时正好达到1337',
     'Don\'t Need Luck': '无需运气',
     'One-shot a Dimension of Rage enemy on Unlucky while Unlucky': '不幸挑战中，当最低伤害数值第一位是奇数时，秒杀暴怒维度中的一个敌人',
     'Perfectly Balanced': '完全平衡',
@@ -1967,25 +1968,25 @@ var cnItems = {
     'Greed Dump': '主加贪婪',
     'Dump Radon into Greed instead.': '分配氡时改为主加贪婪。',
     'AutoPortal': '自动传送门',
-    'Automatically portal. Will NOT auto-portal if you have a challenge active, the challenge setting dictates which challenge it will select for the next run. All challenge settings will portal right after the challenge ends, regardless. Helium Per Hour only': '自动使用传送门。当您还有挑战未完成的时候，不会使用传送门。下拉菜单中的选项表明使用传送门后自动选择的挑战。所有的挑战设置都会在完成相应挑战后立刻使用传送门。选择氦每小时，则只会在氦每小时低于本轮最大值的首个区域时， ',
+    'Automatically portal. Will NOT auto-portal if you have a challenge active, the challenge setting dictates which challenge it will select for the next run. All challenge settings will portal right after the challenge ends, regardless. Helium Per Hour only': '自动使用传送门。当您还有挑战未完成的时候，不会使用传送门。下拉菜单中的选项表明使用传送门后自动选择的挑战。所有的挑战设置都会在完成相应挑战后立刻使用传送门。选择氦每小时，则只会在氦/小时低于本轮最大值的首个区域时， ',
     'portals at cell': '使用传送门于格子',
-    'of the first level where your He/Hr went down even slightly compared to the current runs Best He/Hr. Take note, there is a Buffer option, which is like a grace percentage of how low it can dip without triggering. Setting a buffer will portal mid-zone if you exceed 5x of the buffer.  CAUTION: Selecting He/hr may immediately portal you if its lower-(use Pause AutoTrimps button to pause the script first to avoid this': '。请注意，右侧有一个缓冲值选项，意味着氦每小时可以暂时低于本轮最大值，而不使用传送门。设置缓冲值后，您将在氦每小时低于缓冲值5倍以后，无论当前在区域内何处，自动使用传送门。注意：选择氦每小时选项可能会立刻使用传送门(建议先使用暂停自动脆皮脚本按钮再进行设置',
+    'of the first level where your He/Hr went down even slightly compared to the current runs Best He/Hr. Take note, there is a Buffer option, which is like a grace percentage of how low it can dip without triggering. Setting a buffer will portal mid-zone if you exceed 5x of the buffer.  CAUTION: Selecting He/hr may immediately portal you if its lower-(use Pause AutoTrimps button to pause the script first to avoid this': '。请注意，右侧有一个缓冲值选项，意味着氦/小时可以暂时低于本轮最大值，而不使用传送门。设置缓冲值后，您将在氦/小时低于缓冲值5倍以后，无论当前在区域内何处，自动使用传送门。注意：选择氦每小时选项可能会立刻使用传送门(建议先使用暂停自动脆皮脚本按钮再进行设置',
     'Portal Challenge': '传送后进挑战',
     'Automatically portal into this challenge when using helium per hour or custom autoportal. Custom portals after cell 100 of the zone specified. Do not choose a challenge if you havent unlocked it.': '当使用氦每小时或自定义选项时，使用传送门后自动进入相应挑战。完成相应挑战后自动使用传送门。请不要选择还没解锁的挑战。',
     'Custom Portal': '自定义传送门',
     'Automatically portal AFTER clearing this level.(ie: setting to 200 would portal when you first reach level': '在通过对应区域后，自动使用传送门。(例：设置为200后，将在此之后使用传送门：首次到达区域',
     'Don\'t Portal Before': '自动传送区域',
-    'Do NOT allow Helium per Hour AutoPortal setting to portal BEFORE this level is reached. It is an additional check that prevents drops in helium/hr from triggering autoportal. Set to 0 or -1 to completely disable this check. (only shows up with Helium per Hour set': '到达相应区域之前，不自动使用传送门。此选项是为了防止氦每小时的微小波动触发自动传送门。将数值设置为0或者-1可以关闭此选项。(只在氦每小时选项下出现',
-    'He/Hr Portal Buffer ': '氦每小时缓冲值 ',
-    'He/Hr Portal Buffer %': '氦每小时缓冲值 %',
-    'IMPORTANT SETTING. When using the He/Hr Autoportal, it will portal if your He/Hr drops by this amount of % lower than your best for current run, default is 0% (ie: set to 5 to portal at 95% of your best). Now with stuck protection - Allows portaling midzone if we exceed set buffer amount by 5x. (ie a normal 2% buffer setting would now portal mid-zone you fall below 10% buffer).': '重要选项。当使用氦每小时选项时，通过一个区域后，氦每小时低于本轮最高值相应百分比后，才会自动使用传送门，默认值为0%(例：设置为5后，将在氦每小时低于最高值的95%后才自动使用传送门)。另外，此项还有防卡进度的功能 - 当氦每小时低于本轮最高值5倍相应百分比时，无论当前在区域内何处，自动使用传送门。(例：缓冲值设置为2%后，将在氦每小时低于最高值的90%时，无论当前在区域内何处，自动使用传送门)。',
-    'Automatically portal. Will NOT auto-portal if you have a challenge active, the challenge setting dictates which challenge it will select for the next run. All challenge settings will portal right after the challenge ends, regardless. Radon Per Hour only': '自动使用传送门。当您还有挑战未完成的时候，不会使用传送门。下拉菜单中的选项表明使用传送门后自动选择的挑战。所有的挑战设置都会在完成相应挑战后立刻使用传送门。选择氡每小时，则只会在氡每小时低于本轮最大值的首个区域时， ',
-    'of the first level where your Rn/Hr went down even slightly compared to the current runs Best Rn/Hr. Take note, there is a Buffer option, which is like a grace percentage of how low it can dip without triggering. Setting a buffer will portal mid-zone if you exceed 5x of the buffer.  CAUTION: Selecting Rn/hr may immediately portal you if its lower-(use Pause AutoTrimps button to pause the script first to avoid this': '。请注意，右侧有一个缓冲值选项，意味着氡每小时可以暂时低于本轮最大值，而不使用传送门。设置缓冲值后，您将在氡每小时低于缓冲值5倍以后，无论当前在区域内何处，自动使用传送门。注意：选择氡每小时选项可能会立刻使用传送门(建议先使用暂停自动脆皮脚本按钮再进行设置',
+    'Do NOT allow Helium per Hour AutoPortal setting to portal BEFORE this level is reached. It is an additional check that prevents drops in helium/hr from triggering autoportal. Set to 0 or -1 to completely disable this check. (only shows up with Helium per Hour set': '到达相应区域之前，不自动使用传送门。此选项是为了防止氦/小时的微小波动触发自动传送门。将数值设置为0或者-1可以关闭此选项。(只在氦每小时选项下出现',
+    'He/Hr Portal Buffer ': '氦/小时缓冲值 ',
+    'He/Hr Portal Buffer %': '氦/小时缓冲值 %',
+    'IMPORTANT SETTING. When using the He/Hr Autoportal, it will portal if your He/Hr drops by this amount of % lower than your best for current run, default is 0% (ie: set to 5 to portal at 95% of your best). Now with stuck protection - Allows portaling midzone if we exceed set buffer amount by 5x. (ie a normal 2% buffer setting would now portal mid-zone you fall below 10% buffer).': '重要选项。当使用氦每小时选项时，通过一个区域后，如果氦/小时低于本轮最高值相应百分比，才会自动使用传送门，默认值为0%(例：设置为5后，将在氦/小时低于最高值的95%后才自动使用传送门)。另外，此项还有防卡进度的功能 - 当氦/小时低于本轮最高值5倍相应百分比时，无论当前在区域内何处，自动使用传送门。(例：缓冲值设置为2%后，将在氦/小时低于最高值的90%时，无论当前在区域内何处，自动使用传送门)。',
+    'Automatically portal. Will NOT auto-portal if you have a challenge active, the challenge setting dictates which challenge it will select for the next run. All challenge settings will portal right after the challenge ends, regardless. Radon Per Hour only': '自动使用传送门。当您还有挑战未完成的时候，不会使用传送门。下拉菜单中的选项表明使用传送门后自动选择的挑战。所有的挑战设置都会在完成相应挑战后立刻使用传送门。选择氡每小时，则只会在氡/小时低于本轮最大值的首个区域时， ',
+    'of the first level where your Rn/Hr went down even slightly compared to the current runs Best Rn/Hr. Take note, there is a Buffer option, which is like a grace percentage of how low it can dip without triggering. Setting a buffer will portal mid-zone if you exceed 5x of the buffer.  CAUTION: Selecting Rn/hr may immediately portal you if its lower-(use Pause AutoTrimps button to pause the script first to avoid this': '。请注意，右侧有一个缓冲值选项，意味着氡/小时可以暂时低于本轮最大值，而不使用传送门。设置缓冲值后，您将在氡/小时低于缓冲值5倍以后，无论当前在区域内何处，自动使用传送门。注意：选择氡每小时选项可能会立刻使用传送门(建议先使用暂停自动脆皮脚本按钮再进行设置',
     'Automatically portal into this challenge when using radon per hour or custom autoportal. Custom portals after cell 100 of the zone specified. Do not choose a challenge if you havent unlocked it.': '当使用氡每小时或自定义选项时，使用传送门后自动进入相应挑战。完成相应挑战后自动使用传送门。请不要选择还没解锁的挑战。',
-    'Do NOT allow Radon per Hour AutoPortal setting to portal BEFORE this level is reached. It is an additional check that prevents drops in radon/hr from triggering autoportal. Set to 0 or -1 to completely disable this check. (only shows up with Radon per Hour set': '到达相应区域之前，不自动使用传送门。此选项是为了防止氡每小时的微小波动触发自动传送门。将数值设置为0或者-1可以关闭此选项。(只在氡每小时选项下出现',
-    'Rn/Hr Portal Buffer ': '氡每小时缓冲值 ',
-    'Rn/Hr Portal Buffer %': '氡每小时缓冲值 %',
-    'IMPORTANT SETTING. When using the Rn/Hr Autoportal, it will portal if your Rn/Hr drops by this amount of % lower than your best for current run, default is 0% (ie: set to 5 to portal at 95% of your best). Now with stuck protection - Allows portaling midzone if we exceed set buffer amount by 5x. (ie a normal 2% buffer setting would now portal mid-zone you fall below 10% buffer).': '重要选项。当使用氡每小时选项时，通过一个区域后，氡每小时低于本轮最高值相应百分比后，才会自动使用传送门，默认值为0%(例：设置为5后，将在氡每小时低于最高值的95%后才自动使用传送门)。另外，此项还有防卡进度的功能 - 当氡每小时低于本轮最高值5倍相应百分比时，无论当前在区域内何处，自动使用传送门。(例：缓冲值设置为2%后，将在氡每小时低于最高值的90%时，无论当前在区域内何处，自动使用传送门)。',
+    'Do NOT allow Radon per Hour AutoPortal setting to portal BEFORE this level is reached. It is an additional check that prevents drops in radon/hr from triggering autoportal. Set to 0 or -1 to completely disable this check. (only shows up with Radon per Hour set': '到达相应区域之前，不自动使用传送门。此选项是为了防止氡/小时的微小波动触发自动传送门。将数值设置为0或者-1可以关闭此选项。(只在氡每小时选项下出现',
+    'Rn/Hr Portal Buffer ': '氡/小时缓冲值 ',
+    'Rn/Hr Portal Buffer %': '氡/小时缓冲值 %',
+    'IMPORTANT SETTING. When using the Rn/Hr Autoportal, it will portal if your Rn/Hr drops by this amount of % lower than your best for current run, default is 0% (ie: set to 5 to portal at 95% of your best). Now with stuck protection - Allows portaling midzone if we exceed set buffer amount by 5x. (ie a normal 2% buffer setting would now portal mid-zone you fall below 10% buffer).': '重要选项。当使用氡每小时选项时，通过一个区域后，氡/小时低于本轮最高值相应百分比后，才会自动使用传送门，默认值为0%(例：设置为5后，将在氡/小时低于最高值的95%后才自动使用传送门)。另外，此项还有防卡进度的功能 - 当氡/小时低于本轮最高值5倍相应百分比时，无论当前在区域内何处，自动使用传送门。(例：缓冲值设置为2%后，将在氡/小时低于最高值的90%时，无论当前在区域内何处，自动使用传送门)。',
     'Pause AutoTrimps': '暂停自动脆皮脚本',
     'Pause AutoTrimps Script (not including the graphs module': '暂停自动脆皮脚本 (不包括图表部分',
     'Helium / Radon': '氦 / 氡',
@@ -2078,9 +2079,9 @@ var cnItems = {
     'Daily in U': '日常挑战进行于宇宙',
     'If this is on, you will do your daily in U2.': '如果打开此选项，则在宇宙2进行日常挑战。',
     'Daily Portal Off': '日常传送门关闭',
-    'DP: He/Hr': '日常传送门：氦每小时',
+    'DP: He/Hr': '日常传送门：氦/小时',
     'DP: Custom': '日常传送门：自定义',
-    'Daily Portal Off / DP: He/Hr / DP: Custom': '日常传送门关闭 / 日常传送门：氦每小时 / 日常传送门：自定义',
+    'Daily Portal Off / DP: He/Hr / DP: Custom': '日常传送门关闭 / 日常传送门：氦/小时 / 日常传送门：自定义',
     'Portals when your world zone is above the minium you set (if applicable) and the buffer falls below the % you have defined.': '在区域超过自动传送区域和资源收益低于缓冲值以后，自动使用传送门。',
     'Portals after clearing the zone you have defined in Daily Custom Portal.': '在通过日常自定义传送门选项设置的区域时，自动使用传送门。',
     'DP: Challenge': '日常传送后进挑战',
@@ -2088,10 +2089,10 @@ var cnItems = {
     'Daily Custom Portal': '日常自定义传送门',
     'Automatically portal AFTER clearing this level in dailies. (ie: setting to 200 would portal when you first reach level': '日常挑战中，在通过对应区域后，自动使用传送门。(例：设置为200后，将在此之后使用传送门：首次到达区域',
     'D: Don\'t Portal Before': '自动传送区域',
-    'Do NOT allow Helium per Hour Daily AutoPortal setting to portal BEFORE this level is reached in dailies. It is an additional check that prevents drops in helium/hr from triggering autoportal in dailies. Set to 0 or -1 to completely disable this check. (only shows up with Helium per Hour set in dailies': '日常挑战中，到达相应区域之前，不自动使用传送门。此选项是为了防止氦每小时的微小波动触发自动传送门。将数值设置为0或者-1可以关闭此选项。(只在日常传送门：氦每小时选项下出现',
-    'D: He/Hr Portal Buffer ': '日常氦每小时缓冲值 ',
-    'D: He/Hr Portal Buffer %': '日常氦每小时缓冲值 %',
-    'IMPORTANT SETTING. When using the Daily He/Hr Autoportal, it will portal if your He/Hr drops by this amount of % lower than your best for current run in dailies, default is 0% (ie: set to 5 to portal at 95% of your best in dailies). Now with stuck protection - Allows portaling midzone if we exceed set buffer amount by 5x. (ie a normal 2% buffer setting would now portal mid-zone you fall below 10% buffer).': '重要选项。当使用日常传送门：氦每小时选项时，在日常挑战中通过一个区域后，氦每小时低于本轮最高值相应百分比后，才会自动使用传送门，默认值为0%(例：设置为5后，将在氦每小时低于最高值的95%后才自动使用传送门)。另外，此项还有防卡进度的功能 - 当氦每小时低于本轮最高值5倍相应百分比时，无论当前在区域内何处，自动使用传送门。(例：缓冲值设置为2%后，将在氦每小时低于最高值的90%时，无论当前在区域内何处，自动使用传送门)。',
+    'Do NOT allow Helium per Hour Daily AutoPortal setting to portal BEFORE this level is reached in dailies. It is an additional check that prevents drops in helium/hr from triggering autoportal in dailies. Set to 0 or -1 to completely disable this check. (only shows up with Helium per Hour set in dailies': '日常挑战中，到达相应区域之前，不自动使用传送门。此选项是为了防止氦/小时的微小波动触发自动传送门。将数值设置为0或者-1可以关闭此选项。(只在日常传送门：氦每小时选项下出现',
+    'D: He/Hr Portal Buffer ': '日常氦/小时缓冲值 ',
+    'D: He/Hr Portal Buffer %': '日常氦/小时缓冲值 %',
+    'IMPORTANT SETTING. When using the Daily He/Hr Autoportal, it will portal if your He/Hr drops by this amount of % lower than your best for current run in dailies, default is 0% (ie: set to 5 to portal at 95% of your best in dailies). Now with stuck protection - Allows portaling midzone if we exceed set buffer amount by 5x. (ie a normal 2% buffer setting would now portal mid-zone you fall below 10% buffer).': '重要选项。当使用日常传送门：氦每小时选项时，在日常挑战中通过一个区域后，如果氦/小时低于本轮最高值相应百分比，才会自动使用传送门，默认值为0%(例：设置为5后，将在氦/小时低于最高值的95%后才自动使用传送门)。另外，此项还有防卡进度的功能 - 当氦/小时低于本轮最高值5倍相应百分比时，无论当前在区域内何处，自动使用传送门。(例：缓冲值设置为2%后，将在氦/小时低于最高值的90%时，无论当前在区域内何处，自动使用传送门)。',
     'Daily Void Zone': '日常虚空区域',
     'What zone to do void maps in dailies. Disable with -': '日常挑战中，在相应区域运行虚空地图。您也可以关闭此选项，只需输入-',
     'Daily Voids Cell': '日常虚空格子',
@@ -2105,13 +2106,13 @@ var cnItems = {
     'New Voids Poison': '毒区域新虚空',
     'Only run new voids in poison zones.': '只在毒区域运行虚空地图。',
     'If this is on, you will do your daily in U1.': '如果打开此选项，则在宇宙1进行日常挑战。',
-    'DP: Rn/Hr': '日常传送门：氡每小时',
-    'Daily Portal Off / DP: Rn/Hr / DP: Custom': '日常传送门关闭 / 日常传送门：氡每小时 / 日常传送门：自定义',
+    'DP: Rn/Hr': '日常传送门：氡/小时',
+    'Daily Portal Off / DP: Rn/Hr / DP: Custom': '日常传送门关闭 / 日常传送门：氡/小时 / 日常传送门：自定义',
     'Automatically portal into this challenge when using radon per hour or custom autoportal in dailies when there are none left. Custom portals after cell 100 of the zone specified. Do not choose a challenge if you havent unlocked it.': '日常挑战中，当使用氡每小时或自定义选项时，使用传送门后自动进入相应挑战。完成相应挑战后自动使用传送门。请不要选择还没解锁的挑战。',
-    'Do NOT allow Radon per Hour Daily AutoPortal setting to portal BEFORE this level is reached in dailies. It is an additional check that prevents drops in radon/hr from triggering autoportal in dailies. Set to 0 or -1 to completely disable this check. (only shows up with Radon per Hour set in dailies': '日常挑战中，到达相应区域之前，不自动使用传送门。此选项是为了防止氡每小时的微小波动触发自动传送门。将数值设置为0或者-1可以关闭此选项。(只在日常传送门：氡每小时选项下出现',
-    'D: Rn/Hr Portal Buffer ': '日常氡每小时缓冲值 ',
-    'D: Rn/Hr Portal Buffer %': '日常氡每小时缓冲值 %',
-    'IMPORTANT SETTING. When using the Daily Rn/Hr Autoportal, it will portal if your Rn/Hr drops by this amount of % lower than your best for current run in dailies, default is 0% (ie: set to 5 to portal at 95% of your best in dailies). Now with stuck protection - Allows portaling midzone if we exceed set buffer amount by 5x. (ie a normal 2% buffer setting would now portal mid-zone you fall below 10% buffer).': '重要选项。当使用日常传送门：氡每小时选项时，在日常挑战中通过一个区域后，氡每小时低于本轮最高值相应百分比后，才会自动使用传送门，默认值为0%(例：设置为5后，将在氡每小时低于最高值的95%后才自动使用传送门)。另外，此项还有防卡进度的功能 - 当氡每小时低于本轮最高值5倍相应百分比时，无论当前在区域内何处，自动使用传送门。(例：缓冲值设置为2%后，将在氡每小时低于最高值的90%时，无论当前在区域内何处，自动使用传送门)。',
+    'Do NOT allow Radon per Hour Daily AutoPortal setting to portal BEFORE this level is reached in dailies. It is an additional check that prevents drops in radon/hr from triggering autoportal in dailies. Set to 0 or -1 to completely disable this check. (only shows up with Radon per Hour set in dailies': '日常挑战中，到达相应区域之前，不自动使用传送门。此选项是为了防止氡/小时的微小波动触发自动传送门。将数值设置为0或者-1可以关闭此选项。(只在日常传送门：氡每小时选项下出现',
+    'D: Rn/Hr Portal Buffer ': '日常氡/小时缓冲值 ',
+    'D: Rn/Hr Portal Buffer %': '日常氡/小时缓冲值 %',
+    'IMPORTANT SETTING. When using the Daily Rn/Hr Autoportal, it will portal if your Rn/Hr drops by this amount of % lower than your best for current run in dailies, default is 0% (ie: set to 5 to portal at 95% of your best in dailies). Now with stuck protection - Allows portaling midzone if we exceed set buffer amount by 5x. (ie a normal 2% buffer setting would now portal mid-zone you fall below 10% buffer).': '重要选项。当使用日常传送门：氡每小时选项时，在日常挑战中通过一个区域后，氡/小时低于本轮最高值相应百分比后，才会自动使用传送门，默认值为0%(例：设置为5后，将在氡/小时低于最高值的95%后才自动使用传送门)。另外，此项还有防卡进度的功能 - 当氡/小时低于本轮最高值5倍相应百分比时，无论当前在区域内何处，自动使用传送门。(例：缓冲值设置为2%后，将在氡/小时低于最高值的90%时，无论当前在区域内何处，自动使用传送门)。',
     'Finish Challenge': '自动完成挑战',
     'DONT USE THIS WITH C2 RUNNER': '不要与挑战2自动运行同时使用',
     'Finish / Abandon Challenge2 (any) when this zone is reached, if you are running one. For manual use. Recommended: Zones ending with 0 for most Challenge2. Disable with -1. Does not affect Non-Challenge2 runs.': '到达相应区域后自动完成挑战2并放弃挑战。建议手动选择挑战使用。建议使用以0结尾的区域数值。设为-1则关闭此选项。对于非C2挑战无效。',
@@ -2148,11 +2149,6 @@ var cnItems = {
     'Blue': '蓝色',
     '= You have not yet done/unlocked this C2/C3 challenge.': '= 挑战未完成过/未解锁。',
     'c2table': '挑战2列表',
-    'Name': '名称',
-    'Difficulty': '难度',
-    '%C': '加成：挑战',
-    '%HZE': '区域比',
-    'Total': '总计',
     'Hide Buildings': '隐藏建筑',
     'If you have unlocked Autostructure and Decabuild, this setting will appear and enable you to hide the now obsolete building settings, so please use AutoStructure instead. The settings will only disappear if you disable the buy buildings button and turn this on. It will not hide the Gym settings as Autostructure does not allow you to customize how you buy them.': '如果您解锁了自动建造和十重建造，此选项将会出现，您可以使用此项来隐藏过时的建筑设置，之后请使用游戏内的自动建造。相关的设置只会在脚本关闭建造，且开启此项后才会隐藏。不过，此选项不会隐藏健身房的设置，因为游戏内的自动建造无法自定义健身房相关设置。',
     'Buy Neither': '不建造任何建筑',
@@ -2278,7 +2274,7 @@ var cnItems = {
     'Unobtained Weapon Prestiges in maps': '地图中未获得的武器重铸升级',
     'ie: there are less than 2 types to run for, AutoMaps will not enter Prestige Mode, and/or will exit from it. For users who tends to not need the last few prestiges due to resource gain not keeping up. The amount of unboughts can be configured with MODULES.maps.UnearnedPrestigesRequired. If PrestigeSkipMode is enabled, both conditions need to be reached before exiting.': '数量少于2个，也就是少于2种武器重铸升级时，自动地图将不会进入重铸模式，并且会退出重铸模式。此项用来跳过一些成本过高的重铸升级。未获得的武器重铸升级数量可以在控制台中输入MODULES.maps.UnearnedPrestigesRequired = 2修改，其中2为相应数值，可自行修改。如果模式1和模式2都启用了，那么两个条件都必须同时满足才会激活重铸跳过。',
     'Delay Armor Prestige': '延迟护甲重铸',
-    'Delays buying armor prestige-upgrades during Want More Damage or Farming automap-modes, Although if you need health AND damage, it WILL buy armor prestiges tho. NOTE': '如果自动地图模式目前是需要更多伤害模式或者刷资源模式，则延迟购买护甲重铸升级。不过在需要更多伤害和生命值模式中仍然会购买护甲重铸升级。注意',
+    'Delays buying armor prestige-upgrades during Want More Damage or Farming automap-modes, Although if you need health AND damage, it WILL buy armor prestiges tho. NOTE': '如果自动地图模式目前是需要更多伤害模式或者刷资源模式，则延迟购买护甲重铸升级。不过在需要更多生命值和伤害模式中仍然会购买护甲重铸升级。注意',
     'Applies to Prestiges only': '只对重铸有效',
     'Buy Shield Block': '购买盾牌格挡',
     'Will buy the shield block upgrade. CAUTION: If you are progressing past zone 60, you probably don\'t want this :': '购买盾牌格挡升级。注意：如果您能够到达区域60以上，您恐怕就不再需要这个升级了 :',
@@ -2718,7 +2714,6 @@ var cnItems = {
     '3. Buy Efficiency if it is better than capacity;': '3、如果生产效率比容量更好，则购买生产效率；',
     '4. Buy Capacity or Supply depending on which is cheaper, or based on SupplyWall': '4、对比容量和供给的成本，考虑控制分配的数值，购买成本更低的升级(译者注：不用点进去了，图更看不懂)',
     'MagmiteExplain': '岩浆岩分配方式解释',
-    'Thats all the help you get.': '详情见上图。',
     'Enter the name of your high damage heirloom. This is your heirloom that you will use normally.': '输入您较高伤害的传家宝名称。这将是正常情况下使用的传家宝。',
     'Enter the name of your low damage heirloom. This is the heirloom that you will use for windstacking.': '输入您较低伤害的传家宝名称。这将是用于风层数叠加的传家宝。',
     'Heirloom Swapping': '传家宝切换',
@@ -2896,7 +2891,7 @@ var cnItems = {
     'Show Changelog': '显示更新日志',
     'Action Button). Shows the changelog popup message that AT loads on startup again, in case you missed it. The blue color means this is not a settable setting, just a button.': '主动点击按钮)。再次显示载入脚本时显示过的更新日志。此按钮为蓝色，这意味着它不是设置，只是按钮。',
     'General Spam': '显示通常脚本信息',
-    'General Spam = Notification Messages, Auto He/Hr': '通常脚本信息包括通知信息，自动氦每小时等',
+    'General Spam = Notification Messages, Auto He/Hr': '通常脚本信息包括通知信息，自动氦/小时等',
     'Upgrades Spam': '显示升级脚本信息',
     'Equipment Spam': '显示装备脚本信息',
     'Maps Spam': '显示地图脚本信息',
@@ -2916,10 +2911,10 @@ var cnItems = {
     'Nature Spam': '显示自然脚本信息',
     'Everything in related to Nature': '与自然相关的所有信息',
     'Import AutoTrimps': '导入脚本设置',
-    'Import your AutoTrimps Settings. Asks you to name it as a profile afterwards.': '导入脆皮脚本的设置。导入完成后还会让您进行设置的命名。',
+    'Import your AutoTrimps Settings. Asks you to name it as a profile afterwards.': '导入脆皮脚本的设置。导入完成后还会让您进行设置文件的命名。',
     'Export AutoTrimps': '导出脚本设置',
     'Export your AutoTrimps Settings as a output string text formatted in JSON.': '导出脆皮脚本的设置。',
-    'Reset to Default': '设为默认',
+    'Reset to Default': '恢复为默认设置',
     'Reset everything to the way it was when you first installed the script.': '将脚本的设置恢复到初始状态。',
     'Gives you an AT settings String that you can use to import. Use if you are less than z60.': '生成可导入的脚本设置。如果您目前区域低于60，可以使用它。',
     '550+ AT Settings': '区域550以上的设置',
@@ -2934,61 +2929,68 @@ var cnItems = {
     'WARNING: Your void maps are set to complete after your autoPortal, and therefore will not be done at all! Please Change Your Settings Now. This Box Will Not Go away Until You do. Remember you can choose \'Custom\' autoPortal along with challenges for complete control over when you portal.': '注意：您的虚空地图区域设置到了自动传送门的区域之后，因此将完全无效！请修改设置。在修改之前，这个窗口将会一直弹出。请记住，您可以选择自动传送门选项中的自定义选项以彻底控制传送的时机。',
     'Estimated autoPortal level': '预计自动传送门区域',
     'Void Maps Conflict': '虚空地图冲突',
-    'After Daily He/Hr': '算上日常加成后的氦每小时',
-    'After Daily Rn/Hr': '算上日常加成后的氡每小时',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
+    'After Daily He/Hr': '算上日常加成后的氦/小时',
+    'After Daily Rn/Hr': '算上日常加成后的氡/小时',
+    'Hidden Next Group Breed Timer': '隐藏的繁殖计时',
+    'How long your next army has been breeding for, or how many anticipation stacks you will have if you send a new army now.': '显示下一队士兵已经繁殖了多久，或者是如果现在让士兵开始战斗，预期能达到多少层。',
+    'Army Count': '军队规模',
+    'Settings Profile': '设置文件',
+    '<Delete Profile': '<删除设置文件',
+    'Current': '当前的',
+    'Save New...': '另存为新的设置文件',
+    'ExportAutoTrimps': '导出脚本设置',
+    'This is your AUTOTRIMPS save string. There are many like it but this one is yours. Save this save somewhere safe so you can save time next time.': '以下是您的脚本设置数据字符串。只属于您，独一无二。保存好它，这样下次就能省不少事了。',
+    'This is your AUTOTRIMPS z550+ save string. Use this string to import the settings.': '以下是区域550以上的脚本设置数据字符串。导入相应字符串后即可导入相应设置。',
+    'This is your AUTOTRIMPS z60 save string. Use this string to import the settings.': '以下是区域60以下的脚本设置数据字符串。导入相应字符串后即可导入相应设置。',
+    'ImportAutoTrimps': '导入脚本设置',
+    'Import your AUTOTRIMPS save string! It\'ll be fine, I promise.': '导入您的脚本设置数据字符串！它会能用的，我保证。',
+    'Import': '导入',
+    'spireImport': '尖塔导入',
+    'Import your SPIRE string!': '导入您的尖塔的字符串！',
+    'CleanupAutoTrimps': '清除过时的设置数据',
+    'Autotrimps saved-settings have been attempted to be cleaned up. If anything broke, refreshing will fix it, but check that your settings are correct! (prestige in particular': '已完成之前版本过时数据的清理。如果脚本工作不正常，只须刷新就能修复，但这之后请检查一下相关设置是否正确！(特别是重铸相关的设置',
+    'Thats all the help you get.': '详情见上图。',
+    'Name': '名称',
+    'Difficulty': '难度',
+    '%C': '加成：挑战',
+    '%HZE': '区域比',
+    'Total': '总计',
+    'Loading New AutoTrimps Profile...': '正在载入新的脚本设置文件……',
+    'Current Settings will be lost': '当前的设置将丢失',
+    'NOTICE': '注意',
+    'Switching to new AutoTrimps settings profile!!!!': '将切换为新的脚本设置文件！！！！',
+    'All current settings': '所有当前的设置 ',
+    'WILL': '将',
+    'be lost after this point.': '在此之后丢失。',
+    'You might want to cancel, to go back and save your existing settings first....': '如果有需要，您可以先取消，然后保存当前的设置文件……',
+    'Confirm and Switch Profiles': '确认切换',
+    'Loading AutoTrimps Default Profile...': '正在载入默认的脚本设置文件……',
+    'Current Settings will be lost!': '当前的设置将丢失！',
+    'Switching to Default AutoTrimps settings profile!!!!': '将切换为默认的脚本设置文件！！！！',
+    'This will': '这将 ',
+    'Reset': '重置',
+    'the script to factory settings.': '脚本设置为出厂设置。',
+    'Reset to Default Profile': '重置为默认',
+    'Enter New Settings Profile Name': '输入新的设置文件的名称',
+    'What would you like the name of the Settings Profile to be?': '新的设置文件应该叫什么名字？',
+    'WARNING': '注意',
+    'Delete Profile???': '删除设置文件？？？',
+    'You are about to delete the': '您将要删除的是 ',
+    'settings profile.': '设置文件。',
+    'This will not switch your current settings though. Continue ?': '这并不会影响您当前的设置。确定继续吗？',
+    'Delete Profile': '删除设置文件',
+    'Generic message': '一般消息',
+    'Autotrimps has been successfully reset to its defaults!': '脚本设置已重置为默认设置！',
+    'Out of Map Credits': '地图代币耗尽',
+    'Prestige Raiding': '重铸袭劫',
+    'Getting Spire Map Bonus': '尖塔前获得地图奖励',
+    'Skipping Spire': '跳过尖塔',
+    'Max Map Bonus After Zone': '之后区域一直获得最大地图奖励',
+    'Want Health & Damage': '需要更多生命值和伤害',
+    'Want more health': '需要更多生命值',
+    'Advancing': '前进中',
+    'Prestige Skipped': '跳过重铸',
+    'He/hr': '氦/小时',
     '': '',
     '': '',
     '': '',
@@ -3734,7 +3736,6 @@ var cnItems = {
     'Gather': '收集',
     'Equip': '装备',
     'Export': '导出',
-    'Import': '导入',
     'Help': '帮助',
     'More Info': '更多信息',
     'Chop': '伐木',
@@ -4040,7 +4041,6 @@ var cnItems = {
     '. Make sure you can earn back what you spend!': '。请确保你有能力去赚回你花费的氦气!',
     'Make Purchase': '购买',
     'AutoTraps On': '自动陷阱捕捉开启',
-    'Current': '当前',
     'Run Map': '运行地图',
     'Customize your settings for running maps!': '自定义你的地图运行设置！',
     'Back': '后退',
@@ -4649,7 +4649,7 @@ var cnRegReplace = new Map([
     [/^Clear Melting Point in less than (.*):(.*):(.*) from start of run$/, '使用传送门后，在 $1:$2:$3 内通过熔点'], //成就等
     [/^Have over (.*) traps at once$/, '同时拥有超过 $1 个陷阱'], //成就等
     [/^Spend over (.*) total He on Wormholes$/, '在虫洞上一共花费 $1 氦'], //成就等
-    [/^Kill (.*) enemies in your Spire$/, '在尖塔中一共击杀 $1 敌人'], //成就等
+    [/^Kill (.*) enemies in your Spire$/, '在你的尖塔中一共击杀 $1 敌人'], //成就等
     [/^Beat the Spire with no respec and (.*) or less He Spent$/, '在氦花费不超过 $1 ，且未在传送后进行特权洗点的前提下通过尖塔'], //成就等
     [/^Beat Spire II with no respec and (.*) or less He spent$/, '在氦花费不超过 $1 ，且未在传送后进行特权洗点的前提下通过尖塔 II'], //成就等
     [/^Complete Wither with (.*) stacks of Hardened$/, '在拥有 $1 层硬化的前提下，完成凋零挑战'], //成就等
@@ -4931,11 +4931,123 @@ var cnRegReplace = new Map([
     [/^WS: Low Damage(.*)$/, '风层数叠加：低伤$1'], //脚本3传家宝设置
     [/^HS: First(.*)$/, '传家宝切换：第一$1'], //脚本3传家宝设置
     [/^HS: Second(.*)$/, '传家宝切换：第二$1'], //脚本3传家宝设置
-
-
-
-
-
+    [/^To Fight now would add: (.*) seconds to the breed timer.$/, '现在开始战斗将增加$1秒繁殖计时。'], //脚本3繁殖模块设置
+    [/^(.*)Building (.*) Warpstations$/, '$1建造$2个跃迁核心'], //脚本3建筑模块设置
+    [/^(.*)Building Barn$/, '$1建造谷仓'], //脚本3建筑模块设置
+    [/^(.*)Building Shed$/, '$1建造窝棚'], //脚本3建筑模块设置
+    [/^(.*)Building Forge$/, '$1建造锻造厂'], //脚本3建筑模块设置
+    [/^(.*)Building Hut$/, '$1建造小屋'], //脚本3建筑模块设置
+    [/^(.*)Building House$/, '$1建造宅院'], //脚本3建筑模块设置
+    [/^(.*)Building Mansion$/, '$1建造豪宅'], //脚本3建筑模块设置
+    [/^(.*)Building Hotel$/, '$1建造宾馆'], //脚本3建筑模块设置
+    [/^(.*)Building Resort$/, '$1建造度假村'], //脚本3建筑模块设置
+    [/^(.*)Building Gateway$/, '$1建造维度裂隙'], //脚本3建筑模块设置
+    [/^(.*)Building Wormhole$/, '$1建造虫洞'], //脚本3建筑模块设置
+    [/^(.*)Building Collector$/, '$1建造汲能设施'], //脚本3建筑模块设置
+    [/^(.*)Building Gym$/, '$1建造健身房'], //脚本3建筑模块设置
+    [/^(.*)Building Smithy$/, '$1建造铁匠铺'], //脚本3建筑模块设置
+    [/^(.*)Building Tribute$/, '$1建造贡品'], //脚本3建筑模块设置
+    [/^(.*)Building Nursery$/, '$1建造托儿所'], //脚本3建筑模块设置
+    [/^(.*)Building Microchip$/, '$1建造微型芯片'], //脚本3建筑模块设置
+    [/^(.*)Upgrading Dagadder - Prestige$/, '$1升级诗歌匕首-重铸次数'], //脚本3装备模块设置
+    [/^(.*)Upgrading Megamace - Prestige$/, '$1升级巨型狼牙棒-重铸次数'], //脚本3装备模块设置
+    [/^(.*)Upgrading Polierarm - Prestige$/, '$1升级画戟-重铸次数'], //脚本3装备模块设置
+    [/^(.*)Upgrading Axeidic - Prestige$/, '$1升级强酸战斧-重铸次数'], //脚本3装备模块设置
+    [/^(.*)Upgrading Greatersword - Prestige$/, '$1升级双手巨剑-重铸次数'], //脚本3装备模块设置
+    [/^(.*)Upgrading Bootboost - Prestige$/, '$1升级增速靴-重铸次数'], //脚本3装备模块设置
+    [/^(.*)Upgrading Hellishmet - Prestige$/, '$1升级地狱头盔-重铸次数'], //脚本3装备模块设置
+    [/^(.*)Upgrading Pantastic - Prestige$/, '$1升级护腿-重铸次数'], //脚本3装备模块设置
+    [/^(.*)Upgrading Smoldershoulder - Prestige$/, '$1升级闷火护肩-重铸次数'], //脚本3装备模块设置
+    [/^(.*)Upgrading Bestplate - Prestige$/, '$1升级精良胸铠-重铸次数'], //脚本3装备模块设置
+    [/^(.*)Upgrading Harmbalest - Prestige$/, '$1升级高强弩-重铸次数'], //脚本3装备模块设置
+    [/^(.*)Upgrading GambesOP - Prestige$/, '$1升级强棉甲-重铸次数'], //脚本3装备模块设置
+    [/^(.*)Upgrading Supershield - Prestige$/, '$1升级超级盾牌-重铸次数'], //脚本3装备模块设置
+    [/^(.*)Upgrading Gymystic #$/, '$1升级健身学-次数'], //脚本3装备模块设置
+    [/^(.*)Leveling equipment Boots$/, '$1升级装备：靴子'], //脚本3装备模块设置
+    [/^(.*)Leveling equipment Helmet$/, '$1升级装备：头盔'], //脚本3装备模块设置
+    [/^(.*)Leveling equipment Pants$/, '$1升级装备：裤子'], //脚本3装备模块设置
+    [/^(.*)Leveling equipment Shoulderguards$/, '$1升级装备：护肩'], //脚本3装备模块设置
+    [/^(.*)Leveling equipment Breastplate$/, '$1升级装备：胸铠'], //脚本3装备模块设置
+    [/^(.*)Leveling equipment Gambeson$/, '$1升级装备：棉甲'], //脚本3装备模块设置
+    [/^(.*)Leveling equipment Shield$/, '$1升级装备：盾牌'], //脚本3装备模块设置
+    [/^(.*)Leveling equipment Boots \(AlwaysLvl$/, '$1升级装备：靴子(常时等级'], //脚本3装备模块设置
+    [/^(.*)Leveling equipment Helmet \(AlwaysLvl$/, '$1升级装备：头盔(常时等级'], //脚本3装备模块设置
+    [/^(.*)Leveling equipment Pants \(AlwaysLvl$/, '$1升级装备：裤子(常时等级'], //脚本3装备模块设置
+    [/^(.*)Leveling equipment Shoulderguards \(AlwaysLvl$/, '$1升级装备：护肩(常时等级'], //脚本3装备模块设置
+    [/^(.*)Leveling equipment Breastplate \(AlwaysLvl$/, '$1升级装备：胸铠(常时等级'], //脚本3装备模块设置
+    [/^(.*)Leveling equipment Gambeson \(AlwaysLvl$/, '$1升级装备：棉甲(常时等级'], //脚本3装备模块设置
+    [/^(.*)Leveling equipment Shield \(AlwaysLvl$/, '$1升级装备：盾牌(常时等级'], //脚本3装备模块设置
+    [/^(.*)Leveling equipment Dagger$/, '$1升级装备：匕首'], //脚本3装备模块设置
+    [/^(.*)Leveling equipment Mace$/, '$1升级装备：狼牙棒'], //脚本3装备模块设置
+    [/^(.*)Leveling equipment Polearm$/, '$1升级装备：战戟'], //脚本3装备模块设置
+    [/^(.*)Leveling equipment Battleaxe$/, '$1升级装备：战斧'], //脚本3装备模块设置
+    [/^(.*)Leveling equipment Greatsword$/, '$1升级装备：巨剑'], //脚本3装备模块设置
+    [/^(.*)Leveling equipment Arbalest$/, '$1升级装备：强弩'], //脚本3装备模块设置
+    [/^(.*)Successfully loaded existing profile(.*)$/, '$1成功载入现有的设置文件$2'], //脚本3导入导出模块设置
+    [/^(.*)Successfully created new profile(.*)$/, '$1成功创建新的设置文件$2'], //脚本3导入导出模块设置
+    [/^(.*)Successfully deleted profile #(.*)$/, '$1成功删除设置文件编号$2'], //脚本3导入导出模块设置
+    [/^(.*)Successfully imported new AT settings...$/, '$1成功导入新的脚本设置……'], //脚本3导入导出模块设置
+    [/^Successfully Imported Autotrimps Settings File!(.*)$/, '成功导入脚本设置文件！$1'], //脚本3导入导出模块设置
+    [/^(.*)Successfully reset AT settings to Defaults...$/, '$1成功将脚本设置重置为默认设置……'], //脚本3导入导出模块设置
+    [/^(.*)Importing new AT settings file...$/, '$1正在导入新的脚本设置……'], //脚本3导入导出模块设置
+    [/^(.*)Firing (.*) Farmers$/, '$1解雇 $2 农民'], //脚本3工作设置
+    [/^(.*)Hiring (.*) Farmers$/, '$1雇佣 $2 农民'], //脚本3工作设置
+    [/^(.*)Firing (.*) Lumberjacks$/, '$1解雇 $2 伐木工'], //脚本3工作设置
+    [/^(.*)Hiring (.*) Lumberjacks$/, '$1雇佣 $2 伐木工'], //脚本3工作设置
+    [/^(.*)Firing (.*) Miners$/, '$1解雇 $2 矿工'], //脚本3工作设置
+    [/^(.*)Hiring (.*) Miners$/, '$1雇佣 $2 矿工'], //脚本3工作设置
+    [/^(.*)Firing (.*) Scientists$/, '$1解雇 $2 科学家'], //脚本3工作设置
+    [/^(.*)Hiring (.*) Scientists$/, '$1雇佣 $2 科学家'], //脚本3工作设置
+    [/^(.*)Firing (.*) Trainers$/, '$1解雇 $2 训练师'], //脚本3工作设置
+    [/^(.*)Hiring (.*) Trainers$/, '$1雇佣 $2 训练师'], //脚本3工作设置
+    [/^(.*)Firing (.*) Explorers$/, '$1解雇 $2 探险家'], //脚本3工作设置
+    [/^(.*)Hiring (.*) Explorers$/, '$1雇佣 $2 探险家'], //脚本3工作设置
+    [/^(.*)Firing (.*) Geneticists$/, '$1解雇 $2 遗传学家'], //脚本3工作设置
+    [/^(.*)Hiring (.*) Geneticists$/, '$1雇佣 $2 遗传学家'], //脚本3工作设置
+    [/^(.*)Firing (.*) Meteorologists$/, '$1解雇 $2 气象学家'], //脚本3工作设置
+    [/^(.*)Hiring (.*) Meteorologists$/, '$1雇佣 $2 气象学家'], //脚本3工作设置
+    [/^(.*)Bought (.*) Magmamancers. Total Owned(.*)$/, '$1雇佣 $2 岩浆巫师。岩浆巫师总数为$3'], //脚本3工作设置
+    [/^(.*)Auto Spending (.*) Magmite on: Efficiency #$/, '$1自动分配 $2 岩浆岩以升级：生产效率，次数'], //脚本3岩浆设置
+    [/^(.*)Auto Spending (.*) Magmite on: Capacity #$/, '$1自动分配 $2 岩浆岩以升级：容量，次数'], //脚本3岩浆设置
+    [/^(.*)Auto Spending (.*) Magmite on: Supply #$/, '$1自动分配 $2 岩浆岩以升级：供给，次数'], //脚本3岩浆设置
+    [/^(.*)Auto Spending (.*) Magmite on: Overclocker #$/, '$1自动分配 $2 岩浆岩以升级：超频，次数'], //脚本3岩浆设置
+    [/^(.*)Auto Spending (.*) Magmite on: Slowburn$/, '$1自动分配 $2 岩浆岩以升级：慢烧'], //脚本3岩浆设置
+    [/^(.*)Auto Spending (.*) Magmite on: Shielding$/, '$1自动分配 $2 岩浆岩以升级：防护'], //脚本3岩浆设置
+    [/^(.*)Auto Spending (.*) Magmite on: Storage$/, '$1自动分配 $2 岩浆岩以升级：存储'], //脚本3岩浆设置
+    [/^(.*)Auto Spending (.*) Magmite on: Hybridization$/, '$1自动分配 $2 岩浆岩以升级：混合'], //脚本3岩浆设置
+    [/^(.*)Auto Spending (.*) Magmite on: Supervision$/, '$1自动分配 $2 岩浆岩以升级：管理'], //脚本3岩浆设置
+    [/^(.*)Auto Spending (.*) Magmite on: Simulacrum$/, '$1自动分配 $2 岩浆岩以升级：复制'], //脚本3岩浆设置
+    [/^(.*)Auto Spending (.*) Magmite on: Overclocker$/, '$1自动分配 $2 岩浆岩以升级：超频'], //脚本3岩浆设置
+    [/^(.*)Leftover magmite$/, '$1剩余岩浆岩'], //脚本3岩浆设置
+    [/^Farming for Spire (.*)h left$/, '尖塔前刷资源，剩余$1小时'], //脚本3地图设置
+    [/^Farming for Spire (.*)m:(.*)s left$/, '尖塔前刷资源，剩余$1分$2秒'], //脚本3地图设置
+    [/^Void Maps: (\d*) remaining$/, '虚空地图：剩余$1'], //脚本3地图设置
+    [/^Void Maps: (\d*) \((\d*) stacked\) remaining$/, '虚空地图：剩余$1(融合了$2)'], //脚本3地图设置
+    [/^Farming: (.*)x$/, '刷资源：生命伤害比 $1'], //脚本3地图设置
+    [/^Want (.*)x(\s*)more damage$/, '需要更多伤害，倍数 $1'], //脚本3地图设置
+    [/^(\s*)He$/, '氦'], //脚本3地图设置
+    [/^(.*)Set the map special modifier to: Fast Attacks. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：快速攻击。花费碎片总数的$2%。'], //脚本3地图设置
+    [/^(.*)Set the map special modifier to: Large Cache. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：大储藏箱。花费碎片总数的$2%。'], //脚本3地图设置
+    [/^(.*)Set the map special modifier to: Small Savory Cache. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：小美味储藏箱。花费碎片总数的$2%。'], //脚本3地图设置
+    [/^(.*)Set the map special modifier to: Small Wooden Cache. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：小木头储藏箱。花费碎片总数的$2%。'], //脚本3地图设置
+    [/^(.*)Set the map special modifier to: Small Metal Cache. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：小金属储藏箱。花费碎片总数的$2%。'], //脚本3地图设置
+    [/^(.*)Set the map special modifier to: Small Research Cache. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：小研究储藏箱。花费碎片总数的$2%。'], //脚本3地图设置
+    [/^(.*)Set the map special modifier to: Prestigious. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：重铸。花费碎片总数的$2%。'], //脚本3地图设置
+    [/^(.*)Set the map special modifier to: Huge Cache. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：巨大储藏箱。花费碎片总数的$2%。'], //脚本3地图设置
+    [/^(.*)Set the map special modifier to: Large Savory Cache. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：大美味储藏箱。花费碎片总数的$2%。'], //脚本3地图设置
+    [/^(.*)Set the map special modifier to: Large Wooden Cache. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：大木头储藏箱。花费碎片总数的$2%。'], //脚本3地图设置
+    [/^(.*)Set the map special modifier to: Large Metal Cache. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：大金属储藏箱。花费碎片总数的$2%。'], //脚本3地图设置
+    [/^(.*)Set the map special modifier to: Large Research Cache. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：大研究储藏箱。花费碎片总数的$2%。'], //脚本3地图设置
+    [/^(.*)Got perma-stuck on cell (\d*) during scryer stance. Are your scryer settings correct? Entering map to farm to fix it.$/, '$1使用占卜者阵型时卡在格子$2了。占卜者阵型的设置是否正确？请进入地图刷资源来解决。'], //脚本3地图设置
+    [/^(.*)Can't afford the map we designed, #$/, '$1碎片不够，无法制造所需的地图，等级'], //脚本3地图设置
+    [/^(.*)...selected our highest map instead # (.*) Level$/, '$1……取而代之，我们选择地图$2，等级'], //脚本3地图设置
+    [/^(.*)Buying a Map, level: #$/, '$1制造一张地图，等级：'], //脚本3地图设置
+    [/^(.*)Too many maps, recycling now$/, '$1地图过多，开始回收'], //脚本3地图设置
+    [/^(.*)Retrying, Buying a Map, level: #$/, '$1重新尝试，制造一张地图，等级：'], //脚本3地图设置
+    [/^(.*)AutoMaps unable to recycle to buy map!$/, '$1脚本无法回收并制造地图！'], //脚本3地图设置
+    [/^(.*)Retrying map buy after recycling lowest level map$/, '$1回收最低级地图后重新尝试制造地图'], //脚本3地图设置
+    [/^(.*)Running selected (.*) Level: (.*) Name: $/, '$1运行选择的$2，等级：$3，名称：'], //脚本3地图设置
+    [/^(.*)Running selected (.*) Void: (.*) Name: $/, '$1运行选择的$2，虚空地图：$3，名称：'], //脚本3地图设置
 
 
 
