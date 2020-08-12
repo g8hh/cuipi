@@ -9,7 +9,6 @@
 
 var cnItems = {
     _OTHER_: [],
-    //脚本3地图模块，末尾名字需列入cnpostfix
     //协同挑战中后缀带s，查阅badName.replace，且最后有括号部分
     //段末标点处理
     '.': '。',
@@ -292,30 +291,6 @@ var cnItems = {
     'Gusty Magnimp': '阵风脆皮磁王',
     'Gusty Skeletimp': '阵风脆皮骷髅',
     'Gusty Megaskeletimp': '阵风脆皮超级骷髅',
-    'Frozen Liquimp': '冻结液化者',
-    'Frozen Presimpt': '冻结脆皮小礼',
-    'Frozen Turkimp': '冻结脆皮火鸡',
-    'Frozen Randimp': '冻结脆皮百变怪',
-    'Frozen Squimp': '冻结脆皮乌贼',
-    'Frozen Elephimp': '冻结脆皮象',
-    'Frozen Turtlimp': '冻结脆皮龟',
-    'Frozen Chimp': '冻结脆皮黑猩猩',
-    'Frozen Penguimp': '冻结脆皮企鹅',
-    'Frozen Snimp': '冻结脆皮鹬',
-    'Frozen Gorillimp': '冻结脆皮大猩猩',
-    'Frozen Blimp': '冻结脆皮飞艇',
-    'Frozen Dragimp': '冻结脆皮龙',
-    'Frozen Improbability': '冻结乌有者',
-    'Frozen Omnipotrimp': '冻结全能者',
-    'Frozen Mutimp': '冻结脆皮变异者',
-    'Frozen Hulking Mutimp': '冻结脆皮大型变异者',
-    'Frozen Feyimp': '冻结脆皮小妖',
-    'Frozen Tauntimp': '冻结脆皮咚咚',
-    'Frozen Whipimp': '冻结脆皮鞭者',
-    'Frozen Venimp': '冻结脆皮爱神',
-    'Frozen Magnimp': '冻结脆皮磁王',
-    'Frozen Skeletimp': '冻结脆皮骷髅',
-    'Frozen Megaskeletimp': '冻结脆皮超级骷髅',
     '': '',
     '': '',
     'Improbabilities': '乌有者们',
@@ -688,7 +663,7 @@ var cnItems = {
     'Subzero Sprinter': '零下冲刺者',
     'Frigid and Furious': '寒冷之怒',
     'Speed: Spire IV': '最速: 尖塔 IV',
-    'Windy Walker': '风之行者',
+    'Walker': '行者',
     'Gusty Gait': '阵风步法',
     'Breeze Breaker': '微风破坏者',
     'Zippy Zephyr': '迅捷微风',
@@ -702,10 +677,10 @@ var cnItems = {
     'driVen': 'V驱动',
     'triVialized': 'V轻视',
     'U2 Speed: Big Wall': '宇宙2最速：巨墙',
-    'Big Wall Crawler': '巨墙爬行者',
-    'Big Wall Scholar': '巨墙学者',
-    'Big Wall Mauler': '巨墙槌手',
-    'Big Wall Baller': '巨墙土豪',
+    'Wall Crawler': '墙爬行者',
+    'Wall Scholar': '墙学者',
+    'Wall Mauler': '墙槌手',
+    'Wall Baller': '墙土豪',
     'U2 Speed: Palace': '宇宙2最速：棱镜宫殿',
     'Peasant': '佃农',
     'Jester': '弄臣',
@@ -752,7 +727,7 @@ var cnItems = {
     'One-Hit Wonder': '一鸣惊人',
     'Kill an Improbability in one hit': '一击杀死一个乌有者',
     'Survivor': '生还者',
-    'Beat a Lv 60+ Destructive Void Map with no deaths': '在没有战败过的前提下，通过一张60级以上的破坏性虚空地图',
+    'Beat a Lv 60+ Destructive Void Map with no deaths': '在没有战败过的前提下，通过一张60级以上的破灭虚空地图',
     'Thick Skinned': '皮糙肉厚',
     'Beat Crushed without being crit past Z': '在到达特定区域后未受到过敌人暴击的前提下，完成粉碎挑战。该区域为区域',
     'Great Host': '热情好客的主人',
@@ -943,9 +918,9 @@ var cnItems = {
     'Less Breed Timer': '简略繁殖计时',
     'More Breed Timer': '详尽繁殖计时',
     'Display time to breed a full group of soldiers next to the current breed timer.': '切换是否在当前繁殖计时旁边显示一整队士兵繁殖所需的时间。',
-    'Black Background': '黑色背景',
+    'Background': '背景',
     'Default Theme': '默认主题',
-    'Dark Theme': '黑暗主题',
+    'Theme': '主题',
     'Gradient Theme': '渐变主题',
     'Toggle between the default Trimps theme, a custom dark theme made by u/Grabarz19, a gradient theme by u/k1d_5h31d0n, and the default theme with a black background.': '在以下主题之间切换：默认脆皮主题，u/Grabarz19创作的黑暗主题，u/k1d_5h31d0n创作的渐变主题，以及黑色背景的默认主题。',
     'Not Fading': '关闭渐隐效果',
@@ -1058,7 +1033,6 @@ var cnItems = {
     'Show Pumpkimps': '显示脆皮南瓜怪',
     'Bordered Pumpkimps': '脆皮南瓜怪边框',
     'Choose between': '在以下三者中切换：',
-    ', and': '，及 ',
     '. This setting applies only to the visual effect of Pumpkimp Zones in the world, does not apply to maps, and has no impact on how many Pumpkimps or Pumpkimp Zones actually spawn. This setting is temporary and will rot away after the Pumpkimp season!': '此设置只对世界上的脆皮南瓜怪区域显示效果生效，对地图无效，且不会影响脆皮南瓜怪的数量或区域。此设置为临时设置，在脆皮南瓜怪活动期满后将消失！',
     'is the default, and displays Pumpkimp Zones as normal.': '为默认选项，正常显示脆皮南瓜怪区域。',
     'displays Pumpkimp cells by changing the border color instead of the background color.': '不会改变脆皮南瓜怪区域的颜色，取而代之的是改变相应边框的颜色。',
@@ -1127,31 +1101,29 @@ var cnItems = {
     //骨头相关结束
     //传家宝相关
     'Common Core': '普通核心',
-    'Common Shield': '普通之盾',
+    'Common Shield': '普通盾牌',
     'Common Staff': '普通权杖',
     'Uncommon Core': '罕见核心',
-    'Uncommon Shield': '罕见之盾',
+    'Uncommon Shield': '罕见盾牌',
     'Uncommon Staff': '罕见权杖',
     'Rare Core': '稀有核心',
-    'Rare Shield': '稀有之盾',
+    'Rare Shield': '稀有盾牌',
     'Rare Staff': '稀有权杖',
     'Epic Core': '史诗核心',
-    'Epic Shield': '史诗之盾',
+    'Epic Shield': '史诗盾牌',
     'Epic Staff': '史诗权杖',
     'Legendary Core': '传奇核心',
-    'Legendary Shield': '传奇之盾',
+    'Legendary Shield': '传奇盾牌',
     'Legendary Staff': '传奇权杖',
-    'Magnificent Core': '华丽核心',
-    'Magnificent Shield': '华丽之盾',
-    'Magnificent Staff': '华丽权杖',
+    'Staff': '权杖',
     'Ethereal Core': '超凡核心',
-    'Ethereal Shield': '超凡之盾',
+    'Ethereal Shield': '超凡盾牌',
     'Ethereal Staff': '超凡权杖',
-    'Magmatic Shield': '岩浆之盾',
+    'Magmatic Shield': '岩浆盾牌',
     'Magmatic Staff': '岩浆权杖',
-    'Plagued Shield': '天灾之盾',
+    'Plagued Shield': '天灾盾牌',
     'Plagued Staff': '天灾权杖',
-    'Radiating Shield': '辐射之盾',
+    'Radiating Shield': '辐射盾牌',
     'Radiating Staff': '辐射权杖',
     'Empty': '空',
     'ADDS this amount on to your total Prismatic Shield. This modifier can only function in the Radon Universe.': '将此数值加算到棱镜护盾数值中。只在宇宙2内有效。',
@@ -1388,11 +1360,11 @@ var cnItems = {
     'You have the Trappapalooza challenge active. Travel to a dimension where Trimps refuse to breed in captivity, teaching you to stop breeding such weak Trimps. Trimps also seem to release an unfortunate burst of radiation when Trapped in this reality, instantly destroying 10% of your stored Food, Wood, Metal, and Science. So like, be careful of that. Clearing': '您目前正在进行捕手道达人挑战。前往一个被抓住的脆皮拒绝繁殖的维度。在那里可以让您学会停止繁殖这些弱鸡脆皮。另外，在此异世界中脆皮被抓住时，会释放出一种不幸念波，将当前10%的食物、木头、金属和科学点立刻摧毁。所以，请小心这点。通过 ',
     'You have the Trappapalooza challenge active. "Travel to a dimension where Trimps refuse to breed in captivity, teaching you to stop breeding such weak Trimps. Trimps also release an unfortunate burst of radiation when Trapped in this reality, instantly destroying 10% of your stored Food, Wood, Metal, and Science. But you know to be careful of that."': '您目前正在进行捕手道达人挑战。前往一个被抓住的脆皮拒绝繁殖的维度。在那里可以让您学会停止繁殖这些弱鸡脆皮。另外，在此异世界中脆皮被抓住时，会释放出一种不幸念波，将当前10%的食物、木头、金属和科学点立刻摧毁。您知道的，要小心这点。',
     'Quagmire': '泥淖',
-    'Travel to an extremely muddy dimension. It\'s hard to walk out here, making Overkill useless and Agility difficult. Your Trimps start each run with 100 stacks of Motivated, increasing all Loot gained by 40% per stack (including Radon). After each Zone, your Trimps gain 1 stack of Exhausted, reducing Trimp damage and breed speed by 10% per stack in the World, and 5% per stack in maps (compounding). For every 10 stacks of Exhausted, your Trimps will also attack 100ms slower. You\'ll also have access to run a special map called \'The Black Bog\', which will always scale to Zone level and is such a terrifying map that Exotic Imp-orts are unable to spawn there. Completing \'The Black Bog\' will reduce your Trimps\' Exhausted by 1 stack, but will also reduce their Motivated by 1 stack. Exhausted stacks can be negative, and will increase damage and breed speed. Completing Z70 or reaching 0 Motivated stacks with this Challenge active will end the Challenge, returning the World to normal. If the Challenge is ended by completing Z70, you will gain an additional 150% of all Radon earned.': '前往一个异常泥泞的维度。此维度极难行走，所以超杀无法触发，且敏捷变得更加困难。脆皮初始拥有100层“积极前进”，每层增加40%的资源获取量(包括氡)。通过每个区域以后，脆皮获得1层“疲惫不堪”，每层使脆皮的伤害和繁殖速度在世界中减少10%，在地图中减少5%(效果叠乘)。且每有10层疲惫不堪，脆皮攻击就减慢100ms。但同时，您可以进入一张叫做“黑色沼泽”的地图，此地图等级永远等于区域层数，且无法生成奇异外皮。通过一次黑色沼泽将同时减少1层疲惫不堪和1层积极前进。疲惫不堪层数可以为负数，此时它将提高脆皮伤害及繁殖速度。通过区域70或者积极前进层数到达0后，挑战结束，世界将恢复正常。如果挑战以通过区域70结束的话，那么您还可以额外获得氡，数值等于本次挑战完成前氡获取量的150%。',
-    'The Black Bog': '黑色沼泽',
+    'Travel to an extremely muddy dimension. It\'s hard to walk out here, making Overkill useless and Agility difficult. Your Trimps start each run with 100 stacks of Motivated, increasing all Loot gained by 40% per stack (including Radon). After each Zone, your Trimps gain 1 stack of Exhausted, reducing Trimp damage and breed speed by 10% per stack in the World, and 5% per stack in maps (compounding). For every 10 stacks of Exhausted, your Trimps will also attack 100ms slower. You\'ll also have access to run a special map called \'The Black Bog\', which will always scale to Zone level and is such a terrifying map that Exotic Imp-orts are unable to spawn there. Completing \'The Black Bog\' will reduce your Trimps\' Exhausted by 1 stack, but will also reduce their Motivated by 1 stack. Exhausted stacks can be negative, and will increase damage and breed speed. Completing Z70 or reaching 0 Motivated stacks with this Challenge active will end the Challenge, returning the World to normal. If the Challenge is ended by completing Z70, you will gain an additional 150% of all Radon earned.': '前往一个异常泥泞的维度。此维度极难行走，所以超杀无法触发，且敏捷变得更加困难。脆皮初始拥有100层“积极前进”，每层增加40%的资源获取量(包括氡)。通过每个区域以后，脆皮获得1层“疲惫不堪”，每层使脆皮的伤害和繁殖速度在世界中减少10%，在地图中减少5%(效果叠乘)。且每有10层疲惫不堪，脆皮攻击就减慢100ms。但同时，您可以进入一张叫做“黑色泥沼”的地图，此地图等级永远等于区域层数，且无法生成奇异外皮。通过一次黑色泥沼将同时减少1层疲惫不堪和1层积极前进。疲惫不堪层数可以为负数，此时它将提高脆皮伤害及繁殖速度。通过区域70或者积极前进层数到达0后，挑战结束，世界将恢复正常。如果挑战以通过区域70结束的话，那么您还可以额外获得氡，数值等于本次挑战完成前氡获取量的150%。',
+    'The Black ': '黑色',
     'Motivated': '积极前进', //包括成就描述
     'Exhausted': '疲惫不堪',
-    'You have the Quagmire challenge active. Travel to an extremely muddy dimension. It\'s hard to walk out here, making Overkill useless and Agility difficult. Your Trimps start each run with 100 stacks of Motivated, increasing all Loot gained by 40% per stack (including Radon). After each Zone, your Trimps gain 1 stack of Exhausted, reducing Trimp damage and breed speed by 10% per stack in the World, and 5% per stack in maps (compounding). For every 10 stacks of Exhausted, your Trimps will also attack 100ms slower. You\'ll also have access to run a special map called \'The Black Bog\', which will always scale to Zone level and is such a terrifying map that Exotic Imp-orts are unable to spawn there. Completing \'The Black Bog\' will reduce your Trimps\' Exhausted by 1 stack, but will also reduce their Motivated by 1 stack. Exhausted stacks can be negative, and will increase damage and breed speed. Completing Z70 or reaching 0 Motivated stacks with this Challenge active will end the Challenge, returning the World to normal. If the Challenge is ended by completing Z70, you will gain an additional 150% of all Radon earned.': '您目前正在进行泥淖挑战。前往一个异常泥泞的维度。此维度极难行走，所以超杀无法触发，且敏捷更加困难。脆皮初始拥有100层“积极前进”，每层增加40%的资源获取量(包括氡)。通过每个区域以后，脆皮获得1层“疲惫不堪”，每层使脆皮的伤害和繁殖速度在世界中减少10%，在地图中减少5%(效果叠乘)。且每有10层疲惫不堪，脆皮攻击就减慢100ms。但同时，您可以进入一张叫做“黑色沼泽”的地图，此地图等级永远等于区域层数，且无法生成奇异外皮。通过一次黑色沼泽将同时减少1层疲惫不堪和1层积极前进。疲惫不堪层数可以为负数，此时它将提高脆皮伤害及繁殖速度。通过区域70或者积极前进层数到达0层后，挑战结束，世界将恢复正常。如果挑战以通过区域70结束的话，那么您还可以额外获得氡，数值等于本次挑战完成前氡获取量的150%。',
+    'You have the Quagmire challenge active. Travel to an extremely muddy dimension. It\'s hard to walk out here, making Overkill useless and Agility difficult. Your Trimps start each run with 100 stacks of Motivated, increasing all Loot gained by 40% per stack (including Radon). After each Zone, your Trimps gain 1 stack of Exhausted, reducing Trimp damage and breed speed by 10% per stack in the World, and 5% per stack in maps (compounding). For every 10 stacks of Exhausted, your Trimps will also attack 100ms slower. You\'ll also have access to run a special map called \'The Black Bog\', which will always scale to Zone level and is such a terrifying map that Exotic Imp-orts are unable to spawn there. Completing \'The Black Bog\' will reduce your Trimps\' Exhausted by 1 stack, but will also reduce their Motivated by 1 stack. Exhausted stacks can be negative, and will increase damage and breed speed. Completing Z70 or reaching 0 Motivated stacks with this Challenge active will end the Challenge, returning the World to normal. If the Challenge is ended by completing Z70, you will gain an additional 150% of all Radon earned.': '您目前正在进行泥淖挑战。前往一个异常泥泞的维度。此维度极难行走，所以超杀无法触发，且敏捷更加困难。脆皮初始拥有100层“积极前进”，每层增加40%的资源获取量(包括氡)。通过每个区域以后，脆皮获得1层“疲惫不堪”，每层使脆皮的伤害和繁殖速度在世界中减少10%，在地图中减少5%(效果叠乘)。且每有10层疲惫不堪，脆皮攻击就减慢100ms。但同时，您可以进入一张叫做“黑色泥沼”的地图，此地图等级永远等于区域层数，且无法生成奇异外皮。通过一次黑色泥沼将同时减少1层疲惫不堪和1层积极前进。疲惫不堪层数可以为负数，此时它将提高脆皮伤害及繁殖速度。通过区域70或者积极前进层数到达0层后，挑战结束，世界将恢复正常。如果挑战以通过区域70结束的话，那么您还可以额外获得氡，数值等于本次挑战完成前氡获取量的150%。',
     'Wither': '凋零',
     'Travel to an ultra scary alternate reality with horrific Bad Guys. Enemies heal for 25% of their maximum health before each attack. If an enemy ever heals itself back to 100% health, your army will fall to despair and instantly wither away. Every enemy slain by your Trimps in the World or World-level Maps grants 1 stack of Hardness to your Trimps (stacking up to 10,000 and increasing Health by 0.1% per stack) and 1 stack of Horror to all enemies (increasing Attack by 0.05% per stack). Whenever a group of Trimps is killed by Wither, Trimps lose half of their stacks of Hardness and block the enemy\'s ability to heal and Wither for an amount of cells equal to 10% of the Hardness stacks lost. Clearing': '前往一个充满了极度可怕敌人的异世界。敌人在每次攻击前恢复最大生命值25%的生命值。如果敌人将生命值恢复到了100%，那么军队将因绝望而直接凋零灭绝。在世界上或者是等同于当前区域数等级的地图中杀死1名敌人后，您可以获得一层“硬化”(最高10000层，每层增加0.1%生命值)，并且使所有敌人获得一层“恐惧”(每层增加0.05%攻击力)。如果脆皮死于凋零，那么脆皮将失去一半的硬化层数，并且在失去的层数数值10%的格子内，敌人无法恢复生命值，也无法触发凋零。通过 ',
     'will complete this Challenge.': '后可以完成此挑战。',
@@ -1616,7 +1588,7 @@ var cnItems = {
     'Magmamancers will now increase Trimp Attack by the same amount that they increase Metal. In addition, start every post-magma Zone with 5 minutes of credit already applied to your Magmamancers.': '岩浆巫师不仅提高金属获取量，还同时提高脆皮攻击力，二者加成数值相等。另外，进入岩浆以后的区域时，岩浆巫师视为已经获得5分钟的加成。',
     'Map Reducer II': '地图减压 II',
     'Reduces the min and max number of cells by 5 when creating maps.': '制造地图时最大格子和最小格子数均减少5。',
-    'Natural Diplomacy I': '自然斡旋 I',
+    'Diplomacy I': '斡旋 I',
     'Increase your token trading ratio from 10:5 to 10:8.': '将符记的转换比例由10:5提高到10:8。',
     'Deca Build': '十重建造',
     'Buildings in the queue are constructed 10 at a time. In addition, buildings added to the queue via AutoStructure are added 10 at a time if needed.': '可以同时建造十个建筑。另外，建筑能以10为单位加入队列。',
@@ -1631,7 +1603,7 @@ var cnItems = {
     'Your value for "Last Portal Zone" only changes if you Portal after Z99 or collect an Heirloom, meaning it won\'t be reset by early restarts.': '上次传送前通过的区域只在上次传送前到达区域99或获得一个传家宝后才会开始计算，早早使用传送门不会对这个数值造成影响。',
     'Strength in Health I': '健康之力 I',
     'Your Trimps gain 15% additive damage per Healthy cell in your current Zone.': '当前区域中每有一个健康的格子，您的脆皮就获得15%额外伤害，伤害叠加。',
-    'Natural Diplomacy II': '自然斡旋 II',
+    'Diplomacy II': '斡旋 II',
     'Add 5 levels to the Upgrade and Stack Transfer of all 3 Empowerments of Nature, without increasing the costs.': '将全部3种自然赋能的赋能等级和层数传递率等级提高5级，且不增加成本。',
     'Liquification II': '液化 II',
     'Still Rowing II': '尖塔排行 II',
@@ -1653,7 +1625,7 @@ var cnItems = {
     'Charged Crits': '蓄力暴击',
     'Adds +1 to your MegaCrit modifier, and adds 50% of your Shield Heirloom\'s Crit Chance to your Crit Chance again.': '超暴击倍率加1，并且暴击率增加您盾牌暴击率的50%。',
     'However, you do not currently have Crit Chance on your Shield.': '但目前您的盾牌并没有暴击率的加成。',
-    'Master of the Void': '虚空大师',
+    'Master of the ': '掌握',
     'Grants 3 spectacular bonuses to your Void Maps, though the first two are incompatible with Scruffy. Scruffy tries but seriously just can\'t figure out the whole stacking thing yet.': '虚空地图获得以下三个强大的加成，但前两个对污污无效。污污很努力了，但是它真的搞不明白地图融合之类的事。',
     'Grants 3 spectacular bonuses to your Void Maps!': '虚空地图获得以下三个强大的加成！',
     '1. The Fluffy bonus for stacked Void Maps calculates with compounding gains, rather than additive. Each Void Map in the stack increases the Helium gain from the stack by x1.5 rather than +50%.': '1. 绒绒的融合虚空地图加成从叠加变为叠乘。融合每张虚空地图的氦加成从增加50%变为乘以1.5倍。',
@@ -1780,7 +1752,7 @@ var cnItems = {
     'Loot Sources': '战利品来源',
     'Coordinations': '协作等级',
     'Nullifium Gained': '虚空物质获取量',
-    'Dark Essence PerHour': '每小时黑暗精华',
+    'Essence PerHour': '精华每小时量',
     'OverkillCells': '超杀格子数',
     'Magmite': '岩浆岩',
     'Magmamancers': '岩浆巫师',
@@ -1804,7 +1776,6 @@ var cnItems = {
     'You can zoom by dragging a box around an area. You can turn portals off by clicking them on the legend. Quickly view the last portal by clicking it off, then Invert Selection. Or by clicking All Off, then clicking the portal on. To delete a portal, Type its portal number in the box and press Delete Specific. Using negative numbers in the Delete Specific box will KEEP that many portals (starting counting backwards from the current one), ie: if you have Portals 1000-1015, typing -10 will keep 1005-1015. There is a browser data storage limitation of 10MB, so do not exceed 20 portals-worth of data.': '您可以用鼠标圈选特定区域来放大。在图例上点击后可以关闭特定传送门数据。您可以点击最近一个传送门，然后点击下方的选择项反转来快速单独浏览。您也可以点全部关闭后，再点击它。如果想要删除特定传送门的数据，请在右方输入框内输入编号后，点击删除特定传送门数据。如果在输入框内输入负数再点击删除，那么会保留最近一个传送门之前相应数量的数据。举例：如果您目前图表中有传送门1000至传送门1015的数据，输入-10再点击删除后，剩下的是传送门1005至传送门1015的数据。浏览器数据存储上限为10MB，所以数据条目数不可超过20条。',
     'Tips: Hover for usage tips.': '提示：鼠标停留此处可看到有用的提示。',
     'Try to Remember Which Portals are Selected when switching between Graphs': '切换图表类型时记忆传送门选择状态',
-    'Black Graphs': '黑色图表',
     'ExportGraphs': '导出图表',
     'This is your GRAPH DATABASE save string. There are many like it but this one is yours. Save this save somewhere safe so you can save time next time.': '以下是您的图表数据字符串。只属于您，独一无二。保存好它，这样下次就能省不少事了。',
     'Got it': '知道了',
@@ -1848,8 +1819,8 @@ var cnItems = {
     'Total Magmite Owned': '岩浆岩总拥有量',
     'Zone (starting at': '区域 (开始于',
     'Total Magmamancers Owned': '岩浆巫师总拥有量',
-    'Dark Essence/Hour (Cumulative': '黑暗精华/小时 (累计',
-    'Dark Essence/Hour': '黑暗精华/小时',
+    'Essence/Hour (Cumulative': '精华/小时 (累计',
+    'Essence/Hour': '精华/小时',
     'Nurseries Bought (Total': '托儿所建造数 (总量',
     'Nursery': '托儿所',
     'Fluffy XP (Lifetime Total': '绒绒经验 (总量',
@@ -2000,7 +1971,7 @@ var cnItems = {
     'DFA: Non-Empowered': '日常常时战斗：非赋能',
     'DFA: All Dailies': '日常常时战斗：所有',
     'DFA: Off / DFA: Non-Empowered / DFA: All Dailies': '日常常时战斗：关闭 / 日常常时战斗：非赋能 / 日常常时战斗：所有',
-    'Daily Fight Always. Sends trimps to fight if they\'re not fighting in Daily challenges similar to Toxicity/Nom but not on Bloodthirst/Plagued/Bogged Dailies, regardless of BAF. Non-Empowered will only send to fight if the Daily is not Empowered. Essenitally the same as the one in combat, can use either if you wish, except this will only activate in these daily challenges (duh': '设置日常常时战斗。在日常挑战中，当脆皮没有在战斗时，自动让它们开始战斗。设置类似于毒性/美味常时战斗，无视改良自动战斗的设置，但不会在有嗜血(脆皮死亡时敌人恢复全部生命值并增加攻击力)/天灾(敌人每次攻击后使脆皮获得减成，每次攻击减少生命值上限一定比例的生命值)/泥淖(每次脆皮攻击后失去生命值)敌人的日常挑战中激活。非赋能只在日常挑战没有赋能敌人时自动让脆皮开始战斗。实际上跟战斗选项卡下的常时战斗效果类似，日常挑战中启用任意一个均可，但此选项只在日常挑战中生效。',
+    'Daily Fight Always. Sends trimps to fight if they\'re not fighting in Daily challenges similar to Toxicity/Nom but not on Bloodthirst/Plagued/Bogged Dailies, regardless of BAF. Non-Empowered will only send to fight if the Daily is not Empowered. Essenitally the same as the one in combat, can use either if you wish, except this will only activate in these daily challenges (duh': '设置日常常时战斗。在日常挑战中，当脆皮没有在战斗时，自动让它们开始战斗。设置类似于毒性/美味常时战斗，无视改良自动战斗的设置，但不会在有嗜血(脆皮死亡时敌人恢复全部生命值并增加攻击力)/天灾(敌人每次攻击后使脆皮获得减成，每次攻击减少生命值上限一定比例的生命值)/泥沼(每次脆皮攻击后失去生命值)敌人的日常挑战中激活。非赋能只在日常挑战没有赋能敌人时自动让脆皮开始战斗。实际上跟战斗选项卡下的常时战斗效果类似，日常挑战中启用任意一个均可，但此选项只在日常挑战中生效。',
     'Avoid Empower': '避免赋能敌人变强',
     'Tries to avoid Empower stacks in Empower Dailies. No harm in this being on, so default is On.': '在赋能日常挑战中，尽量避免敌人获得赋能层数。开着没什么坏处，因此该选项默认为开启。',
     'Daily Armor Magic Off': '日常护甲：关闭',
@@ -2008,7 +1979,7 @@ var cnItems = {
     'DAM: H:D': '日常护甲：生命伤害比',
     'DAM: Always': '日常护甲：常时',
     'Daily Armor Magic Off / DAM: Above 80% / DAM: H:D / DAM: Always': '日常护甲：关闭 / 日常护甲：超过 80% / 日常护甲：生命伤害比 / 日常护甲：常时',
-    'Will buy Armor to try and prevent death on Bleed/Plague/Bogged Dailies under the 3 conditions.': '在嗜血/天灾/泥淖挑战中，在以下条件时自动购买护甲以尝试生存下来。',
+    'Will buy Armor to try and prevent death on Bleed/Plague/Bogged Dailies under the 3 conditions.': '在嗜血/天灾/泥沼挑战中，在以下条件时自动购买护甲以尝试生存下来。',
     'Above': '超过',
     'Will activate at and above 80% of your HZE.': '当到达最高通过区域的80%时，激活日常护甲。',
     'H:D': '生命伤害比',
@@ -2299,11 +2270,6 @@ var cnItems = {
     'Map Selection': '地图选择',
     'Select which you prefer to use. Recommend Plentiful (Gardens) if you have unlocked it.': '选择倾向使用的地图。如果已经解锁花园(或丰饶)，建议选择它。',
     'Random': '随机',
-    'Mountain': '高山',
-    'Forest': '密林',
-    'Sea': '大海',
-    'Depths': '深渊',
-    'Gardens': '花园',
     'Max MapBonus After': '最大地图奖励起点',
     'Always gets Max Map Bonus from this zone on. (inclusive and after).': '从此区域开始，总是获取最大地图奖励。',
     'NOTE': '注意',
@@ -2352,8 +2318,8 @@ var cnItems = {
     'Time Farm at this Cell. -1 to run them at the default value, which is 1.': '在此格子开始定时刷图。设为-1则在默认值时开始定时刷图，即格子1。',
     'TF: Tribute': '定时刷图：贡品',
     'Turn this on if you want to turn TF: Time into Tribute Farming. If this is set to true TF: Time will work as A tribute setting. I.e if TF: Time is set to 750 tributes, it will farm at TF zone till that many tributes as been built. Uses TF Settings.': '如果您想用定时刷图来刷贡品，请开启此选项。开起此项后，定时刷图：数值的作用变为贡品的目标值。例如：如果定时刷图：数值设为750，则直到贡品达到相应数值时，将一直停留在相应区域刷资源。其他定时刷图设置也有效。',
-    'TF: Black Bog': '定时刷图：黑色沼泽',
-    'Turn this on if you want to use Black Bogs for farming instead of your map selection. Only works at z70. Will abandon Black Bog before completing to preserve stacks.': '如果您想用黑色沼泽代替定时刷图：地图的选项来刷资源，请开启此选项。只在区域70有效。在通过黑色沼泽之前会放弃地图，以保留层数。',
+    'TF: Black ': '定时刷图：黑色',
+    'Turn this on if you want to use Black Bogs for farming instead of your map selection. Only works at z70. Will abandon Black Bog before completing to preserve stacks.': '如果您想用黑色泥沼代替定时刷图：地图的选项来刷资源，请开启此选项。只在区域70有效。在通过黑色泥沼之前会放弃地图，以保留层数。',
     'How many minutes to farm at zone specified in TF. Can use 2,3,4. These values should match up to your TF zones. If using TF and TF: Times examples (59 and 2) it will farm at z59 for 2 minutes.': '定时刷图时在相应的区域刷多少分钟。可以输入多个数值，格式类似 2,3,4 这样。请让此项的数值与定时刷图的数值能够一一对应。例如：将定时刷图设为59，定时刷图：数值设为2的话，将在区域59刷资源2分钟。',
     'What map level to use. Can use -1,1,2. -1 to use a level down from world (Map Reducer mastery gives loot equal to world one level down), 0 to use world, 1 etc to use +maps. Using 0 by itself will use global level for all maps.': '使用的地图等级。可以输入多个数值，格式类似 -1,1,2 这样。设为-1则地图等级比世界区域数低1，0则相同，1则比世界区域高1，依此类推。',
     'TF: Map Selection': '定时刷图：地图',
@@ -2378,9 +2344,9 @@ var cnItems = {
     'Default': '默认',
     'Run Prismatic Palace when its unlocked.': '当棱镜宫殿解锁后，运行之。',
     '1 to disable. When to run the map Melting Point. Use it like this: 50,91. The first number is what zone Melting Point should be run at, the second number is what Cell to run it at. In this example AutoMaps would run Melting Point at z50 cell 91. Must define both values. Works in the challenges Melt and Trappapalooza.': '1则关闭此选项。用于设置运行熔点地图的时机。可以输入两个数值，格式类似 50,91 这样。第一个数字用于设置运行熔点地图的区域，第二个数字用于设置运行熔点地图的格子。前面的例子中，将在区域50的格子91处运行熔点地图。必须设置两个数值才能生效。用于熔化挑战和捕手道达人挑战。',
-    'Enable Bog Running for Quagmire.': '允许在泥淖挑战中运行黑色沼泽地图。',
-    'What zones to run Black Bogs at. Can use 40,50,60.': '设置运行黑色沼泽地图的区域。可以输入多个数值，格式类似 40,50,60 这样。',
-    'How many Black Bogs to at specified zones. Can use 8,9,10. I.e if BB: Zone had 40,50 and this setting had 8,10, It would run 8 Black Bogs at z40 and 10 Black Bogs at z50.': '在相应的区域运行黑色沼泽地图的次数。可以输入多个数值，格式类似 8,9,10 这样。例如：黑色沼泽：区域设为40,50，此项设为8,10，则在区域40运行8次黑色沼泽，然后在区域50运行10次黑色沼泽。',
+    'Enable Bog Running for Quagmire.': '允许在泥淖挑战中运行黑色泥沼地图。',
+    'What zones to run Black Bogs at. Can use 40,50,60.': '设置运行黑色泥沼地图的区域。可以输入多个数值，格式类似 40,50,60 这样。',
+    'How many Black Bogs to at specified zones. Can use 8,9,10. I.e if BB: Zone had 40,50 and this setting had 8,10, It would run 8 Black Bogs at z40 and 10 Black Bogs at z50.': '在相应的区域运行黑色泥沼地图的次数。可以输入多个数值，格式类似 8,9,10 这样。例如：黑色泥沼：区域设为40,50，此项设为8,10，则在区域40运行8次黑色泥沼，然后在区域50运行10次黑色泥沼。',
     'Max Map Bonus for Spire': '尖塔前获得最大地图奖励',
     'Get max map bonus before running the Spire.': '是否在进入尖塔前获得最大的地图奖励。',
     'Farm Before Spire': '尖塔前刷资源',
@@ -2478,7 +2444,7 @@ var cnItems = {
     'ATGA: Manual / ATGA: Auto No Spire / ATGA: Auto Dailies': '自动遗传学家：手动日常 / 自动遗传学家：自动无塔 / 自动遗传学家：自动日常',
     'EXPERIMENTAL': '实验性功能',
     'ATGA Timer: Auto Dailies': '自动遗传学家计时：自动日常',
-    'ATGA will use automatically set breed timers in plague and bogged, overwriting your default timer.': '切换是否在日常挑战中使用相应数值计时，忽略默认计时。',
+    'ATGA will use automatically set breed timers in plague and bogged, overwriting your default timer.': '切换是否在天灾和泥沼日常挑战中使用相应数值计时，忽略默认计时。',
     'Set No Spire to not override in spire, respecting ignore spire settings.': '设为自动无塔则不会忽略尖塔的设置，会考虑您的尖塔无效层设置。',
     'ATGA: T: Dailies': '自动遗传学家：计时：日常',
     'ATGA Timer: Normal Dailies': '自动遗传学家计时：普通日常',
@@ -2760,7 +2726,7 @@ var cnItems = {
     'Radiating': '辐射',
     'Auto Heirlooms. Enables in-depth shield settings.': '开启进一步设置盾牌传家宝的选项。',
     'Shield: Modifier': '盾牌：修饰符',
-    'empty': '空',    
+    'empty': '空',
     'playerEfficiency': '玩家效率',
     'trainerEfficiency': '训练师效率',
     'storageSize': '存储上限',
@@ -2816,7 +2782,6 @@ var cnItems = {
     'Buys Golden Upgrades in Fillers. Helium buys all Helium golden upgrades. Battle buys all Battle golden upgrades. Void buys 8 Void golden upgrades (max number you can buy) then buys helium golden upgrades. Void + Battle buys 8 voids then battle.': '按照相应选项购买金色升级。选择氦则只购买金色氦升级。选择战斗则只购买金色战斗升级。选择虚空则在购买8次金色虚空升级(最大数量)后开始购买金色氦升级。选择虚空+战斗则在购买8次金色虚空升级(最大数量)后开始购买金色战斗升级。',
     'Off': '关闭',
     'Battle': '战斗',
-    'Void': '虚空',
     'Void + Battle': '虚空+战斗',
     'Daily AutoGoldenUpgrades': '日常自动金色升级',
     'Buys Golden Upgrades in Dailies. Helium buys all Helium golden upgrades. Battle buys all Battle golden upgrades. Void buys 8 Void golden upgrades (max number you can buy) then buys helium golden upgrades. Void + Battle buys 8 voids then battle.': '日常挑战中，按照相应选项购买金色升级。选择氦则只购买金色氦升级。选择战斗则只购买金色战斗升级。选择虚空则在购买8次金色虚空升级(最大数量)后开始购买金色氦升级。选择虚空+战斗则在购买8次金色虚空升级(最大数量)后开始购买金色战斗升级。',
@@ -2991,12 +2956,12 @@ var cnItems = {
     'Advancing': '前进中',
     'Prestige Skipped': '跳过重铸',
     'He/hr': '氦/小时',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
+    'Mayhem Attack': '暴乱攻击',
+    'Mayhem Health': '暴乱生命值',
+    'Questing': '运行任务',
+    'Time Farming Bogs': '定时刷图黑色泥沼',
+    'Bogs': '泥沼',
+    'Rn/hr': '氡/小时',
     '': '',
     '': '',
     '': '',
@@ -3486,7 +3451,6 @@ var cnItems = {
     'Special Modifier': '特殊修饰符',
     'Extra Zones': '额外区域',
     'Perfect Sliders': '完美滑块',
-    'Enchanted Gardens': '魔法花园',
     'Repeat Map': '重复地图',
     'Heirloom': '传家宝',
     'Trustworthy Trimps': '可信的脆皮',
@@ -3507,7 +3471,6 @@ var cnItems = {
     'Foremany': '大群工头',
     'Quick Gen': '快速发生',
     'AutoStructure': '自动建造',
-    'Natural Diplomacy III': '自然斡旋 III',
     'Megascience': '超级研究',
     'Megafarming': '超级耕作',
     'Condenser Tower': '冷凝塔',
@@ -3588,51 +3551,12 @@ var cnItems = {
     'Dimension of Rage': '暴怒维度',
     'Dimension of Anger': '愤怒维度',
     'The Prison': '监狱',
-    'Bionic Wonderland': '仿生仙境',
-    'Bionic Wonderland X': '仿生仙境X',
-    'Bionic Wonderland IX': '仿生仙境IX',
-    'Bionic Wonderland XI': '仿生仙境XI',
     'The Block': '障碍区',
     'The Wall': '高墙',
-    'Big Wall': '巨墙',
+    'Wall': '墙',
     'Trimple Of Doom': '末日神殿',
     'Imploding Star': '爆炸之星',
     'Tricky Paradise': '整蛊天堂',
-    'Haunted Gardens': '闹鬼花园',
-    'Whispering Gardens': '耳语花园',
-    'Abandoned Gardens': '被遗弃的花园',
-    'Bewitched Gardens': '迷人的花园',
-    'Terrible Gardens': '可怕的花园',
-    'Dark Gardens': '黑暗花园',
-    'Blighted Gardens': '枯萎的花园',
-    'Sacred Gardens': '神圣花园',
-    'Weird Gardens': '怪异的花园',
-    'Steamy Gardens': '蒸汽花园',
-    'Red Gardens': '红色花园',
-    'Calm Gardens': '平静的花园',
-    'Evil Gardens': '邪恶花园',
-    'Dry Gardens': '干燥的花园',
-    'Enchanted Gardens': '魔法花园',
-    'Light Gardens': '光明花园',
-    'Dirty Gardens': '肮脏的花园',
-    'Fiery Gardens': '火热的花园',
-    'Deadly Void': '致命的虚空',
-    'Heinous Void': '令人发指的虚空',
-    'Heinous Pit': '令人发指的坑',
-    'Heinous Nightmare': '令人发指的梦魇',
-    'Heinous Descent': '令人发指的血统',
-    'Poisonous Void': '有毒虚空',
-    'Poisonous Pit': '毒坑',
-    'Poisonous Nightmare': '有毒的噩梦',
-    'Poisonous Descent': '有毒的血统',
-    'Deadly Pit': '致命的坑',
-    'Deadly Descent': '致命的血统',
-    'Deadly Void': '致命的虚空',
-    'Deadly Nightmare': '致命的梦魇',
-    'Destructive Descent': '破坏性的血统',
-    'Destructive Nightmare': '破坏性的噩梦',
-    'Destructive Void': '破坏性虚空',
-    'Destructive Pit': '破坏性虚坑',
     '': '',
     '': '',
     '': '',
@@ -3677,7 +3601,6 @@ var cnItems = {
 
     //自动脚本3汉化文本
     'Allocate Perks': '分配特权',
-    'Black Bog': '黑色沼泽',
     'AutoTrimps': '自动脆皮',
     'Auto Maps': '自动地图',
     'Third String': '第三个字符串',
@@ -4062,7 +3985,7 @@ var cnItems = {
     '\n				Current Run\n			': '当前游戏',
     '\n				Total\n			': '总计',
     '| What\'s New \n					': '新东西',
-    'Dark Essence\n										': '黑暗精华',
+    'Essence\n										': '精华',
     '\n													Wind\n											': '风',
     '\n												Ice\n											': '冰',
     '\n												Poison									\n											': '毒',
@@ -4218,7 +4141,8 @@ var cnPrefix = {
     "-": "-",
     "+": "+",
     " ": " ",
-    ": ": "： ",
+    ": ": "：",
+    ", ": "，",
     "food:": "食物:",
     "wood:": "木头:",
     "metal:": "金属:",
@@ -4226,13 +4150,131 @@ var cnPrefix = {
 	"fragments:": '碎片:',
     "gems:": '宝石:',
     "helium:": '氦:',
-	", ": "，",
     "Enemy attack increased by ": '敌人攻击力增加',
     "Enemy health in maps increased by ": '地图上的敌人生命值增加',
     "Enemy attack in maps increased by ": '地图上的敌人攻击力增加 ',
 	"of all Helium, ": "所有的氦，",
 	" Nu from Heirlooms earned during the run": "上次传送后传家宝回收的虚空物质",
-    "C3s": "挑战3",
+    "Whispering ": "私语", //地图名称
+    "Sandy ": "沙之", //地图名称
+    "Little ": "小", //地图名称
+    "Big ": "巨", //地图名称
+    "Rancid ": "腐臭", //地图名称
+    "Tired ": "疲劳", //地图名称
+    "Laughing ": "欢笑", //地图名称
+    "Weeping ": "哭泣", //地图名称
+    "Windy ": "风之", //地图名称
+    "Terrible ": "可怖", //地图名称
+    "Nasty ": "卑鄙", //地图名称
+    "Dirty ": "肮脏", //地图名称
+    "Red ": "红色", //地图名称
+    "Black ": "黑色", //地图名称
+    "Singing ": "歌之", //地图名称
+    "Fiery ": "燃烧", //地图名称
+    "Rocky ": "岩之", //地图名称
+    "Haunted ": "闹鬼", //地图名称
+    "Forgotten ": "遗忘", //地图名称
+    "Miserable ": "不幸", //地图名称
+    "Cursed ": "诅咒", //地图名称
+    "Tainted ": "污染", //地图名称
+    "Blessed ": "祝福", //地图名称
+    "Sacred ": "神圣", //地图名称
+    "Abandoned ": "遗弃", //地图名称
+    "Natural ": "自然", //地图名称
+    "Enchanted ": "魔能", //地图名称
+    "Magical ": "魔力", //地图名称
+    "Calm ": "静谧", //地图名称
+    "Rugged ": "崎岖", //地图名称
+    "Violent ": "暴虐", //地图名称
+    "Weird ": "古怪", //地图名称
+    "Secret ": "神秘", //地图名称
+    "Forbidden ": "禁忌", //地图名称
+    "Bewitched ": "蛊惑", //地图名称
+    "Dark ": "黑暗", //地图名称
+    "Light ": "光明", //地图名称
+    "Magnificent ": "华丽", //地图名称
+    "Evil ": "邪恶", //地图名称
+    "Holy ": "圣洁", //地图名称
+    "Hallowed ": "崇高", //地图名称
+    "Desecrated ": "亵渎", //地图名称
+    "Silent ": "无声", //地图名称
+    "Eternal ": "永恒", //地图名称
+    "Underground ": "地下", //地图名称
+    "Temperate ": "温和", //地图名称
+    "Chilly ": "冰冷", //地图名称
+    "Muddy ": "泥之", //地图名称
+    "Dank ": "潮湿", //地图名称
+    "Steamy ": "雾气", //地图名称
+    "Humid ": "湿润", //地图名称
+    "Dry ": "干燥", //地图名称
+    "Putrid ": "难闻", //地图名称
+    "Foul ": "污秽", //地图名称
+    "Dangerous ": "危险", //地图名称
+    "Marred ": "破损", //地图名称
+    "Blighted ": "损毁", //地图名称
+    "Crystal ": "晶体", //地图名称
+    "Frozen ": "冻结", //地图名称
+    "Simple ": "纯粹", //地图名称
+    "Timeless ": "永存", //地图名称
+    "Deadly ": "致命", //地图名称
+    "Poisonous ": "毒性", //地图名称
+    "Heinous ": "极恶", //地图名称
+    "Destructive ": "破灭", //地图名称
+    "Creek,": "海湾，", //地图名称
+    "Coast,": "海岸，", //地图名称
+    "Swamp,": "沼泽，", //地图名称
+    "Forest,": "森林，", //地图名称
+    "Mountain,": "山脉，", //地图名称
+    "Beach,": "海滩，", //地图名称
+    "Hill,": "山丘，", //地图名称
+    "Butte,": "孤峰，", //地图名称
+    "Ridge,": "山脊，", //地图名称
+    "Mesa,": "方山，", //地图名称
+    "Valley,": "山谷，", //地图名称
+    "Peak,": "顶峰，", //地图名称
+    "Canyon,": "峡谷，", //地图名称
+    "Plateau,": "高原，", //地图名称
+    "Crag,": "峭壁，", //地图名称
+    "Crater,": "陨坑，", //地图名称
+    "Oaks,": "橡林，", //地图名称
+    "Volcano,": "火山，", //地图名称
+    "Glacier,": "冰川，", //地图名称
+    "Brook,": "小溪，", //地图名称
+    "Cave,": "洞穴，", //地图名称
+    "Sea,": "大海，", //地图名称
+    "Ocean,": "大洋，", //地图名称
+    "Lake,": "湖泊，", //地图名称
+    "Jungle,": "丛林，", //地图名称
+    "Island,": "岛屿，", //地图名称
+    "Ruins,": "遗迹，", //地图名称
+    "Temple,": "神殿，", //地图名称
+    "Bog,": "泥沼，", //地图名称
+    "Grove,": "果林，", //地图名称
+    "Thicket,": "树丛，", //地图名称
+    "Woods,": "树林，", //地图名称
+    "Oasis,": "绿地，", //地图名称
+    "Mineshaft,": "深井，", //地图名称
+    "Tunnel,": "隧道，", //地图名称
+    "Depths,": "深渊，", //地图名称
+    "Cavern,": "山洞，", //地图名称
+    "Gardens,": "花园，", //地图名称
+    "Nightmare,": "梦魇，", //地图名称
+    "Void,": "虚空，", //地图名称
+    "Descent,": "落穴，", //地图名称
+    "Pit,": "深坑，", //地图名称
+    "The Black Bog,": "黑色泥沼，", //地图名称
+    "The Block,": "障碍区，", //地图名称
+    "The Wall,": "高墙，", //地图名称
+    "Big Wall,": "巨墙，", //地图名称
+    "The Prison,": "监狱，", //地图名称
+    "Imploding Star,": "爆炸之星，", //地图名称
+    "Prismatic Palace,": "棱镜宫殿，", //地图名称
+    "Melting Point,": "熔点，", //地图名称
+    "Trimple Of Doom,": "末日神殿，", //地图名称
+    "Tricky Paradise,": "整蛊天堂，", //地图名称
+    "Dimension of Anger,": "愤怒维度，", //地图名称
+    "Dimension of Rage,": "暴怒维度，", //地图名称
+    "C3s": "挑战3", //脚本3挑战设置
 }
 
 //需处理的后缀
@@ -4398,6 +4440,114 @@ var cnPostfix = {
     "Sweltimp group!": "脆皮酷热者集团！", //击杀消息末尾
     "Darknimp!": "脆皮暗罪者！", //击杀消息末尾
     "Darknimp group!": "脆皮暗罪者集团！", //击杀消息末尾
+    "Creek": "海湾", //地图名称
+    "Coast": "海岸", //地图名称
+    "Swamp": "沼泽", //地图名称
+    "Forest": "森林", //地图名称
+    "Mountain": "山脉", //地图名称
+    "Beach": "海滩", //地图名称
+    "Hill": "山丘", //地图名称
+    "Butte": "孤峰", //地图名称
+    "Ridge": "山脊", //地图名称
+    "Mesa": "方山", //地图名称
+    "Valley": "山谷", //地图名称
+    "Peak": "顶峰", //地图名称
+    "Canyon": "峡谷", //地图名称
+    "Plateau": "高原", //地图名称
+    "Crag": "峭壁", //地图名称
+    "Crater": "陨坑", //地图名称
+    "Oaks": "橡林", //地图名称
+    "Volcano": "火山", //地图名称
+    "Glacier": "冰川", //地图名称
+    "Brook": "小溪", //地图名称
+    "Cave": "洞穴", //地图名称
+    "Sea": "大海", //地图名称
+    "Ocean": "大洋", //地图名称
+    "Lake": "湖泊", //地图名称
+    "Jungle": "丛林", //地图名称
+    "Island": "岛屿", //地图名称
+    "Ruins": "遗迹", //地图名称
+    "Temple": "神殿", //地图名称
+    "Bog": "泥沼", //地图名称
+    "Grove": "果林", //地图名称
+    "Thicket": "树丛", //地图名称
+    "Woods": "树林", //地图名称
+    "Oasis": "绿地", //地图名称
+    "Mineshaft": "深井", //地图名称
+    "Tunnel": "隧道", //地图名称
+    "Depths": "深渊", //地图名称
+    "Cavern": "山洞", //地图名称
+    "Gardens": "花园", //地图名称
+    "Nightmare": "梦魇", //地图名称
+    "Void": "虚空", //地图名称
+    "Descent": "落穴", //地图名称
+    "Pit": "深坑", //地图名称
+    ": Whispering ": "：私语", //地图名称
+    ": Sandy ": "：沙之", //地图名称
+    ": Little ": "：小", //地图名称
+    ": Big ": "：巨", //地图名称
+    ": Rancid ": "：腐臭", //地图名称
+    ": Tired ": "：疲劳", //地图名称
+    ": Laughing ": "：欢笑", //地图名称
+    ": Weeping ": "：哭泣", //地图名称
+    ": Windy ": "：风之", //地图名称
+    ": Terrible ": "：可怖", //地图名称
+    ": Nasty ": "：卑鄙", //地图名称
+    ": Dirty ": "：肮脏", //地图名称
+    ": Red ": "：红色", //地图名称
+    ": Black ": "：黑色", //地图名称
+    ": Singing ": "：歌之", //地图名称
+    ": Fiery ": "：燃烧", //地图名称
+    ": Rocky ": "：岩之", //地图名称
+    ": Haunted ": "：闹鬼", //地图名称
+    ": Forgotten ": "：遗忘", //地图名称
+    ": Miserable ": "：不幸", //地图名称
+    ": Cursed ": "：诅咒", //地图名称
+    ": Tainted ": "：污染", //地图名称
+    ": Blessed ": "：祝福", //地图名称
+    ": Sacred ": "：神圣", //地图名称
+    ": Abandoned ": "：遗弃", //地图名称
+    ": Natural ": "：自然", //地图名称
+    ": Enchanted ": "：魔能", //地图名称
+    ": Magical ": "：魔力", //地图名称
+    ": Calm ": "：静谧", //地图名称
+    ": Rugged ": "：崎岖", //地图名称
+    ": Violent ": "：暴虐", //地图名称
+    ": Weird ": "：古怪", //地图名称
+    ": Secret ": "：神秘", //地图名称
+    ": Forbidden ": "：禁忌", //地图名称
+    ": Bewitched ": "：蛊惑", //地图名称
+    ": Dark ": "：黑暗", //地图名称
+    ": Light ": "：光明", //地图名称
+    ": Magnificent ": "：华丽", //地图名称
+    ": Evil ": "：邪恶", //地图名称
+    ": Holy ": "：圣洁", //地图名称
+    ": Hallowed ": "：崇高", //地图名称
+    ": Desecrated ": "：亵渎", //地图名称
+    ": Silent ": "：无声", //地图名称
+    ": Eternal ": "：永恒", //地图名称
+    ": Underground ": "：地下", //地图名称
+    ": Temperate ": "：温和", //地图名称
+    ": Chilly ": "：冰冷", //地图名称
+    ": Muddy ": "：泥之", //地图名称
+    ": Dank ": "：潮湿", //地图名称
+    ": Steamy ": "：雾气", //地图名称
+    ": Humid ": "：湿润", //地图名称
+    ": Dry ": "：干燥", //地图名称
+    ": Putrid ": "：难闻", //地图名称
+    ": Foul ": "：污秽", //地图名称
+    ": Dangerous ": "：危险", //地图名称
+    ": Marred ": "：破损", //地图名称
+    ": Blighted ": "：损毁", //地图名称
+    ": Crystal ": "：晶体", //地图名称
+    ": Frozen ": "：冻结", //地图名称
+    ": Simple ": "：纯粹", //地图名称
+    ": Timeless ": "：永存", //地图名称
+    ": Timeless ": "：永存", //地图名称
+    ": Deadly ": "：致命", //地图名称
+    ": Poisonous ": "：毒性", //地图名称
+    ": Heinous ": "：极恶", //地图名称
+    ": Destructive ": "：破灭", //地图名称
     " autoStance2": "", //脚本3阵型设置
     ":  Value Input": "：输入值", //脚本3各设置界面
 }
@@ -4484,7 +4634,7 @@ var cnRegReplace = new Map([
     [/^(.*)The Omnipotrimp explodes, killing all of your soldiers!$/, '$1全能者爆炸了，杀死了所有士兵！'], //特定敌人
     [/^(.*)Radioactive waste spills to the ground as the Mutimp falls. You send a few Trimps to grab the shiny stuff in the toxic sludge, which ends up being (.*) bars of metal!$/, '$1脆皮变异者倒下后，体内的核废料溅得到处都是。您让一些脆皮去收集那堆有毒烂泥里面闪闪发光的东西，最后获得了 $2 金属！'], //特定敌人
     [/^(.*)Radioactive waste spills to the ground as the Hulking Mutimp falls. You send a few Trimps to grab the shiny stuff in the toxic sludge, which ends up being (.*) bars of metal!$/, '$1脆皮大型变异者倒下后，体内的核废料溅得到处都是。您让一些脆皮去收集那堆有毒烂泥里面闪闪发光的东西，最后获得了 $2 金属！'], //特定敌人
-    [/^(.*)You have completed The Black Bog! 1 stack of Exhausted and Motivated have been removed from your Trimps.$/, '$1您通过了黑色沼泽！脆皮同时减少了1层疲惫不堪和1层积极前进。'], //特定敌人
+    [/^(.*)You have completed The Black Bog! 1 stack of Exhausted and Motivated have been removed from your Trimps.$/, '$1您通过了黑色泥沼！脆皮同时减少了1层疲惫不堪和1层积极前进。'], //特定敌人
     [/^(.*)That Randimp dropped (.*) gems! What a bro!$/, '$1脆皮百变怪掉落了 $2 宝石！真是好兄弟！'], //特定敌人
     [/^(.*)That Goblimp dropped (.*) gems! What a bro!$/, '$1脆皮地精掉落了 $2 宝石！真是好兄弟！'], //特定敌人
     [/^Drops (.*)x Gems$/, '掉落 $1 倍的宝石'], //特定敌人
@@ -4704,7 +4854,7 @@ var cnRegReplace = new Map([
     [/^(.*)You have completed the Life challenge! You have been rewarded with (.*) Helium, and you may repeat the challenge.$/, '$1您完成了生命挑战！您获取了 $2 氦，现在您又可以重新挑战了。'], //生命挑战完成信息
     [/^(.*)You have completed the Mapocalypse challenge! You have unlocked the 'Siphonology' Perk, and have been rewarded with (.*) Helium.$/, '$1您完成了天启地图挑战！您解锁了 虹吸学 特权，并且获取了 $2 氦。'], //天启地图挑战完成信息
     [/^(.*)You have completed the 'Coordinate' challenge! The Bad Guys on this world no longer fight together, and have regained their speed. You have unlocked the 'Coordinated' perk!$/, '$1您完成了 协同 挑战！世界上的敌人不再协同作战了，并且又可以获得快速效果了。您解锁了 协同 特权！'], //协同挑战完成信息
-    [/^Bionic Wonderland (.*)$/, '仿生仙境 $1'], //粉碎挑战等
+    [/^Bionic Wonderland((?!level)[\sIVXLCDM]*)$/, '仿生仙境$1'], //粉碎挑战等
     [/^(.*)You have completed the Crushed challenge! You have been rewarded with (.*) Helium.$/, '$1您完成了粉碎挑战！您获取了 $2 氦。'], //粉碎挑战完成信息
     [/^(.*)You have completed the Slow challenge! You have found the patterns for the Gambeson and the Arbalest!$/, '$1您完成了迟缓挑战！您学会了制造棉甲和强弩！'], //迟缓挑战完成信息
     [/^(.*)You have completed the Nom challenge! You have been rewarded with (.*) Helium, and you may repeat the challenge.$/, '$1您完成了美味挑战！您获取了 $2 氦，现在您又可以重新挑战了。'], //美味挑战完成信息
@@ -4909,12 +5059,12 @@ var cnRegReplace = new Map([
     [/^DHS: Low Damage(.*)$/, '日常传家宝：低伤$1'], //脚本3日常设置
     [/^(.*)Theme change - AutoTrimps styles updated.$/, '$1游戏主题改变 - 自动脆皮脚本样式已更新。'], //脚本3消息
     [/^Trimple Z(.*)$/, '末日神殿区域$1'], //脚本3地图设置
-    [/^Time Farming(.*)$/, '定时刷图$1'], //脚本3地图设置
+    [/^Time Farming((?! Bogs).*)$/, '定时刷图$1'], //脚本3地图设置
     [/^TF: Time(.*)$/, '定时刷图：数值$1'], //脚本3地图设置
     [/^TF: Map Level(.*)$/, '定时刷图：地图等级$1'], //脚本3地图设置
     [/^Melting Point((?! \(Zone).*)$/, '熔点$1'], //脚本3地图设置
-    [/^BB: Zone(.*)$/, '黑色沼泽：区域$1'], //脚本3地图设置
-    [/^BB: Amount(.*)$/, '黑色沼泽：数量$1'], //脚本3地图设置
+    [/^BB: Zone(.*)$/, '黑色泥沼：区域$1'], //脚本3地图设置
+    [/^BB: Amount(.*)$/, '黑色泥沼：数量$1'], //脚本3地图设置
     [/^P Raiding Z(.*)$/, '重铸袭劫区域$1'], //脚本3袭劫设置
     [/^Max P Raid Zones(.*)$/, '重铸袭劫最大区域$1'], //脚本3袭劫设置
     [/^Farm Fragments Z(.*)$/, '刷碎片区域$1'], //脚本3袭劫设置
@@ -5025,7 +5175,7 @@ var cnRegReplace = new Map([
     [/^Void Maps: (\d*) \((\d*) stacked\) remaining$/, '虚空地图：剩余$1(融合了$2)'], //脚本3地图设置
     [/^Farming: (.*)x$/, '刷资源：生命伤害比 $1'], //脚本3地图设置
     [/^Want (.*)x(\s*)more damage$/, '需要更多伤害，倍数 $1'], //脚本3地图设置
-    [/^(\s*)He$/, '氦'], //脚本3地图设置
+    [/^(\s*)He(?!\/Hour this Run)$/, '氦'], //脚本3地图设置
     [/^(.*)Set the map special modifier to: Fast Attacks. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：快速攻击。花费碎片总数的$2%。'], //脚本3地图设置
     [/^(.*)Set the map special modifier to: Large Cache. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：大储藏箱。花费碎片总数的$2%。'], //脚本3地图设置
     [/^(.*)Set the map special modifier to: Small Savory Cache. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：小美味储藏箱。花费碎片总数的$2%。'], //脚本3地图设置
@@ -5038,16 +5188,51 @@ var cnRegReplace = new Map([
     [/^(.*)Set the map special modifier to: Large Wooden Cache. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：大木头储藏箱。花费碎片总数的$2%。'], //脚本3地图设置
     [/^(.*)Set the map special modifier to: Large Metal Cache. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：大金属储藏箱。花费碎片总数的$2%。'], //脚本3地图设置
     [/^(.*)Set the map special modifier to: Large Research Cache. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：大研究储藏箱。花费碎片总数的$2%。'], //脚本3地图设置
-    [/^(.*)Got perma-stuck on cell (\d*) during scryer stance. Are your scryer settings correct? Entering map to farm to fix it.$/, '$1使用占卜者阵型时卡在格子$2了。占卜者阵型的设置是否正确？请进入地图刷资源来解决。'], //脚本3地图设置
+    [/^(.*)Got perma-stuck on cell (\d*) during scryer stance. Are your scryer settings correct\? Entering map to farm to fix it.$/, '$1使用占卜者阵型时卡在格子$2了。占卜者阵型的设置是否正确？请进入地图刷资源来解决。'], //脚本3地图设置
     [/^(.*)Can't afford the map we designed, #$/, '$1碎片不够，无法制造所需的地图，等级'], //脚本3地图设置
     [/^(.*)...selected our highest map instead # (.*) Level$/, '$1……取而代之，我们选择地图$2，等级'], //脚本3地图设置
+    [/^(.*)Retrying, Buying a Map, level: #$/, '$1重新尝试，制造一张地图，等级：'], //脚本3地图设置
     [/^(.*)Buying a Map, level: #$/, '$1制造一张地图，等级：'], //脚本3地图设置
     [/^(.*)Too many maps, recycling now$/, '$1地图过多，开始回收'], //脚本3地图设置
-    [/^(.*)Retrying, Buying a Map, level: #$/, '$1重新尝试，制造一张地图，等级：'], //脚本3地图设置
     [/^(.*)AutoMaps unable to recycle to buy map!$/, '$1脚本无法回收并制造地图！'], //脚本3地图设置
     [/^(.*)Retrying map buy after recycling lowest level map$/, '$1回收最低级地图后重新尝试制造地图'], //脚本3地图设置
-    [/^(.*)Running selected (.*) Level: (.*) Name: $/, '$1运行选择的$2，等级：$3，名称：'], //脚本3地图设置
-    [/^(.*)Running selected (.*) Void: (.*) Name: $/, '$1运行选择的$2，虚空地图：$3，名称：'], //脚本3地图设置
+    [/^(.*)Running selected (.*) Level: (.*) Name: The Black $/, '$1运行选择的$2，等级：$3，名称：黑色'], //脚本3地图设置
+    [/^(.*)Running selected (.*) Level: (.*) Name: Bionic Wonderland(.*)$/, '$1运行选择的$2，等级：$3，名称：仿生仙境$4'], //脚本3地图设置
+    [/^(.*)Running selected (.*) Level: (.*) Name: The Block$/, '$1运行选择的$2，等级：$3，名称：障碍区'], //脚本3地图设置
+    [/^(.*)Running selected (.*) Level: (.*) Name: The Wall$/, '$1运行选择的$2，等级：$3，名称：高墙'], //脚本3地图设置
+    [/^(.*)Running selected (.*) Level: (.*) Name: Big Wall$/, '$1运行选择的$2，等级：$3，名称：巨墙'], //脚本3地图设置
+    [/^(.*)Running selected (.*) Level: (.*) Name: The Prison$/, '$1运行选择的$2，等级：$3，名称：监狱'], //脚本3地图设置
+    [/^(.*)Running selected (.*) Level: (.*) Name: Imploding Star$/, '$1运行选择的$2，等级：$3，名称：爆炸之星'], //脚本3地图设置
+    [/^(.*)Running selected (.*) Level: (.*) Name: Prismatic Palace$/, '$1运行选择的$2，等级：$3，名称：棱镜宫殿'], //脚本3地图设置
+    [/^(.*)Running selected (.*) Level: (.*) Name: Melting Point$/, '$1运行选择的$2，等级：$3，名称：熔点'], //脚本3地图设置
+    [/^(.*)Running selected (.*) Level: (.*) Name: Trimple Of Doom$/, '$1运行选择的$2，等级：$3，名称：末日神殿'], //脚本3地图设置
+    [/^(.*)Running selected (.*) Level: (.*) Name: Tricky Paradise$/, '$1运行选择的$2，等级：$3，名称：整蛊天堂'], //脚本3地图设置
+    [/^(.*)Running selected (.*) Level: (.*) Name: Dimension of Anger$/, '$1运行选择的$2，等级：$3，名称：愤怒维度'], //脚本3地图设置
+    [/^(.*)Running selected (.*) Level: (.*) Name: Dimension of Rage$/, '$1运行选择的$2，等级：$3，名称：暴怒维度'], //脚本3地图设置
+    [/^(.*)Running selected (.*) Level: (.*) Name$/, '$1运行选择的$2，等级：$3，名称'], //脚本3地图设置
+    [/^(.*)Running selected (.*) Void:  Name$/, '$1运行选择的$2，虚空地图：名称'], //脚本3地图设置
+    [/^(\s*)Rn(?!\/Hour this Run)/, '氡'], //脚本3地图设置
+    [/^(.*)Check complete for frag map$/, '$1完成检查碎片地图'], //脚本3地图设置
+    [/^(.*)frag map bought$/, '$1碎片地图已制造'], //脚本3地图设置
+    [/^(.*)running frag map$/, '$1运行碎片地图'], //脚本3地图设置
+    [/^(.*)Check complete for 5th map$/, '$1完成检查第五地图'], //脚本3地图设置
+    [/^(.*)5th map bought$/, '$1第五地图已制造'], //脚本3地图设置
+    [/^(.*)Check complete for 4th map$/, '$1完成检查第四地图'], //脚本3地图设置
+    [/^(.*)4th map bought$/, '$1第四地图已制造'], //脚本3地图设置
+    [/^(.*)Check complete for 3rd map$/, '$1完成检查第三地图'], //脚本3地图设置
+    [/^(.*)3rd map bought$/, '$1第三地图已制造'], //脚本3地图设置
+    [/^(.*)Check complete for 2nd map$/, '$1完成检查第二地图'], //脚本3地图设置
+    [/^(.*)2nd map bought$/, '$1第二地图已制造'], //脚本3地图设置
+    [/^(.*)Check complete for 1st map$/, '$1完成检查第一地图'], //脚本3地图设置
+    [/^(.*)1st map bought$/, '$1第一地图已制造'], //脚本3地图设置
+    [/^(.*)Failed to Prestige Raid. Looks like you can't afford to or have no equips to get!$/, '$1重铸袭劫失败。您可能碎片不足无法制造地图，或者是已经没有可获取的装备了！'], //脚本3地图设置
+    [/^(.*)running map$/, '$1运行地图'], //脚本3地图设置
+
+
+
+
+
+
 
 
 
