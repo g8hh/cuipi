@@ -3728,7 +3728,7 @@ function fireMode(noChange) {
         elem.innerHTML = "Firing";
     } else {
         elem.className = elem.className.replace("fireBtnFiring", "fireBtnNotFiring");
-        elem.innerHTML = "Fire";
+        elem.innerHTML = "解雇";
     }
     if (!noChange && !game.global.lockTooltip)
 		 tooltip("Fire Trimps", null, "update");
