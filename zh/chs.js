@@ -9,7 +9,6 @@
 
 var cnItems = {
     _OTHER_: [],
-    //协同挑战中后缀带s，查阅badName.replace，且最后有括号部分
     //段末标点处理
     '.': '。',
     '"': '',
@@ -43,62 +42,62 @@ var cnItems = {
     '0.3% extra loot from maps and Zones (Not Helium': '地图和世界上获得的战利品增加0.3%(不包括氦',
     'Skeletimp': '脆皮骷髅',
     'Megaskeletimp': '脆皮超级骷髅',
-    'Pumpkimp': '脆皮南瓜怪', //地图敌人
-    'Shrimp': '脆皮虾', //地图敌人
-    'Mountimp': '脆皮山怪', //地图敌人
-    'Frimp': '脆皮森精', //地图敌人
-    'Chickimp': '脆皮小鸡', //地图敌人
-    'Hippopotamimp': '脆皮河马', //地图敌人
-    'Onoudidimp': '脆皮蜗牛', //地图敌人
-    'Kittimp': '脆皮小猫', //地图敌人
-    'Grimp': '脆皮护林者', //地图敌人
-    'Golimp': '脆皮魔像', //地图敌人
-    'Seirimp': '脆皮矿精', //地图敌人
-    'Slagimp': '脆皮炉渣怪', //地图敌人
-    'Moltimp': '脆皮熔金怪', //地图敌人
-    'Lavimp': '脆皮火岩怪', //地图敌人
-    'Flowimp': '脆皮花妖', //地图敌人
-    'Kangarimp': '脆皮袋鼠', //地图敌人
-    'Gnomimp': '脆皮侏儒', //地图敌人
-    'Slosnimp': '脆皮慢鹬', //地图敌人
-    'Entimp': '脆皮树人', //地图敌人
-    'Squirrimp': '脆皮松鼠', //地图敌人
-    'Gravelimp': '脆皮碎石怪', //地图敌人
-    'Cthulimp': '脆皮克苏鲁', //地图敌人
-    'Shadimp': '脆皮暗影怪', //地图敌人
-    'Voidsnimp': '脆皮虚空鹬', //地图敌人
-    'Goblimp': '脆皮地精', //地图敌人
-    'Flutimp': '脆皮飘兽', //地图敌人
+    'Pumpkimp': '脆皮南瓜怪',
+    'Shrimp': '脆皮虾',
+    'Mountimp': '脆皮山怪',
+    'Frimp': '脆皮森精',
+    'Chickimp': '脆皮小鸡',
+    'Hippopotamimp': '脆皮河马',
+    'Onoudidimp': '脆皮蜗牛',
+    'Kittimp': '脆皮小猫',
+    'Grimp': '脆皮护林者',
+    'Golimp': '脆皮魔像',
+    'Seirimp': '脆皮矿精',
+    'Slagimp': '脆皮炉渣怪',
+    'Moltimp': '脆皮熔金怪',
+    'Lavimp': '脆皮火岩怪',
+    'Flowimp': '脆皮花妖',
+    'Kangarimp': '脆皮袋鼠',
+    'Gnomimp': '脆皮侏儒',
+    'Slosnimp': '脆皮慢鹬',
+    'Entimp': '脆皮树人',
+    'Squirrimp': '脆皮松鼠',
+    'Gravelimp': '脆皮碎石怪',
+    'Cthulimp': '脆皮克苏鲁',
+    'Shadimp': '脆皮暗影怪',
+    'Voidsnimp': '脆皮虚空鹬',
+    'Goblimp': '脆皮地精',
+    'Flutimp': '脆皮飘兽',
     'Drops Fragments': '掉落碎片',
-    'Jestimp': '脆皮弄臣', //地图敌人
+    'Jestimp': '脆皮弄臣',
     '45 seconds of production for 1 random resource': '获得随机1种资源45秒的产量',
-    'Titimp': '脆皮泰坦', //地图敌人
+    'Titimp': '脆皮泰坦',
     '100% damage for 30 seconds in maps': '100%攻击力，持续30秒，只在地图中生效',
-    'Chronoimp': '脆皮时者', //地图敌人
+    'Chronoimp': '脆皮时者',
     '5 seconds of production for all basic resources': '获得所有基本资源5秒的产量',
-    'Megablimp': '脆皮超级飞艇', //特殊敌人
-    'Mitschimp': '脆皮巨猩猩', //特殊敌人
-    'Brickimp': '脆皮砖汉', //特殊敌人
-    'Indianimp': '脆皮印第安人', //特殊敌人
-    'Warden': '典狱长', //特殊敌人
-    'Robotrimp': '脆皮机器人', //特殊敌人
-    'Mechimp': '脆皮机甲', //特殊敌人
-    'Destructimp': '脆皮破灭者', //特殊敌人
-    'Terminatimp': '脆皮终结者', //特殊敌人
-    'Autoimp': '脆皮汽车', //特殊敌人
-    'Artimp': '脆皮机器艺术家', //特殊敌人
-    'Neutrimp': '脆皮中子怪', //特殊敌人
-    'Fusimp': '脆皮聚变怪', //特殊敌人
-    'Hydrogimp': '脆皮氢怪', //特殊敌人
-    'Carbimp': '脆皮碳怪', //特殊敌人
-    'Prismimp': '脆皮棱镜怪', //特殊敌人
-    'Rainbimp': '脆皮彩虹兽', //特殊敌人
-    'Lightimp': '脆皮光怪', //特殊敌人
-    'Meltimp': '脆皮熔怪', //特殊敌人
-    'Sweltimp': '脆皮酷热者', //特殊敌人
-    'Darknimp': '脆皮暗罪者', //特殊敌人
-    'Druopitee': '德罗披提', //特殊敌人
-    'Echo of Druopitee': '德罗披提的幻影', //特殊敌人
+    'Megablimp': '脆皮超级飞艇',
+    'Mitschimp': '脆皮巨猩猩',
+    'Brickimp': '脆皮砖汉',
+    'Indianimp': '脆皮印第安人',
+    'Warden': '典狱长',
+    'Robotrimp': '脆皮机器人',
+    'Mechimp': '脆皮机甲',
+    'Destructimp': '脆皮破灭者',
+    'Terminatimp': '脆皮终结者',
+    'Autoimp': '脆皮汽车',
+    'Artimp': '脆皮机器艺术家',
+    'Neutrimp': '脆皮中子怪',
+    'Fusimp': '脆皮聚变怪',
+    'Hydrogimp': '脆皮氢怪',
+    'Carbimp': '脆皮碳怪',
+    'Prismimp': '脆皮棱镜怪',
+    'Rainbimp': '脆皮彩虹兽',
+    'Lightimp': '脆皮光怪',
+    'Meltimp': '脆皮熔怪',
+    'Sweltimp': '脆皮酷热者',
+    'Darknimp': '脆皮暗罪者',
+    'Druopitee': '德罗披提',
+    'Echo of Druopitee': '德罗披提的幻影',
     'Corrupt Liquimp': '腐化液化者',
     'Corrupt Presimpt': '腐化脆皮小礼',
     'Corrupt Turkimp': '腐化脆皮火鸡',
@@ -279,11 +278,247 @@ var cnItems = {
     'Gusty Magnimp': '阵风脆皮磁王',
     'Gusty Skeletimp': '阵风脆皮骷髅',
     'Gusty Megaskeletimp': '阵风脆皮超级骷髅',
-    '': '',
-    '': '',
-    'Improbabilities': '乌有者们',
-    'Druopitee and Pals': '德罗披提和随从们', //特殊敌人
-    'Echoes of Druopitee and Pals': '德罗披提的幻影和随从们', //特殊敌人
+    'Druopitee and Pals (': '德罗披提和随从们 (',
+    'Echoes of Druopitee and Pals': '德罗披提的幻影和随从们',
+    'Improbabilities (': '乌有者们 (',
+    'Liquimps (': '液化者们 (',
+    'Presimpts (': '脆皮小礼们 (',
+    'Turkimps (': '脆皮火鸡们 (',
+    'Randimps (': '脆皮百变怪们 (',
+    'Squimps (': '脆皮乌贼们 (',
+    'Elephimps (': '脆皮象们 (',
+    'Turtlimps (': '脆皮龟们 (',
+    'Chimps (': '脆皮黑猩猩们 (',
+    'Penguimps (': '脆皮企鹅们 (',
+    'Snimps (': '脆皮鹬们 (',
+    'Gorillimps (': '脆皮大猩猩们 (',
+    'Blimps (': '脆皮飞艇们 (',
+    'Dragimps (': '脆皮龙们 (',
+    'Omnipotrimps (': '全能者们 (',
+    'Feyimps (': '脆皮小妖们 (',
+    'Tauntimps (': '脆皮咚咚们 (',
+    'Whipimps (': '脆皮鞭者们 (',
+    'Venimps (': '脆皮爱神们 (',
+    'Magnimps (': '脆皮磁王们 (',
+    'Skeletimps (': '脆皮骷髅们 (',
+    'Megaskeletimps (': '脆皮超级骷髅们 (',
+    'Pumpkimps (': '脆皮南瓜怪们 (',
+    'Shrimps (': '脆皮虾们 (',
+    'Mountimps (': '脆皮山怪们 (',
+    'Frimps (': '脆皮森精们 (',
+    'Chickimps (': '脆皮小鸡们 (',
+    'Hippopotamimps (': '脆皮河马们 (',
+    'Onoudidimps (': '脆皮蜗牛们 (',
+    'Kittimps (': '脆皮小猫们 (',
+    'Grimps (': '脆皮护林者们 (',
+    'Golimps (': '脆皮魔像们 (',
+    'Seirimps (': '脆皮矿精们 (',
+    'Slagimps (': '脆皮炉渣怪们 (',
+    'Moltimps (': '脆皮熔金怪们 (',
+    'Lavimps (': '脆皮火岩怪们 (',
+    'Flowimps (': '脆皮花妖们 (',
+    'Kangarimps (': '脆皮袋鼠们 (',
+    'Gnomimps (': '脆皮侏儒们 (',
+    'Slosnimps (': '脆皮慢鹬们 (',
+    'Entimps (': '脆皮树人们 (',
+    'Squirrimps (': '脆皮松鼠们 (',
+    'Gravelimps (': '脆皮碎石怪们 (',
+    'Cthulimps (': '脆皮克苏鲁们 (',
+    'Shadimps (': '脆皮暗影怪们 (',
+    'Voidsnimps (': '脆皮虚空鹬们 (',
+    'Goblimps (': '脆皮地精们 (',
+    'Flutimps (': '脆皮飘兽们 (',
+    'Jestimps (': '脆皮弄臣们 (',
+    'Titimps (': '脆皮泰坦们 (',
+    'Chronoimps (': '脆皮时者们 (',
+    'Megablimps (': '脆皮超级飞艇们 (',
+    'Mitschimps (': '脆皮巨猩猩们 (',
+    'Brickimps (': '脆皮砖汉们 (',
+    'Indianimps (': '脆皮印第安人们 (',
+    'Wardens (': '典狱长们 (',
+    'Robotrimps (': '脆皮机器人们 (',
+    'Mechimps (': '脆皮机甲们 (',
+    'Destructimps (': '脆皮破灭者们 (',
+    'Terminatimps (': '脆皮终结者们 (',
+    'Autoimps (': '脆皮汽车们 (',
+    'Artimps (': '脆皮机器艺术家们 (',
+    'Neutrimps (': '脆皮中子怪们 (',
+    'Fusimps (': '脆皮聚变怪们 (',
+    'Hydrogimps (': '脆皮氢怪们 (',
+    'Carbimps (': '脆皮碳怪们 (',
+    'Corrupt Liquimps': '腐化液化者们',
+    'Corrupt Presimpts': '腐化脆皮小礼们',
+    'Corrupt Turkimps': '腐化脆皮火鸡们',
+    'Corrupt Randimps': '腐化脆皮百变怪们',
+    'Corrupt Squimps': '腐化脆皮乌贼们',
+    'Corrupt Elephimps': '腐化脆皮象们',
+    'Corrupt Turtlimps': '腐化脆皮龟们',
+    'Corrupt Chimps': '腐化脆皮黑猩猩们',
+    'Corrupt Penguimps': '腐化脆皮企鹅们',
+    'Corrupt Snimps': '腐化脆皮鹬们',
+    'Corrupt Gorillimps': '腐化脆皮大猩猩们',
+    'Corrupt Dragimps': '腐化脆皮龙们',
+    'Corrupt Improbabilitys': '腐化乌有者们',
+    'Corrupt Omnipotrimps': '腐化全能者们',
+    'Corrupt Mutimps': '腐化脆皮变异者们',
+    'Corrupt Hulking Mutimps': '腐化脆皮大型变异者们',
+    'Corrupt Feyimps': '腐化脆皮小妖们',
+    'Corrupt Tauntimps': '腐化脆皮咚咚们',
+    'Corrupt Whipimps': '腐化脆皮鞭者们',
+    'Corrupt Venimps': '腐化脆皮爱神们',
+    'Corrupt Magnimps': '腐化脆皮磁王们',
+    'Corrupt Skeletimps': '腐化脆皮骷髅们',
+    'Corrupt Megaskeletimps': '腐化脆皮超级骷髅们',
+    'Magma Liquimps': '岩浆液化者们',
+    'Magma Presimpts': '岩浆脆皮小礼们',
+    'Magma Turkimps': '岩浆脆皮火鸡们',
+    'Magma Randimps': '岩浆脆皮百变怪们',
+    'Magma Squimps': '岩浆脆皮乌贼们',
+    'Magma Elephimps': '岩浆脆皮象们',
+    'Magma Turtlimps': '岩浆脆皮龟们',
+    'Magma Chimps': '岩浆脆皮黑猩猩们',
+    'Magma Penguimps': '岩浆脆皮企鹅们',
+    'Magma Snimps': '岩浆脆皮鹬们',
+    'Magma Gorillimps': '岩浆脆皮大猩猩们',
+    'Magma Dragimps': '岩浆脆皮龙们',
+    'Magma Improbabilitys': '岩浆乌有者们',
+    'Magma Omnipotrimps': '岩浆全能者们',
+    'Magma Mutimps': '岩浆脆皮变异者们',
+    'Magma Hulking Mutimps': '岩浆脆皮大型变异者们',
+    'Magma Feyimps': '岩浆脆皮小妖们',
+    'Magma Tauntimps': '岩浆脆皮咚咚们',
+    'Magma Whipimps': '岩浆脆皮鞭者们',
+    'Magma Venimps': '岩浆脆皮爱神们',
+    'Magma Magnimps': '岩浆脆皮磁王们',
+    'Magma Skeletimps': '岩浆脆皮骷髅们',
+    'Magma Megaskeletimps': '岩浆脆皮超级骷髅们',
+    'Hardened Presimpts': '硬化脆皮小礼们',
+    'Hardened Turkimps': '硬化脆皮火鸡们',
+    'Hardened Randimps': '硬化脆皮百变怪们',
+    'Hardened Squimps': '硬化脆皮乌贼们',
+    'Hardened Elephimps': '硬化脆皮象们',
+    'Hardened Turtlimps': '硬化脆皮龟们',
+    'Hardened Chimps': '硬化脆皮黑猩猩们',
+    'Hardened Penguimps': '硬化脆皮企鹅们',
+    'Hardened Snimps': '硬化脆皮鹬们',
+    'Hardened Gorillimps': '硬化脆皮大猩猩们',
+    'Hardened Dragimps': '硬化脆皮龙们',
+    'Hardened Mutimps': '硬化脆皮变异者们',
+    'Hardened Hulking Mutimps': '硬化脆皮大型变异者们',
+    'Hardened Feyimps': '硬化脆皮小妖们',
+    'Hardened Tauntimps': '硬化脆皮咚咚们',
+    'Hardened Whipimps': '硬化脆皮鞭者们',
+    'Hardened Venimps': '硬化脆皮爱神们',
+    'Hardened Magnimps': '硬化脆皮磁王们',
+    'Hardened Skeletimps': '硬化脆皮骷髅们',
+    'Hardened Megaskeletimps': '硬化脆皮超级骷髅们',
+    'Healthy Liquimps': '健康液化者们',
+    'Healthy Presimpts': '健康脆皮小礼们',
+    'Healthy Turkimps': '健康脆皮火鸡们',
+    'Healthy Randimps': '健康脆皮百变怪们',
+    'Healthy Squimps': '健康脆皮乌贼们',
+    'Healthy Elephimps': '健康脆皮象们',
+    'Healthy Turtlimps': '健康脆皮龟们',
+    'Healthy Chimps': '健康脆皮黑猩猩们',
+    'Healthy Penguimps': '健康脆皮企鹅们',
+    'Healthy Snimps': '健康脆皮鹬们',
+    'Healthy Gorillimps': '健康脆皮大猩猩们',
+    'Healthy Dragimps': '健康脆皮龙们',
+    'Healthy Improbabilitys': '健康乌有者们',
+    'Healthy Omnipotrimps': '健康全能者们',
+    'Healthy Mutimps': '健康脆皮变异者们',
+    'Healthy Hulking Mutimps': '健康脆皮大型变异者们',
+    'Healthy Feyimps': '健康脆皮小妖们',
+    'Healthy Tauntimps': '健康脆皮咚咚们',
+    'Healthy Whipimps': '健康脆皮鞭者们',
+    'Healthy Venimps': '健康脆皮爱神们',
+    'Healthy Magnimps': '健康脆皮磁王们',
+    'Healthy Skeletimps': '健康脆皮骷髅们',
+    'Healthy Megaskeletimps': '健康脆皮超级骷髅们',
+    'Snowy Liquimps': '积雪液化者们',
+    'Snowy Presimpts': '积雪脆皮小礼们',
+    'Snowy Turkimps': '积雪脆皮火鸡们',
+    'Snowy Randimps': '积雪脆皮百变怪们',
+    'Snowy Squimps': '积雪脆皮乌贼们',
+    'Snowy Elephimps': '积雪脆皮象们',
+    'Snowy Turtlimps': '积雪脆皮龟们',
+    'Snowy Chimps': '积雪脆皮黑猩猩们',
+    'Snowy Penguimps': '积雪脆皮企鹅们',
+    'Snowy Snimps': '积雪脆皮鹬们',
+    'Snowy Gorillimps': '积雪脆皮大猩猩们',
+    'Snowy Blimps': '积雪脆皮飞艇们',
+    'Snowy Dragimps': '积雪脆皮龙们',
+    'Snowy Improbabilitys': '积雪乌有者们',
+    'Snowy Omnipotrimps': '积雪全能者们',
+    'Snowy Mutimps': '积雪脆皮变异者们',
+    'Snowy Hulking Mutimps': '积雪脆皮大型变异者们',
+    'Snowy Feyimps': '积雪脆皮小妖们',
+    'Snowy Tauntimps': '积雪脆皮咚咚们',
+    'Snowy Whipimps': '积雪脆皮鞭者们',
+    'Snowy Venimps': '积雪脆皮爱神们',
+    'Snowy Magnimps': '积雪脆皮磁王们',
+    'Snowy Skeletimps': '积雪脆皮骷髅们',
+    'Snowy Megaskeletimps': '积雪脆皮超级骷髅们',
+    'Toxic Presimpts': '毒性脆皮小礼们',
+    'Toxic Turkimps': '毒性脆皮火鸡们',
+    'Toxic Randimps': '毒性脆皮百变怪们',
+    'Toxic Squimps': '毒性脆皮乌贼们',
+    'Toxic Elephimps': '毒性脆皮象们',
+    'Toxic Turtlimps': '毒性脆皮龟们',
+    'Toxic Chimps': '毒性脆皮黑猩猩们',
+    'Toxic Penguimps': '毒性脆皮企鹅们',
+    'Toxic Snimps': '毒性脆皮鹬们',
+    'Toxic Gorillimps': '毒性脆皮大猩猩们',
+    'Toxic Dragimps': '毒性脆皮龙们',
+    'Toxic Mutimps': '毒性脆皮变异者们',
+    'Toxic Hulking Mutimps': '毒性脆皮大型变异者们',
+    'Toxic Feyimps': '毒性脆皮小妖们',
+    'Toxic Tauntimps': '毒性脆皮咚咚们',
+    'Toxic Whipimps': '毒性脆皮鞭者们',
+    'Toxic Venimps': '毒性脆皮爱神们',
+    'Toxic Magnimps': '毒性脆皮磁王们',
+    'Toxic Skeletimps': '毒性脆皮骷髅们',
+    'Toxic Megaskeletimps': '毒性脆皮超级骷髅们',
+    'Gusty Presimpts': '阵风脆皮小礼们',
+    'Gusty Turkimps': '阵风脆皮火鸡们',
+    'Gusty Randimps': '阵风脆皮百变怪们',
+    'Gusty Squimps': '阵风脆皮乌贼们',
+    'Gusty Elephimps': '阵风脆皮象们',
+    'Gusty Turtlimps': '阵风脆皮龟们',
+    'Gusty Chimps': '阵风脆皮黑猩猩们',
+    'Gusty Penguimps': '阵风脆皮企鹅们',
+    'Gusty Snimps': '阵风脆皮鹬们',
+    'Gusty Gorillimps': '阵风脆皮大猩猩们',
+    'Gusty Dragimps': '阵风脆皮龙们',
+    'Gusty Mutimps': '阵风脆皮变异者们',
+    'Gusty Hulking Mutimps': '阵风脆皮大型变异者们',
+    'Gusty Feyimps': '阵风脆皮小妖们',
+    'Gusty Tauntimps': '阵风脆皮咚咚们',
+    'Gusty Whipimps': '阵风脆皮鞭者们',
+    'Gusty Venimps': '阵风脆皮爱神们',
+    'Gusty Magnimps': '阵风脆皮磁王们',
+    'Gusty Skeletimps': '阵风脆皮骷髅们',
+    'Gusty Megaskeletimps': '阵风脆皮超级骷髅们',
+    'Presimpts': '脆皮小礼们',
+    'Turkimps': '脆皮火鸡们',
+    'Randimps': '脆皮百变怪们',
+    'Squimps': '脆皮乌贼们',
+    'Elephimps': '脆皮象们',
+    'Turtlimps': '脆皮龟们',
+    'Chimps': '脆皮黑猩猩们',
+    'Penguimps': '脆皮企鹅们',
+    'Snimps': '脆皮鹬们',
+    'Gorillimps': '脆皮大猩猩们',
+    'Dragimps': '脆皮龙们',
+    'Mutimps': '脆皮变异者们',
+    'Hulking Mutimps': '脆皮大型变异者们',
+    'Feyimps': '脆皮小妖们',
+    'Tauntimps': '脆皮咚咚们',
+    'Whipimps': '脆皮鞭者们',
+    'Venimps': '脆皮爱神们',
+    'Magnimps': '脆皮磁王们',
+    'Skeletimps': '脆皮骷髅们',
+    'Megaskeletimps': '脆皮超级骷髅们',
     //敌人名称相关结束
     //装备相关
     'Shield': '盾牌',
@@ -300,6 +535,41 @@ var cnItems = {
     'Arbalest': '强弩',
     'Gambeson': '棉甲',
     //装备相关结束
+    //地图解锁相关
+    'There seems to be a small RoboTrimp that you appear to have orphaned. You decide to take him with you, since you\'re pretty good at training stuff. He deals': '您发现了一个失去双亲的小脆皮机器人。您决定带着它一起走，反正对于训练您已经很熟练了。它可以让您的脆皮多造成 ',
+    'extra damage for you, and has a special ability. You can learn more about the special ability by hovering over the new': '伤害，并且还有一个特殊能力。您可以将鼠标停留到士兵旁边的 ',
+    'icon by your soldiers.': '图标上来了解这个能力的详细信息。',
+    'You also found a map to a more powerful version of the Bionic Wonderland. You would bet there\'s another RoboTrimp who needs \'rescuing\' in there.': '您同时还发现了一张通往更高级的仿生仙境的地图。您很肯定那里一定也有另一个小脆皮机器人等待“拯救”。',
+    'Just a heads up': '给您提个醒',
+    'You have tooltips disabled, so you will need to hold shift when you mouse over the': '您关闭了提示框，所以当鼠标停留在 ',
+    'to read about it.': '图标上时，您需要按下shift键才能看到提示。',
+    'Speial Bionic Wonderland QOL Bonuses': '特殊的仿生仙境生活质量奖励',
+    'You will also find some special new Quality of Life bonuses in Bionic Wonderland maps! If you see a Bionic Wonderland map with a yellow background, that means there\'s a permanent QOL unlock inside. For your first map, you\'ve unlocked Foremany!': '您同时还可以在之后的仿生仙境地图中找到一些特殊的生活质量奖励！如果您看到了一张仿生仙境地图背景颜色是黄色，这意味着这张地图中可以解锁永久的生活质量升级。对于您通过的第一张仿生仙境地图而言，您解锁了大群工头！',
+    'RoboTrimp': '脆皮机器人',
+    'AutoStorage': '自动存储',
+    'From the void, an auspicious presence reaches out and fills your mind. You feel at peace with the world. It asks you what you desire most, and without a second thought you reply that you wish your Trimps were smart enough to manage storage structures on their own. The presence lets you know that it is done, then dissipates. You instantly regret not asking to go home.': '一只瑞兽从虚空中出现，占满了您的意识。一时间您感觉与世无争。它询问您最想要的是什么，您不加思索地回答，希望脆皮们能聪明到自动建造存储建筑。它告诉您愿望已经实现，然后就重归于虚无了。您马上就后悔了，怎么没让它送您回家呢……',
+    'Auspicious Presence': '瑞兽',
+    'From the void, an auspicious presence reaches out and fills your mind. You feel at peace with the world. It asks you what you desire most. Wait... hasn\'t this happened before? Last time you asked for your Trimps to be smart enough to manage storage structures on their own. You can make it better this time! You excitedly ask for your Trimps to waste less resources when managing resources on their own. The presence lets you know that it is done, then dissipates. You get serious déjà-vu while regretting not asking to go home.': '一只瑞兽从虚空中出现，占满了您的意识。一时间您感觉与世无争。它询问您最想要的是什么，您……等等，好像这在之前发生过？上次您是希望脆皮们能聪明到自动建造存储建筑。这次您可以许个更好的愿望！您兴奋地问道，是否能让脆皮们管理资源时浪费更少。它告诉您愿望已经实现，然后就重归于虚无了。您对于后悔没让它送您回家这一点有了非常严重的即视感……',
+    'From now on, storage facilities will be constructed instantly. If you collect more resources from one source than you can hold, the extra resources will be used to build new storage facilities without wasting any resources. You may not be home, but your Trimps are now quite talented!': '从现在起，存储建筑将跳过队列直接建造完成。如果您获取了超过上限的资源，多余的资源将自动被用于建造存储建筑，不会造成浪费。虽然您还没法回家，但至少脆皮们变得更有才了！',
+    'Auspicious Presence Part II': '瑞兽 II',
+    'From the void, an auspicious presence reaches out and fills your mind. You feel at peace with the world. It asks you what you desire most. Wait... how many times has this happened now? You\'re fairly positive that there was something you regretted not asking last time, but you can\'t quite remember. You\'ve asked for Trimps to be able to manage storage structures, and you\'ve asked for them to be better at managing those structures. Even though you\'re content with your storage solutions, you suddenly realize the perfect request! You wish the Trimps would stop pushing so far through the Zones while you\'re sleeping, so you ask for a way to tell the Trimps to stop fighting at a Zone of your choosing. The presence lets you know that it is done, then dissipates. You realize as soon as it leaves that you could have asked to go home, but you don\'t really want to anymore. Next time you\'ll make sure to ask for invincible Trimps though, that may have been a better choice.': '一只瑞兽从虚空中出现，占满了您的意识。一时间您感觉与世无争。它询问您最想要的是什么，您……等等，这已经发生几次了？您记得上次到最后，是后悔没有许愿了什么东西，但是您记不起来那东西是啥了。您已经请求过脆皮们能聪明到自动建造存储建筑，而且您也请求过脆皮们自动建造存储建筑时浪费更少。您对存储已经很满意了，所以……等等，您知道该许什么愿望了！您希望在睡觉时，脆皮们别冲到那么后面的区域，所以您请求一种方法让脆皮在特定的区域停止战斗。它告诉您愿望已经实现，然后就重归于虚无了。它一离开，您就想起来应该许愿回家的，但其实现在您也没那么想回家了。下次不如直接许愿让脆皮变成无敌好了，您想，这应该会是个更好的主意。',
+    'From now on, you have access to the Map At Zone setting. This setting can be accessed through the Map Sidebar, Settings, or the \'Configure Maps\' popup!': '从现在起，您可以使用自动进图设置了。您可以从地图侧边栏，设置菜单，或者是“设置地图”窗口中进行设置！',
+    'Auspicious Presence Part III': '瑞兽 III',
+    'AutoEquip': '自动装备',
+    'From the void, an auspicious presence reaches out and fills your mind. You feel at peace with the world. It asks you what you desire most. Wait... This has DEFINITELY happened before... hasn\'t it? You\'re pretty sure it has, but you have no actual memory of it. But you do... but also you don\'t. Wait, who even are you? Where are you? What are you?': '一只瑞兽从虚空中出现，占满了您的意识。一时间您感觉与世无争。它询问您最想要的是什么，您……等等，这绝对发生过的……有吗？您很确信它发生过，但您完全没有任何印象了。但是您记得……但您又不记得。等等，您是谁？您在哪？您在干什么？',
+    'You sit on the ground and contemplate things for a few hours while the Auspicious Presence waits patiently. You finally stand up and demand that the Trimps become smart enough to level up their own equipment! You can\'t see how this could go badly. The presence lets you know that it is done, then it dissipates. As soon as it is gone, you realize you could have just asked for invincible Trimps, but you\'re pretty sure you\'ll remember next time.': '您坐在地上苦思冥想了许久，瑞兽在一旁，只是静静地等着。最后您站了起来，开口道，希望脆皮们能聪明到自动升级装备！这绝对是天底下最好的事了。它告诉您愿望已经实现，然后就重归于虚无了。它一离开，您就想起来应该许愿让脆皮变成无敌的，下次绝对会记得这么干的，您这么确信着。',
+    'From now on, you have access to AutoEquip!': '从现在起，您可以使用自动装备设置了！',
+    'Auspicious Presence Part IV': '瑞兽 IV',
+    'Portal': '传送门',
+    'Prismalicious': '优质棱镜',
+    'Oh goodness, another Prism to polish!': '哇！又一个可以抛光的棱镜！',
+    'Shieldblock': '盾牌格挡',
+    'That thing dropped a book. Doesn\'t look like an ordinary book. Looks... blockier...': '那家伙掉落了一本书。看起来，不像寻常的书。看起来……更结实……',
+	"Bounty": "赏金",
+    'It\'s all shiny and stuff. You\'re pretty sure you\'ve never seen a book this shiny.': '您很确信从未见过这么闪闪发亮的书。全是亮晶晶的东西。',
+    '': '',
+    '': '',
+    //地图解锁相关结束
     //游戏统计相关
     'Dead Trimps': '脆皮阵亡数',
     'Battles Won': '战斗胜利数',
@@ -1458,7 +1728,7 @@ var cnItems = {
 	'Meditation': '冥想',
     'Your experiences in the Dimension of Strong Things have taught you the value of taking your time. Every level of Meditation will increase your Trimps\' gather speed by 1% for every 10 minutes spent on the same Zone, up to 1 hour, even when offline. This bonus is reset after clearing the current Zone. Maximum of 7 levels.': '经历过那个敌人强化的维度后，您明白了慢条斯理的价值。每在同一个区域停留10分钟，每级冥想就可以使脆皮的资源获取速度增加1%。此加成时间上限1小时，离线生效。通过当前区域后此加成重置。最高7级。',
     'Relentlessness': '无情',
-    'You\'ve seen too many Trimps fall, it\'s time for more aggressive training. Bringing back these memories will cause your Trimps to gain a 5% chance to critically strike for +130% damage at level 1, and they will gain an additional 5% crit chance and 30% crit damage per level. Maximum of 10 levels.': '脆皮死的太多，该让它们进行更积极的训练了。带回这些记忆后，脆皮在第1级可以获得5%暴击率，暴击伤害增加130%，且此后每级增加5%暴击率，暴击伤害30%。最高10级。',
+    'You\'ve seen too many Trimps fall, it\'s time for more aggressive training. Bringing back these memories will cause your Trimps to gain a 5% chance to critically strike for +130% damage at level 1, and they will gain an additional 5% crit chance and 30% crit damage per level. Maximum of 10 levels.': '您见过太多脆皮死去了，应该让它们进行更积极的训练。带回这些记忆后，脆皮在第1级可以获得5%暴击率，暴击伤害增加130%，且此后每级增加5%暴击率，暴击伤害30%。最高10级。',
     'Greed': '贪婪',
     'Feeling poor? Just get more resources! Each level increases all loot gained by 2.5% (compounding). Starting once you have 600 Tributes, every Tribute you purchase (up to 1250) will': '感觉太穷了？那就想办法多搞点资源！每级可以使所有战利品获取量增加2.5%(相互叠乘)。而且当拥有600贡品后(效果上限1250贡品)，每个贡品还可以使该加成的数值 ',
     'add': '增加',
@@ -1703,6 +1973,7 @@ var cnItems = {
     '': '',
     //自然赋能相关结束
     //脚本3相关
+    'AutoTrimps': '自动脆皮',
     'Its beta time': 'Beta版本',
     'Various bug fixes.': '多个BUG修复。',
     'CHANGED THE WAY TF GATHER WORKS! CHECK TF SETTINGS!': '修改定时刷图的工作机制！详见定时刷图设置！',
@@ -1769,7 +2040,6 @@ var cnItems = {
     'Got it': '知道了',
     'Copy to Clipboard': '复制到剪贴板',
     'Void Maps (completed': '虚空地图 (通过数',
-    'Portal': '传送门',
     'Number of Void Maps': '虚空地图数量',
     'Nullifium Gained Per Portal': '每次传送门获得的虚空物质',
     'Average Nullifium Gained Per Portal =': '平均每次传送门获得的虚空物质 =',
@@ -1821,6 +2091,7 @@ var cnItems = {
     'Overkilled Cells': '超杀格子数',
     'Toggle Automapping': '切换自动地图开关',
     'Toggle automapping on and off.': '切换自动地图是打开还是关闭。',
+    'Auto Maps': '自动地图',
     'Health to Damage ratio': '生命伤害比',
     'This status box displays the current mode Automaps is in. The number usually shown here during Farming or Want more Damage modes is the \'HDratio\' meaning EnemyHealth to YourDamage Ratio (in X stance). Above 16 will trigger farming, above 4 will trigger going for Map bonus up to 10 stacks.': '此状态框内显示目前自动地图的模式。在刷资源模式或者需要更多伤害模式下，此处会显示生命伤害比，意思是敌人生命值与您伤害的比值。此数值高于16时，会触发刷资源模式，高于4时，会进入地图获得10层地图奖励。',
     'enoughHealth': '生命值足够',
@@ -2284,7 +2555,7 @@ var cnItems = {
     'This allows you to run new Void Maps obtained after your Void Map zone by adding this number to your Void Map zone.': '在超过虚空地图对应区域获得虚空地图以后，在相应数值范围内自动运行虚空地图。',
     'Stacked Voids Only': '只运行融合虚空地图',
     'Only run stacked voids.': '只运行融合的虚空地图。',
-    'I don\'t really think doing this automatically is a good idea. You might want to farm for a bit before this, but I\'m not sure if it\'s meaningful at all to make a \'farm X minutes before trimple\' parameter to go along with it. Set it to the zone you want and it will run Trimple of Doom for Ancient Treasure AFTER farming and getting map stacks. If it is a negative number, this will be disabled after a successful run so you can set it differently next time.': '自动末日神殿似乎并不是个好主意。您可能想要在进入末日神殿之前刷一会儿资源，但增加更详细的选项也没什么意义。设置此数值为你想要进入末日神殿的区域，那么在完成刷资源和获取地图奖励后，将在相应区域进入末日神殿。如果此选项设为负数，则在完成一次以后关闭此选项，以便您下次设为不同数字使用。',
+    'I don\'t really think doing this automatically is a good idea. You might want to farm for a bit before this, but I\'m not sure if it\'s meaningful at all to make a \'farm X minutes before trimple\' parameter to go along with it. Set it to the zone you want and it will run Trimple of Doom for Ancient Treasure AFTER farming and getting map stacks. If it is a negative number, this will be disabled after a successful run so you can set it differently next time.': '自动末日神殿似乎并不是个好主意。您可能想要在进入末日神殿之前刷一会儿资源，但增加更详细的选项也没什么意义。设置此数值为您想要进入末日神殿的区域，那么在完成刷资源和获取地图奖励后，将在相应区域进入末日神殿。如果此选项设为负数，则在完成一次以后关闭此选项，以便您下次设为不同数字使用。',
     'Map Special Modifier': '地图特殊修饰符',
     'BELOW 300 ONLY': '只在区域300以下有效',
     'Attempt to select the BEST map special modifier. When starting a map for': '尝试选择最好的地图修饰符。当运行地图是为了 ',
@@ -3154,7 +3425,6 @@ var cnItems = {
     'This book will teach your Farmers, Lumberjacks, Miners, Scientists, and Explorers to all be twice as productive.': '这本书将让你的农民，伐木工，矿工，科学家和探险家生产力提升为两倍。',
     'Your top scientists are pretty sure this is a Dragimp egg. They know Dragimps love shiny things, maybe it\'ll come out for some gems.': '你的顶尖科学家非常肯定这是一个脆皮龙蛋。他们知道脆皮龙喜欢闪亮的东西，也许它可以帮忙寻找宝石。',
     'Once again, this Prism will need to be polished before it can offer your Trimps any protection. After it\'s polished, this Prism will grant an additional 50% Prismatic Shield to your Trimps!': '这个棱镜需要经过再次抛光才能为你的脆皮提供保护。 经过抛光后，棱镜将为你的脆皮增加50％的棱镜护盾！',
-    'Prismalicious': '优质棱镜',
     'Prismatic': '棱镜护盾',
     'Your scientists are pissed. Not because of anything you did, but this gem seems to be making them mad. It\'ll take some research, but you think you can create a map to the place the gem originated from.': '你的科学家很生气。不是因为你做了什么，而是这颗宝石让他们发疯了。这需要点时间来研究，你觉得你可以创建一张地图，从而到达宝石起源地。',
     'You just made a map to the Dimension of Anger! Should be fun!': '你刚制造了一张愤怒维度的地图！应该很有趣！',
@@ -3436,7 +3706,6 @@ var cnItems = {
     'TrainTacular': '格挡提升',
     'Potency': '繁殖效率',
     'Max': '最大',
-    'AutoStorage': '自动存储',
     'AutoStructure': '自动建造',
     'Configure AutoStructure': '自动建造配置',
     'AutoUpgrade': '自动升级',
@@ -3452,7 +3721,6 @@ var cnItems = {
     'Recycle All': '回收所有',
     'Map Preset': '地图预设',
     'Gymystic': '健身学',
-    'Shieldblock': '盾牌格挡',
     'Trapstorm': '自动陷阱',
     'Blockmaster': '格挡大师',
     'Decay': '衰变',
@@ -3491,7 +3759,7 @@ var cnItems = {
     'Max Trimps': '脆皮上限',
     'AutoJobs': '自动工作',
     'Respec Masteries': '专精洗点',
-    'Configure Maps': '配置地图',
+    'Configure Maps': '设置地图',
     'Import Perk Preset': '导入特权预设',
     'Export Perk Setup': '导出特权设置',
     //专精
@@ -3627,8 +3895,6 @@ var cnItems = {
     '': '',
 
     //自动脚本3汉化文本
-    'AutoTrimps': '自动脆皮',
-    'Auto Maps': '自动地图',
     'Dominance Formation': '支配阵型',
     'Barrier Formation': '屏障阵型',
     '': '',
@@ -3704,7 +3970,6 @@ var cnItems = {
     'Trimps Info': '脆皮信息',
     'Trapping (': '陷阱 (',
     'Auto Saving': '自动保存',
-    'AutoEquip': '自动装备',
     'AutoFight Off': '自动战斗 关闭',
     'Save': '保存',
     'Settings': '设置',
@@ -4006,7 +4271,6 @@ var cnItems = {
     '\n			You can only carry a few Heirlooms (other than the two you have equipped) back through the Portal with you when you use it.': '当你使用传送门时，你只能随身携带几个传家宝（你装备的两个传家宝除外）。',
     'employed\n					': '就业',
     '\n			Once you\'ve selected an Heirloom, you can see all of its stats on the right side of this screen.': '一旦你选中了传家宝，你可以在这个屏幕的右侧看到它的所有统计数据。',
-    '\n			You Found an Heirloom!\n\n			': '你找到一件传家宝！',
     '\n				Current Run\n			': '当前游戏',
     '\n				Total\n			': '总计',
     '| What\'s New \n					': '新东西',
@@ -4107,7 +4371,6 @@ var cnItems = {
 	"You were trying to help bring back some of the Equipment your Trimps left on the ground in that last Zone, and you got a splinter. This planet is getting dangerous, stay alert.": "你试图帮助带回脆皮在上一个区域留在地上的一些装备，并且你得到了一个碎片。这个星球正在变得危险起来，保持警惕。",
 	"Another day, another Blimp at the end of the Zone.": "另一天,又是一个脆皮飞艇在区域的尽头。",
 	"You climb a large cliff and look out over the new Zone. Red dirt, scorched ground, and devastation. Is that a Dragimp flying around out there?!": "你爬上一个巨大的悬崖，俯瞰着一片新的区域。红色的泥土，烧焦的地面，一片荒芜。 那是一头龙在飞来飞去吗？！",
-	"The world feels a little bit less angry as you fire off your handy Portal Generator. You can tell that somewhere in some dimension, a Megablimp is no more. In front of you, 45 Helium and a green, shining box appear on the ground. In tiny writing on the box, you can make out the words 'Time portal. THIS SIDE UP'.": "当你启动你的传送门时，这个世界就不会那么愤怒了。你明白，在某个维度的某个地方，脆皮超级飞艇已经不复存在。在你面前,45 氦以及一个绿色闪耀的盒子出现在地面上。盒子上有一行小字，你可以认清那行字是“时间传送门。此面向上”。",
 	"Strange, the sky seems to be getting darker. You ask one of your Trimps for the time, but he doesn't know what a clock is.": "奇怪，天空看起来变的更黑了。你询问其中一只脆皮现在是什么时间，但是它都不知道什么是时钟。",
 	"You're a rebel. The universe pointed you into that portal, but you kept pushing forward. You feel... less like you've been here before.": "你是个叛逆者。宇宙指引你进入那个传送门，但是你执意向前推进。你感觉……自己好像没有来过这里。",
 	"It seems like the further you press on, the less you know. You still feel an urge to use the portal, though the urge has begun to dwindle.": "似乎你越向前进，你知道的就越少。你仍然有使用传送门的冲动，但是这冲动已经开始减少了。",
@@ -4120,7 +4383,6 @@ var cnItems = {
 	"All traces of hills and mountains have long since been trudged past. The world is flat and hostile. You wish your Trimps were better conversationalists.": "回头望去，越过的山的痕迹越来越长。这个世界是平的，并充满了敌意。你希望你的脆皮们能更健谈一些。",
 	"As your Trimps scavenge every last bit of helium from that Blimp, one of them begins freaking out. He runs around waving his little arms and making funny noises for a while, eats some dirt, then takes a little nap. You wonder if that's normal. Yeah... probably fine.": "当脆皮们从脆皮飞艇身上提取最后一点氦时，其中一只开始发狂。他跑来跑去，挥舞着他的小胳膊，其中一段时间发出了有趣的声音，吃了一些泥土，然后就开始小睡。你很好奇他是否还正常。是的……可能他还算不错。.",
 	"It's been a long time since you've found any blueprints in the maps. You start to wonder where those things even come from.": "你很久没有在地图上找到蓝图了。你开始怀疑这些东西是从哪里来的。",
-	"Bounty": "赏金",
 	"Egg": "蛋",
 
     //原样
@@ -4714,6 +4976,27 @@ var cnRegReplace = new Map([
     [/^Some real, heavy duty armor. Everyone looks badass in heavy duty armor. Adds (.*) health to each soldier per level$/, '真正的重型护甲。穿上这些的脆皮看起来吊爆了。每级增加每名士兵 $1 生命值'], //装备
     [/^A powerful ranged weapon. Your Trimps can do some damage with this sucker. Adds (.*) attack to each soldier per level$/, '强大的远程武器。这玩意用来搞事情会很称手。每级增加每名士兵 $1 攻击力'], //装备
     [/^A cozy and thick padded jacket that goes under the breastplate. Your Trimps think they're great! Adds (.*) health to each soldier per level.$/, '一件穿戴舒适，可以穿戴在胸甲内的厚棉衣。脆皮们爱死它了！每级增加每名士兵 $1 生命值。'], //装备
+    [/^(.*)You found a map to the Bionic Wonderland. Sounds fun!$/, '$1您发现了通往仿生仙境的地图。有点意思！'], //地图解锁等
+    [/^(.*)You found a map to an even more advanced version of the Bionic Wonderland! Looks scary... Your scientists remind you that you can only carry 3 of these incredibly heavy, metallic maps at a time.$/, '$1您发现了通往更高级的仿生仙境的地图！看起来有点可怕……您的科学家提醒您，您只能同时携带3张仿生仙境的地图，因为它们由金属制造而成，实在太重了。'], //地图解锁等
+    [/^(.*)Hey look, another baby RoboTrimp! You decide to add him to your collection. You now deal (.*)% extra damage thanks to your pets, and MagnetoShriek now removes (.*)% of an Improbability's attack$/, '$1您发现了另一个小脆皮机器人！您决定也带上它。您的脆皮现在可以额外造成$2%伤害，而且电磁尖啸现在可以将首领的攻击力降低$3%'], //地图解锁等
+    [/^(.*)You found an Heirloom!$/, '$1您发现了一个传家宝！'], //地图解锁等
+    [/^(.*)After barely escaping a fierce boulder, you check out the relic you found in there. It glows extremely bright for a few seconds before disappearing, and you look at your storages to see that your Food, Wood, and Metal have been doubled!$/, '$1在将将从一块狂暴巨石手下逃生后，您检查了一下在那里发现的遗物。它突然发出了无法直视的强光，过了一会儿，它消失了。之后，您检查了一下存储建筑，发现食物、木头和金属都翻倍了！'], //地图解锁等
+    [/^(.*)At the end of that very hot map, you find a tiny, dehydrated Smithy building. You bring it back to your town and drop it in a glass of water, and a full-sized Smithy instantly appears!$/, '$1在那极热地图的最后，您发现了一个微小而脱水的铁匠铺。您将它带回了城镇，把它放进了一杯水里，突然，一个正常尺寸的铁匠铺就这么出现了！'], //地图解锁等
+    [/^(.*)You have slain the Warden and taken his keys. How weird would it be if they fit in that key hole on the portal?$/, '$1您把典狱长给宰了，并拿走了他的钥匙。如果这钥匙能够用在传送门上的钥匙孔的话……那得有多奇怪？'], //地图解锁等
+    [/^(.*)You've never been here before. Like, ever. This entire place felt cold and unfamiliar. Where are you\? Why have so many Trimps had to fall to get here\? You're suddenly angry, it's time to take a stand.$/, '$1您从未来过这里。从来都没有。这里很冷，很陌生。您在哪？凭什么要死了那么多脆皮才能到这里？您突然感觉非常愤怒，是时候站出来了。'], //地图解锁等
+    [/^(.*)You have permanantly unlocked a new Perk, Relentlessness, which will remain unlocked through portals.$/, '$1您永久解锁了无情特权，通过传送门后仍然保留。'], //地图解锁等
+    [/^(.*)The world feels a little bit less angry as you fire off your handy Portal Generator. You can tell that somewhere in some dimension, a Megablimp is no more. In front of you, a green, shining box appears on the ground. In tiny writing on the box, you can make out the words 'Time portal. THIS SIDE UP'.$/, '$1您启动了传送门生成器，整个世界都感觉不那么愤怒了一些。您冥冥之中感知到在某个维度的某处，一个脆皮超级飞艇不复存在了。在您的面前出现了一个闪耀的绿色盒子，从盒子上的小字中，您读出了以下的内容：“时空传送门，此面向上”。'], //地图解锁等
+    [/^(.*)The world feels a little bit less angry as you fire off your handy Portal Generator. You can tell that somewhere in some dimension, a Megablimp is no more. In front of you, a blue, shining box appears on the ground. In tiny writing on the box, you can make out the words 'Time portal. THIS SIDE UP'.$/, '$1您启动了传送门生成器，整个世界都感觉不那么愤怒了一些。您冥冥之中感知到在某个维度的某处，一个脆皮超级飞艇不复存在了。在您的面前出现了一个闪耀的蓝色盒子，从盒子上的小字中，您读出了以下的内容：“时空传送门，此面向上”。'], //地图解锁等
+    [/^(.*)The world feels a little bit less angry as you fire off your handy Portal Generator. You can tell that somewhere in some dimension, a Megablimp is no more. In front of you, 45 Helium and a green, shining box appear on the ground. In tiny writing on the box, you can make out the words 'Time portal. THIS SIDE UP'.$/, '$1您启动了传送门生成器，整个世界都感觉不那么愤怒了一些。您冥冥之中感知到在某个维度的某处，一个脆皮超级飞艇不复存在了。在您的面前出现了45氦，以及一个闪耀的绿色盒子，从盒子上的小字中，您读出了以下的内容：“时空传送门，此面向上”。'], //地图解锁等
+    [/^(.*)The world feels a little bit less angry as you fire off your handy Portal Generator. You can tell that somewhere in some dimension, a Megablimp is no more. In front of you, 45 Radon and a blue, shining box appear on the ground. In tiny writing on the box, you can make out the words 'Time portal. THIS SIDE UP'.$/, '$1您启动了传送门生成器，整个世界都感觉不那么愤怒了一些。您冥冥之中感知到在某个维度的某处，一个脆皮超级飞艇不复存在了。在您的面前出现了45氡，以及一个闪耀的蓝色盒子，从盒子上的小字中，您读出了以下的内容：“时空传送门，此面向上”。'], //地图解锁等
+    [/^(.*)Don't ever let anyone tell you that you didn't just kill that Megablimp. Because you did. As he melts away into nothingness, you notice a green, shining box on the ground. In tiny writing on the box, you can make out the words 'Time portal. THIS SIDE UP'.$/, '$1如果还有人说什么您没有击坠过脆皮超级飞艇的话，现在可以让他闭嘴了。因为您刚刚做到了。当飞艇一点一点融入虚无时，您在地上发现了一个闪耀的绿色盒子。从盒子上的小字中，您读出了以下的内容：“时空传送门，此面向上”。'], //地图解锁等
+    [/^(.*)Don't ever let anyone tell you that you didn't just kill that Megablimp. Because you did. As he melts away into nothingness, you notice a blue, shining box on the ground. In tiny writing on the box, you can make out the words 'Time portal. THIS SIDE UP'.$/, '$1如果还有人说什么您没有击坠过脆皮超级飞艇的话，现在可以让他闭嘴了。因为您刚刚做到了。当飞艇一点一点融入虚无时，您在地上发现了一个闪耀的蓝色盒子。从盒子上的小字中，您读出了以下的内容：“时空传送门，此面向上”。'], //地图解锁等
+    [/^(.*)You were able to extract 45 Helium Canisters from that Blimp! Now that you know how to do it, you'll be able to extract Helium from normal Blimps.$/, '$1您从飞艇上提取了45氦！从现在起您也可以从普通飞艇那边提取氦了。'], //地图解锁等
+    [/^(.*)You were able to extract 45 Radon Vials from that Blimp! Now that you know how to do it, you'll be able to extract Radon from normal Blimps.$/, '$1您从飞艇上提取了45氡！从现在起您也可以从普通飞艇那边提取氡了。'], //地图解锁等
+
+
+
+
     [/^(.*), Z$/, '$1，区域'], //统计等
     [/^Progress: (.*) \/$/, '进度：$1 /'], //成就等
     [/^Complete Zone (\d+) in Universe$/, '通过区域 $1 于宇宙'], //成就等
@@ -4824,7 +5107,7 @@ var cnRegReplace = new Map([
     [/^Clear Melting Point in less than (.*):(.*):(.*) from start of run$/, '使用传送门后，在 $1:$2:$3 内通过熔点'], //成就等
     [/^Have over (.*) traps at once$/, '同时拥有超过 $1 个陷阱'], //成就等
     [/^Spend over (.*) total He on Wormholes$/, '在虫洞上一共花费 $1 氦'], //成就等
-    [/^Kill (.*) enemies in your Spire$/, '在你的尖塔中一共击杀 $1 敌人'], //成就等
+    [/^Kill (.*) enemies in your Spire$/, '在您的尖塔中一共击杀 $1 敌人'], //成就等
     [/^Beat the Spire with no respec and (.*) or less He Spent$/, '在氦花费不超过 $1 ，且未在传送后进行特权洗点的前提下通过尖塔'], //成就等
     [/^Beat Spire II with no respec and (.*) or less He spent$/, '在氦花费不超过 $1 ，且未在传送后进行特权洗点的前提下通过尖塔 II'], //成就等
     [/^Complete Wither with (.*) stacks of Hardened$/, '在拥有 $1 层硬化的前提下，完成凋零挑战'], //成就等
