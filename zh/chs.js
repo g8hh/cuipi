@@ -13,6 +13,89 @@ var cnItems = {
     '.': '。',
     '"': '',
     //段末标点处理结束
+    //建筑相关
+    'Trap': '陷阱',
+    'Barn': '谷仓',
+    'Increases your maximum food by 100%.': '将食物上限增加100%。',
+    'Shed': '窝棚',
+    'Increases your maximum wood by 100%.': '将木头上限增加100%。',
+    'Forge': '锻造厂',
+    'Increases your maximum metal by 100%.': '将金属上限增加100%。',
+    'Hut': '小屋',
+    'House': '宅院',
+    'Mansion': '豪宅',
+    'Hotel': '宾馆',
+    'Resort': '度假村',
+    'Gateway': '维度裂隙',
+    'Wormhole': '虫洞',
+    'This building costs helium to create.': '此建筑需要花费氦来进行建造，请注意。',
+    'Collector': '汲能设施',
+    'Build a Smithy to help produce better Equipment for your Trimps. Each Smithy in your village increases Trimp Attack and Health by 25% (compounding).': '建造铁匠铺，以帮助制造更好的装备。每个铁匠铺可以使脆皮的攻击力和生命值增加25%(效果叠乘)。',
+    'Tribute': '贡品',
+    'Pay a tribute of food to your Dragimp, increasing his appetite and his speed. He will gather gems 5% faster (compounding).': '向您的脆皮龙献上贡品，增加它的食欲和速度。它收集宝石的速度将加快5%(效果叠乘)。',
+    'Magma is generally not conductive to a healthy Nursery environment. Each Nursery will still increase Trimps per second from breeding by 1% (compounding), but 10% of your active Nurseries will shut down each Zone as the Magma moves closer. Safety first!': '岩浆环境并不适合托儿所。每个托儿所仍然可以增加1%繁殖速度(效果叠乘)，但通过一个区域后，当前数量10%的托儿所将因岩浆逼近而被迫关闭。安全为先！',
+    'Construct a gem-powered nursery, where baby Trimps can grow up faster. Increases Trimps per second from breeding by 1% (compounding).': '建造一个宝石供能的托儿所，使脆皮宝宝们成长的更快。每个托儿所可以增加1%繁殖速度(效果叠乘)。',
+    'Microchip': '微型芯片',
+    'Unlocks a Scientist level, upgrading your portal and': '解锁一级科学家，升级传送门并',
+    'Unlocks another Scientist level, upgrading your portal and': '解锁又一级科学家，升级传送门并',
+    'allowing you to start with 5000 Science, 100 Food, 100 Wood, 10 Traps, and 1 Foreman every time you Portal to this Universe': '使您在这个宇宙中每次使用传送门后，以5000科学点，100食物，100木头，10陷阱，以及1工头的状态开始游戏。',
+    'allowing you to start with 5 Barns, 5 Sheds, 5 Forges, and T2 Equipment unlocked every time you Portal to this Universe': '使您在这个宇宙中每次使用传送门后，以5谷仓、5窝棚、5锻造厂，且解锁2级装备的状态开始游戏。',
+    'allowing you to start with full Trimps and 200% player efficiency every time you Portal to this Universe': '使您在这个宇宙中每次使用传送门后，以满人口脆皮，200%玩家效率的状态开始游戏。',
+    'allowing you to earn two levels of each prestige upgrade per map. This bonus will apply every time you Portal to this Universe': '使您在这个宇宙中每次使用传送门后，每张地图可以获得两级装备重铸升级。',
+    'allowing you to permanently increase all Radon found by 0.5% to the power of your current Zone number. You\'ll also start with 1000% player efficiency and 50 Barns, Sheds, and Forges every time you Portal to this Universe': '使您的氡获取量每层区域永久比上一层区域多0.5%。且在这个宇宙中每次使用传送门后，以1000%玩家效率，50谷仓、50窝棚、50锻造厂的状态开始游戏。',
+    'Microchips attach directly to your Portal Device, and only ever have to be purchased once. Your Portal Device has room for 5 total Microchips.': '微型芯片与传送门装置绑定，只需购买一次即可永久生效。传送门装置一共可以容纳5颗芯片。',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    //建筑相关结束
     //敌人名称相关
     'Liquimp': '液化者',
     'Presimpt': '脆皮小礼',
@@ -535,6 +618,42 @@ var cnItems = {
     'Arbalest': '强弩',
     'Gambeson': '棉甲',
     //装备相关结束
+    //世界解锁相关
+    'Bloodlust': '嗜血',
+    'Gym': '健身房',
+    'TrainTacular': '格挡提升',
+    'Smithy': '铁匠铺',
+    'Warpstation': '跃迁核心',
+    'Gymystic': '健身学',
+    'Meteorologists': '气象学家',
+    'Dominance': '支配',
+    'Barrier': '屏障',
+    'Potency': '繁殖效率',
+    'Miner': '矿工',
+    'Trainer': '训练师',
+    'Explorer': '探险家',
+    'Speedscience': '研究加速',
+    'Megascience': '超级研究',
+    'Gigastation': '千兆核心',
+    'Magmamancer': '岩浆巫师',
+    'Speedfarming': '耕作加速',
+    'Megafarming': '超级耕作',
+    'Speedlumber': '砍伐加速',
+    'Megalumber': '超级砍伐',
+    'Speedminer': '采矿加速',
+    'Megaminer': '超级采矿',
+    'Geneticist': '遗传学家',
+    'Foreman': '工头',
+    'Anger': '愤怒',
+    'Rage': '暴怒',
+    'Prismatic Palace': '棱镜宫殿',
+    'Melting Point': '熔点',
+    'Coordination': '协作',
+    'Blockmaster': '格挡大师',
+	"Egg": "蛋",
+    'Trimple Of Doom': '末日神殿',
+    'Tricky Paradise': '整蛊天堂',
+    //世界解锁相关结束
     //地图解锁相关
     'There seems to be a small RoboTrimp that you appear to have orphaned. You decide to take him with you, since you\'re pretty good at training stuff. He deals': '您发现了一个失去双亲的小脆皮机器人。您决定带着它一起走，反正对于训练您已经很熟练了。它可以让您的脆皮多造成 ',
     'extra damage for you, and has a special ability. You can learn more about the special ability by hovering over the new': '伤害，并且还有一个特殊能力。您可以将鼠标停留到士兵旁边的 ',
@@ -562,13 +681,38 @@ var cnItems = {
     'Auspicious Presence Part IV': '瑞兽 IV',
     'Portal': '传送门',
     'Prismalicious': '优质棱镜',
-    'Oh goodness, another Prism to polish!': '哇！又一个可以抛光的棱镜！',
     'Shieldblock': '盾牌格挡',
-    'That thing dropped a book. Doesn\'t look like an ordinary book. Looks... blockier...': '那家伙掉落了一本书。看起来，不像寻常的书。看起来……更结实……',
-	"Bounty": "赏金",
-    'It\'s all shiny and stuff. You\'re pretty sure you\'ve never seen a book this shiny.': '您很确信从未见过这么闪闪发亮的书。全是亮晶晶的东西。',
-    '': '',
-    '': '',
+	'Bounty': '赏金',
+    'Supershield': '超级盾牌',
+    'Dagadder': '诗歌匕首',
+    'Bootboost': '增速靴',
+    'Megamace': '巨型狼牙棒',
+    'Hellishmet': '地狱头盔',
+    'Polierarm': '画戟',
+    'Pantastic': '护腿',
+    'Axeidic': '强酸战斧',
+    'Smoldershoulder': '闷火护肩',
+    'Greatersword': '双手巨剑',
+    'Bestplate': '精良胸铠',
+    'Harmbalest': '高强弩',
+    'GambesOP': '强棉甲',
+    'Speedexplorer': '探险家加速',
+    'The Block': '障碍区',
+    'The Wall': '高墙',
+    'Wall': '墙',
+    'The Prison': '监狱',
+    'Imploding Star': '爆炸之星',
+    'UberHut': '超级小屋',
+    'UberHouse': '超级宅院',
+    'UberMansion': '超级豪宅',
+    'UberHotel': '超级宾馆',
+    'UberResort': '超级度假村',
+    'Trapstorm': '自动陷阱',
+    'Nursery': '托儿所',
+    'Gems': '宝石',
+    'Metal': '金属',
+    'Food': '食物',
+    'Wood': '木头',
     //地图解锁相关结束
     //游戏统计相关
     'Dead Trimps': '脆皮阵亡数',
@@ -1232,9 +1376,9 @@ var cnItems = {
     'Map At Z': '进图区域：',
     'Map At Zone (A': '自动进图(A',
     'Map At Zone (B': '自动进图(B',
-    'When enabled, you will automatically abandon your Trimps in the World and enter the Map Chamber as soon as you hit your specified Zone number.': '切换是否在到达特定层数以后放弃士兵并立刻进入地图。',
+    'When enabled, you will automatically abandon your Trimps in the World and enter the Map Chamber as soon as you hit your specified Zone number.': '切换是否在到达特定层数以后放弃士兵并立刻进入地图界面。',
     'Configure with hotkey Z': '可以使用快捷键：Z来快速设置',
-    'Set Map At Zone': '进入特定区域后立刻进地图，预设区域必须为10以上，1000以下，且重复区域和预设区域、格子不可冲突，否则下方会有红字报错',
+    'Set Map At Zone': '自动进图设置，预设区域必须为10以上，1000以下，且重复区域和预设区域、格子不可冲突，否则下方会有红字报错',
     'No Timestamps': '关闭时间戳',
     'Local Timestamps': '本地时间戳',
     'Run Timestamps': '自上次传送时间戳',
@@ -1435,17 +1579,13 @@ var cnItems = {
     'with this challenge active will cause you to start with 5 Barns, 5 Sheds, 5 Forges, and T2 Equipment unlocked each time you use your portal.': '将使您每次使用传送门后，以5谷仓、5窝棚、5锻造厂，且解锁2级装备的状态开始游戏。',
     'with this challenge active will cause you to start with full Trimps and 200% player efficiency each time you use your portal.': '将使您每次使用传送门后，以满人口脆皮，200%玩家效率的状态开始游戏。',
     'with this challenge active will cause you to earn two levels of each prestige upgrade per map, unlock AutoPrestiges, and your Warpstations will build instantly, skipping the queue. This bonus will apply each time you use your portal.': '将使您每次使用传送门后，每张地图可以获得两级装备重铸升级，并解锁自动重铸，而且跃迁核心可以跳过队列直接建造完成。',
-    'with this challenge active will cause you to earn two levels of each prestige upgrade per map. This bonus will apply each time you use your portal.': '将使您每次使用传送门后，每张地图可以获得两级装备重铸升级。',
     'with this challenge active will cause you to permanently increase all Helium found by 0.5% to the power of your current Zone number. You\'ll also start with 1000% player efficiency and 50 Barns, Sheds, and Forges each time you use your portal.': '将使您的氦获取量每层区域永久比上一层区域多0.5%。且每次使用传送门后，以1000%玩家效率，50谷仓、50窝棚、50锻造厂的状态开始游戏。',
-    'with this challenge active will cause you to permanently increase all Radon found by 0.5% to the power of your current Zone number. You\'ll also start with 1000% player efficiency and 50 Barns, Sheds, and Forges each time you use your portal.': '将使您的氡获取量每层区域永久比上一层区域多0.5%。且每次使用传送门后，以1000%玩家效率，50谷仓、50窝棚、50锻造厂的状态开始游戏。',
     'Scientist Challenge!': '科学家挑战！',
     'From now on, you\'ll start with 5000 Science, 100 Food, 100 Wood, 10 Traps, and 1 Foreman every time you portal. You\'ve unlocked Scientists, and': '从现在起，您每次使用传送门后，以5000科学点，100食物，100木头，10陷阱，以及1工头的状态开始游戏。您也重新解锁了科学家，并且',
     'From now on, you\'ll start with 5 Barns, 5 Sheds, 5 Forges, and T2 Equipment unlocked every time you portal. You\'ve unlocked Scientists, and': '从现在起，您每次使用传送门后，以5谷仓、5窝棚、5锻造厂，且解锁2级装备的状态开始游戏。您也重新解锁了科学家，并且',
     'From now on, you\'ll start with full Trimps and 200% player efficiency every time you portal. You\'ve unlocked Scientists, and': '从现在起，您每次使用传送门后，以满人口脆皮，200%玩家效率的状态开始游戏。您也重新解锁了科学家，并且',
     'From now on, you\'ll earn two levels of each prestige upgrade per map, unlock AutoPrestiges, and your Warpstations will build instantly, skipping the queue. This bonus will apply every time you portal. You\'ve unlocked Scientists, and': '从现在起，您每次使用传送门后，每张地图可以获得两级装备重铸升级，并解锁自动重铸，而且跃迁核心可以跳过队列直接建造完成。您也重新解锁了科学家，并且',
-    'From now on, you\'ll earn two levels of each prestige upgrade per map. This bonus will apply every time you portal. You\'ve unlocked Scientists, and': '从现在起，您每次使用传送门后，每张地图可以获得两级装备重铸升级。您也重新解锁了科学家，并且',
     'From now on, you\'ll permanently increase all Helium found by 0.5% to the power of your current Zone number. You\'ll also start with 1000% player efficiency and 50 Barns, Sheds, and Forges every time you portal. You\'ve unlocked Scientists, and': '从现在起，您的氦获取量每层区域永久比上一层区域多0.5%。且每次使用传送门后，以1000%玩家效率，50谷仓、50窝棚、50锻造厂的状态开始游戏。您也重新解锁了科学家，并且',
-    'From now on, you\'ll permanently increase all Radon found by 0.5% to the power of your current Zone number. You\'ll also start with 1000% player efficiency and 50 Barns, Sheds, and Forges every time you portal. You\'ve unlocked Scientists, and': '从现在起，您的氡获取量每层区域永久比上一层区域多0.5%。且每次使用传送门后，以1000%玩家效率，50谷仓、50窝棚、50锻造厂的状态开始游戏。您也重新解锁了科学家，并且',
     'Don\'t forget that you can click Research on your Science again!': '不要忘了您又可以进行科学研究了！',
     'You have the Scientist challenge active. Attempt modifying the portal to retain positive qualities from previous dimensions. Until you perfect the technique, you will start with': '您目前正在进行科学家挑战。尝试调节传送门来保持之前维度的正面效果。直到您对这项技艺足够精进之前，您将从 ',
     'You have the Scientist challenge active. Attempt modifying the portal to harvest resources when travelling. Until you perfect the technique, you will start with': '您目前正在进行科学家挑战。尝试调节传送门来在旅途中获取资源。直到您对这项技艺足够精进之前，您将从 ',
@@ -1470,6 +1610,7 @@ var cnItems = {
     'You have the Trimp challenge active. "Tweak the portal to bring you to a dimension where Trimps explode if more than 1 fights at a time. You will not be able to learn Coordination."': '您目前正在进行脆皮挑战。调节传送门，将您带到一个脆皮只能单打独斗的维度中。您将无法研究协作。',
     'Trapper': '捕手',
     'Travel to a dimension where Trimps refuse to breed in captivity, teaching yourself new ways to take advantage of situations where breed rate is low. Clearing': '前往一个被抓住的脆皮拒绝繁殖的维度。在那里可以学习如何利用低繁殖率做些什么。在此挑战激活的前提下通过 ',
+    '\'Trimple Of Doom\' (': '末日神殿地图(',
     'with this challenge active will return your breeding rate to normal. Note that any bonuses that cause housing to come prefilled with Trimps will not work in a dimension where Trimps cannot breed.': '后繁殖率将恢复正常。注意，在脆皮无法繁殖的维度中，任何在住房建造完立刻使其获得满人口的加成均无效。',
     'Travel to a dimension where Trimps refuse to breed in captivity, good luck!': '前往一个被抓住的脆皮拒绝繁殖的维度，祝您好运！',
     'bored': '无所事事',
@@ -1774,7 +1915,7 @@ var cnItems = {
     'Crystallize some Radon, creating an interdimensional Prism that you can carry back through Portals. Each level adds 1% to your Trimps\' Prismatic Shield and makes your Trimps feel 5% more comfortable in battle. Once you have 20 or more points of Prismal, you will automatically collect Prismalicious from the Prismatic Palace after completing Z20.': '将一些氡晶化，制造一个超次元的棱镜，这样就可以带着它通过传送门了。每级增加1%的棱镜护盾，并且可以使脆皮在战斗中舒适度增加5%（译者注：后半句无实际效果）。当棱镜化特权等级到达20级以上后，您就可以在通过区域20后自动获得棱镜宫殿的优质棱镜升级。',
     //特权相关结束
     //专精相关
-    'Portal Generator': '传送门生成器',
+    'Portal Generator': '传送门发生器',
     'Unlock Portal immediately after clearing Z20.': '通过区域20以后立刻解锁传送门。',
     'Bionic Magnet I': '仿生磁铁 I',
     'Automatically pick up each level of Bionic Wonderland (BW) as you pass a BW Zone. Will not work if you have already missed any BWs this run, or if you reach a Zone higher than any BW you have ever cleared before.': '自动通过仿生仙境，如果之前已经错过仿生仙境，或者之前未手动通过该层仿生仙境，则无效。',
@@ -2043,10 +2184,6 @@ var cnItems = {
     'Number of Void Maps': '虚空地图数量',
     'Nullifium Gained Per Portal': '每次传送门获得的虚空物质',
     'Average Nullifium Gained Per Portal =': '平均每次传送门获得的虚空物质 =',
-    'Metal': '金属',
-    'Wood': '木头',
-    'Food': '食物',
-    'Gems': '宝石',
     'Fragments': '碎片',
     'Current Loot Sources (of all resources gained) - for the last 15 minutes': '目前战利品来源(所有资源) - 过去的15分钟内',
     'Time (every 15 seconds': '时间点(每15秒一次',
@@ -2073,14 +2210,12 @@ var cnItems = {
     'Map Bonus History': '地图奖励历史',
     'Map Bonus Stacks': '地图奖励层数',
     'Coordination History': '协作等级历史',
-    'Coordination': '协作',
     'Total Magmite Owned': '岩浆岩总拥有量',
     'Zone (starting at': '区域 (开始于',
     'Total Magmamancers Owned': '岩浆巫师总拥有量',
     'Essence/Hour (Cumulative': '精华/小时 (累计',
     'Essence/Hour': '精华/小时',
     'Nurseries Bought (Total': '托儿所建造数 (总量',
-    'Nursery': '托儿所',
     'Fluffy XP (Lifetime Total': '绒绒经验 (总量',
     'Zone (starts at': '区域 (开始于',
     'Fluffy XP/Hour (Cumulative': '绒绒经验/小时 (总量',
@@ -3428,7 +3563,6 @@ var cnItems = {
     'Prismatic': '棱镜护盾',
     'Your scientists are pissed. Not because of anything you did, but this gem seems to be making them mad. It\'ll take some research, but you think you can create a map to the place the gem originated from.': '你的科学家很生气。不是因为你做了什么，而是这颗宝石让他们发疯了。这需要点时间来研究，你觉得你可以创建一张地图，从而到达宝石起源地。',
     'You just made a map to the Dimension of Anger! Should be fun!': '你刚制造了一张愤怒维度的地图！应该很有趣！',
-    'Anger': '愤怒',
     'Unsurprisingly, that Rage Gem you brought back has everyone up the walls. You should probably hurry up and figure out a way to extract the map from inside before your Scientists end up killing eachother.': '不出所料，你带回的那颗愤怒宝石让所有人都抓狂了。你应该尽快从中提取出地图，否则你们的科学家们要自相残杀完了。',
     'This book will cause each gym you purchase to increase the block provided by all Gyms by 5%. Each consecutive level of this upgrade will increase the block provided by an additional 1%. <b>The extra block provided compounds per Gym.</b>': '这本书将使你购买的每一个健身房增加所有健身房提供的5%格挡。此升级的每个连续级别将增加1%的格挡。<b>每个健身房获得的额外的格挡之间相互叠乘。</b>',
     'This book will teach your Robotrimp how to do a much better job of shrieking, allowing MagnetoShriek to be used on multiple Corrupted cells in addition to Improbabilities. Upgraded MagnetoShriek starts off only being able to affect 1 cell at a time, but each use after purchasing this upgrade will extend the bonus by one additional cell, up to a max of 5 cells (resets on portal). <br/><br/> Each new Bionic Wonderland clear starting at Z185 will permanently increase the cell count cap by 1.': '这本书将教你的脆皮机器人如何更好地尖啸，除了乌有者以外还允许电磁尖啸在多个腐化格子上使用。升级后的电磁尖啸初始一次只能影响一个格子，但每次购买此升级后都将额外增加一个格子，最多5个格子（传送后重置）。<br/><br/>从区域185开始，每通过一个新的仿生仙境，格子上限就永久增加1。',
@@ -3568,21 +3702,6 @@ var cnItems = {
     'Food/Wood/Metal': '食物/木头/金属',
     'cache': '储藏箱',
     'bone': '骨头',
-    'Trap': '陷阱',
-    'Barn': '谷仓',
-    'Shed': '窝棚',
-    'Forge': '锻造厂',
-    'Hut': '小屋',
-    'House': '宅院',
-    'Mansion': '豪宅',
-    'Hotel': '宾馆',
-    'Resort': '度假村',
-    'Gateway': '维度裂隙',
-    'Wormhole': '虫洞',
-    'Collector': '汲能设施',
-    'Warpstation': '跃迁核心',
-    'Gym': '健身房',
-    'Tribute': '贡品',
     'Tribute X': '贡品 X',
     'Loot': '战利品',
     'Unlocks': '解锁',
@@ -3631,88 +3750,41 @@ var cnItems = {
     '': '',
     '': '',
     //1.2.标题
-    'Trap': '陷阱',
     'Trap X': '陷阱 X',
-    'Barn': '谷仓',
     'Barn X': '谷仓 X',
-    'Shed': '窝棚',
     'Shed X': '窝棚 X',
-    'Forge': '锻造厂',
     'Forge X': '锻造厂 X',
-    'Hut': '小屋',
     'Hut X': '小屋 X',
-    'House': '宅院',
     'House X': '宅院 X',
-    'Mansion': '豪宅',
     'Mansion X': '豪宅 X',
-    'Hotel': '宾馆',
     'Hotel X': '宾馆 X',
-    'Resort': '度假村',
     'Resort X': '度假村 X',
-    'Gateway': '维度裂隙',
-    'Wormhole': '虫洞',
-    'Collector': '汲能设施',
-    'Warpstation': '跃迁核心',
-    'Gym': '健身房',
     'Gym X': '健身房 X',
-    'Tribute': '贡品',
-    'Nursery': '托儿所',
     'Nursery X': '托儿所 X',
     'Farmer': '农民',
     'Farmer X': '农民 X',
     'Lumberjack': '伐木工',
     'Lumberjack X': '伐木工 X',
-    'Miner': '矿工',
     'Miner X': '矿工 X',
-    'Scientist': '科学家',
     'Scientist X': '科学家 X',
     'Scientists': '科学家',
-    'Trainer': '训练师',
     'Trainer X': '训练师 X',
     'Trainers': '训练师',
-    'Explorer': '探险家',
     'Explorer X': '探险家 X',
-    'Magmamancer': '岩浆巫师',
     'Magmamancer X': '岩浆巫师 X',
     'Amalgamator': '合并者',
     'Amalgamator X': '合并者 X',
     'Fire Trimps': '解雇脆皮',
-    'Gigastation': '千兆核心',
     'Geneticistassist': '遗传学家助手',
-    'Geneticist': '遗传学家',
     'Custom': '自定义',
     'Confirm Purchase': '确认购买',
-    'Carpentry': '木工',
-    'Artisanistry': '手艺娴熟',
-    'Range': '范围',
-    'Bloodlust': '嗜血',
     'Miners': '矿工',
-    'Speedminer': '采矿加速',
-    'Speedlumber': '砍伐加速',
-    'Speedfarming': '耕作加速',
-    'Speedscience': '研究加速',
-    'Megamace': '巨型狼牙棒',
-    'Hellishmet': '地狱头盔',
-    'Supershield': '超级盾牌',
-    'Dagadder': '诗歌匕首',
-    'Bootboost': '增速靴',
-    'Polierarm': '画戟',
-    'Pantastic': '护腿',
-    'Axeidic': '强酸战斧',
-    'Smoldershoulder': '闷火护肩',
-    'Greatersword': '双手巨剑',
-    'Bestplate': '精良胸铠',
-    'Speedexplorer': '探险家加速',
-    'TrainTacular': '格挡提升',
-    'Potency': '繁殖效率',
     'Max': '最大',
     'AutoStructure': '自动建造',
     'Configure AutoStructure': '自动建造配置',
     'AutoUpgrade': '自动升级',
     'AutoPrestige': '自动重铸装备',
     'AutoGolden': '自动黄金升级',
-    'Harmbalest': '高强弩',
-    'GambesOP': '强棉甲',
     'Rename Preset': '重命名预设',
     'Pierce': '穿透',
     'Fast': '快速',
@@ -3720,9 +3792,6 @@ var cnItems = {
     'Reset Map Settings': '重置地图设置',
     'Recycle All': '回收所有',
     'Map Preset': '地图预设',
-    'Gymystic': '健身学',
-    'Trapstorm': '自动陷阱',
-    'Blockmaster': '格挡大师',
     'Decay': '衰变',
     'Show/Hide Map Config': '显示/隐藏地图设置',
     'Mastery': '专精',
@@ -3766,15 +3835,12 @@ var cnItems = {
     'Foremany': '大群工头',
     'Quick Gen': '快速发生',
     'AutoStructure': '自动建造',
-    'Megascience': '超级研究',
-    'Megafarming': '超级耕作',
     'Condenser Tower': '冷凝塔',
     'Condenser Tower II': '冷凝塔 II',
     'Knowledge Tower': '知识塔',
     'Knowledge Tower II': '知识塔 II',
     'Poison Trap': '剧毒陷阱',
     'Poison Trap II': '剧毒陷阱 II',
-    'Megaminer': '超级采矿',
     'Lightning Trap': '闪电陷阱',
     'Lightning Trap II': '闪电陷阱 II',
     'Frost Trap IV': '冰霜陷阱 IV',
@@ -3785,16 +3851,11 @@ var cnItems = {
     'Trap Layout 1': '陷阱布局 1',
     'Trap Layout 2': '陷阱布局 2',
     'Configure AutoJobs': '配置自动工作',
-    'Configure Generator State': '配置生成器状态',
+    'Configure Generator State': '配置发生器状态',
     'Spire Settings': '尖塔设置',
     'Well Fed': '营养充足',
     'Fluffy': '绒绒',
     'Scruffy': '污污',
-    'UberHotel': '超级宾馆',
-    'UberMansion': '超级豪宅',
-    'UberResort': '超级度假村',
-    'UberHouse': '超级宅院',
-    'UberHut': '超级小屋',
     'Map Corruption': '地图腐化',
     'Food/Wood/Metal Loot Breakdown': '食物/木头/金属 劫掠明细',
     'Breezy': '微风',
@@ -3806,7 +3867,6 @@ var cnItems = {
     'Register a PlayFab Account': '注册一个PlayFab账号',
     'Can only be run once!': '只能运行一次!',
     'Reward does not count toward Bone Portals or affect best He/Hr stat.': '奖赏不计入骨头购买传送门数据，也不计入最好的氦/小时统计。',
-    'This book will help your Trimps make more Trimps!': '这本书将帮助你的脆皮产生更多的脆皮！',
     'This book will teach your Trimps how to chop wood 60% faster!': '这本书将教你如何让脆皮伐木加速60%',
     'This book will teach your Trimps how to farm 60% faster!': '这本书将教你如何让脆皮耕作加速60%',
     'This book will teach your Trimps how to mine 60% faster!': '这本书将教你如何让脆皮挖矿加速60%',
@@ -3833,7 +3893,6 @@ var cnItems = {
     'Respec': '洗点',
     'Health': '生命值',
     'Attack': '攻击力',
-    'Megalumber': '超级砍伐',
     'Void Map': '虚空地图',
     'Corruption': '腐败',
     'The Magma': '岩浆',
@@ -3842,16 +3901,8 @@ var cnItems = {
     '': '',
     '': '',
     //1.3.地图
-    'Prismatic Palace': '棱镜宫殿',
     'Dimension of Rage': '暴怒维度',
     'Dimension of Anger': '愤怒维度',
-    'The Prison': '监狱',
-    'The Block': '障碍区',
-    'The Wall': '高墙',
-    'Wall': '墙',
-    'Trimple Of Doom': '末日神殿',
-    'Imploding Star': '爆炸之星',
-    'Tricky Paradise': '整蛊天堂',
     '': '',
     '': '',
     '': '',
@@ -3914,7 +3965,6 @@ var cnItems = {
     '': '',
 
     //未分类20190806
-    'Smithy': '铁匠铺',
     'Items': '物品',
     'Layout': '布局',
     'Load': '加载',
@@ -3984,7 +4034,6 @@ var cnItems = {
     'Browse All': '浏览所有',
     'Change Universe': '更改宇宙',
     'Choose a Category Below, or Search for a Setting/Keyword': '选择下面的类别，或者搜索设置/关键字',
-    'Each Trap allows you to catch 1 thing.': '每个陷阱允许您捕获一样东西。',
     'This is a building in your queue, you\'ll need to click "Build" to build it. Clicking an item in the queue will cancel it for a full refund.': '这是您队列中的一个建筑物，您需要单击“建造”来构建它。 单击队列中的项目将取消它以获得全额退款。',
     'Spawns in Maps': '在地图中出现',
     'Spawns in World': '在世界中出现',
@@ -4077,21 +4126,12 @@ var cnItems = {
     'or find Greensatellite in the Trimps Discord.': '或在脆皮 Discord中找到Greensatellite。',
     'If you would like to make a donation to help support the development of Trimps, you can now do so with PayPal! If you want to contribute but can\'t afford a donation, you can still give back by joining the community and sharing your feedback or helping others. Thank you either way, you\'re awesome!': '如果您想捐款以支持脆皮的开发，现在就可以使用PayPal！ 如果您想捐款但负担不起，您仍然可以通过加入社区，分享您的反馈或帮助他人来回馈社会。 无论哪种方式，谢谢你，你真棒！',
     'This is your save string. There are many like it but this one is yours. Save this save somewhere safe so you can save time next time.': '这是您的存档字符串。 有很多类似的东西，但这是你的。 将此保存到安全的地方，以便下次节省时间继续玩。',
-    'Increases your maximum food by 100%.': '增加你的食物上限100%。',
-    'Increases your maximum wood by 100%.': '增加你的木头上限100%。',
     'Switching to this option will spend the majority of your resources with each purchase.': '转换到这个选项将花费你的大部分资源在每次购买。',
     'Send your poor Trimps to certain doom in the battlefield. You\'ll get cool stuff though, they\'ll understand. (Hotkey: F': '将您可怜的脆皮带到战场上的某些厄运。 他们会明白，但是您会得到很棒的东西。 （热键：F',
     'You have been in this Zone ': '你一直在这个区域',
     'Amount': '数量',
     'Line Total': '总行数',
-    'You found plans for a shield! It even tells you how to upgrade it, if you have enough wood. That was nice of that Bad Guy.': '您已经找到了盾牌的计划！ 如果您有足够的木材，它甚至会告诉您如何升级。 那个坏家伙真好。',
-    'You found an ancient book titled Bloodlust. You should look at it or something.': '您发现一本古老的书，名为《嗜血》。 您应该看一下它。',
     'Allow the Trimps to start fighting on their own whenever their town gets overcrowded (Hotkey: A': '每当镇上人满为患时，让脆皮自己开始战斗（热键：A',
-    'You found plans for a Dagger! Fancy!': '你找到匕首的设计图了!真想不到!',
-    'You found plans for Boots! Swell!': '您找到了靴子的计划！ 隆起！',
-    'You found a book called Speedminer!': '您发现了一本书叫做采矿加速！',
-    'You found a book about Einstrimp!': '你找到一本关于爱因斯坦脆皮的书。!',
-    'You found a book called Speedlumber! It looks long.': '您找到了一本叫做砍伐加速的书！ 看起来很长。',
     'Your Trimps threw a party while you were out': '你不在家时，你的脆皮开了个聚会',
     'Starting Offline Progress... (Updates every 2000 processed loops': '开始同步离线进度……(每处理2000个循环更新一次',
     'Estimated completion in': '估计完成时间',
@@ -4110,8 +4150,6 @@ var cnItems = {
     'While you\'re in the past, everything will progress like normal, just much faster. The temporal displacement effects give you blurry vision and a headache (making fine control impossible), but you can force your Trimps to stop and run 1 map whenever you want for each 8 hours spent offline! Maps created this way will use your first preset settings at your selected level with Repeat for Items and Exit to World.': '过去，一切都会像往常一样进展，只是速度更快。 暂时的位移效果使您视力模糊和头痛（无法进行精细控制），但是只要您希望每8小时离线花费一次，就可以强制Trimps停止并运行1张地图！ 以这种方式创建的地图将在您选择的级别上使用您的第一个预设设置，并重复项目和退出世界。',
     'You can change your Offline Progress setting to suit your needs!': '您可以更改脱机进度设置以适合您的需求！',
     'You can Time Warp for 100% of the time you spent offline, up to a maximum of 24 hours.': '您可以将离线时间的100％时间扭曲，最多24小时。',
-    'A building where your Trimps can work out. Each Gym increases the amount of damage each trimp can block by 4.': '一个你可以锻炼脆皮的建筑。每个健身房增加每个脆皮可以阻挡的伤害4。',
-    'Increases your maximum metal by 100%.': '增加你的金属上限100%。',
     'It\'s kind of heavy for your Trimps, but they\'ll manage. Adds 3 attack to each soldier per level': '这对你的脆皮来说有点重，但他们会处理的。每升一级增加3个攻击',
     '- Bone': '- 骨头',
     '- Enemy': '- 敌人',
@@ -4163,16 +4201,11 @@ var cnItems = {
     'Send your misbehaving Trimps to the mines for some therapeutic work. Each Miner can find and smelt 0.78 bars of metal per second.': '',
     'Wood Per Second': '木头每秒产量',
     'Metal Per Second': '金属每秒产量',
-    'You found a book called Speedfarming! It looks delicious!': '您发现了一本书叫做耕作加速！ 看起来很好吃！',
     'Max Food': '食物上限',
     'Max Metal': '金属上限',
     'Max Wood': '木头上限',
     'Apparently your scientists are vegetarians. Hurray, more Turkimp for you!': '显然，您的科学家是素食主义者。 祝您好运！',
     'That Turkimp was delicious, and you have leftovers. If you set yourself to gather Food, Wood, or Metal while this buff is active, you can share with your workers to increase their gather speed by': 'Turkimp真好吃，而且剩饭剩菜了。如果您在这种抛光状态下设置自己收集食物，木材或金属，则可以与您的工人分享以提高他们的收集速度。',
-    'You found a book called Speedscience! What do you think it could possibly do?!': '您发现了一本书叫做研究加速！ 您认为它可能会做什么？',
-    'You found a book discussing tactics for better blocking!': '您发现了一本书，讨论了更好的封锁策略！',
-    'You found plans for Shoulderguards!': '您找到了护肩设计图！',
-    'A building where your Trimps can work out. Each Gym increases the amount of damage each trimp can block by 6.': '您的脆皮可以锻炼的建筑物。 每个健身房都会使每个修剪可以阻止的伤害增加6点。',
     'You can only purchase 1 Barn at a time.': '您一次只能购买1个谷仓。',
     'You can only purchase 1 Forge at a time.': '您一次只能购买1个锻造厂。',
     'You can only purchase 1 Shed at a time.': '您一次只能购买1个窝棚。',
@@ -4201,7 +4234,6 @@ var cnItems = {
     'The Turkimps escaped again': 'Turkimps又逃跑了',
     'Travel to the Map Chamber. Maps are filled with goodies, and for each max level map you clear you will gain a 20% stacking damage bonus for that Zone (stacks up to 10 times). (Hotkey: M': '去地图室。地图充满了好东西，每清除一张最高等级地图，你将获得该区域20%的堆叠伤害加成(堆叠最多10次)。(热键:M',
     'There\'s a Snimp in the pantry': '储藏室中有一个Snimp',
-    'You found 1 map fragments!': '您找到1个地图碎片！',
     'Fluffy wrote a novel while you were gone': '当你不在的时候，绒绒写了一本小说',
     'Your Spire Traps and Towers have also produced': '您的尖顶陷阱和防御塔也已产生',
     '! In addition, all Zones are now wort': '!此外，所有的区域现在都是wort',
@@ -4238,7 +4270,6 @@ var cnItems = {
     'Confirm Password': '重复密码',
     'Register': '注册',
     'For recovery, not required': '找回账号用，非必需',
-    "You found an ancient book about mining. With some research you should be able to teach the Trimps to mine!": '你发现了一本关于采矿的古老书籍。通过研究你可以教会脆皮们采矿了',
     'Housing': '房屋',
     'Territory Bonus': '领土奖励',
     'Select a Mod': '选择一个模式',
@@ -4249,7 +4280,6 @@ var cnItems = {
     'Spent': '花费',
     'Challenge has no end point, and grants an': '挑战没有终点，并在完成时获得',
     'additional': '额外的',
-    'This building costs helium to create.': '这座建筑需要耗费氦气来创造。',
     'which cost helium': '需要消耗氦',
     '. Make sure you can earn back what you spend!': '。请确保你有能力去赚回你花费的氦气!',
     'Make Purchase': '购买',
@@ -4313,33 +4343,10 @@ var cnItems = {
     '\n						You have': '你有',
     '\n					Carried': '携带栏',
     '\n					Temporary': '临时',
-    'You found a book that will teach you how to upgrade your Shield!': '你发现这本书会教你如何升级你的盾牌！',
-    'You found a book that will teach you how to upgrade your Dagger!': '你发现这本书会教你如何升级你的匕首!',
-    'You found a book that will teach you how to upgrade your Boots!': '你发现这本书会教你如何升级你的靴子!',
-	"You found a book that will teach you how to upgrade your Mace!": "你发现这本书会教你如何升级你的狼牙棒!",
-	"You found a book that will teach you how to upgrade your Helmet!": "你发现这本书会教你如何升级你的头盔!",
-	"You found a book that will teach you how to upgrade your Polearm!": "你发现这本书会教你如何升级你的战戟!",
-	"You found a book that will teach you how to upgrade your Pants!": "你发现这本书会教你如何升级你的裤子!",
-	"You found a book that will teach you how to upgrade your Battleaxe!": "你发现这本书会教你如何升级你的战斧!",
-	"You found a book that will teach you how to upgrade your Shoulderguards!": "你发现这本书会教你如何升级你的护肩!",
-	"You found a book that will teach you how to upgrade your Greatsword!": "你发现这本书会教你如何升级你的巨剑!",
-	"You found a book that will teach you how to upgrade your Breastplate!": "你发现这本书会教你如何升级你的胸铠!",
-	"You find an ancient book titled Coordination. Exciting.": "你发现了一本名为“协作”的古书。令人兴奋的。",
 	"A nice Forge would allow you to store more metal.": "一个锻造厂能让你存储更多的金属。",
-	"You found a crafting foreman! He will build buildings automatically for you!": "你找到了一个工头，他会帮你建造建筑",
 	"Your Trimps killed a lot of Bad Guys back there. It seems like you're getting the hang of this. However, the world is large, and there are many more Zones to explore. Chop chop.": "你的脆皮在那里杀死了很多坏人。 看起来你似乎已经弄清楚这是怎么一回事了。 然而这个世界很大，依然有去多区域需要探索，“砍”“砍”...",
-	"Hey look, plans for a new Gym!": "嗨，瞧，一个新的健身房设计图!",
-	"Hey, this book might be for you!": "嘿，这本书可能适合你!",
-	"You found plans for a mace!": "你找到了一个狼牙棒的图纸!",
-	"You found plans for a helmet!": "你找到了一个头盔的图纸！",
-	"You found plans for a Battleaxe!": "你找到了一个战斧的图纸！",
-	"You found plans for Shoulderguards!": "你找到了护肩的图纸！",
-	"You found plans for a Greatsword!": "你找到了巨剑的图纸！",
-	"You found plans for a Breastplate!": "你找到了胸铠的图纸！",
 	"You found a book about proper physical training!": "你找到了一本关于适当的体能训练的书！",
 	"By your orders, your scientists have begun to try and figure out how large this planet is.": "根据您的命令，您的科学家们已经开始尝试了解这个星球有多大。",
-	"You found plans for a Polearm!": "你找到了一个战戟的图纸！",
-	"You found plans for Pants!": "你找到了一个裤子的图纸！",
 	"You order your Trimps to search the area for the keys to your ship, but nobody finds anything. Bummer.": "您命令脆皮在该地区搜索您的船只的钥匙，但没有人找到任何东西。真令人失望。",
 	"Do you see that thing at the end of this zone? It's huge! It's terrifying! You've never seen anything like it before, but you know that it is a Blimp. How did you know that? Stop knowing things and go kill it.": "你看到尽头的那个东西了吗？多么的巨大！多么的可怕！ 你以前从未见过这样的东西,但是你知道这是一个脆皮飞艇。你是怎么知道的？别问为什么了，去杀死它！",
 	"Slow and steady wins the race. Unless you're racing someone who is actually trying.": "慢而稳事必成， 除非跟你竞争的人比你更努力。",
@@ -4358,7 +4365,6 @@ var cnItems = {
 	"Less Info": "更少信息",
 	"You have already attempted this Daily Challenge!": "你已经尝试过这个日常挑战！",
 	"Done": "完成",
-	"Pay a tribute of food to your Dragimp, increasing his appetite and his speed. He will gather gems 5% faster (compounding).": "向您的Dragimp进贡，增加他的胃口和速度。 他将更快地收集宝石5%（复合）。",
 	"World": "世界",
 	"A green background indicates that you could afford a map at this Extra Zone amount with your selected Special Modifier and Perfect Sliders. A gold background indicates that you could afford that map with your selected Special Modifier and some combination of non-perfect sliders.": "绿色背景表示您可以使用所选的特殊修饰符和“完美滑块”以该“额外区域”数量购买地图。 金色背景表示您可以使用所选的特殊修改器和一些不完美的滑块组合来负担该地图。",
 	"A huge storm has formed and daylight has become a luxury you have mostly forgotten about. Your Trimps seem to want to go back home, but you're pretty sure you're supposed to keep going this way, so you do. You're very close to the anomaly.": "一场巨大的风暴已经形成，白昼已经成为一种你几乎忘记的奢侈品。你的脆皮似乎想回家，但你很确定你们应该继续向前走，所以你们继续前行。你已经离异常现象非常近了。",
@@ -4383,7 +4389,6 @@ var cnItems = {
 	"All traces of hills and mountains have long since been trudged past. The world is flat and hostile. You wish your Trimps were better conversationalists.": "回头望去，越过的山的痕迹越来越长。这个世界是平的，并充满了敌意。你希望你的脆皮们能更健谈一些。",
 	"As your Trimps scavenge every last bit of helium from that Blimp, one of them begins freaking out. He runs around waving his little arms and making funny noises for a while, eats some dirt, then takes a little nap. You wonder if that's normal. Yeah... probably fine.": "当脆皮们从脆皮飞艇身上提取最后一点氦时，其中一只开始发狂。他跑来跑去，挥舞着他的小胳膊，其中一段时间发出了有趣的声音，吃了一些泥土，然后就开始小睡。你很好奇他是否还正常。是的……可能他还算不错。.",
 	"It's been a long time since you've found any blueprints in the maps. You start to wonder where those things even come from.": "你很久没有在地图上找到蓝图了。你开始怀疑这些东西是从哪里来的。",
-	"Egg": "蛋",
 
     //原样
     '': '',
@@ -4442,6 +4447,7 @@ var cnPrefix = {
     "Enemy attack in maps increased by ": '地图上的敌人攻击力增加 ',
 	"of all Helium, ": "所有的氦，",
 	" Nu from Heirlooms earned during the run": "上次传送后传家宝回收的虚空物质",
+    "Big Wall,": "巨墙，", //地图名称
     "Whispering ": "私语", //地图名称
     "Sandy ": "沙之", //地图名称
     "Little ": "小", //地图名称
@@ -4552,7 +4558,6 @@ var cnPrefix = {
     "The Black Bog,": "黑色泥沼，", //地图名称
     "The Block,": "障碍区，", //地图名称
     "The Wall,": "高墙，", //地图名称
-    "Big Wall,": "巨墙，", //地图名称
     "The Prison,": "监狱，", //地图名称
     "Imploding Star,": "爆炸之星，", //地图名称
     "Prismatic Palace,": "棱镜宫殿，", //地图名称
@@ -4867,6 +4872,18 @@ var cnExcludePostfix = [
 //小数点：([\d\.]+)
 //原样输出的字段：(.+)
 var cnRegReplace = new Map([
+    [/^Each Trap allows you to catch (.*) thing(s*).$/, '每个陷阱可以让您抓住$1个东西。'], //建筑
+    [/^Has room for (.*) more lovely Trimp(s*). All Trimp housing has enough workspaces for only half of the Trimps that can live there.$/, '可以容纳$1个可爱的脆皮。所有的小屋都有着充足的办公区域，因为只有一半的脆皮可以住在那里。'], //建筑
+    [/^A better house for your Trimps! Each house supports up to (.*) more Trimp(s*).$/, '脆皮们有更好的宅院可以住了！每个宅院可以容纳$1个脆皮。'], //建筑
+    [/^A pretty sick mansion for your Trimps to live in. Each Mansion supports (.*) more Trimp(s*).$/, '脆皮们有棒极了的豪宅可以住了！每个豪宅可以容纳$1个脆皮。'], //建筑
+    [/^A fancy hotel for many Trimps to live in. Complete with room service and a mini bar. Supports (.*) Trimp(s*).$/, '一个可以容纳大量脆皮的奢华宾馆。提供客房服务，并有一个小酒吧。每个宾馆可以容纳$1个脆皮。'], //建筑
+    [/^A huge resort for your Trimps to live in. Sucks for the ones still stuck in huts. Supports (.*) Trimp(s*).$/, '一个巨大的度假村，可供脆皮居住。还住在小屋里的脆皮简直弱爆了。每个度假村可以容纳$1个脆皮。'], //建筑
+    [/^A Gateway to another dimension, where your Trimps can sleep and work. Supports (.*) Trimp(s*).$/, '一个通往其他维度的裂隙，脆皮们可以在那边正常睡觉和工作。每个维度裂隙可以容纳$1个脆皮。'], //建筑
+    [/^Use your crazy, helium-cooled, easy-to-aim wormhole generator to create easy-to-travel links to other colonizable planets where your Trimps can sleep and work. Each supports (.*) Trimps.$/, '使用疯狂氦冷易瞄的虫洞发生器，建立易于通行的链接，通向其他的宜居星球，脆皮们可以在那边正常睡觉和工作。每个虫洞可以容纳$1个脆皮。'], //建筑
+    [/^Each collector allows you to harvest more of the power of your home star, allowing your Trimps to colonize a larger chunk of your solar system. Each supports (.*) Trimp(s*).$/, '每个汲能设施都可以让您从母星汲取更多的能量，支持脆皮们在太阳系中占领更多的地盘。每个汲能设施可以容纳$1个脆皮。'], //建筑
+    [/^Create a gigantic Warpstation, capable of housing tons of Trimps and instantly transporting them back to the home planet when needed. Supports (.*) Trimps.$/, '建造一个巨型的跃迁核心，可以容纳超大量的脆皮，并且在有需要的时候可以将它们传送回母星。每个跃迁核心可以容纳$1个脆皮。'], //建筑
+    [/^A building where your Trimps can work out. Each Gym increases the amount of damage each trimp can block by (.*).$/, '脆皮们解决问题的一个地方。每个健身房增加每个脆皮可以格挡的伤害量，数值为$1。'], //建筑
+    [/^You have purchased (.*) total Nurseries.$/, '您总共建造了$1个托儿所。'], //建筑
     [/^(.*)That Chickimp dropped (.*) food!$/, '$1脆皮小鸡掉落了 $2 食物！'], //特定敌人
     [/^(.*)You hear nearby Kittimps running away in fear and decide to check out their former home. There, you find a prey pile with (.*) food!$/, '$1附近的脆皮小猫害怕地跑开了，您决定去它们的窝里看看。接着您在那发现了 $2 食物！'], //特定敌人
     [/^(.*)That Grimp dropped (.*) wood!$/, '$1脆皮护林者掉落了 $2 木头！'], //特定敌人
@@ -4976,6 +4993,64 @@ var cnRegReplace = new Map([
     [/^Some real, heavy duty armor. Everyone looks badass in heavy duty armor. Adds (.*) health to each soldier per level$/, '真正的重型护甲。穿上这些的脆皮看起来吊爆了。每级增加每名士兵 $1 生命值'], //装备
     [/^A powerful ranged weapon. Your Trimps can do some damage with this sucker. Adds (.*) attack to each soldier per level$/, '强大的远程武器。这玩意用来搞事情会很称手。每级增加每名士兵 $1 攻击力'], //装备
     [/^A cozy and thick padded jacket that goes under the breastplate. Your Trimps think they're great! Adds (.*) health to each soldier per level.$/, '一件穿戴舒适，可以穿戴在胸甲内的厚棉衣。脆皮们爱死它了！每级增加每名士兵 $1 生命值。'], //装备
+    [/^(.*)You found plans for a shield! It even tells you how to upgrade it, if you have enough wood. That was nice of that Bad Guy.$/, '$1您发现了盾牌的蓝图！它甚至还有升级的说明，只需要木头就可以完成。那敌人真好。'], //世界解锁等
+    [/^(.*)You found plans for Boots! Swell!$/, '$1您发现了靴子的蓝图！太棒了！'], //世界解锁等
+    [/^(.*)You found plans for a Dagger! Fancy!$/, '$1您发现了匕首的蓝图！真意外！'], //世界解锁等
+    [/^(.*)You found plans for a mace!$/, '$1您发现了狼牙棒的蓝图！'], //世界解锁等
+    [/^(.*)You found plans for a helmet!$/, '$1您发现了头盔的蓝图！'], //世界解锁等
+    [/^(.*)You found plans for a Polearm!$/, '$1您发现了战戟的蓝图！'], //世界解锁等
+    [/^(.*)You found plans for Pants!$/, '$1您发现了裤子的蓝图！'], //世界解锁等
+    [/^(.*)You found plans for a Battleaxe!$/, '$1您发现了战斧的蓝图！'], //世界解锁等
+    [/^(.*)You found plans for Shoulderguards!$/, '$1您发现了护肩的蓝图！'], //世界解锁等
+    [/^(.*)You found plans for a Greatsword!$/, '$1您发现了巨剑的蓝图！'], //世界解锁等
+    [/^(.*)You found plans for a Breastplate!$/, '$1您发现了胸铠的蓝图！'], //世界解锁等
+    [/^(.*)You found an ancient book titled Bloodlust. You should look at it or something.$/, '$1您发现了一本古书，标题为《嗜血》。您应该看看它。'], //世界解锁等
+    [/^(.*)Hey, this book might be for you!$/, '$1嗨！这本书可能会适合您！'], //世界解锁等
+    [/^(.*)Hey look, plans for a new Gym!$/, '$1看哪，这是健身房的蓝图！'], //世界解锁等
+    [/^(.*)You find a small handcut gem that seems to coat you in a bubble of light when you hold it! You should have your Scientists research some way to polish it.$/, '$1您发现了一块手工切割的小宝石，握着它的时候，您的周围笼罩着一层光！您应该让科学家研究一下怎么抛光它。'], //世界解锁等
+    [/^(.*)This book is for your Trainers!$/, '$1这本书是给训练师们的！'], //世界解锁等
+    [/^(.*)Your equipment isn't going to cut it in this Universe. Better get someone to ugprade it for you!$/, '$1在这个宇宙中您的装备不足以切开它。最好找人升级一下您的装备！'], //世界解锁等
+    [/^(.*)Time to colonize the galaxy.$/, '$1我们的征途是星辰大海。'], //世界解锁等
+    [/^(.*)Trimp cave paintings predicted the existence of a book such as this one, you had no idea it actually existed. It smells dusty.$/, '$1脆皮的洞穴壁画指出了有这么一本书存在，但您没想到它真的存在。它闻起来满是灰尘。'], //世界解锁等
+    [/^(.*)You've found an ancient relic that looks like some sort of mechanical dish. Perhaps you could train your Trimps to use this to your advantage!$/, '$1您发现了一个机械圆盘形状的古代遗物。或许可以训练脆皮们将它利用起来！'], //世界解锁等
+    [/^(.*)This book will help your Trimps make more Trimps!$/, '$1这本书可以帮助脆皮们造更多的脆皮！'], //世界解锁等
+    [/^(.*)Your Scientists let you know that your Trimps won't understand the book, but they offer to hold on to it for you for later. How nice of them!$/, '$1科学家们表示脆皮们看不懂这本书的内容，但它们主动提出替您保管以备后用。它们真好！'], //世界解锁等
+    [/^(.*)You found an ancient book about mining. With some research you should be able to teach the Trimps to mine!$/, '$1您发现了一本古书，内容是关于采矿的。稍微研究一下应该就可以教会脆皮们采矿了！'], //世界解锁等
+    [/^(.*)Your Trimps simply do not understand what this book is talking about. It's blowing their minds. What is a 'Miner'\?!$/, '$1脆皮们完全不懂这本书在说什么。这本书弄得它们晕头转向。到底什么是“矿工”的？！'], //世界解锁等
+    [/^(.*)You found a book about proper physical training!$/, '$1您发现了一本书，内容是关于适当的体育锻炼！'], //世界解锁等
+    [/^(.*)You found a book about Einstrimp!$/, '$1您发现了一本书，内容是关于爱因X坦脆皮的！'], //世界解锁等
+    [/^(.*)Your Trimps think they're too good at Science to read your dumb book. They're already working on Portal technology!$/, '$1脆皮们觉得它们都是民科大神，对您的书完全不屑一顾。它们早都开始研究传送门科技了！'], //世界解锁等
+    [/^(.*)You found a book detailing the intricacies of solo exploration!$/, '$1您发现了一本书，详细说明了独自探险之类的复杂内容！'], //世界解锁等
+    [/^(.*)You found a book called Speedscience! What do you think it could possibly do\?!$/, '$1您发现了一本书，叫做《研究加速》！您觉得它能有什么样的用途？！'], //世界解锁等
+    [/^(.*)You found a book called Speedscience, but you haven't found anyone to read it. Such a shame.$/, '$1您发现了一本书，叫做《研究加速》，但您找不到人来读它。真可惜。'], //世界解锁等
+    [/^(.*)You found a book called Megascience! It seems to fade in and out of reality.$/, '$1您发现了一本书，叫做《超级研究》！它似乎在现实世界中时隐时现。'], //世界解锁等
+    [/^(.*)You found blueprints detailing how to upgrade your Warpstation. Blimey!$/, '$1您发现了一个蓝图，详细说明了升级跃迁核心的方法。天哪！'], //世界解锁等
+    [/^(.*)You find a smouldering book that looks like it was pushed from the core of this planet. Inside are drawings of Trimps performing rituals with Gems and Magma. It's very hot to the touch, but you take it with you as you haven't had new reading material in a while.$/, '$1您发现了一本冒烟的书，看起来就像是刚从行星核心被扔出来一样。书里面画着用宝石和岩浆进行仪式的脆皮。它摸起来仍然很烫，但您考虑到很久没有新的东西看了，还是把它带走了。'], //世界解锁等
+    [/^(.*)This book really doesn't help too much while you're dealing with the minerlessness of this dimension. Better let your scientists hold this one for you for a bit.$/, '$1这本书目前派不上什么用场，您还在忙着对付这个没有矿工的维度。还是让科学家们先帮您保管着吧。'], //世界解锁等
+    [/^(.*)You found a book called Speedfarming! It looks delicious!$/, '$1您发现了一本书，叫做《耕作加速》！它看起来很好吃！'], //世界解锁等
+    [/^(.*)You found a book called Megafarming! It indicates that you should actually water your crops. Brilliant!$/, '$1您发现了一本书，叫做《超级耕作》！它指出您应该灌溉作物。太聪明了！'], //世界解锁等
+    [/^(.*)You found a book called Speedlumber! It looks long.$/, '$1您发现了一本书，叫做《砍伐加速》！它看起来很长。'], //世界解锁等
+    [/^(.*)You found a book called Megalumber! The quote on the back reads 'How much wood could a Wood Trimp chop if a Wood Trimp could chop wood\?'$/, '$1您发现了一本书，叫做《超级砍伐》！后面的引语这么写着“若木脆皮可劈木，几何木可脆皮劈？”'], //世界解锁等
+    [/^(.*)You found a book called Speedminer!$/, '$1您发现了一本书，叫做《采矿加速》！'], //世界解锁等
+    [/^(.*)Your Scientist stares blankly at you for a moment, then slowly and quietly places the new book on the shelves.$/, '$1您的科学家茫然地看了您一会儿，然后慢慢地，安静地把这本新书放到了书架上。'], //世界解锁等
+    [/^(.*)Your Scientists stare blankly at you for a moment, then slowly and quietly place the new book on the shelves.$/, '$1您的科学家们茫然地看了您一会儿，然后慢慢地，安静地把这本新书放到了书架上。'], //世界解锁等
+    [/^(.*)You don't have any Scientists to not know how to handle this book, so everything's chill.$/, '$1您没有科学家，没有人知道怎么处理这本书，所以一切都僵住了。'], //世界解锁等
+    [/^(.*)You found a book called Megaminer! The front is really shiny and has a Trimp on it. Creepy, it seems to follow your eyes.$/, '$1您发现了一本书，叫做《超级采矿》！它的封面闪闪发光，上面还有一个脆皮。等等，好可怕，这玩意似乎在跟着您的视线动。'], //世界解锁等
+    [/^(.*)Your scientists appreciate the fact that you've managed to find another useless book, but they make sure to let you know it's still useless.$/, '$1对于您又搞到一本没用的书这事，科学家们还是很欣赏的，但它们还是要让您知道，这本书没啥用。'], //世界解锁等
+    [/^(.*)Your Trimps report a strange bronze object on the floor, and you decide to come look at it. It looks freaky, so you ask one of your Trimps to pick it up first. He instantly starts itching his face and babbling off a bunch of science stuff, so you let another Trimp touch it and he does the same. This seems to make your Trimps smarter than Scientists, but may cause side effects.$/, '$1脆皮们在地上发现了一个奇怪的铜制物件，您决定去看看。它看起来很怪异，所以您让一个脆皮将它拿起来试试。它立刻开始挠自己的脸，并且开始胡言乱语一堆跟科学有关的，您让另一个脆皮触碰了那个物件，然后它跟第一位也一样了。看起来它能让脆皮变得比科学家还聪明，但是可能会造成副作用。'], //世界解锁等
+    [/^(.*)You found a crafting foreman! He will build buildings automatically for you!$/, '$1您发现了一个正在锻造的工头！它会为您自动建造建筑！'], //世界解锁等
+    [/^(.*)You look down and see a green gem that seems to stare back. You pick it up and feel adrenaline surge through your body. Probably best to bring this back to the lab for some research.$/, '$1您往下看，看到一块绿色的宝石，看起来它是在回瞪着您。您将它拾了起来，立刻感到精神变得亢奋了。或许最好将它带回去做进一步的研究。'], //世界解锁等
+    [/^(.*)You look down and see a blue gem that seems to stare back. You pick it up and are immediately overwhelmed by feelings of intense power. You figure this could be used to focus your Portal Generator in this Universe.$/, '$1您往下看，看到一块蓝色的宝石，看起来它是在回瞪着您。您将它拾了起来，立刻被强大的力量感淹没了。您觉得这可以用来集中这个宇宙的传送门发生器的能量。'], //世界解锁等
+    [/^(.*)You found a map to a strange place. Better go kill stuff in it!$/, '$1您发现了通往一个奇怪地方的地图。是时候大开杀戒了！'], //世界解锁等
+    [/^(.*)This map is hot to the touch. Better go inside!$/, '$1这张地图非常烫手。最好进去看看！'], //世界解锁等
+    [/^(.*)You find an ancient book titled Coordination. Exciting.$/, '$1您发现了一本古书，标题为《协作》。真是激动人心。'], //世界解锁等
+    [/^(.*)You found a book discussing tactics for better blocking!$/, '$1您发现了一本书，里面详细讨论了更好地进行格挡的手段！'], //世界解锁等
+    [/^(.*)This egg looks crazy. Seriously, guys, come look at this crazy egg!$/, '$1这个蛋看起来很疯狂。真的，兄弟们，来看看这个疯狂的蛋！'], //世界解锁等
+    [/^(.*)There is something strange about this map. It doesn't seem to reflect any light at all, just pure darkness.$/, '$1这张地图很不对劲。看来它无法反射任何的光亮，完全就是纯粹的黑暗。'], //世界解锁等
+    [/^(.*)You found your first map! Travel to your map chamber to check it out.$/, '$1您发现了第一张地图！进入地图界面来瞧瞧。'], //世界解锁等
+    [/^(.*)You found (.*) map fragments!$/, '$1您发现了$2地图碎片！'], //世界解锁等
+    [/^(.*)You have cleared enough land to support (.*) more Trimps!$/, '$1您清理了足够多的土地，可以多容纳$2脆皮！'], //世界解锁等
+    [/^(.*)There sure is a lot of metal just tossed around in this Spire! You just found (.*) more!$/, '$1尖塔里真是随地都有很多金属！您发现了$2金属！'], //世界解锁等
     [/^(.*)You found a map to the Bionic Wonderland. Sounds fun!$/, '$1您发现了通往仿生仙境的地图。有点意思！'], //地图解锁等
     [/^(.*)You found a map to an even more advanced version of the Bionic Wonderland! Looks scary... Your scientists remind you that you can only carry 3 of these incredibly heavy, metallic maps at a time.$/, '$1您发现了通往更高级的仿生仙境的地图！看起来有点可怕……您的科学家提醒您，您只能同时携带3张仿生仙境的地图，因为它们由金属制造而成，实在太重了。'], //地图解锁等
     [/^(.*)Hey look, another baby RoboTrimp! You decide to add him to your collection. You now deal (.*)% extra damage thanks to your pets, and MagnetoShriek now removes (.*)% of an Improbability's attack$/, '$1您发现了另一个小脆皮机器人！您决定也带上它。您的脆皮现在可以额外造成$2%伤害，而且电磁尖啸现在可以将首领的攻击力降低$3%'], //地图解锁等
@@ -4985,18 +5060,58 @@ var cnRegReplace = new Map([
     [/^(.*)You have slain the Warden and taken his keys. How weird would it be if they fit in that key hole on the portal?$/, '$1您把典狱长给宰了，并拿走了他的钥匙。如果这钥匙能够用在传送门上的钥匙孔的话……那得有多奇怪？'], //地图解锁等
     [/^(.*)You've never been here before. Like, ever. This entire place felt cold and unfamiliar. Where are you\? Why have so many Trimps had to fall to get here\? You're suddenly angry, it's time to take a stand.$/, '$1您从未来过这里。从来都没有。这里很冷，很陌生。您在哪？凭什么要死了那么多脆皮才能到这里？您突然感觉非常愤怒，是时候站出来了。'], //地图解锁等
     [/^(.*)You have permanantly unlocked a new Perk, Relentlessness, which will remain unlocked through portals.$/, '$1您永久解锁了无情特权，通过传送门后仍然保留。'], //地图解锁等
-    [/^(.*)The world feels a little bit less angry as you fire off your handy Portal Generator. You can tell that somewhere in some dimension, a Megablimp is no more. In front of you, a green, shining box appears on the ground. In tiny writing on the box, you can make out the words 'Time portal. THIS SIDE UP'.$/, '$1您启动了传送门生成器，整个世界都感觉不那么愤怒了一些。您冥冥之中感知到在某个维度的某处，一个脆皮超级飞艇不复存在了。在您的面前出现了一个闪耀的绿色盒子，从盒子上的小字中，您读出了以下的内容：“时空传送门，此面向上”。'], //地图解锁等
-    [/^(.*)The world feels a little bit less angry as you fire off your handy Portal Generator. You can tell that somewhere in some dimension, a Megablimp is no more. In front of you, a blue, shining box appears on the ground. In tiny writing on the box, you can make out the words 'Time portal. THIS SIDE UP'.$/, '$1您启动了传送门生成器，整个世界都感觉不那么愤怒了一些。您冥冥之中感知到在某个维度的某处，一个脆皮超级飞艇不复存在了。在您的面前出现了一个闪耀的蓝色盒子，从盒子上的小字中，您读出了以下的内容：“时空传送门，此面向上”。'], //地图解锁等
-    [/^(.*)The world feels a little bit less angry as you fire off your handy Portal Generator. You can tell that somewhere in some dimension, a Megablimp is no more. In front of you, 45 Helium and a green, shining box appear on the ground. In tiny writing on the box, you can make out the words 'Time portal. THIS SIDE UP'.$/, '$1您启动了传送门生成器，整个世界都感觉不那么愤怒了一些。您冥冥之中感知到在某个维度的某处，一个脆皮超级飞艇不复存在了。在您的面前出现了45氦，以及一个闪耀的绿色盒子，从盒子上的小字中，您读出了以下的内容：“时空传送门，此面向上”。'], //地图解锁等
-    [/^(.*)The world feels a little bit less angry as you fire off your handy Portal Generator. You can tell that somewhere in some dimension, a Megablimp is no more. In front of you, 45 Radon and a blue, shining box appear on the ground. In tiny writing on the box, you can make out the words 'Time portal. THIS SIDE UP'.$/, '$1您启动了传送门生成器，整个世界都感觉不那么愤怒了一些。您冥冥之中感知到在某个维度的某处，一个脆皮超级飞艇不复存在了。在您的面前出现了45氡，以及一个闪耀的蓝色盒子，从盒子上的小字中，您读出了以下的内容：“时空传送门，此面向上”。'], //地图解锁等
+    [/^(.*)The world feels a little bit less angry as you fire off your handy Portal Generator. You can tell that somewhere in some dimension, a Megablimp is no more. In front of you, a green, shining box appears on the ground. In tiny writing on the box, you can make out the words 'Time portal. THIS SIDE UP'.$/, '$1您启动了传送门发生器，整个世界都感觉不那么愤怒了一些。您冥冥之中感知到在某个维度的某处，一个脆皮超级飞艇不复存在了。在您的面前出现了一个闪耀的绿色盒子，从盒子上的小字中，您读出了以下的内容：“时空传送门，此面向上”。'], //地图解锁等
+    [/^(.*)The world feels a little bit less angry as you fire off your handy Portal Generator. You can tell that somewhere in some dimension, a Megablimp is no more. In front of you, a blue, shining box appears on the ground. In tiny writing on the box, you can make out the words 'Time portal. THIS SIDE UP'.$/, '$1您启动了传送门发生器，整个世界都感觉不那么愤怒了一些。您冥冥之中感知到在某个维度的某处，一个脆皮超级飞艇不复存在了。在您的面前出现了一个闪耀的蓝色盒子，从盒子上的小字中，您读出了以下的内容：“时空传送门，此面向上”。'], //地图解锁等
+    [/^(.*)The world feels a little bit less angry as you fire off your handy Portal Generator. You can tell that somewhere in some dimension, a Megablimp is no more. In front of you, 45 Helium and a green, shining box appear on the ground. In tiny writing on the box, you can make out the words 'Time portal. THIS SIDE UP'.$/, '$1您启动了传送门发生器，整个世界都感觉不那么愤怒了一些。您冥冥之中感知到在某个维度的某处，一个脆皮超级飞艇不复存在了。在您的面前出现了45氦，以及一个闪耀的绿色盒子，从盒子上的小字中，您读出了以下的内容：“时空传送门，此面向上”。'], //地图解锁等
+    [/^(.*)The world feels a little bit less angry as you fire off your handy Portal Generator. You can tell that somewhere in some dimension, a Megablimp is no more. In front of you, 45 Radon and a blue, shining box appear on the ground. In tiny writing on the box, you can make out the words 'Time portal. THIS SIDE UP'.$/, '$1您启动了传送门发生器，整个世界都感觉不那么愤怒了一些。您冥冥之中感知到在某个维度的某处，一个脆皮超级飞艇不复存在了。在您的面前出现了45氡，以及一个闪耀的蓝色盒子，从盒子上的小字中，您读出了以下的内容：“时空传送门，此面向上”。'], //地图解锁等
     [/^(.*)Don't ever let anyone tell you that you didn't just kill that Megablimp. Because you did. As he melts away into nothingness, you notice a green, shining box on the ground. In tiny writing on the box, you can make out the words 'Time portal. THIS SIDE UP'.$/, '$1如果还有人说什么您没有击坠过脆皮超级飞艇的话，现在可以让他闭嘴了。因为您刚刚做到了。当飞艇一点一点融入虚无时，您在地上发现了一个闪耀的绿色盒子。从盒子上的小字中，您读出了以下的内容：“时空传送门，此面向上”。'], //地图解锁等
     [/^(.*)Don't ever let anyone tell you that you didn't just kill that Megablimp. Because you did. As he melts away into nothingness, you notice a blue, shining box on the ground. In tiny writing on the box, you can make out the words 'Time portal. THIS SIDE UP'.$/, '$1如果还有人说什么您没有击坠过脆皮超级飞艇的话，现在可以让他闭嘴了。因为您刚刚做到了。当飞艇一点一点融入虚无时，您在地上发现了一个闪耀的蓝色盒子。从盒子上的小字中，您读出了以下的内容：“时空传送门，此面向上”。'], //地图解锁等
     [/^(.*)You were able to extract 45 Helium Canisters from that Blimp! Now that you know how to do it, you'll be able to extract Helium from normal Blimps.$/, '$1您从飞艇上提取了45氦！从现在起您也可以从普通飞艇那边提取氦了。'], //地图解锁等
     [/^(.*)You were able to extract 45 Radon Vials from that Blimp! Now that you know how to do it, you'll be able to extract Radon from normal Blimps.$/, '$1您从飞艇上提取了45氡！从现在起您也可以从普通飞艇那边提取氡了。'], //地图解锁等
-
-
-
-
+    [/^(.*)Oh goodness, another Prism to polish!$/, '$1哇！又一个可以抛光的棱镜！'], //地图解锁等
+    [/^(.*)That thing dropped a book. Doesn't look like an ordinary book. Looks... blockier...$/, '$1那家伙掉落了一本书。看起来，不像寻常的书。看起来……更结实……'], //地图解锁等
+    [/^(.*)It's all shiny and stuff. You're pretty sure you've never seen a book this shiny.$/, '$1您很确信从未见过这么闪闪发亮的书。全是亮晶晶的东西。'], //地图解锁等
+    [/^(.*)You found a book that will teach you how to upgrade your Shield!$/, '$1您发现了一本书，看起来阅读后可以学会升级盾牌！'], //地图解锁等
+    [/^(.*)You found a book that will teach you how to upgrade your Dagger!$/, '$1您发现了一本书，看起来阅读后可以学会升级匕首！'], //地图解锁等
+    [/^(.*)You found a book that will teach you how to upgrade your Boots!$/, '$1您发现了一本书，看起来阅读后可以学会升级靴子！'], //地图解锁等
+    [/^(.*)You found a book that will teach you how to upgrade your Mace!$/, '$1您发现了一本书，看起来阅读后可以学会升级狼牙棒！'], //地图解锁等
+    [/^(.*)You found a book that will teach you how to upgrade your Helmet!$/, '$1您发现了一本书，看起来阅读后可以学会升级头盔！'], //地图解锁等
+    [/^(.*)You found a book that will teach you how to upgrade your Polearm!$/, '$1您发现了一本书，看起来阅读后可以学会升级战戟！'], //地图解锁等
+    [/^(.*)You found a book that will teach you how to upgrade your Pants!$/, '$1您发现了一本书，看起来阅读后可以学会升级裤子！'], //地图解锁等
+    [/^(.*)You found a book that will teach you how to upgrade your Battleaxe!$/, '$1您发现了一本书，看起来阅读后可以学会升级战斧！'], //地图解锁等
+    [/^(.*)You found a book that will teach you how to upgrade your Shoulderguards!$/, '$1您发现了一本书，看起来阅读后可以学会升级护肩！'], //地图解锁等
+    [/^(.*)You found a book that will teach you how to upgrade your Greatsword!$/, '$1您发现了一本书，看起来阅读后可以学会升级巨剑！'], //地图解锁等
+    [/^(.*)You found a book that will teach you how to upgrade your Breastplate!$/, '$1您发现了一本书，看起来阅读后可以学会升级胸铠！'], //地图解锁等
+    [/^(.*)You found a book that will teach you how to upgrade your Arbalest!$/, '$1您发现了一本书，看起来阅读后可以学会升级强弩！'], //地图解锁等
+    [/^(.*)You found a book that will teach you how to upgrade your Gambeson!$/, '$1您发现了一本书，看起来阅读后可以学会升级棉甲！'], //地图解锁等
+    [/^(.*)The copy of 'Speedexplorer' under these bushes will certainly be useful!$/, '$1树丛下发现的那份“探险家加速”复制品肯定能派上用场的！'], //地图解锁等
+    [/^(.*)The (.*) copies of 'Speedexplorer' under these bushes will certainly be useful!$/, '$1树丛下发现的$2份“探险家加速”复制品肯定能派上用场的！'], //地图解锁等
+    [/^(.*)Holy cowimp! A unique map!$/, '$1哦豁！一张独特地图！'], //地图解锁等
+    [/^(.*)You just made a map to The Block!$/, '$1您制造了障碍区地图！'], //地图解锁等
+    [/^(.*)Oh snap! Another unique map!$/, '$1天秀啊！又一张独特地图！'], //地图解锁等
+    [/^(.*)You just made a map to The Wall!$/, '$1您制造了高墙地图！'], //地图解锁等
+    [/^(.*)You just made a map to Big Wall!$/, '$1您制造了巨墙地图！'], //地图解锁等
+    [/^(.*)You found The Prison! You have a bad feeling about going in...$/, '$1您发现了监狱地图！您感觉进去后会有什么不好的事发生……'], //地图解锁等
+    [/^(.*)You just made a map to Big Wall!$/, '$1您制造了巨墙地图！'], //地图解锁等
+    [/^(.*)You found a map to an Imploding Star inside of a supercooled dimension. The temperature there is perfect!$/, '$1您在一个超冷的维度中发现了爆炸之星地图。那儿的温度刚刚好！'], //地图解锁等
+    [/^(.*)You found plans for a Mansion! Your Trimps will be pretty stoked$/, '$1您发现了豪宅的蓝图！脆皮们一定会很兴奋的'], //地图解锁等
+    [/^(.*)You found plans for a hotel! \(A decent hotel, too$/, '$1您发现了宾馆的蓝图！(相当棒的宾馆'], //地图解锁等
+    [/^(.*)This extremely technical book will teach anyone who can understand the big words how to make bigger huts.$/, '$1这本书极其专业，可以让理解能力强大的人学会建造更大的小屋。'], //地图解锁等
+    [/^(.*)This book talks about adding a second floor to your homes! Mind... blown...$/, '$1这本书讲述了建造第二层宅院的方法！神智……不清了……'], //地图解锁等
+    [/^(.*)This book will teach you how to make your Trimps share their mansions!$/, '$1这本书可以教会您让脆皮们共同居住在豪宅中的方法！'], //地图解锁等
+    [/^(.*)This book will teach you how to build smaller hotel rooms!$/, '$1这本书可以教会您将宾馆房间建造得更小的方法！'], //地图解锁等
+    [/^(.*)Wow! This book! It's so Resortsfull!$/, '$1哇哦！这本书可太多金了！'], //地图解锁等
+    [/^(.*)You found plans for a huge resort!$/, '$1您发现了度假村的蓝图！它可真大……'], //地图解锁等
+    [/^(.*)You found a key to Dimension ZZZ!$/, '$1您发现了通往ZZZ维度的钥匙！'], //地图解锁等
+    [/^(.*)You found a crystal powerful enough to create wormholes!$/, '$1您发现了一块充满能量的水晶，利用它的能量可以制造出黑洞！'], //地图解锁等
+    [/^(.*)You found plans for some sort of overly complicated solar panel.$/, '$1您发现了某种可以利用恒星能源的设施蓝图，它看起来超级复杂。'], //地图解锁等
+    [/^(.*)A book that teaches your Foremen a new skill. Riveting.$/, '$1这本书可以教会工头们新的技能。真是引人入胜。'], //地图解锁等
+    [/^(.*)You found blueprints for some sort of nursery that can harness more power from gems.$/, '$1您发现了某种托儿所的蓝图，它可以利用宝石的更多能量。'], //地图解锁等
+    [/^(.*)You found (.*) gems! Terrific!$/, '$1您发现了$2宝石！真是妙极了！'], //地图解锁等
+    [/^(.*)As expected, there was no Metal here.$/, '$1正如您所料，这里并没有金属。'], //地图解锁等
+    [/^(.*)You just found (.*) bars of metal! Convenient!$/, '$1您发现了$2金属！太实用了！'], //地图解锁等
+    [/^(.*)That guy just left (.*) food on the ground! Sweet!$/, '$1那家伙在地上留下了$2食物！真是太好啦！'], //地图解锁等
+    [/^(.*)You just found (.*) wood! That's pretty neat!$/, '$1您发现了$2木头！很好很强大！'], //地图解锁等
     [/^(.*), Z$/, '$1，区域'], //统计等
     [/^Progress: (.*) \/$/, '进度：$1 /'], //成就等
     [/^Complete Zone (\d+) in Universe$/, '通过区域 $1 于宇宙'], //成就等
@@ -5162,7 +5277,7 @@ var cnRegReplace = new Map([
     [/^(.*)You have completed the Life challenge! You have been rewarded with (.*) Helium, and you may repeat the challenge.$/, '$1您完成了生命挑战！您获取了 $2 氦，现在您又可以重新挑战了。'], //生命挑战完成信息
     [/^(.*)You have completed the Mapocalypse challenge! You have unlocked the 'Siphonology' Perk, and have been rewarded with (.*) Helium.$/, '$1您完成了天启地图挑战！您解锁了 虹吸学 特权，并且获取了 $2 氦。'], //天启地图挑战完成信息
     [/^(.*)You have completed the 'Coordinate' challenge! The Bad Guys on this world no longer fight together, and have regained their speed. You have unlocked the 'Coordinated' perk!$/, '$1您完成了 协同 挑战！世界上的敌人不再协同作战了，并且又可以获得快速效果了。您解锁了 协同 特权！'], //协同挑战完成信息
-    [/^Bionic Wonderland((?!level)[\sIVXLCDM]*)$/, '仿生仙境$1'], //粉碎挑战等
+    [/^Bionic Wonderland((?!level)[\s\(ZIVXLCDM]*)$/, '仿生仙境$1'], //粉碎挑战等
     [/^(.*)You have completed the Crushed challenge! You have been rewarded with (.*) Helium.$/, '$1您完成了粉碎挑战！您获取了 $2 氦。'], //粉碎挑战完成信息
     [/^(.*)You have completed the Slow challenge! You have found the patterns for the Gambeson and the Arbalest!$/, '$1您完成了迟缓挑战！您学会了制造棉甲和强弩！'], //迟缓挑战完成信息
     [/^(.*)You have completed the Nom challenge! You have been rewarded with (.*) Helium, and you may repeat the challenge.$/, '$1您完成了美味挑战！您获取了 $2 氦，现在您又可以重新挑战了。'], //美味挑战完成信息
@@ -5959,7 +6074,6 @@ var cnRegReplace = new Map([
     [/^([\d\.]+) Trimps$/, '$1 脆皮'],
     [/^(.+) \/ (.+) ticks \($/, '$1 \/ $2 \('],
     [/^(.+) seconds processed in (.+) seconds \((.+) speed$/, '$2秒内处理了$1秒（$3 速度'],
-    [/^You have cleared enough land to support (.+) more Trimps!$/, '您已经清理了足够的土地来容纳$1个以上的脆皮！'],
     [/^([\s\d]+)\((\d+) Secs?$/, '$1 \($2 秒'],
     [/^([\s\d]+)\((\d+) Mins? (\d+) Secs?$/, '$1 \($2 分 $3 秒'],
     [/^\n							Buy (\d+) Hours \((\d+) bones\)\n						$/, '购买 $1 小时 \($2 骨头\)'],
@@ -5968,9 +6082,7 @@ var cnRegReplace = new Map([
 	[/^Check\sTraps(.+)$/, '检查陷阱$1'],
     [/^While you were away, your Trimps were able to produce (.+) wood.$/, '当你离开时，你的脆皮生产了$1种木材。'],
     [/^While you were away, your Trimps were able to produce (.+) food, (.+) wood, (.+) metal, (.+) gems, and (.+) fragments.$/, '当你离开时，你的脆皮生产了$1食物，$2木材，$3金属，$4宝石和$5碎片。'],
-    [/^You just found (.+) bars of metal! Convenient!$/, '你发现了$1金属棒!方便！'],
     [/^You just found (.+) wood! That's pretty neat!$/, '你发现了$1木头!这非常棒!'],
-    [/^That guy just left (.+) food on the ground! Sweet!$/, '那家伙刚刚在地上留下了$1的食物！ 甜蜜！'],
     [/^(\d+) workspace$/, '$1 工作空间'],
     [/^(\d+) Mins (\d+) Secs$/, '$1 分 $2 秒'],
     [/^(\d+) Min (\d+) Secs$/, '$1 分 $2 秒'],
@@ -6003,9 +6115,6 @@ var cnRegReplace = new Map([
     [/^Knowledge Tower ([I,V,X,L,C,D,M]+)$/, '知识塔 $1'],
     [/^(.+)\/sec$/, '$1\/秒'],
 	[/^This book will teach your soldiers how to utilize the buddy system. Fighting will now require (.+) more Trimps \(rounded up\), but attack and health will grow for each new Trimp.$/, '这本书将教你的士兵如何利用伙伴系统。 战斗现在需要$1脆皮（四舍五入），但每个新脆皮的攻击和生命都会增长。'],
-	[/^Has room for (.+) more lovely Trimps. All Trimp housing has enough workspaces for only half of the Trimps that can live there.$/, '有更多的空间容纳$1个可爱的脆皮。所有的脆皮住房有足够的工作空间，只有一半的脆皮可以住在那里。'],
-	[/^A better house for your Trimps! Each house supports up to (.+) more Trimps.$/, '给您的脆皮更好的宅院！ 每个宅院最多可支持$1个脆皮。'],
-	[/^A pretty sick mansion for your Trimps to live in. Each Mansion supports (.+) more Trimps.$/, '一个棒极了的豪宅，让你的脆皮住在里面。 每个可以住$1脆皮'],
 	[/^Add \((.+) Nu$/, '添加 ($1虚空物质'],
 	[/^Replace \((.+) Nu$/, '替换 ($1虚空物质'],
 	[/^You have spent (.+) Helium on this Perk$/, '你已经花费 $1 氦在这个附带特权上'],
@@ -6033,12 +6142,7 @@ var cnRegReplace = new Map([
 	[/^Trimp max damage increased by (.+) \(additive\).$/, '脆皮最大伤害增加$1(附加的)'],
 	[/^Gain (.+) more resources from gathering$/, '收集获得的资源增加$1'],
 	[/^(.+) of Bad Guys in the first (\d+) rows of the World will be mutated into Mutimps.$/, '世界前$2行的敌人有$1概率突变为Mutimps'],
-	[/^A fancy hotel for many Trimps to live in. Complete with room service and a mini bar. Supports (.+) Trimps.$/, '看上去不错的宾馆，成为很多脆皮的住所。提供客房服务和一个迷你酒吧完成。 可以住 $1 脆皮。'],
-	[/^A huge resort for your Trimps to live in. Sucks for the ones still stuck in huts. Supports (.+) Trimps.$/, '对于你的脆皮来说，这是一个巨大的度假村。只能住在小屋里的脆皮简直弱爆了。 可以住 $1 脆皮。'],
-	[/^A Gateway to another dimension, where your Trimps can sleep and work. Supports (.+) Trimps.$/, '通往另一个维度的维度裂隙，你的脆皮可以睡觉和工作. 可以住 $1 脆皮。'],
 	[/^Use your crazy, helium-cooled, easy-to-aim wormhole generator to create easy-to-travel links to other colonizable planets where your Trimps can sleep and work. Each supports (.+) Trimps.$/, '使用你疯狂的，氦冷却，容易瞄准的虫洞发生器创建易于旅行的链接到其他可定居的行星，在那里你的脆皮可以睡觉和工作。 每个可以住 $1 脆皮. '],
-	[/^Each collector allows you to harvest more of the power of your home star, allowing your Trimps to colonize a larger chunk of your solar system. Each supports (.+) Trimps.$/, '每个汲能设施都可以让你收获更多的母星之力，让你的脆皮能够在你的太阳系中占据更大的比例。 每个可以住 $1 脆皮.'],
-	[/^Each Trap allows you to catch (.+) things.$/, '每个陷阱都能让你抓住 $1 东西.'],
 	[/^A building where your Trimps can work out. Each Gym increases the amount of damage each trimp can block by (.+) and increases the base block of all Gyms by 15% \(compounding\).$/, '一个你可以锻炼脆皮的建筑。每个健身房都可以增加每个脆皮$1格挡的伤害量，并且提高所有健身房15%(复合)基础格挡'],
 	[/^(\d+)% Map Bonus$/, '$1% 地图奖励'],
 	[/^(\d+) remaining enemy?(ies)? in your current Zone are holding Dark Essence. Your current enemy at this Zone would be worth (.+) Essence if it were holding any.$/, '当前区域剩余 $1 敌人拥有黑暗精华。如果当前敌人拥有黑暗精华，它会掉落 $3'],
