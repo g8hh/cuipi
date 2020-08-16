@@ -13,6 +13,131 @@ var cnItems = {
     '.': '。',
     '"': '',
     //段末标点处理结束
+    //主界面
+    'Gather': '采集',
+    'Chop': '砍伐',
+    'Mine': '采矿',
+    'Science': '科学点',
+    'Research': '研究',
+    'Fragments': '碎片',
+    'Well Fed': '营养充足',
+    'Fluffy': '绒绒',
+    'Scruffy': '污污',
+    'Trapping (': '捕捉中 (',
+    'Story': '故事',
+    'Loot': '劫掠',
+    'Unlocks': '解锁',
+    'Combat': '战斗',
+    'Message Config': '消息设置',
+    'AutoTraps On': '开启自动陷阱捕捉',
+    'AutoTraps Off': '关闭自动陷阱捕捉',
+    'Build': '建造',
+    'Nothing in queue...': '队列空无一物……',
+    'All': '全部',
+    'Buildings': '建筑',
+    'Jobs': '工作',
+    'Upgrades': '升级',
+    'Equipment': '装备',
+    'Mastery': '专精',
+    'Nature': '自然',
+    'Spire': '尖塔',
+    'Custom': '自定义',
+    'Max': '最大',
+    'Buy Max': '购买最大数量',
+    'Switching to this option will spend the majority of your resources with each purchase.': '切换为此选项，则每次购买都会使用绝大部分的资源。',
+    'AutoStructure On': '开启自动建造',
+    'AutoStructure Off': '关闭自动建造',
+    'Click twice to customize.': '双击以自定义。',
+    'Configure AutoStructure': '自动建造设置',
+    'Enabling this will cause your Trimps to automatically add a storage building to the queue if you reach max capacity. This will work on and offline if enabled.': '启用后，当资源到达上限时，自动建造相应的存储建筑。在线和离线时都可以生效。',
+    'AutoStorage On': '开启自动存储',
+    'AutoStorage Off': '关闭自动存储',
+    'AutoJobs On': '开启自动工作',
+    'AutoJobs Off': '关闭自动工作',
+    'Configure AutoJobs': '自动工作设置',
+    'Fire Trimps': '解雇脆皮',
+    'AutoGold': '自动金色升级',
+    'AutoGold Off': '关闭自动金色升级',
+    'AutoGold Helium': '金色升级氦',
+    'AutoGold Battle': '金色升级战斗',
+    'AutoGold Voidlium': '金色升级虚空氦',
+    'AutoGold Voidtle': '金色升级虚空战斗',
+    'AutoGold Radon': '金色升级氡',
+    'AutoGold Voidon': '金色升级虚空氡',
+    'AutoPrestige': '自动重铸装备',
+    'AutoPrestige Off': '关闭自动重铸',
+    'AutoPrestige All': '自动重铸全部',
+    'Weapons Only': '只重铸武器',
+    'Weapons First': '优先重铸武器',
+    'AutoUpgrade': '自动升级',
+    'AutoUpgrade On': '开启自动升级',
+    'AutoUpgrade Off': '关闭自动升级',
+    'AutoEquip On': '开启自动装备',
+    'AutoEquip Off': '关闭自动装备',
+    'Configure AutoEquip': '自动装备设置',
+    'Respec Masteries': '专精洗点',
+    'Respec (': '洗点(',
+    'Your next mastery costs': '下一个专精花费',
+    'No Formation': '无阵型',
+    'Clear your formations, return to normal stats, and derp around the battlefield. (Hotkeys: X or': '取消阵型，恢复正常状态，在战场上瞎转悠。(快捷键：X或',
+    'Heap Formation': '堆叠阵型',
+    'Trimps gain 4x health but lose half of their attack and block. (Hotkeys: H or': '脆皮生命值变为4倍，但减少一半的攻击力和格挡。(快捷键：H或',
+    'Dominance Formation': '支配阵型',
+    'Trimps gain 4x attack but lose half of their health and block. (Hotkeys: D or': '脆皮攻击力变为4倍，但减少一半的生命值和格挡。(快捷键：D或',
+    'Barrier Formation': '屏障阵型',
+    'Trimps gain 4x block and 50% block pierce reduction but lose half of their health and attack. (Hotkeys: B or': '脆皮格挡变为4倍，并且使敌人的格挡穿透伤害减少50%，但减少一半的生命值和攻击力。(快捷键：B或',
+    'Scryer Formation': '占卜者阵型',
+    'DMG': '攻击力',
+    'BLK': '格挡',
+    'MagnetoShriek': '电磁尖啸',
+    'Crushing Blows': '粉碎之击',
+    'Your current health is higher than your block, making you vulnerable to critical strikes from your enemies. Better fix that...': '您目前的生命值高于格挡，敌人的攻击可能造成暴击。最好修正之……',
+    'AutoFight On': '开启自动战斗',
+    'AutoFight Off': '关闭自动战斗',
+    'Maps': '地图',
+    'Configure Maps': '地图设置',
+    'Repeat Map': '重复地图',
+    'Repeat On': '开启重复',
+    'Repeat Off': '关闭重复',
+    'Heirlooms': '传家宝',
+    'Trade': '交易',
+    'Finish Daily': '完成日常',
+    'Exit Spire': '退出尖塔',
+    'Show/Hide Map Config': '显示/隐藏地图设置',
+    'Map Preset': '地图预设',
+    'Save Map Settings': '保存地图设置',
+    'Reset Map Settings': '重置地图设置',
+    'Recycle All': '回收所有地图',
+    'Difficulty': '难度',
+    'Biome': '生物群落',
+    'Random': '随机',
+    'Special Modifier': '特殊修饰符',
+    'Perfect Sliders': '完美滑块',
+    'Extra Zones': '额外区域',
+    'Items': '物品',
+    'Resource': '资源',
+    'Continue': '继续',
+    'Change Universe': '切换宇宙',
+    'Earned All Time': '总获取量',
+    'Spent on Perks': '用于特权',
+    'Portals Used': '传送次数',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    //主界面结束
     //建筑相关
     'Trap': '陷阱',
     'Barn': '谷仓',
@@ -693,19 +818,77 @@ var cnItems = {
     '!. All enemy damage hits your Prismatic Shield before Health, and Prismatic Shield always regenerates to full after an enemy is killed.': '！所有敌人必须先击穿棱镜护盾后才能开始减少脆皮生命值，而且在一个敌人被击杀后，棱镜护盾将恢复全满。',
     'This book will increase the block gained from each Gym by 50%.': '这本书可以使每个健身房增加的格挡数值提升50%。',
     'This book details the fine art of teaching your foremen to actually do stuff instead of just sitting around. When asked, your foremen will start construction on a new Trap if the queue is empty.': '这本书详细介绍了让工头们干活的艺术，现在他们不会再无所事事了。开启相应功能后，在队列为空时，工头们将自动建造陷阱。',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
+    'This book explains methods of using a shield to actually block damage. The current shield will need to be completely destroyed and rebuilt, but it will give block instead of health.': '这本书说明了使用盾牌来格挡伤害的方法。目前的盾牌将被彻底摧毁，需要重新制造才行，重新制造后盾牌将提供格挡，而不再提供生命值。',
+    'This is permanent': '此升级在下次传送前永久生效',
+    'Your Shield Must be Prestige III or higher': '您至少需要重铸等级 III或者更高的盾牌才能购买此升级',
+    'This book will teach your Farmers, Lumberjacks, Miners, Scientists, and Explorers to all be twice as productive.': '这本书将使农民，伐木工，矿工，科学家和探险家的产量翻倍。',
+    'Your top scientists are pretty sure this is a Dragimp egg. They know Dragimps love shiny things, maybe it\'ll come out for some gems.': '您的顶尖科学家非常确信，这就是一个脆皮龙蛋。它们知道，脆皮龙最爱闪闪发光的东西，也许它可以帮忙寻找宝石。',
+    'Once again, this Prism will need to be polished before it can offer your Trimps any protection. After it\'s polished, this Prism will grant an additional 50% Prismatic Shield to your Trimps!': '棱镜又需要抛光了，不然没法提供保护。抛光后，棱镜可以额外增加50%的棱镜护盾！',
+    'Your scientists are pissed. Not because of anything you did, but this gem seems to be making them mad. It\'ll take some research, but you think you can create a map to the place the gem originated from.': '您的科学家们看起来怒气冲冲。您什么也没做，显然是那块宝石搞的鬼了。您需要点时间来研究它，您相信可以借此制造出通往宝石发源地的地图。',
+    'Unsurprisingly, that Rage Gem you brought back has everyone up the walls. You should probably hurry up and figure out a way to extract the map from inside before your Scientists end up killing eachother.': '不出所料，您带回的暴怒宝石让所有人都抓狂了。您得抓紧时间从中提取出地图，不然科学家们迟早要开始自相残杀了。',
+    'This book will cause each gym you purchase to increase the block provided by all Gyms by 5%. Each consecutive level of this upgrade will increase the block provided by an additional 1%.': '这本书将使每个健身房都可以提升所有健身房5%的格挡。后续的此升级每级使格挡效果再增加1%。',
+    'The extra block provided compounds per Gym.': '每个健身房获得的额外格挡之间相互叠乘。',
+    'Formations': '阵型',
+    'The air may be filled with pollution, but your Trimps seem to be getting smarter and a battle technique from what could only be a past life has crept into your memory. This would probably be a good opportunity to teach it to your Trimps. Once researched, you will be able to enter the \'Heap Formation\'. This can be toggled to increase your Trimps\' health by 4x, but reduce block and attack by half.': '空气仍然污浊，但脆皮们似乎变得更聪明了，而此时，一种显然只能来自于前世的战技悄悄地从您的记忆中浮现了出来。如果要把这教给脆皮的话，现在可能就是个好时机。研究后您就可以使用"堆叠阵型"了。切换到此阵型后，您的脆皮生命值将变为4倍，但减少一半的格挡和攻击力。',
+    'Another formation has crept back into your memory. Where are these coming from? Who are you? Who cares, this one will allow your Trimps to deal 4x damage at the cost of half health and block.': '另一个阵型又悄悄地在您的记忆中浮现了。这是从哪来的？您又是谁？管他呢，此阵型可以使您的脆皮攻击力变为4倍，代价是生命值和格挡减半。',
+    'Woah, you just remembered that all Trimps lifting their shields in the same direction at the same time can produce a nice protecting wall. Seems like common sense now that you thought of it. This formation increases block by 4x and cuts the amount of block that enemies can pierce by 50%, at the cost of half attack and health.': '哇哦，您刚想起所有脆皮同时同方向举起盾牌能产生一个很好的防护墙。现在想想，这不是常识嘛。此阵型可以使您的脆皮格挡变为4倍，并且使敌人的格挡穿透伤害减少50%，但代价是减少一半的攻击力和生命值。',
+    'Miners': '矿工',
+    'You really don\'t like reading books, but it seems better than mining yourself.': '您其实并不喜欢看书，但是，这总比要自己挖矿来的好。',
+    'Scientists': '科学家',
+    'You really don\'t believe it, but that book indicates that Trimps can be smart. Better read it and find out how.': '那本书指出脆皮也可以变聪明，其实您是真不信的。但是最好还是看看它，看看需要怎么做。',
+    'Trainers': '训练师',
+    'This book holds all of the secrets of upper management. Train your Trimps to train other Trimps.': '这本书包含了高层管理的所有秘密。还可以让脆皮学会训练其他脆皮。',
+    'Explorers': '探险家',
+    'This book will allow you to hire trimps who can create map fragments for you!': '这本书将允许您雇佣能为您制造地图碎片的脆皮！',
+    'Magmamancers': '岩浆巫师',
+    'Your scientists think they can study this book to figure out how to train Trimps as Magmamancers. According to your scientists, according to legend, Magmamancers require gems instead of food as sustainance and can increase the rate of Metal gathering more and more as they stay on the same Zone.': '科学家们认为，它们可以通过研究这本书，弄明白将脆皮训练为岩浆巫师的方法。根据科学家们的说法，传说中岩浆巫师需要宝石而不是食物来供养，而且随着它们在同一区域的时间越来越长，金属的产量也会越来越高。',
+    'This book will increase the space gained from each Hut by 100%.': '这本书将使每个小屋提供的空间增加100%。',
+    'This book will increase the space gained from each House by 100%.': '这本书将使每个宅院提供的空间增加100%。',
+    'This book will increase the space gained from each Mansion by 100%.': '这本书将使每个豪宅提供的空间增加100%。',
+    'This book will increase the space gained from each Hotel by 100%.': '这本书将使每个宾馆提供的空间增加100%。',
+    'This book will increase the space gained from each Resort by 100%.': '这本书将使每个度假村提供的空间增加100%。',
+    'You may not want to do this right away.': '您可能不会想马上就这么做的。',
+    'Researching this will prestige your shield. This will bring your shield to level 1 and vastly increase the cost of further upgrades, but will vastly increase the amount of stats given.': '此升级将重铸盾牌。使盾牌回到1级，升级成本极大增加，但同时效果也极大增加。',
+    'Researching this will prestige your dagger. This will bring your dagger to level 1 and vastly increase the cost of further upgrades, but will vastly increase the amount of attack given.': '此升级将重铸匕首。使匕首回到1级，升级成本极大增加，但同时提升的攻击力也极大增加。',
+    'Researching this will prestige your boots. This will bring your boots to level 1 and vastly increase the cost of further upgrades, but will vastly increase the amount of health given.': '此升级将重铸靴子。使靴子回到1级，升级成本极大增加，但同时提升的生命值也极大增加。',
+    'Researching this will prestige your mace. This will bring your mace to level 1 and vastly increase the cost of further upgrades, but will vastly increase the amount of attack given.': '此升级将重铸狼牙棒。使狼牙棒回到1级，升级成本极大增加，但同时提升的攻击力也极大增加。',
+    'Researching this will prestige your helmet. This will bring your helmet to level 1 and vastly increase the cost of further upgrades, but will vastly increase the amount of health given.': '此升级将重铸头盔。使头盔回到1级，升级成本极大增加，但同时提升的生命值也极大增加。',
+    'Researching this will prestige your polearm. This will bring your polearm to level 1 and vastly increase the cost of further upgrades, but will vastly increase the amount of attack given.': '此升级将重铸战戟。使战戟回到1级，升级成本极大增加，但同时提升的攻击力也极大增加。',
+    'Researching this will prestige your pants. This will bring your pants to level 1 and vastly increase the cost of further upgrades, but will vastly increase the amount of health given.': '此升级将重铸裤子。使裤子回到1级，升级成本极大增加，但同时提升的生命值也极大增加。',
+    'Researching this will prestige your axe. This will bring your axe to level 1 and vastly increase the cost of further upgrades, but will vastly increase the amount of attack given.': '此升级将重铸战斧。使战斧回到1级，升级成本极大增加，但同时提升的攻击力也极大增加。',
+    'Researching this will prestige your shoulderguards. This will bring your shoulderguards to level 1 and vastly increase the cost of further upgrades, but will vastly increase the amount of health given.': '此升级将重铸护肩。使护肩回到1级，升级成本极大增加，但同时提升的生命值也极大增加。',
+    'Researching this will prestige your greatsword. This will bring your greatsword to level 1 and vastly increase the cost of further upgrades, but will vastly increase the amount of attack given.': '此升级将重铸巨剑。使巨剑回到1级，升级成本极大增加，但同时提升的攻击力也极大增加。',
+    'Researching this will prestige your breastplate. This will bring your breastplate to level 1 and vastly increase the cost of further upgrades, but will vastly increase the amount of health given.': '此升级将重铸胸铠。使胸铠回到1级，升级成本极大增加，但同时提升的生命值也极大增加。',
+    'Researching this will prestige your arbalest. This will bring your arbalest to level 1 and vastly increase the cost of further upgrades, but will vastly increase the amount of attack given.': '此升级将重铸强弩。使强弩回到1级，升级成本极大增加，但同时提升的攻击力也极大增加。',
+    'Researching this will prestige your gambeson. This will bring your gambeson to level 1 and vastly increase the cost of further upgrades, but will vastly increase the amount of health given.': '此升级将重铸棉甲。使棉甲回到1级，升级成本极大增加，但同时提升的生命值也极大增加。',
+    'This book will teach your trimps how to be 10% more efficient at making baby Trimps!': '这本书将使脆皮造宝宝的速度更快，提高10%的繁殖速度！',
+    'This book will teach your Trainers to increase block by an additional 5%!': '这本书将使训练师额外增加5%的格挡！',
+    'This book will teach you how to be twice as productive in everything you do! Hurray!': '这本书将使您自己做事情的效率翻倍！万岁！',
+    'Note that this applies only to your productivity, not workers.': '请注意，此升级只对您自己生效，对工人无效。',
+    'This book will teach your Trimps how to mine 25% faster!': '这本书将使脆皮采矿速度提高25%！',
+    'This book will teach your Trimps how to cut wood 25% faster!': '这本书将使脆皮砍伐速度提高25%！',
+    'This book will teach your Trimps how to farm 25% faster!': '这本书将使脆皮耕作速度提高25%！',
+    'This book will teach your Trimps how to science things 25% faster!': '这本书将使脆皮研究速度提高25%！',
+    'This book will teach your Trimps how to explore 300% more efficiently!': '这本书将使脆皮探险效率提高300%！',
+    'This book will teach your Trimps how to mine 50% faster!': '这本书将使脆皮采矿速度提高50%！',
+    'This book will teach your Trimps how to mine 60% faster!': '这本书将使脆皮采矿速度提高60%！',
+    'This book will teach your Trimps how to chop wood 50% faster!': '这本书将使脆皮砍伐速度提高50%！',
+    'This book will teach your Trimps how to chop wood 60% faster!': '这本书将使脆皮砍伐速度提高60%！',
+    'This book will teach your Trimps how to farm 50% faster!': '这本书将使脆皮耕作速度提高50%！',
+    'This book will teach your Trimps how to farm 60% faster!': '这本书将使脆皮耕作速度提高60%！',
+    'This book will teach your Trimps how to science things 50% faster!': '这本书将使脆皮研究速度提高50%！',
+    'This book will teach your Trimps how to science things 60% faster!': '这本书将使脆皮研究速度提高60%！',
+    'Foremany': '大群工头',
+    'Repurpose some of those RoboTrimps you found into an army of Robotic Foremen. Permanently adds 50000 Foreman to your town to aid in construction.': '把一些脆皮机器人改造成机械工头。永久增加50000工头。',
+    'AutoJobs': '自动工作',
+    'Unlock the Job Automator, the envy of Human Resourceimps across the Universe.': '解锁自动工作功能，全宇宙的脆皮HR们都会羡慕您的。',
+    'AutoStructure': '自动建造',
+    'Unlock the AutoStructure tool, allowing you to automatically purchase structures. In addition, all housing and battle territory bonuses will come with ready-to-fight Trimps inside (Not including the Dimensional Generator)!': '解锁自动建造功能，可以自动建造建筑。另外，所有住房和战斗领土加成在增加脆皮上限的同时，也会同时增加相应数量的脆皮(不包括维度发生器)！',
+    'Unlock the AutoStructure tool, allowing you to automatically purchase structures. In addition, all housing and battle territory bonuses will come with ready-to-fight Trimps inside!': '解锁自动建造功能，可以自动建造建筑。另外，所有住房和战斗领土加成在增加脆皮上限的同时，也会同时增加相应数量的脆皮！',
+    'Geneticistassist': '遗传学家助手',
+    'Unlock Geneticistassist, the most powerful Geneticist Automator in this side of the galaxy!': '解锁遗传学家助手，在这边星系中是最强大的遗传学家管理者！',
+    'DoubleBuild': '二重建造',
+    'Stacked items in the Building Queue will be constructed two at a time.': '可以同时建造两个建筑。',
     //其他升级相关结束
     //游戏统计相关
     'Dead Trimps': '脆皮阵亡数',
@@ -1478,7 +1661,44 @@ var cnItems = {
     'Delete Save': '删除存档',
     'Delete your save and start fresh. Your Trimps will not be happy.': '删除存档重新开始。您的脆皮可能不会对这个决定高兴的。',
     //游戏设置相关结束
+    //离线相关
+    'Starting...': '开始……',
+    'Cell': '格子',
+    'Wanna run a map?': '想运行地图吗？',
+    'World Level Map': '世界等级的地图',
+    'Back to World': '返回世界',
+    'What is This?!': '这是什么？！',
+    'Stop Here': '停止补偿时间',
+    '': '',
+    '': '',
+    //离线相关结束
     //骨头相关
+    'Boosts': '提升',
+    'Instantly earn the next 12 or 36 hours worth of resources! If you don\'t have enough storage, storage will be purchased (and the cost deducted) automatically.': '立刻获得价值12个小时或36个小时的资源！如果资源上限不足，则会自动购买相应存储建筑(并扣除费用)。',
+    'Barns Auto-purchased': '个自动购买的谷仓',
+    'Sheds Auto-purchased': '个自动购买的窝棚',
+    'Forges Auto-purchased': '个自动购买的锻造厂',
+    'Confirm Purchase': '确认购买',
+    'You are about to purchase 12 hours of instant production for 20 bones. Is this what you wanted to do?': '您将花费20骨头购买立刻获得12小时的产量。您确定要购买吗？',
+    'You are about to purchase 36 hours of instant production for 40 bones. Is this what you wanted to do?': '您将花费40骨头购买立刻获得36小时的产量。您确定要购买吗？',
+    'Exotic Imp-orts': '奇异外皮',
+    'Exotic Imp-orts will be unlocked permanently once purchased, and will stick around through portals. Each has a 3% chance to spawn per cell and better loot than normal enemies. Collect them all!': '奇异外皮在购买后永久解锁，传送后也仍然存在。对于每种奇异外皮来说，每个格子都分别有3%的概率生成，比起普通敌人来说，战利品更好。尽量全部收集它们！',
+    'Spawns in World': '在世界中出现',
+    'Spawns in Maps': '在地图中出现',
+    'First, select an Imp (50 bones': '首先，选择一个奇异外皮(50骨头',
+    'You are about to purchase a new Exotic Import for 50 bones. This new Bad Guy will begin spawning in your next Zone or Map at about an average of 3 spawns per 100 squares. Is this what you wanted to do?': '您将花费50骨头购买新的奇异外皮。它将在下个区域或地图中开始出现，平均100个格子中有3个格子出现。您确定要购买吗？',
+    'Other Goodies': '其它的好东西',
+    'You are about to purchase one Instant Portal for 100 bones. Your new helium will appear in the View Perks menu at the bottom of the screen. Is this what you wanted to do?': '您将花费100骨头购买骨头传送门。新获得的氦将立刻可用于升级特权。您确定要购买吗？',
+    'Automatically gain Helium equal to the amount you earned on your best run.': '自动获得一定数量的氦，该数量与之前单次传送获得最多的数值相等。',
+    'Automatically gain Radon equal to the amount you earned on your best run.': '自动获得一定数量的氡，该数量与之前单次传送获得最多的数值相等。',
+    'Automatically gain Helium and Nature Tokens equal to the amount you earned on your best run.': '自动获得一定数量的氦和自然符记，该数量分别与之前单次传送获得最多的数值相等。',
+    'Automatically gain Helium and Fluffy Exp equal to the amount you earned on your best run.': '自动获得一定数量的氦和绒绒经验，该数量分别与之前单次传送获得最多的数值相等。',
+    'Automatically gain Helium, Nature Tokens and Fluffy Exp equal to the amount you earned on your best run.': '自动获得一定数量的氦，自然符记和绒绒经验，该数量分别与之前单次传送获得最多的数值相等。',
+    'Automatically gain Radon and Scruffy Exp equal to the amount you earned on your best run.': '自动获得一定数量的氡和污污经验，该数量分别与之前单次传送获得最多的数值相等。',
+    'Fluffy is at Level 10 and will not gain Exp!': '绒绒已经达到了10级，无法再获得经验了！',
+    'Scruffy is at Level 10 and will not gain Exp!': '污污已经达到了10级，无法再获得经验了！',
+    'Fluffy Exp does not include bonuses from Dailies': '绒绒经验不包含日常挑战的加成',
+    'Scruffy Exp does not include bonuses from Dailies': '污污经验不包含日常挑战的加成',
     'Golden Maps (20 bones': '金色地图 (20骨头',
     'You are about to purchase Golden Maps for 20 bones. All of your current and future maps will gain +100% loot added to their normal loot roll': '您将花费20骨头购买金色地图。购买后，所有当前和之后的地图中获取资源加倍，',
     'until your next Portal': '直到您使用传送门为止',
@@ -1681,12 +1901,12 @@ var cnItems = {
     'Lead': '领导',
     'Travel to a dimension where life is easier or harder depending on the time. Odd numbered Zones will cause double resources to be earned from all sources, and will give your Trimps 50% extra attack. Starting an even numbered Zone will cause all enemies to gain 200 stacks of': '前往一个难度由时间决定的维度。在奇数区域中，脆皮资源获取量翻倍，且攻击力提高50%。在偶数区域中，所有敌人获得200层 ',
     'Momentum': '动量',
-    '. Clearing a World cell will cause 1 stack to be lost, and each stack will increase the enemy\'s damage and health by 4%, and block pierce by 0.1%. If your Trimps attack without killing their target, they will lose 0.03% of their health per enemy stack. Completing': ' 。在世界中通过一个格子后敌人失去一层动量，每层动量增加敌人4%的伤害和生命值，并且防御穿透增加0.1%。如果脆皮攻击后没能击杀敌人，它们将根据动量层数，每层受到0.03%生命值的伤害。在此挑战激活的前提下通过 ',
+    '. Clearing a World cell will cause 1 stack to be lost, and each stack will increase the enemy\'s damage and health by 4%, and block pierce by 0.1%. If your Trimps attack without killing their target, they will lose 0.03% of their health per enemy stack. Completing': ' 。在世界中通过一个格子后敌人失去一层动量，每层动量增加敌人4%的伤害和生命值，并且格挡穿透增加0.1%。如果脆皮攻击后没能击杀敌人，它们将根据动量层数，每层受到0.03%生命值的伤害。在此挑战激活的前提下通过 ',
     'with this challenge active will reward you with an additional 300% of all helium earned up to that point.': '后，可额外获得氦，数值等于本次挑战完成前氦获取量的300%。',
-    '. Clearing a World cell will cause 1 stack to be lost, and each stack will increase the enemy\'s damage and health by 4%, and block pierce by 0.1%. If your Trimps attack without killing their target, they will lose 0.03% of their health per enemy stack.': ' 。在世界中通过一个格子后敌人失去一层动量，每层动量增加敌人4%的伤害和生命值，并且防御穿透增加0.1%。如果脆皮攻击后没能击杀敌人，它们将根据动量层数，每层受到0.03%生命值的伤害。',
+    '. Clearing a World cell will cause 1 stack to be lost, and each stack will increase the enemy\'s damage and health by 4%, and block pierce by 0.1%. If your Trimps attack without killing their target, they will lose 0.03% of their health per enemy stack.': ' 。在世界中通过一个格子后敌人失去一层动量，每层动量增加敌人4%的伤害和生命值，并且格挡穿透增加0.1%。如果脆皮攻击后没能击杀敌人，它们将根据动量层数，每层受到0.03%生命值的伤害。',
     'You have the Lead challenge active. Travel to a dimension where life is easier or harder depending on the time. Odd numbered Zones will cause double resources to be earned from all sources, and will give your Trimps 50% extra attack. Starting an even numbered Zone will cause all enemies to gain 200 stacks of': '您目前正在进行领导挑战。前往一个难度由时间决定的维度。在奇数区域中，脆皮资源获取量翻倍，且攻击力提高50%。在偶数区域中，所有敌人获得200层 ',
     'You have the Lead challenge active. "Travel to a dimension where life is easier or harder depending on the time. Odd numbered Zones will cause double resources to be earned from all sources, and will give your Trimps 50% extra attack. Starting an even numbered Zone will cause all enemies to gain 200 stacks of': '您目前正在进行领导挑战。前往一个难度由时间决定的维度。在奇数区域中，脆皮资源获取量翻倍，且攻击力提高50%。在偶数区域中，所有敌人获得200层 ',
-    '. Clearing a World cell will cause 1 stack to be lost, and each stack will increase the enemy\'s damage and health by 4%, and block pierce by 0.1%. If your Trimps attack without killing their target, they will lose 0.03% of their health per enemy stack."': ' 。在世界中通过一个格子后敌人失去一层动量，每层动量增加敌人4%的伤害和生命值，并且防御穿透增加0.1%。如果脆皮攻击后没能击杀敌人，它们将根据动量层数，每层受到0.03%生命值的伤害。',
+    '. Clearing a World cell will cause 1 stack to be lost, and each stack will increase the enemy\'s damage and health by 4%, and block pierce by 0.1%. If your Trimps attack without killing their target, they will lose 0.03% of their health per enemy stack."': ' 。在世界中通过一个格子后敌人失去一层动量，每层动量增加敌人4%的伤害和生命值，并且格挡穿透增加0.1%。如果脆皮攻击后没能击杀敌人，它们将根据动量层数，每层受到0.03%生命值的伤害。',
     'Corrupted': '腐化',
     'with this challenge active will reward you with an extra 200% helium earned from any source up to that point, and will instantly transport you back to your normal dimension.': '后，可额外获得氦，数值等于本次挑战完成前氦获取量的200%，并立刻将您送回原来的维度。',
     'Domination': '统治',
@@ -1924,7 +2144,7 @@ var cnItems = {
     'Void Power I': '虚空力量 I',
     'Your Trimps gain 15% attack and health inside Void Maps.': '虚空地图中脆皮增加15%攻击力和生命值。',
     'Metallic Coat': '金属外套',
-    'Reduce the amount of enemy damage that can pierce block by 25%.': '降低敌人25%的防御穿透。',
+    'Reduce the amount of enemy damage that can pierce block by 25%.': '降低敌人25%的格挡穿透。',
     'Heirnuum I': '传家虚物 I',
     'You can spend an extra 10% of your Nu on your Heirlooms, bringing the total to 60%.': '每个传家宝的可使用虚空物质上限额外增加10%，总计可达到虚空物质总量的60%。',
     'Herbalist': '神农',
@@ -2157,7 +2377,6 @@ var cnItems = {
     'Essence PerHour': '精华每小时量',
     'OverkillCells': '超杀格子数',
     'Magmite': '岩浆岩',
-    'Magmamancers': '岩浆巫师',
     'Fluffy XP': '绒绒经验',
     'Fluffy XP PerHour': '每小时绒绒经验',
     'Scruffy XP': '污污经验',
@@ -2186,7 +2405,6 @@ var cnItems = {
     'Number of Void Maps': '虚空地图数量',
     'Nullifium Gained Per Portal': '每次传送门获得的虚空物质',
     'Average Nullifium Gained Per Portal =': '平均每次传送门获得的虚空物质 =',
-    'Fragments': '碎片',
     'Current Loot Sources (of all resources gained) - for the last 15 minutes': '目前战利品来源(所有资源) - 过去的15分钟内',
     'Time (every 15 seconds': '时间点(每15秒一次',
     'Ratio of looted to gathered': '战利品与采集的比例(单位%)',
@@ -2246,15 +2464,11 @@ var cnItems = {
     'Reset zoom level': '缩放比例还原为',
     'Core': '核心',
     'Core - Main Controls for the script': '核心 - 脚本主要内容的控制',
-    'Buildings': '建筑',
     'Building Settings': '建筑设置',
-    'Jobs': '工作',
     'Jobs - Worker Settings': '工作 - 工人设置',
     'Gear': '装备',
     'Gear - Equipment Settings': '装备 - 装备设置',
-    'Maps': '地图',
     'Maps - AutoMaps & VoidMaps Settings': '地图 - 自动地图及虚空地图设置',
-    'Spire': '尖塔',
     'Spire - Settings for Spires': '尖塔 - 尖塔相关设置',
     'Raiding': '袭劫',
     'Raiding - Settings for Raiding': '袭劫 - 袭劫相关设置',
@@ -2263,7 +2477,6 @@ var cnItems = {
     'C2 - Settings for ': 'C2 - 相关设置：',
     'Challenges': '挑战',
     'Challenges - Settings for Specific Challenges': '挑战 - 特定挑战相关设置',
-    'Combat': '战斗',
     'Combat & Stance Settings': '战斗及阵型设置',
     'Windstacking': '风层数叠加',
     'Windstacking Settings': '风层数叠加设置',
@@ -2273,11 +2486,9 @@ var cnItems = {
     'Scryer Settings': '占卜阵型设置',
     'Magma': '岩浆',
     'Dimensional Generator & Magmite Settings': '维度发生器及岩浆岩设置',
-    'Heirlooms': '传家宝',
     'Heirloom Settings': '传家宝设置',
     'Golden': '金色',
     'Golden Upgrade Settings': '金色升级设置',
-    'Nature': '自然',
     'Nature Settings': '自然设置',
     'Display': '显示',
     'Display & Spam Settings': '显示及屏蔽设置',
@@ -2663,7 +2874,6 @@ var cnItems = {
     'Always prefer metal maps, intended for manual use, such as pre-spire farming. Remember to turn it back off after you\'re done farming!': '总是倾向于使用金属地图。用于手动操作，例如尖塔前刷资源。刷完以后记得关闭此项！',
     'Map Selection': '地图选择',
     'Select which you prefer to use. Recommend Plentiful (Gardens) if you have unlocked it.': '选择倾向使用的地图。如果已经解锁花园(或丰饶)，建议选择它。',
-    'Random': '随机',
     'Max MapBonus After': '最大地图奖励起点',
     'Always gets Max Map Bonus from this zone on. (inclusive and after).': '从此区域开始，总是获取最大地图奖励。',
     'NOTE': '注意',
@@ -3100,7 +3310,6 @@ var cnItems = {
     'Shields': '盾牌',
     'Staffs': '权杖',
     'Cores': '核心',
-    'All': '全部',
     'None / Shields / Staffs / Cores / All': '无 / 盾牌 / 权杖 / 核心 / 全部',
     'Keeps Shields and nothing else.': '只保留盾牌。',
     'Keeps Staffs and nothing else.': '只保留权杖。',
@@ -3310,7 +3519,6 @@ var cnItems = {
     'Autotrimps saved-settings have been attempted to be cleaned up. If anything broke, refreshing will fix it, but check that your settings are correct! (prestige in particular': '已完成之前版本过时数据的清理。如果脚本工作不正常，只须刷新就能修复，但这之后请检查一下相关设置是否正确！(特别是重铸相关的设置',
     'Thats all the help you get.': '详情见上图。',
     'Name': '名称',
-    'Difficulty': '难度',
     '%C': '加成：挑战',
     '%HZE': '区域比',
     'Total': '总计',
@@ -3514,9 +3722,7 @@ var cnItems = {
     'Researching': '研究中',
     'Are you sure you want to reset? This will really actually reset your game. You won\'t get anything cool. It will be gone.': '确定要重置吗？这真的会重置你的游戏。你不会因此得到任何酷酷的东西。你的存档会消失的。',
     'This is not the soft-reset you\'re looking for. This will delete your save.': '这不是你要找的软重置。这将删除您的所有存档。',
-    'Maybe there\'s something meaty and delicious here to Trap.': '也许可以用陷阱抓到一些嘎嘣脆肉味的东西。',
     'Activate firing mode, turning the job buttons red, and forcing them to fire trimps rather than hire them. The newly unemployed Trimps will start breeding instead of working, but you will not receive a refund on resources.': '激活解雇模式，工作类目下的按钮将变为红色，点击按钮将解雇脆皮，而不是雇佣它们。新失业的脆皮将开始繁殖，你也不会获得任何资源返还。',
-    'Apparently the Trimps breed if they\'re not working. Doesn\'t look pleasant.': '显然如果脆皮不工作，它们就会开始繁殖，看起来可不大舒服。',
     'Max wood': '木头上限',
     'Science Per Second': '每秒获得科学点',
     'Farmers': '农民',
@@ -3534,77 +3740,11 @@ var cnItems = {
     'Food Per Second': '每秒获得食物',
     'Disable firing mode': '关闭解雇模式',
     'Firing': '解雇模式',
-    'DMG': '攻击力',
     'Soldiers': '士兵',
     'Item Attack': '物品攻击',
     'Min': '最小',
-    'A nice Shed would allow you to keep more wood on hand.': '一个好的窝棚可以让你保留更多的木材。',
-    'The food stores are getting pretty full, maybe you should start thinking about a Barn.': '食物似乎快装不下了，也许你应该开始考虑谷仓。',
-    'This book explains methods of using a shield to actually block damage. The current shield will need to be completely destroyed and rebuilt, but it will give block instead of health. <b>This is permanent</b>. $Your Shield Must be Prestige III or higher$': '这本书解释了使用盾牌来格挡伤害的方法。 当前的盾牌将被彻底摧毁并需要重建，但它会给予格挡而不是生命值。 <b>这是永久的</b>。 $你的盾牌必须是重铸 III或更高才行$',
-    'This book will teach your Farmers, Lumberjacks, Miners, Scientists, and Explorers to all be twice as productive.': '这本书将让你的农民，伐木工，矿工，科学家和探险家生产力提升为两倍。',
-    'Your top scientists are pretty sure this is a Dragimp egg. They know Dragimps love shiny things, maybe it\'ll come out for some gems.': '你的顶尖科学家非常肯定这是一个脆皮龙蛋。他们知道脆皮龙喜欢闪亮的东西，也许它可以帮忙寻找宝石。',
-    'Once again, this Prism will need to be polished before it can offer your Trimps any protection. After it\'s polished, this Prism will grant an additional 50% Prismatic Shield to your Trimps!': '这个棱镜需要经过再次抛光才能为你的脆皮提供保护。 经过抛光后，棱镜将为你的脆皮增加50％的棱镜护盾！',
-    'Your scientists are pissed. Not because of anything you did, but this gem seems to be making them mad. It\'ll take some research, but you think you can create a map to the place the gem originated from.': '你的科学家很生气。不是因为你做了什么，而是这颗宝石让他们发疯了。这需要点时间来研究，你觉得你可以创建一张地图，从而到达宝石起源地。',
-    'You just made a map to the Dimension of Anger! Should be fun!': '你刚制造了一张愤怒维度的地图！应该很有趣！',
-    'Unsurprisingly, that Rage Gem you brought back has everyone up the walls. You should probably hurry up and figure out a way to extract the map from inside before your Scientists end up killing eachother.': '不出所料，你带回的那颗愤怒宝石让所有人都抓狂了。你应该尽快从中提取出地图，否则你们的科学家们要自相残杀完了。',
-    'This book will cause each gym you purchase to increase the block provided by all Gyms by 5%. Each consecutive level of this upgrade will increase the block provided by an additional 1%. <b>The extra block provided compounds per Gym.</b>': '这本书将使你购买的每一个健身房增加所有健身房提供的5%格挡。此升级的每个连续级别将增加1%的格挡。<b>每个健身房获得的额外的格挡之间相互叠乘。</b>',
-    'This book will teach your Robotrimp how to do a much better job of shrieking, allowing MagnetoShriek to be used on multiple Corrupted cells in addition to Improbabilities. Upgraded MagnetoShriek starts off only being able to affect 1 cell at a time, but each use after purchasing this upgrade will extend the bonus by one additional cell, up to a max of 5 cells (resets on portal). <br/><br/> Each new Bionic Wonderland clear starting at Z185 will permanently increase the cell count cap by 1.': '这本书将教你的脆皮机器人如何更好地尖啸，除了乌有者以外还允许电磁尖啸在多个腐化格子上使用。升级后的电磁尖啸初始一次只能影响一个格子，但每次购买此升级后都将额外增加一个格子，最多5个格子（传送后重置）。<br/><br/>从区域185开始，每通过一个新的仿生仙境，格子上限就永久增加1。',
-    'The air may be filled with pollution, but your Trimps seem to be getting smarter and a battle technique from what could only be a past life has crept into your memory. This would probably be a good opportunity to teach it to your Trimps. Once researched, you will be able to enter the \'Heap Formation\'. This can be toggled to increase your Trimps\' health by 4x, but reduce block and attack by half.': '在污染的空气中你的脆皮却似乎变得更聪明了，一种战技悄悄地在你的记忆中浮现，很显然它只可能来自于你的前世。现在可能也是教会脆皮这个战技的好时机。研究后你可以使用"堆叠阵型"。切换到此阵型将把你的脆皮生命值变为4倍，但减少一半的格挡和攻击力。',
-    'Another formation has crept back into your memory. Where are these coming from? Who are you? Who cares, this one will allow your Trimps to deal 4x damage at the cost of half health and block.': '另一个阵型又悄悄地在你的记忆中浮现了。是从哪来的？你又是谁？管他呢，此阵型将让你的脆皮攻击力变为4倍，代价是一半的生命值和格挡。',
-    'Woah, you just remembered that all Trimps lifting their shields in the same direction at the same time can produce a nice protecting wall. Seems like common sense now that you thought of it. This formation increases block by 4x and cuts the amount of block that enemies can pierce by 50%, at the cost of half attack and health.': '哇哦，你想起来了，所有的脆皮同时同方向举起盾牌能产生一个很好的防护墙。现在看来这就跟常识一样。此阵型将让格挡变为4倍，并且敌人穿透格挡的伤害减少50%，但代价是减少一半的攻击力和生命值。',
-    'You really don\'t like reading books, but it seems better than mining yourself.': '你真的不喜欢看书，但这总比自己挖矿更好。',
-    'You really don\'t believe it, but that book indicates that Trimps can be smart. Better read it and find out how.': '你虽然不信，但那本书表明脆皮可以很聪明。最好读一读，看看怎么做。',
-    'This book holds all of the secrets of upper management. Train your Trimps to train other Trimps.': '这本书包含了高层管理的所有秘密。教会你的脆皮如何训练其他脆皮。',
-    'Your scientists think they can study this book to figure out how to train Trimps as Magmamancers. According to your scientists, according to legend, Magmamancers require gems instead of food as sustainance and can increase the rate of Metal gathering more and more as they stay on the same Zone.': '你的科学家认为通过研究这本书可以弄明白如何将脆皮训练为岩浆巫师。据科学家们称，传闻岩浆巫师需要宝石而不是食物来维持，并且当它们在同一区域时，可以越来越多地提高金属采矿的速度。',
-    'This book will increase the space gained from each Hut by 100%.': '这本书将使每个小屋的空间增加100%。',
-    'This book will increase the space gained from each House by 100%.': '这本书将使每个宅院的空间增加100%。',
-    'This book will increase the space gained from each Mansion by 100%.': '这本书将使每个豪宅的空间增加100%。',
-    'This book will increase the space gained from each Hotel by 100%.': '这本书将使每个宾馆的空间增加100%。',
-    'This book will increase the space gained from each Resort by 100%.': '这本书将使每个度假村的空间增加100%。',
-    'Researching this will prestige your shield. This will bring your shield to level 1 and vastly increase the cost of further upgrades, but will vastly increase the amount of stats given. @': '这个升级将重铸你的盾牌。你的盾牌将回到1级，升级成本大增，但效果也大增。@',
-    'Researching this will prestige your dagger. This will bring your dagger to level 1 and vastly increase the cost of further upgrades, but will vastly increase the amount of attack given. @': '这个升级将重铸你的匕首。你的匕首将回到1级，升级成本大增，但攻击力也大增。@',
-    'Researching this will prestige your boots. This will bring your boots to level 1 and vastly increase the cost of further upgrades, but will vastly increase the amount of health given. @': '这个升级将重铸你的靴子。你的靴子将回到1级，升级成本大增，但生命值也大增。@',
-    'Researching this will prestige your mace. This will bring your mace to level 1 and vastly increase the cost of further upgrades, but will vastly increase the amount of attack given. @': '这个升级将重铸你的狼牙棒。你的狼牙棒将回到1级，升级成本大增，但攻击力也大增。@',
-    'Researching this will prestige your helmet. This will bring your helmet to level 1 and vastly increase the cost of further upgrades, but will vastly increase the amount of health given. @': '这个升级将重铸你的头盔。你的头盔将回到1级，升级成本大增，但生命值也大增。@',
-    'Researching this will prestige your polearm. This will bring your polearm to level 1 and vastly increase the cost of further upgrades, but will vastly increase the amount of attack given. @': '这个升级将重铸你的战戟。你的战戟将回到1级，升级成本大增，但攻击力也大增。@',
-    'Researching this will prestige your pants. This will bring your pants to level 1 and vastly increase the cost of further upgrades, but will vastly increase the amount of health given. @': '这个升级将重铸你的裤子。你的裤子将回到1级，升级成本大增，但生命值也大增。@',
-    'Researching this will prestige your axe. This will bring your axe to level 1 and vastly increase the cost of further upgrades, but will vastly increase the amount of attack given. @': '这个升级将重铸你的战斧。你的战斧将回到1级，升级成本大增，但攻击力也大增。@',
-    'Researching this will prestige your shoulderguards. This will bring your shoulderguards to level 1 and vastly increase the cost of further upgrades, but will vastly increase the amount of health given. @': '这个升级将重铸你的护肩。你的护肩将回到1级，升级成本大增，但生命值也大增。@',
-    'Researching this will prestige your greatsword. This will bring your greatsword to level 1 and vastly increase the cost of further upgrades, but will vastly increase the amount of attack given. @': '这个升级将重铸你的巨剑。你的巨剑将回到1级，升级成本大增，但攻击力也大增。@',
-    'Researching this will prestige your breastplate. This will bring your breastplate to level 1 and vastly increase the cost of further upgrades, but will vastly increase the amount of health given. @': '这个升级将重铸你的胸铠。你的胸铠将回到1级，升级成本大增，但生命值也大增。@',
-    'Researching this will prestige your arbalest. This will bring your arbalest to level 1 and vastly increase the cost of further upgrades, but will vastly increase the amount of attack given. @': '这个升级将重铸你的强弩。你的强弩将回到1级，升级成本大增，但攻击力也大增。@',
-    'Researching this will prestige your gambeson. This will bring your gambeson to level 1 and vastly increase the cost of further upgrades, but will vastly increase the amount of health given. @': '这个升级将重铸你的棉甲。你的棉甲将回到1级，升级成本大增，但生命值也大增。@',
-    'This book will teach your trimps how to be 10% more efficient at making baby Trimps!': '这本书将教会你的脆皮更好的繁殖，提高10%的繁殖效率！',
-    'This book will teach your Trainers to increase block by an additional 5%!': '这本书将教会你的训练师额外增加5%的格挡！',
-    'This book will teach you how to be twice as productive in everything you do! Hurray!': '这本书将教会你在你自己做的每件事上效率翻倍！万岁！',
-    'Note that this applies only to your productivity, not workers.': '请注意，这个升级只对你自己生效，对工人无效。',
-    'This book will teach your Trimps how to mine 25% faster!': '这本书将教会你的脆皮增加25%的采矿速度！',
-    'This book will teach your Trimps how to cut wood 25% faster!': '这本书将教会你的脆皮增加25%的伐木速度！',
-    'This book will teach your Trimps how to farm 25% faster!': '这本书将教会你的脆皮增加25%的耕作速度！',
-    'This book will teach your Trimps how to science things 25% faster!': '这本书将教会你的脆皮增加25%的研究速度！',
-    'This book will teach your Trimps how to explore 300% more efficiently!': '这本书将教会你的脆皮提升300%探险效率！',
-    'This book will teach your Trimps how to mine ?% faster!': '',
-    'This book will teach your Trimps how to chop wood ?% faster!': '',
-    'This book will teach your Trimps how to farm ?% faster!': '',
-    'This book will teach your Trimps how to science things ?% faster!': '',
-    'It\'s time to get some Trimps up in here.': '是时候获取一些脆皮了。',
-    'Ah wood, the building material of kings. The building material of everyone else too, but still.': '啊，木头，建筑材料之王（译者注：同时也可以指国王的建筑材料）。当然也是其他人的建筑材料，就这样吧。',
-    'Wet wood won\'t work! Better get a Shed going.': '湿木头是没法拿来用的！ 最好弄起一个窝棚来。',
-    'You caught your very first Trimp in this new dimension! It can smell other Trimps on you and looks confused. You promptly send him off to work!': '你在新的维度中抓住了第一个脆皮！它闻到了其他脆皮的气息，看起来一脸懵逼。你赶紧把它派去干活了。',
-    'Where would you be in life without Science? Not this dimension, that\'s for sure.': '如果没有科学，生活会变得怎么样？至少，你不会在这个维度，这点可以肯定。',
-    'You\'ll need some wood to build stuff...': '你需要木头来造东西。',
-    'There\'s a weird impish little creature in the trap. A Trimp, you decide to call it. Since you\'re so creative, you could probably train this Trimp to help out.': '陷阱里有一个看起来很皮的脆弱小动物，你决定叫它 脆皮 。既然你这么有创造力，或许可以考虑训练它帮你干活。',
     'Building': '建造中',
     'Mining': '挖矿中',
-    'BLK': '格挡',
-    'This planet feels so familiar, yet so foreign. Maybe it\'s time to start sciencing things.': '这颗行星看起来很熟悉，却又很陌生。或许是时候研究点什么了。',
-    'War... what is it good for? Exploration, or something.': '战争...有什么好处？帮助继续探索，或者什么的。',
-    'As you finally step out into the Battle Zones, the first thing you notice is that your Heirlooms feel weaker here. Oh well, 1000 more times into the fray... "': '当你最终离开战斗区域时，你马上注意到传家宝感觉弱了很多。好吧，又要1000多次上战场了...“',
-    'The newly established Trimp zoning committee is too busy drooling to approve anything, so you take it on yourself to start building some Huts.': '新成立的脆皮区委会忙着流口水，没空审批，所以你决定自己建造一些小屋。',
-    'Doesn\'t seem like all of these little guys will fit in your ship. Luckily, you remember how to make small huts for shelter.': '似乎没法把所有的小家伙们都弄上你的船。还好你还记得如何建造小屋来给它们一个容身之地。',
-    'The TZC has finally approved a House blueprint. To your surprise, it looks fairly decent! You decide to immediately build some.': '脆皮区委会最终通过了宅院的蓝图。你很吃惊，因为它看起来相当棒。于是你决定立即开始建造。',
-    'Your Trimps look really bored.': '你的脆皮看起来相当无聊。',
-    'Better hurry up to the fighting Zones so you don\'t have to sit around here all day watching Trimps breed.': '最好快点到战斗区域，这样就不必整天无所事事只能看着脆皮繁殖。',
     '': '',
     '': '',
     '': '',
@@ -3646,7 +3786,6 @@ var cnItems = {
     'fragments': '碎片',
     'gems': '宝石',
     'science': '科学',
-    'Science': '科学',
     'Fire': '火焰',
     'Frost': '冰霜',
     'Wind': '风',
@@ -3684,8 +3823,6 @@ var cnItems = {
     'cache': '储藏箱',
     'bone': '骨头',
     'Tribute X': '贡品 X',
-    'Loot': '战利品',
-    'Unlocks': '解锁',
     'enabled': '启用',
     //修饰符
 
@@ -3713,7 +3850,6 @@ var cnItems = {
     'Large Metal Cache (LMC': '大金属储藏箱 (LMC',
     'Large Research Cache (LRC': '大研究储藏箱 (LRC',
     'Prestigious': '重铸',
-    'Story': '故事',
     '- Earn 10 seconds of food production each time you complete this map.': '- 每次完成地图时获得10秒的食物产量',
     '- Earn 10 seconds of metal production each time you complete this map.': '- 每次完成地图时获得10秒的金属产量',
     '- Earn 10 seconds of wood production each time you complete this map.': '- 每次完成地图时获得10秒的木材产量',
@@ -3746,73 +3882,40 @@ var cnItems = {
     'Lumberjack X': '伐木工 X',
     'Miner X': '矿工 X',
     'Scientist X': '科学家 X',
-    'Scientists': '科学家',
     'Trainer X': '训练师 X',
-    'Trainers': '训练师',
     'Explorer X': '探险家 X',
     'Magmamancer X': '岩浆巫师 X',
     'Amalgamator X': '合并者 X',
-    'Fire Trimps': '解雇脆皮',
-    'Geneticistassist': '遗传学家助手',
-    'Custom': '自定义',
-    'Confirm Purchase': '确认购买',
-    'Miners': '矿工',
-    'Max': '最大',
-    'AutoStructure': '自动建造',
-    'Configure AutoStructure': '自动建造配置',
-    'AutoUpgrade': '自动升级',
-    'AutoPrestige': '自动重铸装备',
     'AutoGolden': '自动黄金升级',
     'Rename Preset': '重命名预设',
     'Pierce': '穿透',
     'Fast': '快速',
-    'Save Map Settings': '保存地图设置',
-    'Reset Map Settings': '重置地图设置',
-    'Recycle All': '回收所有',
-    'Map Preset': '地图预设',
     'Decay': '衰变',
-    'Show/Hide Map Config': '显示/隐藏地图设置',
-    'Mastery': '专精',
     'Empowerments of Nature': '自然赋能',
     'Switch Daily': '选择日常挑战',
     'Empower': '赋能',
     'Pressure': '压力',
-    'MagnetoShriek': '电磁尖啸',
     'Unliving': '亡灵化',
     'Bloodthirst': '嗜血',
-    'Scryer Formation': '占卜者阵型',
     'Fire Trap': '火焰陷阱',
     'Frost Trap': '冰霜陷阱',
     'Shift Up': '上移',
     'Shift Down': '下移',
     'Sell Trap/Tower': '出售陷阱/塔',
     'Queue': '队列',
-    'Biome': '生物群落',
-    'Size': '尺寸',
-    'Loot': '劫掠',
-    'Special Modifier': '特殊修饰符',
-    'Extra Zones': '额外区域',
-    'Perfect Sliders': '完美滑块',
-    'Repeat Map': '重复地图',
     'Heirloom': '传家宝',
     'Trustworthy Trimps': '可信的脆皮',
     'World Info': '世界信息',
-    'AutoGold': '自动黄金升级',
     'Threat': '威胁',
     'Enemies': '敌人',
     'Runestones': '符石',
     'Spirestones': '尖塔石头',
     'Trimps Per Second': '每秒脆皮',
     'Max Trimps': '脆皮上限',
-    'AutoJobs': '自动工作',
-    'Respec Masteries': '专精洗点',
-    'Configure Maps': '设置地图',
     'Import Perk Preset': '导入特权预设',
     'Export Perk Setup': '导出特权设置',
     //专精
-    'Foremany': '大群工头',
     'Quick Gen': '快速发生',
-    'AutoStructure': '自动建造',
     'Condenser Tower': '冷凝塔',
     'Condenser Tower II': '冷凝塔 II',
     'Knowledge Tower': '知识塔',
@@ -3828,12 +3931,8 @@ var cnItems = {
     'Fire Trap III': '火焰陷阱 III',
     'Trap Layout 1': '陷阱布局 1',
     'Trap Layout 2': '陷阱布局 2',
-    'Configure AutoJobs': '配置自动工作',
     'Configure Generator State': '配置发生器状态',
     'Spire Settings': '尖塔设置',
-    'Well Fed': '营养充足',
-    'Fluffy': '绒绒',
-    'Scruffy': '污污',
     'Map Corruption': '地图腐化',
     'Food/Wood/Metal Loot Breakdown': '食物/木头/金属 劫掠明细',
     'Breezy': '微风',
@@ -3845,10 +3944,6 @@ var cnItems = {
     'Register a PlayFab Account': '注册一个PlayFab账号',
     'Can only be run once!': '只能运行一次!',
     'Reward does not count toward Bone Portals or affect best He/Hr stat.': '奖赏不计入骨头购买传送门数据，也不计入最好的氦/小时统计。',
-    'This book will teach your Trimps how to chop wood 60% faster!': '这本书将教你如何让脆皮伐木加速60%',
-    'This book will teach your Trimps how to farm 60% faster!': '这本书将教你如何让脆皮耕作加速60%',
-    'This book will teach your Trimps how to mine 60% faster!': '这本书将教你如何让脆皮挖矿加速60%',
-    'This book will teach your Trimps how to science things 60% faster!': '这本书将教你如何让脆皮研究科学加速60%',
     'You will not earn a new perk.': '你不会赚到一个新的额外奖励。',
     '': '',
     '': '',
@@ -3863,8 +3958,6 @@ var cnItems = {
     //成就结束
     'Toxic': '毒性',
     'Block': '格挡',
-    'Message Config': '消息设置',
-    'Buy Max': '购买最大数量',
     'Save Perk Preset': '保存额外特权预设',
     'Rename Perk Preset': '重命名额外特权预设',
     'Load Perk Preset': '加载额外特权预设',
@@ -3923,104 +4016,54 @@ var cnItems = {
     '': '',
     '': '',
 
-    //自动脚本3汉化文本
-    'Dominance Formation': '支配阵型',
-    'Barrier Formation': '屏障阵型',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-
     //未分类20190806
-    'Items': '物品',
     'Layout': '布局',
     'Load': '加载',
-    'Mine': '采矿',
     'New': '新',
-    'Nothing in queue...': '队列中什么都没有......',
     'Other': '其它',
     'Perks': '特权',
-    'Portals Used': '使用的传送门',
     'Preset': '预设',
     'Rename': '重命名',
     'Recycle': '回收',
     'Recycle Map': '回收地图',
     'Replace': '替换',
-    'Research': '研究',
     'Research first': '研究优先',
-    'Resource': '资源',
     'Statistics!': '统计!',
     'Unequip': '卸下',
-    'Upgrades': '升级',
     'Upgrade': '升级',
     'Achievements': '成就',
     'Abandon Challenge': '放弃挑战',
     'Achieves': '成就',
-    'AutoTraps Off': '自动陷阱捕捉 关闭',
-    'AutoUpgrade Off': '自动升级 关闭',
     'Back to Search': '返回搜索',
-    'Barns Auto-purchased': '谷仓自动购买',
-    'Bone Trader': '骨法商人',
-    'Trade': '交易',
-    'Build': '建造',
     'Game Saved!': '游戏已保存！',
-    'Gather': '收集',
     'Equip': '装备',
     'Export': '导出',
     'Help': '帮助',
     'More Info': '更多信息',
-    'Chop': '伐木',
-    'Continue': '继续',
-    'Close': '关闭',
-    'Earned All Time': '一直赚的',
-    'Equipment': '装备',
     'Challenge': '挑战',
     'Gathering': '收集中',
     'Chopping': '伐木中',
     'Clear All Perks': '清除所有特权',
     'Remove': '移除',
-    'Repeat Off': '重复 关闭',
     'Quality of Life': '生活质量',
     'Stop Carrying': '停止携带',
     'Stats': '统计',
     'Trimps': '脆皮',
     'Trimps Info': '脆皮信息',
-    'Trapping (': '陷阱 (',
     'Auto Saving': '自动保存',
-    'AutoFight Off': '自动战斗 关闭',
     'Save': '保存',
     'Settings': '设置',
     'Heirlooms - Gifts to past you from future you': '传家宝-来自于未来，生效于过去',
     'Activate Portal': '激活传送门',
-    'Boosts': '提升',
     'General': '常规',
-    'You have': '你有',
-    'Your next mastery costs': '你的下一个专精成本',
     'Void Maps (': '虚空地图 (',
-    'AutoPrestige Off': '自动声望 关闭',
     'Browse All': '浏览所有',
-    'Change Universe': '更改宇宙',
     'Choose a Category Below, or Search for a Setting/Keyword': '选择下面的类别，或者搜索设置/关键字',
     'This is a building in your queue, you\'ll need to click "Build" to build it. Clicking an item in the queue will cancel it for a full refund.': '这是您队列中的一个建筑物，您需要单击“建造”来构建它。 单击队列中的项目将取消它以获得全额退款。',
-    'Spawns in Maps': '在地图中出现',
-    'Spawns in World': '在世界中出现',
-    'Spent on Perks': '花在特权上',
     '% bonus': '% 奖励',
     '% extra damage': '% 额外伤害',
     'You are dealing': '你获得',
     'View Current Challenge': '查看当前的挑战',
-    'Exotic Imp-orts': '奇异外皮',
     'Download as File': '下载为文件',
     'Import your save string! It\'ll be fun, I promise.': '导入存档字符串！ 我保证，这会很有趣。',
     'You do not currently have an active challenge.': '您目前没有进行中的挑战。',
@@ -4028,7 +4071,6 @@ var cnItems = {
     'Unlock at Z': '解锁于区域',
     'Trimps Official Discord': '脆皮官方Discord',
     'The currency to upgrade and replace stats,': '用于升级和替换统计数据的货币，',
-    'Other Goodies': '其他好东西',
     'Helium Canisters': '氦罐',
     'Loot off': '劫掠 关闭',
     'Combat off': '战斗 关闭',
@@ -4037,40 +4079,26 @@ var cnItems = {
     'Nullifium, or Nu,': '虚空物质，或者Nu',
     'Performance': '性能',
     'Pop-ups and Alerts': '弹出窗口和警报',
-    'Sheds Auto-purchased': '窝棚自动购买',
     'Offline Progress': '离线进度',
     'You can click a stat to upgrade or replace it.': '您可以单击统计信息以升级或替换它。',
     'You can also choose to activate a challenge before using your portal. Completing a challenge will earn you a permanent reward. You can abandon or view an active challenge at any time by clicking the "View Perks" button.': '您还可以选择在使用传送门之前激活挑战。 完成挑战将获得永久奖励。 您可以通过单击“查看特权”按钮随时放弃或查看活动挑战。',
     'Carry': '携带',
-    'Automatically gain helium equal to the amount you earned on your best run': '自动获得氦，等于您在最佳运行中获得的数量',
     'Locked': '未解锁',
     'Reward': '奖励',
     'can only be gathered by recycling an Heirloom. You can also click on the Heirloom\'s name on this menu to rename it.': '只能通过回收传家宝来收集。 您还可以单击此菜单上的传家宝名称进行重命名。',
     'Any Heirlooms in the "Temporary" section will be recycled for Nullifium on portal.': '“临时”部分中的任何传家宝将在传送门上回收虚空物质。',
     'better get some more achievements': '更好地获得更多的成就',
     'Level': '等级',
-    'A green shimmer erupts then disappears, and you hit the ground. You look pretty hungry...': '绿色微光爆发后消失，你撞到地面。 你看起来很饿...',
     'Sweet, thanks.': '甜蜜，谢谢。',
     'Base': '基础',
-    'Click twice to customize.': '单击两次以自定义。',
-    'Fight': '战斗',
     'Item Health': '物品生命',
     'Found a Skeletimp!': '找到了一个Skeletimp！',
-    'AutoStructure Off': '自动建造 关闭',
-    'AutoJobs Off': '自动工作 关闭',
     'AutoFight': '自动战斗',
-    'AutoFight On': '自动战斗 开启',
-    'AutoStorage On': '自动存储 开启',
-    'AutoUpgrade On': '自动升级 开启',
     'No Modifier': '没有变化',
     'Producing': '生产',
-    'Repeat On': '重复 开启',
     'If you abandon this challenge, the portal will become unstable and the world will restart (you\'ll keep permanent bonuses like helium': '如果你放弃这个挑战，传送门将变得不稳定，世界将重新开始（你将获得永久奖励，如氦',
-    'Instantly earn the next 12 or 36 hours worth of resources! If you don\'t have enough storage, storage will be purchased (and the cost deducted) automatically.': '立即获得下一个12或36小时的资源！ 如果您没有足够的存储空间，将自动购买存储空间（并扣除成本）。',
     'Housing/Tick': '房屋/Tick',
     'Dimensional Generator': '维度发生器',
-    'Weapons First': '武器优先',
-    'Forges Auto-purchased': '锻造厂自动购买',
     'Runestones per Second': '符石每秒',
     'Sell All': '全部出售',
     'Upgrade (': '升级 (',
@@ -4083,18 +4111,10 @@ var cnItems = {
     'Sell a Trap/Tower': '出售一个陷阱/塔',
     'Shrink Window': '收缩窗口',
     ' Lv': ' 等级',
-    'Back to World': '返回世界',
     'can only be gathered by recycling an Heirloom.': '只能通过回收传家宝来收集。',
-    'Cell': '格子',
     'Chrome and Firefox are currently the only fully supported browsers.': 'Chrome和Firefox当前是唯一受完全支持的浏览器。',
     'Click on an Achievement on this screen to track it!': '单击此屏幕上的成就进行跟踪！',
-    'Starting...': '开始...',
-    'Stop Here': '停在这里',
-    'Wanna run a map?': '想运行地图吗？',
-    'What is This?!': '这是什么？！',
-    'World Level Map': '世界等级地图',
     'You can also click on the Heirloom\'s name on this menu to rename it, or click on the icon to change it!': '您也可以在此菜单上单击传家宝的名称来重命名，或单击图标进行更改！',
-    'Exotic Imp-orts will be unlocked permanently once purchased, and will stick around through portals. Each has a 3% chance to spawn per cell and better loot than normal enemies. Collect them all!': '购买后，奇异外皮将会永久解锁，并将通过传送门持续存在。 每个单元格有3％的几率产生一个外来物种，并且比普通敌人有更好的战利品。 全部收集！',
     'click here to send a message on Reddit': '单击此处在Reddit上发送消息',
     'community-created Trimps Wiki!': '社区创建的脆皮 Wiki！',
     'If you need to contact the developer for any reason,': '如果出于任何原因需要与开发人员联系，',
@@ -4104,7 +4124,6 @@ var cnItems = {
     'or find Greensatellite in the Trimps Discord.': '或在脆皮 Discord中找到Greensatellite。',
     'If you would like to make a donation to help support the development of Trimps, you can now do so with PayPal! If you want to contribute but can\'t afford a donation, you can still give back by joining the community and sharing your feedback or helping others. Thank you either way, you\'re awesome!': '如果您想捐款以支持脆皮的开发，现在就可以使用PayPal！ 如果您想捐款但负担不起，您仍然可以通过加入社区，分享您的反馈或帮助他人来回馈社会。 无论哪种方式，谢谢你，你真棒！',
     'This is your save string. There are many like it but this one is yours. Save this save somewhere safe so you can save time next time.': '这是您的存档字符串。 有很多类似的东西，但这是你的。 将此保存到安全的地方，以便下次节省时间继续玩。',
-    'Switching to this option will spend the majority of your resources with each purchase.': '转换到这个选项将花费你的大部分资源在每次购买。',
     'Send your poor Trimps to certain doom in the battlefield. You\'ll get cool stuff though, they\'ll understand. (Hotkey: F': '将您可怜的脆皮带到战场上的某些厄运。 他们会明白，但是您会得到很棒的东西。 （热键：F',
     'You have been in this Zone ': '你一直在这个区域',
     'Amount': '数量',
@@ -4158,7 +4177,6 @@ var cnItems = {
     '- Log the less common loot items: Gems, Fragments, Territory Bonus, and others.': '-记录不太常见的战利品：宝石，碎片，领土奖金等。',
     '- Log the rewards granted by Exotic Imports.': '-记录奇异外皮授予的奖励。',
     'This Bad Guy is fast and attacks first': '这个坏家伙速度快并且首先攻击',
-    'Automatically gain Helium equal to the amount you earned on your best run.': '自动获得等于您在最佳运行中获得的氦气量。',
     'Buy Chronoimp (50 bones': '购买 脆皮时者（50骨头',
     'Buy Feyimp (50 bones': '购买 脆皮小妖（50骨头',
     'Buy Flutimp (50 bones': '购买 脆皮飘兽（50骨头',
@@ -4169,7 +4187,6 @@ var cnItems = {
     'Buy Venimp (50 bones': '购买 脆皮爱神（50骨头',
     'Buy Whipimp (50 bones': '购买 脆皮鞭者（50骨头',
     'Buy Goblimp (50 bones': '购买 脆皮地精（50骨头',
-    'First, select an Imp (50 bones': '首先，选择一个小鬼（50骨头',
     'Grants an extra 0.3% of current 脆皮': '额外捐赠当前脆皮的0.3％',
     'Single Run Bonuses': '一次性奖金',
     'These all last until your next soft reset. Use them wisely!': '这些全部持续到下一次软重置。 明智地使用它们！',
@@ -4200,7 +4217,6 @@ var cnItems = {
     'Where one minute ago there was dirt, grass, and noxious fog, there are now rivers of molten rock (and noxious fog). You\'d really like to try and repair the planet somehow, so you decide to keep pushing on. It\'s been working out well so far, there was some useful stuff in that chest!': '一分钟前有泥土，草丛和有害雾气的地方，现在有熔岩河（有毒雾气）。 您真的很想尝试以某种方式修复地球，因此您决定继续前进。 到目前为止，效果一直很好，那个箱子里有一些有用的东西！',
     'The heat is tough on your Trimps, causing each Zone to reduce their attack and health by 20% more than the last. 10% of your Nurseries will permanently close after each Zone to avoid Magma flows, and Corruption has seeped into both Void and regular Maps, further increasing their difficulty.': '热浪对您的脆皮不利，导致每个区域的攻击力和生命值都比上一个区域减少20％。 每个区域结束后，您的苗圃中有10％将永久关闭，以避免岩浆流动，并且腐败渗透到了虚空地图和常规地图中，进一步增加了难度。',
     'Though you\'ve seen the Corruption grow since the planet broke, you can now see a giant spire pumping out tons of the purple goo. Things seem to be absorbing it at a higher rate now.': '尽管自从行星破裂以来您已经看到了腐败的增长，但是现在您可以看到一个巨大的尖顶抽出大量的紫色粘胶。 现在看来，事物正在以更高的速度吸收它。',
-    'For your past completions of 50 unique Bionic Wonderland Tiers, you have unlocked the following permanent special bonuses: Foremany (Permanently adds 50000 Foreman to your town to aid in construction), AutoJobs, AutoStructure, and Double Build (Stacked items in the Building Queue will be constructed two at a time). As these bonuses were previously Masteries and are now not, new Masteries have been added to replace these!': '对于你过去完成的50个独特的仿生仙境层，你已经解锁了以下永久的特殊奖励:大群工头(永久增加50000工头到你的城市，以协助建设)，自动工作, 自动建造，和双重建造(堆叠项目的建造队列将建设两个一次)。由于这些加值以前是高精而现在不是，新的高精被添加来代替!',
     'A lot of other new stuff has just been added to Trimps as well, click': '脆皮刚刚添加了许多其他新内容，请点击',
     'Bring it on': '来吧',
     'Improbabilities and Void Maps are now more difficult.': '乌有者发生虚空地图现在都比较困难。',
@@ -4218,10 +4234,6 @@ var cnItems = {
     'if your Trimps have a tendency to slack off when you turn your back.': '如果您的脆皮在转身时有放松的趋势。',
     'Hotkeys: S or': '热键：S 或',
     'MagnetoShriek is NOT active and will not fire.': '电磁尖啸未激活，将不会发射。',
-    'No Formation': '没有阵型',
-    'AutoEquip On': '自动装备 开启',
-    'AutoEquip Off': '自动装备 关闭',
-    'AutoGold Off': '自动金色 关闭',
     'AutoPrestige All': '自动重铸 全部',
     'Maps (': '地图 (',
     'Welcome': '欢迎',
@@ -4258,7 +4270,6 @@ var cnItems = {
     'which cost helium': '需要消耗氦',
     '. Make sure you can earn back what you spend!': '。请确保你有能力去赚回你花费的氦气!',
     'Make Purchase': '购买',
-    'AutoTraps On': '自动陷阱捕捉开启',
     'Run Map': '运行地图',
     'Customize your settings for running maps!': '自定义你的地图运行设置！',
     'Back': '后退',
@@ -4270,55 +4281,27 @@ var cnItems = {
     '': '',
     '\n								Get one Heirloom at the chances above, based on highest zone\n							': '根据最高区域，在上述机会中获得一件传家宝',
     '\n					You can earn achievements by doing stuff. Each achievement will boost the amount of damage your Trimps can deal, and later achievements grant a larger bonus. You can learn more about an achievement by hovering your mouse over it.': '你可以通过做事来获得成就。每一个成就都将增加你的脆皮所能造成的伤害，之后的成就会给予更多的奖励。你可以通过把鼠标悬停在某项成就上来了解它的更多信息。',
-    '\n				Making up lost time...\n			': '弥补失去的时间…',
     '\n								Get one Heirloom at the chances above, based on highest zone\n							': '根据最高区域获得一个传家宝的机会',
     '\n			Heirlooms are powerful items that can drop with a variety of bonuses and a variety of rarities. You will earn one Heirloom every time a Void Map is completed, and you have a better chance to get higher rarities if you complete the Void Map at higher zones. Once you have an Heirloom, you can click the icon below to select it.': '传家宝是强大的物品，可以随着各种奖金和各种稀有物质下降。 每次完成虚空地图时，您将获得一个传家宝，如果您在更高的区域完成虚空地图，您将有更好的机会获得更高的稀有度。 有了传家宝后，您可以点击下面的图标将其选中。',
     '\n			You can only carry a few Heirlooms (other than the two you have equipped) back through the Portal with you when you use it.': '当你使用传送门时，你只能随身携带几个传家宝（你装备的两个传家宝除外）。',
-    'employed\n					': '就业',
     '\n			Once you\'ve selected an Heirloom, you can see all of its stats on the right side of this screen.': '一旦你选中了传家宝，你可以在这个屏幕的右侧看到它的所有统计数据。',
     '\n				Current Run\n			': '当前游戏',
     '\n				Total\n			': '总计',
     '| What\'s New \n					': '新东西',
-    'Essence\n										': '精华',
     '\n													Wind\n											': '风',
     '\n												Ice\n											': '冰',
     '\n												Poison									\n											': '毒',
-    '\n											Extra Zones\n										': '额外区域',
-    '\n											Perfect Sliders\n										': '完美的滑块',
     '\n											Tokens': '符记',
-    '\n											Unlock at Z': '解锁于区域',
-    '\n										Biome\n									': '生物群落',
-    '\n										Difficulty\n									': '困难',
-    '\n										Loot\n									': '劫掠',
-    '\n										Recycle Map\n									': '回收地图',
-    '\n										Run Map\n									': '运行地图',
-    '\n										Size\n									': '大小',
-    '\n										Special Modifier\n									': '特殊修饰符',
-    '\n									AutoFight Off\n								': '自动战斗 关闭',
     '\n									Create\n								': '创建',
-    '\n									Exit Spire\n								': '退出尖塔',
-    '\n									Fight\n								': '战斗',
-    '\n									Finish Daily\n								': '完成日常',
     '\n									Level': '等级',
-    '\n									Portal\n								': '传送门',
-    '\n									Repeat Off\n								': '重复 关闭',
-    '\n									Void Maps\n								': '虚空地图',
-    '\n								Buy Bone Portal (100 bones)\n							': '购买骨头传送门 (100 骨头)',
     '\n								Buy Heirloom (30 bones)\n							': '购买传家宝 (30 骨头)',
     '\n								Get one Heirloom at the chances above, based on highest zone\n							': '在上面的机会得到一个传家宝，基于最高区域',
     '\n							Equipped Core': '装备核心',
     '\n							Equipped Shield': '装备盾牌',
     '\n							Equipped Staff': '装备棍棒',
-    '\n							One of your storage structures will be more expensive than the amount you can receive from this boost. Spend some resources first to get the most benefit!\n						': '您的一个存储结构将比您从此增强中获得的数量更昂贵。 先花一些资源才能获得最大收益！',
-    '\n						Bone Trader\n					': '骨法商人',
-    '\n						Close\n					': '关闭',
     '\n						Save': '保存',
-    '\n						The Bone Trader trades bones for... bonuses\n					': '用骨头与骨法商人换点...“骨”利',
-    '\n						You can earn bones as you progress through the world by killing Skeletimps and Megaskeletimps.\n					': '通过杀死脆皮骷髅和脆皮超级骷髅，你可以在世界进步的过程中获得骨骼。',
-    '\n						You have': '你有',
     '\n					Carried': '携带栏',
     '\n					Temporary': '临时',
-	"A nice Forge would allow you to store more metal.": "一个锻造厂能让你存储更多的金属。",
 	"Your Trimps killed a lot of Bad Guys back there. It seems like you're getting the hang of this. However, the world is large, and there are many more Zones to explore. Chop chop.": "你的脆皮在那里杀死了很多坏人。 看起来你似乎已经弄清楚这是怎么一回事了。 然而这个世界很大，依然有去多区域需要探索，“砍”“砍”...",
 	"You found a book about proper physical training!": "你找到了一本关于适当的体能训练的书！",
 	"By your orders, your scientists have begun to try and figure out how large this planet is.": "根据您的命令，您的科学家们已经开始尝试了解这个星球有多大。",
@@ -4377,10 +4360,6 @@ var cnItems = {
     'mode, you can re-run some challenges in order to earn a permanent attack, health, and Helium bonus for your Trimps. MOST Challenge': '模式中, 你可以重新进行一些挑战来为你的脆皮获得永久的攻击、生命和氦气加成。大多数挑战',
     's will grant': '将给予',
     '1% attack and health and 0.10% increased Helium for every 10 Zones reached. Every 100 Zones, the attack and health bonus will increase by an additional 1%, and the Helium bonus will increase by': '每达到10区域获得1%攻击和生命和0.10%氦气增加。每100区域，攻击和生命奖励将递增1%，氦气奖励递增',
-    'Clear your formations, return to normal stats, and derp around the battlefield. (Hotkeys: X or': '清除阵型，恢复正常状态，并从战场上撤退. (热键: X 或',
-    'Trimps gain 4x attack but lose half of their health and block. (Hotkeys: D or': '脆皮获得 4 倍攻击但是失去一半的生命和防御。 (热键: D 或',
-    'Trimps gain 4x block and 50% block pierce reduction but lose half of their health and attack. (Hotkeys: B or': '脆皮获得 4 倍防御，并降低 50% 防御穿透效果，但是失去一半的生命和攻击。 (热键: B 或',
-    'Trimps gain 4x health but lose half of their attack and block. (Hotkeys: H or': '脆皮获得 4 倍生命但是失去一半的攻击和防御. (热键: H 或',
     'Trimps lose half of their attack, health and block but gain 2x resources from loot (not including Helium) and have a chance to find Dark Essence above Z180 in the world. This formation must be active for the entire fight to receive any bonus from enemies, and must be active for the entire map to earn a bonus from a Cache.': '脆皮失去一半的生命、攻击和防御，但是获得 2 倍资源掉落(不包括氦)。在区域180之后的世界里，有机会获得黑暗精华。 这个阵型必须在整个战斗中保持活跃，掉落奖励加成才能生效；同样，必须在整个地图保持活跃，奖励加成才能对地图修饰符的奖励生效',
     'You will earn a bonus from this enemy!': '你将会从这个敌人处获得奖励加成!',
     'You recently switched to Scryer Formation and will': '你刚刚切换到占卜者阵型，',
@@ -4409,7 +4388,7 @@ var cnPrefix = {
     "+": "+",
     " ": " ",
     ": ": "：",
-    ", ": "，",
+    ", ": "，", //段前标点
     "food:": "食物:",
     "wood:": "木头:",
     "metal:": "金属:",
@@ -4553,12 +4532,120 @@ var cnPostfix = {
     " ": "",
     "/s)": "/s)",
     "/s": "/s",
-    "/hr": "/时",
     ")": ")",
     "%": "%",
-    "Bone": "骨头",
-    "Bones": "骨头",
-    "C2s": "挑战2",
+    "/sec": "/秒", //主界面
+    "/hr": "/时", //主界面
+    "Creek": "海湾", //地图名称
+    "Coast": "海岸", //地图名称
+    "Swamp": "沼泽", //地图名称
+    "Forest": "森林", //地图名称
+    "Mountain": "山脉", //地图名称
+    "Beach": "海滩", //地图名称
+    "Hill": "山丘", //地图名称
+    "Butte": "孤峰", //地图名称
+    "Ridge": "山脊", //地图名称
+    "Mesa": "方山", //地图名称
+    "Valley": "山谷", //地图名称
+    "Peak": "顶峰", //地图名称
+    "Canyon": "峡谷", //地图名称
+    "Plateau": "高原", //地图名称
+    "Crag": "峭壁", //地图名称
+    "Crater": "陨坑", //地图名称
+    "Oaks": "橡林", //地图名称
+    "Volcano": "火山", //地图名称
+    "Glacier": "冰川", //地图名称
+    "Brook": "小溪", //地图名称
+    "Cave": "洞穴", //地图名称
+    "Sea": "大海", //地图名称
+    "Ocean": "大洋", //地图名称
+    "Lake": "湖泊", //地图名称
+    "Jungle": "丛林", //地图名称
+    "Island": "岛屿", //地图名称
+    "Ruins": "遗迹", //地图名称
+    "Temple": "神殿", //地图名称
+    "Bog": "泥沼", //地图名称
+    "Grove": "果林", //地图名称
+    "Thicket": "树丛", //地图名称
+    "Woods": "树林", //地图名称
+    "Oasis": "绿地", //地图名称
+    "Mineshaft": "深井", //地图名称
+    "Tunnel": "隧道", //地图名称
+    "Depths": "深渊", //地图名称
+    "Cavern": "山洞", //地图名称
+    "Gardens": "花园", //地图名称
+    "Nightmare": "梦魇", //地图名称
+    "Void": "虚空", //地图名称
+    "Descent": "落穴", //地图名称
+    "Pit": "深坑", //地图名称
+    ": Whispering ": "：私语", //地图名称
+    ": Sandy ": "：沙之", //地图名称
+    ": Little ": "：小", //地图名称
+    ": Big ": "：巨", //地图名称
+    ": Rancid ": "：腐臭", //地图名称
+    ": Tired ": "：疲劳", //地图名称
+    ": Laughing ": "：欢笑", //地图名称
+    ": Weeping ": "：哭泣", //地图名称
+    ": Windy ": "：风之", //地图名称
+    ": Terrible ": "：可怖", //地图名称
+    ": Nasty ": "：卑鄙", //地图名称
+    ": Dirty ": "：肮脏", //地图名称
+    ": Red ": "：红色", //地图名称
+    ": Black ": "：黑色", //地图名称
+    ": Singing ": "：歌之", //地图名称
+    ": Fiery ": "：燃烧", //地图名称
+    ": Rocky ": "：岩之", //地图名称
+    ": Haunted ": "：闹鬼", //地图名称
+    ": Forgotten ": "：遗忘", //地图名称
+    ": Miserable ": "：不幸", //地图名称
+    ": Cursed ": "：诅咒", //地图名称
+    ": Tainted ": "：污染", //地图名称
+    ": Blessed ": "：祝福", //地图名称
+    ": Sacred ": "：神圣", //地图名称
+    ": Abandoned ": "：遗弃", //地图名称
+    ": Natural ": "：自然", //地图名称
+    ": Enchanted ": "：魔能", //地图名称
+    ": Magical ": "：魔力", //地图名称
+    ": Calm ": "：静谧", //地图名称
+    ": Rugged ": "：崎岖", //地图名称
+    ": Violent ": "：暴虐", //地图名称
+    ": Weird ": "：古怪", //地图名称
+    ": Secret ": "：神秘", //地图名称
+    ": Forbidden ": "：禁忌", //地图名称
+    ": Bewitched ": "：蛊惑", //地图名称
+    ": Dark ": "：黑暗", //地图名称
+    ": Light ": "：光明", //地图名称
+    ": Magnificent ": "：华丽", //地图名称
+    ": Evil ": "：邪恶", //地图名称
+    ": Holy ": "：圣洁", //地图名称
+    ": Hallowed ": "：崇高", //地图名称
+    ": Desecrated ": "：亵渎", //地图名称
+    ": Silent ": "：无声", //地图名称
+    ": Eternal ": "：永恒", //地图名称
+    ": Underground ": "：地下", //地图名称
+    ": Temperate ": "：温和", //地图名称
+    ": Chilly ": "：冰冷", //地图名称
+    ": Muddy ": "：泥之", //地图名称
+    ": Dank ": "：潮湿", //地图名称
+    ": Steamy ": "：雾气", //地图名称
+    ": Humid ": "：湿润", //地图名称
+    ": Dry ": "：干燥", //地图名称
+    ": Putrid ": "：难闻", //地图名称
+    ": Foul ": "：污秽", //地图名称
+    ": Dangerous ": "：危险", //地图名称
+    ": Marred ": "：破损", //地图名称
+    ": Blighted ": "：损毁", //地图名称
+    ": Crystal ": "：晶体", //地图名称
+    ": Frozen ": "：冻结", //地图名称
+    ": Simple ": "：纯粹", //地图名称
+    ": Timeless ": "：永存", //地图名称
+    ": Timeless ": "：永存", //地图名称
+    ": Deadly ": "：致命", //地图名称
+    ": Poisonous ": "：毒性", //地图名称
+    ": Heinous ": "：极恶", //地图名称
+    ": Destructive ": "：破灭", //地图名称
+    "Bone": "骨头", //骨头
+    "Bones": "骨头", //骨头
     "Liquimp!": "液化者！", //击杀消息末尾
     "Liquimp group!": "液化者集团！", //击杀消息末尾
     "Presimpt!": "脆皮小礼！", //击杀消息末尾
@@ -4707,114 +4794,7 @@ var cnPostfix = {
     "Sweltimp group!": "脆皮酷热者集团！", //击杀消息末尾
     "Darknimp!": "脆皮暗罪者！", //击杀消息末尾
     "Darknimp group!": "脆皮暗罪者集团！", //击杀消息末尾
-    "Creek": "海湾", //地图名称
-    "Coast": "海岸", //地图名称
-    "Swamp": "沼泽", //地图名称
-    "Forest": "森林", //地图名称
-    "Mountain": "山脉", //地图名称
-    "Beach": "海滩", //地图名称
-    "Hill": "山丘", //地图名称
-    "Butte": "孤峰", //地图名称
-    "Ridge": "山脊", //地图名称
-    "Mesa": "方山", //地图名称
-    "Valley": "山谷", //地图名称
-    "Peak": "顶峰", //地图名称
-    "Canyon": "峡谷", //地图名称
-    "Plateau": "高原", //地图名称
-    "Crag": "峭壁", //地图名称
-    "Crater": "陨坑", //地图名称
-    "Oaks": "橡林", //地图名称
-    "Volcano": "火山", //地图名称
-    "Glacier": "冰川", //地图名称
-    "Brook": "小溪", //地图名称
-    "Cave": "洞穴", //地图名称
-    "Sea": "大海", //地图名称
-    "Ocean": "大洋", //地图名称
-    "Lake": "湖泊", //地图名称
-    "Jungle": "丛林", //地图名称
-    "Island": "岛屿", //地图名称
-    "Ruins": "遗迹", //地图名称
-    "Temple": "神殿", //地图名称
-    "Bog": "泥沼", //地图名称
-    "Grove": "果林", //地图名称
-    "Thicket": "树丛", //地图名称
-    "Woods": "树林", //地图名称
-    "Oasis": "绿地", //地图名称
-    "Mineshaft": "深井", //地图名称
-    "Tunnel": "隧道", //地图名称
-    "Depths": "深渊", //地图名称
-    "Cavern": "山洞", //地图名称
-    "Gardens": "花园", //地图名称
-    "Nightmare": "梦魇", //地图名称
-    "Void": "虚空", //地图名称
-    "Descent": "落穴", //地图名称
-    "Pit": "深坑", //地图名称
-    ": Whispering ": "：私语", //地图名称
-    ": Sandy ": "：沙之", //地图名称
-    ": Little ": "：小", //地图名称
-    ": Big ": "：巨", //地图名称
-    ": Rancid ": "：腐臭", //地图名称
-    ": Tired ": "：疲劳", //地图名称
-    ": Laughing ": "：欢笑", //地图名称
-    ": Weeping ": "：哭泣", //地图名称
-    ": Windy ": "：风之", //地图名称
-    ": Terrible ": "：可怖", //地图名称
-    ": Nasty ": "：卑鄙", //地图名称
-    ": Dirty ": "：肮脏", //地图名称
-    ": Red ": "：红色", //地图名称
-    ": Black ": "：黑色", //地图名称
-    ": Singing ": "：歌之", //地图名称
-    ": Fiery ": "：燃烧", //地图名称
-    ": Rocky ": "：岩之", //地图名称
-    ": Haunted ": "：闹鬼", //地图名称
-    ": Forgotten ": "：遗忘", //地图名称
-    ": Miserable ": "：不幸", //地图名称
-    ": Cursed ": "：诅咒", //地图名称
-    ": Tainted ": "：污染", //地图名称
-    ": Blessed ": "：祝福", //地图名称
-    ": Sacred ": "：神圣", //地图名称
-    ": Abandoned ": "：遗弃", //地图名称
-    ": Natural ": "：自然", //地图名称
-    ": Enchanted ": "：魔能", //地图名称
-    ": Magical ": "：魔力", //地图名称
-    ": Calm ": "：静谧", //地图名称
-    ": Rugged ": "：崎岖", //地图名称
-    ": Violent ": "：暴虐", //地图名称
-    ": Weird ": "：古怪", //地图名称
-    ": Secret ": "：神秘", //地图名称
-    ": Forbidden ": "：禁忌", //地图名称
-    ": Bewitched ": "：蛊惑", //地图名称
-    ": Dark ": "：黑暗", //地图名称
-    ": Light ": "：光明", //地图名称
-    ": Magnificent ": "：华丽", //地图名称
-    ": Evil ": "：邪恶", //地图名称
-    ": Holy ": "：圣洁", //地图名称
-    ": Hallowed ": "：崇高", //地图名称
-    ": Desecrated ": "：亵渎", //地图名称
-    ": Silent ": "：无声", //地图名称
-    ": Eternal ": "：永恒", //地图名称
-    ": Underground ": "：地下", //地图名称
-    ": Temperate ": "：温和", //地图名称
-    ": Chilly ": "：冰冷", //地图名称
-    ": Muddy ": "：泥之", //地图名称
-    ": Dank ": "：潮湿", //地图名称
-    ": Steamy ": "：雾气", //地图名称
-    ": Humid ": "：湿润", //地图名称
-    ": Dry ": "：干燥", //地图名称
-    ": Putrid ": "：难闻", //地图名称
-    ": Foul ": "：污秽", //地图名称
-    ": Dangerous ": "：危险", //地图名称
-    ": Marred ": "：破损", //地图名称
-    ": Blighted ": "：损毁", //地图名称
-    ": Crystal ": "：晶体", //地图名称
-    ": Frozen ": "：冻结", //地图名称
-    ": Simple ": "：纯粹", //地图名称
-    ": Timeless ": "：永存", //地图名称
-    ": Timeless ": "：永存", //地图名称
-    ": Deadly ": "：致命", //地图名称
-    ": Poisonous ": "：毒性", //地图名称
-    ": Heinous ": "：极恶", //地图名称
-    ": Destructive ": "：破灭", //地图名称
+    "C2s": "挑战2", //脚本3
     " autoStance2": "", //脚本3阵型设置
     ":  Value Input": "：输入值", //脚本3各设置界面
 }
@@ -4847,6 +4827,29 @@ var cnExcludePostfix = [
 //小数点：([\d\.]+)
 //原样输出的字段：(.+)
 var cnRegReplace = new Map([
+    [/^(.*)A green shimmer erupts then disappears, and you hit the ground. You look pretty hungry...$/, '$1一团绿光闪烁又消失了，然后您就落到了地面上。您看起来饿极了……'], //源始消息
+    [/^employed(\s+)$/, '已雇佣$1'], //主界面
+    [/^Check\sTraps(.+)$/, '检查陷阱$1'], //主界面
+    [/^(.+) Foremen$/, '$1 工头'], //主界面
+    [/^Essence(\s+)$/, '精华$1'], //主界面
+    [/^Respec \((\d*) Free!$/, '洗点($1次免费！'], //主界面
+    [/^(\s+)Fight(\s+)$/, '$1战斗$2'], //主界面
+    [/^(\s+)AutoFight Off(\s+)$/, '$1关闭自动战斗$2'], //主界面
+    [/^(\s+)Void Maps(\s+)$/, '$1虚空地图$2'], //主界面
+    [/^(\s+)Portal(\s+)$/, '$1传送门$2'], //主界面
+    [/^(\s+)Repeat Off(\s+)$/, '$1关闭重复$2'], //主界面
+    [/^(\s+)Finish Daily(\s+)$/, '$1完成日常$2'], //主界面
+    [/^(\s+)Exit Spire(\s+)$/, '$1退出尖塔$2'], //主界面
+    [/^(\s+)Loot(\s+)$/, '$1劫掠$2'], //主界面
+    [/^(\s+)Size(\s+)$/, '$1尺寸$2'], //主界面
+    [/^(\s+)Difficulty(\s+)$/, '$1难度$2'], //主界面
+    [/^(\s+)Biome(\s+)$/, '$1生物群落$2'], //主界面
+    [/^(\s+)Special Modifier(\s+)$/, '$1特殊修饰符$2'], //主界面
+    [/^(\s+)Unlock at Z$/, '$1解锁于区域'], //主界面
+    [/^(\s+)Perfect Sliders(\s+)$/, '$1完美滑块$2'], //主界面
+    [/^(\s+)Extra Zones(\s+)$/, '$1额外区域$2'], //主界面
+    [/^(\s+)Run Map(\s+)$/, '$1运行地图$2'], //主界面
+    [/^(\s+)Recycle Map(\s+)$/, '$1回收地图$2'], //主界面
     [/^Each Trap allows you to catch (.*) thing(s*).$/, '每个陷阱可以让您抓住$1个东西。'], //建筑
     [/^Has room for (.*) more lovely Trimp(s*). All Trimp housing has enough workspaces for only half of the Trimps that can live there.$/, '可以容纳$1个可爱的脆皮。所有的小屋都有着充足的办公区域，因为只有一半的脆皮可以住在那里。'], //建筑
     [/^A better house for your Trimps! Each house supports up to (.*) more Trimp(s*).$/, '脆皮们有更好的宅院可以住了！每个宅院可以容纳$1个脆皮。'], //建筑
@@ -4876,7 +4879,7 @@ var cnRegReplace = new Map([
     [/^and you've been on this Zone for (.*) minute(s*). In (.*) minute(s*), this bonus will increase to (.*)%.$/, '您已经在此区域停留了$1分钟。再经过$3分钟，加成将提升为$5%。'], //工作
     [/^Your next Magmamancer will increase the total bonus by (.*)% \(compounding, hold Ctrl to see formula$/, '下一个岩浆巫师可以使总加成提升$1%(效果叠乘，按下Ctrl键可看到详细公式'], //工作
     [/^. Completing Spires II through V will each divide this ratio by 10. If your ratio ever falls below (.*):1, an Amalgamator will leave. Your current ratio is$/, ' 时，它们将自动出现。从尖塔 II开始到尖塔 V，自上次传送后每通过一个尖塔，此比值就除以10。如果比值低于$1:1，一名合并者将离开。您目前的比值为 '], //工作
-    [/^You have (.*) Meteorologist(s*), but (.*) w(as|ere) hired on this Zone and (is|are) not yet available.$/, '您目前有$1个气象学家，但其中$3是当前区域雇佣的，还没法开始工作。'], //工作
+    [/^You have (.*) Meteorologist(s*), but (.*) w(as|ere) hired on this Zone and (is|are) not yet available.$/, '您目前有$1个气象学家，但其中$3个是当前区域雇佣的，还没法开始工作。'], //工作
     [/^(.*) Meteorologist(s*) (is|are) currently collecting, granting (.*)% extra Radon.$/, '目前有$1个气象学家正在工作，氡的加成为$4%。'], //工作
     [/^(.*)That Chickimp dropped (.*) food!$/, '$1脆皮小鸡掉落了 $2 食物！'], //特定敌人
     [/^(.*)You hear nearby Kittimps running away in fear and decide to check out their former home. There, you find a prey pile with (.*) food!$/, '$1附近的脆皮小猫害怕地跑开了，您决定去它们的窝里看看。接着您在那发现了 $2 食物！'], //特定敌人
@@ -5106,7 +5109,46 @@ var cnRegReplace = new Map([
     [/^(.*)You just found (.*) bars of metal! Convenient!$/, '$1您发现了$2金属！太实用了！'], //地图解锁等
     [/^(.*)That guy just left (.*) food on the ground! Sweet!$/, '$1那家伙在地上留下了$2食物！真是太好啦！'], //地图解锁等
     [/^(.*)You just found (.*) wood! That's pretty neat!$/, '$1您发现了$2木头！很好很强大！'], //地图解锁等
-    [/^This book will teach your soldiers how to utilize the buddy system. Fighting will now require (.*)% more Trimps (rounded up), but attack and health will grow for each new Trimp.$/, '这本书可以教会士兵如何利用伙伴的力量。从现在起，战斗所需要的脆皮数量增加$1%(向上取整)，脆皮的攻击力和生命值也相应地提升。'], //其他升级等
+    [/^This book will teach your soldiers how to utilize the buddy system. Fighting will now require (.*)% more Trimps \(rounded up\), but attack and health will grow for each new Trimp.$/, '这本书可以教会士兵如何利用伙伴的力量。从现在起，战斗所需要的脆皮数量增加$1%(向上取整)，脆皮的攻击力和生命值也相应地提升。'], //其他升级等
+    [/^(.*)You just made a map to the Dimension of Anger! Should be fun!$/, '$1您制造了愤怒维度地图！应该会很有趣的！'], //其他升级等
+    [/^(.*)You just made a map to the Dimension of Rage! Sounds like a great time!$/, '$1您制造了暴怒维度地图！听起来不错哦！'], //其他升级等
+    [/^Your next Shield will grant (.*) block.$/, '下一级盾牌增加$1格挡。'], //其他升级等
+    [/^Your next Shield will grant (.*) health.$/, '下一级盾牌增加$1生命值。'], //其他升级等
+    [/^Your next Dagger will grant (.*) attack.$/, '下一级匕首增加$1攻击力。'], //其他升级等
+    [/^Your next Boots will grant (.*) health.$/, '下一级靴子增加$1生命值。'], //其他升级等
+    [/^Your next Mace will grant (.*) attack.$/, '下一级狼牙棒增加$1攻击力。'], //其他升级等
+    [/^Your next Helmet will grant (.*) health.$/, '下一级头盔增加$1生命值。'], //其他升级等
+    [/^Your next Polearm will grant (.*) attack.$/, '下一级战戟增加$1攻击力。'], //其他升级等
+    [/^Your next Pants will grant (.*) health.$/, '下一级裤子增加$1生命值。'], //其他升级等
+    [/^Your next Battleaxe will grant (.*) attack.$/, '下一级战斧增加$1攻击力。'], //其他升级等
+    [/^Your next Shoulderguards will grant (.*) health.$/, '下一级护肩增加$1生命值。'], //其他升级等
+    [/^Your next Greatsword will grant (.*) attack.$/, '下一级巨剑增加$1攻击力。'], //其他升级等
+    [/^Your next Breastplate will grant (.*) health.$/, '下一级胸铠增加$1生命值。'], //其他升级等
+    [/^Your next Arbalest will grant (.*) attack.$/, '下一级强弩增加$1攻击力。'], //其他升级等
+    [/^Your next Gambeson will grant (.*) health.$/, '下一级棉甲增加$1生命值。'], //其他升级等
+    [/^(.*)It's time to get some Trimps up in here.$/, '$1是时候抓点脆皮了。'], //其他升级等
+    [/^(.*)Maybe there's something meaty and delicious here to Trap.$/, '$1也许您可以用陷阱抓到一些嘎嘣脆肉味的东西。'], //其他升级等
+    [/^(.*)Ah wood, the building material of kings. The building material of everyone else too, but still.$/, '$1木头，建筑材料之王，王之建筑材料。当然也是其他人的建筑材料，但王也是啊。'], //其他升级等
+    [/^(.*)You'll need some wood to build stuff...$/, '$1您需要木头才能建造其他东西……'], //其他升级等
+    [/^(.*)You almost forgot how to build a Barn, but now you remember. Proud of you!$/, '$1您都快忘了怎么建造谷仓了，总之您还是想起来了。为您自己感到骄傲！'], //其他升级等
+    [/^(.*)The food stores are getting pretty full, maybe you should start thinking about a Barn.$/, '$1食物的存储快满了，您可能该考虑谷仓了。'], //其他升级等
+    [/^(.*)Wet wood won't work! Better get a Shed going.$/, '$1湿木头是没法用的！最好赶紧建造一个窝棚。'], //其他升级等
+    [/^(.*)A nice Shed would allow you to keep more wood on hand.$/, '$1一个好窝棚可以存放更多木头。'], //其他升级等
+    [/^(.*)What better place to store metal than a building that can smelt it?$/, '$1还有什么地方比冶炼金属的地方能更好地存储它呢？'], //其他升级等
+    [/^(.*)A nice Forge would allow you to store more metal.$/, '$1一个好锻造厂可以存储更多金属。'], //其他升级等
+    [/^(.*)You caught your very first Trimp in this new dimension! It can smell other Trimps on you and looks confused. You promptly send him off to work!$/, '$1您在新的维度中抓到了第一个脆皮！可它在您身上闻到了其他脆皮的气味，一脸懵逼。您赶紧把它派去干活了。'], //其他升级等
+    [/^(.*)There's a weird impish little creature in the trap. A Trimp, you decide to call it. Since you're so creative, you could probably train this Trimp to help out.$/, '$1陷阱里有一个看起来很皮的脆弱小动物，您决定叫它 脆皮 。既然您都这么有创造力了，不如干脆考虑训练脆皮来帮您干活好了。'], //其他升级等
+    [/^(.*)Where would you be in life without Science? Not this dimension, that's for sure.$/, '$1假如没有科学，生活会变得怎样？至少您就不会在这个维度了，肯定的。'], //其他升级等
+    [/^(.*)This planet feels so familiar, yet so foreign. Maybe it's time to start sciencing things.$/, '$1这颗行星又熟悉又陌生。或许是时候研究点什么了。'], //其他升级等
+    [/^(.*)As you finally step out into the Battle Zones, the first thing you notice is that your Heirlooms feel weaker here. Oh well, 1000 more times into the fray...$/, '$1当您迈入战斗区域时，首先发现的是传家宝弱了很多。好吧，至少得先来个千人斩了……'], //其他升级等
+    [/^(.*)War... what is it good for? Exploration, or something.$/, '$1战争……人是为何要战争呢？为了探索，还是为了什么……'], //其他升级等
+    [/^(.*)The newly established Trimp zoning committee is too busy drooling to approve anything, so you take it on yourself to start building some Huts.$/, '$1新成立的脆皮区委会忙着流口水，没空审批，还是您自己来建造小屋吧。'], //其他升级等
+    [/^(.*)Doesn't seem like all of these little guys will fit in your ship. Luckily, you remember how to make small huts for shelter.$/, '$1这么多小家伙是没法全塞进您的飞船的。幸好，您记得如何建造小屋。'], //其他升级等
+    [/^(.*)The TZC has finally approved a House blueprint. To your surprise, it looks fairly decent! You decide to immediately build some.$/, '$1脆皮区委会终于批准了宅院的蓝图。但令您吃惊的是，它看起来竟然相当棒。于是您决定马上造一些。'], //其他升级等
+    [/^(.*)It's starting to get pretty crowded up in here. Maybe you should start building some better housing.$/, '$1这里开始变得拥挤起来了。您应该开始建造一些更好的房子。'], //其他升级等
+    [/^(.*)Your Trimps look really bored.$/, '$1脆皮们看起来很无聊。'], //其他升级等
+    [/^(.*)Better hurry up to the fighting Zones so you don't have to sit around here all day watching Trimps breed.$/, '$1还是赶紧去战斗区域吧，不然整天看着脆皮们繁殖也太无所事事了。'], //其他升级等
+    [/^(.*)Apparently the Trimps breed if they're not working. Doesn't look pleasant.$/, '$1很显然，如果脆皮没有在干活，它们就开始繁殖了。看着不怎么舒服。'], //其他升级等
     [/^(.*), Z$/, '$1，区域'], //统计等
     [/^Progress: (.*) \/$/, '进度：$1 /'], //成就等
     [/^Complete Zone (\d+) in Universe$/, '通过区域 $1 于宇宙'], //成就等
@@ -5221,6 +5263,25 @@ var cnRegReplace = new Map([
     [/^Beat the Spire with no respec and (.*) or less He Spent$/, '在氦花费不超过 $1 ，且未在传送后进行特权洗点的前提下通过尖塔'], //成就等
     [/^Beat Spire II with no respec and (.*) or less He spent$/, '在氦花费不超过 $1 ，且未在传送后进行特权洗点的前提下通过尖塔 II'], //成就等
     [/^Complete Wither with (.*) stacks of Hardened$/, '在拥有 $1 层硬化的前提下，完成凋零挑战'], //成就等
+    [/^(\s+)Making up lost time...(\s+)$/, '$1补偿时间中……$2'], //离线等
+    [/^(\d*) Level map$/, '$1级的地图'], //离线等
+    [/^(\s+)Bone Trader(\s+)$/, '$1骨法商人$2'], //骨头等
+    [/^(\s+)You have$/, '$1您有 '], //骨头等
+    [/^(\s+)You can earn bones as you progress through the world by killing Skeletimps and Megaskeletimps.(\s+)$/, '$1您可以在世界进度推进时，击杀脆皮骷髅或脆皮超级骷髅来获得骨头。$2'], //骨头等
+    [/^(\s+)The Bone Trader trades bones for... bonuses(\s+)$/, '$1用骨头与骨法商人换点...“骨”利$2'], //骨头等
+    [/^(\s+)Close(\s+)$/, '$1关闭$2'], //骨头等
+    [/^(\s+)12 hours(\s+)$/, '$112小时$2'], //骨头等
+    [/^(\s+)36 hours(\s+)$/, '$136小时$2'], //骨头等
+    [/^(\s+)One of your storage structures will be more expensive than the amount you can receive from this boost. Spend some resources first to get the most benefit!(\s+)$/, '$1您有一个存储建筑花费超过了能获得的资源。先花费一些相应的资源，以使收益最大化！$2'], //骨头等
+    [/^(\s+)Buy 12 Hours \(20 bones\)(\s+)$/, '购买12小时的产量(20骨头)'], //骨头等
+    [/^(\s+)Buy 36 Hours \(40 bones\)(\s+)$/, '购买36小时的产量(40骨头)'], //骨头等
+    [/^(\s+)Buy Bone Portal \(100 bones\)(\s+)$/, '购买骨头传送门(100骨头)'], //骨头等
+    [/^(.*) Helium, (.*)x each Token, (.*) Fluffy Exp$/, '$1氦，各$2自然符记，$3绒绒经验'], //骨头等
+    [/^(.*) Helium, (.*)x each Token$/, '$1氦，各$2自然符记'], //骨头等
+    [/^(.*) Helium, (.*) Fluffy Exp$/, '$1氦，$2绒绒经验'], //骨头等
+    [/^(.*) Radon, (.*) Scruffy Exp$/, '$1氡，$2污污经验'], //骨头等
+    [/^(.*)(?<!Not)(?<!AutoGold) Helium$/, '$1氦'], //骨头等
+    [/^(.*)(?<!AutoGold) Radon$/, '$1氡'], //骨头等
     [/^Map At Z(\d+)\+$/, '进图区域：$1+'], //自动进图
     [/^Map At Z(\d+)(\+*) \((\D)$/, '区域$1$2进图($3'], //自动进图
     [/^([0-9a-zA-Z\.\%\s]*)Fire Trap Damage$/, '$1火焰陷阱伤害'], //传家宝
@@ -5354,7 +5415,7 @@ var cnRegReplace = new Map([
     [/^You have completed Mayhem (\d+) time(s*). Your Trimps have \+(.*)% Attack, Health, and Radon, and your next run of Mayhem will spawn Bad Guys with (.*)x Attack and Health.$/, '您共完成了 $1 次暴乱挑战。挑战总奖励为增加 $3% 脆皮攻击力、生命值、氡获取量，下轮的敌人攻击力和生命值将增加 $4 倍。'], //暴乱挑战等
     [/^The Final Enemy of this Zone has (\d+) stacks of Mayhem, granting \+(.*)% Damage and Health. Complete Maps to lower these stacks.$/, '此区域最后一格的敌人目前有 $1 层暴乱，增加 $2% 攻击力和生命值。通过地图来减少层数。'], //暴乱挑战等
     [/^(.*)You have completed the Mayhem Challenge! Your Trimps have gained \+(.*)% Radon in Universe 2 and Damage and Health in Universe 1 and 2, and future runs of this Challenge will be 3x more difficult. You have now completed Mayhem (\d+) time(s*). Your new total Mayhem bonus is \+$/, '$1您完成了暴乱挑战！宇宙2中的氡，及宇宙1和宇宙2中的脆皮攻击力和生命值增加了 $2% ，后续挑战的难度将变为现在的3倍。您共完成了 $3 次暴乱挑战。暴乱挑战总奖励为 '], //暴乱挑战完成信息
-    [/^Your Trimps learn to harvest special Herbs while collecting Food! Increases Trimp Attack by a number based on your total stored food. Grants \+30% Attack at (.*) Food, or \+300% at (.*). At your current total of (.*) Food,$/, '您的脆皮现在可以在采集食物时同时采集百草！根据食物储存量增加攻击力。在 $1 食物时增加30%攻击力，在 $2 食物时增加300%攻击力。您当前共有 $3 食物，'], //神农专精
+    [/^Your Trimps learn to harvest special Herbs while collecting Food! Increases Trimp Attack by a number based on your total stored food. Grants \+30% Attack at (.*) Food, or \+300% at (.*). At your current total of (.*) Food,$/, '您的脆皮现在可以在采集食物时同时采集百草！根据食物存储量增加攻击力。在 $1 食物时增加30%攻击力，在 $2 食物时增加300%攻击力。您当前共有 $3 食物，'], //神农专精
 	[/^you are gaining \+([\d+\.]+)% Trimp Attack$/, '您获得了 +$1% 攻击力'], //神农专精
 	[/^you would gain \+([\d+\.]+)% Trimp Attack$/, '您可获得 +$1% 攻击力'], //神农专精
 	[/^Each cleared Zone through Z(\d+) \(half of your highest Zone reached\) will drop all available equipment prestiges from maps.$/, '直到区域 $1 (最高通过区域的一半)之前，所有通过的区域都可以掉落地图中所有的装备重铸升级。'], //锻铁术 I专精
@@ -6042,7 +6103,6 @@ var cnRegReplace = new Map([
 
 
 
-    [/^\n							([\d\.]+) hours\n						$/, '$1 小时'],
     [/^(\d+) Barns, (\d+) Sheds, and (\d+) Forges.$/, '$1个谷仓，$2个窝棚和$3个锻造厂。'],
     [/^While you were away, your Trimps were able to produce (.+) food, (.+) wood, (.+) metal, (.+) gems, and (.+) fragments$/, '当您不在时，您的脆皮产生了$1的食物，$2的木材，$3的金属，$4的宝石和$5的碎片'],
     [/^Welcome to ([\d\.]+)$/, '欢迎来到 $1'],
@@ -6060,7 +6120,6 @@ var cnRegReplace = new Map([
     [/^Welcome back! You were offline for (.+) minutes and (.+) seconds.$/, '欢迎回来!你离线$1分$2秒。'],
     [/^Welcome back! You were offline for (.+) minutes.$/, '欢迎回来!你离线$1分钟。'],
     [/^(.+) Min (.+) Sec$/, '$1 分 $2 秒'],
-    [/^(.+) Level map$/, '$1 级地图'],
     [/^(.+) Secs \/ (.+) Secs$/, '$1 秒 \/ $2 秒'],
     [/^Collect  (.+) Gem$/, '收集 $1 宝石'],
     [/^([\d\.]+) Trimp$/, '$1 脆皮'],
@@ -6069,10 +6128,7 @@ var cnRegReplace = new Map([
     [/^(.+) seconds processed in (.+) seconds \((.+) speed$/, '$2秒内处理了$1秒（$3 速度'],
     [/^([\s\d]+)\((\d+) Secs?$/, '$1 \($2 秒'],
     [/^([\s\d]+)\((\d+) Mins? (\d+) Secs?$/, '$1 \($2 分 $3 秒'],
-    [/^\n							Buy (\d+) Hours \((\d+) bones\)\n						$/, '购买 $1 小时 \($2 骨头\)'],
     [/^Min (.+) Max$/, '最小 $1，最高'],
-    [/^Respec (.+) bones$/, '恢复 $1 骨头'],
-	[/^Check\sTraps(.+)$/, '检查陷阱$1'],
     [/^While you were away, your Trimps were able to produce (.+) wood.$/, '当你离开时，你的脆皮生产了$1种木材。'],
     [/^While you were away, your Trimps were able to produce (.+) food, (.+) wood, (.+) metal, (.+) gems, and (.+) fragments.$/, '当你离开时，你的脆皮生产了$1食物，$2木材，$3金属，$4宝石和$5碎片。'],
     [/^(\d+) workspace$/, '$1 工作空间'],
@@ -6084,8 +6140,6 @@ var cnRegReplace = new Map([
     [/^(\d+) Hour (\d+) Min$/, '$1 时 $2 分'],
     [/^Spirestones: (.+) \/$/, '尖塔石头: $1 \/'],
     [/^You see (.+) canisters of Helium left on the ground and pick them up. Useful!$/, '你看到$1的氦气罐留在地上并捡起来。 很有用！'],
-    [/^(.+) Foremen$/, '$1 工头'],
-    [/^(\d+) Bones$/, '$1 骨头'],
     [/^(\d*\s)Tokens$/, '$1符记'],
     [/^(\d+\%) Map Loot$/, '$1 地图资源获取'],
     [/^(\d+\%) Trimp Damage$/, '$1 脆皮伤害'],
@@ -6105,7 +6159,6 @@ var cnRegReplace = new Map([
     [/^Lightning Trap ([I,V,X,L,C,D,M]+)$/, '闪电陷阱 $1'],
     [/^Condenser Tower ([I,V,X,L,C,D,M]+)$/, '冷凝塔 $1'],
     [/^Knowledge Tower ([I,V,X,L,C,D,M]+)$/, '知识塔 $1'],
-    [/^(.+)\/sec$/, '$1\/秒'],
 	[/^Add \((.+) Nu$/, '添加 ($1虚空物质'],
 	[/^Replace \((.+) Nu$/, '替换 ($1虚空物质'],
 	[/^You have spent (.+) Helium on this Perk$/, '你已经花费 $1 氦在这个附带特权上'],
