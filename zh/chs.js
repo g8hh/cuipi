@@ -690,7 +690,7 @@ var cnItems = {
     'Prismatic': '棱镜护盾',
     'Polish the strange Prism you found. When your Trimps bring the polished Prism to Battle, they gain': '将您发现的奇怪棱镜进行抛光。当脆皮带着抛光后的棱镜战斗时，它们可以获得最大生命值 ',
     'of their maximum Health as': '数值的',
-    '!. All enemy damage hits your Prismatic Shield before Health, and Prismatic Shield always regenerates to full after an enemy is killed.': '！所有敌人必须先击穿棱镜护盾后才能减少脆皮生命值，而且在一个敌人被击杀后，棱镜护盾将恢复全满。',
+    '!. All enemy damage hits your Prismatic Shield before Health, and Prismatic Shield always regenerates to full after an enemy is killed.': '！所有敌人必须先击穿棱镜护盾后才能开始减少脆皮生命值，而且在一个敌人被击杀后，棱镜护盾将恢复全满。',
     'This book will increase the block gained from each Gym by 50%.': '这本书可以使每个健身房增加的格挡数值提升50%。',
     'This book details the fine art of teaching your foremen to actually do stuff instead of just sitting around. When asked, your foremen will start construction on a new Trap if the queue is empty.': '这本书详细介绍了让工头们干活的艺术，现在他们不会再无所事事了。开启相应功能后，在队列为空时，工头们将自动建造陷阱。',
     '': '',
@@ -4876,7 +4876,7 @@ var cnRegReplace = new Map([
     [/^and you've been on this Zone for (.*) minute(s*). In (.*) minute(s*), this bonus will increase to (.*)%.$/, '您已经在此区域停留了$1分钟。再经过$3分钟，加成将提升为$5%。'], //工作
     [/^Your next Magmamancer will increase the total bonus by (.*)% \(compounding, hold Ctrl to see formula$/, '下一个岩浆巫师可以使总加成提升$1%(效果叠乘，按下Ctrl键可看到详细公式'], //工作
     [/^. Completing Spires II through V will each divide this ratio by 10. If your ratio ever falls below (.*):1, an Amalgamator will leave. Your current ratio is$/, ' 时，它们将自动出现。从尖塔 II开始到尖塔 V，自上次传送后每通过一个尖塔，此比值就除以10。如果比值低于$1:1，一名合并者将离开。您目前的比值为 '], //工作
-    [/^You have (.*) Meteorologist(s*) , but (.*) we(s|re) hired on this Zone and (is|are) not yet available.$/, '您目前有$1个气象学家，但其中$3是当前区域雇佣的，还没法开始工作。'], //工作
+    [/^You have (.*) Meteorologist(s*), but (.*) w(as|ere) hired on this Zone and (is|are) not yet available.$/, '您目前有$1个气象学家，但其中$3是当前区域雇佣的，还没法开始工作。'], //工作
     [/^(.*) Meteorologist(s*) (is|are) currently collecting, granting (.*)% extra Radon.$/, '目前有$1个气象学家正在工作，氡的加成为$4%。'], //工作
     [/^(.*)That Chickimp dropped (.*) food!$/, '$1脆皮小鸡掉落了 $2 食物！'], //特定敌人
     [/^(.*)You hear nearby Kittimps running away in fear and decide to check out their former home. There, you find a prey pile with (.*) food!$/, '$1附近的脆皮小猫害怕地跑开了，您决定去它们的窝里看看。接着您在那发现了 $2 食物！'], //特定敌人
