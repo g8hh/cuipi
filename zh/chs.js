@@ -37,65 +37,33 @@ var cnItems = {
     'Construct a gem-powered nursery, where baby Trimps can grow up faster. Increases Trimps per second from breeding by 1% (compounding).': '建造一个宝石供能的托儿所，使脆皮宝宝们成长的更快。每个托儿所可以增加1%繁殖速度(效果叠乘)。',
     'Microchip': '微型芯片',
     'Unlocks a Scientist level, upgrading your portal and': '解锁一级科学家，升级传送门并',
-    'Unlocks another Scientist level, upgrading your portal and': '解锁又一级科学家，升级传送门并',
-    'allowing you to start with 5000 Science, 100 Food, 100 Wood, 10 Traps, and 1 Foreman every time you Portal to this Universe': '使您在这个宇宙中每次使用传送门后，以5000科学点，100食物，100木头，10陷阱，以及1工头的状态开始游戏。',
-    'allowing you to start with 5 Barns, 5 Sheds, 5 Forges, and T2 Equipment unlocked every time you Portal to this Universe': '使您在这个宇宙中每次使用传送门后，以5谷仓、5窝棚、5锻造厂，且解锁2级装备的状态开始游戏。',
-    'allowing you to start with full Trimps and 200% player efficiency every time you Portal to this Universe': '使您在这个宇宙中每次使用传送门后，以满人口脆皮，200%玩家效率的状态开始游戏。',
-    'allowing you to earn two levels of each prestige upgrade per map. This bonus will apply every time you Portal to this Universe': '使您在这个宇宙中每次使用传送门后，每张地图可以获得两级装备重铸升级。',
-    'allowing you to permanently increase all Radon found by 0.5% to the power of your current Zone number. You\'ll also start with 1000% player efficiency and 50 Barns, Sheds, and Forges every time you Portal to this Universe': '使您的氡获取量每层区域永久比上一层区域多0.5%。且在这个宇宙中每次使用传送门后，以1000%玩家效率，50谷仓、50窝棚、50锻造厂的状态开始游戏。',
+    'Unlocks another Scientist level, upgrading your portal and': '解锁另一级科学家，升级传送门并',
+    'allowing you to start with 5000 Science, 100 Food, 100 Wood, 10 Traps, and 1 Foreman every time you Portal to this Universe': '使您在这个宇宙中每次使用传送门后，以5000科学点，100食物，100木头，10陷阱，以及1工头的状态开始游戏',
+    'allowing you to start with 5 Barns, 5 Sheds, 5 Forges, and T2 Equipment unlocked every time you Portal to this Universe': '使您在这个宇宙中每次使用传送门后，以5谷仓、5窝棚、5锻造厂，且解锁2级装备的状态开始游戏',
+    'allowing you to start with full Trimps and 200% player efficiency every time you Portal to this Universe': '使您在这个宇宙中每次使用传送门后，以满人口脆皮，200%玩家效率的状态开始游戏',
+    'allowing you to earn two levels of each prestige upgrade per map. This bonus will apply every time you Portal to this Universe': '使您在这个宇宙中每次使用传送门后，每张地图可以获得两级装备重铸升级',
+    'allowing you to permanently increase all Radon found by 0.5% to the power of your current Zone number. You\'ll also start with 1000% player efficiency and 50 Barns, Sheds, and Forges every time you Portal to this Universe': '使您的氡获取量每层区域永久比上一层区域多0.5%。且在这个宇宙中每次使用传送门后，以1000%玩家效率，50谷仓、50窝棚、50锻造厂的状态开始游戏',
     'Microchips attach directly to your Portal Device, and only ever have to be purchased once. Your Portal Device has room for 5 total Microchips.': '微型芯片与传送门装置绑定，只需购买一次即可永久生效。传送门装置一共可以容纳5颗芯片。',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
     //建筑相关结束
+    //工作相关
+    'Farmer': '农民',
+    'Lumberjack': '伐木工',
+    'Each Geneticist will increase the health of each Trimp by 1% (compounding), but slows the rate at which baby Trimps grow by 2% (compounding).': '每个遗传学家使脆皮的生命值增加1%(效果叠乘)，但使脆皮宝宝的成长速度减少2%(效果叠乘)。',
+    'Train a Magmamancer to craft pickaxe heads infused with Gems and Magma, custom for the unique rocks in each Zone. The more Magmamancers you have and the longer you spend in one Zone, the more Metal your Trimps will be able to gather!': '训练一个岩浆巫师来锻造加入宝石和岩浆的镐头，根据每个区域岩石的不同来定制。岩浆巫师越多，或者在当前区域停留的时间越长，脆皮就可以采集更多的金属！',
+    'M = Magmamancer count. T = Time on Zone in minutes, divided by 10, rounded down.': 'M=岩浆巫师数量。T=在当前区域停留的分钟数除以10，结果向下取整。',
+    'Metal/Sec *= 1 + (((1 - (0.9999 ^ M)) * 3) * ((1.2 ^ T) - 1)': '金属/秒 *= 1 + (((1 - (0.9999 ^ M)) * 3) * ((1.2 ^ T) - 1)',
+    'Amalgamator': '合并者',
+    'Amalgamators cannot be hired or fired manually. They are magical beings that could barely be considered Trimps anymore, and they will automatically show up to your town whenever your total population to army size ratio rises above': '合并者无法手动雇佣或解雇。它们是已经无法再看成脆皮的神奇存在，当总人口与军队规模的比值超过 ',
+    '. At your current army size, you need': '。以目前军队规模来看，您还需要 ',
+    'total Trimps to trigger the next Amalgamator.': '总人口，下个合并者才会出现。',
+    'Amalgamators fuse some of your spare Trimps to other soldiers, greatly strengthening them. Each Amalgamator increases the amount of Trimps that must be sent into each battle by 1000x (compounding), increases health by 40x (compounding), and increases damage by 50% (compounding).': '合并者将一些空闲的脆皮与其他士兵融合，极大地强化它们。每个合并者将军队规模变为1000倍(效果叠乘)，将生命值变为40倍(效果叠乘)，将伤害值增加50%(效果叠乘)。',
+    'Amalgamators fuse some of your spare Trimps to other soldiers, greatly strengthening them. Each Amalgamator increases the amount of Trimps that must be sent into each battle by 1000x (compounding), increases health by 40x (compounding), and increases damage by 50% (additive).': '合并者将一些空闲的脆皮与其他士兵融合，极大地强化它们。每个合并者将军队规模变为1000倍(效果叠乘)，将生命值变为40倍(效果叠乘)，将伤害值增加50%(效果叠加)。',
+    'In addition, having at least one Amalgamator will cause Anticipation stacks to increase based on when the last soldiers were sent, rather than being based on time spent actually breeding.': '此外，至少有一个合并者时，预期效果将基于最后一次士兵被派遣的时间而定，而不是基于实际繁殖的时间。',
+    'This particular Universé seems t͏o directly conflict with the A̶m̀a̧lgamators, yet they\'re here and the͢ T͜rimps they Amal͢gama͜t̶e seem immune to th̢e d͠imensional͜ ̀re̴strictions͢.͡ Things ̀are get̡ting weird thǫu̵gh.': '合并者看a起来跟这个宇宙格格mal不入，但它们还ga是出现了，它们所ma合并的脆皮似乎不受到维to度法则的限制。这可真是越rs来越奇怪了。',
+    'Some say the Amalgamators are a curse, some say they\'re a blessing. The Amalgamators themselves mostly just say "Blerghhhh".': '有人说合并者是祸，有人说合并者是福，而合并者自己，通常只是说“布勒尔尔尔尔”。',
+    'Meteorologist': '气象学家',
+    'Increase the amount of Radon gained from all sources by 1% per Meteorologist hired. Meteorologists require some time to get situated after being hired, and must be active for an entire Zone before they can start collecting any extra Radon.': '每个气象学家可以将氡的获取量提升1%。雇佣后，气象学家需要一些时间来安顿下来，在一个区域后才可以开始获取更多的氡。',
+    //工作相关结束
     //敌人名称相关
     'Liquimp': '液化者',
     'Presimpt': '脆皮小礼',
@@ -714,6 +682,31 @@ var cnItems = {
     'Food': '食物',
     'Wood': '木头',
     //地图解锁相关结束
+    //其他升级相关
+    'Prestige your Warpstation, increasing the amount of Trimps it can house by 20% and the base cost by 75%. There\'s no turning back, learning these blueprints will make your previous model of Warpstation obsolete but functional, and you will keep all Trimps housed there. Learning this will build one new Warpstation.': '重铸您的跃迁核心，使它可以多容纳20%的脆皮，但同时基础花费也增加75%。这个操作无法反悔，重铸后，您之前的跃迁核心蓝图将被废弃，但上一次升级后已经建造好的跃迁核心仍然可以运作，容纳的脆皮也将完整保留。研究后将直接建造一个新的跃迁核心。',
+    'Holding Ctrl will cause as many Warpstations as you currently own to be purchased immediately after Gigastation, if you can afford them.': '按下Ctrl键再研究此项，则将在购买千兆核心后尽可能多的购买跃迁核心，直到资源不足以再建造为止。',
+    'Figure out how to teach these Trimps to kill some Bad Guys.': '搞清楚教这些脆皮击杀敌人的方法。',
+    'This book will teach your Trimps to Battle on their own.': '这本书可以教会脆皮们自己进行战斗。',
+    'Prismatic': '棱镜护盾',
+    'Polish the strange Prism you found. When your Trimps bring the polished Prism to Battle, they gain': '将您发现的奇怪棱镜进行抛光。当脆皮带着抛光后的棱镜战斗时，它们可以获得最大生命值 ',
+    'of their maximum Health as': '数值的',
+    '!. All enemy damage hits your Prismatic Shield before Health, and Prismatic Shield always regenerates to full after an enemy is killed.': '！所有敌人必须先击穿棱镜护盾后才能减少脆皮生命值，而且在一个敌人被击杀后，棱镜护盾将恢复全满。',
+    'This book will increase the block gained from each Gym by 50%.': '这本书可以使每个健身房增加的格挡数值提升50%。',
+    'This book details the fine art of teaching your foremen to actually do stuff instead of just sitting around. When asked, your foremen will start construction on a new Trap if the queue is empty.': '这本书详细介绍了让工头们干活的艺术，现在他们不会再无所事事了。开启相应功能后，在队列为空时，工头们将自动建造陷阱。',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    //其他升级相关结束
     //游戏统计相关
     'Dead Trimps': '脆皮阵亡数',
     'Battles Won': '战斗胜利数',
@@ -1666,7 +1659,7 @@ var cnItems = {
     'Travel to a dimension where maps are scarce, in an attempt to learn to be more resourceful. You will earn one map Credit for each World Zone you clear, and it costs 1 credit to run 1 map. Completing': '前往一个地图稀缺的维度，在那里可以学习如何变得更足智多谋。每通过一个区域，您可以获得一个地图代币，每次开始进入地图后消耗一个地图代币。在此挑战激活的前提下通过 ',
     'with this challenge active will return you to your original dimension. Double prestige from Scientist IV will not work during this challenge.': '可以将您送回原来的维度。科学家 IV 的双倍锻造升级加成在此挑战期间无效。',
     'Travel to a dimension where maps are scarce, in an attempt to learn to be more resourceful. You will earn one map Credit for each World Zone you clear, and it costs 1 credit to run 1 map.': '前往一个地图稀缺的维度，在那里可以学习如何变得更足智多谋。每通过一个区域，您可以获得一个地图代币，每次开始进入地图后消耗一个地图代币。',
-    'Double prestige from Scientist IV and the Blacksmithery mastery will not function while this challenge is active.': '科学家 IV 的双倍锻造升级加成和锻铁术系列精通在此挑战期间无效。',
+    'Double prestige from Scientist IV and the Blacksmithery mastery will not function while this challenge is active.': '科学家 IV 的双倍锻造升级加成和锻铁术系列专精在此挑战期间无效。',
     'You have the Mapology challenge active. Travel to a dimension where maps are scarce, in an attempt to learn to be more resourceful. You will earn one map Credit for each World Zone you clear, and it costs 1 credit to run 1 map. Completing': '您目前正在进行地图学挑战。前往一个地图稀缺的维度，在那里可以学习如何变得更足智多谋。每通过一个区域，您可以获得一个地图代币，每次开始进入地图后消耗一个地图代币。在此挑战激活的前提下通过 ',
     'You have the Mapology challenge active. "Travel to a dimension where maps are scarce, in an attempt to learn to be more resourceful. You will earn one map Credit for each World Zone you clear, and it costs 1 credit to run 1 map.': '您目前正在进行地图学挑战。前往一个地图稀缺的维度，在那里可以学习如何变得更足智多谋。每通过一个区域，您可以获得一个地图代币，每次开始进入地图后消耗一个地图代币。',
     'Toxicity': '毒性',
@@ -2049,6 +2042,14 @@ var cnItems = {
     'Angelic': '天之赐福',
     'Your Trimps heal for 50% of their remaining health immediately before each attack. Due to the intense amount of evil present, Trimps cannot heal in never-before-cleared Spires.': '每次脆皮被攻击前恢复剩余生命值的50%。由于尖塔中邪恶存在过多，脆皮无法在从未通过的尖塔中恢复生命值。',
     //专精相关结束
+    //金色升级相关
+    'Helium': '氦',
+    'Radon': '氡',
+    'Battle': '战斗',
+    'Void': '虚空',
+    '': '',
+    '': '',
+    //金色升级相关结束
     //维度发生器相关
     'Efficiency': '效率',
     'Capacity': '容量',
@@ -2115,6 +2116,7 @@ var cnItems = {
     //自然赋能相关结束
     //脚本3相关
     'AutoTrimps': '自动脆皮',
+    'AutoTrimps off': '自动脆皮 关闭',
     'Its beta time': 'Beta版本',
     'Various bug fixes.': '多个BUG修复。',
     'CHANGED THE WAY TF GATHER WORKS! CHECK TF SETTINGS!': '修改定时刷图的工作机制！详见定时刷图设置！',
@@ -2195,13 +2197,11 @@ var cnItems = {
     'Helium/Hour (Cumulative': '氦/小时 (累计',
     'Helium/Hour': '氦/小时',
     'Helium (Lifetime Total': '氦(总量',
-    'Helium': '氦',
     'He/Hr % of LifetimeHe': '氦小时 % / 氦总量',
     'He % of LifetimeHe': '氦 % / 氦总量',
     'Radon/Hour (Cumulative': '氡/小时 (累计',
     'Radon/Hour': '氡/小时',
     'Radon (Lifetime Total': '氡(总量',
-    'Radon': '氡',
     'Rn/Hr % of LifetimeHe': '氡小时 % / 氡总量',
     'Rn % of LifetimeRn': '氡 % / 氡总量',
     'Radon/Hour Instantaneous - between current and last zone.': '氡/小时 瞬时值 - 在当前区域和上一个区域之间。',
@@ -2260,7 +2260,7 @@ var cnItems = {
     'Raiding - Settings for Raiding': '袭劫 - 袭劫相关设置',
     'Dailies - Settings for Dailies': '日常 - 日常相关设置',
     'C2': 'C2',
-    'C2 - Settings for C': 'C2 - 相关设置：C',
+    'C2 - Settings for ': 'C2 - 相关设置：',
     'Challenges': '挑战',
     'Challenges - Settings for Specific Challenges': '挑战 - 特定挑战相关设置',
     'Combat': '战斗',
@@ -2383,7 +2383,7 @@ var cnItems = {
     'All options will activate at or': '所有的选项当',
     'below 25% of your health.': '生命值不超过25%时自动激活。',
     'Daily VM Scryer': '日常虚空地图占卜阵型',
-    'Only use in Dailies if you have Scryhard II, for er, obvious reasons. Works without the scryer options.': '日常挑战中请只在拥有努力占卜 II精通时开启，原因不用多说。无需占卜阵型相关设置也能生效。',
+    'Only use in Dailies if you have Scryhard II, for er, obvious reasons. Works without the scryer options.': '日常挑战中请只在拥有努力占卜 II专精时开启，原因不用多说。无需占卜阵型相关设置也能生效。',
     'Daily Ignore Spires Until': '日常塔无效层',
     'Spire specific settings like end-at-cell are ignored until at least this zone is reached in Dailies (0 to disable).': '日常挑战中，尖塔的相关设置直到相应层数前无效(设为0则关闭此选项)。',
     'Daily Exit Spire Cell': '日常塔退出格',
@@ -2584,7 +2584,7 @@ var cnItems = {
     'AutoRatios: 1/1/1 up to 300k trimps, 3/3/5 up to 3mil trimps, then 3/1/4 above 3 mil trimps, then 1/1/10 above 1000 tributes, then 1/2/22 above 1500 tributes, then 1/12/12 above 3000 tributes.': '自动比例如下：1/1/1到3e5脆皮，然后3/3/5到3e6脆皮，然后3/1/4超过3e6脆皮，然后1/1/10超过1000贡品，然后1/2/22超过1500贡品，最后1/12/12超过3000贡品。',
     'CAUTION: You cannot manually assign jobs with this, turn it off if you have to': '注意：开启此项后将无法手动分配工作，如果有需要请关闭此项',
     'Auto Magmamancers': '自动岩浆巫师',
-    'Auto Magmamancer Management. Hires Magmamancers when the Current Zone time goes over 10 minutes. Does a one-time spend of at most 10% of your gem resources. Every increment of 10 minutes after that repeats the 10% hiring process. Magmamancery mastery is accounted for, with that it hires them at 5 minutes instead of 10. Disclaimer: May negatively impact Gem count.': '自动分配岩浆巫师。在当前区域停留超过10分钟以后，雇佣岩浆巫师。一次至多使用10%的宝石。在此之后，每再过10分钟，重复一次此过程。当拥有岩浆巫师学精通时，改为5分钟一次。注意：可能对宝石产量有不利影响。',
+    'Auto Magmamancer Management. Hires Magmamancers when the Current Zone time goes over 10 minutes. Does a one-time spend of at most 10% of your gem resources. Every increment of 10 minutes after that repeats the 10% hiring process. Magmamancery mastery is accounted for, with that it hires them at 5 minutes instead of 10. Disclaimer: May negatively impact Gem count.': '自动分配岩浆巫师。在当前区域停留超过10分钟以后，雇佣岩浆巫师。一次至多使用10%的宝石。在此之后，每再过10分钟，重复一次此过程。当拥有岩浆巫师学专精时，改为5分钟一次。注意：可能对宝石产量有不利影响。',
     'Farmer Ratio': '农民比例',
     'Lumberjack Ratio': '伐木工比例',
     'Miner Ratio': '矿工比例',
@@ -2700,7 +2700,7 @@ var cnItems = {
     '(for equipment) it will use your best metal cache. In any other case (such as farming for map stacks) it will use': '(升级装备)时，会使用最好的金属储藏箱修饰符。其他情况下(例如获取地图奖励)，会使用',
     '. In all cases it uses the best modifier that can be afforded.': '修饰符。总之，它会尽可能选择最好的修饰符。',
     'VM Scryer': '虚空地图占卜阵型',
-    'Only use if you have Scryhard II, for er, obvious reasons. Works without the scryer options.': '请只在拥有努力占卜 II精通时开启，原因不用多说。无需占卜阵型相关设置也能生效。',
+    'Only use if you have Scryhard II, for er, obvious reasons. Works without the scryer options.': '请只在拥有努力占卜 II专精时开启，原因不用多说。无需占卜阵型相关设置也能生效。',
     'VM Buy Weps': '虚空地图购买武器',
     'Buys gear in Void maps regardless of your H:D ratio. Useful if you want to overkill as much as possible.': '虚空地图中无视生命伤害比购买装备。对于超杀会有帮助。',
     'Automaps. The no unique setting will not run unique maps such as dimensions of rage. Recommended ON.': '自动地图开关。非独特自动地图不会进入类似暴怒维度的独特地图。建议开启。',
@@ -2712,7 +2712,8 @@ var cnItems = {
     'Time Farm at this Cell. -1 to run them at the default value, which is 1.': '在此格子开始定时刷图。设为-1则在默认值时开始定时刷图，即格子1。',
     'TF: Tribute': '定时刷图：贡品',
     'Turn this on if you want to turn TF: Time into Tribute Farming. If this is set to true TF: Time will work as A tribute setting. I.e if TF: Time is set to 750 tributes, it will farm at TF zone till that many tributes as been built. Uses TF Settings.': '如果您想用定时刷图来刷贡品，请开启此选项。开起此项后，定时刷图：数值的作用变为贡品的目标值。例如：如果定时刷图：数值设为750，则直到贡品达到相应数值时，将一直停留在相应区域刷资源。其他定时刷图设置也有效。',
-    'TF: Black ': '定时刷图：黑色',
+    'TF': '定时刷图',
+    'TF：黑色泥沼': '定时刷图：黑色泥沼',
     'Turn this on if you want to use Black Bogs for farming instead of your map selection. Only works at z70. Will abandon Black Bog before completing to preserve stacks.': '如果您想用黑色泥沼代替定时刷图：地图的选项来刷资源，请开启此选项。只在区域70有效。在通过黑色泥沼之前会放弃地图，以保留层数。',
     'How many minutes to farm at zone specified in TF. Can use 2,3,4. These values should match up to your TF zones. If using TF and TF: Times examples (59 and 2) it will farm at z59 for 2 minutes.': '定时刷图时在相应的区域刷多少分钟。可以输入多个数值，格式类似 2,3,4 这样。请让此项的数值与定时刷图的数值能够一一对应。例如：将定时刷图设为59，定时刷图：数值设为2的话，将在区域59刷资源2分钟。',
     'What map level to use. Can use -1,1,2. -1 to use a level down from world (Map Reducer mastery gives loot equal to world one level down), 0 to use world, 1 etc to use +maps. Using 0 by itself will use global level for all maps.': '使用的地图等级。可以输入多个数值，格式类似 -1,1,2 这样。设为-1则地图等级比世界区域数低1，0则相同，1则比世界区域高1，依此类推。',
@@ -3175,7 +3176,6 @@ var cnItems = {
     'AutoGoldenUpgrades': '自动金色升级选项',
     'Buys Golden Upgrades in Fillers. Helium buys all Helium golden upgrades. Battle buys all Battle golden upgrades. Void buys 8 Void golden upgrades (max number you can buy) then buys helium golden upgrades. Void + Battle buys 8 voids then battle.': '按照相应选项购买金色升级。选择氦则只购买金色氦升级。选择战斗则只购买金色战斗升级。选择虚空则在购买8次金色虚空升级(最大数量)后开始购买金色氦升级。选择虚空+战斗则在购买8次金色虚空升级(最大数量)后开始购买金色战斗升级。',
     'Off': '关闭',
-    'Battle': '战斗',
     'Void + Battle': '虚空+战斗',
     'Daily AutoGoldenUpgrades': '日常自动金色升级',
     'Buys Golden Upgrades in Dailies. Helium buys all Helium golden upgrades. Battle buys all Battle golden upgrades. Void buys 8 Void golden upgrades (max number you can buy) then buys helium golden upgrades. Void + Battle buys 8 voids then battle.': '日常挑战中，按照相应选项购买金色升级。选择氦则只购买金色氦升级。选择战斗则只购买金色战斗升级。选择虚空则在购买8次金色虚空升级(最大数量)后开始购买金色氦升级。选择虚空+战斗则在购买8次金色虚空升级(最大数量)后开始购买金色战斗升级。',
@@ -3408,17 +3408,6 @@ var cnItems = {
     'Hit Delay Portal to WAIT 1 more zone.': '点击延迟传送按钮则在下个区域再度询问。',
     'NOTICE: Auto-Portaling in 5 seconds....': '注意：5秒内将使用自动传送门……',
     'Delay Portal': '延迟传送',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
     //脚本3相关结束
 
     
@@ -3545,22 +3534,16 @@ var cnItems = {
     'Food Per Second': '每秒获得食物',
     'Disable firing mode': '关闭解雇模式',
     'Firing': '解雇模式',
-    'Figure out how to teach these Trimps to kill some Bad Guys.': '找出教这些脆皮干掉坏蛋的方法。',
     'DMG': '攻击力',
     'Soldiers': '士兵',
     'Item Attack': '物品攻击',
     'Min': '最小',
     'A nice Shed would allow you to keep more wood on hand.': '一个好的窝棚可以让你保留更多的木材。',
     'The food stores are getting pretty full, maybe you should start thinking about a Barn.': '食物似乎快装不下了，也许你应该开始考虑谷仓。',
-    'This book will teach your Trimps to Battle on their own.': '这本书可以教会你的脆皮如何自己进行战斗。',
-    'Polish the strange Prism you found. When your Trimps bring the polished Prism to Battle': '抛光你发现的奇怪棱镜，你的脆皮将会把抛光棱镜带到战斗中。',
-    'This book will increase the block gained from each Gym by 50%.': '这本书使每个健身房增加50%格挡',
-    'This book details the fine art of teaching your foremen to actually do stuff instead of just sitting around. When asked, your foremen will start construction on a new Trap if the queue is empty.': '这本书详细介绍了如何教导工头干活，而不是让他们无所事事的技术。队列为空的时候，你的工头会一直建造陷阱。',
     'This book explains methods of using a shield to actually block damage. The current shield will need to be completely destroyed and rebuilt, but it will give block instead of health. <b>This is permanent</b>. $Your Shield Must be Prestige III or higher$': '这本书解释了使用盾牌来格挡伤害的方法。 当前的盾牌将被彻底摧毁并需要重建，但它会给予格挡而不是生命值。 <b>这是永久的</b>。 $你的盾牌必须是重铸 III或更高才行$',
     'This book will teach your Farmers, Lumberjacks, Miners, Scientists, and Explorers to all be twice as productive.': '这本书将让你的农民，伐木工，矿工，科学家和探险家生产力提升为两倍。',
     'Your top scientists are pretty sure this is a Dragimp egg. They know Dragimps love shiny things, maybe it\'ll come out for some gems.': '你的顶尖科学家非常肯定这是一个脆皮龙蛋。他们知道脆皮龙喜欢闪亮的东西，也许它可以帮忙寻找宝石。',
     'Once again, this Prism will need to be polished before it can offer your Trimps any protection. After it\'s polished, this Prism will grant an additional 50% Prismatic Shield to your Trimps!': '这个棱镜需要经过再次抛光才能为你的脆皮提供保护。 经过抛光后，棱镜将为你的脆皮增加50％的棱镜护盾！',
-    'Prismatic': '棱镜护盾',
     'Your scientists are pissed. Not because of anything you did, but this gem seems to be making them mad. It\'ll take some research, but you think you can create a map to the place the gem originated from.': '你的科学家很生气。不是因为你做了什么，而是这颗宝石让他们发疯了。这需要点时间来研究，你觉得你可以创建一张地图，从而到达宝石起源地。',
     'You just made a map to the Dimension of Anger! Should be fun!': '你刚制造了一张愤怒维度的地图！应该很有趣！',
     'Unsurprisingly, that Rage Gem you brought back has everyone up the walls. You should probably hurry up and figure out a way to extract the map from inside before your Scientists end up killing eachother.': '不出所料，你带回的那颗愤怒宝石让所有人都抓狂了。你应该尽快从中提取出地图，否则你们的科学家们要自相残杀完了。',
@@ -3622,8 +3605,6 @@ var cnItems = {
     'The TZC has finally approved a House blueprint. To your surprise, it looks fairly decent! You decide to immediately build some.': '脆皮区委会最终通过了宅院的蓝图。你很吃惊，因为它看起来相当棒。于是你决定立即开始建造。',
     'Your Trimps look really bored.': '你的脆皮看起来相当无聊。',
     'Better hurry up to the fighting Zones so you don\'t have to sit around here all day watching Trimps breed.': '最好快点到战斗区域，这样就不必整天无所事事只能看着脆皮繁殖。',
-    'Prestige your Warpstation, increasing the amount of Trimps it can house by 20% and the base cost by 75%. There\'s no turning back, learning these blueprints will make your previous model of Warpstation obsolete but functional, and you will keep all Trimps housed there. Learning this will build one new Warpstation. ': '重铸你的跃迁核心，使它可以多容纳20％的脆皮，但基本成本增加75％。一旦重铸就没有回头路了，重铸后，你之前的跃迁核心蓝图将被废弃，但已经建造好的跃迁核心仍然可以运作，容纳的脆皮也将完整保留。学习它会直接建造一个新的跃迁核心。',
-    'Holding Ctrl will cause as many Warpstations as you currently own to be purchased immediately after Gigastation, if you can afford them.': '按住Ctrl键再点击，将在购买千兆核心后尽可能多的购买跃迁核心，直到建造不起为止。',
     '': '',
     '': '',
     '': '',
@@ -3761,9 +3742,7 @@ var cnItems = {
     'Resort X': '度假村 X',
     'Gym X': '健身房 X',
     'Nursery X': '托儿所 X',
-    'Farmer': '农民',
     'Farmer X': '农民 X',
-    'Lumberjack': '伐木工',
     'Lumberjack X': '伐木工 X',
     'Miner X': '矿工 X',
     'Scientist X': '科学家 X',
@@ -3772,7 +3751,6 @@ var cnItems = {
     'Trainers': '训练师',
     'Explorer X': '探险家 X',
     'Magmamancer X': '岩浆巫师 X',
-    'Amalgamator': '合并者',
     'Amalgamator X': '合并者 X',
     'Fire Trimps': '解雇脆皮',
     'Geneticistassist': '遗传学家助手',
@@ -4179,7 +4157,6 @@ var cnItems = {
     '- Log the common loot items: Food, Wood, and Metal.': '- 记录常见的战利品：食物，木材和金属。',
     '- Log the less common loot items: Gems, Fragments, Territory Bonus, and others.': '-记录不太常见的战利品：宝石，碎片，领土奖金等。',
     '- Log the rewards granted by Exotic Imports.': '-记录奇异外皮授予的奖励。',
-    'Each trainer will increase the base amount your soldiers can block by 20%.': '每位训练师都会将您的士兵可以格挡的基础伤害数量提高20％。',
     'This Bad Guy is fast and attacks first': '这个坏家伙速度快并且首先攻击',
     'Automatically gain Helium equal to the amount you earned on your best run.': '自动获得等于您在最佳运行中获得的氦气量。',
     'Buy Chronoimp (50 bones': '购买 脆皮时者（50骨头',
@@ -4198,7 +4175,6 @@ var cnItems = {
     'These all last until your next soft reset. Use them wisely!': '这些全部持续到下一次软重置。 明智地使用它们！',
     'Gain 1 map for each 8 hours away': '每8个小时可获得1张地图',
     'No maps available': '没有可用的地图',
-    'Send your misbehaving Trimps to the mines for some therapeutic work. Each Miner can find and smelt 0.78 bars of metal per second.': '',
     'Wood Per Second': '木头每秒产量',
     'Metal Per Second': '金属每秒产量',
     'Max Food': '食物上限',
@@ -4241,7 +4217,6 @@ var cnItems = {
     'Spire II': '尖塔 II',
     'if your Trimps have a tendency to slack off when you turn your back.': '如果您的脆皮在转身时有放松的趋势。',
     'Hotkeys: S or': '热键：S 或',
-    'In addition, having at least one Amalgamator will cause Anticipation stacks to increase based on when the last soldiers were sent, rather than being based on time spent actually breeding.': '此外，至少有一个合并者时，预期效果将基于最后一次士兵被派遣的时间，而不是基于实际繁殖的时间。',
     'MagnetoShriek is NOT active and will not fire.': '电磁尖啸未激活，将不会发射。',
     'No Formation': '没有阵型',
     'AutoEquip On': '自动装备 开启',
@@ -4884,6 +4859,25 @@ var cnRegReplace = new Map([
     [/^Create a gigantic Warpstation, capable of housing tons of Trimps and instantly transporting them back to the home planet when needed. Supports (.*) Trimps.$/, '建造一个巨型的跃迁核心，可以容纳超大量的脆皮，并且在有需要的时候可以将它们传送回母星。每个跃迁核心可以容纳$1个脆皮。'], //建筑
     [/^A building where your Trimps can work out. Each Gym increases the amount of damage each trimp can block by (.*).$/, '脆皮们解决问题的一个地方。每个健身房增加每个脆皮可以格挡的伤害量，数值为$1。'], //建筑
     [/^You have purchased (.*) total Nurseries.$/, '您总共建造了$1个托儿所。'], //建筑
+    [/^Train one of your Trimps in the ancient art of farming. Each Farmer harvests (.*) food per second.$/, '使用古老的耕作艺术训练一个脆皮。每个农民每秒收获$1食物。'], //工作
+    [/^Show a Trimp how to cut one of those weird trees down. Each Lumberjack hauls back (.*) logs per second.$/, '向一个脆皮展示如何砍伐那些怪树。每个伐木工每秒拉回$1木头。'], //工作
+    [/^Send your misbehaving Trimps to the mines for some therapeutic work. Each Miner can find and smelt (.*) bars of metal per second.$/, '把品行不端的脆皮丢到矿井里干点“放松”的活。每个矿工每秒收获$1金属。'], //工作
+    [/^It takes some patience, but you can teach these Trimps to do some research for you. Each Scientist records (.*) units of pure science each second.$/, '虽然可能费点事，但您可以让脆皮们替您做些研究。每个科学家每秒收获$1科学点。'], //工作
+    [/^Each trainer will increase the base amount your soldiers can block by (.*)%.$/, '每个训练师可以使士兵的基础格挡数值增加$1%。'], //工作
+    [/^Each trainer will increase the base amount your soldiers can block by (.*)%. \((.*)% increased by (.*)% thanks to (.*)$/, '每个训练师可以使士兵的基础格挡数值增加$1%。(基础数值为$2%，由于您拥有$4，效果增加了$3%'], //工作
+    [/^Each explorer will find an average of (.*) fragments each second.$/, '每个探险家每秒发现$1碎片。'], //工作
+    [/^Owning (.*) Geneticist(s*) multiplies your breed speed by (.*), and adds (.*) Health.$/, '您目前有$1个遗传学家，繁殖速度减少$3，生命值增加$4。'], //工作
+    [/^For each 10 minutes you spend in a Zone with Magmamancers up to (.*) minutes, your Magmamancer bonus will increase by 20% \(compounding\). Your current bonus is$/, '每在有岩浆巫师的区域停留10分钟(最多$1分钟)，岩浆巫师的加成就提升20%(效果叠乘)。您目前的加成为 '], //工作
+    [/^and counting your Magmamancermancy  Masteries you've been on this Zone for over (.*) minutes \(Max\).$/, '算上岩浆巫术的几个专精效果，您已经在此区域停留了超过$1分钟(效果达到最大)'], //工作
+    [/^and counting your Magmamancermancy  Masteries you've been on this Zone for (.*) minute(s*). In (.*) minute(s*), this bonus will increase to (.*)%.$/, '算上岩浆巫术的几个专精效果，您已经在此区域停留了$1分钟。再经过$3分钟，加成将提升为$5%。'], //工作
+    [/^and counting your Magmamancermancy  Mastery you've been on this Zone for over (.*) minutes \(Max\).$/, '算上岩浆巫术专精效果，您已经在此区域停留了超过$1分钟(效果达到最大)'], //工作
+    [/^and counting your Magmamancermancy  Mastery you've been on this Zone for (.*) minute(s*). In (.*) minute(s*), this bonus will increase to (.*)%.$/, '算上岩浆巫术专精效果，您已经在此区域停留了$1分钟。再经过$3分钟，加成将提升为$5%。'], //工作
+    [/^and you've been on this Zone for over (.*) minutes \(Max\).$/, '您已经在此区域停留了超过$1分钟(效果达到最大)'], //工作
+    [/^and you've been on this Zone for (.*) minute(s*). In (.*) minute(s*), this bonus will increase to (.*)%.$/, '您已经在此区域停留了$1分钟。再经过$3分钟，加成将提升为$5%。'], //工作
+    [/^Your next Magmamancer will increase the total bonus by (.*)% \(compounding, hold Ctrl to see formula$/, '下一个岩浆巫师可以使总加成提升$1%(效果叠乘，按下Ctrl键可看到详细公式'], //工作
+    [/^. Completing Spires II through V will each divide this ratio by 10. If your ratio ever falls below (.*):1, an Amalgamator will leave. Your current ratio is$/, ' 时，它们将自动出现。从尖塔 II开始到尖塔 V，自上次传送后每通过一个尖塔，此比值就除以10。如果比值低于$1:1，一名合并者将离开。您目前的比值为 '], //工作
+    [/^You have (.*) Meteorologist(s*) , but (.*) we(s|re) hired on this Zone and (is|are) not yet available.$/, '您目前有$1个气象学家，但其中$3是当前区域雇佣的，还没法开始工作。'], //工作
+    [/^(.*) Meteorologist(s*) (is|are) currently collecting, granting (.*)% extra Radon.$/, '目前有$1个气象学家正在工作，氡的加成为$4%。'], //工作
     [/^(.*)That Chickimp dropped (.*) food!$/, '$1脆皮小鸡掉落了 $2 食物！'], //特定敌人
     [/^(.*)You hear nearby Kittimps running away in fear and decide to check out their former home. There, you find a prey pile with (.*) food!$/, '$1附近的脆皮小猫害怕地跑开了，您决定去它们的窝里看看。接着您在那发现了 $2 食物！'], //特定敌人
     [/^(.*)That Grimp dropped (.*) wood!$/, '$1脆皮护林者掉落了 $2 木头！'], //特定敌人
@@ -5112,6 +5106,7 @@ var cnRegReplace = new Map([
     [/^(.*)You just found (.*) bars of metal! Convenient!$/, '$1您发现了$2金属！太实用了！'], //地图解锁等
     [/^(.*)That guy just left (.*) food on the ground! Sweet!$/, '$1那家伙在地上留下了$2食物！真是太好啦！'], //地图解锁等
     [/^(.*)You just found (.*) wood! That's pretty neat!$/, '$1您发现了$2木头！很好很强大！'], //地图解锁等
+    [/^This book will teach your soldiers how to utilize the buddy system. Fighting will now require (.*)% more Trimps (rounded up), but attack and health will grow for each new Trimp.$/, '这本书可以教会士兵如何利用伙伴的力量。从现在起，战斗所需要的脆皮数量增加$1%(向上取整)，脆皮的攻击力和生命值也相应地提升。'], //其他升级等
     [/^(.*), Z$/, '$1，区域'], //统计等
     [/^Progress: (.*) \/$/, '进度：$1 /'], //成就等
     [/^Complete Zone (\d+) in Universe$/, '通过区域 $1 于宇宙'], //成就等
@@ -5263,7 +5258,7 @@ var cnRegReplace = new Map([
 	[/^([0-9a-zA-Z\.\%\s]*)Void Map Drop Chance$/, '$1虚空地图掉落概率'], //传家宝
     [/^([0-9a-zA-Z\.\%\s]*)Plaguebringer$/, '$1瘟疫使者效果'], //传家宝
     [/^(.*)% of all non-lethal damage and nature stacks you afflict on your current enemy are copied onto the next enemy. Plaguebringer damage cannot bring an enemy below 5% health, but nature stacks will continue to accumulate.$/, '将对目前敌人造成的所有非致命伤害及累积的三种自然层数的 $1% 对下一个敌人生效。瘟疫使者的伤害效果无法将敌人的生命值降到5%以下，但自然层数无限制。'], //传家宝
-    [/^([0-9a-zA-Z\.\%\s]*)Prismatic Shield$/, '$1棱镜护盾'], //传家宝
+    [/^(?!Item)([0-9a-zA-Z\.\%\s]*)Prismatic Shield$/, '$1棱镜护盾'], //传家宝
     [/^([0-9a-zA-Z\.\%\s]*)Gamma Burst$/, '$1伽马爆发'], //传家宝
     [/^Each attack by your Trimps adds 1 stack of Charging. When Charging reaches 5 stacks, your Trimps will release a burst of energy, dealing (.*)% of their attack damage. Stacks reset after releasing a Burst or when your Trimps die.$/, '脆皮每次攻击时增加1层“蓄能”。当蓄能层数到达5层时，脆皮将释放积蓄的能量，对敌人造成 $1% 攻击力的伤害。当能量释放或者脆皮死亡后，层数重置。'], //传家宝
     [/^(.*)You have completed the$/, '$1您完成了 '], //通用挑战完成消息
@@ -5377,7 +5372,7 @@ var cnRegReplace = new Map([
     [/^last Portal, (earning you a bonus of|which would earn you a bonus of) (\d+) more Void Maps \((\d+) including Void Specialization I\).$/, '，自上次传送后获得 $2 张虚空地图(加上虚空特化 I的效果，共可获得 $3 张虚空地图)。'], //虚空特化 II专精
     [/^Fluffy gains \+25% more Exp per Zone for each completed Evolution. Fluffy has Evolved (\d+) time(s*), (earning|which would earn) you a bonus of \+(.*)% Exp.$/, '绒绒每进化一次，每区域就多获得25%经验值。绒绒目前进化了 $1 次，多获得 $4% 经验值。'], //绒绒专注专精
     [/^Scruffy gains \+25% more Exp per Zone for each completed Evolution. Scruffy has Evolved (\d+) time(s*), (earning|which would earn) you a bonus of \+(.*)% Exp.$/, '污污每进化一次，每区域就多获得25%经验值。污污目前进化了 $1 次，多获得 $4% 经验值。'], //污污专注专精
-    [/^Your Shield currently has a bonus of ([\d+\.]+)%, so this Mastery (is giving you|would give you) \+([\d+\.]+)% additional Crit Chance.$/, '您的盾牌目前暴击率为 $1% ，因此该精通额外增加 $3% 暴击率。'], //蓄力暴击专精
+    [/^Your Shield currently has a bonus of ([\d+\.]+)%, so this Mastery (is giving you|would give you) \+([\d+\.]+)% additional Crit Chance.$/, '您的盾牌目前暴击率为 $1% ，因此该专精额外增加 $3% 暴击率。'], //蓄力暴击专精
     [/^2. If Fluffy's level 6 bonus is active, allows Void Maps to infinitely stack. HOWEVER, this requires  the bonus Helium does not increase past the amount that Fluffy can normally stack, which for you would cap the bonus to a (\d+) stack. To clarify, a 100 stack or a (\d+) stack map would both grant (.*)% bonus Helium to each map in the stack, but the entire stack will still be completed instantly and each map in the stack will receive the maximum bonus.$/, '2. 只要绒绒的6级加成激活了，虚空地图就可以无限融合。但前提条件是氦加成不能超过绒绒融合的上限。对您来说，这个上限为 $1 次。换句话说，融合100次的虚空地图或者融合 $2 次的虚空地图都给予每张虚空地图 $3% 的氦加成，不过，所有融合后的地图仍然可以一起完成，并且融合的每张地图都可以获得最大的加成。'], //虚空大师专精
     [/^2. If Fluffy's level 6 bonus is active, allows Void Maps to infinitely stack. HOWEVER, this requires  the bonus Radon does not increase past the amount that Fluffy can normally stack, which for you would cap the bonus to a (\d+) stack. To clarify, a 100 stack or a (\d+) stack map would both grant (.*)% bonus Radon to each map in the stack, but the entire stack will still be completed instantly and each map in the stack will receive the maximum bonus.$/, '2. 只要绒绒的6级加成激活了，虚空地图就可以无限融合。但前提条件是氡加成不能超过绒绒融合的上限。对您来说，这个上限为 $1 次。换句话说，融合100次的虚空地图或者融合 $2 次的虚空地图都给予每张虚空地图 $3% 的氡加成，不过，所有融合后的地图仍然可以一起完成，并且融合的每张地图都可以获得最大的加成。'], //虚空大师专精
     [/^On your current run, you have cleared through Spire (.*), so this Mastery is granting (\d+) extra Healthy cell(s*). On your current Zone, you're finding (\d+) Healthy cells.$/, '自上次传送后您通过了尖塔 $1 ，此专精可获得 $2 个额外健康格子。目前区域中有 $4 个健康格子。'], //健康之力 II专精
@@ -5392,6 +5387,10 @@ var cnRegReplace = new Map([
     [/^bonus up to (.*)%.$/, '加成增加为 $1% 。'], //梅斯梅尔专精
     [/^Reduce the Zone that Fluffy can start earning Experience at by 3. With (\d+) level(s*) in Classy, Fluffy will start earning Experience at Z(\d+).$/, '绒绒提前3个区域开始获得经验值。上等特权提升 $1 级后，绒绒将从区域 $3 开始获得经验值。'], //上等特权
 	[/^Use your experiences in understanding the attention span of Trimps to increase the damage dealt by all soldiers based on how long it took to get an army together. Increases damage by 2% per level per second up to (\d+) seconds. Maximum of 10 levels.$/, '脆皮的注意力持续时间您已了如指掌，所以您可以利用它增加脆皮的攻击力。军队每需要1秒进行繁殖，每级预期特权就可以使脆皮增加2%攻击力。繁殖时间上限为 $1 秒。最高10级。'], //预期特权
+    [/^Increase Helium gain by (.*)%.$/, '使氦的获取量增加$1%。'], //金色升级等
+    [/^Increase Radon gain by (.*)%.$/, '使氡的获取量增加$1%。'], //金色升级等
+    [/^Increase Trimp attack and health by (.*)%.$/, '使脆皮的攻击力和生命值增加$1%。'], //金色升级等
+    [/^Decrease the minimum amount of enemies between Void Map drops by (.*)%.$/, '使每张虚空地图掉落所需的敌人数减少$1%。'], //金色升级等
     [/^Your Generator currently grants (.*) Max Trimps per tick at (.*) fuel \(the amount of fuel needed to tick\). Purchase this to increase the Generator's efficiency by 10% \(additive$/, '您的维度发生器目前每次消耗 $2 燃料(每次消耗的燃料数量)，并可以获得 $1 脆皮上限。升级此项可以维度发生器的工作效率增加10%(叠加'], //维度发生器等
     [/^Your Generator can currently store (.*) fuel. Purchase this to increase the fuel capacity by (.*). The more fuel you have in storage, the more housing you'll create per tick!$/, '您的维度发生器目前可以存储 $1 燃料，升级后可以多存储 $2 。存储的燃料越多，每次产生的住房也就越多！'], //维度发生器等
     [/^The Magma at Zone (\d+) contains 0.2 fuel per cell, and each Zone after that can drop 0.01 more. Your generator can currently only harvest a max of (.*) per cell, meaning some fuel after Z(.*) will be unharvestable. Purchase this upgrade to increase the amount you can harvest per cell by$/, '岩浆从区域 $1 开始，每个格子有0.2燃料，且之后每多一个区域，就多0.01燃料。您的维度发生器目前在每个格子最多可以获得 $2 燃料，这意味着从区域 $3 开始，部分燃料会被浪费掉。升级此项后可以将每个格子获取燃料的上限增加 '], //维度发生器等
@@ -5598,7 +5597,7 @@ var cnRegReplace = new Map([
     [/^Void Maps: (\d*) \((\d*) stacked\) remaining$/, '虚空地图：剩余$1(融合了$2)'], //脚本3地图设置
     [/^Farming: (.*)x$/, '刷资源：生命伤害比 $1'], //脚本3地图设置
     [/^Want (.*)x(\s*)more damage$/, '需要更多伤害，倍数 $1'], //脚本3地图设置
-    [/^(\s*)He(?!\/Hour this Run)$/, '氦'], //脚本3地图设置
+    [/^(\s+)He$/, '氦'], //脚本3地图设置
     [/^(.*)Set the map special modifier to: Fast Attacks. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：快速攻击。花费碎片总数的$2%。'], //脚本3地图设置
     [/^(.*)Set the map special modifier to: Large Cache. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：大储藏箱。花费碎片总数的$2%。'], //脚本3地图设置
     [/^(.*)Set the map special modifier to: Small Savory Cache. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：小美味储藏箱。花费碎片总数的$2%。'], //脚本3地图设置
@@ -5634,7 +5633,7 @@ var cnRegReplace = new Map([
     [/^(.*)Running selected (.*) Level: (.*) Name: Dimension of Rage$/, '$1运行选择的$2，等级：$3，名称：暴怒维度'], //脚本3地图设置
     [/^(.*)Running selected (.*) Level: (.*) Name$/, '$1运行选择的$2，等级：$3，名称'], //脚本3地图设置
     [/^(.*)Running selected (.*) Void:  Name$/, '$1运行选择的$2，虚空地图：名称'], //脚本3地图设置
-    [/^(\s*)Rn(?!\/Hour this Run)/, '氡'], //脚本3地图设置
+    [/^(\s+)Rn/, '氡'], //脚本3地图设置
     [/^(.*)Check complete for frag map$/, '$1完成检查碎片地图'], //脚本3地图设置
     [/^(.*)frag map bought$/, '$1碎片地图已制造'], //脚本3地图设置
     [/^(.*)running frag map$/, '$1运行碎片地图'], //脚本3地图设置
@@ -6057,12 +6056,6 @@ var cnRegReplace = new Map([
     [/^(.+) Mins? (.+) Secs?$/, '$1 分 $2 秒'],
     [/^(.+) Days? (.+) Hours?$/, '$1 天 $2 小时'],
     [/^(.+) Years? (.+) Days?$/, '$1 年 $2 天'],
-    [/^It takes some patience, but you can teach these Trimps to do some research for you. Each Scientist records (.+) units of pure science each second.$/, '这需要一些耐心，但是您可以教这些Trimps为您做一些研究。 每位科学家每秒记录$1单位纯科学。'],
-    [/^Train one of your Trimps in the ancient art of farming. Each Farmer harvests (.+) food per second.$/, '在古老的耕作艺术中训练您的脆皮之一。 每个农民每秒收获$1粮食。'],
-    [/^Show a Trimp how to cut one of those weird trees down. Each Lumberjack hauls back (.+) logs per second.$/, '向脆皮展示如何砍掉其中一棵怪异的树木。 每个伐木工人每秒钟可拖回$1根原木。'],
-    [/^Send your misbehaving Trimps to the mines for some therapeutic work. Each Miner can find and smelt (.+) bars of metal per second.$/, '将行为不端的脆皮送到地雷进行一些治疗工作。 每个矿工每秒可以发现和冶炼$1金属条。'],
-    [/^Each trainer will increase the base amount your soldiers can block by (.+).$/, '每个训练师增加你的战士 $1 防御'],
-    [/^Each explorer will find an average of (.+) fragments each second.$/, '每个探险家每秒收集 $1 碎片'],
     [/^Welcome back! You were offline for (.+) days and (.+) hours.$/, '欢迎回来!你离线$1天$2小时。'],
     [/^Welcome back! You were offline for (.+) minutes and (.+) seconds.$/, '欢迎回来!你离线$1分$2秒。'],
     [/^Welcome back! You were offline for (.+) minutes.$/, '欢迎回来!你离线$1分钟。'],
@@ -6082,7 +6075,6 @@ var cnRegReplace = new Map([
 	[/^Check\sTraps(.+)$/, '检查陷阱$1'],
     [/^While you were away, your Trimps were able to produce (.+) wood.$/, '当你离开时，你的脆皮生产了$1种木材。'],
     [/^While you were away, your Trimps were able to produce (.+) food, (.+) wood, (.+) metal, (.+) gems, and (.+) fragments.$/, '当你离开时，你的脆皮生产了$1食物，$2木材，$3金属，$4宝石和$5碎片。'],
-    [/^You just found (.+) wood! That's pretty neat!$/, '你发现了$1木头!这非常棒!'],
     [/^(\d+) workspace$/, '$1 工作空间'],
     [/^(\d+) Mins (\d+) Secs$/, '$1 分 $2 秒'],
     [/^(\d+) Min (\d+) Secs$/, '$1 分 $2 秒'],
@@ -6114,7 +6106,6 @@ var cnRegReplace = new Map([
     [/^Condenser Tower ([I,V,X,L,C,D,M]+)$/, '冷凝塔 $1'],
     [/^Knowledge Tower ([I,V,X,L,C,D,M]+)$/, '知识塔 $1'],
     [/^(.+)\/sec$/, '$1\/秒'],
-	[/^This book will teach your soldiers how to utilize the buddy system. Fighting will now require (.+) more Trimps \(rounded up\), but attack and health will grow for each new Trimp.$/, '这本书将教你的士兵如何利用伙伴系统。 战斗现在需要$1脆皮（四舍五入），但每个新脆皮的攻击和生命都会增长。'],
 	[/^Add \((.+) Nu$/, '添加 ($1虚空物质'],
 	[/^Replace \((.+) Nu$/, '替换 ($1虚空物质'],
 	[/^You have spent (.+) Helium on this Perk$/, '你已经花费 $1 氦在这个附带特权上'],
@@ -6142,7 +6133,6 @@ var cnRegReplace = new Map([
 	[/^Trimp max damage increased by (.+) \(additive\).$/, '脆皮最大伤害增加$1(附加的)'],
 	[/^Gain (.+) more resources from gathering$/, '收集获得的资源增加$1'],
 	[/^(.+) of Bad Guys in the first (\d+) rows of the World will be mutated into Mutimps.$/, '世界前$2行的敌人有$1概率突变为Mutimps'],
-	[/^Use your crazy, helium-cooled, easy-to-aim wormhole generator to create easy-to-travel links to other colonizable planets where your Trimps can sleep and work. Each supports (.+) Trimps.$/, '使用你疯狂的，氦冷却，容易瞄准的虫洞发生器创建易于旅行的链接到其他可定居的行星，在那里你的脆皮可以睡觉和工作。 每个可以住 $1 脆皮. '],
 	[/^A building where your Trimps can work out. Each Gym increases the amount of damage each trimp can block by (.+) and increases the base block of all Gyms by 15% \(compounding\).$/, '一个你可以锻炼脆皮的建筑。每个健身房都可以增加每个脆皮$1格挡的伤害量，并且提高所有健身房15%(复合)基础格挡'],
 	[/^(\d+)% Map Bonus$/, '$1% 地图奖励'],
 	[/^(\d+) remaining enemy?(ies)? in your current Zone are holding Dark Essence. Your current enemy at this Zone would be worth (.+) Essence if it were holding any.$/, '当前区域剩余 $1 敌人拥有黑暗精华。如果当前敌人拥有黑暗精华，它会掉落 $3'],
