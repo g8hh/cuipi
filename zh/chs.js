@@ -100,14 +100,13 @@ var cnItems = {
     'Repeat On': '开启重复',
     'Repeat Off': '关闭重复',
     'Heirlooms': '传家宝',
-    'Trade': '交易',
     'Finish Daily': '完成日常',
     'Exit Spire': '退出尖塔',
     'Show/Hide Map Config': '显示/隐藏地图设置',
     'Map Preset': '地图预设',
     'Save Map Settings': '保存地图设置',
     'Reset Map Settings': '重置地图设置',
-    'Recycle All': '回收所有地图',
+    'Recycle All': '全部回收',
     'Difficulty': '难度',
     'Biome': '生物群落',
     'Random': '随机',
@@ -121,6 +120,66 @@ var cnItems = {
     'Earned All Time': '总获取量',
     'Spent on Perks': '用于特权',
     'Portals Used': '传送次数',
+    'Perks': '特权',
+    'Preset': '预设',
+    'Save': '保存',
+    'Load': '加载',
+    'Rename': '重命名',
+    'Export': '导出',
+    'Import': '导入',
+	'Less Info': '简略信息',
+    'More Info': '详细信息',
+    'Remove': '移除',
+    '% bonus': '%加成',
+    'You do not currently have an active challenge.': '目前没有进行中的挑战。',
+    'Abandon Challenge': '放弃挑战',
+    'Challenges': '挑战',
+    'You can also choose to activate a challenge before using your portal. Completing a challenge will earn you a permanent reward. You can abandon or view an active challenge at any time by clicking the "View Perks" button.': '您还可以在传送前选择一个挑战激活。完成挑战可以获得永久加成。您可以点击“查看特权”按钮来在任何时候放弃或查看激活的挑战。',
+    'If you abandon this challenge, the portal will become unstable and the world will restart (you\'ll keep permanent bonuses like helium': '如果您放弃这个挑战，传送门将变得不稳定，整个世界将进行重置(但您仍然可以保留永久的加成，例如氦',
+    'Activate Portal': '激活传送门',
+    'Cancel': '取消',
+    'View Current Challenge': '查看当前的挑战',
+    'Swap the Challenge Selection pane to instead display your current challenge, or vice versa': '将挑战选择界面切换为显示您当前的挑战，或者是由显示您当前的挑战切换回挑战选择界面',
+    'Clear All Perks': '清空所有特权',
+    'Close': '关闭',
+    'Achievements': '成就',
+    'You are dealing': '您可以多造成',
+    '% extra damage': '%伤害',
+    'Click on an Achievement on this screen to track it!': '点击任一成就以追踪进度！',
+    'Statistics!': '统计!',
+    'Trimps Info': '游戏相关信息',
+    'Stats': '统计',
+    'Achieves': '成就',
+    'Settings': '设置',
+    'Browse All': '查看全部选项',
+    'Choose a Category Below, or Search for a Setting/Keyword': '选择一个类别，或者搜索一个设置/关键字',
+    'New': '新获得',
+    'General': '常规',
+    'Performance': '性能',
+    'Quality of Life': '生活质量',
+    'Pop-ups and Alerts': '弹出窗口和提醒',
+    'Layout': '布局',
+    'Other': '其它',
+    'Back to Search': '返回搜索',
+    'YOUR GAME IS PAUSED!': '游戏已暂停！',
+    'Click the flashing timer in the bottom right to unpause.': '点击右下方闪烁的计时器来取消暂停。',
+    'Click the flashing timer in the bottom right, or press the spacebar to unpause.': '点击右下方闪烁的计时器，或者按下空格键来取消暂停。',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
     '': '',
     '': '',
     '': '',
@@ -215,7 +274,7 @@ var cnItems = {
     'Venimp': '脆皮爱神',
     'Grants 0.3% Trimp breed speed': '脆皮繁殖速度增加0.3%',
     'Magnimp': '脆皮磁王',
-    '0.3% extra loot from maps and Zones (Not Helium': '地图和世界上获得的战利品增加0.3%(不包括氦',
+    '0.3% extra loot from maps and Zones (Not氦': '地图和世界上获得的战利品增加0.3%(不包括氦',
     'Skeletimp': '脆皮骷髅',
     'Megaskeletimp': '脆皮超级骷髅',
     'Pumpkimp': '脆皮南瓜怪',
@@ -825,7 +884,9 @@ var cnItems = {
     'Your top scientists are pretty sure this is a Dragimp egg. They know Dragimps love shiny things, maybe it\'ll come out for some gems.': '您的顶尖科学家非常确信，这就是一个脆皮龙蛋。它们知道，脆皮龙最爱闪闪发光的东西，也许它可以帮忙寻找宝石。',
     'Once again, this Prism will need to be polished before it can offer your Trimps any protection. After it\'s polished, this Prism will grant an additional 50% Prismatic Shield to your Trimps!': '棱镜又需要抛光了，不然没法提供保护。抛光后，棱镜可以额外增加50%的棱镜护盾！',
     'Your scientists are pissed. Not because of anything you did, but this gem seems to be making them mad. It\'ll take some research, but you think you can create a map to the place the gem originated from.': '您的科学家们看起来怒气冲冲。您什么也没做，显然是那块宝石搞的鬼了。您需要点时间来研究它，您相信可以借此制造出通往宝石发源地的地图。',
+    'Dimension of Anger': '愤怒维度',
     'Unsurprisingly, that Rage Gem you brought back has everyone up the walls. You should probably hurry up and figure out a way to extract the map from inside before your Scientists end up killing eachother.': '不出所料，您带回的暴怒宝石让所有人都抓狂了。您得抓紧时间从中提取出地图，不然科学家们迟早要开始自相残杀了。',
+    'Dimension of Rage': '暴怒维度',
     'This book will cause each gym you purchase to increase the block provided by all Gyms by 5%. Each consecutive level of this upgrade will increase the block provided by an additional 1%.': '这本书将使每个健身房都可以提升所有健身房5%的格挡。后续的此升级每级使格挡效果再增加1%。',
     'The extra block provided compounds per Gym.': '每个健身房获得的额外格挡之间相互叠乘。',
     'Formations': '阵型',
@@ -898,7 +959,7 @@ var cnItems = {
     'Maps Cleared': '地图通过数',
     'Zones Cleared': '区域通过数',
     'Trimps Fired': '脆皮解雇数',
-    'Wormholed Helium': '虫洞上消耗的氦',
+    'Wormholed氦': '虫洞上消耗的氦',
     'Golden Upgrades': '黄金升级数',
     'He/Hour this Run': '自上次传送后氦/小时',
     'Rn/Hour this Run': '自上次传送后氡/小时',
@@ -906,10 +967,10 @@ var cnItems = {
     'Best Rn/Hour this Run': '自上次传送后最高的氡/小时',
     'Total Helium Earned': '氦总获取量',
     'Best He/Hour all Runs': '所有游戏中最高的氦/小时',
-    'Daily Challenge Helium': '日常挑战获取的氦',
+    'Daily Challenge氦': '日常挑战获取的氦',
     'Total Radon Earned': '氡总获取量',
     'Best Rn/Hour all Runs': '所有游戏中最高的氡/小时',
-    'Daily Challenge Radon': '日常挑战获取的氡',
+    'Daily Challenge氡': '日常挑战获取的氡',
     'Zones Liquified': '区域液化数',
     'Highest Void Map Clear': '虚空地图最高通过区域',
     'Highest U2 Void Map': '宇宙2虚空地图最高通过区域',
@@ -1699,22 +1760,45 @@ var cnItems = {
     'Scruffy is at Level 10 and will not gain Exp!': '污污已经达到了10级，无法再获得经验了！',
     'Fluffy Exp does not include bonuses from Dailies': '绒绒经验不包含日常挑战的加成',
     'Scruffy Exp does not include bonuses from Dailies': '污污经验不包含日常挑战的加成',
-    'Golden Maps (20 bones': '金色地图 (20骨头',
+    'Single Run Bonuses': '传送后失效的升级',
+    'These all last until your next soft reset. Use them wisely!': '以下升级持续到软重置之前。请善加利用！',
+    'These all last until your next Portal. Use them wisely!': '以下升级持续到使用传送门之前。请善加利用！',
+    'Golden Maps (20 bones': '金色地图(20骨头',
     'You are about to purchase Golden Maps for 20 bones. All of your current and future maps will gain +100% loot added to their normal loot roll': '您将花费20骨头购买金色地图。购买后，所有当前和之后的地图中获取资源加倍，',
     'until your next Portal': '直到您使用传送门为止',
     '. Is this what you wanted to do?': '。您确定要购买吗？',
-    'Quick Trimps (20 bones': '快枪手脆皮 (20骨头',
+    'Quick Trimps (20 bones': '快枪手脆皮(20骨头',
     'You are about to purchase Quick Trimps for 20 bones. This will cause your Trimps to breed twice as fast': '您将花费20骨头购买快枪手脆皮。购买后，脆皮繁殖速度将加倍，',
-    'Sharp Trimps (25 bones': '锋锐脆皮 (25骨头',
+    'Sharp Trimps (25 bones': '锋锐脆皮(25骨头',
     'You are about to purchase Sharp Trimps for 25 bones. This will cause your Trimps to deal 50% more damage': '您将花费25骨头购买锋锐脆皮。购买后，脆皮造成的伤害将增加50%，',
-    'Heliumy (100 bones': '氦奇 (100骨头',
-    'Radonculous (100 bones': '氡丰 (100骨头',
+    'Heliumy (100 bones': '氦奇(100骨头',
+    'Radonculous (100 bones': '氡丰(100骨头',
     'You are about to purchase Heliumy for 100 bones. This will cause you to earn 25% more Helium from all sources': '您将花费100骨头购买氦奇。购买后，所有获取的氦将增加25%，',
     'You are about to purchase Radonculous for 100 bones. This will cause you to earn 25% more Radon from all sources': '您将花费100骨头购买氡丰。购买后，所有获取的氡将增加25%，',
-    '': '',
+    'You are about to purchase one Heirloom for 30 bones. This will be created at a random rarity, and will be just like completing a Void Map at your highest ever Zone reached. Are you sure?': '您将花费30骨头购买一个传家宝。购买后产生一个随机稀有度的传家宝，稀有度根据您的最高通过区域决定。您确定要购买吗？',
     '': '',
     //骨头相关结束
     //传家宝相关
+    'Heirlooms - Gifts to past you from future you': '传家宝-来自于未来，生效于过去',
+    'You have': '您有',
+    'Nullifium': '虚空物质',
+    ' and': '和 ',
+    'Spirestones': '尖塔石头',
+    'Help': '帮助',
+    'You can click a stat to upgrade or replace it.': '您可以点击某条属性来升级或是替换它。',
+    'The currency to upgrade and replace stats,': '用于升级或替换的货币，即',
+    'Nullifium, or Nu,': '虚空物质',
+    'can only be gathered by recycling an Heirloom.': '只能通过回收传家宝收集。',
+    'You can also click on the Heirloom\'s name on this menu to rename it, or click on the icon to change it!': '您还可以点击传家宝名称来重命名，或者点击图标来更改图标！',
+    'You can upgrade any Staff and Shield to HALF the value of your total earned Nu. Nu is not spent, but dictates how powerful your Heirlooms can be!': '您可以使用总虚空物质的一半来升级权杖和盾牌。虚空物质不会在此过程中被消耗，它直接决定了传家宝的强度！',
+    'Any Heirlooms in the "Temporary" section will be recycled for Nullifium on portal.': '“临时栏”中的传家宝在使用传送门时将被回收为虚空物质。',
+    'Unequip': '取消装备',
+    'Equip': '装备',
+    'Stop Carrying': '不再携带',
+    'Carry': '携带',
+    'Recycle': '回收',
+    'Replace': '替换',
+    'Upgrade': '升级',
     'Common Core': '普通核心',
     'Common Shield': '普通盾牌',
     'Common Staff': '普通权杖',
@@ -2334,6 +2418,11 @@ var cnItems = {
     '': '',
     '': '',
     //自然赋能相关结束
+    //杂项
+    'AutoSave has been disabled to prevent damage to your save. If you previously had a save file, it should still be waiting for you once you fix your browser settings.': '为了保护您的存档，自动存档已被关闭。如果您之前有存档文件，在修改完设置以后应该就能恢复使用了。',
+    '': '',
+    '': '',
+    //杂项结束
     //脚本3相关
     'AutoTrimps': '自动脆皮',
     'AutoTrimps off': '自动脆皮 关闭',
@@ -2475,7 +2564,6 @@ var cnItems = {
     'Dailies - Settings for Dailies': '日常 - 日常相关设置',
     'C2': 'C2',
     'C2 - Settings for ': 'C2 - 相关设置：',
-    'Challenges': '挑战',
     'Challenges - Settings for Specific Challenges': '挑战 - 特定挑战相关设置',
     'Combat & Stance Settings': '战斗及阵型设置',
     'Windstacking': '风层数叠加',
@@ -3492,7 +3580,6 @@ var cnItems = {
     'Type a number below. You can also use shorthand such as 2e5 or 200k. Accepts negative numbers as validated inputs.': '在下方输入数字。您还可以使用例如2e5或200k之类的缩写。可以输入负数。',
     'Type a number below. You can also use shorthand such as 2e5 or 200k. Put -1 for Infinite.': '在下方输入数字。您还可以使用例如2e5或200k之类的缩写。输入-1则设为无穷大。',
     'Apply': '应用',
-    'Cancel': '取消',
     'Type your input below': '在下方输入',
     'WARNING: Your void maps are set to complete after your autoPortal, and therefore will not be done at all! Please Change Your Settings Now. This Box Will Not Go away Until You do. Remember you can choose \'Custom\' autoPortal along with challenges for complete control over when you portal.': '注意：您的虚空地图区域设置到了自动传送门的区域之后，因此将完全无效！请修改设置。在修改之前，这个窗口将会一直弹出。请记住，您可以选择自动传送门选项中的自定义选项以彻底控制传送的时机。',
     'Estimated autoPortal level': '预计自动传送门区域',
@@ -3504,7 +3591,6 @@ var cnItems = {
     'Army Count': '军队规模',
     'Settings Profile': '设置文件',
     '<Delete Profile': '<删除设置文件',
-    'Current': '当前的',
     'Save New...': '另存为新的设置文件',
     'ExportAutoTrimps': '导出脚本设置',
     'This is your AUTOTRIMPS save string. There are many like it but this one is yours. Save this save somewhere safe so you can save time next time.': '以下是您的脚本设置数据字符串。只属于您，独一无二。保存好它，这样下次就能省不少事了。',
@@ -3512,7 +3598,6 @@ var cnItems = {
     'This is your AUTOTRIMPS z60 save string. Use this string to import the settings.': '以下是区域60以下的脚本设置数据字符串。导入相应字符串后即可导入相应设置。',
     'ImportAutoTrimps': '导入脚本设置',
     'Import your AUTOTRIMPS save string! It\'ll be fine, I promise.': '导入您的脚本设置数据字符串！它会能用的，我保证。',
-    'Import': '导入',
     'spireImport': '尖塔导入',
     'Import your SPIRE string!': '导入您的尖塔的字符串！',
     'CleanupAutoTrimps': '清除过时的设置数据',
@@ -3570,8 +3655,7 @@ var cnItems = {
     'Status: -': '状态：-',
     'I\'m Back': '我回来了',
     'Current Zone': '当前区域',
-    'Current Helium': '当前氦',
-    'Current Radon': '当前氡',
+    'Current': '当前',
     'Current Status: Off': '当前状态：关闭',
     'Current Status: Out of Map Credits': '当前状态：地图代币耗尽',
     'Current Status: Prestige Raiding': '当前状态：重铸袭劫',
@@ -3747,26 +3831,6 @@ var cnItems = {
     'Mining': '挖矿中',
     '': '',
     '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
     //未分类：
     'primary': '主要',
     'secondary': '次要',
@@ -3808,9 +3872,7 @@ var cnItems = {
     'Sunday': '周日',
     'Corrupt': '腐化',
     'Healthy': '健康的',
-    'Nullifium': '虚空物质',
     'Nu': '虚空物质',
-    ' and': '和',
     '': '',
     //传家宝效果
     'Ss': '尖塔石头',
@@ -3909,7 +3971,6 @@ var cnItems = {
     'Threat': '威胁',
     'Enemies': '敌人',
     'Runestones': '符石',
-    'Spirestones': '尖塔石头',
     'Trimps Per Second': '每秒脆皮',
     'Max Trimps': '脆皮上限',
     'Import Perk Preset': '导入特权预设',
@@ -3949,12 +4010,6 @@ var cnItems = {
     '': '',
     '': '',
     '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
     //成就结束
     'Toxic': '毒性',
     'Block': '格挡',
@@ -3970,123 +4025,29 @@ var cnItems = {
     'Error': '出错啦',
     '': '',
     '': '',
-    '': '',
-    //1.3.地图
-    'Dimension of Rage': '暴怒维度',
-    'Dimension of Anger': '愤怒维度',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
 
     //未分类20190806
-    'Layout': '布局',
-    'Load': '加载',
-    'New': '新',
-    'Other': '其它',
-    'Perks': '特权',
-    'Preset': '预设',
-    'Rename': '重命名',
-    'Recycle': '回收',
     'Recycle Map': '回收地图',
-    'Replace': '替换',
     'Research first': '研究优先',
-    'Statistics!': '统计!',
-    'Unequip': '卸下',
-    'Upgrade': '升级',
-    'Achievements': '成就',
-    'Abandon Challenge': '放弃挑战',
-    'Achieves': '成就',
-    'Back to Search': '返回搜索',
-    'Game Saved!': '游戏已保存！',
-    'Equip': '装备',
-    'Export': '导出',
-    'Help': '帮助',
-    'More Info': '更多信息',
     'Challenge': '挑战',
     'Gathering': '收集中',
     'Chopping': '伐木中',
-    'Clear All Perks': '清除所有特权',
-    'Remove': '移除',
-    'Quality of Life': '生活质量',
-    'Stop Carrying': '停止携带',
-    'Stats': '统计',
     'Trimps': '脆皮',
-    'Trimps Info': '脆皮信息',
     'Auto Saving': '自动保存',
-    'Save': '保存',
-    'Settings': '设置',
-    'Heirlooms - Gifts to past you from future you': '传家宝-来自于未来，生效于过去',
-    'Activate Portal': '激活传送门',
-    'General': '常规',
     'Void Maps (': '虚空地图 (',
-    'Browse All': '浏览所有',
-    'Choose a Category Below, or Search for a Setting/Keyword': '选择下面的类别，或者搜索设置/关键字',
     'This is a building in your queue, you\'ll need to click "Build" to build it. Clicking an item in the queue will cancel it for a full refund.': '这是您队列中的一个建筑物，您需要单击“建造”来构建它。 单击队列中的项目将取消它以获得全额退款。',
-    '% bonus': '% 奖励',
-    '% extra damage': '% 额外伤害',
-    'You are dealing': '你获得',
-    'View Current Challenge': '查看当前的挑战',
     'Download as File': '下载为文件',
     'Import your save string! It\'ll be fun, I promise.': '导入存档字符串！ 我保证，这会很有趣。',
-    'You do not currently have an active challenge.': '您目前没有进行中的挑战。',
-    'You can upgrade any Staff and Shield to HALF the value of your total earned Nu. Nu is not spent, but dictates how powerful your Heirlooms can be!': '您可以将任何棍棒和盾牌升级为HALF，即您获得的总Nu值。 Nu不会花掉，但决定你的传家宝有多强大！',
     'Unlock at Z': '解锁于区域',
     'Trimps Official Discord': '脆皮官方Discord',
-    'The currency to upgrade and replace stats,': '用于升级和替换统计数据的货币，',
     'Helium Canisters': '氦罐',
     'Loot off': '劫掠 关闭',
     'Combat off': '战斗 关闭',
     'Unlocks off': '解锁 关闭',
     'Story off': '故事 关闭',
-    'Nullifium, or Nu,': '虚空物质，或者Nu',
-    'Performance': '性能',
-    'Pop-ups and Alerts': '弹出窗口和警报',
     'Offline Progress': '离线进度',
-    'You can click a stat to upgrade or replace it.': '您可以单击统计信息以升级或替换它。',
-    'You can also choose to activate a challenge before using your portal. Completing a challenge will earn you a permanent reward. You can abandon or view an active challenge at any time by clicking the "View Perks" button.': '您还可以选择在使用传送门之前激活挑战。 完成挑战将获得永久奖励。 您可以通过单击“查看特权”按钮随时放弃或查看活动挑战。',
-    'Carry': '携带',
     'Locked': '未解锁',
     'Reward': '奖励',
-    'can only be gathered by recycling an Heirloom. You can also click on the Heirloom\'s name on this menu to rename it.': '只能通过回收传家宝来收集。 您还可以单击此菜单上的传家宝名称进行重命名。',
-    'Any Heirlooms in the "Temporary" section will be recycled for Nullifium on portal.': '“临时”部分中的任何传家宝将在传送门上回收虚空物质。',
     'better get some more achievements': '更好地获得更多的成就',
     'Level': '等级',
     'Sweet, thanks.': '甜蜜，谢谢。',
@@ -4096,7 +4057,6 @@ var cnItems = {
     'AutoFight': '自动战斗',
     'No Modifier': '没有变化',
     'Producing': '生产',
-    'If you abandon this challenge, the portal will become unstable and the world will restart (you\'ll keep permanent bonuses like helium': '如果你放弃这个挑战，传送门将变得不稳定，世界将重新开始（你将获得永久奖励，如氦',
     'Housing/Tick': '房屋/Tick',
     'Dimensional Generator': '维度发生器',
     'Runestones per Second': '符石每秒',
@@ -4111,10 +4071,7 @@ var cnItems = {
     'Sell a Trap/Tower': '出售一个陷阱/塔',
     'Shrink Window': '收缩窗口',
     ' Lv': ' 等级',
-    'can only be gathered by recycling an Heirloom.': '只能通过回收传家宝来收集。',
     'Chrome and Firefox are currently the only fully supported browsers.': 'Chrome和Firefox当前是唯一受完全支持的浏览器。',
-    'Click on an Achievement on this screen to track it!': '单击此屏幕上的成就进行跟踪！',
-    'You can also click on the Heirloom\'s name on this menu to rename it, or click on the icon to change it!': '您也可以在此菜单上单击传家宝的名称来重命名，或单击图标进行更改！',
     'click here to send a message on Reddit': '单击此处在Reddit上发送消息',
     'community-created Trimps Wiki!': '社区创建的脆皮 Wiki！',
     'If you need to contact the developer for any reason,': '如果出于任何原因需要与开发人员联系，',
@@ -4188,8 +4145,6 @@ var cnItems = {
     'Buy Whipimp (50 bones': '购买 脆皮鞭者（50骨头',
     'Buy Goblimp (50 bones': '购买 脆皮地精（50骨头',
     'Grants an extra 0.3% of current 脆皮': '额外捐赠当前脆皮的0.3％',
-    'Single Run Bonuses': '一次性奖金',
-    'These all last until your next soft reset. Use them wisely!': '这些全部持续到下一次软重置。 明智地使用它们！',
     'Gain 1 map for each 8 hours away': '每8个小时可获得1张地图',
     'No maps available': '没有可用的地图',
     'Wood Per Second': '木头每秒产量',
@@ -4217,11 +4172,9 @@ var cnItems = {
     'Where one minute ago there was dirt, grass, and noxious fog, there are now rivers of molten rock (and noxious fog). You\'d really like to try and repair the planet somehow, so you decide to keep pushing on. It\'s been working out well so far, there was some useful stuff in that chest!': '一分钟前有泥土，草丛和有害雾气的地方，现在有熔岩河（有毒雾气）。 您真的很想尝试以某种方式修复地球，因此您决定继续前进。 到目前为止，效果一直很好，那个箱子里有一些有用的东西！',
     'The heat is tough on your Trimps, causing each Zone to reduce their attack and health by 20% more than the last. 10% of your Nurseries will permanently close after each Zone to avoid Magma flows, and Corruption has seeped into both Void and regular Maps, further increasing their difficulty.': '热浪对您的脆皮不利，导致每个区域的攻击力和生命值都比上一个区域减少20％。 每个区域结束后，您的苗圃中有10％将永久关闭，以避免岩浆流动，并且腐败渗透到了虚空地图和常规地图中，进一步增加了难度。',
     'Though you\'ve seen the Corruption grow since the planet broke, you can now see a giant spire pumping out tons of the purple goo. Things seem to be absorbing it at a higher rate now.': '尽管自从行星破裂以来您已经看到了腐败的增长，但是现在您可以看到一个巨大的尖顶抽出大量的紫色粘胶。 现在看来，事物正在以更高的速度吸收它。',
-    'A lot of other new stuff has just been added to Trimps as well, click': '脆皮刚刚添加了许多其他新内容，请点击',
     'Bring it on': '来吧',
     'Improbabilities and Void Maps are now more difficult.': '乌有者发生虚空地图现在都比较困难。',
     'Improbabilities and Void Maps now drop 2x helium.': '乌有者和虚空图现在会掉落2倍的氦气。',
-    'in the bottom right of your game window to see the full patch notes!': '在游戏窗口的右下角，查看完整的补丁说明！',
     'However, the chest contained plans and materials for the': '然而，箱子里装着的计划和材料',
     'The Turkimps escaped again': 'Turkimps又逃跑了',
     'Travel to the Map Chamber. Maps are filled with goodies, and for each max level map you clear you will gain a 20% stacking damage bonus for that Zone (stacks up to 10 times). (Hotkey: M': '去地图室。地图充满了好东西，每清除一张最高等级地图，你将获得该区域20%的堆叠伤害加成(堆叠最多10次)。(热键:M',
@@ -4279,31 +4232,7 @@ var cnItems = {
     '': '',
     '': '',
     '': '',
-    '\n								Get one Heirloom at the chances above, based on highest zone\n							': '根据最高区域，在上述机会中获得一件传家宝',
-    '\n					You can earn achievements by doing stuff. Each achievement will boost the amount of damage your Trimps can deal, and later achievements grant a larger bonus. You can learn more about an achievement by hovering your mouse over it.': '你可以通过做事来获得成就。每一个成就都将增加你的脆皮所能造成的伤害，之后的成就会给予更多的奖励。你可以通过把鼠标悬停在某项成就上来了解它的更多信息。',
-    '\n								Get one Heirloom at the chances above, based on highest zone\n							': '根据最高区域获得一个传家宝的机会',
-    '\n			Heirlooms are powerful items that can drop with a variety of bonuses and a variety of rarities. You will earn one Heirloom every time a Void Map is completed, and you have a better chance to get higher rarities if you complete the Void Map at higher zones. Once you have an Heirloom, you can click the icon below to select it.': '传家宝是强大的物品，可以随着各种奖金和各种稀有物质下降。 每次完成虚空地图时，您将获得一个传家宝，如果您在更高的区域完成虚空地图，您将有更好的机会获得更高的稀有度。 有了传家宝后，您可以点击下面的图标将其选中。',
-    '\n			You can only carry a few Heirlooms (other than the two you have equipped) back through the Portal with you when you use it.': '当你使用传送门时，你只能随身携带几个传家宝（你装备的两个传家宝除外）。',
-    '\n			Once you\'ve selected an Heirloom, you can see all of its stats on the right side of this screen.': '一旦你选中了传家宝，你可以在这个屏幕的右侧看到它的所有统计数据。',
-    '\n				Current Run\n			': '当前游戏',
-    '\n				Total\n			': '总计',
-    '| What\'s New \n					': '新东西',
-    '\n													Wind\n											': '风',
-    '\n												Ice\n											': '冰',
-    '\n												Poison									\n											': '毒',
-    '\n											Tokens': '符记',
-    '\n									Create\n								': '创建',
-    '\n									Level': '等级',
-    '\n								Buy Heirloom (30 bones)\n							': '购买传家宝 (30 骨头)',
-    '\n								Get one Heirloom at the chances above, based on highest zone\n							': '在上面的机会得到一个传家宝，基于最高区域',
-    '\n							Equipped Core': '装备核心',
-    '\n							Equipped Shield': '装备盾牌',
-    '\n							Equipped Staff': '装备棍棒',
-    '\n						Save': '保存',
-    '\n					Carried': '携带栏',
-    '\n					Temporary': '临时',
 	"Your Trimps killed a lot of Bad Guys back there. It seems like you're getting the hang of this. However, the world is large, and there are many more Zones to explore. Chop chop.": "你的脆皮在那里杀死了很多坏人。 看起来你似乎已经弄清楚这是怎么一回事了。 然而这个世界很大，依然有去多区域需要探索，“砍”“砍”...",
-	"You found a book about proper physical training!": "你找到了一本关于适当的体能训练的书！",
 	"By your orders, your scientists have begun to try and figure out how large this planet is.": "根据您的命令，您的科学家们已经开始尝试了解这个星球有多大。",
 	"You order your Trimps to search the area for the keys to your ship, but nobody finds anything. Bummer.": "您命令脆皮在该地区搜索您的船只的钥匙，但没有人找到任何东西。真令人失望。",
 	"Do you see that thing at the end of this zone? It's huge! It's terrifying! You've never seen anything like it before, but you know that it is a Blimp. How did you know that? Stop knowing things and go kill it.": "你看到尽头的那个东西了吗？多么的巨大！多么的可怕！ 你以前从未见过这样的东西,但是你知道这是一个脆皮飞艇。你是怎么知道的？别问为什么了，去杀死它！",
@@ -4320,7 +4249,6 @@ var cnItems = {
 	"You can sense that you're close to your goal.": "你感觉到你离你的目标已经不远了。",
 	"The portal device you found shines green in the lab. Such a familiar shade...": "你找到的传送门装置在实验室里闪着绿光。 多么熟悉的画面...",
 	"Helium goes in, victory comes out": "氦进去了，胜利就出来了",
-	"Less Info": "更少信息",
 	"You have already attempted this Daily Challenge!": "你已经尝试过这个日常挑战！",
 	"Done": "完成",
 	"World": "世界",
@@ -4365,15 +4293,6 @@ var cnItems = {
     'You recently switched to Scryer Formation and will': '你刚刚切换到占卜者阵型，',
     'not': '不',
     'earn a bonus from this enemy.': '会从这个敌人处获得奖励加成',
-    "": "",
-    "": "",
-    "": "",
-    "": "",
-    "": "",
-    "": "",
-    "": "",
-    "": "",
-    "": "",
 
 }
 
@@ -4393,14 +4312,14 @@ var cnPrefix = {
     "wood:": "木头:",
     "metal:": "金属:",
     "science:": "科学点:",
-	"fragments:": '碎片:',
+    "fragments:": '碎片:',
     "gems:": '宝石:',
     "helium:": '氦:',
     "Enemy attack increased by ": '敌人攻击力增加',
     "Enemy health in maps increased by ": '地图上的敌人生命值增加',
     "Enemy attack in maps increased by ": '地图上的敌人攻击力增加 ',
-	"of all Helium, ": "所有的氦，",
-	" Nu from Heirlooms earned during the run": "上次传送后传家宝回收的虚空物质",
+    "of all Helium, ": "所有的氦，",
+    " Nu from Heirlooms earned during the run": "上次传送后传家宝回收的虚空物质",
     "Big Wall,": "巨墙，", //地图名称
     "Whispering ": "私语", //地图名称
     "Sandy ": "沙之", //地图名称
@@ -4804,16 +4723,16 @@ var cnExcludeWhole = [
     /^x?\d+(\.\d+)?(e[+\-]?\d+)?\s*\-?$/, //12.34e+4
     /^\s*$/, //纯空格
     /^\s*[A-Za-z]\s*$/, //带单字母的纯空格
-	/^[e\s\d\(]+$/,
-	/^\d+(\.\d+)?(e[+\-]?\d+)?\s*工作空间$/,
-	/^\d+(\.\d+)?(e[+\-]?\d+)?\s*\/秒$/,
-	/^\d+\s*工头$/,
-	/^\d+\s*级地图$/,
-	/^\d+\s*岩浆岩$/,
-	/^\d+\s*Mi$/,
-	/^(\d+\s*分\s*)?\d+\s*秒$/,
-	/^(\d+\s*时\s*)?\d+\s*分$/,
-	/^(\d+\s*天\s*)?\d+\s*时$/,
+    /^[e\s\d\(]+$/,
+    /^\d+(\.\d+)?(e[+\-]?\d+)?\s*工作空间$/,
+    /^\d+(\.\d+)?(e[+\-]?\d+)?\s*\/秒$/,
+    /^\d+\s*工头$/,
+    /^\d+\s*级地图$/,
+    /^\d+\s*岩浆岩$/,
+    /^\d+\s*Mi$/,
+    /^(\d+\s*分\s*)?\d+\s*秒$/,
+    /^(\d+\s*时\s*)?\d+\s*分$/,
+    /^(\d+\s*天\s*)?\d+\s*时$/,
 ];
 
 var cnExcludePostfix = [
@@ -4827,12 +4746,17 @@ var cnExcludePostfix = [
 //小数点：([\d\.]+)
 //原样输出的字段：(.+)
 var cnRegReplace = new Map([
-    [/^(.*)A green shimmer erupts then disappears, and you hit the ground. You look pretty hungry...$/, '$1一团绿光闪烁又消失了，然后您就落到了地面上。您看起来饿极了……'], //源始消息
+    [/^(.*)A green shimmer erupts then disappears, and you hit the ground. You look pretty hungry...$/, '$1一团绿光闪过，您落到了地面上。您看起来饿极了……'], //源始消息
     [/^employed(\s+)$/, '已雇佣$1'], //主界面
     [/^Check\sTraps(.+)$/, '检查陷阱$1'], //主界面
     [/^(.+) Foremen$/, '$1 工头'], //主界面
     [/^Essence(\s+)$/, '精华$1'], //主界面
     [/^Respec \((\d*) Free!$/, '洗点($1次免费！'], //主界面
+    [/^([\d\s]+)Tokens$/, '$1符记'], //主界面
+    [/^(\s+)Poison(\s+)$/, '$1毒$2'], //主界面
+    [/^(\s+)Wind(\s+)$/, '$1风$2'], //主界面
+    [/^(\s+)Ice(\s+)$/, '$1冰$2'], //主界面
+    [/^Trade(.*)$/, '交易$1'], //主界面
     [/^(\s+)Fight(\s+)$/, '$1战斗$2'], //主界面
     [/^(\s+)AutoFight Off(\s+)$/, '$1关闭自动战斗$2'], //主界面
     [/^(\s+)Void Maps(\s+)$/, '$1虚空地图$2'], //主界面
@@ -4840,6 +4764,8 @@ var cnRegReplace = new Map([
     [/^(\s+)Repeat Off(\s+)$/, '$1关闭重复$2'], //主界面
     [/^(\s+)Finish Daily(\s+)$/, '$1完成日常$2'], //主界面
     [/^(\s+)Exit Spire(\s+)$/, '$1退出尖塔$2'], //主界面
+    [/^(\s+)Level$/, '$1地图等级'], //主界面
+    [/^(\s+)Create(\s+)$/, '$1制造$2'], //主界面
     [/^(\s+)Loot(\s+)$/, '$1劫掠$2'], //主界面
     [/^(\s+)Size(\s+)$/, '$1尺寸$2'], //主界面
     [/^(\s+)Difficulty(\s+)$/, '$1难度$2'], //主界面
@@ -4850,6 +4776,11 @@ var cnRegReplace = new Map([
     [/^(\s+)Extra Zones(\s+)$/, '$1额外区域$2'], //主界面
     [/^(\s+)Run Map(\s+)$/, '$1运行地图$2'], //主界面
     [/^(\s+)Recycle Map(\s+)$/, '$1回收地图$2'], //主界面
+    [/^(\s+)You can earn achievements by doing stuff. Each achievement will boost the amount of damage your Trimps can deal, and later achievements grant a larger bonus. You can learn more about an achievement by hovering your mouse over it.$/, '$1满足特定的条件可以获得成就。每个成就都可以增加您的脆皮造成的伤害，越往后的成就加成越高。您可以将鼠标停留在某个成就上来了解它的详细信息。'], //主界面
+    [/^(\s+)Total(\s+)$/, '$1总计$2'], //主界面
+    [/^(\s+)Current Run(\s+)$/, '$1上次传送后$2'], //主界面
+    [/^\| What's New(\s+)$/, '|更新内容$1'], //主界面
+    [/^(\s+)Save$/, '$1保存'], //主界面
     [/^Each Trap allows you to catch (.*) thing(s*).$/, '每个陷阱可以让您抓住$1个东西。'], //建筑
     [/^Has room for (.*) more lovely Trimp(s*). All Trimp housing has enough workspaces for only half of the Trimps that can live there.$/, '可以容纳$1个可爱的脆皮。所有的小屋都有着充足的办公区域，因为只有一半的脆皮可以住在那里。'], //建筑
     [/^A better house for your Trimps! Each house supports up to (.*) more Trimp(s*).$/, '脆皮们有更好的宅院可以住了！每个宅院可以容纳$1个脆皮。'], //建筑
@@ -5054,7 +4985,7 @@ var cnRegReplace = new Map([
     [/^(.*)You found an Heirloom!$/, '$1您发现了一个传家宝！'], //地图解锁等
     [/^(.*)After barely escaping a fierce boulder, you check out the relic you found in there. It glows extremely bright for a few seconds before disappearing, and you look at your storages to see that your Food, Wood, and Metal have been doubled!$/, '$1在将将从一块狂暴巨石手下逃生后，您检查了一下在那里发现的遗物。它突然发出了无法直视的强光，过了一会儿，它消失了。之后，您检查了一下存储建筑，发现食物、木头和金属都翻倍了！'], //地图解锁等
     [/^(.*)At the end of that very hot map, you find a tiny, dehydrated Smithy building. You bring it back to your town and drop it in a glass of water, and a full-sized Smithy instantly appears!$/, '$1在那极热地图的最后，您发现了一个微小而脱水的铁匠铺。您将它带回了城镇，把它放进了一杯水里，突然，一个正常尺寸的铁匠铺就这么出现了！'], //地图解锁等
-    [/^(.*)You have slain the Warden and taken his keys. How weird would it be if they fit in that key hole on the portal?$/, '$1您把典狱长给宰了，并拿走了他的钥匙。如果这钥匙能够用在传送门上的钥匙孔的话……那得有多奇怪？'], //地图解锁等
+    [/^(.*)You have slain the Warden and taken his keys. How weird would it be if they fit in that key hole on the portal\?$/, '$1您把典狱长给宰了，并拿走了他的钥匙。如果这钥匙能够用在传送门上的钥匙孔的话……那得有多奇怪？'], //地图解锁等
     [/^(.*)You've never been here before. Like, ever. This entire place felt cold and unfamiliar. Where are you\? Why have so many Trimps had to fall to get here\? You're suddenly angry, it's time to take a stand.$/, '$1您从未来过这里。从来都没有。这里很冷，很陌生。您在哪？凭什么要死了那么多脆皮才能到这里？您突然感觉非常愤怒，是时候站出来了。'], //地图解锁等
     [/^(.*)You have permanantly unlocked a new Perk, Relentlessness, which will remain unlocked through portals.$/, '$1您永久解锁了无情特权，通过传送门后仍然保留。'], //地图解锁等
     [/^(.*)The world feels a little bit less angry as you fire off your handy Portal Generator. You can tell that somewhere in some dimension, a Megablimp is no more. In front of you, a green, shining box appears on the ground. In tiny writing on the box, you can make out the words 'Time portal. THIS SIDE UP'.$/, '$1您启动了传送门发生器，整个世界都感觉不那么愤怒了一些。您冥冥之中感知到在某个维度的某处，一个脆皮超级飞艇不复存在了。在您的面前出现了一个闪耀的绿色盒子，从盒子上的小字中，您读出了以下的内容：“时空传送门，此面向上”。'], //地图解锁等
@@ -5134,20 +5065,20 @@ var cnRegReplace = new Map([
     [/^(.*)The food stores are getting pretty full, maybe you should start thinking about a Barn.$/, '$1食物的存储快满了，您可能该考虑谷仓了。'], //其他升级等
     [/^(.*)Wet wood won't work! Better get a Shed going.$/, '$1湿木头是没法用的！最好赶紧建造一个窝棚。'], //其他升级等
     [/^(.*)A nice Shed would allow you to keep more wood on hand.$/, '$1一个好窝棚可以存放更多木头。'], //其他升级等
-    [/^(.*)What better place to store metal than a building that can smelt it?$/, '$1还有什么地方比冶炼金属的地方能更好地存储它呢？'], //其他升级等
+    [/^(.*)What better place to store metal than a building that can smelt it\?$/, '$1还有什么地方比冶炼金属的地方能更好地存储它呢？'], //其他升级等
     [/^(.*)A nice Forge would allow you to store more metal.$/, '$1一个好锻造厂可以存储更多金属。'], //其他升级等
     [/^(.*)You caught your very first Trimp in this new dimension! It can smell other Trimps on you and looks confused. You promptly send him off to work!$/, '$1您在新的维度中抓到了第一个脆皮！可它在您身上闻到了其他脆皮的气味，一脸懵逼。您赶紧把它派去干活了。'], //其他升级等
     [/^(.*)There's a weird impish little creature in the trap. A Trimp, you decide to call it. Since you're so creative, you could probably train this Trimp to help out.$/, '$1陷阱里有一个看起来很皮的脆弱小动物，您决定叫它 脆皮 。既然您都这么有创造力了，不如干脆考虑训练脆皮来帮您干活好了。'], //其他升级等
-    [/^(.*)Where would you be in life without Science? Not this dimension, that's for sure.$/, '$1假如没有科学，生活会变得怎样？至少您就不会在这个维度了，肯定的。'], //其他升级等
+    [/^(.*)Where would you be in life without Science\? Not this dimension, that's for sure.$/, '$1假如没有科学，生活会变得怎样？至少您就不会在这个维度了，肯定的。'], //其他升级等
     [/^(.*)This planet feels so familiar, yet so foreign. Maybe it's time to start sciencing things.$/, '$1这颗行星又熟悉又陌生。或许是时候研究点什么了。'], //其他升级等
     [/^(.*)As you finally step out into the Battle Zones, the first thing you notice is that your Heirlooms feel weaker here. Oh well, 1000 more times into the fray...$/, '$1当您迈入战斗区域时，首先发现的是传家宝弱了很多。好吧，至少得先来个千人斩了……'], //其他升级等
-    [/^(.*)War... what is it good for? Exploration, or something.$/, '$1战争……人是为何要战争呢？为了探索，还是为了什么……'], //其他升级等
+    [/^(.*)War... what is it good for\? Exploration, or something.$/, '$1战争……人是为何要战争呢？为了探索，还是为了什么……'], //其他升级等
     [/^(.*)The newly established Trimp zoning committee is too busy drooling to approve anything, so you take it on yourself to start building some Huts.$/, '$1新成立的脆皮区委会忙着流口水，没空审批，还是您自己来建造小屋吧。'], //其他升级等
     [/^(.*)Doesn't seem like all of these little guys will fit in your ship. Luckily, you remember how to make small huts for shelter.$/, '$1这么多小家伙是没法全塞进您的飞船的。幸好，您记得如何建造小屋。'], //其他升级等
     [/^(.*)The TZC has finally approved a House blueprint. To your surprise, it looks fairly decent! You decide to immediately build some.$/, '$1脆皮区委会终于批准了宅院的蓝图。但令您吃惊的是，它看起来竟然相当棒。于是您决定马上造一些。'], //其他升级等
     [/^(.*)It's starting to get pretty crowded up in here. Maybe you should start building some better housing.$/, '$1这里开始变得拥挤起来了。您应该开始建造一些更好的房子。'], //其他升级等
     [/^(.*)Your Trimps look really bored.$/, '$1脆皮们看起来很无聊。'], //其他升级等
-    [/^(.*)Better hurry up to the fighting Zones so you don't have to sit around here all day watching Trimps breed.$/, '$1还是赶紧去战斗区域吧，不然整天看着脆皮们繁殖也太无所事事了。'], //其他升级等
+    [/^(.*)Better hurry up to the fighting Zones so you don't have to sit around here all day watching Trimps breed.$/, '$1还是赶紧去战斗区域吧，不然整天没事干就只能看脆皮们繁殖了。'], //其他升级等
     [/^(.*)Apparently the Trimps breed if they're not working. Doesn't look pleasant.$/, '$1很显然，如果脆皮没有在干活，它们就开始繁殖了。看着不怎么舒服。'], //其他升级等
     [/^(.*), Z$/, '$1，区域'], //统计等
     [/^Progress: (.*) \/$/, '进度：$1 /'], //成就等
@@ -5280,10 +5211,21 @@ var cnRegReplace = new Map([
     [/^(.*) Helium, (.*)x each Token$/, '$1氦，各$2自然符记'], //骨头等
     [/^(.*) Helium, (.*) Fluffy Exp$/, '$1氦，$2绒绒经验'], //骨头等
     [/^(.*) Radon, (.*) Scruffy Exp$/, '$1氡，$2污污经验'], //骨头等
-    [/^(.*)(?<!Not)(?<!AutoGold) Helium$/, '$1氦'], //骨头等
-    [/^(.*)(?<!AutoGold) Radon$/, '$1氡'], //骨头等
+    [/^(.*)(?<!Current)(?<!30 total)(?<!Battle)(?<!Cool For)(?<!AutoGold) Helium$/, '$1氦'], //骨头等
+    [/^(.*)(?<!Current)(?<!Helium \/)(?<!Battle)(?<!Raging)(?<!AutoGold) Radon$/, '$1氡'], //骨头等
+    [/^(\s+)Buy Heirloom \(30 bones\)(\s+)$/, '$1购买传家宝(30骨头)$2'], //骨头等
+    [/^(\s+)Get(\s)one(\s)Heirloom(\s)at(\s)the(\s)chances(\s)above,(\s)based(\s)on(\s)highest(\s)zone(\s+)$/, '$1传家宝稀有度基于最高通过区域而定，具体概率如上所示$12'], //骨头等
     [/^Map At Z(\d+)\+$/, '进图区域：$1+'], //自动进图
     [/^Map At Z(\d+)(\+*) \((\D)$/, '区域$1$2进图($3'], //自动进图
+    [/^(\s+)Heirlooms are powerful items that can drop with a variety of bonuses and a variety of rarities. You will earn one Heirloom every time a Void Map is completed, and you have a better chance to get higher rarities if you complete the Void Map at higher zones. Once you have an Heirloom, you can click the icon below to select it.$/, '$1传家宝具有强大的能量，拥有多种加成和稀有度。每通过一张虚空地图，您就可以获得一个传家宝，且区域越高，越可能获得更高稀有度的传家宝。拥有传家宝以后，可以在下方点击图标选中。'], //传家宝
+    [/^(\s+)Once you\'ve selected an Heirloom, you can see all of its stats on the right side of this screen.$/, '$1选中传家宝后，右侧将显示它的属性。'], //传家宝
+    [/^(\s+)You can only carry a few Heirlooms \(other than the two you have equipped\) back through the Portal with you when you use it.$/, '$1您只能携带有限数量的传家宝(除了您装备的传家宝以外)通过传送门。'], //传家宝
+    [/^(\s+)Equipped Shield$/, '$1已装备的盾牌'], //传家宝
+    [/^(\s+)Equipped Core$/, '$1已装备的核心'], //传家宝
+    [/^(\s+)Equipped Staff$/, '$1已装备的权杖'], //传家宝
+    [/^(\s+)Carried$/, '$1携带栏'], //传家宝
+    [/^(\s+)Temporary$/, '$1临时栏'], //传家宝
+    [/^(\s+)You Found an Heirloom!(\s+)$/, '$1您发现了一个传家宝！$2'], //传家宝
     [/^([0-9a-zA-Z\.\%\s]*)Fire Trap Damage$/, '$1火焰陷阱伤害'], //传家宝
     [/^([0-9a-zA-Z\.\%\s]*)Poison Trap Damage$/, '$1剧毒陷阱伤害'], //传家宝
     [/^([0-9a-zA-Z\.\%\s]*)Lightning Trap Damage$/, '$1闪电陷阱伤害'], //传家宝
@@ -5485,6 +5427,21 @@ var cnRegReplace = new Map([
     [/^(.*)You ruined a(n*) $/, '$1您破坏了一个'], //击杀消息
     [/^(.*)You wrecked a(n*) $/, '$1您击毁了一个'], //击杀消息
     [/^(.*)You obliterated a(n*) $/, '$1您抹消了一个'], //击杀消息
+    [/^(.*)Due to an error occuring, saving has been disabled to prevent corruption$/, '$1由于发生错误，为了防止崩溃，已禁止存档'], //其他消息等
+    [/^(.*)Game Saved!$/, '$1游戏已存档！'], //其他消息等
+    [/^(.*)For some reason, your game is not saving. Make sure you export and back up your save!$/, '$1由于某些原因，游戏未能存档。请手动导出游戏存档并妥善保管！'], //其他消息等
+    [/^(.*)Sorry, it looks like your browser storage has been corrupted. Please clear your storage by going to Tools -> Clear Recent History -> Cookies and set time range to 'Everything'. This will remove the corrupted browser storage across all sites.$/, '$1很抱歉，您的浏览器缓存已崩溃。请清除浏览器缓存后再重试。'], //其他消息等
+    [/^(.*)It looks like your import code isn't working properly. Please make sure that your export code is saved in a text file compatible with all of the characters. If you believe this code should be working, you can Email it to Trimpsgame@gmail.com and I will do my best to restore it for you!$/, '$1您的导入代码似乎有问题。请确认您的代码输入完整没有遗漏。如果您确定代码本身没有问题的话，请将代码发至 Trimpsgame@gmail.com ，我会尽全力为您修复的。'], //其他消息等
+    [/^(.*)Your browser is preventing Trimps from accessing localStorage, and you will not be able to save or load your progress. Please check your browser settings to ensure that 3rd party cookies are not disabled, and that you're not using any addons that might interrupt storage!$/, '$1浏览器阻止了游戏读取本地缓存，因此您无法存档或者读档。请检查浏览器设置及插件设置！'], //其他消息等
+    [/^(.*)You can't import a save from the beta version to this version!$/, '$1您无法将beta版本游戏的存档导入此版本的游戏中！'], //其他消息等
+    [/^(.*)Your save file is from a newer version of Trimps \(v(.*)\) than what your computer is running \(v(.*)\). Refresh or restart your browser!$/, '$1您的游戏版本为$3，而您的存档版本则为更新的$2。请刷新或重启浏览器！'], //其他消息等
+    [/^(.*)I'm so terribly sorry, but your previous save game \(version (.*)\) does not work in the new version. This should be the last reset!$/, '$1非常抱歉，但之前$2版本的存档无法在新版本中使用。这绝对是最后一次了！'], //其他消息等
+    [/^(.*)Note: You are playing on the beta\/dev version. You will be unable to export your save from this version to the live version, and this server may go down or change without warning. Thank you for helping test!$/, '$1注意：您目前的游戏为beta/开发专用版本。此版本中的存档无法导入正式版游戏中，而且服务器可能在没有预先通知的情况下关闭或变动。感谢您帮忙测试！'], //其他消息等
+
+
+
+
+
     [/^(.*)AutoTrimps - Zek Fork Loaded!$/, '$1自动脆皮脚本 - Zek Fork 已成功载入！'], //脚本3载入消息
     [/^(.*)Adding dark-graph.css file$/, '$1黑暗图表已开启'], //脚本3图表消息
     [/^(.*)Removing dark-graph.css file$/, '$1黑暗图表已关闭'], //脚本3图表消息
@@ -6105,10 +6062,7 @@ var cnRegReplace = new Map([
 
     [/^(\d+) Barns, (\d+) Sheds, and (\d+) Forges.$/, '$1个谷仓，$2个窝棚和$3个锻造厂。'],
     [/^While you were away, your Trimps were able to produce (.+) food, (.+) wood, (.+) metal, (.+) gems, and (.+) fragments$/, '当您不在时，您的脆皮产生了$1的食物，$2的木材，$3的金属，$4的宝石和$5的碎片'],
-    [/^Welcome to ([\d\.]+)$/, '欢迎来到 $1'],
-    [/^Welcome to Patch ([\d\.]+)!$/, '欢迎使用$1补丁！'],
     [/^([\d\.]+) Secs$/, '$1 秒'],
-    [/^([\d\.]+)\/hr$/, '$1 \/小时'],
     [/^([\d\.]+) Frags$/, '$1 碎片'],
     [/^(.+) copies of Coordination$/, '$1 份协调'],
     [/^Z (.+) map$/, '区域 $1 地图'],
@@ -6140,7 +6094,6 @@ var cnRegReplace = new Map([
     [/^(\d+) Hour (\d+) Min$/, '$1 时 $2 分'],
     [/^Spirestones: (.+) \/$/, '尖塔石头: $1 \/'],
     [/^You see (.+) canisters of Helium left on the ground and pick them up. Useful!$/, '你看到$1的氦气罐留在地上并捡起来。 很有用！'],
-    [/^(\d*\s)Tokens$/, '$1符记'],
     [/^(\d+\%) Map Loot$/, '$1 地图资源获取'],
     [/^(\d+\%) Trimp Damage$/, '$1 脆皮伤害'],
     [/^(\d+\%) Helium$/, '$1 氦'],
