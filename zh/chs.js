@@ -66,7 +66,7 @@ var cnItems = {
     'AutoGold Voidon': '金色升级虚空氡',
     'AutoPrestige': '自动重铸装备',
     'AutoPrestige Off': '关闭自动重铸',
-    'AutoPrestige All': '自动重铸全部',
+    'AutoPrestige All': '全部自动重铸',
     'Weapons Only': '只重铸武器',
     'Weapons First': '优先重铸武器',
     'AutoUpgrade': '自动升级',
@@ -164,23 +164,21 @@ var cnItems = {
     'YOUR GAME IS PAUSED!': '游戏已暂停！',
     'Click the flashing timer in the bottom right to unpause.': '点击右下方闪烁的计时器来取消暂停。',
     'Click the flashing timer in the bottom right, or press the spacebar to unpause.': '点击右下方闪烁的计时器，或者按下空格键来取消暂停。',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
+	"Helium goes in, victory comes out": "有氦者，事竟成",
+    'Radon goes in, victory comes out': '得氡者，得天下',
+    'Well, you did it. You followed your instincts through this strange world, made your way through the Dimension of Anger, and obtained this portal. But why? Maybe there will be answers through this portal... Your scientists tell you they can overclock it to bring more memories and items back, but they\'ll need helium to cool it.': '很好，您做到了。您凭着直觉在这个奇怪的世界里一路披荆斩棘，通过了愤怒维度，最后获得了这个传送门。但这么做的意义是？或许通过这个传送门以后，您就能找到答案了……科学家们告诉您，它们可以将传送门进行超频，带回更多的记忆和物品，但这么做还需要用到氦来冷却。',
+    'The Radon Universe is harsh. Your Portal still retains some information about the Scientist upgrades, but it\'ll need an upgrade of its own to be able to utilize them in this new Universe.': '氡宇宙的环境真的是太严苛了。您的传送门还保留有一些关于科学家升级的信息，但是看来需要在这个宇宙中升级后才能利用这些信息。',
+    'Be ready to manually Gather some Food!': '得准备好，要手动收集一些食物了！',
+    'Don\'t forget to bring a challenge': '传送前，不要忘了选择挑战',
+    'Respec': '洗点',
+    'Click a challenge below to learn more about and/or run it!': '点击下方的挑战来获取详细信息及/或运行它！',
+    'None': '无',
+    'Your highest Zone reached for this Challenge': '您的最高通过区域于此挑战',
+    'bonus.': '加成。',
+    'bonus!': '加成！',
+    'You will not earn a new perk.': '您不会因此获得新的特权。',
+    'You will also earn a new Perk!': '您还可以获得一个新的特权！',
+    'You have already completed this challenge!': '您已经完成了此挑战！',
     '': '',
     '': '',
     '': '',
@@ -1776,7 +1774,6 @@ var cnItems = {
     'You are about to purchase Heliumy for 100 bones. This will cause you to earn 25% more Helium from all sources': '您将花费100骨头购买氦奇。购买后，所有获取的氦将增加25%，',
     'You are about to purchase Radonculous for 100 bones. This will cause you to earn 25% more Radon from all sources': '您将花费100骨头购买氡丰。购买后，所有获取的氡将增加25%，',
     'You are about to purchase one Heirloom for 30 bones. This will be created at a random rarity, and will be just like completing a Void Map at your highest ever Zone reached. Are you sure?': '您将花费30骨头购买一个传家宝。购买后产生一个随机稀有度的传家宝，稀有度根据您的最高通过区域决定。您确定要购买吗？',
-    '': '',
     //骨头相关结束
     //传家宝相关
     'Heirlooms - Gifts to past you from future you': '传家宝-来自于未来，生效于过去',
@@ -1788,7 +1785,7 @@ var cnItems = {
     'You can click a stat to upgrade or replace it.': '您可以点击某条属性来升级或是替换它。',
     'The currency to upgrade and replace stats,': '用于升级或替换的货币，即',
     'Nullifium, or Nu,': '虚空物质',
-    'can only be gathered by recycling an Heirloom.': '只能通过回收传家宝收集。',
+    'can only be gathered by recycling an Heirloom.': '只能通过回收传家宝获得。',
     'You can also click on the Heirloom\'s name on this menu to rename it, or click on the icon to change it!': '您还可以点击传家宝名称来重命名，或者点击图标来更改图标！',
     'You can upgrade any Staff and Shield to HALF the value of your total earned Nu. Nu is not spent, but dictates how powerful your Heirlooms can be!': '您可以使用总虚空物质的一半来升级权杖和盾牌。虚空物质不会在此过程中被消耗，它直接决定了传家宝的强度！',
     'Any Heirlooms in the "Temporary" section will be recycled for Nullifium on portal.': '“临时栏”中的传家宝在使用传送门时将被回收为虚空物质。',
@@ -3394,7 +3391,6 @@ var cnItems = {
     'Mod 4 = Empty (x4 if dropped, +0 if not': '修饰符 4 = 空(掉落时x4倍，否则不加分',
     'Mod 5 = Empty (x4 if dropped, +0 if not': '修饰符 5 = 空(掉落时x4倍，否则不加分',
     'If an heirloom dropped with these exact modifiers, it would get a score of 192 (6+5+4*4*4=240). The highest point heirlooms will be kept.': '如果掉落了以上修饰符的传家宝，则总分为240 [(6+5+4)*4*4=240]。优先保留分值较高的传家宝。',
-    'None': '无',
     'Shields': '盾牌',
     'Staffs': '权杖',
     'Cores': '核心',
@@ -4005,7 +4001,6 @@ var cnItems = {
     'Register a PlayFab Account': '注册一个PlayFab账号',
     'Can only be run once!': '只能运行一次!',
     'Reward does not count toward Bone Portals or affect best He/Hr stat.': '奖赏不计入骨头购买传送门数据，也不计入最好的氦/小时统计。',
-    'You will not earn a new perk.': '你不会赚到一个新的额外奖励。',
     '': '',
     '': '',
     '': '',
@@ -4016,7 +4011,6 @@ var cnItems = {
     'Save Perk Preset': '保存额外特权预设',
     'Rename Perk Preset': '重命名额外特权预设',
     'Load Perk Preset': '加载额外特权预设',
-    'Respec': '洗点',
     'Health': '生命值',
     'Attack': '攻击力',
     'Void Map': '虚空地图',
@@ -4187,7 +4181,6 @@ var cnItems = {
     'if your Trimps have a tendency to slack off when you turn your back.': '如果您的脆皮在转身时有放松的趋势。',
     'Hotkeys: S or': '热键：S 或',
     'MagnetoShriek is NOT active and will not fire.': '电磁尖啸未激活，将不会发射。',
-    'AutoPrestige All': '自动重铸 全部',
     'Maps (': '地图 (',
     'Welcome': '欢迎',
     "Welcome to Trimps! This game saves using Local Storage in your browser. Clearing your cookies or browser settings will cause your save to disappear! Please make sure you regularly back up your save file by either using the 'Export' button in the bar below or the 'Online Saving' option under 'Settings'.": '欢迎来到脆皮！此游戏存档位于浏览器的本地存储(Local Storage)。清除浏览器数据会丢失存档！请注意备份存档，点击下方"导出"按钮或在"设置"里开启在线存档。',
@@ -4213,8 +4206,6 @@ var cnItems = {
     'Housing': '房屋',
     'Territory Bonus': '领土奖励',
     'Select a Mod': '选择一个模式',
-    'Don\'t forget to bring a challenge': '别忘了带一个挑战',
-    'Click a challenge below to learn more about and/or run it!': '点击下面的挑战来了解更多和/或运行它！',
     'Level: ': '等级: ',
     'Price': '价格',
     'Spent': '花费',
@@ -4248,7 +4239,6 @@ var cnItems = {
 	"You look behind and see your kingdom. You have gems, a colony, and territory. You wonder if enough Trimps have already fallen in battle. After contemplation, one word falls out of your mouth as you begin to move forward. 'Nah'": "你回头看看你的王国，你拥有宝石、殖民地和领土。 你在想你的脆皮是不是已经在战斗中牺牲了。 沉思之后， 两个字从你的嘴里蹦了出来 “算了”",
 	"You can sense that you're close to your goal.": "你感觉到你离你的目标已经不远了。",
 	"The portal device you found shines green in the lab. Such a familiar shade...": "你找到的传送门装置在实验室里闪着绿光。 多么熟悉的画面...",
-	"Helium goes in, victory comes out": "氦进去了，胜利就出来了",
 	"You have already attempted this Daily Challenge!": "你已经尝试过这个日常挑战！",
 	"Done": "完成",
 	"World": "世界",
@@ -4777,8 +4767,15 @@ var cnRegReplace = new Map([
     [/^(\s+)Run Map(\s+)$/, '$1运行地图$2'], //主界面
     [/^(\s+)Recycle Map(\s+)$/, '$1回收地图$2'], //主界面
     [/^(\s+)You can earn achievements by doing stuff. Each achievement will boost the amount of damage your Trimps can deal, and later achievements grant a larger bonus. You can learn more about an achievement by hovering your mouse over it.$/, '$1满足特定的条件可以获得成就。每个成就都可以增加您的脆皮造成的伤害，越往后的成就加成越高。您可以将鼠标停留在某个成就上来了解它的详细信息。'], //主界面
+    [/^Time Portal( Mk\. )?([IVXLCDM]*)$/, '时空传送门$1$2'], //主界面
     [/^(\s+)Total(\s+)$/, '$1总计$2'], //主界面
     [/^(\s+)Current Run(\s+)$/, '$1上次传送后$2'], //主界面
+    [/^is Z(.*) \(Capped to (.*) by Obsidian\), earning you (.*)% Challenge$/, '为区域$1(被黑曜石限制为区域$2)，使您获得$3%的挑战'], //主界面
+    [/^is Z(.*) \(Capped to (.*) by Obsidian\), earning you (.*)% extra attack and health, and (.*)% more Helium from all sources.$/, '为区域$1(被黑曜石限制为区域$2)，使您获得$3%的额外攻击力和生命值，以及$4%的额外氦获取量。'], //主界面
+    [/^is Z(.*), earning you (.*)% Challenge$/, '为区域$1，使您获得$2%的挑战'], //主界面
+    [/^is Z(.*), earning you (.*)% extra attack and health, and (.*)% more Helium from all sources.$/, '为区域$1，使您获得$2%的额外攻击力和生命值，以及$3%的额外氦获取量。'], //主界面
+    [/^bonus, and adding (.*)% to your total Challenge$/, '加成，且增加$1%至总挑战'], //主界面
+    [/^Zones above Z(.*) are worth 5x more Challenge$/, '区域$1以上的区域可以提供5倍的挑战'], //主界面
     [/^\| What's New(\s+)$/, '|更新内容$1'], //主界面
     [/^(\s+)Save$/, '$1保存'], //主界面
     [/^Each Trap allows you to catch (.*) thing(s*).$/, '每个陷阱可以让您抓住$1个东西。'], //建筑
