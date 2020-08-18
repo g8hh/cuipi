@@ -164,21 +164,6 @@ var cnItems = {
     'YOUR GAME IS PAUSED!': '游戏已暂停！',
     'Click the flashing timer in the bottom right to unpause.': '点击右下方闪烁的计时器来取消暂停。',
     'Click the flashing timer in the bottom right, or press the spacebar to unpause.': '点击右下方闪烁的计时器，或者按下空格键来取消暂停。',
-	"Helium goes in, victory comes out": "有氦者，事竟成",
-    'Radon goes in, victory comes out': '得氡者，得天下',
-    'Well, you did it. You followed your instincts through this strange world, made your way through the Dimension of Anger, and obtained this portal. But why? Maybe there will be answers through this portal... Your scientists tell you they can overclock it to bring more memories and items back, but they\'ll need helium to cool it.': '很好，您做到了。您凭着直觉在这个奇怪的世界里一路披荆斩棘，通过了愤怒维度，最后获得了这个传送门。但这么做的意义是？或许通过这个传送门以后，您就能找到答案了……科学家们告诉您，它们可以将传送门进行超频，带回更多的记忆和物品，但这么做还需要用到氦来冷却。',
-    'The Radon Universe is harsh. Your Portal still retains some information about the Scientist upgrades, but it\'ll need an upgrade of its own to be able to utilize them in this new Universe.': '氡宇宙的环境真的是太严苛了。您的传送门还保留有一些关于科学家升级的信息，但是看来需要在这个宇宙中升级后才能利用这些信息。',
-    'Be ready to manually Gather some Food!': '得准备好，要手动收集一些食物了！',
-    'Don\'t forget to bring a challenge': '传送前，不要忘了选择挑战',
-    'Respec': '洗点',
-    'Click a challenge below to learn more about and/or run it!': '点击下方的挑战来获取详细信息及/或运行它！',
-    'None': '无',
-    'Your highest Zone reached for this Challenge': '您的最高通过区域于此挑战',
-    'bonus.': '加成。',
-    'bonus!': '加成！',
-    'You will not earn a new perk.': '您不会因此获得新的特权。',
-    'You will also earn a new Perk!': '您还可以获得一个新的特权！',
-    'You have already completed this challenge!': '您已经完成了此挑战！',
     '': '',
     '': '',
     '': '',
@@ -800,7 +785,7 @@ var cnItems = {
     'Melting Point': '熔点',
     'Coordination': '协作',
     'Blockmaster': '格挡大师',
-	"Egg": "蛋",
+	'Egg': '蛋',
     'Trimple Of Doom': '末日神殿',
     'Tricky Paradise': '整蛊天堂',
     //世界解锁相关结束
@@ -1565,7 +1550,7 @@ var cnItems = {
     'Toggle on or off the fade in effect on elements.': '切换是否开启游戏元素的渐隐效果。',
     'Minimalist Maps': '关闭额外地图信息',
     'Extra Map Info': '开启额外地图信息',
-    'Toggle on or off adding extra information to map items.': '切换是否在选地图界面显示额外的地图信息。',
+    'Toggle on or off adding extra information to map items.': '切换是否在选地图界面显示额外的地图物品信息。',
     'Not Averaging': '不平均计算劫掠明细',
     'Averaging': '平均计算劫掠明细',
     'Toggle whether or not loot from maps and the world should be counted in the loot breakdown and tooltip calculations. Calculates a moving average of the loot. If you want to clear the average, try toggling it off and on again.': '切换是否在劫掠明细及相应提示框中平均计算地图和世界的战利品。根据当前情况进行计算。如果您想要重新计算，可以关闭再开启此项。',
@@ -1697,7 +1682,7 @@ var cnItems = {
     'Enable or disable hotkeys.': '切换快捷键的开关。',
     'Don\'t Climb BW': '关闭仿生冲层',
     'Climb BW': '开启仿生冲层',
-    'Decide whether or not you want your Trimps to automatically run the next Bionic Wonderland once they\'ve gotten all of the items from their current one. Repeat Maps must be toggled on for Climb BW to work.': '切换是否在通过当前仿生仙境地图后继续进入下一层仿生仙境地图。必须开启重复地图才能使此选项生效。',
+    'Decide whether or not you want your Trimps to automatically run the next Bionic Wonderland once they\'ve gotten all of the items from their current one. Repeat Maps must be toggled on for Climb BW to work.': '切换是否在获得当前仿生仙境地图全部升级后继续进入下一层仿生仙境地图。必须开启重复地图才能使此选项生效。',
     'No Offline Progress': '关闭离线进度',
     'Hybrid Offline': '混合离线',
     'Time Warp Only': '只使用时间跃迁',
@@ -1728,6 +1713,101 @@ var cnItems = {
     'Back to World': '返回世界',
     'What is This?!': '这是什么？！',
     'Stop Here': '停止补偿时间',
+    'Your Trimps really missed you': '脆皮们真的想您',
+    'Your Trimps didn\'t do dishes while you were gone': '您不在的时候脆皮们连碗都不洗',
+    'A Scientist has been locked outside all night': '一名科学家一整晚都被锁在了外面',
+    'There\'s a Snimp in the pantry': '储藏室冒出来一只脆皮鹬',
+    'Your Trimps threw a party while you were out': '您不在的时候脆皮们开了个派对',
+    'Your Trimps raided your fridge while you were gone': '您不在的时候脆皮们把冰箱搬空了',
+    'Some Trimps toilet papered your ship': '某几个脆皮把您的飞船弄得到处都是厕纸',
+    'Your Trimps were a few minutes away from burning the place down': '脆皮们差点就把这地方烧掉了',
+    'The Turkimps escaped again': '脆皮火鸡又逃跑了',
+    'Your Trimps ran the AC all night': '脆皮们开了一晚上的空调',
+    'Wow, such speed': '哇哦，这么快',
+    'Your Trimps dinged your ship while out on a joyride': '脆皮们兜风时撞到了您的飞船',
+    'One of your Trimps got a tattoo while you were gone': '您不在的时候一个脆皮纹了个身',
+    'Fluffy reminds you that he\'s not a babysitter': '绒绒友情提示：它不是保姆',
+    'Scruffy reminds you that he\'s not a babysitter': '污污友情提示：它不是保姆',
+    'Fluffy wrote a novel while you were gone': '您不在的时候，绒绒写了本小说',
+    'Scruffy wrote a novel while you were gone': '您不在的时候，污污写了本小说',
+    'Fluffy really missed you': '绒绒真的想您',
+    'Scruffy really missed you': '污污真的想您',
+    'Fluffy greets you excitedly': '绒绒很兴奋地欢迎了您',
+    'Scruffy greets you excitedly': '污污很兴奋地欢迎了您',
+    'Fluffy forgives you for leaving': '绒绒原谅了您的离去',
+    'Scruffy forgives you for leaving': '污污原谅了您的离去',
+    'No maps available': '无可用的地图',
+    'Gain 1 map for each 8 hours away': '每离线8个小时可以获得一张地图',
+    'Oof, you don\'t have enough fragments to run a map.': '哎呀，您的碎片不够了，无法制造地图。',
+    'You can run': '等待时，您可以运行',
+    'while you wait!': '！',
+    'Use it wisely...': '请善加利用……',
+    'Use them wisely...': '请善加利用……',
+    'While you were out, your Trimps didn\'t get much done - unless you count destruction of property. Luckily you have a Time Portal! While you can\'t go forward in time, you can go back to keep the Trimps in line and I\'ll wait here for you.': '您不在的时候，脆皮们基本没什么进展——除非您把毁坏也算上。还好您有一个时空传送门！尽管您无法前往未来，您还是可以回到过去管管脆皮们，我会在这里等着您。',
+    'While you\'re in the past, everything will progress like normal, just much faster. The temporal displacement effects give you blurry vision and a headache (making fine control impossible), but you can force your Trimps to stop and run 1 map whenever you want for each 8 hours spent offline! Maps created this way will use your first preset settings at your selected level with Repeat for Items and Exit to World.': '当您回到过去时，一切都比正常来得更快。时移效应使您的视线模糊不清，且使您头疼欲裂(因此无法精密控制)，但每离线8个小时，您就可以强制脆皮们停下来运行1张地图！以此方法制造的地图等级与您选择的等级相同，将使用您的地图预设1，且启用重复到无特殊设置和退回世界设置。',
+    'If your Trimps look stuck, you can always': '如果脆皮们卡住了，您可以随时 ',
+    'to regain full control of your Trimps, and you\'ll still receieve resources from Trustworthy Trimps for any unused Time Warp time!': '来恢复脆皮的控制，而且您仍然可以从可信的脆皮那边获得时间跃迁剩余时间所对应的资源！',
+    'You can Time Warp for 100% of the time you spent offline, up to a maximum of 24 hours.': '您可以在离线的全部时间内进行时间跃迁，但上限为24小时。',
+    'You can change your Offline Progress setting to suit your needs!': '您可以根据需要，修改离线进度设置！',
+    'Creek (': '海湾(',
+    'Coast (': '海岸(',
+    'Swamp (': '沼泽(',
+    'Forest (': '森林(',
+    'Mountain (': '山脉(',
+    'Beach (': '海滩(',
+    'Hill (': '山丘(',
+    'Butte (': '孤峰(',
+    'Ridge (': '山脊(',
+    'Mesa (': '方山(',
+    'Valley (': '山谷(',
+    'Peak (': '顶峰(',
+    'Canyon (': '峡谷(',
+    'Plateau (': '高原(',
+    'Crag (': '峭壁(',
+    'Crater (': '陨坑(',
+    'Oaks (': '橡林(',
+    'Volcano (': '火山(',
+    'Glacier (': '冰川(',
+    'Brook (': '小溪(',
+    'Cave (': '洞穴(',
+    'Sea (': '大海(',
+    'Ocean (': '大洋(',
+    'Lake (': '湖泊(',
+    'Jungle (': '丛林(',
+    'Island (': '岛屿(',
+    'Ruins (': '遗迹(',
+    'Temple (': '神殿(',
+    'Bog (': '泥沼(',
+    'Grove (': '果林(',
+    'Thicket (': '树丛(',
+    'Woods (': '树林(',
+    'Oasis (': '绿地(',
+    'Mineshaft (': '深井(',
+    'Tunnel (': '隧道(',
+    'Depths (': '深渊(',
+    'Cavern (': '山洞(',
+    'Gardens (': '花园(',
+    'Nightmare (': '梦魇(',
+    'Void (': '虚空(',
+    'Descent (': '落穴(',
+    'Pit (': '深坑(',
+    'The Black Bog (': '黑色泥沼(',
+    'The Block (': '障碍区(',
+    'The Wall (': '高墙(',
+    'The Prison (': '监狱(',
+    'Imploding Star (': '爆炸之星(',
+    'Prismatic Palace (': '棱镜宫殿(',
+    'Melting Point (': '熔点(',
+    'Trimple Of Doom (': '末日神殿(',
+    'Tricky Paradise (': '整蛊天堂(',
+    'Dimension of Anger (': '愤怒维度(',
+    'Dimension of Rage (': '暴怒维度(',
+    'Looks like you still haven\'t cleared this map. If you want to leave and make an easier one, I won\'t count it against you!': '看起来您还没有通过这张地图。如果您想要离开并运行一张更容易的地图，',
+    'Sitting in the Map Chamber (lame': '在地图界面无所事事(弱鸡',
+    'Starting Offline Progress... (Updates every 2000 processed loops': '离线进度启动中……(每处理2000个循环就刷新一次',
+    'Progress has slowed to a crawl!': '进度慢如！',
+    '': '',
+    '': '',
     '': '',
     '': '',
     //离线相关结束
@@ -1826,6 +1906,53 @@ var cnItems = {
     'Charging': '蓄能',
     //传家宝相关结束
     //挑战相关
+    'Helium goes in, victory comes out': '有氦者，事竟成',
+    'Radon goes in, victory comes out': '得氡者，得天下',
+    'Well, you did it. You followed your instincts through this strange world, made your way through the Dimension of Anger, and obtained this portal. But why? Maybe there will be answers through this portal... Your scientists tell you they can overclock it to bring more memories and items back, but they\'ll need helium to cool it.': '很好，您做到了。您凭着直觉在这个奇怪的世界里一路披荆斩棘，通过了愤怒维度，最后获得了这个传送门。但这么做的意义是？或许通过这个传送门以后，您就能找到答案了……科学家们告诉您，它们可以将传送门进行超频，带回更多的记忆和物品，但这么做还需要用到氦来冷却。',
+    'The Radon Universe is harsh. Your Portal still retains some information about the Scientist upgrades, but it\'ll need an upgrade of its own to be able to utilize them in this new Universe.': '氡宇宙的环境真的是太严苛了。您的传送门还保留有一些关于科学家升级的信息，但是看来需要在这个宇宙中升级后才能利用这些信息。',
+    'Be ready to manually Gather some Food!': '得准备好，要手动收集一些食物了！',
+    'Don\'t forget to bring a challenge': '传送前，不要忘了选择挑战',
+    'Respec': '洗点',
+    'Click a challenge below to learn more about and/or run it!': '点击下方的挑战来获取详细信息及/或运行它！',
+    'None': '无',
+    'Your highest Zone reached for this Challenge': '您的最高通过区域于此挑战',
+    'bonus.': '加成。',
+    'bonus!': '加成！',
+    'You will not earn a new perk.': '您不会因此获得新的特权。',
+    'You will also earn a new Perk!': '您还可以获得一个新的特权！',
+    'You have already completed this challenge!': '您已经完成了此挑战！',
+    'Are you sure you want to abandon this challenge?': '您确定要放弃此挑战吗？',
+    'Abandoning this challenge will cause the portal to become unstable and start you from the beginning of this run. (You\'ll keep your permanent rewards like helium and perks': '放弃挑战后，传送门将变得不稳定，使您从上次传送后的状态重新开始(保留永久的加成，例如氦和特权',
+    'Click Confirm to abandon the challenge and restart at Z1, Cancel to go back, or Restart to go back to Z1 with the same challenge.': '点击确认后将放弃挑战并从区域1重新开始游戏，点击取消则返回，点击重新开始挑战则从区域1重新开始此挑战。',
+    'Restart Challenge': '重新开始挑战',
+    'This challenge issues rewards differently than most other Challenge': '此挑战的加成不同于其他大多数挑战',
+    's.': '。',
+    'You don\'t have an active challenge.': '您目前未激活任何挑战。',
+    'If you can\'t handle this Universe, you can always return to Universe 1. However, returning before finding the Portal Device will invalidate all Scruffy Exp and Radon earned.': '如果您在这个宇宙中感觉力不从心，您可以随时返回宇宙1。但是在找到传送门前就这么做的话，上次传送后获得的污污经验和氡将全部丢失。',
+    'Return to Universe': '返回宇宙',
+    'Helium Left Over': '剩余的氦',
+    'Radon Left Over': '剩余的氡',
+    'These are all of your perks! You can reset them once per run.': '以下是您所有的特权。每次传送后您可以洗点一次。',
+    'Are you sure you want to return to Universe 1? You will lose any Radon and Scruffy Exp earned so far.': '您确定要返回宇宙1吗？目前获得的氡和污污经验将全部丢失。',
+    'Abandon Scruffy': '放弃污污',
+    'I\'m sure he\'ll be fine': '它会没事的',
+    'Select New Challenge': '选择新的挑战',
+    'Level: ': '等级：',
+    'Price': '价格',
+    'Spent': '已花',
+    'Equality Scaling': '平等缩放',
+    'Scale Equality Scaling': '平等缩放设置',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+
+
+
+
+
     'You will unlock this challenge once you reach Zone': '欲解锁此挑战，您需要到达区域',
     'You will unlock this challenge once you  reach Zone': '欲解锁此挑战，您需要到达区域',
 	'Daily': '日常',
@@ -4080,24 +4207,9 @@ var cnItems = {
     'Amount': '数量',
     'Line Total': '总行数',
     'Allow the Trimps to start fighting on their own whenever their town gets overcrowded (Hotkey: A': '每当镇上人满为患时，让脆皮自己开始战斗（热键：A',
-    'Your Trimps threw a party while you were out': '你不在家时，你的脆皮开了个聚会',
-    'Starting Offline Progress... (Updates every 2000 processed loops': '开始同步离线进度……(每处理2000个循环更新一次',
-    'Estimated completion in': '估计完成时间',
     'our Trimps were a few minutes away from burning the place down': '我们的脆皮距离烧毁这个地方只有几分钟的路程',
-    'Some Trimps toilet papered your ship': '一些脆皮用掉了你船上的卫生纸',
-    'Wow, such speed': '哇，这么快',
-    'Progress has slowed to a crawl!': '进展慢如蜗牛!',
-    'Your Trimps didn\'t do dishes while you were gone': '你不在的时候，你的脆皮们不洗碗',
-    'Your Trimps really missed you': '你的脆皮们真的很想你',
-    'A Scientist has been locked outside all night': '一位科学家整夜都被锁在外面',
-    'If your Trimps look stuck, you can always': '如果您的脆皮看起来卡住了，您可以随时',
     'Lost Time': '失去的时间',
     'Neat': '利落',
-    'to regain full control of your Trimps, and you\'ll still receieve resources from Trustworthy Trimps for any unused Time Warp time!': '恢复对脆皮的完全控制权，并且在任何未使用的时间扭曲的时间内，您仍然会从可信的脆皮那里获得资源！',
-    'While you were out, your Trimps didn\'t get much done - unless you count destruction of property. Luckily you have a Time Portal! While you can\'t go forward in time, you can go back to keep the Trimps in line and I\'ll wait here for you': '当您出门在外时，您的脆皮并没有完成太多工作-除非您算出财产损失。 幸运的是您有一个时间传送门！ 虽然您无法及时前进，但可以返回以使脆皮保持一致，我将在这里等您',
-    'While you\'re in the past, everything will progress like normal, just much faster. The temporal displacement effects give you blurry vision and a headache (making fine control impossible), but you can force your Trimps to stop and run 1 map whenever you want for each 8 hours spent offline! Maps created this way will use your first preset settings at your selected level with Repeat for Items and Exit to World.': '过去，一切都会像往常一样进展，只是速度更快。 暂时的位移效果使您视力模糊和头痛（无法进行精细控制），但是只要您希望每8小时离线花费一次，就可以强制Trimps停止并运行1张地图！ 以这种方式创建的地图将在您选择的级别上使用您的第一个预设设置，并重复项目和退出世界。',
-    'You can change your Offline Progress setting to suit your needs!': '您可以更改脱机进度设置以适合您的需求！',
-    'You can Time Warp for 100% of the time you spent offline, up to a maximum of 24 hours.': '您可以将离线时间的100％时间扭曲，最多24小时。',
     'It\'s kind of heavy for your Trimps, but they\'ll manage. Adds 3 attack to each soldier per level': '这对你的脆皮来说有点重，但他们会处理的。每升一级增加3个攻击',
     '- Bone': '- 骨头',
     '- Enemy': '- 敌人',
@@ -4139,8 +4251,6 @@ var cnItems = {
     'Buy Whipimp (50 bones': '购买 脆皮鞭者（50骨头',
     'Buy Goblimp (50 bones': '购买 脆皮地精（50骨头',
     'Grants an extra 0.3% of current 脆皮': '额外捐赠当前脆皮的0.3％',
-    'Gain 1 map for each 8 hours away': '每8个小时可获得1张地图',
-    'No maps available': '没有可用的地图',
     'Wood Per Second': '木头每秒产量',
     'Metal Per Second': '金属每秒产量',
     'Max Food': '食物上限',
@@ -4158,11 +4268,8 @@ var cnItems = {
     'CRIT!': '暴击!',
     'Crit!': '暴击!',
     'Got it!': '得到它！',
-    'Use them wisely...': '明智地使用它们...',
     'What\'s New': '最新消息',
     'You stumble across a large locked chest, unlike anything you\'ve ever seen. The lock looks rusty, you smack it with a rock, and it falls right off. Immediately the ground shakes and cracks beneath your feet, intense heat hits your face, and Magma boils up from the core.': '您偶然发现了一个巨大的上锁的胸部，这与您见过的任何东西都不一样。 锁看上去生锈了，用石头砸了一下，马上就掉了。 地面立即在您的脚下震动并破裂，强烈的热量击中您的脸，岩浆从核心沸腾。',
-    'You can run': '你可以运行',
-    'while you wait!': '当你等待时！',
     'Where one minute ago there was dirt, grass, and noxious fog, there are now rivers of molten rock (and noxious fog). You\'d really like to try and repair the planet somehow, so you decide to keep pushing on. It\'s been working out well so far, there was some useful stuff in that chest!': '一分钟前有泥土，草丛和有害雾气的地方，现在有熔岩河（有毒雾气）。 您真的很想尝试以某种方式修复地球，因此您决定继续前进。 到目前为止，效果一直很好，那个箱子里有一些有用的东西！',
     'The heat is tough on your Trimps, causing each Zone to reduce their attack and health by 20% more than the last. 10% of your Nurseries will permanently close after each Zone to avoid Magma flows, and Corruption has seeped into both Void and regular Maps, further increasing their difficulty.': '热浪对您的脆皮不利，导致每个区域的攻击力和生命值都比上一个区域减少20％。 每个区域结束后，您的苗圃中有10％将永久关闭，以避免岩浆流动，并且腐败渗透到了虚空地图和常规地图中，进一步增加了难度。',
     'Though you\'ve seen the Corruption grow since the planet broke, you can now see a giant spire pumping out tons of the purple goo. Things seem to be absorbing it at a higher rate now.': '尽管自从行星破裂以来您已经看到了腐败的增长，但是现在您可以看到一个巨大的尖顶抽出大量的紫色粘胶。 现在看来，事物正在以更高的速度吸收它。',
@@ -4170,10 +4277,7 @@ var cnItems = {
     'Improbabilities and Void Maps are now more difficult.': '乌有者发生虚空地图现在都比较困难。',
     'Improbabilities and Void Maps now drop 2x helium.': '乌有者和虚空图现在会掉落2倍的氦气。',
     'However, the chest contained plans and materials for the': '然而，箱子里装着的计划和材料',
-    'The Turkimps escaped again': 'Turkimps又逃跑了',
     'Travel to the Map Chamber. Maps are filled with goodies, and for each max level map you clear you will gain a 20% stacking damage bonus for that Zone (stacks up to 10 times). (Hotkey: M': '去地图室。地图充满了好东西，每清除一张最高等级地图，你将获得该区域20%的堆叠伤害加成(堆叠最多10次)。(热键:M',
-    'There\'s a Snimp in the pantry': '储藏室中有一个Snimp',
-    'Fluffy wrote a novel while you were gone': '当你不在的时候，绒绒写了一本小说',
     'Your Spire Traps and Towers have also produced': '您的尖顶陷阱和防御塔也已产生',
     '! In addition, all Zones are now wort': '!此外，所有的区域现在都是wort',
     'Runestones while you were away!': '符石在你离开时！',
@@ -4206,9 +4310,6 @@ var cnItems = {
     'Housing': '房屋',
     'Territory Bonus': '领土奖励',
     'Select a Mod': '选择一个模式',
-    'Level: ': '等级: ',
-    'Price': '价格',
-    'Spent': '花费',
     'Challenge has no end point, and grants an': '挑战没有终点，并在完成时获得',
     'additional': '额外的',
     'which cost helium': '需要消耗氦',
@@ -4283,7 +4384,6 @@ var cnItems = {
     'You recently switched to Scryer Formation and will': '你刚刚切换到占卜者阵型，',
     'not': '不',
     'earn a bonus from this enemy.': '会从这个敌人处获得奖励加成',
-
 }
 
 
@@ -4310,6 +4410,7 @@ var cnPrefix = {
     "Enemy attack in maps increased by ": '地图上的敌人攻击力增加 ',
     "of all Helium, ": "所有的氦，",
     " Nu from Heirlooms earned during the run": "上次传送后传家宝回收的虚空物质",
+    "Mapping in ": "运行地图：", //离线地图
     "Big Wall,": "巨墙，", //地图名称
     "Whispering ": "私语", //地图名称
     "Sandy ": "沙之", //地图名称
@@ -4767,15 +4868,6 @@ var cnRegReplace = new Map([
     [/^(\s+)Run Map(\s+)$/, '$1运行地图$2'], //主界面
     [/^(\s+)Recycle Map(\s+)$/, '$1回收地图$2'], //主界面
     [/^(\s+)You can earn achievements by doing stuff. Each achievement will boost the amount of damage your Trimps can deal, and later achievements grant a larger bonus. You can learn more about an achievement by hovering your mouse over it.$/, '$1满足特定的条件可以获得成就。每个成就都可以增加您的脆皮造成的伤害，越往后的成就加成越高。您可以将鼠标停留在某个成就上来了解它的详细信息。'], //主界面
-    [/^Time Portal( Mk\. )?([IVXLCDM]*)$/, '时空传送门$1$2'], //主界面
-    [/^(\s+)Total(\s+)$/, '$1总计$2'], //主界面
-    [/^(\s+)Current Run(\s+)$/, '$1上次传送后$2'], //主界面
-    [/^is Z(.*) \(Capped to (.*) by Obsidian\), earning you (.*)% Challenge$/, '为区域$1(被黑曜石限制为区域$2)，使您获得$3%的挑战'], //主界面
-    [/^is Z(.*) \(Capped to (.*) by Obsidian\), earning you (.*)% extra attack and health, and (.*)% more Helium from all sources.$/, '为区域$1(被黑曜石限制为区域$2)，使您获得$3%的额外攻击力和生命值，以及$4%的额外氦获取量。'], //主界面
-    [/^is Z(.*), earning you (.*)% Challenge$/, '为区域$1，使您获得$2%的挑战'], //主界面
-    [/^is Z(.*), earning you (.*)% extra attack and health, and (.*)% more Helium from all sources.$/, '为区域$1，使您获得$2%的额外攻击力和生命值，以及$3%的额外氦获取量。'], //主界面
-    [/^bonus, and adding (.*)% to your total Challenge$/, '加成，且增加$1%至总挑战'], //主界面
-    [/^Zones above Z(.*) are worth 5x more Challenge$/, '区域$1以上的区域可以提供5倍的挑战'], //主界面
     [/^\| What's New(\s+)$/, '|更新内容$1'], //主界面
     [/^(\s+)Save$/, '$1保存'], //主界面
     [/^Each Trap allows you to catch (.*) thing(s*).$/, '每个陷阱可以让您抓住$1个东西。'], //建筑
@@ -5192,7 +5284,53 @@ var cnRegReplace = new Map([
     [/^Beat Spire II with no respec and (.*) or less He spent$/, '在氦花费不超过 $1 ，且未在传送后进行特权洗点的前提下通过尖塔 II'], //成就等
     [/^Complete Wither with (.*) stacks of Hardened$/, '在拥有 $1 层硬化的前提下，完成凋零挑战'], //成就等
     [/^(\s+)Making up lost time...(\s+)$/, '$1补偿时间中……$2'], //离线等
-    [/^(\d*) Level map$/, '$1级的地图'], //离线等
+    [/^(\d+) Level map$/, '$1级的地图'], //离线等
+    [/^(\d+) map(s*)$/, '$1张地图'], //离线等
+    [/^You have (.+) Fragments.$/, '您有$1碎片。'], //离线等
+    [/^Z (.+) map$/, '地图等级$1'], //离线等
+    [/^(.+) Frags$/, '花费$1碎片'], //离线等
+    [/^(.+) items$/, '有$1个物品'], //离线等
+    [/^Welcome back! You were offline for (\d+) second(s*).$/, '欢迎回来！您离线了$1秒。'], //离线等
+    [/^Welcome back! You were offline for (\d+) minute(s*) and (\d+) second(s*).$/, '欢迎回来！您离线了$1分钟$3秒。'], //离线等
+    [/^Welcome back! You were offline for (\d+) minute(s*).$/, '欢迎回来！您离线了$1分钟。'], //离线等
+    [/^Welcome back! You were offline for (\d+) hour(s*) and (\d+) minute(s*).$/, '欢迎回来！您离线了$1小时$3分钟。'], //离线等
+    [/^Welcome back! You were offline for (\d+) hour(s*).$/, '欢迎回来！您离线了$1小时。'], //离线等
+    [/^Welcome back! You were offline for (\d+) day(s*) and (\d+) hour(s*).$/, '欢迎回来！您离线了$1天$3小时。'], //离线等
+    [/^(.+) \/ (.+) ticks \($/, '$1 \/ $2 \('], //离线等
+    [/^(.+) items remain$/, '剩余$1个物品'], //离线等
+    [/^(.+) seconds processed in (.+) seconds \((.+)L\/F, (.+)x speed$/, '在$2秒内处理了$1秒的进度(每帧处理$3次循环，速度为$4倍'], //离线等
+    [/^Estimated completion in(.+)$/, '预计完成时间：$1'], //离线等
+    [/^While you were away, your Trimps were able to produce (.+) food, (.+) wood, (.+) metal, (.+) gems, and (.+) fragments(\.?)$/, '您不在时，脆皮获取了$1食物，$2木头，$3金属，$4宝石和$5碎片。'], //离线等
+    [/^While you were away, your Trimps were able to produce (.+) food, (.+) wood, (.+) metal, and (.+) gems(\.?)$/, '您不在时，脆皮获取了$1食物，$2木头，$3金属和$4宝石。'], //离线等
+    [/^While you were away, your Trimps were able to produce (.+) food, (.+) wood, (.+) metal, and (.+) fragments(\.?)$/, '您不在时，脆皮获取了$1食物，$2木头，$3金属和$4碎片。'], //离线等
+    [/^While you were away, your Trimps were able to produce (.+) food, (.+) wood, (.+) gems, and (.+) fragments(\.?)$/, '您不在时，脆皮获取了$1食物，$2木头，$3宝石和$4碎片。'], //离线等
+    [/^While you were away, your Trimps were able to produce (.+) food, (.+) metal, (.+) gems, and (.+) fragments(\.?)$/, '您不在时，脆皮获取了$1食物，$2金属，$3宝石和$4碎片。'], //离线等
+    [/^While you were away, your Trimps were able to produce (.+) wood, (.+) metal, (.+) gems, and (.+) fragments(\.?)$/, '您不在时，脆皮获取了$1木头，$2金属，$3宝石和$4碎片。'], //离线等
+    [/^While you were away, your Trimps were able to produce (.+) food, (.+) wood, and (.+) metal(\.?)$/, '您不在时，脆皮获取了$1食物，$2木头和$3金属。'], //离线等
+    [/^While you were away, your Trimps were able to produce (.+) food, (.+) wood, and (.+) gems(\.?)$/, '您不在时，脆皮获取了$1食物，$2木头和$3宝石。'], //离线等
+    [/^While you were away, your Trimps were able to produce (.+) food, (.+) wood, and (.+) fragments(\.?)$/, '您不在时，脆皮获取了$1食物，$2木头和$3碎片。'], //离线等
+    [/^While you were away, your Trimps were able to produce (.+) food, (.+) metal, and (.+) gems(\.?)$/, '您不在时，脆皮获取了$1食物，$2金属和$3宝石。'], //离线等
+    [/^While you were away, your Trimps were able to produce (.+) food, (.+) metal, and (.+) fragments(\.?)$/, '您不在时，脆皮获取了$1食物，$2金属和$3碎片。'], //离线等
+    [/^While you were away, your Trimps were able to produce (.+) food, (.+) gems, and (.+) fragments(\.?)$/, '您不在时，脆皮获取了$1食物，$2宝石和$3碎片。'], //离线等
+    [/^While you were away, your Trimps were able to produce (.+) wood, (.+) metal, and (.+) gems(\.?)$/, '您不在时，脆皮获取了$1木头，$2金属和$3宝石。'], //离线等
+    [/^While you were away, your Trimps were able to produce (.+) wood, (.+) metal, and (.+) fragments(\.?)$/, '您不在时，脆皮获取了$1木头，$2金属和$3碎片。'], //离线等
+    [/^While you were away, your Trimps were able to produce (.+) wood, (.+) gems, and (.+) fragments(\.?)$/, '您不在时，脆皮获取了$1木头，$2宝石和$3碎片。'], //离线等
+    [/^While you were away, your Trimps were able to produce (.+) metal, (.+) gems, and (.+) fragments(\.?)$/, '您不在时，脆皮获取了$1金属，$2宝石和$3碎片。'], //离线等
+    [/^While you were away, your Trimps were able to produce (.+) food, and (.+) wood(\.?)$/, '您不在时，脆皮获取了$1食物和$2木头。'], //离线等
+    [/^While you were away, your Trimps were able to produce (.+) food, and (.+) metal(\.?)$/, '您不在时，脆皮获取了$1食物和$2金属。'], //离线等
+    [/^While you were away, your Trimps were able to produce (.+) food, and (.+) gems(\.?)$/, '您不在时，脆皮获取了$1食物和$2宝石。'], //离线等
+    [/^While you were away, your Trimps were able to produce (.+) food, and (.+) fragments(\.?)$/, '您不在时，脆皮获取了$1食物和$2碎片。'], //离线等
+    [/^While you were away, your Trimps were able to produce (.+) wood, and (.+) metal(\.?)$/, '您不在时，脆皮获取了$1木头和$2金属。'], //离线等
+    [/^While you were away, your Trimps were able to produce (.+) wood, and (.+) gems(\.?)$/, '您不在时，脆皮获取了$1木头和$2宝石。'], //离线等
+    [/^While you were away, your Trimps were able to produce (.+) wood, and (.+) fragments(\.?)$/, '您不在时，脆皮获取了$1木头和$2碎片。'], //离线等
+    [/^While you were away, your Trimps were able to produce (.+) metal, and (.+) gems(\.?)$/, '您不在时，脆皮获取了$1金属和$2宝石。'], //离线等
+    [/^While you were away, your Trimps were able to produce (.+) metal, and (.+) fragments(\.?)$/, '您不在时，脆皮获取了$1金属和$2碎片。'], //离线等
+    [/^While you were away, your Trimps were able to produce (.+) gems, and (.+) fragments(\.?)$/, '您不在时，脆皮获取了$1宝石和$2碎片。'], //离线等
+    [/^While you were away, your Trimps were able to produce (.+) food(\.?)$/, '您不在时，脆皮获取了$1食物。'], //离线等
+    [/^While you were away, your Trimps were able to produce (.+) wood(\.?)$/, '您不在时，脆皮获取了$1木头。'], //离线等
+    [/^While you were away, your Trimps were able to produce (.+) metal(\.?)$/, '您不在时，脆皮获取了$1金属。'], //离线等
+    [/^While you were away, your Trimps were able to produce (.+) gems(\.?)$/, '您不在时，脆皮获取了$1宝石。'], //离线等
+    [/^While you were away, your Trimps were able to produce (.+) fragments(\.?)$/, '您不在时，脆皮获取了$1碎片。'], //离线等
     [/^(\s+)Bone Trader(\s+)$/, '$1骨法商人$2'], //骨头等
     [/^(\s+)You have$/, '$1您有 '], //骨头等
     [/^(\s+)You can earn bones as you progress through the world by killing Skeletimps and Megaskeletimps.(\s+)$/, '$1您可以在世界进度推进时，击杀脆皮骷髅或脆皮超级骷髅来获得骨头。$2'], //骨头等
@@ -5208,7 +5346,7 @@ var cnRegReplace = new Map([
     [/^(.*) Helium, (.*)x each Token$/, '$1氦，各$2自然符记'], //骨头等
     [/^(.*) Helium, (.*) Fluffy Exp$/, '$1氦，$2绒绒经验'], //骨头等
     [/^(.*) Radon, (.*) Scruffy Exp$/, '$1氡，$2污污经验'], //骨头等
-    [/^(.*)(?<!Current)(?<!30 total)(?<!Battle)(?<!Cool For)(?<!AutoGold) Helium$/, '$1氦'], //骨头等
+    [/^(.*)(?<!and (.*)\%)(?<!Current)(?<!30 total)(?<!Battle)(?<!Cool For)(?<!AutoGold) Helium$/, '$1氦'], //骨头等
     [/^(.*)(?<!Current)(?<!Helium \/)(?<!Battle)(?<!Raging)(?<!AutoGold) Radon$/, '$1氡'], //骨头等
     [/^(\s+)Buy Heirloom \(30 bones\)(\s+)$/, '$1购买传家宝(30骨头)$2'], //骨头等
     [/^(\s+)Get(\s)one(\s)Heirloom(\s)at(\s)the(\s)chances(\s)above,(\s)based(\s)on(\s)highest(\s)zone(\s+)$/, '$1传家宝稀有度基于最高通过区域而定，具体概率如上所示$12'], //骨头等
@@ -5261,6 +5399,40 @@ var cnRegReplace = new Map([
     [/^(?!Item)([0-9a-zA-Z\.\%\s]*)Prismatic Shield$/, '$1棱镜护盾'], //传家宝
     [/^([0-9a-zA-Z\.\%\s]*)Gamma Burst$/, '$1伽马爆发'], //传家宝
     [/^Each attack by your Trimps adds 1 stack of Charging. When Charging reaches 5 stacks, your Trimps will release a burst of energy, dealing (.*)% of their attack damage. Stacks reset after releasing a Burst or when your Trimps die.$/, '脆皮每次攻击时增加1层“蓄能”。当蓄能层数到达5层时，脆皮将释放积蓄的能量，对敌人造成 $1% 攻击力的伤害。当能量释放或者脆皮死亡后，层数重置。'], //传家宝
+    [/^Time Portal( Mk\. )?([IVXLCDM]*)$/, '时空传送门$1$2'], //挑战界面
+    [/^(\s+)Total(\s+)$/, '$1总计$2'], //挑战界面
+    [/^(\s+)Current Run(\s+)$/, '$1上次传送后$2'], //挑战界面
+    [/^is Z(.*) \(Capped to (.*) by Obsidian\), earning you (.*)% Challenge$/, '为区域$1(被黑曜石限制为区域$2)，使您获得$3%的挑战'], //挑战界面
+    [/^is Z(.*) \(Capped to (.*) by Obsidian\), earning you (.*)% extra attack and health, and (.*)% more Helium from all sources.$/, '为区域$1(被黑曜石限制为区域$2)，使您获得$3%的额外攻击力和生命值，以及$4%的额外氦获取量。'], //挑战界面
+    [/^is Z(.*), earning you (.*)% Challenge$/, '为区域$1，使您获得$2%的挑战'], //挑战界面
+    [/^is Z(.*), earning you (.*)% extra attack and health, and (.*)% more Helium from all sources.$/, '为区域$1，使您获得$2%的额外攻击力和生命值，以及$3%的额外氦获取量。'], //挑战界面
+    [/^bonus, and adding (.*)% to your total Challenge$/, '加成，且增加$1%至总挑战'], //挑战界面
+    [/^Zones above Z(.*) are worth 5x more Challenge$/, '区域$1以上的区域可以提供5倍的挑战'], //挑战界面
+    [/^(.*)Your challenge has been abandoned.$/, '$1您放弃了挑战。'], //挑战界面
+    [/^You will gain (.*)% attack and health, and (.*)% Helium$/, '您将获得$1%攻击力和生命值，及$2%的氦获取量'], //挑战界面
+    [/^You will gain (.*)% to your bonus$/, '您将获得$1%的加成'], //挑战界面
+    [/^s. You will gain (.*)% attack and health, and (.*)% Helium$/, '。您将获得$1%攻击力和生命值，及$2%的氦获取量'], //挑战界面
+    [/^for every (.*) Zone(s*) reached.$/, '于每到达$1个区域。'], //挑战界面
+    [/^s. You will gain (.*)% attack and health, and (.*)% Helium for every (.*) Zone(s*) reached.$/, '。您将获得$1%攻击力和生命值，及$2%的氦获取量于每到达$1个区域。'], //挑战界面
+    [/^Every (.*) Zone(s*) reached,$/, '且每到达$1个区域，'], //挑战界面
+    [/^this bonus will increase by (.*)% attack and health, and (.*)% Helium.$/, '以上加成还将增加$1%攻击力和生命值，及$2%的氦获取量。'], //挑战界面
+    [/^this bonus will increase by (.*)%.$/, '以上加成还将增加$1%。'], //挑战界面
+    [/^You are currently at Zone (.*),$/, '您目前在区域$1，'], //挑战界面
+    [/^You are currently at Zone (.*).$/, '您目前在区域$1。'], //挑战界面
+    [/^your previous highest for this challenge was Zone (.*). If you abandon the challenge now, you'll add (.*)% to your total Challenge$/, '此挑战您之前最高到达的区域为区域$1。如果您现在放弃挑战，将增加$2%加成到总挑战'], //挑战界面
+    [/^your previous highest for this challenge was Zone (.*). If you use the portal now, you'll add (.*)% to your total Challenge$/, '此挑战您之前最高到达的区域为区域$1。如果您现在使用传送门，将增加$2%加成到总挑战'], //挑战界面
+    [/^bonus, bringing it to (.*)%.$/, '加成，将它提升到$1%。'], //挑战界面
+    [/^bonus, bringing it to (.*)%. Your new Challenge$/, '加成，将它提升到$1%。您的新挑战'], //挑战界面
+    [/^bonus will be (.*)%.$/, '加成将变为$1%。'], //挑战界面
+    [/^your best for this challenge is Zone (.*). If you abandon the challenge now, your total Challenge$/, '此挑战最高到达的区域为区域$1。如果您现在放弃挑战，您的总挑战'], //挑战界面
+    [/^your best for this challenge is Zone (.*). If you use the portal now, your total Challenge$/, '此挑战最高到达的区域为区域$1。如果您现在使用传送门，您的总挑战'], //挑战界面
+    [/^bonus will stay at (.*)%.$/, '加成将保持$1%不变。'], //挑战界面
+    [/^You'll need to reach at least Zone (.*) before you'll add anything to your current Challenge$/, '至少在到达区域$1后，您才可以增加挑战'], //挑战界面
+    [/^bonus of (.*)%.$/, '的加成，目前为$1%。'], //挑战界面
+    [/^If you abandon the challenge now, you'll add (.*)% to your Challenge$/, '如果您现在放弃挑战，将增加$1%加成到挑战'], //挑战界面
+    [/^If you use the portal now, you'll add (.*)% to your Challenge$/, '如果您现在使用传送门，将增加$1%加成到挑战'], //挑战界面
+    [/^bonus, bringing the total to (.*)%.$/, '加成，将总加成变为$1%。'], //挑战界面
+    [/^bonus, bringing the total to (.*)%. Your new Challenge$/, '加成，将总加成变为$1%。您的新挑战'], //挑战界面
     [/^(.*)You have completed the$/, '$1您完成了 '], //通用挑战完成消息
     [/^(.*)You have completed the Balance challenge! You have been rewarded with (.*) Helium, and you may repeat the challenge.$/, '$1您完成了平衡挑战！您获取了 $2 氦，现在您又可以重新挑战了。'], //平衡挑战完成信息
 	[/^(.*)You can research science again!$/, '$1您又可以进行科学研究了！'], //科学家挑战放弃消息
@@ -5434,6 +5606,15 @@ var cnRegReplace = new Map([
     [/^(.*)Your save file is from a newer version of Trimps \(v(.*)\) than what your computer is running \(v(.*)\). Refresh or restart your browser!$/, '$1您的游戏版本为$3，而您的存档版本则为更新的$2。请刷新或重启浏览器！'], //其他消息等
     [/^(.*)I'm so terribly sorry, but your previous save game \(version (.*)\) does not work in the new version. This should be the last reset!$/, '$1非常抱歉，但之前$2版本的存档无法在新版本中使用。这绝对是最后一次了！'], //其他消息等
     [/^(.*)Note: You are playing on the beta\/dev version. You will be unable to export your save from this version to the live version, and this server may go down or change without warning. Thank you for helping test!$/, '$1注意：您目前的游戏为beta/开发专用版本。此版本中的存档无法导入正式版游戏中，而且服务器可能在没有预先通知的情况下关闭或变动。感谢您帮忙测试！'], //其他消息等
+    [/^Lv:(\s)$/, '等级：'], //其他消息等
+    [/^(.*) stack(s*) of Equality are active, reducing the Attack of Trimps and Bad Guys by (.*)%.$/, '已激活$1层平等，同时将您的脆皮和敌人的攻击力减少$3%。'], //其他消息等
+    [/^Max \((.*)$/, '最大($1'], //其他消息等
+
+
+
+
+
+
 
 
 
@@ -6058,30 +6239,19 @@ var cnRegReplace = new Map([
 
 
     [/^(\d+) Barns, (\d+) Sheds, and (\d+) Forges.$/, '$1个谷仓，$2个窝棚和$3个锻造厂。'],
-    [/^While you were away, your Trimps were able to produce (.+) food, (.+) wood, (.+) metal, (.+) gems, and (.+) fragments$/, '当您不在时，您的脆皮产生了$1的食物，$2的木材，$3的金属，$4的宝石和$5的碎片'],
     [/^([\d\.]+) Secs$/, '$1 秒'],
-    [/^([\d\.]+) Frags$/, '$1 碎片'],
     [/^(.+) copies of Coordination$/, '$1 份协调'],
-    [/^Z (.+) map$/, '区域 $1 地图'],
-    [/^You have (.+) Fragments.$/, '您有$1碎片。'],
     [/^(.+) Mins? (.+) Secs?$/, '$1 分 $2 秒'],
     [/^(.+) Days? (.+) Hours?$/, '$1 天 $2 小时'],
     [/^(.+) Years? (.+) Days?$/, '$1 年 $2 天'],
-    [/^Welcome back! You were offline for (.+) days and (.+) hours.$/, '欢迎回来!你离线$1天$2小时。'],
-    [/^Welcome back! You were offline for (.+) minutes and (.+) seconds.$/, '欢迎回来!你离线$1分$2秒。'],
-    [/^Welcome back! You were offline for (.+) minutes.$/, '欢迎回来!你离线$1分钟。'],
     [/^(.+) Min (.+) Sec$/, '$1 分 $2 秒'],
     [/^(.+) Secs \/ (.+) Secs$/, '$1 秒 \/ $2 秒'],
     [/^Collect  (.+) Gem$/, '收集 $1 宝石'],
     [/^([\d\.]+) Trimp$/, '$1 脆皮'],
     [/^([\d\.]+) Trimps$/, '$1 脆皮'],
-    [/^(.+) \/ (.+) ticks \($/, '$1 \/ $2 \('],
-    [/^(.+) seconds processed in (.+) seconds \((.+) speed$/, '$2秒内处理了$1秒（$3 速度'],
     [/^([\s\d]+)\((\d+) Secs?$/, '$1 \($2 秒'],
     [/^([\s\d]+)\((\d+) Mins? (\d+) Secs?$/, '$1 \($2 分 $3 秒'],
     [/^Min (.+) Max$/, '最小 $1，最高'],
-    [/^While you were away, your Trimps were able to produce (.+) wood.$/, '当你离开时，你的脆皮生产了$1种木材。'],
-    [/^While you were away, your Trimps were able to produce (.+) food, (.+) wood, (.+) metal, (.+) gems, and (.+) fragments.$/, '当你离开时，你的脆皮生产了$1食物，$2木材，$3金属，$4宝石和$5碎片。'],
     [/^(\d+) workspace$/, '$1 工作空间'],
     [/^(\d+) Mins (\d+) Secs$/, '$1 分 $2 秒'],
     [/^(\d+) Min (\d+) Secs$/, '$1 分 $2 秒'],
