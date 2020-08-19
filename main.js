@@ -10328,7 +10328,7 @@ function toZalgo(string, seed, strength){
 			newString += zalgo_table[getRandomIntSeeded(seed + x, 0, zalgo_table.length)];
 		}
 	}
-	return newString;
+	return string;
 }
 
 function updateGoodBar() {
