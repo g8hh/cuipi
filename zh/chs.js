@@ -87,14 +87,16 @@ var cnItems = {
     'Respec (': '洗点(',
     'Your next mastery costs': '下一个专精花费',
     'No Formation': '无阵型',
-    'Clear your formations, return to normal stats, and derp around the battlefield. (Hotkeys: X or': '取消阵型，恢复正常状态，在战场上瞎转悠。(快捷键：X或',
+    'Clear your formations, return to normal stats, and derp around the battlefield. (Hotkeys: X or': '取消阵型，恢复正常状态，在战场上瞎转悠。(快捷键： X 或',
     'Heap Formation': '堆叠阵型',
-    'Trimps gain 4x health but lose half of their attack and block. (Hotkeys: H or': '脆皮生命值变为4倍，但减少一半的攻击力和格挡。(快捷键：H或',
+    'Trimps gain 4x health but lose half of their attack and block. (Hotkeys: H or': '脆皮生命值变为4倍，但减少一半的攻击力和格挡。(快捷键： H 或',
     'Dominance Formation': '支配阵型',
-    'Trimps gain 4x attack but lose half of their health and block. (Hotkeys: D or': '脆皮攻击力变为4倍，但减少一半的生命值和格挡。(快捷键：D或',
+    'Trimps gain 4x attack but lose half of their health and block. (Hotkeys: D or': '脆皮攻击力变为4倍，但减少一半的生命值和格挡。(快捷键： D 或',
     'Barrier Formation': '屏障阵型',
-    'Trimps gain 4x block and 50% block pierce reduction but lose half of their health and attack. (Hotkeys: B or': '脆皮格挡变为4倍，并且使敌人的格挡穿透伤害减少50%，但减少一半的生命值和攻击力。(快捷键：B或',
+    'Trimps gain 4x block and 50% block pierce reduction but lose half of their health and attack. (Hotkeys: B or': '脆皮格挡变为4倍，并且使敌人的格挡穿透伤害减少50%，但减少一半的生命值和攻击力。(快捷键： B 或',
     'Scryer Formation': '占卜者阵型',
+    'Wind Formation': '风阵型',
+    'Hotkeys: W or': '快捷键： W 或',
     'DMG': '攻击力',
     'BLK': '格挡',
     'MagnetoShriek': '电磁尖啸',
@@ -108,6 +110,11 @@ var cnItems = {
     'This Bad Guy has a 25% chance to crit you for 400% extra damage.': '此敌人有25%的概率额外造成400%的伤害。',
     'Void Bleed': '虚空血祭',
     'Every time this Bad Guy attacks, you will lose an additional 20% of your': '此敌人每次攻击时，使您额外失去20%的 ',
+    'Poisoned': '中毒',
+    'Chilled': '冻结',
+    'Breezy': '风卷',
+    'Domination: Dominating': '统治：支配者',
+    'Domination: Weak': '统治：弱者',
     'current': '当前',
     'health.': '生命值。',
     'AutoFight On': '开启自动战斗',
@@ -158,6 +165,18 @@ var cnItems = {
     'Perfect Sliders': '完美滑块',
     'Extra Zones': '额外区域',
     'Unlock at Z': '解锁区域：',
+    'Current Heirloom Drop Rates': '当前区域传家宝掉率',
+    '- Next Rarity Increase at Z': '- 稀有度下次提升发生在区域',
+    'Common': '普通',
+    'Uncommon': '罕见',
+    'Rare': '稀有',
+    'Epic': '史诗',
+    'Legendary': '传奇',
+    'Magnificent': '华丽',
+    'Ethereal': '超凡',
+    'Magmatic': '岩浆',
+    'Plagued': '天灾',
+    'Radiating': '辐射',
     'Items': '物品',
     'Resource': '资源',
     'Continue': '继续',
@@ -1942,12 +1961,16 @@ var cnItems = {
     'Radiating Shield': '辐射盾牌',
     'Radiating Staff': '辐射权杖',
     'Empty': '空',
+    'Can\'t replace mods other than \'Empty\' at this tier.': '此稀有度的传家宝无法替换修饰符，只能新增修饰符。',
+    'Select a Mod': '选择一个修饰符',
     'Each upgrade adds': '每次升级增加',
     'Max of': '最大值为',
     'At Max!': '已达到最大值！',
     'Nu': '虚空物质',
     'Ss': '尖塔石头',
     'Upgrade Mod': '升级修饰符',
+    'Add Mod': '新增修饰符',
+    'Replace Mod': '替换修饰符',
     'Tip: You can click on this Heirloom\'s name or icon in this window to change them!': '提示：您可以点击此窗口中的传家宝名称或者图标来进行修改！',
     'ADDS this amount on to your total Prismatic Shield. This modifier can only function in the Radon Universe.': '将此数值加算到棱镜护盾数值中。只在宇宙2内有效。',
     'Charging': '蓄能',
@@ -2443,7 +2466,6 @@ var cnItems = {
     'Agility': '敏捷',
     'Crank your portal into overdrive, increasing the clock speed of the Universe. Each level reduces the time between Trimp and Bad Guy attacks by': '把您的传送门调成超速，增加宇宙中的时间流速。每级可使脆皮和敌人的攻击间隔比上一级减少',
 	'of the current time (compounds': '(相互叠乘',
-	'. Maximum of 20 levels.': '。最高20级。',
     'Bait': '诱饵',
     'A few of these in your traps are sure to bring in extra Trimps. Each level allows traps to catch 1 extra Trimp.': '放点这些东西在陷阱里，就肯定能多抓到一些脆皮。每级使陷阱多抓1个脆皮。',
     'Trumps': '王牌',
@@ -2634,28 +2656,63 @@ var cnItems = {
     'All new generated dimensions now come with copies of your Trimps inside them. Gone are the days of ramping up breeding to fill your dimensions with Trimps!': '维度发生器产生住房的同时，也会产生相同数量的脆皮。费尽心思让脆皮繁殖填满上限的日子过去了！',
     //维度发生器相关结束
     //自然赋能相关
+    'Lv': '等级',
+    'Empowerment of Poison': '毒赋能',
     'When this Empowerment is active, each successful attack by your Trimps stacks a debuff on the enemy, causing it to take': '当此赋能激活时，每次脆皮的攻击都可以使敌人获得一层减益，每次攻击时，敌人受到的伤害增加 ',
-    'of the damage you dealt every attack until it dies. Each attack by your Trimps will further add to the poison effect.': '，直到敌人死亡。脆皮每次攻击可以叠加此毒效果。',
+    'of the damage you dealt every attack until it dies. Each attack by your Trimps will further add to the poison effect.': '，直到敌人死亡。脆皮每次攻击可以叠加此中毒效果。',
+    'Upgrade Empowerment of Poison': '升级毒赋能',
     'Increases the percentage of damage that sticks to enemies as poison during the Empowerment of Poison by': '毒赋能生效期间增加敌人 ',
     '. You currently poison for': ' 受到的伤害。您目前的毒赋能效果为 ',
     'and next level will cause you to poison for': '下一级毒赋能效果为 ',
+    'Upgrade Poison Stack Transfer Rate': '升级毒层数传递率',
+    'You are currently at the maximum level for Stack Transfer Rate, allowing': '此项层数传递率已达到最大，可将 ',
+    'of your stacks to transfer.': '的层数进行传递。',
+    'Currently, a minimum of': '目前，至少有 ',
+    'of your stacks transfer after you kill a Bad Guy during the Empowerment of Poison. Each level of this upgrade will increase the transfer rate by': '的层数可以在毒赋能生效时传递给下个敌人。每级升级可以增加传递率 ',
+    'bringing you to': '将总传递率变为 ',
+    'Locked': '未解锁',
+    'Upgrade Empowerment of Poison to Level 50 to unlock.': '将毒赋能升级到50级后解锁。',
+    'Poison active': '已启用毒之启迪',
+    'Enlightened Poison': '毒之启迪',
+    'Activate Enlightened Poison': '启用毒之启迪',
+    'Sacrifice your Tokens and return them back to Nature, enlightening your Trimps on how to be one with Poison!': '献祭符记，让它们回归自然，以此启迪脆皮们如何与毒融为一体！',
     'While Enlightened, your Trimps deal 3x damage, and Poison Nature stacks deal 2x damage.': '当获得启迪时，您的脆皮伤害变为3倍，毒赋能伤害加倍。',
-    'When this Empowerment is active, each successful attack by your Trimps stacks a debuff on the enemy, causing winds to swell and knock extra resources into your reach. Each stack increases Helium gained from the World by': '当此赋能激活时，每次脆皮的攻击都可以使敌人获得一层减益，鼓起大风，将更多的资源吹入您怀中。每层提高 ',
+    'This bonus lasts until your next Portal, and only one Enlightenment can be activated per Portal. Enlightenments can be purchased at any point in your run, but the effects will not activate until Nature enters your World.': '此加成直到传送前一直生效，每次传送后只能启用一种启迪。启迪可以在任何时候启用，但直到自然赋能出现的区域后才开始生效。',
+    'Each time this Enlightenment is activated, its cost increases by 150 Tokens of Poison. Each time you start a Daily Challenge, the costs of all 3 Enlightenments will decrease by 33% or 50 Tokens, whichever number is greater, but never more than 100.': '每次启用此启迪时，下次启用此启迪的花费都将增加150毒符记。每次开始日常挑战时，所有三种启迪的花费都将减少33%或50符记，以二者之间较高数值为准。减少的数字不能超过100。',
+    'Convert Poison to Wind': '将毒符记转换为风符记',
+    'Convert Poison to Ice': '将毒符记转换为冰符记',
+    'Hold Ctrl to convert as many tokens as you can afford!': '按下Ctrl键再点击，则将转换所有符记！',
+    'Empowerment of Wind': '风赋能',
+    'When this Empowerment is active, each successful attack by your Trimps stacks a debuff on the enemy, causing winds to swell and knock extra resources into your reach. Each stack increases Helium gained from the World by': '当此赋能激活时，每次脆皮的攻击都可以使敌人获得一层减益，风变得更加猛烈，使您获得更多的资源。每层提高 ',
     'and increases all other basic resources gained from all sources by': '世界上获得的氦数量，并将所有基本资源获取量提高 ',
     'until that enemy dies (maximum of 200 stacks). This bonus does not apply to Fragments, and the helium bonus does not apply to maps.': ' ，直到敌人死亡(最高200层)。碎片不受加成，地图中的氦也一样不受加成。',
     'until that enemy dies (maximum of 300 stacks). This bonus does not apply to Fragments, and the helium bonus does not apply to maps.': ' ，直到敌人死亡(最高300层)。碎片不受加成，地图中的氦也一样不受加成。',
+    'Upgrade Empowerment of Wind': '升级风赋能',
     'Increases the amount of extra Helium you find in the World by': '当风赋能激活时，每层提高 ',
     'and non-Helium basic resources from all sources by': '世界上获得的氦数量，并将其他非氦基本资源获取量提高 ',
     'per stack when the Empowerment of Wind is active. Your current bonus is': '。您当前的加成为 ',
     'Helium, and next level will bring your bonus to': '氦，下一级加成变为 ',
     'extra helium. Non-Helium resource gain is always double that of Helium, and the Helium bonus does not apply in maps.': '氦。非氦资源获取量总是氦的两倍，地图中的氦不受加成。',
     'extra helium. Non-Helium resource gain is always 10x that of Helium, and the Helium bonus does not apply in maps.': '氦。非氦资源获取量总是氦的十倍，地图中的氦不受加成。',
+    'Upgrade Wind Stack Transfer Rate': '升级风层数传递率',
+    'of your stacks transfer after you kill a Bad Guy during the Empowerment of Wind. Each level of this upgrade will increase the transfer rate by': '的层数可以在风赋能生效时传递给下个敌人。每级升级可以增加传递率 ',
+    'Upgrade Empowerment of Wind to Level 50 to unlock.': '将风赋能升级到50级后解锁。',
+    'Wind active': '已启用风之启迪',
+    'Enlightened Wind': '风之启迪',
+    'Activate Enlightened Wind': '启用风之启迪',
+    'Sacrifice your Tokens and return them back to Nature, enlightening your Trimps on how to be one with Wind!': '献祭符记，让它们回归自然，以此启迪脆皮们如何与风融为一体！',
     'While Enlightened, you gain a 10x increase in all non-Helium loot, Wind stacks accumulate twice as fast, Wind can stack to 300, Wind gains an additional 5% stack transfer rate, and your Trimps gain access to the Wind Formation. This new Formation prevents any enemies in Wind Zones from falling below 1HP before they have 300 stacks of Wind. Wind Formation also grants all bonuses of Scrying Formation and allows collection of Dark Essence with no Trimp stat penalty.': '当获得启迪时，所有非氦资源获取量变为10倍，风层数叠加速度加倍，并可以叠加到300层，层数传递率增加5%，脆皮可以使用风阵型。此阵型可以使风区域中的敌人在达到300层风之前生命值不会小于1。风阵型可以获得占卜者阵型的全部加成，并允许在无属性惩罚的前提下收集黑暗精华。',
     'You have been Enlightened by Wind! While in this Formation in a Wind Zone, enemies will never fall below 1HP before they have 300 stacks of Wind.': '您已获得风之启迪！当在风区域使用此阵型时，敌人在达到300层风之前生命值不会小于1。',
     'This Formation also allows collection of Dark Essence, and grants all bonuses of the Scryer Formation.': '此阵型可以收集黑暗精华，并拥有占卜者阵型的全部加成。',
+    'Each time this Enlightenment is activated, its cost increases by 150 Tokens of Wind. Each time you start a Daily Challenge, the costs of all 3 Enlightenments will decrease by 33% or 50 Tokens, whichever number is greater, but never more than 100.': '每次启用此启迪时，下次启用此启迪的花费都将增加150风符记。每次开始日常挑战时，所有三种启迪的花费都将减少33%或50符记，以二者之间较高数值为准。减少的数字不能超过100。',
+    'Convert Wind to Poison': '将风符记转换为毒符记',
+    'Convert Wind to Ice': '将风符记转换为冰符记',
+    'Empowerment of Ice': '冰赋能',
     'When this Empowerment is active, enemies will be Chilled each time your Trimps attack. The Chill debuff stacks, reduces the damage that enemy deals by': '当此赋能激活时，每次脆皮的攻击都可以冻结敌人。每层冻结减少 ',
     '(compounding) per stack, and increases the damage your Trimps deal to that enemy by the same amount (with diminishing returns, max of 100%) until it dies.': '敌人的伤害(叠乘)，并且您的脆皮会增加等量的攻击力(效果递减，直到100%)，直到敌人死亡。',
     '(compounding) per stack, and increases the damage your Trimps deal to that enemy by  twice that amount (with diminishing returns, max of +200% attack) until it dies.': '敌人的伤害(叠乘)，并且您的脆皮会增加该数值两倍的攻击力(效果递减，直到200%)，直到敌人死亡。',
+    'Upgrade Empowerment of Ice': '升级冰赋能',
+    'of your stacks transfer after you kill a Bad Guy during the Empowerment of Ice. Each level of this upgrade will increase the transfer rate by': '的层数可以在冰赋能生效时传递给下个敌人。每级升级可以增加传递率 ',
     'Reduces the enemy\'s damage dealt from each stack of Chilled when the Empowerment of Ice is active by': '当冰赋能激活时，每层冻结减少 ',
     '(compounding), and increases the damage your Trimps deal to that enemy by the same amount (with diminishing returns, max of 100%). Your current bonus is': '敌人的伤害(叠乘)，并且您的脆皮会增加等量的攻击力(效果递减，直到100%)，您当前的加成为 ',
     '(compounding), and increases the damage your Trimps deal to that enemy by  twice that amount (with diminishing returns, max of +200% attack). Your current bonus is': '敌人的伤害(叠乘)，并且您的脆皮会增加该数值两倍的攻击力(效果递减，直到200%)，您当前的加成为 ',
@@ -2664,12 +2721,19 @@ var cnItems = {
     'You are earning +1 Overkill during Ice Zones! Earn another at Level 100!': '您已经在冰区域获得了超杀格子加1！到达100级后超杀格子可以再加1！',
     'Your Ice level is over 100, and you are gaining an additional 2 cells of Overkill during Ice Zones!': '您的冰赋能等级超过了100，冰区域中您获得了超杀格子加2！',
     'Your Ice level is 100, and you are gaining an additional 2 cells of Overkill during Ice Zones!': '您的冰赋能等级达到了100，冰区域中您获得了超杀格子加2！',
+    'Upgrade Ice Stack Transfer Rate': '升级冰层数传递率',
+    'Upgrade Empowerment of Ice to Level 50 to unlock.': '将冰赋能升级到50级后解锁。',
+    'Ice active': '已启用冰之启迪',
+    'Enlightened Ice': '冰之启迪',
+    'Activate Enlightened Ice': '启用冰之启迪',
+    'Sacrifice your Tokens and return them back to Nature, enlightening your Trimps on how to be one with Ice!': '献祭符记，让它们回归自然，以此启迪脆皮们如何与冰融为一体！',
     'While Enlightened, your Trimps gain +2 maximum Overkill cells  and +0.25% increased Fluffy Exp per Ice level': '当获得启迪时，直到下次传送前超杀格子上限加2，且每级冰赋能增加0.25%绒绒经验 ',
     'currently': '目前',
     'for your entire run. In Ice Zones, Ice stacks accumulate twice as fast, and if an enemy is hit by your Trimps while it has 20 or more stacks of Ice and is below 50% health, it will instantly shatter! The shards of Ice from the shattered enemy destroy everything in their path, triggering your maximum Overkill regardless of your damage.': '。在冰区域中，冰层数叠加速度加倍，攻击一个有20层以上冰，生命值低于50%的敌人将立刻将它打碎。且无论对该敌人造成了多少伤害，该伤害都会触发最大格子数的超杀。',
     'While Enlightened, your Trimps gain +2 maximum Overkill cells  for your entire run. In Ice Zones, Ice stacks accumulate twice as fast, and if an enemy is hit by your Trimps while it has 20 or more stacks of Ice and is below 50% health, it will instantly shatter! The shards of Ice from the shattered enemy destroy everything in their path, triggering your maximum Overkill regardless of your damage.': '当获得启迪时，直到下次传送前超杀格子上限加2。在冰区域中，冰层数叠加速度加倍，攻击一个有20层以上冰，生命值低于50%的敌人将立刻将它打碎。且无论对该敌人造成了多少伤害，该伤害都会触发最大格子数的超杀。',
-    '': '',
-    '': '',
+    'Each time this Enlightenment is activated, its cost increases by 150 Tokens of Ice. Each time you start a Daily Challenge, the costs of all 3 Enlightenments will decrease by 33% or 50 Tokens, whichever number is greater, but never more than 100.': '每次启用此启迪时，下次启用此启迪的花费都将增加150冰符记。每次开始日常挑战时，所有三种启迪的花费都将减少33%或50符记，以二者之间较高数值为准。减少的数字不能超过100。',
+    'Convert Ice to Poison': '将冰符记转换为毒符记',
+    'Convert Ice to Wind': '将冰符记转换为风符记',
     //自然赋能相关结束
     //杂项
     'AutoSave has been disabled to prevent damage to your save. If you previously had a save file, it should still be waiting for you once you fix your browser settings.': '为了保护您的存档，自动存档已被关闭。如果您之前有存档文件，在修改完设置以后应该就能恢复使用了。',
@@ -3658,16 +3722,6 @@ var cnItems = {
     'Rarity to Keep': '保留稀有度选项',
     'Auto Heirlooms. Keeps the selected rarity of heirloom, recycles all others.': '只保留与此项稀有度相同的传家宝，回收其余稀有度的传家宝。',
     'Any': '任何',
-    'Common': '普通',
-    'Uncommon': '罕见',
-    'Rare': '稀有',
-    'Epic': '史诗',
-    'Legendary': '传奇',
-    'Magnificent': '华丽',
-    'Ethereal': '超凡',
-    'Magmatic': '岩浆',
-    'Plagued': '天灾',
-    'Radiating': '辐射',
     'Auto Heirlooms. Enables in-depth shield settings.': '开启进一步设置盾牌传家宝的选项。',
     'Shield: Modifier': '盾牌：修饰符',
     'empty': '空',
@@ -3767,26 +3821,26 @@ var cnItems = {
     'Spend/convert Wind tokens': '分配/转换风符记',
     'Convert to Poison': '转换为毒',
     'Spend/convert Ice tokens': '分配/转换冰符记',
-    'Enlight: Auto': '启迪：自动',
+    'Enlight: Auto': '自动启迪',
     'Enables Automatic Enlightenment. Use the settings to define how it works.': '切换是否启用自动启迪。使用以下选项来进一步设置。',
-    'E: F: Poison': '启迪：毒',
-    'Activate Poison Enlight when Enlight cost is below this Thresh in Fillers. Consumes Tokens. -1 to disable.': '当毒启迪花费低于此数值时启用毒启迪。自动花费符记。设为-1则关闭此选项。',
-    'E: F: Wind': '启迪：风',
-    'Activate Wind Enlight when Enlight cost is below this Thresh in Fillers. Consumes Tokens. -1 to disable.': '当风启迪花费低于此数值时启用风启迪。自动花费符记。设为-1则关闭此选项。',
-    'E: F: Ice': '启迪：冰',
-    'Activate Ice Enlight when Enlight cost is below this Thresh in Fillers. Consumes Tokens. -1 to disable.': '当冰启迪花费低于此数值时启用冰启迪。自动花费符记。设为-1则关闭此选项。',
-    'E: D: Poison': '启迪：日常：毒',
-    'Activate Poison Enlight when Enlight cost is below this Thresh in Dailies. Consumes Tokens. -1 to disable.': '日常挑战中，当毒启迪花费低于此数值时启用毒启迪。自动花费符记。设为-1则关闭此选项。',
-    'E: D: Wind': '启迪：日常：风',
-    'Activate Wind Enlight when Enlight cost is below this Thresh in Dailies. Consumes Tokens. -1 to disable.': '日常挑战中，当风启迪花费低于此数值时启用风启迪。自动花费符记。设为-1则关闭此选项。',
-    'E: D: Ice': '启迪：日常：冰',
-    'Activate Ice Enlight when Enlight cost is below this Thresh in Dailies. Consumes Tokens. -1 to disable.': '日常挑战中，当冰启迪花费低于此数值时启用冰启迪。自动花费符记。设为-1则关闭此选项。',
-    'E: C: Poison': '启迪：挑战2：毒',
-    'Activate Poison Enlight when Enlight cost is below this Thresh in C2s. Consumes Tokens. -1 to disable.': '挑战2中，当毒启迪花费低于此数值时启用毒启迪。自动花费符记。设为-1则关闭此选项。',
-    'E: C: Wind': '启迪：挑战2：风',
-    'Activate Wind Enlight when Enlight cost is below this Thresh in C2s. Consumes Tokens. -1 to disable.': '挑战2中，当风启迪花费低于此数值时启用风启迪。自动花费符记。设为-1则关闭此选项。',
-    'E: C: Ice': '启迪：挑战2：冰',
-    'Activate Ice Enlight when Enlight cost is below this Thresh in C2s. Consumes Tokens. -1 to disable.': '挑战2中，当冰启迪花费低于此数值时启用冰启迪。自动花费符记。设为-1则关闭此选项。',
+    'E: F: Poison': '毒启迪',
+    'Activate Poison Enlight when Enlight cost is below this Thresh in Fillers. Consumes Tokens. -1 to disable.': '当毒之启迪花费低于此数值时启用毒之启迪。自动花费符记。设为-1则关闭此选项。',
+    'E: F: Wind': '风启迪',
+    'Activate Wind Enlight when Enlight cost is below this Thresh in Fillers. Consumes Tokens. -1 to disable.': '当风之启迪花费低于此数值时启用风之启迪。自动花费符记。设为-1则关闭此选项。',
+    'E: F: Ice': '冰启迪',
+    'Activate Ice Enlight when Enlight cost is below this Thresh in Fillers. Consumes Tokens. -1 to disable.': '当冰之启迪花费低于此数值时启用冰之启迪。自动花费符记。设为-1则关闭此选项。',
+    'E: D: Poison': '日常毒启迪',
+    'Activate Poison Enlight when Enlight cost is below this Thresh in Dailies. Consumes Tokens. -1 to disable.': '日常挑战中，当毒之启迪花费低于此数值时启用毒之启迪。自动花费符记。设为-1则关闭此选项。',
+    'E: D: Wind': '日常风启迪',
+    'Activate Wind Enlight when Enlight cost is below this Thresh in Dailies. Consumes Tokens. -1 to disable.': '日常挑战中，当风之启迪花费低于此数值时启用风之启迪。自动花费符记。设为-1则关闭此选项。',
+    'E: D: Ice': '日常冰启迪',
+    'Activate Ice Enlight when Enlight cost is below this Thresh in Dailies. Consumes Tokens. -1 to disable.': '日常挑战中，当冰之启迪花费低于此数值时启用冰之启迪。自动花费符记。设为-1则关闭此选项。',
+    'E: C: Poison': '挑战2毒启迪',
+    'Activate Poison Enlight when Enlight cost is below this Thresh in C2s. Consumes Tokens. -1 to disable.': '挑战2中，当毒之启迪花费低于此数值时启用毒之启迪。自动花费符记。设为-1则关闭此选项。',
+    'E: C: Wind': '挑战2风启迪',
+    'Activate Wind Enlight when Enlight cost is below this Thresh in C2s. Consumes Tokens. -1 to disable.': '挑战2中，当风之启迪花费低于此数值时启用风之启迪。自动花费符记。设为-1则关闭此选项。',
+    'E: C: Ice': '挑战2冰启迪',
+    'Activate Ice Enlight when Enlight cost is below this Thresh in C2s. Consumes Tokens. -1 to disable.': '挑战2中，当冰之启迪花费低于此数值时启用冰之启迪。自动花费符记。设为-1则关闭此选项。',
     'Enhance Grids': '强化地图区域显示',
     'Apply slight visual enhancements to world and map grids that highlights with drop shadow all the exotic, powerful, skeletimps and other special imps.': '强化地图区域的显示，使奇异外皮，脆皮骷髅等特殊脆皮有特殊的显示图标。',
     'Enable Breed Timer': '启用繁殖计时',
@@ -4219,7 +4273,6 @@ var cnItems = {
     'Spire Settings': '尖塔设置',
     'Map Corruption': '地图腐化',
     'Food/Wood/Metal Loot Breakdown': '食物/木头/金属 劫掠明细',
-    'Breezy': '微风',
     'Confirm Respec Masteries': '确认专精洗点',
     //成就
     'Gym X10': '健身房 X10',
@@ -4262,7 +4315,6 @@ var cnItems = {
     'Unlocks off': '解锁 关闭',
     'Story off': '故事 关闭',
     'Offline Progress': '离线进度',
-    'Locked': '未解锁',
     'Reward': '奖励',
     'better get some more achievements': '更好地获得更多的成就',
     'Level': '等级',
@@ -4398,7 +4450,6 @@ var cnItems = {
     'For recovery, not required': '找回账号用，非必需',
     'Housing': '房屋',
     'Territory Bonus': '领土奖励',
-    'Select a Mod': '选择一个模式',
     'Challenge has no end point, and grants an': '挑战没有终点，并在完成时获得',
     'additional': '额外的',
     'Make Purchase': '购买',
@@ -5036,7 +5087,7 @@ var cnRegReplace = new Map([
     [/^(\s+)Poison(\s+)$/, '$1毒$2'], //主界面
     [/^(\s+)Wind(\s+)$/, '$1风$2'], //主界面
     [/^(\s+)Ice(\s+)$/, '$1冰$2'], //主界面
-    [/^Trade(.*)$/, '交易$1'], //主界面
+    [/^Trade(?! (.*) Tokens)(.*)$/, '交易$1'], //主界面
     [/^(\s+)Fight(\s+)$/, '$1战斗$2'], //主界面
     [/^(\s+)AutoFight Off(\s+)$/, '$1关闭自动战斗$2'], //主界面
     [/^(\s+)Void Maps(\s+)$/, '$1虚空地图$2'], //主界面
@@ -5705,6 +5756,268 @@ var cnRegReplace = new Map([
 	[/^You are about to upgrade Crit Chance, additive 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次暴击率(效果叠加)。您确定要这么做吗？'], //传家宝
 	[/^You are about to upgrade Void Map Drop Chance 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次虚空地图掉落概率。您确定要这么做吗？'], //传家宝
     [/^You are about to upgrade Plaguebringer 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次瘟疫使者效果。您确定要这么做吗？'], //传家宝
+    [/^You are about to add Fire Trap Damage for (.*) Spirestones.  Are you sure\?$/, '您将花费$1尖塔石头新增火焰陷阱伤害修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to add Poison Trap Damage for (.*) Spirestones.  Are you sure\?$/, '您将花费$1尖塔石头新增剧毒陷阱伤害修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to add Lightning Trap Damage for (.*) Spirestones.  Are you sure\?$/, '您将花费$1尖塔石头新增闪电陷阱伤害修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to add Runestone Drop Rate for (.*) Spirestones.  Are you sure\?$/, '您将花费$1尖塔石头新增符石掉率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to add Strength Tower Effect for (.*) Spirestones.  Are you sure\?$/, '您将花费$1尖塔石头新增力量塔效果修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to add Condenser Effect for (.*) Spirestones.  Are you sure\?$/, '您将花费$1尖塔石头新增冷凝塔效果修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to add Metal Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质新增金属掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to add Food Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质新增食物掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to add Wood Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质新增木头掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to add Gem Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质新增宝石掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to add Fragment Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质新增碎片掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to add Farmer Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质新增农民效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to add Lumberjack Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质新增伐木工效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to add Miner Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质新增矿工效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to add Dragimp Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质新增脆皮龙宝石效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to add Explorer Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质新增探险家碎片效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to add Scientist Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质新增科学家效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to add Pet \(Fluffy\) Exp for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质新增绒绒经验值修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to add Pet \(Scruffy\) Exp for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质新增污污经验值修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to add Player Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质新增玩家效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to add Trainer Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质新增训练师效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to add Storage Size for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质新增存储上限修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to add Breed Speed for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质新增脆皮繁殖速度修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to add Trimp Health for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质新增脆皮生命值修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to add Trimp Attack for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质新增脆皮攻击力修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to add Trimp Block for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质新增脆皮格挡修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to add Crit Damage, additive for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质新增暴击伤害(效果叠加)修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to add Crit Chance, additive for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质新增暴击率(效果叠加)修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to add Void Map Drop Chance for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质新增虚空地图掉落概率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to add Plaguebringer for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质新增瘟疫使者效果修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to add Prismatic Shield for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质新增棱镜护盾修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to add Gamma Burst for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质新增伽马爆发修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Fire Trap Damage with Poison Trap Damage for (.*) Spirestones.  Are you sure\?$/, '您将花费$1尖塔石头将火焰陷阱伤害修饰符替换为剧毒陷阱伤害修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Fire Trap Damage with Lightning Trap Damage for (.*) Spirestones.  Are you sure\?$/, '您将花费$1尖塔石头将火焰陷阱伤害修饰符替换为闪电陷阱伤害修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Fire Trap Damage with Runestone Drop Rate for (.*) Spirestones.  Are you sure\?$/, '您将花费$1尖塔石头将火焰陷阱伤害修饰符替换为符石掉率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Fire Trap Damage with Strength Tower Effect for (.*) Spirestones.  Are you sure\?$/, '您将花费$1尖塔石头将火焰陷阱伤害修饰符替换为力量塔效果修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Fire Trap Damage with Condenser Effect for (.*) Spirestones.  Are you sure\?$/, '您将花费$1尖塔石头将火焰陷阱伤害修饰符替换为冷凝塔效果修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Poison Trap Damage with Fire Trap Damage for (.*) Spirestones.  Are you sure\?$/, '您将花费$1尖塔石头将剧毒陷阱伤害修饰符替换为火焰陷阱伤害修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Poison Trap Damage with Lightning Trap Damage for (.*) Spirestones.  Are you sure\?$/, '您将花费$1尖塔石头将剧毒陷阱伤害修饰符替换为闪电陷阱伤害修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Poison Trap Damage with Runestone Drop Rate for (.*) Spirestones.  Are you sure\?$/, '您将花费$1尖塔石头将剧毒陷阱伤害修饰符替换为符石掉率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Poison Trap Damage with Strength Tower Effect for (.*) Spirestones.  Are you sure\?$/, '您将花费$1尖塔石头将剧毒陷阱伤害修饰符替换为力量塔效果修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Poison Trap Damage with Condenser Effect for (.*) Spirestones.  Are you sure\?$/, '您将花费$1尖塔石头将剧毒陷阱伤害修饰符替换为冷凝塔效果修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Lightning Trap Damage with Fire Trap Damage for (.*) Spirestones.  Are you sure\?$/, '您将花费$1尖塔石头将闪电陷阱伤害修饰符替换为火焰陷阱伤害修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Lightning Trap Damage with Poison Trap Damage for (.*) Spirestones.  Are you sure\?$/, '您将花费$1尖塔石头将闪电陷阱伤害修饰符替换为剧毒陷阱伤害修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Lightning Trap Damage with Runestone Drop Rate for (.*) Spirestones.  Are you sure\?$/, '您将花费$1尖塔石头将闪电陷阱伤害修饰符替换为符石掉率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Lightning Trap Damage with Strength Tower Effect for (.*) Spirestones.  Are you sure\?$/, '您将花费$1尖塔石头将闪电陷阱伤害修饰符替换为力量塔效果修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Lightning Trap Damage with Condenser Effect for (.*) Spirestones.  Are you sure\?$/, '您将花费$1尖塔石头将闪电陷阱伤害修饰符替换为冷凝塔效果修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Runestone Drop Rate with Fire Trap Damage for (.*) Spirestones.  Are you sure\?$/, '您将花费$1尖塔石头将符石掉率修饰符替换为火焰陷阱伤害修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Runestone Drop Rate with Poison Trap Damage for (.*) Spirestones.  Are you sure\?$/, '您将花费$1尖塔石头将符石掉率修饰符替换为剧毒陷阱伤害修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Runestone Drop Rate with Lightning Trap Damage for (.*) Spirestones.  Are you sure\?$/, '您将花费$1尖塔石头将符石掉率修饰符替换为闪电陷阱伤害修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Runestone Drop Rate with Strength Tower Effect for (.*) Spirestones.  Are you sure\?$/, '您将花费$1尖塔石头将符石掉率修饰符替换为力量塔效果修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Runestone Drop Rate with Condenser Effect for (.*) Spirestones.  Are you sure\?$/, '您将花费$1尖塔石头将符石掉率修饰符替换为冷凝塔效果修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Strength Tower Effect with Fire Trap Damage for (.*) Spirestones.  Are you sure\?$/, '您将花费$1尖塔石头将力量塔效果修饰符替换为火焰陷阱伤害修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Strength Tower Effect with Poison Trap Damage for (.*) Spirestones.  Are you sure\?$/, '您将花费$1尖塔石头将力量塔效果修饰符替换为剧毒陷阱伤害修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Strength Tower Effect with Lightning Trap Damage for (.*) Spirestones.  Are you sure\?$/, '您将花费$1尖塔石头将力量塔效果修饰符替换为闪电陷阱伤害修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Strength Tower Effect with Runestone Drop Rate for (.*) Spirestones.  Are you sure\?$/, '您将花费$1尖塔石头将力量塔效果修饰符替换为符石掉率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Strength Tower Effect with Condenser Effect for (.*) Spirestones.  Are you sure\?$/, '您将花费$1尖塔石头将力量塔效果修饰符替换为冷凝塔效果修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Condenser Effect with Fire Trap Damage for (.*) Spirestones.  Are you sure\?$/, '您将花费$1尖塔石头将冷凝塔效果修饰符替换为火焰陷阱伤害修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Condenser Effect with Poison Trap Damage for (.*) Spirestones.  Are you sure\?$/, '您将花费$1尖塔石头将冷凝塔效果修饰符替换为剧毒陷阱伤害修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Condenser Effect with Lightning Trap Damage for (.*) Spirestones.  Are you sure\?$/, '您将花费$1尖塔石头将冷凝塔效果修饰符替换为闪电陷阱伤害修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Condenser Effect with Runestone Drop Rate for (.*) Spirestones.  Are you sure\?$/, '您将花费$1尖塔石头将冷凝塔效果修饰符替换为符石掉率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Condenser Effect with Strength Tower Effect for (.*) Spirestones.  Are you sure\?$/, '您将花费$1尖塔石头将冷凝塔效果修饰符替换为力量塔效果修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Metal Drop Rate with Food Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将金属掉落加成修饰符替换为食物掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Metal Drop Rate with Wood Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将金属掉落加成修饰符替换为木头掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Metal Drop Rate with Gem Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将金属掉落加成修饰符替换为宝石掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Metal Drop Rate with Fragment Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将金属掉落加成修饰符替换为碎片掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Metal Drop Rate with Farmer Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将金属掉落加成修饰符替换为农民效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Metal Drop Rate with Lumberjack Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将金属掉落加成修饰符替换为伐木工效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Metal Drop Rate with Miner Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将金属掉落加成修饰符替换为矿工效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Metal Drop Rate with Dragimp Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将金属掉落加成修饰符替换为脆皮龙宝石效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Metal Drop Rate with Explorer Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将金属掉落加成修饰符替换为探险家碎片效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Metal Drop Rate with Scientist Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将金属掉落加成修饰符替换为科学家效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Food Drop Rate with Metal Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将食物掉落加成修饰符替换为金属掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Food Drop Rate with Wood Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将食物掉落加成修饰符替换为木头掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Food Drop Rate with Gem Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将食物掉落加成修饰符替换为宝石掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Food Drop Rate with Fragment Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将食物掉落加成修饰符替换为碎片掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Food Drop Rate with Farmer Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将食物掉落加成修饰符替换为农民效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Food Drop Rate with Lumberjack Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将食物掉落加成修饰符替换为伐木工效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Food Drop Rate with Miner Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将食物掉落加成修饰符替换为矿工效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Food Drop Rate with Dragimp Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将食物掉落加成修饰符替换为脆皮龙宝石效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Food Drop Rate with Explorer Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将食物掉落加成修饰符替换为探险家碎片效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Food Drop Rate with Scientist Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将食物掉落加成修饰符替换为科学家效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Wood Drop Rate with Metal Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将木头掉落加成修饰符替换为金属掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Wood Drop Rate with Food Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将木头掉落加成修饰符替换为食物掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Wood Drop Rate with Gem Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将木头掉落加成修饰符替换为宝石掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Wood Drop Rate with Fragment Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将木头掉落加成修饰符替换为碎片掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Wood Drop Rate with Farmer Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将木头掉落加成修饰符替换为农民效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Wood Drop Rate with Lumberjack Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将木头掉落加成修饰符替换为伐木工效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Wood Drop Rate with Miner Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将木头掉落加成修饰符替换为矿工效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Wood Drop Rate with Dragimp Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将木头掉落加成修饰符替换为脆皮龙宝石效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Wood Drop Rate with Explorer Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将木头掉落加成修饰符替换为探险家碎片效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Wood Drop Rate with Scientist Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将木头掉落加成修饰符替换为科学家效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Gem Drop Rate with Metal Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将宝石掉落加成修饰符替换为金属掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Gem Drop Rate with Food Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将宝石掉落加成修饰符替换为食物掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Gem Drop Rate with Wood Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将宝石掉落加成修饰符替换为木头掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Gem Drop Rate with Fragment Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将宝石掉落加成修饰符替换为碎片掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Gem Drop Rate with Farmer Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将宝石掉落加成修饰符替换为农民效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Gem Drop Rate with Lumberjack Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将宝石掉落加成修饰符替换为伐木工效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Gem Drop Rate with Miner Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将宝石掉落加成修饰符替换为矿工效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Gem Drop Rate with Dragimp Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将宝石掉落加成修饰符替换为脆皮龙宝石效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Gem Drop Rate with Explorer Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将宝石掉落加成修饰符替换为探险家碎片效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Gem Drop Rate with Scientist Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将宝石掉落加成修饰符替换为科学家效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Fragment Drop Rate with Metal Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将碎片掉落加成修饰符替换为金属掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Fragment Drop Rate with Food Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将碎片掉落加成修饰符替换为食物掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Fragment Drop Rate with Wood Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将碎片掉落加成修饰符替换为木头掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Fragment Drop Rate with Gem Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将碎片掉落加成修饰符替换为宝石掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Fragment Drop Rate with Farmer Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将碎片掉落加成修饰符替换为农民效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Fragment Drop Rate with Lumberjack Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将碎片掉落加成修饰符替换为伐木工效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Fragment Drop Rate with Miner Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将碎片掉落加成修饰符替换为矿工效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Fragment Drop Rate with Dragimp Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将碎片掉落加成修饰符替换为脆皮龙宝石效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Fragment Drop Rate with Explorer Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将碎片掉落加成修饰符替换为探险家碎片效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Fragment Drop Rate with Scientist Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将碎片掉落加成修饰符替换为科学家效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Farmer Efficiency with Metal Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将农民效率修饰符替换为金属掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Farmer Efficiency with Food Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将农民效率修饰符替换为食物掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Farmer Efficiency with Wood Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将农民效率修饰符替换为木头掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Farmer Efficiency with Gem Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将农民效率修饰符替换为宝石掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Farmer Efficiency with Fragment Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将农民效率修饰符替换为碎片掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Farmer Efficiency with Lumberjack Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将农民效率修饰符替换为伐木工效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Farmer Efficiency with Miner Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将农民效率修饰符替换为矿工效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Farmer Efficiency with Dragimp Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将农民效率修饰符替换为脆皮龙宝石效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Farmer Efficiency with Explorer Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将农民效率修饰符替换为探险家碎片效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Farmer Efficiency with Scientist Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将农民效率修饰符替换为科学家效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Lumberjack Efficiency with Metal Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将伐木工效率修饰符替换为金属掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Lumberjack Efficiency with Food Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将伐木工效率修饰符替换为食物掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Lumberjack Efficiency with Wood Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将伐木工效率修饰符替换为木头掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Lumberjack Efficiency with Gem Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将伐木工效率修饰符替换为宝石掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Lumberjack Efficiency with Fragment Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将伐木工效率修饰符替换为碎片掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Lumberjack Efficiency with Farmer Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将伐木工效率修饰符替换为农民效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Lumberjack Efficiency with Miner Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将伐木工效率修饰符替换为矿工效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Lumberjack Efficiency with Dragimp Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将伐木工效率修饰符替换为脆皮龙宝石效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Lumberjack Efficiency with Explorer Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将伐木工效率修饰符替换为探险家碎片效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Lumberjack Efficiency with Scientist Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将伐木工效率修饰符替换为科学家效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Miner Efficiency with Metal Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将矿工效率修饰符替换为金属掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Miner Efficiency with Food Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将矿工效率修饰符替换为食物掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Miner Efficiency with Wood Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将矿工效率修饰符替换为木头掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Miner Efficiency with Gem Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将矿工效率修饰符替换为宝石掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Miner Efficiency with Fragment Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将矿工效率修饰符替换为碎片掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Miner Efficiency with Farmer Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将矿工效率修饰符替换为农民效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Miner Efficiency with Lumberjack Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将矿工效率修饰符替换为伐木工效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Miner Efficiency with Dragimp Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将矿工效率修饰符替换为脆皮龙宝石效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Miner Efficiency with Explorer Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将矿工效率修饰符替换为探险家碎片效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Miner Efficiency with Scientist Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将矿工效率修饰符替换为科学家效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Dragimp Efficiency with Metal Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮龙宝石效率修饰符替换为金属掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Dragimp Efficiency with Food Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮龙宝石效率修饰符替换为食物掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Dragimp Efficiency with Wood Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮龙宝石效率修饰符替换为木头掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Dragimp Efficiency with Gem Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮龙宝石效率修饰符替换为宝石掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Dragimp Efficiency with Fragment Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮龙宝石效率修饰符替换为碎片掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Dragimp Efficiency with Farmer Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮龙宝石效率修饰符替换为农民效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Dragimp Efficiency with Lumberjack Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮龙宝石效率修饰符替换为伐木工效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Dragimp Efficiency with Miner Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮龙宝石效率修饰符替换为矿工效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Dragimp Efficiency with Explorer Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮龙宝石效率修饰符替换为探险家碎片效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Dragimp Efficiency with Scientist Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮龙宝石效率修饰符替换为科学家效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Explorer Efficiency with Metal Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将探险家碎片效率修饰符替换为金属掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Explorer Efficiency with Food Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将探险家碎片效率修饰符替换为食物掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Explorer Efficiency with Wood Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将探险家碎片效率修饰符替换为木头掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Explorer Efficiency with Gem Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将探险家碎片效率修饰符替换为宝石掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Explorer Efficiency with Fragment Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将探险家碎片效率修饰符替换为碎片掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Explorer Efficiency with Farmer Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将探险家碎片效率修饰符替换为农民效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Explorer Efficiency with Lumberjack Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将探险家碎片效率修饰符替换为伐木工效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Explorer Efficiency with Miner Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将探险家碎片效率修饰符替换为矿工效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Explorer Efficiency with Dragimp Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将探险家碎片效率修饰符替换为脆皮龙宝石效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Explorer Efficiency with Scientist Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将探险家碎片效率修饰符替换为科学家效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Scientist Efficiency with Metal Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将科学家效率修饰符替换为金属掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Scientist Efficiency with Food Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将科学家效率修饰符替换为食物掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Scientist Efficiency with Wood Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将科学家效率修饰符替换为木头掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Scientist Efficiency with Gem Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将科学家效率修饰符替换为宝石掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Scientist Efficiency with Fragment Drop Rate for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将科学家效率修饰符替换为碎片掉落加成修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Scientist Efficiency with Farmer Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将科学家效率修饰符替换为农民效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Scientist Efficiency with Lumberjack Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将科学家效率修饰符替换为伐木工效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Scientist Efficiency with Miner Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将科学家效率修饰符替换为矿工效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Scientist Efficiency with Dragimp Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将科学家效率修饰符替换为脆皮龙宝石效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Scientist Efficiency with Explorer Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将科学家效率修饰符替换为探险家碎片效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Player Efficiency with Trainer Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将玩家效率修饰符替换为训练师效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Player Efficiency with Storage Size for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将玩家效率修饰符替换为存储上限修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Player Efficiency with Breed Speed for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将玩家效率修饰符替换为脆皮繁殖速度修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Player Efficiency with Trimp Health for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将玩家效率修饰符替换为脆皮生命值修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Player Efficiency with Trimp Attack for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将玩家效率修饰符替换为脆皮攻击力修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Player Efficiency with Trimp Block for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将玩家效率修饰符替换为脆皮格挡修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Player Efficiency with Crit Damage, additive for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将玩家效率修饰符替换为暴击伤害(效果叠加)修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Player Efficiency with Crit Chance, additive for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将玩家效率修饰符替换为暴击率(效果叠加)修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Player Efficiency with Void Map Drop Chance for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将玩家效率修饰符替换为虚空地图掉落概率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Trainer Efficiency with Player Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将训练师效率修饰符替换为玩家效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Trainer Efficiency with Storage Size for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将训练师效率修饰符替换为存储上限修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Trainer Efficiency with Breed Speed for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将训练师效率修饰符替换为脆皮繁殖速度修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Trainer Efficiency with Trimp Health for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将训练师效率修饰符替换为脆皮生命值修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Trainer Efficiency with Trimp Attack for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将训练师效率修饰符替换为脆皮攻击力修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Trainer Efficiency with Trimp Block for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将训练师效率修饰符替换为脆皮格挡修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Trainer Efficiency with Crit Damage, additive for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将训练师效率修饰符替换为暴击伤害(效果叠加)修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Trainer Efficiency with Crit Chance, additive for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将训练师效率修饰符替换为暴击率(效果叠加)修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Trainer Efficiency with Void Map Drop Chance for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将训练师效率修饰符替换为虚空地图掉落概率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Storage Size with Player Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将存储上限修饰符替换为玩家效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Storage Size with Trainer Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将存储上限修饰符替换为训练师效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Storage Size with Breed Speed for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将存储上限修饰符替换为脆皮繁殖速度修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Storage Size with Trimp Health for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将存储上限修饰符替换为脆皮生命值修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Storage Size with Trimp Attack for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将存储上限修饰符替换为脆皮攻击力修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Storage Size with Trimp Block for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将存储上限修饰符替换为脆皮格挡修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Storage Size with Crit Damage, additive for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将存储上限修饰符替换为暴击伤害(效果叠加)修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Storage Size with Crit Chance, additive for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将存储上限修饰符替换为暴击率(效果叠加)修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Storage Size with Void Map Drop Chance for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将存储上限修饰符替换为虚空地图掉落概率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Breed Speed with Player Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮繁殖速度修饰符替换为玩家效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Breed Speed with Trainer Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮繁殖速度修饰符替换为训练师效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Breed Speed with Storage Size for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮繁殖速度修饰符替换为存储上限修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Breed Speed with Trimp Health for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮繁殖速度修饰符替换为脆皮生命值修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Breed Speed with Trimp Attack for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮繁殖速度修饰符替换为脆皮攻击力修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Breed Speed with Trimp Block for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮繁殖速度修饰符替换为脆皮格挡修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Breed Speed with Crit Damage, additive for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮繁殖速度修饰符替换为暴击伤害(效果叠加)修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Breed Speed with Crit Chance, additive for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮繁殖速度修饰符替换为暴击率(效果叠加)修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Breed Speed with Void Map Drop Chance for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮繁殖速度修饰符替换为虚空地图掉落概率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Trimp Health with Player Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮生命值修饰符替换为玩家效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Trimp Health with Trainer Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮生命值修饰符替换为训练师效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Trimp Health with Storage Size for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮生命值修饰符替换为存储上限修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Trimp Health with Breed Speed for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮生命值修饰符替换为脆皮繁殖速度修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Trimp Health with Trimp Attack for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮生命值修饰符替换为脆皮攻击力修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Trimp Health with Trimp Block for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮生命值修饰符替换为脆皮格挡修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Trimp Health with Crit Damage, additive for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮生命值修饰符替换为暴击伤害(效果叠加)修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Trimp Health with Crit Chance, additive for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮生命值修饰符替换为暴击率(效果叠加)修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Trimp Health with Void Map Drop Chance for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮生命值修饰符替换为虚空地图掉落概率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Trimp Attack with Player Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮攻击力修饰符替换为玩家效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Trimp Attack with Trainer Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮攻击力修饰符替换为训练师效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Trimp Attack with Storage Size for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮攻击力修饰符替换为存储上限修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Trimp Attack with Breed Speed for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮攻击力修饰符替换为脆皮繁殖速度修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Trimp Attack with Trimp Health for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮攻击力修饰符替换为脆皮生命值修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Trimp Attack with Trimp Block for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮攻击力修饰符替换为脆皮格挡修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Trimp Attack with Crit Damage, additive for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮攻击力修饰符替换为暴击伤害(效果叠加)修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Trimp Attack with Crit Chance, additive for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮攻击力修饰符替换为暴击率(效果叠加)修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Trimp Attack with Void Map Drop Chance for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮攻击力修饰符替换为虚空地图掉落概率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Trimp Block with Player Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮格挡修饰符替换为玩家效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Trimp Block with Trainer Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮格挡修饰符替换为训练师效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Trimp Block with Storage Size for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮格挡修饰符替换为存储上限修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Trimp Block with Breed Speed for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮格挡修饰符替换为脆皮繁殖速度修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Trimp Block with Trimp Health for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮格挡修饰符替换为脆皮生命值修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Trimp Block with Trimp Attack for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮格挡修饰符替换为脆皮攻击力修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Trimp Block with Crit Damage, additive for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮格挡修饰符替换为暴击伤害(效果叠加)修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Trimp Block with Crit Chance, additive for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮格挡修饰符替换为暴击率(效果叠加)修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Trimp Block with Void Map Drop Chance for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将脆皮格挡修饰符替换为虚空地图掉落概率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Crit Damage, additive with Player Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将暴击伤害(效果叠加)修饰符替换为玩家效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Crit Damage, additive with Trainer Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将暴击伤害(效果叠加)修饰符替换为训练师效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Crit Damage, additive with Storage Size for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将暴击伤害(效果叠加)修饰符替换为存储上限修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Crit Damage, additive with Breed Speed for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将暴击伤害(效果叠加)修饰符替换为脆皮繁殖速度修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Crit Damage, additive with Trimp Health for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将暴击伤害(效果叠加)修饰符替换为脆皮生命值修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Crit Damage, additive with Trimp Attack for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将暴击伤害(效果叠加)修饰符替换为脆皮攻击力修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Crit Damage, additive with Trimp Block for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将暴击伤害(效果叠加)修饰符替换为脆皮格挡修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Crit Damage, additive with Crit Chance, additive for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将暴击伤害(效果叠加)修饰符替换为暴击率(效果叠加)修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Crit Damage, additive with Void Map Drop Chance for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将暴击伤害(效果叠加)修饰符替换为虚空地图掉落概率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Crit Chance, additive with Player Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将暴击率(效果叠加)修饰符替换为玩家效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Crit Chance, additive with Trainer Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将暴击率(效果叠加)修饰符替换为训练师效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Crit Chance, additive with Storage Size for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将暴击率(效果叠加)修饰符替换为存储上限修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Crit Chance, additive with Breed Speed for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将暴击率(效果叠加)修饰符替换为脆皮繁殖速度修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Crit Chance, additive with Trimp Health for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将暴击率(效果叠加)修饰符替换为脆皮生命值修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Crit Chance, additive with Trimp Attack for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将暴击率(效果叠加)修饰符替换为脆皮攻击力修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Crit Chance, additive with Trimp Block for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将暴击率(效果叠加)修饰符替换为脆皮格挡修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Crit Chance, additive with Crit Damage, additive for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将暴击率(效果叠加)修饰符替换为暴击伤害(效果叠加)修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Crit Chance, additive with Void Map Drop Chance for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将暴击率(效果叠加)修饰符替换为虚空地图掉落概率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Void Map Drop Chance with Player Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将虚空地图掉落概率修饰符替换为玩家效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Void Map Drop Chance with Trainer Efficiency for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将虚空地图掉落概率修饰符替换为训练师效率修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Void Map Drop Chance with Storage Size for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将虚空地图掉落概率修饰符替换为存储上限修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Void Map Drop Chance with Breed Speed for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将虚空地图掉落概率修饰符替换为脆皮繁殖速度修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Void Map Drop Chance with Trimp Health for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将虚空地图掉落概率修饰符替换为脆皮生命值修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Void Map Drop Chance with Trimp Attack for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将虚空地图掉落概率修饰符替换为脆皮攻击力修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Void Map Drop Chance with Trimp Block for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将虚空地图掉落概率修饰符替换为脆皮格挡修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Void Map Drop Chance with Crit Damage, additive for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将虚空地图掉落概率修饰符替换为暴击伤害(效果叠加)修饰符。您确定要这么做吗？'], //传家宝
+    [/^You are about to replace Void Map Drop Chance with Crit Chance, additive for (.*) Nullifium.  Are you sure\?$/, '您将花费$1虚空物质将虚空地图掉落概率修饰符替换为暴击率(效果叠加)修饰符。您确定要这么做吗？'], //传家宝
     [/^(\s+)You Found an Heirloom!(\s+)$/, '$1您发现了一个传家宝！$2'], //传家宝
     [/^Time Portal( Mk\. )?([IVXLCDM]*)$/, '时空传送门$1$2'], //挑战界面
     [/^(\s+)Total(\s+)$/, '$1总计$2'], //挑战界面
@@ -5878,6 +6191,19 @@ var cnRegReplace = new Map([
     [/^Your Generator can currently store (.*) fuel. Purchase this to increase the fuel capacity by (.*). The more fuel you have in storage, the more housing you'll create per tick!$/, '您的维度发生器目前可以存储 $1 燃料，升级后可以多存储 $2 。存储的燃料越多，每次产生的住房也就越多！'], //维度发生器等
     [/^The Magma at Zone (\d+) contains 0.2 fuel per cell, and each Zone after that can drop 0.01 more. Your generator can currently only harvest a max of (.*) per cell, meaning some fuel after Z(.*) will be unharvestable. Purchase this upgrade to increase the amount you can harvest per cell by$/, '岩浆从区域 $1 开始，每个格子有0.2燃料，且之后每多一个区域，就多0.01燃料。您的维度发生器目前在每个格子最多可以获得 $2 燃料，这意味着从区域 $3 开始，部分燃料会被浪费掉。升级此项后可以将每个格子获取燃料的上限增加 '], //维度发生器等
     [/^Your current Overclocker effectiveness is (.*)%. Next level, your Overclocker effectiveness will be (.*)%.$/, '您的超频效果目前为 $1% 。下一级的超频效果为 $2% 。'], //维度发生器等
+    [/^Trade (.*) Tokens of Poison and get back (.*) Tokens of Wind.$/, '将$1毒符记转换为$2风符记。'], //自然赋能
+    [/^Trade (.*) Tokens of Poison and get back (.*) Tokens of Ice.$/, '将$1毒符记转换为$2冰符记。'], //自然赋能
+    [/^Trade (.*) Tokens of Wind and get back (.*) Tokens of Poison.$/, '将$1风符记转换为$2毒符记。'], //自然赋能
+    [/^Trade (.*) Tokens of Wind and get back (.*) Tokens of Ice.$/, '将$1风符记转换为$2冰符记。'], //自然赋能
+    [/^Trade (.*) Tokens of Ice and get back (.*) Tokens of Poison.$/, '将$1冰符记转换为$2毒符记。'], //自然赋能
+    [/^Trade (.*) Tokens of Ice and get back (.*) Tokens of Wind.$/, '将$1冰符记转换为$2风符记。'], //自然赋能
+    [/^. Maximum of (.*) levels.$/, '。最高$1级。'], //自然赋能
+    [/^(.*) Tokens of Poison$/, '$1毒符记'], //自然赋能
+    [/^(.*) Tokens of Wind$/, '$1风符记'], //自然赋能
+    [/^(.*) Tokens of Ice$/, '$1冰符记'], //自然赋能
+	[/^(.*)You found (.+) Token(s*) of Poison!$/, '$1您发现了$2毒符记！'], //自然赋能
+	[/^(.*)You found (.+) Token(s*) of Wind!$/, '$1您发现了$2风符记！'], //自然赋能
+	[/^(.*)You found (.+) Token(s*) of Ice!$/, '$1您发现了$2冰符记！'], //自然赋能
     [/^(.*) Trimp(s*) just ceased to be.$/, '$1个脆皮去世了。'], //死亡消息
     [/^(.*) Trimp(s*) just bit the dust.$/, '$1个脆皮战死沙场了。'], //死亡消息
     [/^(.*) Trimp(s*) just took a dirt nap.$/, '$1个脆皮入土为安了。'], //死亡消息
@@ -5953,10 +6279,6 @@ var cnRegReplace = new Map([
     [/^(.*)Woah, that's a lot of maps. You're certain your Scientists will just lose them if you make any more. Better recycle a few of them, it's good for the environment anyways.$/, '$1哇哦，地图也太多了。再制造下去就要被科学家们白白扔掉了。最好还是回收一些吧，这也是为了环保。'], //其他消息等
     [/^(.*)You can't afford this map! You need (.*) fragments.$/, '$1您的碎片不够，无法制造此地图！您需要$2碎片。'], //其他消息等
     [/^(.*)A chill runs down your spine, and the Bad Guy quickly frosts over. A purple glow radiates from the ground in front of you, and a Void Map appears.$/, '$1您突然感到一阵寒意，然后，敌人很快就被冰霜覆盖了。您面前的地上散发出一道紫色的光，随后，出现了一张虚空地图。'], //其他消息等
-
-
-
-
     [/^(.*)AutoTrimps - Zek Fork Loaded!$/, '$1自动脆皮脚本 - Zek Fork 已成功载入！'], //脚本3载入消息
     [/^(.*)Adding dark-graph.css file$/, '$1黑暗图表已开启'], //脚本3图表消息
     [/^(.*)Removing dark-graph.css file$/, '$1黑暗图表已关闭'], //脚本3图表消息
@@ -6596,9 +6918,6 @@ var cnRegReplace = new Map([
 	[/^You have spent (.+) Helium on this Perk$/, '你已经花费 $1 氦在这个附带特权上'],
 	[/^You have been in this Zone for (\d+) mins$/, '你已经在该区域待了$1分钟'],
 	[/^You found (.+) Dark Essence!$/, '你找到了$1黑暗精华'],
-	[/^You found (.+) Tokens of Poison!$/, '你找到了$1毒符记'],
-	[/^You found (.+) Tokens of Ice!$/, '你找到了$1冰符记'],
-	[/^You found (.+) Tokens of Wind!$/, '你找到了$1风符记'],
 	[/^Trimps have (.+) more attack on even numbered Zones$/, '脆皮在偶数区域增加$1攻击'],
 	[/^Trimps have (.+) less attack on odd numbered Zones$/, '脆皮在奇数区域减少$1攻击'],
 	[/^Equipment is (.+) cheaper.$/, '装备的价格下降$1'],
