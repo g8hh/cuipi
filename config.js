@@ -8617,7 +8617,7 @@ var toReturn = {
 		},
 		easterEgg: {
 			world: -1,
-			locked: true,
+			locked: false,
 			level: [0, 99],
 			title: "Colored Egg",
 			icon: "*droplet",
