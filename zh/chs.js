@@ -45,7 +45,6 @@ var cnItems = {
     'Equipment': '装备',
     'Mastery': '专精',
     'Nature': '自然',
-    'Spire': '尖塔',
     'Custom': '自定义',
     'Max': '最大',
     'Buy Max': '购买最大数量',
@@ -110,16 +109,39 @@ var cnItems = {
     'This Bad Guy has a 25% chance to crit you for 400% extra damage.': '此敌人有25%的概率额外造成400%的伤害。',
     'Void Bleed': '虚空血祭',
     'Every time this Bad Guy attacks, you will lose an additional 20% of your': '此敌人每次攻击时，使您额外失去20%的 ',
+    'current': '当前',
+    'health.': '生命值。',
     'Poisoned': '中毒',
     'Chilled': '冻结',
     'Breezy': '风卷',
     'Domination: Dominating': '统治：支配者',
     'Domination: Weak': '统治：弱者',
-    'current': '当前',
-    'health.': '生命值。',
+    'Emptiness': '空白',
+    'This enemy is missing an effect thanks to Fluffy! It will still drop 7.5% of the helium you would normally get from completing this Zone.': '多亏了绒绒，此敌人失去了一项能力！尽管如此，它仍然会掉落氦，数值为通过此区域所得氦的7.5%。',
+    'This enemy is missing an effect thanks to Fluffy! It will still drop 15% of the helium you would normally get from completing this Zone.': '多亏了绒绒，此敌人失去了一项能力！尽管如此，它仍然会掉落氦，数值为通过此区域所得氦的15%。',
+    'Corrupted Stamina': '腐化耐力',
+    'Corrupted Precision': '腐化精准',
+    'Corrupted Sharpness': '腐化锋锐',
+    'Corrupted Strength': '腐化力量',
+    'Corrupted Toughness': '腐化坚韧',
+    'Corrupted Agility': '腐化敏捷',
+    'Obsidian': '黑曜石',
+    'This enemy is rock solid, and there is no way to get past. Time to go to the Radon Universe and find a way to melt these Zones!': '此敌人坚如磐石，想要通过这里简直是天方夜谭。前往氡之宇宙吧，该想想怎么使这些区域熔化了。',
+    'This enemy is rock solid, and there is no way to get past. Fluffy suggests that you find a way to get him to Evolution 8 Level 10 as quickly as possible so he can help you melt these Zones!': '此敌人坚如磐石，想要通过这里简直是天方夜谭。绒绒建议您尽快将它升级到进化次数8等级10，这样它就能帮您熔化这些区域了！',
+    'This enemy is missing an effect thanks to Fluffy! It will still drop 45% of the helium you would normally get from completing this Zone.': '多亏了绒绒，此敌人失去了一项能力！尽管如此，它仍然会掉落氦，数值为通过此区域所得氦的45%。',
+    'Healthy and Tireless': '健康不倦',
+    'Healthy and Precise': '健康精准',
+    'Healthy and Sharp': '健康锋锐',
+    'Healthy and Strong': '健康强壮',
+    'Healthy and Tough': '健康坚韧',
+    'Void Corruption': '虚空腐化',
+    'Map Corruption': '地图腐化',
     'AutoFight On': '开启自动战斗',
     'AutoFight Off': '关闭自动战斗',
     'Maps': '地图',
+    'Abandon Soldiers': '放弃士兵',
+    'World': '世界',
+    'Maps (': '地图 (',
     'Configure Maps': '地图设置',
     'Repeat Map': '重复地图',
     'Repeat On': '开启重复',
@@ -132,6 +154,11 @@ var cnItems = {
     'Save Map Settings': '保存地图设置',
     'Reset Map Settings': '重置地图设置',
     'Recycle All': '全部回收',
+    'Mass Recycle': '大量回收',
+    'You are about to abandon this Void Map, which will cause you to lose all current progress in this map. Are you sure?': '您将放弃此虚空地图，失去所有该地图中的进度。您确定要这么做吗？',
+    'Abandon Void Map': '放弃虚空地图',
+    'You are about to abandon The Black Bog, which will cause you to lose all current progress in this map. Are you sure?': '您将放弃黑色泥沼，失去所有该地图中的进度。您确定要这么做吗？',
+    'Abandon Black ': '放弃黑色',
     'Difficulty': '难度',
     'Biome': '生物群落',
     'Random': '随机',
@@ -165,6 +192,10 @@ var cnItems = {
     'Perfect Sliders': '完美滑块',
     'Extra Zones': '额外区域',
     'Unlock at Z': '解锁区域：',
+    'Select a Map!': '选择一张地图！',
+    'Run Map': '运行地图',
+    'Recycle Map': '回收地图',
+    'Abandon Map': '放弃地图',
     'Current Heirloom Drop Rates': '当前区域传家宝掉率',
     '- Next Rarity Increase at Z': '- 稀有度下次提升发生在区域',
     'Common': '普通',
@@ -202,18 +233,6 @@ var cnItems = {
     'YOUR GAME IS PAUSED!': '游戏已暂停！',
     'Click the flashing timer in the bottom right to unpause.': '点击右下方闪烁的计时器来取消暂停。',
     'Click the flashing timer in the bottom right, or press the spacebar to unpause.': '点击右下方闪烁的计时器，或者按下空格键来取消暂停。',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
     '': '',
     '': '',
     //主界面结束
@@ -1972,7 +1991,7 @@ var cnItems = {
     'Add Mod': '新增修饰符',
     'Replace Mod': '替换修饰符',
     'Tip: You can click on this Heirloom\'s name or icon in this window to change them!': '提示：您可以点击此窗口中的传家宝名称或者图标来进行修改！',
-    'ADDS this amount on to your total Prismatic Shield. This modifier can only function in the Radon Universe.': '将此数值加算到棱镜护盾数值中。只在宇宙2内有效。',
+    'ADDS this amount on to your total Prismatic Shield. This modifier can only function in the Radon Universe.': '将此数值加算到棱镜护盾数值中。只在氡之宇宙内有效。',
     'Charging': '蓄能',
     //传家宝相关结束
     //挑战相关
@@ -2005,7 +2024,7 @@ var cnItems = {
     'Helium goes in, victory comes out': '有氦者，事竟成',
     'Radon goes in, victory comes out': '得氡者，得天下',
     'Well, you did it. You followed your instincts through this strange world, made your way through the Dimension of Anger, and obtained this portal. But why? Maybe there will be answers through this portal... Your scientists tell you they can overclock it to bring more memories and items back, but they\'ll need helium to cool it.': '很好，您做到了。您凭着直觉在这个奇怪的世界里一路披荆斩棘，通过了愤怒维度，最后获得了这个传送门。但这么做的意义是？或许通过这个传送门以后，您就能找到答案了……科学家们告诉您，它们可以将传送门进行超频，带回更多的记忆和物品，但这么做还需要用到氦来冷却。',
-    'The Radon Universe is harsh. Your Portal still retains some information about the Scientist upgrades, but it\'ll need an upgrade of its own to be able to utilize them in this new Universe.': '氡宇宙的环境真的是太严苛了。您的传送门还保留有一些关于科学家升级的信息，但是看来需要在这个宇宙中升级后才能利用这些信息。',
+    'The Radon Universe is harsh. Your Portal still retains some information about the Scientist upgrades, but it\'ll need an upgrade of its own to be able to utilize them in this new Universe.': '氡之宇宙的环境真的是太严苛了。您的传送门还保留有一些关于科学家升级的信息，但是看来需要在这个宇宙中升级后才能利用这些信息。',
     'Be ready to manually Gather some Food!': '得准备好，要手动收集一些食物了！',
     'Don\'t forget to bring a challenge': '传送前，不要忘了选择挑战',
     'Respec': '洗点',
@@ -2625,11 +2644,19 @@ var cnItems = {
     'Radon': '氡',
     'Battle': '战斗',
     'Void': '虚空',
-    '': '',
-    '': '',
     //金色升级相关结束
     //维度发生器相关
+    'Dimensional Generator': '维度发生器',
+    'Configure Generator State': '设置发生器规则',
+    'Must use either 0 or a Zone number larger than': '必须设置为 0 或者超过',
+    'Starting Setting': '初始运行模式',
+    'At Zone': '在区域',
+    'Don\'t Change At Zone': '不改变模式',
+    'Set to Gain Fuel': '设为得燃料',
+    'Set to Gain Mi': '设为得岩浆岩',
+    'Set to Hybrid': '设为混合型',
     'Upgrade Generator': '升级维度发生器',
+    'Multi Upgrades': '可重复升级',
     'Efficiency': '效率',
     'Capacity': '容量',
     'Supply': '供给',
@@ -2639,6 +2666,7 @@ var cnItems = {
     'Requires Hybridization and Storage.': '需要下方的混合和存储升级。',
     'The first level of this upgrade will cause the Dimensional Generator to overclock instead of wasting fuel whenever you find more fuel than you can store. Overclocking will cause an instant Generator tick at a base of 50% effectiveness.': '首次升级此项后，当您获取了超过上限的燃料时，维度发生器不会将多余的燃料浪费掉，而是会进入超频状态。超频状态将立刻让维度发生器产生一次住房，但效果为正常的50%。',
     'Every upgrade purchased after the first will reduce the Overclocking penalty by 1%, compounding.': '首次升级之后的每次升级都将减少1%的效果惩罚，数值叠乘。',
+    'One and Done Upgrades': '一次性升级',
     'Hybridization': '混合',
     'Unlock the ability to switch your Dimensional Generator to Hybrid mode. Hybrid mode will automatically switch to Gain Fuel when fuel is below max, and Gain Mi when fuel is full.': '解锁维度发生器的混合模式。混合模式下，维度发生器在燃料未满之前得燃料，而燃料满了以后得岩浆岩。',
     'Storage': '存储',
@@ -2654,6 +2682,11 @@ var cnItems = {
     'Add a Slider to your Generator window, allowing you to lower your maximum fuel capacity and gain greater control over Overclocker. Lowering your capacity below your stored amount of fuel will not waste any fuel, but the first time Overclocker is triggered, all extra fuel will be consumed.': '在维度发生器的方框下方增加一个滑块，可以用于调节燃料存储上限，更好的控制超频。将存储上限降到低于当前燃料数量时，不会有燃料被浪费掉，但当之后触发超频触发时，所有额外的燃料都会被消耗掉。',
     'Simulacrum': '复制',
     'All new generated dimensions now come with copies of your Trimps inside them. Gone are the days of ramping up breeding to fill your dimensions with Trimps!': '维度发生器产生住房的同时，也会产生相同数量的脆皮。费尽心思让脆皮繁殖填满上限的日子过去了！',
+    'Click an upgrade to learn more about it!': '点击一个升级来获取它的详细信息！',
+    'Fuel': '燃料',
+    'Producing': '产生',
+    'Housing/Tick': '住房/次',
+    'Done': '完成',
     //维度发生器相关结束
     //自然赋能相关
     'Lv': '等级',
@@ -2737,6 +2770,7 @@ var cnItems = {
     //自然赋能相关结束
     //杂项
     'AutoSave has been disabled to prevent damage to your save. If you previously had a save file, it should still be waiting for you once you fix your browser settings.': '为了保护您的存档，自动存档已被关闭。如果您之前有存档文件，在修改完设置以后应该就能恢复使用了。',
+    'First Amalgamator': '第一个合并者',
     '': '',
     '': '',
     //杂项结束
@@ -3653,7 +3687,6 @@ var cnItems = {
     'Daily: Normal / Daily: Fuel / Daily: Hybrid': '日常：普通 / 日常：得燃料 / 日常：混合型',
     'Normal': '普通',
     'Uses the AutoGen settings.': '使用其他选项的设置。',
-    'Fuel': '得燃料',
     'Fuels the entire Daily.': '日常挑战全程使用得燃料。',
     'Uses Hybrid for the entire Daily.': '日常挑战全程使用混合型。',
     'C2: Normal': '挑战2：普通',
@@ -3823,23 +3856,23 @@ var cnItems = {
     'Spend/convert Ice tokens': '分配/转换冰符记',
     'Enlight: Auto': '自动启迪',
     'Enables Automatic Enlightenment. Use the settings to define how it works.': '切换是否启用自动启迪。使用以下选项来进一步设置。',
-    'E: F: Poison': '毒启迪',
+    'E: F: Poison': '毒之启迪',
     'Activate Poison Enlight when Enlight cost is below this Thresh in Fillers. Consumes Tokens. -1 to disable.': '当毒之启迪花费低于此数值时启用毒之启迪。自动花费符记。设为-1则关闭此选项。',
-    'E: F: Wind': '风启迪',
+    'E: F: Wind': '风之启迪',
     'Activate Wind Enlight when Enlight cost is below this Thresh in Fillers. Consumes Tokens. -1 to disable.': '当风之启迪花费低于此数值时启用风之启迪。自动花费符记。设为-1则关闭此选项。',
-    'E: F: Ice': '冰启迪',
+    'E: F: Ice': '冰之启迪',
     'Activate Ice Enlight when Enlight cost is below this Thresh in Fillers. Consumes Tokens. -1 to disable.': '当冰之启迪花费低于此数值时启用冰之启迪。自动花费符记。设为-1则关闭此选项。',
-    'E: D: Poison': '日常毒启迪',
+    'E: D: Poison': '日常毒之启迪',
     'Activate Poison Enlight when Enlight cost is below this Thresh in Dailies. Consumes Tokens. -1 to disable.': '日常挑战中，当毒之启迪花费低于此数值时启用毒之启迪。自动花费符记。设为-1则关闭此选项。',
-    'E: D: Wind': '日常风启迪',
+    'E: D: Wind': '日常风之启迪',
     'Activate Wind Enlight when Enlight cost is below this Thresh in Dailies. Consumes Tokens. -1 to disable.': '日常挑战中，当风之启迪花费低于此数值时启用风之启迪。自动花费符记。设为-1则关闭此选项。',
-    'E: D: Ice': '日常冰启迪',
+    'E: D: Ice': '日常冰之启迪',
     'Activate Ice Enlight when Enlight cost is below this Thresh in Dailies. Consumes Tokens. -1 to disable.': '日常挑战中，当冰之启迪花费低于此数值时启用冰之启迪。自动花费符记。设为-1则关闭此选项。',
-    'E: C: Poison': '挑战2毒启迪',
+    'E: C: Poison': '挑战2毒之启迪',
     'Activate Poison Enlight when Enlight cost is below this Thresh in C2s. Consumes Tokens. -1 to disable.': '挑战2中，当毒之启迪花费低于此数值时启用毒之启迪。自动花费符记。设为-1则关闭此选项。',
-    'E: C: Wind': '挑战2风启迪',
+    'E: C: Wind': '挑战2风之启迪',
     'Activate Wind Enlight when Enlight cost is below this Thresh in C2s. Consumes Tokens. -1 to disable.': '挑战2中，当风之启迪花费低于此数值时启用风之启迪。自动花费符记。设为-1则关闭此选项。',
-    'E: C: Ice': '挑战2冰启迪',
+    'E: C: Ice': '挑战2冰之启迪',
     'Activate Ice Enlight when Enlight cost is below this Thresh in C2s. Consumes Tokens. -1 to disable.': '挑战2中，当冰之启迪花费低于此数值时启用冰之启迪。自动花费符记。设为-1则关闭此选项。',
     'Enhance Grids': '强化地图区域显示',
     'Apply slight visual enhancements to world and map grids that highlights with drop shadow all the exotic, powerful, skeletimps and other special imps.': '强化地图区域的显示，使奇异外皮，脆皮骷髅等特殊脆皮有特殊的显示图标。',
@@ -4122,19 +4155,11 @@ var cnItems = {
     'Lumberjacks': '伐木工',
     'Item Block': '物品格挡',
     'Breeding': '繁殖中',
-    'Corrupted Precision': '腐化精准',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
     'Food Per Second': '每秒获得食物',
     'Disable firing mode': '关闭解雇模式',
     'Soldiers': '士兵',
     'Item Attack': '物品攻击',
     'Min': '最小',
-    '': '',
-    '': '',
     //未分类：
     'primary': '主要',
     'secondary': '次要',
@@ -4176,7 +4201,6 @@ var cnItems = {
     'Sunday': '周日',
     'Corrupt': '腐化',
     'Healthy': '健康的',
-    '': '',
     //特权
     'Food/Wood/Metal': '食物/木头/金属',
     'cache': '储藏箱',
@@ -4196,16 +4220,6 @@ var cnItems = {
     'Large Wooden Cache (LWC': '大木头储藏箱 (LWC',
     'Large Metal Cache (LMC': '大金属储藏箱 (LMC',
     'Large Research Cache (LRC': '大研究储藏箱 (LRC',
-    'Abandon Soldiers': '放弃士兵',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
     //1.2.标题
     'Trap X': '陷阱 X',
     'Barn X': '谷仓 X',
@@ -4269,9 +4283,7 @@ var cnItems = {
     'Fire Trap III': '火焰陷阱 III',
     'Trap Layout 1': '陷阱布局 1',
     'Trap Layout 2': '陷阱布局 2',
-    'Configure Generator State': '配置发生器状态',
     'Spire Settings': '尖塔设置',
-    'Map Corruption': '地图腐化',
     'Food/Wood/Metal Loot Breakdown': '食物/木头/金属 劫掠明细',
     'Confirm Respec Masteries': '确认专精洗点',
     //成就
@@ -4280,10 +4292,6 @@ var cnItems = {
     'Register a PlayFab Account': '注册一个PlayFab账号',
     'Can only be run once!': '只能运行一次!',
     'Reward does not count toward Bone Portals or affect best He/Hr stat.': '奖赏不计入骨头购买传送门数据，也不计入最好的氦/小时统计。',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
     //成就结束
     'Toxic': '毒性',
     'Block': '格挡',
@@ -4294,13 +4302,9 @@ var cnItems = {
     'Attack': '攻击力',
     'Void Map': '虚空地图',
     'Corruption': '腐败',
-    'The Magma': '岩浆',
     'Error': '出错啦',
-    '': '',
-    '': '',
 
     //未分类20190806
-    'Recycle Map': '回收地图',
     'Research first': '研究优先',
     'Challenge': '挑战',
     'Auto Saving': '自动保存',
@@ -4323,9 +4327,6 @@ var cnItems = {
     'Item Health': '物品生命',
     'Found a Skeletimp!': '找到了一个Skeletimp！',
     'AutoFight': '自动战斗',
-    'Producing': '生产',
-    'Housing/Tick': '房屋/Tick',
-    'Dimensional Generator': '维度发生器',
     'Runestones per Second': '符石每秒',
     'Sell All': '全部出售',
     'Upgrade (': '升级 (',
@@ -4422,11 +4423,9 @@ var cnItems = {
     'However, the chest contained plans and materials for the': '然而，箱子里装着的计划和材料',
     'Travel to the Map Chamber. Maps are filled with goodies, and for each max level map you clear you will gain a 20% stacking damage bonus for that Zone (stacks up to 10 times). (Hotkey: M': '去地图室。地图充满了好东西，每清除一张最高等级地图，你将获得该区域20%的堆叠伤害加成(堆叠最多10次)。(热键:M',
     '! In addition, all Zones are now wort': '!此外，所有的区域现在都是wort',
-    'Spire II': '尖塔 II',
     'if your Trimps have a tendency to slack off when you turn your back.': '如果您的脆皮在转身时有放松的趋势。',
     'Hotkeys: S or': '热键：S 或',
     'MagnetoShriek is NOT active and will not fire.': '电磁尖啸未激活，将不会发射。',
-    'Maps (': '地图 (',
     'Welcome': '欢迎',
     "Welcome to Trimps! This game saves using Local Storage in your browser. Clearing your cookies or browser settings will cause your save to disappear! Please make sure you regularly back up your save file by either using the 'Export' button in the bar below or the 'Online Saving' option under 'Settings'.": '欢迎来到脆皮！此游戏存档位于浏览器的本地存储(Local Storage)。清除浏览器数据会丢失存档！请注意备份存档，点击下方"导出"按钮或在"设置"里开启在线存档。',
     'Would you like to enable online saving before you start?': '在开始前，你是否打算开启在线存档？',
@@ -4453,15 +4452,9 @@ var cnItems = {
     'Challenge has no end point, and grants an': '挑战没有终点，并在完成时获得',
     'additional': '额外的',
     'Make Purchase': '购买',
-    'Run Map': '运行地图',
     'Customize your settings for running maps!': '自定义你的地图运行设置！',
     'Back': '后退',
     'Electrified': '触电',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
 	"Your Trimps killed a lot of Bad Guys back there. It seems like you're getting the hang of this. However, the world is large, and there are many more Zones to explore. Chop chop.": "你的脆皮在那里杀死了很多坏人。 看起来你似乎已经弄清楚这是怎么一回事了。 然而这个世界很大，依然有去多区域需要探索，“砍”“砍”...",
 	"By your orders, your scientists have begun to try and figure out how large this planet is.": "根据您的命令，您的科学家们已经开始尝试了解这个星球有多大。",
 	"You order your Trimps to search the area for the keys to your ship, but nobody finds anything. Bummer.": "您命令脆皮在该地区搜索您的船只的钥匙，但没有人找到任何东西。真令人失望。",
@@ -4479,8 +4472,6 @@ var cnItems = {
 	"You can sense that you're close to your goal.": "你感觉到你离你的目标已经不远了。",
 	"The portal device you found shines green in the lab. Such a familiar shade...": "你找到的传送门装置在实验室里闪着绿光。 多么熟悉的画面...",
 	"You have already attempted this Daily Challenge!": "你已经尝试过这个日常挑战！",
-	"Done": "完成",
-	"World": "世界",
 	"A green background indicates that you could afford a map at this Extra Zone amount with your selected Special Modifier and Perfect Sliders. A gold background indicates that you could afford that map with your selected Special Modifier and some combination of non-perfect sliders.": "绿色背景表示您可以使用所选的特殊修饰符和“完美滑块”以该“额外区域”数量购买地图。 金色背景表示您可以使用所选的特殊修改器和一些不完美的滑块组合来负担该地图。",
 	"A huge storm has formed and daylight has become a luxury you have mostly forgotten about. Your Trimps seem to want to go back home, but you're pretty sure you're supposed to keep going this way, so you do. You're very close to the anomaly.": "一场巨大的风暴已经形成，白昼已经成为一种你几乎忘记的奢侈品。你的脆皮似乎想回家，但你很确定你们应该继续向前走，所以你们继续前行。你已经离异常现象非常近了。",
 	"There it is. The anomaly is at the end of the zone. You can see it but you don't know what you're seeing. Where did that... thing... come from?! This is highly Improbable.": "它……就在那里。那个异常现象，就在这个区域的尽头。你能看得见它，但是你不知道你正在看的这个东西究竟是什么。这个……东西……是从哪来的？！这个东西太无序了。",
@@ -4511,7 +4502,6 @@ var cnItems = {
 
 
     'Radon Per Hour': '氡每小时',
-    'Select a Map!': '选择一个地图！',
     'Click to toggle a challenge mode for your challenges!': '单击以切换到挑战模式，迎接您的挑战!',
     'In Challenge': '在挑战',
     'mode, you can re-run some challenges in order to earn a permanent attack, health, and Helium bonus for your Trimps. MOST Challenge': '模式中, 你可以重新进行一些挑战来为你的脆皮获得永久的攻击、生命和氦气加成。大多数挑战',
@@ -5079,6 +5069,27 @@ var cnRegReplace = new Map([
     [/^Check\sTraps(.+)$/, '检查陷阱$1'], //主界面
     [/^(.+) Foremen$/, '$1 工头'], //主界面
     [/^- (.+) Seconds$/, '- $1 秒'], //主界面
+    [/^All corrupted enemies currently deal (.*)X damage and have (.*)X health. In addition, this Bad Guy attacks twice - once before you, and once again after you. It will also drop 7.5% of the helium you would normally get from completing this Zone.$/, '所有腐化敌人多造成$1倍伤害，且生命值变为$2倍。另外，此敌人每次攻击两下-在您攻击前和攻击后各攻击一下。另外，它还会掉落氦，数值为通过此区域所得氦的7.5%。'], //主界面
+    [/^All corrupted enemies currently deal (.*)X damage and have (.*)X health. In addition, this Bad Guy attacks twice - once before you, and once again after you. It will also drop 15% of the helium you would normally get from completing this Zone.$/, '所有腐化敌人多造成$1倍伤害，且生命值变为$2倍。另外，此敌人每次攻击两下-在您攻击前和攻击后各攻击一下。另外，它还会掉落氦，数值为通过此区域所得氦的15%。'], //主界面
+    [/^All corrupted enemies currently deal (.*)X damage and have (.*)X health. In addition, this Bad Guy has a 25% chance to crit you for 400% extra damage. It will also drop 7.5% of the helium you would normally get from completing this Zone.$/, '所有腐化敌人多造成$1倍伤害，且生命值变为$2倍。另外，此敌人有25%的概率额外造成400%的伤害。另外，它还会掉落氦，数值为通过此区域所得氦的7.5%。'], //主界面
+    [/^All corrupted enemies currently deal (.*)X damage and have (.*)X health. In addition, this Bad Guy has a 25% chance to crit you for 400% extra damage. It will also drop 15% of the helium you would normally get from completing this Zone.$/, '所有腐化敌人多造成$1倍伤害，且生命值变为$2倍。另外，此敌人有25%的概率额外造成400%的伤害。另外，它还会掉落氦，数值为通过此区域所得氦的15%。'], //主界面
+    [/^All corrupted enemies currently deal (.*)X damage and have (.*)X health. In addition, every time this Bad Guy attacks, you will lose an additional 20% of your$/, '所有腐化敌人多造成$1倍伤害，且生命值变为$2倍。另外，此敌人每次攻击时，使您额外失去20%的 '], //主界面
+    [/^health. It will also drop 7.5% of the helium you would normally get from completing this Zone.$/, '生命值。另外，它还会掉落氦，数值为通过此区域所得氦的7.5%。'], //主界面
+    [/^health. It will also drop 15% of the helium you would normally get from completing this Zone.$/, '生命值。另外，它还会掉落氦，数值为通过此区域所得氦的15%。'], //主界面
+    [/^All corrupted enemies currently deal (.*)X damage and have (.*)X health. In addition, this Bad Guy has an additional 2x attack. It will also drop 7.5% of the helium you would normally get from completing this Zone.$/, '所有腐化敌人多造成$1倍伤害，且生命值变为$2倍。另外，此敌人攻击力额外增加2倍。另外，它还会掉落氦，数值为通过此区域所得氦的7.5%。'], //主界面
+    [/^All corrupted enemies currently deal (.*)X damage and have (.*)X health. In addition, this Bad Guy has an additional 2x attack. It will also drop 15% of the helium you would normally get from completing this Zone.$/, '所有腐化敌人多造成$1倍伤害，且生命值变为$2倍。另外，此敌人攻击力额外增加2倍。另外，它还会掉落氦，数值为通过此区域所得氦的15%。'], //主界面
+    [/^All corrupted enemies currently deal (.*)X damage and have (.*)X health. In addition, this Bad Guy has an additional 5x health. It will also drop 7.5% of the helium you would normally get from completing this Zone.$/, '所有腐化敌人多造成$1倍伤害，且生命值变为$2倍。另外，此敌人生命值额外增加5倍。另外，它还会掉落氦，数值为通过此区域所得氦的7.5%。'], //主界面
+    [/^All corrupted enemies currently deal (.*)X damage and have (.*)X health. In addition, this Bad Guy has an additional 5x health. It will also drop 15% of the helium you would normally get from completing this Zone.$/, '所有腐化敌人多造成$1倍伤害，且生命值变为$2倍。另外，此敌人生命值额外增加5倍。另外，它还会掉落氦，数值为通过此区域所得氦的15%。'], //主界面
+    [/^All corrupted enemies currently deal (.*)X damage and have (.*)X health. In addition, this Bad Guy has a 30% chance to dodge your attacks. It will also drop 7.5% of the helium you would normally get from completing this Zone.$/, '所有腐化敌人多造成$1倍伤害，且生命值变为$2倍。另外，此敌人有30%概率闪避您的攻击。另外，它还会掉落氦，数值为通过此区域所得氦的7.5%。'], //主界面
+    [/^All corrupted enemies currently deal (.*)X damage and have (.*)X health. In addition, this Bad Guy has a 30% chance to dodge your attacks. It will also drop 15% of the helium you would normally get from completing this Zone.$/, '所有腐化敌人多造成$1倍伤害，且生命值变为$2倍。另外，此敌人有30%概率闪避您的攻击。另外，它还会掉落氦，数值为通过此区域所得氦的15%。'], //主界面
+    [/^All Healthy enemies currently deal (.*)X damage and have (.*)X health. In addition, this Bad Guy attacks twice for 1.5x damage - once before you, and once again after you. It will also drop 45% of the helium you would normally get from completing this Zone.$/, '所有健康敌人多造成$1倍伤害，且生命值变为$2倍。另外，此敌人每次攻击两下-在您攻击前和攻击后各攻击一下，且攻击力为1.5倍。另外，它还会掉落氦，数值为通过此区域所得氦的45%。'], //主界面
+    [/^All Healthy enemies currently deal (.*)X damage and have (.*)X health. In addition, this Bad Guy has a 25% chance to crit you for 600% extra damage. It will also drop 45% of the helium you would normally get from completing this Zone.$/, '所有健康敌人多造成$1倍伤害，且生命值变为$2倍。另外，此敌人有25%的概率额外造成600%的伤害。另外，它还会掉落氦，数值为通过此区域所得氦的45%。'], //主界面
+    [/^All Healthy enemies currently deal (.*)X damage and have (.*)X health. In addition, every time this Bad Guy attacks, you will lose an additional 30% of your$/, '所有健康敌人多造成$1倍伤害，且生命值变为$2倍。另外，此敌人每次攻击时，使您额外失去30%的 '], //主界面
+    [/^health. It will also drop 45% of the helium you would normally get from completing this Zone.$/, '生命值。另外，它还会掉落氦，数值为通过此区域所得氦的45%。'], //主界面
+    [/^All Healthy enemies currently deal (.*)X damage and have (.*)X health. In addition, this Bad Guy has an additional 2.5x attack. It will also drop 45% of the helium you would normally get from completing this Zone.$/, '所有健康敌人多造成$1倍伤害，且生命值变为$2倍。另外，此敌人攻击力额外增加2.5倍。另外，它还会掉落氦，数值为通过此区域所得氦的45%。'], //主界面
+    [/^All Healthy enemies currently deal (.*)X damage and have (.*)X health. In addition, this Bad Guy has an additional 7.5x health. It will also drop 45% of the helium you would normally get from completing this Zone.$/, '所有健康敌人多造成$1倍伤害，且生命值变为$2倍。另外，此敌人生命值额外增加7.5倍。另外，它还会掉落氦，数值为通过此区域所得氦的45%。'], //主界面
+    [/^This map has become unstable due to Corruption. Enemy attack increased by (.*)X, and health increased by (.*)X.$/, '此地图由于腐化开始变得不稳定。敌人攻击力增加$1倍，生命值增加$2倍。'], //主界面
+    [/^This Void Map has become unstable due to Corruption. Enemy attack increased by (.*)X, and health increased by (.*)X. Helium at the end of the map is now double what you would earn from a World Zone, including Corrupted cells!$/, '此虚空地图由于腐化开始变得不稳定。敌人攻击力增加$1倍，生命值增加$2倍。地图最后获取的氦是世界上最后格子以及腐化格子获取量之和的两倍！'], //主界面
     [/^Min (.+), Max$/, '最低 $1，最高'], //主界面
     [/^(\d+) \(Zone$/, '$1(区域'], //主界面
     [/^Essence(\s+)$/, '精华$1'], //主界面
@@ -5088,6 +5099,8 @@ var cnRegReplace = new Map([
     [/^(\s+)Wind(\s+)$/, '$1风$2'], //主界面
     [/^(\s+)Ice(\s+)$/, '$1冰$2'], //主界面
     [/^Trade(?! (.*) Tokens)(.*)$/, '交易$1'], //主界面
+	[/^Spire([\sIVXLCDM]*)$/, '尖塔$1'], //主界面
+	[/^(\d+)% Map Bonus$/, '$1%地图奖励'], //主界面
     [/^(\s+)Fight(\s+)$/, '$1战斗$2'], //主界面
     [/^(\s+)AutoFight Off(\s+)$/, '$1关闭自动战斗$2'], //主界面
     [/^(\s+)Void Maps(\s+)$/, '$1虚空地图$2'], //主界面
@@ -5095,6 +5108,7 @@ var cnRegReplace = new Map([
     [/^(\s+)Repeat Off(\s+)$/, '$1关闭重复$2'], //主界面
     [/^(\s+)Finish Daily(\s+)$/, '$1完成日常$2'], //主界面
     [/^(\s+)Exit Spire(\s+)$/, '$1退出尖塔$2'], //主界面
+    [/^You are about to recycle all maps below level (.*). Are you sure\?$/, '您将回收$1级以下的所有地图。您确定要这么做吗？'], //主界面
     [/^(\s+)Level$/, '$1地图等级'], //主界面
     [/^(\s+)Create(\s+)$/, '$1制造$2'], //主界面
     [/^(\s+)Loot(\s+)$/, '$1劫掠$2'], //主界面
@@ -5237,6 +5251,62 @@ var cnRegReplace = new Map([
     [/^(.*)You killed a Magnimp! The strong magnetic forces now increase your loot by (.*)%!$/, '$1您击杀了一个脆皮磁王！它的强大磁力使您战利品数量增加 $2% ！'], //特定敌人
     [/^(.*)Your Trimps managed to pull 1 perfectly preserved bone from that $/, '$1脆皮们获得了1块保存完好的骨头，取自'], //特定敌人
     [/^(.*)That was a pretty big Skeletimp. Your Trimps scavenged the remains and found 2 perfectly preserved bones!$/, '$1这个脆皮骷髅相当巨大。脆皮们搜寻了残骸，找到了2块保存完好的骨头！'], //特定敌人
+    [/^(.*)Oh, there seems to be an egg on the ground. You throw it really hard to break it, and find (.*) Food!$/, '$1哦，地上看起来有一个蛋。您重重地将它摔破了，发现了$1食物！'], //特定敌人
+    [/^(.*)Oh, there seems to be an egg on the ground. You throw it really hard to break it, and find (.*) Wood!$/, '$1哦，地上看起来有一个蛋。您重重地将它摔破了，发现了$1木头！'], //特定敌人
+    [/^(.*)Oh, there seems to be an egg on the ground. You throw it really hard to break it, and find (.*) Metal!$/, '$1哦，地上看起来有一个蛋。您重重地将它摔破了，发现了$1金属！'], //特定敌人
+    [/^(.*)Oh, there seems to be an egg on the ground. You throw it really hard to break it, and find (.*) Nullifium!$/, '$1哦，地上看起来有一个蛋。您重重地将它摔破了，发现了$1虚空物质！'], //特定敌人
+    [/^(.*)Oh, there seems to be an egg on the ground. You throw it really hard to break it, and find an Heirloom!$/, '$1哦，地上看起来有一个蛋。您重重地将它摔破了，发现了一个传家宝！'], //特定敌人
+    [/^(.*)Oh, there seems to be an egg on the ground. You throw it really hard to break it, and find a Void Map!$/, '$1哦，地上看起来有一个蛋。您重重地将它摔破了，发现了一张虚空地图！'], //特定敌人
+    [/^(.*)Oh, there seems to be an egg on the ground. You throw it really hard to break it, and find (.*) Radon!$/, '$1哦，地上看起来有一个蛋。您重重地将它摔破了，发现了$1氡！'], //特定敌人
+    [/^(.*)Oh, there seems to be an egg on the ground. You throw it really hard to break it, and find (.*) Helium!$/, '$1哦，地上看起来有一个蛋。您重重地将它摔破了，发现了$1氦！'], //特定敌人
+    [/^(.*)Oh, there seems to be an egg on the ground. You throw it really hard to break it, and find (.*) Food!$/, '$1哦，地上看起来有一个蛋。您重重地将它摔破了，发现了$2食物！'], //特定敌人
+    [/^(.*)Oh, there seems to be an egg on the ground. You throw it really hard to break it, and find (.*) Wood!$/, '$1哦，地上看起来有一个蛋。您重重地将它摔破了，发现了$2木头！'], //特定敌人
+    [/^(.*)Oh, there seems to be an egg on the ground. You throw it really hard to break it, and find (.*) Metal!$/, '$1哦，地上看起来有一个蛋。您重重地将它摔破了，发现了$2金属！'], //特定敌人
+    [/^(.*)Oh, there seems to be an egg on the ground. You throw it really hard to break it, and find (.*) Nullifium!$/, '$1哦，地上看起来有一个蛋。您重重地将它摔破了，发现了$2虚空物质！'], //特定敌人
+    [/^(.*)Oh, there seems to be an egg on the ground. You throw it really hard to break it, and find an Heirloom!$/, '$1哦，地上看起来有一个蛋。您重重地将它摔破了，发现了一个传家宝！'], //特定敌人
+    [/^(.*)Oh, there seems to be an egg on the ground. You throw it really hard to break it, and find a Void Map!$/, '$1哦，地上看起来有一个蛋。您重重地将它摔破了，发现了一张虚空地图！'], //特定敌人
+    [/^(.*)Oh, there seems to be an egg on the ground. You throw it really hard to break it, and find (.*) Radon!$/, '$1哦，地上看起来有一个蛋。您重重地将它摔破了，发现了$2氡！'], //特定敌人
+    [/^(.*)Oh, there seems to be an egg on the ground. You throw it really hard to break it, and find (.*) Helium!$/, '$1哦，地上看起来有一个蛋。您重重地将它摔破了，发现了$2氦！'], //特定敌人
+    [/^(.*)You use your amazing sense of hindsight, and send a Trimp to check behind you for eggs. It found one containing (.*) Food!$/, '$1您后知后觉地派了一个脆皮去之前的区域寻找蛋。它发现了$2食物！'], //特定敌人
+    [/^(.*)You use your amazing sense of hindsight, and send a Trimp to check behind you for eggs. It found one containing (.*) Wood!$/, '$1您后知后觉地派了一个脆皮去之前的区域寻找蛋。它发现了$2木头！'], //特定敌人
+    [/^(.*)You use your amazing sense of hindsight, and send a Trimp to check behind you for eggs. It found one containing (.*) Metal!$/, '$1您后知后觉地派了一个脆皮去之前的区域寻找蛋。它发现了$2金属！'], //特定敌人
+    [/^(.*)You use your amazing sense of hindsight, and send a Trimp to check behind you for eggs. It found one containing (.*) Nullifium!$/, '$1您后知后觉地派了一个脆皮去之前的区域寻找蛋。它发现了$2虚空物质！'], //特定敌人
+    [/^(.*)You use your amazing sense of hindsight, and send a Trimp to check behind you for eggs. It found one containing an Heirloom!$/, '$1您后知后觉地派了一个脆皮去之前的区域寻找蛋。它发现了一个传家宝！'], //特定敌人
+    [/^(.*)You use your amazing sense of hindsight, and send a Trimp to check behind you for eggs. It found one containing a Void Map!$/, '$1您后知后觉地派了一个脆皮去之前的区域寻找蛋。它发现了一张虚空地图！'], //特定敌人
+    [/^(.*)You use your amazing sense of hindsight, and send a Trimp to check behind you for eggs. It found one containing (.*) Radon!$/, '$1您后知后觉地派了一个脆皮去之前的区域寻找蛋。它发现了$2氡！'], //特定敌人
+    [/^(.*)You use your amazing sense of hindsight, and send a Trimp to check behind you for eggs. It found one containing (.*) Helium!$/, '$1您后知后觉地派了一个脆皮去之前的区域寻找蛋。它发现了$2氦！'], //特定敌人
+    [/^(.*)You just remembered you wanted to look for treasure. You send a Trimp backwards to check and it found an egg containing (.*) Food!$/, '$1您突然想起来该去寻宝了。您派了一个脆皮回去，它发现了一个蛋，里面有$2食物！'], //特定敌人
+    [/^(.*)You just remembered you wanted to look for treasure. You send a Trimp backwards to check and it found an egg containing (.*) Wood!$/, '$1您突然想起来该去寻宝了。您派了一个脆皮回去，它发现了一个蛋，里面有$2木头！'], //特定敌人
+    [/^(.*)You just remembered you wanted to look for treasure. You send a Trimp backwards to check and it found an egg containing (.*) Metal!$/, '$1您突然想起来该去寻宝了。您派了一个脆皮回去，它发现了一个蛋，里面有$2金属！'], //特定敌人
+    [/^(.*)You just remembered you wanted to look for treasure. You send a Trimp backwards to check and it found an egg containing (.*) Nullifium!$/, '$1您突然想起来该去寻宝了。您派了一个脆皮回去，它发现了一个蛋，里面有$2虚空物质！'], //特定敌人
+    [/^(.*)You just remembered you wanted to look for treasure. You send a Trimp backwards to check and it found an egg containing an Heirloom!$/, '$1您突然想起来该去寻宝了。您派了一个脆皮回去，它发现了一个蛋，里面有一个传家宝！'], //特定敌人
+    [/^(.*)You just remembered you wanted to look for treasure. You send a Trimp backwards to check and it found an egg containing a Void Map!$/, '$1您突然想起来该去寻宝了。您派了一个脆皮回去，它发现了一个蛋，里面有一张虚空地图！'], //特定敌人
+    [/^(.*)You just remembered you wanted to look for treasure. You send a Trimp backwards to check and it found an egg containing (.*) Radon!$/, '$1您突然想起来该去寻宝了。您派了一个脆皮回去，它发现了一个蛋，里面有$2氡！'], //特定敌人
+    [/^(.*)You just remembered you wanted to look for treasure. You send a Trimp backwards to check and it found an egg containing (.*) Helium!$/, '$1您突然想起来该去寻宝了。您派了一个脆皮回去，它发现了一个蛋，里面有$2氦！'], //特定敌人
+    [/^(.*)You see a brightly colored egg off in the distance and send a Trimp to retrieve it for you. Inside is (.*) Food!$/, '$1您看到前方有一个色彩鲜艳的蛋，您派了一个脆皮拿到了它。里面有$2食物！'], //特定敌人
+    [/^(.*)You see a brightly colored egg off in the distance and send a Trimp to retrieve it for you. Inside is (.*) Wood!$/, '$1您看到前方有一个色彩鲜艳的蛋，您派了一个脆皮拿到了它。里面有$2木头！'], //特定敌人
+    [/^(.*)You see a brightly colored egg off in the distance and send a Trimp to retrieve it for you. Inside is (.*) Metal!$/, '$1您看到前方有一个色彩鲜艳的蛋，您派了一个脆皮拿到了它。里面有$2金属！'], //特定敌人
+    [/^(.*)You see a brightly colored egg off in the distance and send a Trimp to retrieve it for you. Inside is (.*) Nullifium!$/, '$1您看到前方有一个色彩鲜艳的蛋，您派了一个脆皮拿到了它。里面有$2虚空物质！'], //特定敌人
+    [/^(.*)You see a brightly colored egg off in the distance and send a Trimp to retrieve it for you. Inside is an Heirloom!$/, '$1您看到前方有一个色彩鲜艳的蛋，您派了一个脆皮拿到了它。里面有一个传家宝！'], //特定敌人
+    [/^(.*)You see a brightly colored egg off in the distance and send a Trimp to retrieve it for you. Inside is a Void Map!$/, '$1您看到前方有一个色彩鲜艳的蛋，您派了一个脆皮拿到了它。里面有一张虚空地图！'], //特定敌人
+    [/^(.*)You see a brightly colored egg off in the distance and send a Trimp to retrieve it for you. Inside is (.*) Radon!$/, '$1您看到前方有一个色彩鲜艳的蛋，您派了一个脆皮拿到了它。里面有$2氡！'], //特定敌人
+    [/^(.*)You see a brightly colored egg off in the distance and send a Trimp to retrieve it for you. Inside is (.*) Helium!$/, '$1您看到前方有一个色彩鲜艳的蛋，您派了一个脆皮拿到了它。里面有$2氦！'], //特定敌人
+    [/^(.*)You send a Trimp to sneak forward checking for eggs. After getting turned around multiple times, it found an egg that had (.*) Food!$/, '$1您派了一个脆皮悄悄地去寻找蛋。在转悠了半天以后，它发现了一个蛋，里面有$2食物！'], //特定敌人
+    [/^(.*)You send a Trimp to sneak forward checking for eggs. After getting turned around multiple times, it found an egg that had (.*) Wood!$/, '$1您派了一个脆皮悄悄地去寻找蛋。在转悠了半天以后，它发现了一个蛋，里面有$2木头！'], //特定敌人
+    [/^(.*)You send a Trimp to sneak forward checking for eggs. After getting turned around multiple times, it found an egg that had (.*) Metal!$/, '$1您派了一个脆皮悄悄地去寻找蛋。在转悠了半天以后，它发现了一个蛋，里面有$2金属！'], //特定敌人
+    [/^(.*)You send a Trimp to sneak forward checking for eggs. After getting turned around multiple times, it found an egg that had (.*) Nullifium!$/, '$1您派了一个脆皮悄悄地去寻找蛋。在转悠了半天以后，它发现了一个蛋，里面有$2虚空物质！'], //特定敌人
+    [/^(.*)You send a Trimp to sneak forward checking for eggs. After getting turned around multiple times, it found an egg that had an Heirloom!$/, '$1您派了一个脆皮悄悄地去寻找蛋。在转悠了半天以后，它发现了一个蛋，里面有一个传家宝！'], //特定敌人
+    [/^(.*)You send a Trimp to sneak forward checking for eggs. After getting turned around multiple times, it found an egg that had a Void Map!$/, '$1您派了一个脆皮悄悄地去寻找蛋。在转悠了半天以后，它发现了一个蛋，里面有一张虚空地图！'], //特定敌人
+    [/^(.*)You send a Trimp to sneak forward checking for eggs. After getting turned around multiple times, it found an egg that had (.*) Radon!$/, '$1您派了一个脆皮悄悄地去寻找蛋。在转悠了半天以后，它发现了一个蛋，里面有$2氡！'], //特定敌人
+    [/^(.*)You send a Trimp to sneak forward checking for eggs. After getting turned around multiple times, it found an egg that had (.*) Helium!$/, '$1您派了一个脆皮悄悄地去寻找蛋。在转悠了半天以后，它发现了一个蛋，里面有$2氦！'], //特定敌人
+    [/^(.*)Hey there's an egg up there! You send a few Trimps to retrieve it and they bring back (.*) Food!$/, '$1哈，前面有一个蛋！您派了一些脆皮拿到了它，里面有$2食物！'], //特定敌人
+    [/^(.*)Hey there's an egg up there! You send a few Trimps to retrieve it and they bring back (.*) Wood!$/, '$1哈，前面有一个蛋！您派了一些脆皮拿到了它，里面有$2木头！'], //特定敌人
+    [/^(.*)Hey there's an egg up there! You send a few Trimps to retrieve it and they bring back (.*) Metal!$/, '$1哈，前面有一个蛋！您派了一些脆皮拿到了它，里面有$2金属！'], //特定敌人
+    [/^(.*)Hey there's an egg up there! You send a few Trimps to retrieve it and they bring back (.*) Nullifium!$/, '$1哈，前面有一个蛋！您派了一些脆皮拿到了它，里面有$2虚空物质！'], //特定敌人
+    [/^(.*)Hey there's an egg up there! You send a few Trimps to retrieve it and they bring back an Heirloom!$/, '$1哈，前面有一个蛋！您派了一些脆皮拿到了它，里面有一个传家宝！'], //特定敌人
+    [/^(.*)Hey there's an egg up there! You send a few Trimps to retrieve it and they bring back a Void Map!$/, '$1哈，前面有一个蛋！您派了一些脆皮拿到了它，里面有一张虚空地图！'], //特定敌人
+    [/^(.*)Hey there's an egg up there! You send a few Trimps to retrieve it and they bring back (.*) Radon!$/, '$1哈，前面有一个蛋！您派了一些脆皮拿到了它，里面有$2氡！'], //特定敌人
+    [/^(.*)Hey there's an egg up there! You send a few Trimps to retrieve it and they bring back (.*) Helium!$/, '$1哈，前面有一个蛋！您派了一些脆皮拿到了它，里面有$2氦！'], //特定敌人
     [/^A big, wooden shield. Adds (.*) health to each soldier per level.$/, '一面大木盾，每级增加每名士兵 $1 生命值。'], //装备
     [/^A big, wooden shield. Adds (.*) block to each soldier per level.$/, '一面大木盾，每级增加每名士兵 $1 格挡。'], //装备
 	[/^Better than nothing. Adds (.*) attack to each soldier per level$/, '聊胜于无。每级增加每名士兵 $1 攻击力'], //装备
@@ -5248,9 +5318,9 @@ var cnRegReplace = new Map([
     [/^This weapon is pretty intimidating, but your Trimps think they can handle it. Adds (.*) attack to each soldier per level$/, '这武器相当吓人，但脆皮觉得它们能用得好。每级增加每名士兵 $1 攻击力'], //装备
     [/^These shoulderguards will help keep your Trimps' necks and shoulders safe, and they look cool too. Adds (.*) health to each soldier per level$/, '这些护肩可以保护脆皮的脖子和肩膀，而且看起来挺酷的。每级增加每名士兵 $1 生命值'], //装备
     [/^This sword looks sweet. Seriously, if you could see it you'd think it looked sweet. Trust me. Adds (.*) attack to each soldier per level$/, '这把剑看起来真可爱。真的，要是您看得到的话，您也会这么觉得。相信我。每级增加每名士兵 $1 攻击力'], //装备
-    [/^Some real, heavy duty armor. Everyone looks badass in heavy duty armor. Adds (.*) health to each soldier per level$/, '真正的重型护甲。穿上这些的脆皮看起来吊爆了。每级增加每名士兵 $1 生命值'], //装备
-    [/^A powerful ranged weapon. Your Trimps can do some damage with this sucker. Adds (.*) attack to each soldier per level$/, '强大的远程武器。这玩意用来搞事情会很称手。每级增加每名士兵 $1 攻击力'], //装备
-    [/^A cozy and thick padded jacket that goes under the breastplate. Your Trimps think they're great! Adds (.*) health to each soldier per level.$/, '一件穿戴舒适，可以穿戴在胸甲内的厚棉衣。脆皮们爱死它了！每级增加每名士兵 $1 生命值。'], //装备
+    [/^Some real, heavy duty armor. Everyone looks badass in heavy duty armor. Adds (.*) health to each soldier per level$/, '真正的重型护甲。脆皮穿上以后看起来吊爆了。每级增加每名士兵 $1 生命值'], //装备
+    [/^A powerful ranged weapon. Your Trimps can do some damage with this sucker. Adds (.*) attack to each soldier per level$/, '强大的远程武器。用这玩意来搞事情会很称手。每级增加每名士兵 $1 攻击力'], //装备
+    [/^A cozy and thick padded jacket that goes under the breastplate. Your Trimps think they're great! Adds (.*) health to each soldier per level.$/, '一件舒适合身，可以穿戴在胸甲内的厚棉衣。脆皮们爱死它了！每级增加每名士兵 $1 生命值。'], //装备
     [/^(.*)You found plans for a shield! It even tells you how to upgrade it, if you have enough wood. That was nice of that Bad Guy.$/, '$1您发现了盾牌的蓝图！它甚至还有升级的说明，只需要木头就可以完成。那敌人真好。'], //世界解锁等
     [/^(.*)You found plans for Boots! Swell!$/, '$1您发现了靴子的蓝图！太棒了！'], //世界解锁等
     [/^(.*)You found plans for a Dagger! Fancy!$/, '$1您发现了匕首的蓝图！真意外！'], //世界解锁等
@@ -6072,6 +6142,7 @@ var cnRegReplace = new Map([
     [/^(.*)You have completed the Crushed challenge! You have been rewarded with (.*) Helium.$/, '$1您完成了粉碎挑战！您获取了 $2 氦。'], //粉碎挑战完成信息
     [/^(.*)You have completed the Slow challenge! You have found the patterns for the Gambeson and the Arbalest!$/, '$1您完成了迟缓挑战！您学会了制造棉甲和强弩！'], //迟缓挑战完成信息
     [/^(.*)You have completed the Nom challenge! You have been rewarded with (.*) Helium, and you may repeat the challenge.$/, '$1您完成了美味挑战！您获取了 $2 氦，现在您又可以重新挑战了。'], //美味挑战完成信息
+    [/^(.*)You have (.*) Map Credit(s*) left!$/, '$1您还剩下$2地图代币！'], //地图学挑战信息
     [/^(.*)You have completed the Mapology challenge! You have unlocked the 'Resourceful' Perk! Cheaper stuff!$/, '$1您完成了地图学挑战！您解锁了 足智多谋 特权！物美价廉！'], //地图学挑战完成信息
     [/^(.*)You have completed the Toxicity challenge! You have been rewarded with (.*) Helium, and you may repeat the challenge.$/, '$1您完成了毒性挑战！您获取了 $2 氦，现在您又可以重新挑战了。'], //毒性挑战完成信息
     [/^(.*)You have completed the Devastation challenge! Your world has been returned to normal, and you have unlocked the Overkill perk!$/, '$1您完成了破坏挑战！世界恢复了正常，而且您解锁了 超杀 特权！'], //破坏挑战完成信息
@@ -6187,10 +6258,17 @@ var cnRegReplace = new Map([
     [/^Increase Radon gain by (.*)%.$/, '使氡的获取量增加$1%。'], //金色升级等
     [/^Increase Trimp attack and health by (.*)%.$/, '使脆皮的攻击力和生命值增加$1%。'], //金色升级等
     [/^Decrease the minimum amount of enemies between Void Map drops by (.*)%.$/, '使每张虚空地图掉落所需的敌人数减少$1%。'], //金色升级等
+    [/^(.*)(?<!Gain) Mi$/, '$1岩浆岩'], //维度发生器等
+    [/^(.*) is not a valid number$/, '$1不是有效的数字'], //维度发生器等
     [/^Your Generator currently grants (.*) Max Trimps per tick at (.*) fuel \(the amount of fuel needed to tick\). Purchase this to increase the Generator's efficiency by 10% \(additive$/, '您的维度发生器目前每次消耗 $2 燃料(每次消耗的燃料数量)，并可以获得 $1 脆皮上限。升级此项可以维度发生器的工作效率增加10%(叠加'], //维度发生器等
     [/^Your Generator can currently store (.*) fuel. Purchase this to increase the fuel capacity by (.*). The more fuel you have in storage, the more housing you'll create per tick!$/, '您的维度发生器目前可以存储 $1 燃料，升级后可以多存储 $2 。存储的燃料越多，每次产生的住房也就越多！'], //维度发生器等
     [/^The Magma at Zone (\d+) contains 0.2 fuel per cell, and each Zone after that can drop 0.01 more. Your generator can currently only harvest a max of (.*) per cell, meaning some fuel after Z(.*) will be unharvestable. Purchase this upgrade to increase the amount you can harvest per cell by$/, '岩浆从区域 $1 开始，每个格子有0.2燃料，且之后每多一个区域，就多0.01燃料。您的维度发生器目前在每个格子最多可以获得 $2 燃料，这意味着从区域 $3 开始，部分燃料会被浪费掉。升级此项后可以将每个格子获取燃料的上限增加 '], //维度发生器等
     [/^Your current Overclocker effectiveness is (.*)%. Next level, your Overclocker effectiveness will be (.*)%.$/, '您的超频效果目前为 $1% 。下一级的超频效果为 $2% 。'], //维度发生器等
+    [/^Buy: (.*) Magmite$/, '购买花费：$1岩浆岩'], //维度发生器等
+    [/^(.*)You earned (.*) fuel, triggering (.*) Overclock(s*)!$/, '$1您获得了$2燃料，触发了$3次超频！'], //维度发生器等
+    [/^(.*)You earned (.*) fuel! \((.*) destroyed, not enough capacity$/, '$1您获得了$2燃料！(其中$3由于容量不足，被就地销毁'], //维度发生器等
+    [/^(.*)You earned (.*) fuel!$/, '$1您获得了$2燃料！'], //维度发生器等
+    [/^(.*)You earned (.*) Magmite!$/, '$1您获得了$2岩浆岩！'], //维度发生器等
     [/^Trade (.*) Tokens of Poison and get back (.*) Tokens of Wind.$/, '将$1毒符记转换为$2风符记。'], //自然赋能
     [/^Trade (.*) Tokens of Poison and get back (.*) Tokens of Ice.$/, '将$1毒符记转换为$2冰符记。'], //自然赋能
     [/^Trade (.*) Tokens of Wind and get back (.*) Tokens of Poison.$/, '将$1风符记转换为$2毒符记。'], //自然赋能
@@ -6279,6 +6357,32 @@ var cnRegReplace = new Map([
     [/^(.*)Woah, that's a lot of maps. You're certain your Scientists will just lose them if you make any more. Better recycle a few of them, it's good for the environment anyways.$/, '$1哇哦，地图也太多了。再制造下去就要被科学家们白白扔掉了。最好还是回收一些吧，这也是为了环保。'], //其他消息等
     [/^(.*)You can't afford this map! You need (.*) fragments.$/, '$1您的碎片不够，无法制造此地图！您需要$2碎片。'], //其他消息等
     [/^(.*)A chill runs down your spine, and the Bad Guy quickly frosts over. A purple glow radiates from the ground in front of you, and a Void Map appears.$/, '$1您突然感到一阵寒意，然后，敌人很快就被冰霜覆盖了。您面前的地上散发出一道紫色的光，随后，出现了一张虚空地图。'], //其他消息等
+    [/^(.*)The corruption quickly swirls into the air and dissipates.$/, '$1腐化的空气飘向天空，消散了。'], //其他消息等
+    [/^You see (.*) canisters of Helium left on the ground and pick them up. Useful!$/, '您在地上发现了$1氦。一定会派上用场的！'], //其他消息等
+    [/^(.*)The land looks even healthier now that the Bad Guy is dead!$/, '$1健康敌人死了，这里看起来甚至更健康了！'], //其他消息等
+    [/^You find (.*) canisters of Helium and figure it was worth it.$/, '您发现了$1氦，您觉得这很值得。'], //其他消息等
+    [/^(.*)Recycled (.*) maps for (.*) fragments.$/, '$1回收了$2张地图，获得$3碎片。'], //其他消息等
+    [/^(.*)Recycled (.*) for (.*) fragments.$/, '$1回收了一张地图，获得$3碎片。'], //其他消息等
+    [/^(.*) Map Credit(s*)$/, '$1地图代币'], //其他消息等
+    [/^(.*)Recycled (.*) for (.*) fragments.$/, '$1回收了一张地图，获得$3碎片。'], //其他消息等
+    [/^(.*)Waiting to travel until your soldiers are finished.$/, '$1等待士兵战死。'], //其他消息等
+    [/^(.*)You must finish or recycle your current map before moving on.$/, '$1在运行其他地图前，必须先完成或者回收当前的地图。'], //其他消息等
+    [/^(.*)You are all out of Map Credits! Clear some more Zones to earn some more.$/, '$1地图代币已经花完了！再通过一些的区域以获得地图代币。'], //其他消息等
+    [/^(.*)A small black hole opens up in the sky and a shrill noise echoes across the town. A few moments later, an Amalgamator is standing in front of you. It looks around briefly, grabs a few Trimps, and runs off towards your soldiers.$/, '$1天空中出现了一个小黑洞，刺耳的杂音到处回响着。过了一会儿，一个合并者站在了您的面前。它稍微往左右看了看，提起一些脆皮向着士兵们冲了过去。'], //其他消息等
+    [/^(.*)A small black hole opens up in the sky and a shrill noise echoes across the town. A few moments later, another Amalgamator is standing in front of you. It looks around briefly, grabs a few Trimps, and runs off towards your soldiers.$/, '$1天空中出现了一个小黑洞，刺耳的杂音到处回响着。过了一会儿，又一个合并者站在了您的面前。它稍微往左右看了看，提起一些脆皮向着士兵们冲了过去。'], //其他消息等
+    [/^(.*)While out walking a Trimp, you suddenly find yourself teleported back to your ship, standing face to face with an Amalgamator. You introduce yourself but it doesn't seem up for conversation.$/, '$1您本来是正在外面转悠的，却突然被传送回了飞船，跟一个合并者大眼瞪小眼。您向它做了自我介绍，但它看起来对此毫无兴趣。'], //其他消息等
+    [/^(.*)While out walking a Trimp, you suddenly find yourself teleported back to your ship, standing face to face with another Amalgamator. You introduce yourself but it doesn't seem up for conversation.$/, '$1您本来是正在外面转悠的，却突然被传送回了飞船，跟又一个合并者大眼瞪小眼。您向它做了自我介绍，但它看起来对此毫无兴趣。'], //其他消息等
+    [/^(.*)Suddenly, the largest rain drops you've ever seen start falling from the sky - each drop is at least 1000 times larger than normal. One particularly large drop hits the ground and an Amalgamator pops out! It sends out a quick telepathic greeting, then goes off to find your Trimps.$/, '$1突然，下起了您生平见过最大的雨 - 每个雨滴是正常的1000倍大小。一滴超级大的雨落到了地面，蹦出了一个合并者！它用心灵感应迅速向您问了个好，然后就去找您的脆皮们了。'], //其他消息等
+    [/^(.*)Suddenly, the largest rain drops you've ever seen start falling from the sky - each drop is at least 1000 times larger than normal. One particularly large drop hits the ground and another Amalgamator pops out! It sends out a quick telepathic greeting, then goes off to find your Trimps.$/, '$1突然，下起了您生平见过最大的雨 - 每个雨滴是正常的1000倍大小。一滴超级大的雨落到了地面，蹦出了又一个合并者！它用心灵感应迅速向您问了个好，然后就去找您的脆皮们了。'], //其他消息等
+    [/^(.*)You're sitting down about to enjoy a rare dinner break, when an Amalgamator gets interested in your dimension and replaces the spacetime of your meal with itself. You really hope they don't do that again.$/, '$1您难得有空享用一顿晚餐，正准备坐下来时，一个合并者突然对您的维度产生了兴趣，将它与您的晚餐在时空上作了个对调。您真诚希望下次它们别再这么干了。'], //其他消息等
+    [/^(.*)You're sitting down about to enjoy a rare dinner break, when another Amalgamator gets interested in your dimension and replaces the spacetime of your meal with itself. You really hope they don't do that again.$/, '$1您难得有空享用一顿晚餐，正准备坐下来时，又一个合并者突然对您的维度产生了兴趣，将它与您的晚餐在时空上作了个对调。您真诚希望下次它们别再这么干了。'], //其他消息等
+    [/^(.*)As you're helping your Trimps cross a deeper-than-average stream, you notice a column of bubbles coming up near your Trimps. A gurgling sound begins to grow from the source of the bubbles, and your Trimps start to get a little freaked out. Suddenly an Amalgamator bursts to the surface, spits some water at a Trimp, then teleports to your town.$/, '$1您正在帮忙脆皮们渡过一条有点深的小溪时，发现在脆皮身旁冒出来一大堆气泡。接着，气泡开始汩汩作响，脆皮们有点慌了。突然，从水里钻出来一个合并者，把水吐得一个脆皮满脸都是，然后传送到您的城镇里了。'], //其他消息等
+    [/^(.*)As you're helping your Trimps cross a deeper-than-average stream, you notice a column of bubbles coming up near your Trimps. A gurgling sound begins to grow from the source of the bubbles, and your Trimps start to get a little freaked out. Suddenly another Amalgamator bursts to the surface, spits some water at a Trimp, then teleports to your town.$/, '$1您正在帮忙脆皮们渡过一条有点深的小溪时，发现在脆皮身旁冒出来一大堆气泡。接着，气泡开始汩汩作响，脆皮们有点慌了。突然，从水里钻出来又一个合并者，把水吐得一个脆皮满脸都是，然后传送到您的城镇里了。'], //其他消息等
+
+
+
+
+
     [/^(.*)AutoTrimps - Zek Fork Loaded!$/, '$1自动脆皮脚本 - Zek Fork 已成功载入！'], //脚本3载入消息
     [/^(.*)Adding dark-graph.css file$/, '$1黑暗图表已开启'], //脚本3图表消息
     [/^(.*)Removing dark-graph.css file$/, '$1黑暗图表已关闭'], //脚本3图表消息
@@ -6901,20 +7005,19 @@ var cnRegReplace = new Map([
     [/^([\d\.]+) Trimps$/, '$1 脆皮'],
     [/^(\d+) workspace$/, '$1 工作空间'],
     [/^Spirestones: (.+) \/$/, '尖塔石头: $1 \/'],
-    [/^You see (.+) canisters of Helium left on the ground and pick them up. Useful!$/, '你看到$1的氦气罐留在地上并捡起来。 很有用！'],
     [/^(.+) workspaces$/, '$1 工作台'],
     [/^\+([\d\.]+)\% Damage$/, '\+$1\% 伤害'],
     [/^Zone (\d+), Cell$/, '区域 $1, 格子'],
     [/^Golden Battle (.+)$/, '金色战斗 $1'],
     [/^Golden Helium (.+)$/, '金色氦 $1'],
     [/^Golden Void (.+)$/, '金色虚空 $1'],
-    [/^Fire Trap ([I,V,X,L,C,D,M]+)$/, '火焰陷阱 $1'],
-    [/^Frost Trap ([I,V,X,L,C,D,M]+)$/, '冰霜陷阱 $1'],
-    [/^Strength Tower ([I,V,X,L,C,D,M]+)$/, '力量塔 $1'],
-    [/^Poison Trap ([I,V,X,L,C,D,M]+)$/, '剧毒陷阱 $1'],
-    [/^Lightning Trap ([I,V,X,L,C,D,M]+)$/, '闪电陷阱 $1'],
-    [/^Condenser Tower ([I,V,X,L,C,D,M]+)$/, '冷凝塔 $1'],
-    [/^Knowledge Tower ([I,V,X,L,C,D,M]+)$/, '知识塔 $1'],
+    [/^Fire Trap ([IVXLCDM]+)$/, '火焰陷阱 $1'],
+    [/^Frost Trap ([IVXLCDM]+)$/, '冰霜陷阱 $1'],
+    [/^Strength Tower ([IVXLCDM]+)$/, '力量塔 $1'],
+    [/^Poison Trap ([IVXLCDM]+)$/, '剧毒陷阱 $1'],
+    [/^Lightning Trap ([IVXLCDM]+)$/, '闪电陷阱 $1'],
+    [/^Condenser Tower ([IVXLCDM]+)$/, '冷凝塔 $1'],
+    [/^Knowledge Tower ([IVXLCDM]+)$/, '知识塔 $1'],
 	[/^You have spent (.+) Helium on this Perk$/, '你已经花费 $1 氦在这个附带特权上'],
 	[/^You have been in this Zone for (\d+) mins$/, '你已经在该区域待了$1分钟'],
 	[/^You found (.+) Dark Essence!$/, '你找到了$1黑暗精华'],
@@ -6938,6 +7041,5 @@ var cnRegReplace = new Map([
 	[/^Gain (.+) more resources from gathering$/, '收集获得的资源增加$1'],
 	[/^(.+) of Bad Guys in the first (\d+) rows of the World will be mutated into Mutimps.$/, '世界前$2行的敌人有$1概率突变为Mutimps'],
 	[/^A building where your Trimps can work out. Each Gym increases the amount of damage each trimp can block by (.+) and increases the base block of all Gyms by 15% \(compounding\).$/, '一个你可以锻炼脆皮的建筑。每个健身房都可以增加每个脆皮$1格挡的伤害量，并且提高所有健身房15%(复合)基础格挡'],
-	[/^(\d+)% Map Bonus$/, '$1% 地图奖励'],
 	[/^(\d+) remaining enemy?(ies)? in your current Zone are holding Dark Essence. Your current enemy at this Zone would be worth (.+) Essence if it were holding any.$/, '当前区域剩余 $1 敌人拥有黑暗精华。如果当前敌人拥有黑暗精华，它会掉落 $3'],
 ]);
