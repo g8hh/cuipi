@@ -84,6 +84,7 @@ var cnItems = {
     'Configure AutoEquip': '自动装备设置',
     'Respec Masteries': '专精洗点',
     'Respec (': '洗点(',
+    'Confirm Respec Masteries': '确认专精洗点',
     'Your next mastery costs': '下一个专精花费',
     'No Formation': '无阵型',
     'Clear your formations, return to normal stats, and derp around the battlefield. (Hotkeys: X or': '取消阵型，恢复正常状态，在战场上瞎转悠。(快捷键： X 或',
@@ -136,6 +137,12 @@ var cnItems = {
     'Healthy and Tough': '健康坚韧',
     'Void Corruption': '虚空腐化',
     'Map Corruption': '地图腐化',
+    'Superheated': '过热',
+    'This Omnipotrimp is Superheated, and will explode on death.': '此全能者过热了，死亡时会发生爆炸。',
+    'Pierce': '格挡穿透',
+    'Fast': '快速',
+    'This Bad Guy is fast and attacks first': '此敌人速度很快，永远抢先攻击',
+    'This Bad Guy is electric and stacks a debuff on your Trimps': '此敌人带电，会对您的脆皮施加减益',
     'AutoFight On': '开启自动战斗',
     'AutoFight Off': '关闭自动战斗',
     'Maps': '地图',
@@ -843,7 +850,8 @@ var cnItems = {
     'Melting Point': '熔点',
     'Coordination': '协作',
     'Blockmaster': '格挡大师',
-	'Egg': '蛋',
+    'Egg': '蛋',
+    'Doom': '末日神殿',
     'Trimple Of Doom': '末日神殿',
     'Tricky Paradise': '整蛊天堂',
     //世界解锁相关结束
@@ -875,7 +883,7 @@ var cnItems = {
     'Portal': '传送门',
     'Prismalicious': '优质棱镜',
     'Shieldblock': '盾牌格挡',
-	'Bounty': '赏金',
+    'Bounty': '赏金',
     'Supershield': '超级盾牌',
     'Dagadder': '诗歌匕首',
     'Bootboost': '增速靴',
@@ -2006,7 +2014,7 @@ var cnItems = {
     'Rename': '重命名',
     'Export': '导出',
     'Import': '导入',
-	'Less Info': '简略信息',
+    'Less Info': '简略信息',
     'More Info': '详细信息',
     'Remove': '移除',
     '% bonus': '%加成',
@@ -2124,7 +2132,7 @@ var cnItems = {
     'The daily challenge has changed since you looked at it. The challenge description has been refreshed, click Activate Portal to run it!': '在您查看的时候，日常挑战已经变了。挑战描述已经更新，点击激活传送门来进行挑战！',
     'You will unlock this challenge once you reach Zone': '欲解锁此挑战，您需要到达区域',
     'You will unlock this challenge once you  reach Zone': '欲解锁此挑战，您需要到达区域',
-	'Daily': '日常',
+    'Daily': '日常',
     'Discipline': '纪律',
     'Tweak the portal to bring you back to a universe where Trimps are less disciplined, in order to teach you how to be a better Trimp trainer. Your Trimps\' minimum damage will be drastically lower, but their high end damage will be considerably higher. Completing The Dimension Of Anger will cause Trimp damage to return to normal.': '调节传送门，将您带到一个脆皮不那么有纪律的宇宙。在那里可以学习如何成为一个更好的脆皮训练师。您的脆皮最低伤害将大大降低，但最高伤害也会大大增加。通过愤怒维度地图后，脆皮的伤害将恢复正常。',
     'Tweak the portal to bring you back to a universe where Trimps are less disciplined, in order to teach you how to be a better Trimp trainer. Your Trimps\' minimum damage will be drastically lower, but their high end damage will be considerably higher.': '调节传送门，将您带到一个脆皮不那么有纪律的宇宙。在那里可以学习如何成为一个更好的脆皮训练师。您的脆皮最低伤害将大大降低，但最高伤害也会大大增加。',
@@ -2148,7 +2156,7 @@ var cnItems = {
     'You have the Size challenge active. "Tweak the portal to bring you to an alternate reality, where Trimps are bigger and stronger, to force yourself to figure out a way to build larger housing. Your Trimps will gather 50% more resources, but your housing will fit 50% fewer Trimps."': '您目前正在进行尺寸挑战。调节传送门，将您带到一个脆皮更大更强壮的异世界中。在那里可以学习如何建造更大的房屋。脆皮可以多获取50%的资源，但住房少容纳50%的脆皮。',
     'Balance': '平衡',
     'Your scientists have discovered a chaotic dimension filled with helium. All enemies have 100% more health, enemies in world deal 17% more damage, and enemies in maps deal 135% more damage. Starting at Zone 6, every time an enemy in the world is slain you will gain a stack of \'Unbalance\'. Every time an enemy in a map is slain, you will lose a stack of Unbalance. Each stack of Unbalance reduces your health by 1%, but increases your Trimps\' gathering speed by 1%. Unbalance can only stack to 250. Completing': '您的科学家发现了一个充满氦的混沌维度。所有敌人生命值增加100%，世界上的敌人多造成17%伤害，地图中的敌人增加135%伤害。从区域6开始，每在世界上杀死一名敌人，您获得一层“不平衡”。而每在地图中杀死一名敌人，您失去一层“不平衡”。每层不平衡减少1%生命值，但增加脆皮1%资源获取速度。不平衡最高叠加到250层。在此挑战激活的前提下通过 ',
-	'Zone': '区域',
+    'Zone': '区域',
     'with this challenge active will grant an additional 100% of all helium earned up to that point. This challenge is repeatable!': '后，可额外获得氦，数值等于本次挑战完成前氦获取量的100%。此挑战可重复完成！',
     'Your scientists have discovered a chaotic dimension filled with unharvestable but pretty helium. All enemies have 100% more health, enemies in world deal 17% more damage, and enemies in maps deal 135% more damage. Starting at Zone 6, every time an enemy in the world is slain you will gain a stack of \'Unbalance\'. Every time an enemy in a map is slain, you will lose a stack of Unbalance. Each stack of Unbalance reduces your health by 1%, but increases your Trimps\' gathering speed by 1%. Unbalance can only stack to 250.': '您的科学家发现了一个充满了氦的混沌维度，这个维度中的氦虽然量很大，但无法收集。所有敌人生命值增加100%，世界上的敌人多造成17%伤害，地图中的敌人增加135%伤害。从区域6开始，每在世界上杀死一名敌人，您获得一层“不平衡”。而每在地图中杀死一名敌人，您失去一层“不平衡”。每层不平衡减少1%生命值，但增加脆皮1%资源获取速度。不平衡最高叠加到250层。',
     'You have the Balance challenge active. Your scientists have discovered a chaotic dimension filled with helium. All enemies have 100% more health, enemies in world deal 17% more damage, and enemies in maps deal 135% more damage. Starting at Zone 6, every time an enemy in the world is slain you will gain a stack of \'Unbalance\'. Every time an enemy in a map is slain, you will lose a stack of Unbalance. Each stack of Unbalance reduces your health by 1%, but increases your Trimps\' gathering speed by 1%. Unbalance can only stack to 250. Completing': '您目前正在进行平衡挑战。您的科学家发现了一个充满氦的混沌维度。所有敌人生命值增加100%，世界上的敌人多造成17%伤害，地图中的敌人增加135%伤害。从区域6开始，每在世界上杀死一名敌人，您获得一层“不平衡”。而每在地图中杀死一名敌人，您失去一层“不平衡”。每层不平衡减少1%生命值，但增加脆皮1%资源获取速度。不平衡最高叠加到250层。在此挑战激活的前提下通过 ',
@@ -2164,7 +2172,7 @@ var cnItems = {
     'all enemy damage will be 10X higher': '所有敌人的攻击力变为10倍',
     '. Choose your upgrades wisely! Clearing': '。仔细选择您的研究！通过 ',
     'science but will be unable to research or hire scientists. Choose your upgrades wisely! Clearing': '科学点开始，但无法研究或者雇佣科学家。仔细选择您的研究！在此挑战激活的前提下通过 ',
-	'\'The Block\' (': '障碍区地图(',
+    '\'The Block\' (': '障碍区地图(',
     'with this challenge active will cause you to start with 5000 Science, 100 Food, 100 Wood, 10 Traps, and 1 Foreman each time you use your portal.': '将使您每次使用传送门后，以5000科学点，100食物，100木头，10陷阱，以及1工头的状态开始游戏。',
     'with this challenge active will cause you to start with 5 Barns, 5 Sheds, 5 Forges, and T2 Equipment unlocked each time you use your portal.': '将使您每次使用传送门后，以5谷仓、5窝棚、5锻造厂，且解锁2级装备的状态开始游戏。',
     'with this challenge active will cause you to start with full Trimps and 200% player efficiency each time you use your portal.': '将使您每次使用传送门后，以满人口脆皮，200%玩家效率的状态开始游戏。',
@@ -2182,17 +2190,17 @@ var cnItems = {
     'Meditate': '冥想',
     'Visit a dimension where everything is stronger, in an attempt to learn how to better train your Trimps. All enemies will have +100% health and +50% attack, but your Trimps will gather 25% faster. Completing': '进入一个敌人更加强大的维度来学习如何更好地训练脆皮。所有的敌人生命值增加100%，攻击力增加50%，但脆皮的资源获取速度也会提高25%。通过 ',
     '\'Trimple of Doom\' (': '末日神殿地图(',
-	'will return the world to normal.': '后世界将回归正常。',
+    'will return the world to normal.': '后世界将回归正常。',
     'Visit a dimension where everything is stronger, in an attempt to learn how to better train your Trimps. All enemies will have +100% health and +50% attack, but your Trimps will gather 25% faster.': '进入一个敌人更加强大的维度来学习如何更好地训练脆皮。所有的敌人生命值增加100%，攻击力增加50%，但脆皮的资源获取速度也会提高25%。',
     'You have the Meditate challenge active. Visit a dimension where everything is stronger, in an attempt to learn how to better train your Trimps. All enemies will have +100% health and +50% attack, but your Trimps will gather 25% faster. Completing': '您目前正在进行冥想挑战。进入一个敌人更加强大的维度来学习如何更好地训练脆皮。所有的敌人生命值增加100%，攻击力增加50%，但脆皮的资源获取速度也会提高25%。通过 ',
     'You have the Meditate challenge active. Visit a dimension where everything is stronger, in an attempt to learn how to better train your Trimps. All enemies will have +100% health and +50% attack, but your Trimps will gather 25% faster.': '您目前正在进行冥想挑战。进入一个敌人更加强大的维度来学习如何更好地训练脆皮。所有的敌人生命值增加100%，攻击力增加50%，但脆皮的资源获取速度也会提高25%。',
     'Decay': '衰变',
     'Tweak the portal to bring you to an alternate reality, where added chaos will help you learn to create a peaceful place. You will gain 10x loot (excluding helium), 10x gathering, and 5x Trimp attack, but a stack of Decay will accumulate every second. Each stack of Decay reduces loot, gathering, and Trimp attack by 0.5% of the current amount. These stacks reset each time a Blimp is killed and cap at 999. Completing': '调节传送门，将您带到一个更混乱的异世界中。在那里可以学习如何创造一个更安宁的环境。您的战利品获取量变为10倍(氦除外)，资源获取速度变为10倍，且脆皮的攻击力变为5倍，但每秒都会增加一层“衰变”。每层衰变将战利品获取量、资源获取速度和脆皮攻击力减少当前数量的0.5%。当杀死每个区域最后的脆皮飞艇时层数重置，层数最高为999。在此挑战激活的前提下通过 ',
-	'with this challenge active will allow you to select the Gardens biome when creating maps, and all future Gardens maps created will gain +25% loot.': '将使您可以在制造地图时选择花园生物群落，且后续所有花园地图战利品获取量增加25%。',
+    'with this challenge active will allow you to select the Gardens biome when creating maps, and all future Gardens maps created will gain +25% loot.': '将使您可以在制造地图时选择花园生物群落，且后续所有花园地图战利品获取量增加25%。',
     'You have the Decay challenge active. Tweak the portal to bring you to an alternate reality, where added chaos will help you learn to create a peaceful place. You will gain 10x loot (excluding helium), 10x gathering, and 5x Trimp attack, but a stack of Decay will accumulate every second. Each stack of Decay reduces loot, gathering, and Trimp attack by 0.5% of the current amount. These stacks reset each time a Blimp is killed and cap at 999. Completing': '您目前正在进行衰变挑战。调节传送门，将您带到一个更混乱的异世界中。在那里可以学习如何创造一个更安宁的环境。您的战利品获取量变为10倍(氦除外)，资源获取速度变为10倍，且脆皮的攻击力变为5倍，但每秒都会增加一层“衰变”。每层衰变将战利品获取量、资源获取速度和脆皮攻击力减少当前数量的0.5%。当杀死每个区域最后的脆皮飞艇时层数重置，衰变最高为999层。在此挑战激活的前提下通过 ',
     'Trimp': '脆皮',
     'Tweak the portal to bring you to a dimension where Trimps explode if more than 1 fights at a time. You will not be able to learn Coordination, but completing': '调节传送门，将您带到一个脆皮只能单打独斗的维度中。您将无法研究协作，但通过 ',
-	'will teach you how to keep your Trimps alive for much longer.': '后可以学会如何让脆皮存活更久。',
+    'will teach you how to keep your Trimps alive for much longer.': '后可以学会如何让脆皮存活更久。',
     'Tweak the portal to bring you to a dimension where Trimps explode if more than 1 fights at a time. You will not be able to learn Coordination.': '调节传送门，将您带到一个脆皮只能单打独斗的维度中。您将无法研究协作。',
     'Trimp Challenge!': '脆皮挑战！',
     'Trimps': '脆皮们',
@@ -2209,31 +2217,31 @@ var cnItems = {
     'You have the Trapper challenge active. Travel to a dimension where Trimps refuse to breed in captivity, teaching yourself new ways to take advantage of situations where breed rate is low. Clearing': '您目前正在进行捕手挑战。前往一个被抓住的脆皮拒绝繁殖的维度。在那里可以学习如何利用低繁殖率做些什么。在此挑战激活的前提下通过 ',
     'You have the Trapper challenge active. "Travel to a dimension where Trimps refuse to breed in captivity, good luck!"': '您目前正在进行捕手挑战。前往一个被抓住的脆皮拒绝繁殖的维度，祝您好运！',
     'Electricity': '电流',
-	'Use the keys you found in the Prison to bring your portal to an extremely dangerous dimension. In this dimension enemies will electrocute your Trimps, stacking a debuff with each attack that damages Trimps for 10% of total health per turn per stack, and reduces Trimp attack by 10% per stack. Clearing': '使用监狱地图中找到的钥匙，可以将您的传送门导向一个极端危险的维度。此维度中，敌人会电击您的脆皮，每次攻击给它们叠加一层“触电”。每层触电每轮对脆皮造成生命值上限10%的伤害，并且降低脆皮10%攻击力。通过 ',
-	'\'The Prison\' (': '监狱地图 (',
-	'will reward you with an additional 200% of all helium earned up to but not including Zone 80. This is repeatable!': '后，可额外获得氦，数值等于本次挑战完成前氦获取量的200%(不包含区域80获取的)。此挑战可重复完成！',
+    'Use the keys you found in the Prison to bring your portal to an extremely dangerous dimension. In this dimension enemies will electrocute your Trimps, stacking a debuff with each attack that damages Trimps for 10% of total health per turn per stack, and reduces Trimp attack by 10% per stack. Clearing': '使用监狱地图中找到的钥匙，可以将您的传送门导向一个极端危险的维度。此维度中，敌人会电击您的脆皮，每次攻击给它们叠加一层“触电”。每层触电每轮对脆皮造成生命值上限10%的伤害，并且降低脆皮10%攻击力。通过 ',
+    '\'The Prison\' (': '监狱地图 (',
+    'will reward you with an additional 200% of all helium earned up to but not including Zone 80. This is repeatable!': '后，可额外获得氦，数值等于本次挑战完成前氦获取量的200%(不包含区域80获取的)。此挑战可重复完成！',
     'Use the keys you found in the Prison to bring your portal to an extremely dangerous dimension. In this dimension enemies will electrocute your Trimps, stacking a debuff with each attack that damages Trimps for 10% of total health per turn per stack, and reduces Trimp attack by 10% per stack.': '使用监狱地图中找到的钥匙，可以将您的传送门导向一个极端危险的维度。此维度中，敌人会电击您的脆皮，每次攻击给它们叠加一层“触电”。每层触电每轮对脆皮造成生命值上限10%的伤害，并且降低脆皮10%攻击力。',
     'You will unlock this challenge once you clear \'The Prison\' at Zone': '欲解锁此挑战，您需要通过监狱地图，它在区域',
     'You have the Electricity challenge active. Use the keys you found in the Prison to bring your portal to an extremely dangerous dimension. In this dimension enemies will electrocute your Trimps, stacking a debuff with each attack that damages Trimps for 10% of total health per turn per stack, and reduces Trimp attack by 10% per stack. Clearing': '您目前正在进行电流挑战。使用监狱地图中找到的钥匙，可以将您的传送门导向一个极端危险的维度。此维度中，敌人会电击您的脆皮，每次攻击给它们叠加一层“触电”。每层触电每轮对脆皮造成生命值上限10%的伤害，并且降低脆皮10%攻击力。通过 ',
     'You have the Electricity challenge active. "Use the keys you found in the Prison to bring your portal to an extremely dangerous dimension. In this dimension enemies will electrocute your Trimps, stacking a debuff with each attack that damages Trimps for 10% of total health per turn per stack, and reduces Trimp attack by 10% per stack."': '您目前正在进行电流挑战。使用监狱地图中找到的钥匙，可以将您的传送门导向一个极端危险的维度。此维度中，敌人会电击您的脆皮，每次攻击给它们叠加一层“触电”。每层触电每轮对脆皮造成生命值上限10%的伤害，并且降低脆皮10%攻击力。',
     'Frugal': '节俭',
     'Bring yourself to a dimension where Equipment is cheap but unable to be prestiged, in order to teach yourself better resource and equipment management. Completing': '将您带到一个装备更便宜但无法重铸的维度。在那里可以学习如何更好管理资源和装备。在此挑战激活的前提下通过 ',
-	'\'Dimension of Anger\' (': '愤怒维度地图 (',
-	'with this challenge active will return missing books to maps, and your new skills in Frugality will permanently cause MegaBooks to increase gather speed by 60% instead of 50%.': '后可重新获得重铸升级，且您新学会的节俭能力可以永久将超级升级由原来的资源获取速度提升50%变为资源获取速度提升60%。',
+    '\'Dimension of Anger\' (': '愤怒维度地图 (',
+    'with this challenge active will return missing books to maps, and your new skills in Frugality will permanently cause MegaBooks to increase gather speed by 60% instead of 50%.': '后可重新获得重铸升级，且您新学会的节俭能力可以永久将超级升级由原来的资源获取速度提升50%变为资源获取速度提升60%。',
     'You have the Frugal challenge active. Bring yourself to a dimension where Equipment is cheap but unable to be prestiged, in order to teach yourself better resource and equipment management. Completing': '您目前正在进行节俭挑战。将您带到一个装备更便宜但无法重铸的维度。在那里可以学习如何更好管理资源和装备。在此挑战激活的前提下通过 ',
     'Life': '生命',
-	'Explore a dimension that is normally populated by the Undead, but is currently plagued by a quickly moving virus that can bring things back to life. All enemies in this dimension have 500% extra attack and 1000% extra health. Attacking a normal undead enemy gives your Trimps 1 stack of Unliving, which increases Trimp attack and health by 10% (additive) per stack. Trimps can have a maximum of 150 stacks of Unliving, and attacking a Living enemy will remove 5 stacks of Unliving. Completing': '探索一个亡灵盘据的维度，最近此维度一种能够令亡灵复生的病毒正快速传播中。此维度中的所有敌人生命值增加1000%，攻击力增加500%。攻击一个普通的亡灵敌人可以使您的脆皮获得一层“亡灵化”，每层可以使脆皮的攻击力和生命值增加10%(相互叠加)。亡灵化最高为150层。攻击一个非亡灵的敌人将失去5层“亡灵化”。通过 ',
-	'will reward you with an additional 400% of all helium earned up to that point. This is repeatable!': '后，可额外获得氦，数值等于本次挑战完成前氦获取量的400%。此挑战可重复完成！',
+    'Explore a dimension that is normally populated by the Undead, but is currently plagued by a quickly moving virus that can bring things back to life. All enemies in this dimension have 500% extra attack and 1000% extra health. Attacking a normal undead enemy gives your Trimps 1 stack of Unliving, which increases Trimp attack and health by 10% (additive) per stack. Trimps can have a maximum of 150 stacks of Unliving, and attacking a Living enemy will remove 5 stacks of Unliving. Completing': '探索一个亡灵盘据的维度，最近此维度一种能够令亡灵复生的病毒正快速传播中。此维度中的所有敌人生命值增加1000%，攻击力增加500%。攻击一个普通的亡灵敌人可以使您的脆皮获得一层“亡灵化”，每层可以使脆皮的攻击力和生命值增加10%(相互叠加)。亡灵化最高为150层。攻击一个非亡灵的敌人将失去5层“亡灵化”。通过 ',
+    'will reward you with an additional 400% of all helium earned up to that point. This is repeatable!': '后，可额外获得氦，数值等于本次挑战完成前氦获取量的400%。此挑战可重复完成！',
     'You have the Life challenge active. Explore a dimension that is normally populated by the Undead, but is currently plagued by a quickly moving virus that can bring things back to life. All enemies in this dimension have 500% extra attack and 1000% extra health. Attacking a normal undead enemy gives your Trimps 1 stack of Unliving, which increases Trimp attack and health by 10% (additive) per stack. Trimps can have a maximum of 150 stacks of Unliving, and attacking a Living enemy will remove 5 stacks of Unliving. Completing': '您目前正在进行生命挑战。探索一个亡灵盘据的维度，最近此维度一种能够令亡灵复生的病毒正快速传播中。此维度中的所有敌人生命值增加1000%，攻击力增加500%。攻击一个普通的亡灵敌人可以使您的脆皮获得一层“亡灵化”，每层可以使脆皮的攻击力和生命值增加10%(相互叠加)。亡灵化最高为150层。攻击一个非亡灵的敌人将失去5层“亡灵化”。通过 ',
     'Mapocalypse': '天启地图',
     'Experience a slightly distorted version of the \'Electricity\' dimension, to help understand the relationship between maps and the world. Everything will work exactly the same as Electricity, but all maps will have an extra 300% difficulty. Clearing': '体验一个轻微扭曲的“电流”维度。在那里可以更好理解地图与世界之间的关系。除了所有地图难度增加300%以外，大部分规则与电流挑战相同。通过 ',
-	'will cause the world to return to normal. You': '后世界将恢复原样。您同时 ',
-	'will': '可以',
-	'receive the Helium reward from Electricity.': '获得电流挑战中的氦奖励。',
+    'will cause the world to return to normal. You': '后世界将恢复原样。您同时 ',
+    'will': '可以',
+    'receive the Helium reward from Electricity.': '获得电流挑战中的氦奖励。',
     'You have the Mapocalypse challenge active. Experience a slightly distorted version of the \'Electricity\' dimension, to help understand the relationship between maps and the world. Everything will work exactly the same as Electricity, but all maps will have an extra 300% difficulty. Clearing': '您目前正在进行天启地图挑战。体验一个轻微扭曲的“电流”维度。在那里可以更好理解地图与世界之间的关系。除了所有地图难度增加300%以外，大部分规则与电流挑战相同。通过 ',
     'Coordinate': '协同',
-	'Visit a dimension where Bad Guys are Coordinated but never fast, to allow you to study naturally evolved Coordination. Completing': '造访一个敌人协同作战但没有快速效果的维度。在那里可以研究自然进化出的协作是什么样的。在此挑战激活的前提下通过 ',
-	'with this challenge active will cause all enemies to lose their Coordination.': '后，敌人将失去协作效果。',
+    'Visit a dimension where Bad Guys are Coordinated but never fast, to allow you to study naturally evolved Coordination. Completing': '造访一个敌人协同作战但没有快速效果的维度。在那里可以研究自然进化出的协作是什么样的。在此挑战激活的前提下通过 ',
+    'with this challenge active will cause all enemies to lose their Coordination.': '后，敌人将失去协作效果。',
     'Visit a dimension where Bad Guys are Coordinated but never fast, chip \'em down!': '造访一个敌人协同作战但没有快速效果的维度。嫩死他们！',
     'You have the Coordinate challenge active. Visit a dimension where Bad Guys are Coordinated but never fast, to allow you to study naturally evolved Coordination. Completing': '您目前正在进行协同挑战。造访一个敌人协同作战但没有快速效果的维度。在那里可以研究自然进化出的协作是什么样的。在此挑战激活的前提下通过 ',
     'You have the Coordinate challenge active. "Visit a dimension where Bad Guys are Coordinated but never fast, chip \'em down!"': '您目前正在进行协同挑战。造访一个敌人协同作战但没有快速效果的维度。嫩死他们！',
@@ -2445,19 +2453,19 @@ var cnItems = {
     'You have overcome the otherworldly objective of obtaining Overkill, outstanding! Each level of this perk will allow 0.5% of your overkill damage to harm the next enemy. If this damage kills the next enemy, you will lose no time moving through that cell. Maximum of 30 levels.': '您已经获得了超凡脱俗的超杀升级，非常出色！每级可以将0.5%的溢出伤害用来攻击下个敌人。如果下个敌人被此伤害击杀，那么您就可以直接通过该格子了。最高30级。',
     'Resourceful': '足智多谋',
     'Spending time with limited maps has taught you how to be more resourceful. Each level will allow you to spend 5% fewer resources': '经历过只能制造有限的地图以后，您学会了如何变得更加足智多谋。每级可以让所有建筑 ',
-	'per level on all structures.': '少花费5%的资源。',
+    'per level on all structures.': '少花费5%的资源。',
     'Coordinated': '协同', //包括成就描述
     'Use knowledge gained while studying Coordinated Bad Guys to reduce the amount of Trimps required per level of Coordination by': '通过研究协同作战的敌人，您明白了如何减少协作升级所需的脆皮。每级可以将协作升级所需的脆皮数量减少',
-	'of current amount (compounding': '(叠乘',
-	'while keeping the stat bonus the same.': '同时协作的加成不变。',
-	'Siphonology': '虹吸学',
+    'of current amount (compounding': '(叠乘',
+    'while keeping the stat bonus the same.': '同时协作的加成不变。',
+    'Siphonology': '虹吸学',
     'Use strategies discovered in alternate dimensions to siphon Map Bonus Damage stacks from lower level maps. For each level of Siphonology, you will earn stacks from maps one level lower than your current Zone number. Maximum of 3 levels.': '在其他维度中，您找到了从更低级的地图中虹吸地图奖励的方法。每级虹吸学可以从比当前区域低1级的地图中获取地图奖励。最高3级。',
     'Anticipation': '预期',
-	'Resilience': '弹性',
+    'Resilience': '弹性',
     'Use your acquired skills in Trimp strengthening to gain a': '利用您的脆皮强化技能，使脆皮生命值每级增加',
-	'compounding': '(效果叠乘)',
-	'increase to total Trimp health.': '。',
-	'Meditation': '冥想',
+    'compounding': '(效果叠乘)',
+    'increase to total Trimp health.': '。',
+    'Meditation': '冥想',
     'Your experiences in the Dimension of Strong Things have taught you the value of taking your time. Every level of Meditation will increase your Trimps\' gather speed by 1% for every 10 minutes spent on the same Zone, up to 1 hour, even when offline. This bonus is reset after clearing the current Zone. Maximum of 7 levels.': '经历过那个敌人强化的维度后，您明白了慢条斯理的价值。每在同一个区域停留10分钟，每级冥想就可以使脆皮的资源获取速度增加1%。此加成时间上限1小时，离线生效。通过当前区域后此加成重置。最高7级。',
     'Relentlessness': '无情',
     'You\'ve seen too many Trimps fall, it\'s time for more aggressive training. Bringing back these memories will cause your Trimps to gain a 5% chance to critically strike for +130% damage at level 1, and they will gain an additional 5% crit chance and 30% crit damage per level. Maximum of 10 levels.': '您见过太多脆皮死去了，应该让它们进行更积极的训练。带回这些记忆后，脆皮在第1级可以获得5%暴击率，暴击伤害增加130%，且此后每级增加5%暴击率，暴击伤害30%。最高10级。',
@@ -2473,18 +2481,18 @@ var cnItems = {
     'When your Critical Strikes just aren\'t doing enough, try Criticality! Each level increases your Trimps\' Critical Strike Damage by 10% (additive).': '觉得暴击伤害不够看？试试暴击限界吧！每级提升脆皮10%的暴击伤害(相互叠加)。',
     'Equality': '平等',
     'Produce a Calming Aura from your Portal Device, reducing the Attack of Bad Guys AND Trimps by 10% (compounding). You can enable Equality Scaling, which causes Equality to start inactive and gain one level each time your Trimps die up to your purchased Perk level.': '用传送门装置发出一个镇静力场，同时减少脆皮和敌人10%的攻击力(相互叠乘)。您也可以激活平等缩放，激活后，平等在一开始不生效，而脆皮每阵亡一次，平等效果增加一级，最高等于您的平等特权等级。',
-	'Carpentry': '木工',
+    'Carpentry': '木工',
     'You\'ve built quite a few houses and you\'re getting pretty good at it. Bringing your expertise in construction back through the portal will allow you to house 10% more Trimps per level': '您已经建了很多房子，干这事您已经很熟练了。之前建造的心得使您每级可以比上一级多容纳10%的脆皮',
-	'than the current amount (compounds': '(相互叠乘',
+    'than the current amount (compounds': '(相互叠乘',
     'Artisanistry': '手艺娴熟',
     'You\'re beginning to notice ways to make equally powerful equipment with considerably fewer resources. Bringing back these new ideas will allow you to spend 5% fewer resources': '对于如何用更少的资源制造同样强度的装备，您已经有了头绪。每级可以使您在制造装备时 ',
     'than the current cost': '比上一级',
     'per level on all equipment.': '少花费5%的资源。',
-	'Range': '范围',
+    'Range': '范围',
     'Use your new-found leadership skills in order to increase the minimum damage your Trimps deal by 2% per level. Stacks up to 10 times, doesn\'t affect max damage. At 10 levels, you will get a minimum of 100% benefit from all attack damage per strike.': '您新发现的领导技艺可以帮助提高脆皮的最低伤害。每级提高2%脆皮的最低伤害。最高10级，且不会影响最高伤害。10级时，每次攻击至少造成100%的伤害。',
     'Agility': '敏捷',
     'Crank your portal into overdrive, increasing the clock speed of the Universe. Each level reduces the time between Trimp and Bad Guy attacks by': '把您的传送门调成超速，增加宇宙中的时间流速。每级可使脆皮和敌人的攻击间隔比上一级减少',
-	'of the current time (compounds': '(相互叠乘',
+    'of the current time (compounds': '(相互叠乘',
     'Bait': '诱饵',
     'A few of these in your traps are sure to bring in extra Trimps. Each level allows traps to catch 1 extra Trimp.': '放点这些东西在陷阱里，就肯定能多抓到一些脆皮。每级使陷阱多抓1个脆皮。',
     'Trumps': '王牌',
@@ -2771,7 +2779,12 @@ var cnItems = {
     //杂项
     'AutoSave has been disabled to prevent damage to your save. If you previously had a save file, it should still be waiting for you once you fix your browser settings.': '为了保护您的存档，自动存档已被关闭。如果您之前有存档文件，在修改完设置以后应该就能恢复使用了。',
     'First Amalgamator': '第一个合并者',
-    '': '',
+    'Rare Imps: Feyimp -': '稀有脆皮：脆皮小妖 -',
+    'Rare Imps: Magnimp -': '稀有脆皮：脆皮磁王 -',
+    'Rare Imps: Tauntimp -': '稀有脆皮：脆皮咚咚 -',
+    'Rare Imps: Venimp -': '稀有脆皮：脆皮爱神 -',
+    'Rare Imps: Whipimp -': '稀有脆皮：脆皮鞭者 -',
+    'Found a ': '发现了一个',
     '': '',
     //杂项结束
     //脚本3相关
@@ -4242,9 +4255,6 @@ var cnItems = {
     'Amalgamator X': '合并者 X',
     'AutoGolden': '自动黄金升级',
     'Rename Preset': '重命名预设',
-    'Pierce': '穿透',
-    'Fast': '快速',
-    'Decay': '衰变',
     'Empowerments of Nature': '自然赋能',
     'Switch Daily': '选择日常挑战',
     'Empower': '赋能',
@@ -4285,7 +4295,6 @@ var cnItems = {
     'Trap Layout 2': '陷阱布局 2',
     'Spire Settings': '尖塔设置',
     'Food/Wood/Metal Loot Breakdown': '食物/木头/金属 劫掠明细',
-    'Confirm Respec Masteries': '确认专精洗点',
     //成就
     'Gym X10': '健身房 X10',
     'Your Email': '你的电子邮箱',
@@ -4325,7 +4334,6 @@ var cnItems = {
     'Sweet, thanks.': '甜蜜，谢谢。',
     'Base': '基础',
     'Item Health': '物品生命',
-    'Found a Skeletimp!': '找到了一个Skeletimp！',
     'AutoFight': '自动战斗',
     'Runestones per Second': '符石每秒',
     'Sell All': '全部出售',
@@ -4384,7 +4392,6 @@ var cnItems = {
     '- Log the common loot items: Food, Wood, and Metal.': '- 记录常见的战利品：食物，木材和金属。',
     '- Log the less common loot items: Gems, Fragments, Territory Bonus, and others.': '-记录不太常见的战利品：宝石，碎片，领土奖金等。',
     '- Log the rewards granted by Exotic Imports.': '-记录奇异外皮授予的奖励。',
-    'This Bad Guy is fast and attacks first': '这个坏家伙速度快并且首先攻击',
     'Buy Chronoimp (50 bones': '购买 脆皮时者（50骨头',
     'Buy Feyimp (50 bones': '购买 脆皮小妖（50骨头',
     'Buy Flutimp (50 bones': '购买 脆皮飘兽（50骨头',
@@ -4658,6 +4665,65 @@ var cnPrefix = {
     "Tricky Paradise,": "整蛊天堂，", //地图名称
     "Dimension of Anger,": "愤怒维度，", //地图名称
     "Dimension of Rage,": "暴怒维度，", //地图名称
+    "Unlocks Found:":"解锁了：", //液化者文本
+    " Bloodlust":"嗜血", //液化者文本
+    ", Bloodlust":"，嗜血", //液化者文本
+    " Miner":"矿工", //液化者文本
+    ", Miner":"，矿工", //液化者文本
+    " Scientist":"科学家", //液化者文本
+    ", Scientist":"，科学家", //液化者文本
+    " Gym":"健身房", //液化者文本
+    ", Gym":"，健身房", //液化者文本
+    " Trainer":"训练师", //液化者文本
+    ", Trainer":"，训练师", //液化者文本
+    " Blockmaster":"格挡大师", //液化者文本
+    ", Blockmaster":"，格挡大师", //液化者文本
+    " Explorer":"探险家", //液化者文本
+    ", Explorer":"，探险家", //液化者文本
+    " Egg":"蛋", //液化者文本
+    ", Egg":"，蛋", //液化者文本
+    " Anger":"愤怒", //液化者文本
+    ", Anger":"，愤怒", //液化者文本
+    " Doom":"末日神殿", //液化者文本
+    ", Doom":"，末日神殿", //液化者文本
+    " Warpstation":"跃迁核心", //液化者文本
+    ", Warpstation":"，跃迁核心", //液化者文本
+    " Dominance":"支配阵型", //液化者文本
+    ", Dominance":"，支配阵型", //液化者文本
+    " Geneticist":"遗传学家", //液化者文本
+    ", Geneticist":"，遗传学家", //液化者文本
+    " Barrier":"屏障阵型", //液化者文本
+    ", Barrier":"，屏障阵型", //液化者文本
+    " Magmamancer":"岩浆巫师", //液化者文本
+    ", Magmamancer":"，岩浆巫师", //液化者文本
+    " Efficiency":"效率", //液化者文本
+    ", Efficiency":"，效率", //液化者文本
+    " TrainTacular":"格挡提升", //液化者文本
+    ", TrainTacular":"，格挡提升", //液化者文本
+    " Gigastation":"千兆核心", //液化者文本
+    ", Gigastation":"，千兆核心", //液化者文本
+    " Potency":"繁殖效率", //液化者文本
+    ", Potency":"，繁殖效率", //液化者文本
+    " Speedscience":"研究加速", //液化者文本
+    ", Speedscience":"，研究加速", //液化者文本
+    " Megascience":"超级研究", //液化者文本
+    ", Megascience":"，超级研究", //液化者文本
+    " Gymystic":"健身学", //液化者文本
+    ", Gymystic":"，健身学", //液化者文本
+    " Speedminer":"采矿加速", //液化者文本
+    ", Speedminer":"，采矿加速", //液化者文本
+    " Megaminer":"超级采矿", //液化者文本
+    ", Megaminer":"，超级采矿", //液化者文本
+    " Speedlumber":"砍伐加速", //液化者文本
+    ", Speedlumber":"，砍伐加速", //液化者文本
+    " Megalumber":"超级砍伐", //液化者文本
+    ", Megalumber":"，超级砍伐", //液化者文本
+    " Speedfarming":"耕作加速", //液化者文本
+    ", Speedfarming":"，耕作加速", //液化者文本
+    " Megafarming":"超级耕作", //液化者文本
+    ", Megafarming":"，超级耕作", //液化者文本
+    " Coordination":"协作", //液化者文本
+    ", Coordination":"，协作", //液化者文本
     "C3s": "挑战3", //脚本3挑战设置
 }
 
@@ -5090,17 +5156,19 @@ var cnRegReplace = new Map([
     [/^All Healthy enemies currently deal (.*)X damage and have (.*)X health. In addition, this Bad Guy has an additional 7.5x health. It will also drop 45% of the helium you would normally get from completing this Zone.$/, '所有健康敌人多造成$1倍伤害，且生命值变为$2倍。另外，此敌人生命值额外增加7.5倍。另外，它还会掉落氦，数值为通过此区域所得氦的45%。'], //主界面
     [/^This map has become unstable due to Corruption. Enemy attack increased by (.*)X, and health increased by (.*)X.$/, '此地图由于腐化开始变得不稳定。敌人攻击力增加$1倍，生命值增加$2倍。'], //主界面
     [/^This Void Map has become unstable due to Corruption. Enemy attack increased by (.*)X, and health increased by (.*)X. Helium at the end of the map is now double what you would earn from a World Zone, including Corrupted cells!$/, '此虚空地图由于腐化开始变得不稳定。敌人攻击力增加$1倍，生命值增加$2倍。地图最后获取的氦是世界上最后格子以及腐化格子获取量之和的两倍！'], //主界面
+    [/^(.*)% of the damage from this Bad Guy pierces through block$/, '此敌人的$1%攻击力可以穿透格挡'], //主界面
     [/^Min (.+), Max$/, '最低 $1，最高'], //主界面
     [/^(\d+) \(Zone$/, '$1(区域'], //主界面
     [/^Essence(\s+)$/, '精华$1'], //主界面
+    [/^(.*) Affordable$/, '可升级$1个'], //主界面
     [/^Respec \((\d*) Free!$/, '洗点($1次免费！'], //主界面
     [/^([\d\s]+)Tokens$/, '$1符记'], //主界面
     [/^(\s+)Poison(\s+)$/, '$1毒$2'], //主界面
     [/^(\s+)Wind(\s+)$/, '$1风$2'], //主界面
     [/^(\s+)Ice(\s+)$/, '$1冰$2'], //主界面
     [/^Trade(?! (.*) Tokens)(.*)$/, '交易$1'], //主界面
-	[/^Spire([\sIVXLCDM]*)$/, '尖塔$1'], //主界面
-	[/^(\d+)% Map Bonus$/, '$1%地图奖励'], //主界面
+    [/^Spire([\sIVXLCDM]*)$/, '尖塔$1'], //主界面
+    [/^(\d+)% Map Bonus$/, '$1%地图奖励'], //主界面
     [/^(\s+)Fight(\s+)$/, '$1战斗$2'], //主界面
     [/^(\s+)AutoFight Off(\s+)$/, '$1关闭自动战斗$2'], //主界面
     [/^(\s+)Void Maps(\s+)$/, '$1虚空地图$2'], //主界面
@@ -5251,14 +5319,6 @@ var cnRegReplace = new Map([
     [/^(.*)You killed a Magnimp! The strong magnetic forces now increase your loot by (.*)%!$/, '$1您击杀了一个脆皮磁王！它的强大磁力使您战利品数量增加 $2% ！'], //特定敌人
     [/^(.*)Your Trimps managed to pull 1 perfectly preserved bone from that $/, '$1脆皮们获得了1块保存完好的骨头，取自'], //特定敌人
     [/^(.*)That was a pretty big Skeletimp. Your Trimps scavenged the remains and found 2 perfectly preserved bones!$/, '$1这个脆皮骷髅相当巨大。脆皮们搜寻了残骸，找到了2块保存完好的骨头！'], //特定敌人
-    [/^(.*)Oh, there seems to be an egg on the ground. You throw it really hard to break it, and find (.*) Food!$/, '$1哦，地上看起来有一个蛋。您重重地将它摔破了，发现了$1食物！'], //特定敌人
-    [/^(.*)Oh, there seems to be an egg on the ground. You throw it really hard to break it, and find (.*) Wood!$/, '$1哦，地上看起来有一个蛋。您重重地将它摔破了，发现了$1木头！'], //特定敌人
-    [/^(.*)Oh, there seems to be an egg on the ground. You throw it really hard to break it, and find (.*) Metal!$/, '$1哦，地上看起来有一个蛋。您重重地将它摔破了，发现了$1金属！'], //特定敌人
-    [/^(.*)Oh, there seems to be an egg on the ground. You throw it really hard to break it, and find (.*) Nullifium!$/, '$1哦，地上看起来有一个蛋。您重重地将它摔破了，发现了$1虚空物质！'], //特定敌人
-    [/^(.*)Oh, there seems to be an egg on the ground. You throw it really hard to break it, and find an Heirloom!$/, '$1哦，地上看起来有一个蛋。您重重地将它摔破了，发现了一个传家宝！'], //特定敌人
-    [/^(.*)Oh, there seems to be an egg on the ground. You throw it really hard to break it, and find a Void Map!$/, '$1哦，地上看起来有一个蛋。您重重地将它摔破了，发现了一张虚空地图！'], //特定敌人
-    [/^(.*)Oh, there seems to be an egg on the ground. You throw it really hard to break it, and find (.*) Radon!$/, '$1哦，地上看起来有一个蛋。您重重地将它摔破了，发现了$1氡！'], //特定敌人
-    [/^(.*)Oh, there seems to be an egg on the ground. You throw it really hard to break it, and find (.*) Helium!$/, '$1哦，地上看起来有一个蛋。您重重地将它摔破了，发现了$1氦！'], //特定敌人
     [/^(.*)Oh, there seems to be an egg on the ground. You throw it really hard to break it, and find (.*) Food!$/, '$1哦，地上看起来有一个蛋。您重重地将它摔破了，发现了$2食物！'], //特定敌人
     [/^(.*)Oh, there seems to be an egg on the ground. You throw it really hard to break it, and find (.*) Wood!$/, '$1哦，地上看起来有一个蛋。您重重地将它摔破了，发现了$2木头！'], //特定敌人
     [/^(.*)Oh, there seems to be an egg on the ground. You throw it really hard to break it, and find (.*) Metal!$/, '$1哦，地上看起来有一个蛋。您重重地将它摔破了，发现了$2金属！'], //特定敌人
@@ -5309,7 +5369,7 @@ var cnRegReplace = new Map([
     [/^(.*)Hey there's an egg up there! You send a few Trimps to retrieve it and they bring back (.*) Helium!$/, '$1哈，前面有一个蛋！您派了一些脆皮拿到了它，里面有$2氦！'], //特定敌人
     [/^A big, wooden shield. Adds (.*) health to each soldier per level.$/, '一面大木盾，每级增加每名士兵 $1 生命值。'], //装备
     [/^A big, wooden shield. Adds (.*) block to each soldier per level.$/, '一面大木盾，每级增加每名士兵 $1 格挡。'], //装备
-	[/^Better than nothing. Adds (.*) attack to each soldier per level$/, '聊胜于无。每级增加每名士兵 $1 攻击力'], //装备
+    [/^Better than nothing. Adds (.*) attack to each soldier per level$/, '聊胜于无。每级增加每名士兵 $1 攻击力'], //装备
     [/^At least their feet will be safe. Adds (.*) health to each soldier per level$/, '至少能保护到脚。每级增加每名士兵 $1 生命值'], //装备
     [/^It's kind of heavy for your Trimps, but they'll manage. Adds (.*) attack to each soldier per level$/, '对脆皮来说有点重，但它们能搞定。每级增加每名士兵 $1 攻击力'], //装备
     [/^Provides a decent amount of protection to the Trimps' heads, adding (.*) health to each soldier per level.$/, '为脆皮头部提供不错的防护，每级增加每名士兵 $1 生命值。'], //装备
@@ -5419,9 +5479,12 @@ var cnRegReplace = new Map([
     [/^(.*)Oh snap! Another unique map!$/, '$1天秀啊！又一张独特地图！'], //地图解锁等
     [/^(.*)You just made a map to The Wall!$/, '$1您制造了高墙地图！'], //地图解锁等
     [/^(.*)You just made a map to Big Wall!$/, '$1您制造了巨墙地图！'], //地图解锁等
+    [/^(.*)You just made Trimple of Doom!$/, '$1您制造了末日神殿地图！'], //地图解锁等
     [/^(.*)You found The Prison! You have a bad feeling about going in...$/, '$1您发现了监狱地图！您感觉进去后会有什么不好的事发生……'], //地图解锁等
-    [/^(.*)You just made a map to Big Wall!$/, '$1您制造了巨墙地图！'], //地图解锁等
+    [/^(.*)You just made The Prison!$/, '$1您制造了监狱地图！'], //地图解锁等
+    [/^(.*)You just made Bionic Wonderland (.*)!$/, '$1您制造了仿生仙境 $2地图！'], //地图解锁等
     [/^(.*)You found a map to an Imploding Star inside of a supercooled dimension. The temperature there is perfect!$/, '$1您在一个超冷的维度中发现了爆炸之星地图。那儿的温度刚刚好！'], //地图解锁等
+    [/^(.*)You just made Imploding Star!$/, '$1您制造了爆炸之星地图！'], //地图解锁等
     [/^(.*)You found plans for a Mansion! Your Trimps will be pretty stoked$/, '$1您发现了豪宅的蓝图！脆皮们一定会很兴奋的'], //地图解锁等
     [/^(.*)You found plans for a hotel! \(A decent hotel, too$/, '$1您发现了宾馆的蓝图！(相当棒的宾馆'], //地图解锁等
     [/^(.*)This extremely technical book will teach anyone who can understand the big words how to make bigger huts.$/, '$1这本书极其专业，可以让理解能力强大的人学会建造更大的小屋。'], //地图解锁等
@@ -5733,28 +5796,28 @@ var cnRegReplace = new Map([
     [/^([0-9a-zA-Z\.\%\s]*)Condenser Effect$/, '$1冷凝塔效果'], //传家宝
     [/^Increases the amount of Poison damage compounded by the Condenser Tower by (.*)%. Does not increase the world bonus to Trimps.$/, '将冷凝塔复合的毒伤害增加 $1% 。对冷凝塔的世界加成无影响。'], //传家宝
     [/^([0-9a-zA-Z\.\%\s]*)Metal Drop Rate$/, '$1金属掉落加成'], //传家宝
-	[/^([0-9a-zA-Z\.\%\s]*)Food Drop Rate$/, '$1食物掉落加成'], //传家宝
+    [/^([0-9a-zA-Z\.\%\s]*)Food Drop Rate$/, '$1食物掉落加成'], //传家宝
     [/^([0-9a-zA-Z\.\%\s]*)Wood Drop Rate$/, '$1木头掉落加成'], //传家宝
-	[/^([0-9a-zA-Z\.\%\s]*)Gem Drop Rate$/, '$1宝石掉落加成'], //传家宝
-	[/^([0-9a-zA-Z\.\%\s]*)Fragment Drop Rate$/, '$1碎片掉落加成'], //传家宝
-	[/^([0-9a-zA-Z\.\%\s]*)Farmer Efficiency$/, '$1农民效率'], //传家宝
-	[/^([0-9a-zA-Z\.\%\s]*)Lumberjack Efficiency$/, '$1伐木工效率'], //传家宝
-	[/^([0-9a-zA-Z\.\%\s]*)Miner Efficiency$/, '$1矿工效率'], //传家宝
-	[/^([0-9a-zA-Z\.\%\s]*)Dragimp Efficiency$/, '$1脆皮龙宝石效率'], //传家宝
-	[/^([0-9a-zA-Z\.\%\s]*)Explorer Efficiency$/, '$1探险家碎片效率'], //传家宝
-	[/^([0-9a-zA-Z\.\%\s]*)Scientist Efficiency$/, '$1科学家效率'], //传家宝
-	[/^([0-9a-zA-Z\.\%\s]*)Pet \(Fluffy\) Exp$/, '$1绒绒经验值'], //传家宝
+    [/^([0-9a-zA-Z\.\%\s]*)Gem Drop Rate$/, '$1宝石掉落加成'], //传家宝
+    [/^([0-9a-zA-Z\.\%\s]*)Fragment Drop Rate$/, '$1碎片掉落加成'], //传家宝
+    [/^([0-9a-zA-Z\.\%\s]*)Farmer Efficiency$/, '$1农民效率'], //传家宝
+    [/^([0-9a-zA-Z\.\%\s]*)Lumberjack Efficiency$/, '$1伐木工效率'], //传家宝
+    [/^([0-9a-zA-Z\.\%\s]*)Miner Efficiency$/, '$1矿工效率'], //传家宝
+    [/^([0-9a-zA-Z\.\%\s]*)Dragimp Efficiency$/, '$1脆皮龙宝石效率'], //传家宝
+    [/^([0-9a-zA-Z\.\%\s]*)Explorer Efficiency$/, '$1探险家碎片效率'], //传家宝
+    [/^([0-9a-zA-Z\.\%\s]*)Scientist Efficiency$/, '$1科学家效率'], //传家宝
+    [/^([0-9a-zA-Z\.\%\s]*)Pet \(Fluffy\) Exp$/, '$1绒绒经验值'], //传家宝
     [/^([0-9a-zA-Z\.\%\s]*)Pet \(Scruffy\) Exp$/, '$1污污经验值'], //传家宝
-	[/^([0-9a-zA-Z\.\%\s]*)Player Efficiency$/, '$1玩家效率'], //传家宝
-	[/^([0-9a-zA-Z\.\%\s]*)Trainer Efficiency$/, '$1训练师效率'], //传家宝
-	[/^([0-9a-zA-Z\.\%\s]*)Storage Size$/, '$1存储上限'], //传家宝
+    [/^([0-9a-zA-Z\.\%\s]*)Player Efficiency$/, '$1玩家效率'], //传家宝
+    [/^([0-9a-zA-Z\.\%\s]*)Trainer Efficiency$/, '$1训练师效率'], //传家宝
+    [/^([0-9a-zA-Z\.\%\s]*)Storage Size$/, '$1存储上限'], //传家宝
     [/^([0-9a-zA-Z\.\%\s]*)Breed Speed$/, '$1脆皮繁殖速度'], //传家宝
-	[/^([0-9a-zA-Z\.\%\s]*)Trimp Health$/, '$1脆皮生命值'], //传家宝
-	[/^([0-9a-zA-Z\.\%\s]*)Trimp Attack$/, '$1脆皮攻击力'], //传家宝
-	[/^([0-9a-zA-Z\.\%\s]*)Trimp Block$/, '$1脆皮格挡'], //传家宝
-	[/^([0-9a-zA-Z\.\%\s]*)Crit Damage, additive$/, '$1暴击伤害(效果叠加)'], //传家宝
-	[/^([0-9a-zA-Z\.\%\s]*)Crit Chance, additive$/, '$1暴击率(效果叠加)'], //传家宝
-	[/^([0-9a-zA-Z\.\%\s]*)Void Map Drop Chance$/, '$1虚空地图掉落概率'], //传家宝
+    [/^([0-9a-zA-Z\.\%\s]*)Trimp Health$/, '$1脆皮生命值'], //传家宝
+    [/^([0-9a-zA-Z\.\%\s]*)Trimp Attack$/, '$1脆皮攻击力'], //传家宝
+    [/^([0-9a-zA-Z\.\%\s]*)Trimp Block$/, '$1脆皮格挡'], //传家宝
+    [/^([0-9a-zA-Z\.\%\s]*)Crit Damage, additive$/, '$1暴击伤害(效果叠加)'], //传家宝
+    [/^([0-9a-zA-Z\.\%\s]*)Crit Chance, additive$/, '$1暴击率(效果叠加)'], //传家宝
+    [/^([0-9a-zA-Z\.\%\s]*)Void Map Drop Chance$/, '$1虚空地图掉落概率'], //传家宝
     [/^([0-9a-zA-Z\.\%\s]*)Plaguebringer$/, '$1瘟疫使者效果'], //传家宝
     [/^(.*)% of all non-lethal damage and nature stacks you afflict on your current enemy are copied onto the next enemy. Plaguebringer damage cannot bring an enemy below 5% health, but nature stacks will continue to accumulate.$/, '将对目前敌人造成的所有非致命伤害及累积的三种自然层数的 $1% 对下一个敌人生效。瘟疫使者的伤害效果无法将敌人的生命值降到5%以下，但自然层数无限制。'], //传家宝
     [/^(?!Item)([0-9a-zA-Z\.\%\s]*)Prismatic Shield$/, '$1棱镜护盾'], //传家宝
@@ -5762,10 +5825,10 @@ var cnRegReplace = new Map([
     [/^Each attack by your Trimps adds 1 stack of Charging. When Charging reaches 5 stacks, your Trimps will release a burst of energy, dealing (.*)% of their attack damage. Stacks reset after releasing a Burst or when your Trimps die.$/, '脆皮每次攻击时增加1层“蓄能”。当蓄能层数到达5层时，脆皮将释放积蓄的能量，对敌人造成 $1% 攻击力的伤害。当能量释放或者脆皮死亡后，层数重置。'], //传家宝
     [/^Add \((.+) Nu$/, '新增($1虚空物质'], //传家宝
     [/^Add \((.+) Ss$/, '新增($1尖塔石头'], //传家宝
-	[/^Replace \((.+) Nu$/, '替换($1虚空物质'], //传家宝
-	[/^Replace \((.+) Ss$/, '替换($1尖塔石头'], //传家宝
-	[/^(.+) Nu$/, '$1虚空物质'], //传家宝
-	[/^(.+) Ss$/, '$1尖塔石头'], //传家宝
+    [/^Replace \((.+) Nu$/, '替换($1虚空物质'], //传家宝
+    [/^Replace \((.+) Ss$/, '替换($1尖塔石头'], //传家宝
+    [/^(.+) Nu$/, '$1虚空物质'], //传家宝
+    [/^(.+) Ss$/, '$1尖塔石头'], //传家宝
     [/^You are about to upgrade Fire Trap Damage for (.*) Spirestones. Are you sure\?$/, '您将花费$1尖塔石头升级火焰陷阱伤害。您确定要这么做吗？'], //传家宝
     [/^You are about to upgrade Poison Trap Damage for (.*) Spirestones. Are you sure\?$/, '您将花费$1尖塔石头升级剧毒陷阱伤害。您确定要这么做吗？'], //传家宝
     [/^You are about to upgrade Lightning Trap Damage for (.*) Spirestones. Are you sure\?$/, '您将花费$1尖塔石头升级闪电陷阱伤害。您确定要这么做吗？'], //传家宝
@@ -5773,28 +5836,28 @@ var cnRegReplace = new Map([
     [/^You are about to upgrade Strength Tower Effect for (.*) Spirestones. Are you sure\?$/, '您将花费$1尖塔石头升级力量塔效果。您确定要这么做吗？'], //传家宝
     [/^You are about to upgrade Condenser Effect for (.*) Spirestones. Are you sure\?$/, '您将花费$1尖塔石头升级冷凝塔效果。您确定要这么做吗？'], //传家宝
     [/^You are about to upgrade Metal Drop Rate for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级金属掉落加成。您确定要这么做吗？'], //传家宝
-	[/^You are about to upgrade Food Drop Rate for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级食物掉落加成。您确定要这么做吗？'], //传家宝
+    [/^You are about to upgrade Food Drop Rate for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级食物掉落加成。您确定要这么做吗？'], //传家宝
     [/^You are about to upgrade Wood Drop Rate for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级木头掉落加成。您确定要这么做吗？'], //传家宝
-	[/^You are about to upgrade Gem Drop Rate for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级宝石掉落加成。您确定要这么做吗？'], //传家宝
-	[/^You are about to upgrade Fragment Drop Rate for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级碎片掉落加成。您确定要这么做吗？'], //传家宝
-	[/^You are about to upgrade Farmer Efficiency for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级农民效率。您确定要这么做吗？'], //传家宝
-	[/^You are about to upgrade Lumberjack Efficiency for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级伐木工效率。您确定要这么做吗？'], //传家宝
-	[/^You are about to upgrade Miner Efficiency for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级矿工效率。您确定要这么做吗？'], //传家宝
-	[/^You are about to upgrade Dragimp Efficiency for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级脆皮龙宝石效率。您确定要这么做吗？'], //传家宝
-	[/^You are about to upgrade Explorer Efficiency for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级探险家碎片效率。您确定要这么做吗？'], //传家宝
-	[/^You are about to upgrade Scientist Efficiency for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级科学家效率。您确定要这么做吗？'], //传家宝
-	[/^You are about to upgrade Pet \(Fluffy\) Exp for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级绒绒经验值。您确定要这么做吗？'], //传家宝
+    [/^You are about to upgrade Gem Drop Rate for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级宝石掉落加成。您确定要这么做吗？'], //传家宝
+    [/^You are about to upgrade Fragment Drop Rate for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级碎片掉落加成。您确定要这么做吗？'], //传家宝
+    [/^You are about to upgrade Farmer Efficiency for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级农民效率。您确定要这么做吗？'], //传家宝
+    [/^You are about to upgrade Lumberjack Efficiency for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级伐木工效率。您确定要这么做吗？'], //传家宝
+    [/^You are about to upgrade Miner Efficiency for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级矿工效率。您确定要这么做吗？'], //传家宝
+    [/^You are about to upgrade Dragimp Efficiency for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级脆皮龙宝石效率。您确定要这么做吗？'], //传家宝
+    [/^You are about to upgrade Explorer Efficiency for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级探险家碎片效率。您确定要这么做吗？'], //传家宝
+    [/^You are about to upgrade Scientist Efficiency for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级科学家效率。您确定要这么做吗？'], //传家宝
+    [/^You are about to upgrade Pet \(Fluffy\) Exp for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级绒绒经验值。您确定要这么做吗？'], //传家宝
     [/^You are about to upgrade Pet \(Scruffy\) Exp for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级污污经验值。您确定要这么做吗？'], //传家宝
-	[/^You are about to upgrade Player Efficiency for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级玩家效率。您确定要这么做吗？'], //传家宝
-	[/^You are about to upgrade Trainer Efficiency for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级训练师效率。您确定要这么做吗？'], //传家宝
-	[/^You are about to upgrade Storage Size for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级存储上限。您确定要这么做吗？'], //传家宝
+    [/^You are about to upgrade Player Efficiency for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级玩家效率。您确定要这么做吗？'], //传家宝
+    [/^You are about to upgrade Trainer Efficiency for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级训练师效率。您确定要这么做吗？'], //传家宝
+    [/^You are about to upgrade Storage Size for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级存储上限。您确定要这么做吗？'], //传家宝
     [/^You are about to upgrade Breed Speed for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级脆皮繁殖速度。您确定要这么做吗？'], //传家宝
-	[/^You are about to upgrade Trimp Health for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级脆皮生命值。您确定要这么做吗？'], //传家宝
-	[/^You are about to upgrade Trimp Attack for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级脆皮攻击力。您确定要这么做吗？'], //传家宝
-	[/^You are about to upgrade Trimp Block for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级脆皮格挡。您确定要这么做吗？'], //传家宝
-	[/^You are about to upgrade Crit Damage, additive for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级暴击伤害(效果叠加)。您确定要这么做吗？'], //传家宝
-	[/^You are about to upgrade Crit Chance, additive for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级暴击率(效果叠加)。您确定要这么做吗？'], //传家宝
-	[/^You are about to upgrade Void Map Drop Chance for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级虚空地图掉落概率。您确定要这么做吗？'], //传家宝
+    [/^You are about to upgrade Trimp Health for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级脆皮生命值。您确定要这么做吗？'], //传家宝
+    [/^You are about to upgrade Trimp Attack for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级脆皮攻击力。您确定要这么做吗？'], //传家宝
+    [/^You are about to upgrade Trimp Block for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级脆皮格挡。您确定要这么做吗？'], //传家宝
+    [/^You are about to upgrade Crit Damage, additive for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级暴击伤害(效果叠加)。您确定要这么做吗？'], //传家宝
+    [/^You are about to upgrade Crit Chance, additive for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级暴击率(效果叠加)。您确定要这么做吗？'], //传家宝
+    [/^You are about to upgrade Void Map Drop Chance for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级虚空地图掉落概率。您确定要这么做吗？'], //传家宝
     [/^You are about to upgrade Plaguebringer for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级瘟疫使者效果。您确定要这么做吗？'], //传家宝
     [/^You are about to upgrade Fire Trap Damage 10 times for (.*) Spirestones. Are you sure\?$/, '您将花费$1尖塔石头升级10次火焰陷阱伤害。您确定要这么做吗？'], //传家宝
     [/^You are about to upgrade Poison Trap Damage 10 times for (.*) Spirestones. Are you sure\?$/, '您将花费$1尖塔石头升级10次剧毒陷阱伤害。您确定要这么做吗？'], //传家宝
@@ -5803,28 +5866,28 @@ var cnRegReplace = new Map([
     [/^You are about to upgrade Strength Tower Effect 10 times for (.*) Spirestones. Are you sure\?$/, '您将花费$1尖塔石头升级10次力量塔效果。您确定要这么做吗？'], //传家宝
     [/^You are about to upgrade Condenser Effect 10 times for (.*) Spirestones. Are you sure\?$/, '您将花费$1尖塔石头升级10次冷凝塔效果。您确定要这么做吗？'], //传家宝
     [/^You are about to upgrade Metal Drop Rate 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次金属掉落加成。您确定要这么做吗？'], //传家宝
-	[/^You are about to upgrade Food Drop Rate 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次食物掉落加成。您确定要这么做吗？'], //传家宝
+    [/^You are about to upgrade Food Drop Rate 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次食物掉落加成。您确定要这么做吗？'], //传家宝
     [/^You are about to upgrade Wood Drop Rate 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次木头掉落加成。您确定要这么做吗？'], //传家宝
-	[/^You are about to upgrade Gem Drop Rate 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次宝石掉落加成。您确定要这么做吗？'], //传家宝
-	[/^You are about to upgrade Fragment Drop Rate 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次碎片掉落加成。您确定要这么做吗？'], //传家宝
-	[/^You are about to upgrade Farmer Efficiency 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次农民效率。您确定要这么做吗？'], //传家宝
-	[/^You are about to upgrade Lumberjack Efficiency 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次伐木工效率。您确定要这么做吗？'], //传家宝
-	[/^You are about to upgrade Miner Efficiency 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次矿工效率。您确定要这么做吗？'], //传家宝
-	[/^You are about to upgrade Dragimp Efficiency 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次脆皮龙宝石效率。您确定要这么做吗？'], //传家宝
-	[/^You are about to upgrade Explorer Efficiency 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次探险家碎片效率。您确定要这么做吗？'], //传家宝
-	[/^You are about to upgrade Scientist Efficiency 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次科学家效率。您确定要这么做吗？'], //传家宝
-	[/^You are about to upgrade Pet \(Fluffy\) Exp 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次绒绒经验值。您确定要这么做吗？'], //传家宝
+    [/^You are about to upgrade Gem Drop Rate 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次宝石掉落加成。您确定要这么做吗？'], //传家宝
+    [/^You are about to upgrade Fragment Drop Rate 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次碎片掉落加成。您确定要这么做吗？'], //传家宝
+    [/^You are about to upgrade Farmer Efficiency 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次农民效率。您确定要这么做吗？'], //传家宝
+    [/^You are about to upgrade Lumberjack Efficiency 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次伐木工效率。您确定要这么做吗？'], //传家宝
+    [/^You are about to upgrade Miner Efficiency 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次矿工效率。您确定要这么做吗？'], //传家宝
+    [/^You are about to upgrade Dragimp Efficiency 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次脆皮龙宝石效率。您确定要这么做吗？'], //传家宝
+    [/^You are about to upgrade Explorer Efficiency 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次探险家碎片效率。您确定要这么做吗？'], //传家宝
+    [/^You are about to upgrade Scientist Efficiency 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次科学家效率。您确定要这么做吗？'], //传家宝
+    [/^You are about to upgrade Pet \(Fluffy\) Exp 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次绒绒经验值。您确定要这么做吗？'], //传家宝
     [/^You are about to upgrade Pet \(Scruffy\) Exp 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次污污经验值。您确定要这么做吗？'], //传家宝
-	[/^You are about to upgrade Player Efficiency 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次玩家效率。您确定要这么做吗？'], //传家宝
-	[/^You are about to upgrade Trainer Efficiency 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次训练师效率。您确定要这么做吗？'], //传家宝
-	[/^You are about to upgrade Storage Size 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次存储上限。您确定要这么做吗？'], //传家宝
+    [/^You are about to upgrade Player Efficiency 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次玩家效率。您确定要这么做吗？'], //传家宝
+    [/^You are about to upgrade Trainer Efficiency 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次训练师效率。您确定要这么做吗？'], //传家宝
+    [/^You are about to upgrade Storage Size 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次存储上限。您确定要这么做吗？'], //传家宝
     [/^You are about to upgrade Breed Speed 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次脆皮繁殖速度。您确定要这么做吗？'], //传家宝
-	[/^You are about to upgrade Trimp Health 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次脆皮生命值。您确定要这么做吗？'], //传家宝
-	[/^You are about to upgrade Trimp Attack 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次脆皮攻击力。您确定要这么做吗？'], //传家宝
-	[/^You are about to upgrade Trimp Block 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次脆皮格挡。您确定要这么做吗？'], //传家宝
-	[/^You are about to upgrade Crit Damage, additive 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次暴击伤害(效果叠加)。您确定要这么做吗？'], //传家宝
-	[/^You are about to upgrade Crit Chance, additive 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次暴击率(效果叠加)。您确定要这么做吗？'], //传家宝
-	[/^You are about to upgrade Void Map Drop Chance 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次虚空地图掉落概率。您确定要这么做吗？'], //传家宝
+    [/^You are about to upgrade Trimp Health 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次脆皮生命值。您确定要这么做吗？'], //传家宝
+    [/^You are about to upgrade Trimp Attack 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次脆皮攻击力。您确定要这么做吗？'], //传家宝
+    [/^You are about to upgrade Trimp Block 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次脆皮格挡。您确定要这么做吗？'], //传家宝
+    [/^You are about to upgrade Crit Damage, additive 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次暴击伤害(效果叠加)。您确定要这么做吗？'], //传家宝
+    [/^You are about to upgrade Crit Chance, additive 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次暴击率(效果叠加)。您确定要这么做吗？'], //传家宝
+    [/^You are about to upgrade Void Map Drop Chance 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次虚空地图掉落概率。您确定要这么做吗？'], //传家宝
     [/^You are about to upgrade Plaguebringer 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次瘟疫使者效果。您确定要这么做吗？'], //传家宝
     [/^You are about to add Fire Trap Damage for (.*) Spirestones.  Are you sure\?$/, '您将花费$1尖塔石头新增火焰陷阱伤害修饰符。您确定要这么做吗？'], //传家宝
     [/^You are about to add Poison Trap Damage for (.*) Spirestones.  Are you sure\?$/, '您将花费$1尖塔石头新增剧毒陷阱伤害修饰符。您确定要这么做吗？'], //传家宝
@@ -6129,7 +6192,7 @@ var cnRegReplace = new Map([
     [/^Preset: (.*)$/, '预设：$1'], //挑战界面
     [/^(.*)You have completed the$/, '$1您完成了 '], //通用挑战完成消息
     [/^(.*)You have completed the Balance challenge! You have been rewarded with (.*) Helium, and you may repeat the challenge.$/, '$1您完成了平衡挑战！您获取了 $2 氦，现在您又可以重新挑战了。'], //平衡挑战完成信息
-	[/^(.*)You can research science again!$/, '$1您又可以进行科学研究了！'], //科学家挑战放弃消息
+    [/^(.*)You can research science again!$/, '$1您又可以进行科学研究了！'], //科学家挑战放弃消息
     [/^(.*)You have completed the 'Meditate' challenge! The dimension has returned to normal, and you have unlocked a new perk!$/, '$1您完成了 冥想 挑战！这个维度恢复到了正常，而且您解锁了一个新的特权！'], //冥想挑战完成消息
     [/^(.*)You have completed the Decay challenge! All stats have been returned to normal, and you can now create more powerful Gardens maps at will!$/, '$1您完成了 衰变 挑战！一切都恢复了正常，而且您可以随意制造更强大的花园地图了！'], //衰变挑战完成消息
     [/^(.*)You have completed the 'Trapper' challenge! Your Trimps now remember how to breed, and you have unlocked a new perk!$/, '$1您完成了 捕手 挑战！您的脆皮想起来如何繁殖了，而且您解锁了一个新的特权！'], //捕手挑战完成消息
@@ -6222,20 +6285,20 @@ var cnRegReplace = new Map([
     [/^The Final Enemy of this Zone has (\d+) stacks of Mayhem, granting \+(.*)% Damage and Health. Complete Maps to lower these stacks.$/, '此区域最后一格的敌人目前有 $1 层暴乱，增加 $2% 攻击力和生命值。通过地图来减少层数。'], //暴乱挑战等
     [/^(.*)You have completed the Mayhem Challenge! Your Trimps have gained \+(.*)% Radon in Universe 2 and Damage and Health in Universe 1 and 2, and future runs of this Challenge will be 3x more difficult. You have now completed Mayhem (\d+) time(s*). Your new total Mayhem bonus is \+$/, '$1您完成了暴乱挑战！宇宙2中的氡，及宇宙1和宇宙2中的脆皮攻击力和生命值增加了 $2% ，后续挑战的难度将变为现在的3倍。您共完成了 $3 次暴乱挑战。暴乱挑战总奖励为 '], //暴乱挑战完成信息
     [/^Your Trimps learn to harvest special Herbs while collecting Food! Increases Trimp Attack by a number based on your total stored food. Grants \+30% Attack at (.*) Food, or \+300% at (.*). At your current total of (.*) Food,$/, '您的脆皮现在可以在采集食物时同时采集百草！根据食物存储量增加攻击力。在 $1 食物时增加30%攻击力，在 $2 食物时增加300%攻击力。您当前共有 $3 食物，'], //神农专精
-	[/^you are gaining \+([\d+\.]+)% Trimp Attack$/, '您获得了 +$1% 攻击力'], //神农专精
-	[/^you would gain \+([\d+\.]+)% Trimp Attack$/, '您可获得 +$1% 攻击力'], //神农专精
-	[/^Each cleared Zone through Z(\d+) \(half of your highest Zone reached\) will drop all available equipment prestiges from maps.$/, '直到区域 $1 (最高通过区域的一半)之前，所有通过的区域都可以掉落地图中所有的装备重铸升级。'], //锻铁术 I专精
+    [/^you are gaining \+([\d+\.]+)% Trimp Attack$/, '您获得了 +$1% 攻击力'], //神农专精
+    [/^you would gain \+([\d+\.]+)% Trimp Attack$/, '您可获得 +$1% 攻击力'], //神农专精
+    [/^Each cleared Zone through Z(\d+) \(half of your highest Zone reached\) will drop all available equipment prestiges from maps.$/, '直到区域 $1 (最高通过区域的一半)之前，所有通过的区域都可以掉落地图中所有的装备重铸升级。'], //锻铁术 I专精
     [/^Reduce the time in between fights and attacks by an additional 100ms through Z(\d+) \((\d+)% of your highest Zone reached\).$/, '直到区域 $1 (最高通过区域的$2%)之前，将战斗间隔和攻击间隔减少100ms。'], //风驰电掣 II专精
-	[/^Each cleared Zone through Z(\d+) \(75% of your highest Zone reached\) will drop all available equipment prestiges from maps.$/, '直到区域 $1 (最高通过区域的75%)之前，所有通过的区域都可以掉落地图中所有的装备重铸升级。'], //锻铁术 II专精
-	[/^Each cleared Zone through Z(\d+) \(90% of your highest Zone reached\) will drop all available equipment prestiges from maps.$/, '直到区域 $1 (最高通过区域的90%)之前，所有通过的区域都可以掉落地图中所有的装备重铸升级。'], //锻铁术 III专精
-	[/^Increase your Liquification bonus by 5%, as if you had completed 1 extra Spire. You have completed ([\d+\.]+) unique Spire(s*), giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '增加液化效果 5% ，等同于额外完成了1个尖塔。您完成了 $1 个尖塔，液化效果持续到最高通过区域的 $3% (区域 $4 )，此专精将液化效果提高到最高通过区域的 $6% (区域 $7 )。'], //液化 I专精
-	[/^Increase your Liquification bonus by 5%, as if you had completed 1 extra Spire. Counting your Fluffy bonus as half of a Spire, you have completed ([\d+\.]+) unique Spire(s*), giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '增加液化效果 5% ，等同于额外完成了1个尖塔。加上绒绒的半个尖塔额外加成，您完成了 $1 个尖塔，液化效果持续到最高通过区域的 $3% (区域 $4 )，此专精将液化效果提高到最高通过区域的 $6% (区域 $7 )。'], //液化 I专精
-	[/^Increase your Liquification bonus by 5%, as if you had completed 1 extra Spire. Counting your two Fluffy bonuses as one Spire, you have completed ([\d+\.]+) unique Spire(s*), giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '增加液化效果 5% ，等同于额外完成了1个尖塔。加上绒绒的1个尖塔额外加成，您完成了 $1 个尖塔，液化效果持续到最高通过区域的 $3% (区域 $4 )，此专精将液化效果提高到最高通过区域的 $6% (区域 $7 )。'], //液化 I专精
+    [/^Each cleared Zone through Z(\d+) \(75% of your highest Zone reached\) will drop all available equipment prestiges from maps.$/, '直到区域 $1 (最高通过区域的75%)之前，所有通过的区域都可以掉落地图中所有的装备重铸升级。'], //锻铁术 II专精
+    [/^Each cleared Zone through Z(\d+) \(90% of your highest Zone reached\) will drop all available equipment prestiges from maps.$/, '直到区域 $1 (最高通过区域的90%)之前，所有通过的区域都可以掉落地图中所有的装备重铸升级。'], //锻铁术 III专精
+    [/^Increase your Liquification bonus by 5%, as if you had completed 1 extra Spire. You have completed ([\d+\.]+) unique Spire(s*), giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '增加液化效果 5% ，等同于额外完成了1个尖塔。您完成了 $1 个尖塔，液化效果持续到最高通过区域的 $3% (区域 $4 )，此专精将液化效果提高到最高通过区域的 $6% (区域 $7 )。'], //液化 I专精
+    [/^Increase your Liquification bonus by 5%, as if you had completed 1 extra Spire. Counting your Fluffy bonus as half of a Spire, you have completed ([\d+\.]+) unique Spire(s*), giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '增加液化效果 5% ，等同于额外完成了1个尖塔。加上绒绒的半个尖塔额外加成，您完成了 $1 个尖塔，液化效果持续到最高通过区域的 $3% (区域 $4 )，此专精将液化效果提高到最高通过区域的 $6% (区域 $7 )。'], //液化 I专精
+    [/^Increase your Liquification bonus by 5%, as if you had completed 1 extra Spire. Counting your two Fluffy bonuses as one Spire, you have completed ([\d+\.]+) unique Spire(s*), giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '增加液化效果 5% ，等同于额外完成了1个尖塔。加上绒绒的1个尖塔额外加成，您完成了 $1 个尖塔，液化效果持续到最高通过区域的 $3% (区域 $4 )，此专精将液化效果提高到最高通过区域的 $6% (区域 $7 )。'], //液化 I专精
     [/^last Portal,  (earning you a bonus of|which would earn you a bonus of) (.*)% extra Helium and (\d+) Void Maps.$/, '，自上次传送后氦获得 $2% 额外的加成，并且获得 $3 张虚空地图。'], //虚空特化 I专精
     [/^last Portal,  (earning you a bonus of|which would earn you a bonus of) (.*)% extra Radon and (\d+) Void Maps.$/, '，自上次传送后氡获得 $2% 额外的加成，并且获得 $3 张虚空地图。'], //虚空特化 I专精
-	[/^Increase your Liquification bonus by another 5%, as if you had completed 1 extra Spire. Counting Liquification I as one Spire, you have completed the equivalent of ([\d+\.]+) unique Spire(s*), giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '再增加液化效果 5% ，等同于额外完成了1个尖塔。加上液化 I的1个尖塔额外加成，您已相当于完成了 $1 个尖塔，液化效果持续到最高通过区域的 $3% (区域 $4 )，此专精将液化效果提高到最高通过区域的 $6% (区域 $7 )。'], //液化 II专精
-	[/^Increase your Liquification bonus by another 5%, as if you had completed 1 extra Spire. Counting Liquification I as one Spire and your Fluffy bonus as half of a Spire, you have completed the equivalent of ([\d+\.]+) unique Spire(s*), giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '再增加液化效果 5% ，等同于额外完成了1个尖塔。加上液化 I的1个尖塔额外加成和绒绒的半个尖塔额外加成，您已相当于完成了 $1 个尖塔，液化效果持续到最高通过区域的 $3% (区域 $4 )，此专精将液化效果提高到最高通过区域的 $6% (区域 $7 )。'], //液化 II专精
-	[/^Increase your Liquification bonus by another 5%, as if you had completed 1 extra Spire. Counting Liquification I as one Spire and your two Fluffy bonuses as another, you have completed the equivalent of ([\d+\.]+) unique Spire(s*), giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '再增加液化效果 5% ，等同于额外完成了1个尖塔。加上液化 I的1个尖塔额外加成和绒绒的1个尖塔额外加成，您已相当于完成了 $1 个尖塔，液化效果持续到最高通过区域的 $3% (区域 $4 )，此专精将液化效果提高到最高通过区域的 $6% (区域 $7 )。'], //液化 II专精
+    [/^Increase your Liquification bonus by another 5%, as if you had completed 1 extra Spire. Counting Liquification I as one Spire, you have completed the equivalent of ([\d+\.]+) unique Spire(s*), giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '再增加液化效果 5% ，等同于额外完成了1个尖塔。加上液化 I的1个尖塔额外加成，您已相当于完成了 $1 个尖塔，液化效果持续到最高通过区域的 $3% (区域 $4 )，此专精将液化效果提高到最高通过区域的 $6% (区域 $7 )。'], //液化 II专精
+    [/^Increase your Liquification bonus by another 5%, as if you had completed 1 extra Spire. Counting Liquification I as one Spire and your Fluffy bonus as half of a Spire, you have completed the equivalent of ([\d+\.]+) unique Spire(s*), giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '再增加液化效果 5% ，等同于额外完成了1个尖塔。加上液化 I的1个尖塔额外加成和绒绒的半个尖塔额外加成，您已相当于完成了 $1 个尖塔，液化效果持续到最高通过区域的 $3% (区域 $4 )，此专精将液化效果提高到最高通过区域的 $6% (区域 $7 )。'], //液化 II专精
+    [/^Increase your Liquification bonus by another 5%, as if you had completed 1 extra Spire. Counting Liquification I as one Spire and your two Fluffy bonuses as another, you have completed the equivalent of ([\d+\.]+) unique Spire(s*), giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '再增加液化效果 5% ，等同于额外完成了1个尖塔。加上液化 I的1个尖塔额外加成和绒绒的1个尖塔额外加成，您已相当于完成了 $1 个尖塔，液化效果持续到最高通过区域的 $3% (区域 $4 )，此专精将液化效果提高到最高通过区域的 $6% (区域 $7 )。'], //液化 II专精
     [/^last Portal, (earning you a bonus of|which would earn you a bonus of) (\d+) more Void Maps \((\d+) including Void Specialization I\).$/, '，自上次传送后获得 $2 张虚空地图(加上虚空特化 I的效果，共可获得 $3 张虚空地图)。'], //虚空特化 II专精
     [/^Fluffy gains \+25% more Exp per Zone for each completed Evolution. Fluffy has Evolved (\d+) time(s*), (earning|which would earn) you a bonus of \+(.*)% Exp.$/, '绒绒每进化一次，每区域就多获得25%经验值。绒绒目前进化了 $1 次，多获得 $4% 经验值。'], //绒绒专注专精
     [/^Scruffy gains \+25% more Exp per Zone for each completed Evolution. Scruffy has Evolved (\d+) time(s*), (earning|which would earn) you a bonus of \+(.*)% Exp.$/, '污污每进化一次，每区域就多获得25%经验值。污污目前进化了 $1 次，多获得 $4% 经验值。'], //污污专注专精
@@ -6245,15 +6308,15 @@ var cnRegReplace = new Map([
     [/^On your current run, you have cleared through Spire (.*), so this Mastery is granting (\d+) extra Healthy cell(s*). On your current Zone, you're finding (\d+) Healthy cells.$/, '自上次传送后您通过了尖塔 $1 ，此专精可获得 $2 个额外健康格子。目前区域中有 $4 个健康格子。'], //健康之力 II专精
     [/^Hyperspeed II's bonus will now function up to 75% of your Highest Zone Reached \(through Z(\d+)\) rather than a measly$/, '风驰电掣 II专精的效果上限提升为最高通过区域的75%(区域 $1 )，而不是只有之前的'], //液化 III专精
     [/^Hyperspeed II's bonus will also now function up to 75% of your Highest Zone Reached \(through Z(\d+)\) rather than a measly$/, '风驰电掣 II专精的效果上限同时提升为最高通过区域的75%(区域 $1 )，而不是只有之前的'], //液化 III专精
-	[/^Counting Liquification I and II as two Spires, you have completed the equivalent of ([\d+\.]+) unique Spire(s*), giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '加上液化 I和液化 II的2个尖塔额外加成，您已相当于完成了 $1 个尖塔，液化效果持续到最高通过区域的 $3% (区域 $4 )，此专精将液化效果提高到最高通过区域的 $6% (区域 $7 )。'], //液化 III专精
-	[/^Counting Liquification I and II as two Spires and your Fluffy bonus as half of a Spire, you have completed the equivalent of ([\d+\.]+) unique Spire(s*), giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '加上液化 I和液化 II的2个尖塔额外加成和绒绒的半个尖塔额外加成，您已相当于完成了 $1 个尖塔，液化效果持续到最高通过区域的 $3% (区域 $4 )，此专精将液化效果提高到最高通过区域的 $6% (区域 $7 )。'], //液化 III专精
-	[/^Counting Liquification I and II as two Spires and your two Fluffy bonuses as another, you have completed the equivalent of ([\d+\.]+) unique Spire(s*), giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '加上液化 I和液化 II的2个尖塔额外加成和绒绒的1个尖塔额外加成，您已相当于完成了 $1 个尖塔，液化效果持续到最高通过区域的 $3% (区域 $4 )，此专精将液化效果提高到最高通过区域的 $6% (区域 $7 )。'], //液化 III专精
+    [/^Counting Liquification I and II as two Spires, you have completed the equivalent of ([\d+\.]+) unique Spire(s*), giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '加上液化 I和液化 II的2个尖塔额外加成，您已相当于完成了 $1 个尖塔，液化效果持续到最高通过区域的 $3% (区域 $4 )，此专精将液化效果提高到最高通过区域的 $6% (区域 $7 )。'], //液化 III专精
+    [/^Counting Liquification I and II as two Spires and your Fluffy bonus as half of a Spire, you have completed the equivalent of ([\d+\.]+) unique Spire(s*), giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '加上液化 I和液化 II的2个尖塔额外加成和绒绒的半个尖塔额外加成，您已相当于完成了 $1 个尖塔，液化效果持续到最高通过区域的 $3% (区域 $4 )，此专精将液化效果提高到最高通过区域的 $6% (区域 $7 )。'], //液化 III专精
+    [/^Counting Liquification I and II as two Spires and your two Fluffy bonuses as another, you have completed the equivalent of ([\d+\.]+) unique Spire(s*), giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '加上液化 I和液化 II的2个尖塔额外加成和绒绒的1个尖塔额外加成，您已相当于完成了 $1 个尖塔，液化效果持续到最高通过区域的 $3% (区域 $4 )，此专精将液化效果提高到最高通过区域的 $6% (区域 $7 )。'], //液化 III专精
     [/^bonus of (.*)%. Removing this Mastery would reduce your bonus by (.*)%, bringing your total Challenge$/, '的加成为 $1% 。去掉这个专精以后加成将减少 $2% ， 总挑战'], //梅斯梅尔专精
     [/^bonus down to (.*)%.$/, '加成减少为 $1% 。'], //梅斯梅尔专精
     [/^bonus of (.*)%. Purchasing this Mastery would increase your bonus by (.*)%, bringing your total Challenge$/, '的加成为 $1% 。购买这个专精以后加成将增加 $2% ， 总挑战'], //梅斯梅尔专精
     [/^bonus up to (.*)%.$/, '加成增加为 $1% 。'], //梅斯梅尔专精
     [/^Reduce the Zone that Fluffy can start earning Experience at by 3. With (\d+) level(s*) in Classy, Fluffy will start earning Experience at Z(\d+).$/, '绒绒提前3个区域开始获得经验值。上等特权提升 $1 级后，绒绒将从区域 $3 开始获得经验值。'], //上等特权
-	[/^Use your experiences in understanding the attention span of Trimps to increase the damage dealt by all soldiers based on how long it took to get an army together. Increases damage by 2% per level per second up to (\d+) seconds. Maximum of 10 levels.$/, '脆皮的注意力持续时间您已了如指掌，所以您可以利用它增加脆皮的攻击力。军队每需要1秒进行繁殖，每级预期特权就可以使脆皮增加2%攻击力。繁殖时间上限为 $1 秒。最高10级。'], //预期特权
+    [/^Use your experiences in understanding the attention span of Trimps to increase the damage dealt by all soldiers based on how long it took to get an army together. Increases damage by 2% per level per second up to (\d+) seconds. Maximum of 10 levels.$/, '脆皮的注意力持续时间您已了如指掌，所以您可以利用它增加脆皮的攻击力。军队每需要1秒进行繁殖，每级预期特权就可以使脆皮增加2%攻击力。繁殖时间上限为 $1 秒。最高10级。'], //预期特权
     [/^Increase Helium gain by (.*)%.$/, '使氦的获取量增加$1%。'], //金色升级等
     [/^Increase Radon gain by (.*)%.$/, '使氡的获取量增加$1%。'], //金色升级等
     [/^Increase Trimp attack and health by (.*)%.$/, '使脆皮的攻击力和生命值增加$1%。'], //金色升级等
@@ -6279,9 +6342,9 @@ var cnRegReplace = new Map([
     [/^(.*) Tokens of Poison$/, '$1毒符记'], //自然赋能
     [/^(.*) Tokens of Wind$/, '$1风符记'], //自然赋能
     [/^(.*) Tokens of Ice$/, '$1冰符记'], //自然赋能
-	[/^(.*)You found (.+) Token(s*) of Poison!$/, '$1您发现了$2毒符记！'], //自然赋能
-	[/^(.*)You found (.+) Token(s*) of Wind!$/, '$1您发现了$2风符记！'], //自然赋能
-	[/^(.*)You found (.+) Token(s*) of Ice!$/, '$1您发现了$2冰符记！'], //自然赋能
+    [/^(.*)You found (.+) Token(s*) of Poison!$/, '$1您发现了$2毒符记！'], //自然赋能
+    [/^(.*)You found (.+) Token(s*) of Wind!$/, '$1您发现了$2风符记！'], //自然赋能
+    [/^(.*)You found (.+) Token(s*) of Ice!$/, '$1您发现了$2冰符记！'], //自然赋能
     [/^(.*) Trimp(s*) just ceased to be.$/, '$1个脆皮去世了。'], //死亡消息
     [/^(.*) Trimp(s*) just bit the dust.$/, '$1个脆皮战死沙场了。'], //死亡消息
     [/^(.*) Trimp(s*) just took a dirt nap.$/, '$1个脆皮入土为安了。'], //死亡消息
@@ -6364,7 +6427,6 @@ var cnRegReplace = new Map([
     [/^(.*)Recycled (.*) maps for (.*) fragments.$/, '$1回收了$2张地图，获得$3碎片。'], //其他消息等
     [/^(.*)Recycled (.*) for (.*) fragments.$/, '$1回收了一张地图，获得$3碎片。'], //其他消息等
     [/^(.*) Map Credit(s*)$/, '$1地图代币'], //其他消息等
-    [/^(.*)Recycled (.*) for (.*) fragments.$/, '$1回收了一张地图，获得$3碎片。'], //其他消息等
     [/^(.*)Waiting to travel until your soldiers are finished.$/, '$1等待士兵战死。'], //其他消息等
     [/^(.*)You must finish or recycle your current map before moving on.$/, '$1在运行其他地图前，必须先完成或者回收当前的地图。'], //其他消息等
     [/^(.*)You are all out of Map Credits! Clear some more Zones to earn some more.$/, '$1地图代币已经花完了！再通过一些的区域以获得地图代币。'], //其他消息等
@@ -6378,9 +6440,52 @@ var cnRegReplace = new Map([
     [/^(.*)You're sitting down about to enjoy a rare dinner break, when another Amalgamator gets interested in your dimension and replaces the spacetime of your meal with itself. You really hope they don't do that again.$/, '$1您难得有空享用一顿晚餐，正准备坐下来时，又一个合并者突然对您的维度产生了兴趣，将它与您的晚餐在时空上作了个对调。您真诚希望下次它们别再这么干了。'], //其他消息等
     [/^(.*)As you're helping your Trimps cross a deeper-than-average stream, you notice a column of bubbles coming up near your Trimps. A gurgling sound begins to grow from the source of the bubbles, and your Trimps start to get a little freaked out. Suddenly an Amalgamator bursts to the surface, spits some water at a Trimp, then teleports to your town.$/, '$1您正在帮忙脆皮们渡过一条有点深的小溪时，发现在脆皮身旁冒出来一大堆气泡。接着，气泡开始汩汩作响，脆皮们有点慌了。突然，从水里钻出来一个合并者，把水吐得一个脆皮满脸都是，然后传送到您的城镇里了。'], //其他消息等
     [/^(.*)As you're helping your Trimps cross a deeper-than-average stream, you notice a column of bubbles coming up near your Trimps. A gurgling sound begins to grow from the source of the bubbles, and your Trimps start to get a little freaked out. Suddenly another Amalgamator bursts to the surface, spits some water at a Trimp, then teleports to your town.$/, '$1您正在帮忙脆皮们渡过一条有点深的小溪时，发现在脆皮身旁冒出来一大堆气泡。接着，气泡开始汩汩作响，脆皮们有点慌了。突然，从水里钻出来又一个合并者，把水吐得一个脆皮满脸都是，然后传送到您的城镇里了。'], //其他消息等
-
-
-
+    [/^(.*)You hear the second or third most chilling sound you've ever heard, and your Amalgamator pops up in front of you. It smacks you with a small stick to show dissatisfaction, then disappears in a puff of smoke.$/, '$1您听到了有生以来第二或者第三可怕的声响，然后您的合并者出现在了您的跟前。它用一根小棍狠狠敲了您一下以示不满，随后，它化成一阵烟，消失了。'], //其他消息等
+    [/^(.*)You hear the second or third most chilling sound you've ever heard, and one of your Amalgamators pops up in front of you. It smacks you with a small stick to show dissatisfaction, then disappears in a puff of smoke.$/, '$1您听到了有生以来第二或者第三可怕的声响，然后您的一个合并者出现在了您的跟前。它用一根小棍狠狠敲了您一下以示不满，随后，它化成一阵烟，消失了。'], //其他消息等
+    [/^(.*)While walking through your town, you notice your Amalgamator throwing a fit, kicking over food carts and anything else not tied down. You approach it but before you can ask what's wrong, it smacks you with a small stick to show dissatisfaction, then it scurries away.$/, '$1在城镇里走着时，您注意到您的合并者在大发脾气，把食品推车之类的东西全给踢倒了。您走上前去，刚想问问哪里不对，它就用一根小棍狠狠敲了您一下以示不满，然后就匆匆离去了。'], //其他消息等
+    [/^(.*)While walking through your town, you notice one of your Amalgamators throwing a fit, kicking over food carts and anything else not tied down. You approach it but before you can ask what's wrong, it smacks you with a small stick to show dissatisfaction, then it scurries away.$/, '$1在城镇里走着时，您注意到您的一个合并者在大发脾气，把食品推车之类的东西全给踢倒了。您走上前去，刚想问问哪里不对，它就用一根小棍狠狠敲了您一下以示不满，然后就匆匆离去了。'], //其他消息等
+    [/^(.*)You watch as your Amalgamator struggles to find enough free Trimps, panic searching in places such as under rocks or between the leaves of trees. It suddenly seems to remember that it doesn't have to be there, smacks you with a small stick to show dissatisfaction, and turns into nothing.$/, '$1您看着您的合并者到处寻找空闲的脆皮，它翻遍了各处，甚至连石头下和树叶间它都找遍了，却一无所获。它突然想明白了，也不是非得在这里才行，于是它用一根小棍狠狠敲了您一下以示不满，然后归于虚无了。'], //其他消息等
+    [/^(.*)You watch as one of your Amalgamators struggles to find enough free Trimps, panic searching in places such as under rocks or between the leaves of trees. It suddenly seems to remember that it doesn't have to be there, smacks you with a small stick to show dissatisfaction, and turns into nothing.$/, '$1您看着您的一个合并者到处寻找空闲的脆皮，它翻遍了各处，甚至连石头下和树叶间它都找遍了，却一无所获。它突然想明白了，也不是非得在这里才行，于是它用一根小棍狠狠敲了您一下以示不满，然后归于虚无了。'], //其他消息等
+    [/^(.*)While in town, a Scientist approaches you to let you know that your Amalgamator is getting upset and to keep an eye out for him. Just as you're finishing the conversation, the Amalgamator appears in front of you. It smacks you both with a small stick to show dissatisfaction, then turns into a small puddle of water - which you ask the Scientist to clean up.$/, '$1城镇中，一名科学家跑到了您身边，告诉您，您的合并者有点失望了，最好注意着它。话音刚落，那个合并者就在您面前出现了，它用一根小棍狠狠敲了您和科学家一下以示不满，然后化为了一摊水 - 最后还得让科学家来善后。'], //其他消息等
+    [/^(.*)While in town, a Scientist approaches you to let you know that one of your Amalgamators is getting upset and to keep an eye out for him. Just as you're finishing the conversation, the Amalgamator appears in front of you. It smacks you both with a small stick to show dissatisfaction, then turns into a small puddle of water - which you ask the Scientist to clean up.$/, '$1城镇中，一名科学家跑到了您身边，告诉您，您的一个合并者有点失望了，最好注意着它。话音刚落，那个合并者就在您面前出现了，它用一根小棍狠狠敲了您和科学家一下以示不满，然后化为了一摊水 - 最后还得让科学家来善后。'], //其他消息等
+    [/^(.*)You have no more use for Dark Essence!$/, '$1黑暗精华对您来说已经没有用处了！'], //其他消息等
+    [/^(.*)You found (.*) Dark Essence!$/, '$1您发现了$2黑暗精华！'], //其他消息等
+    [/^(.*)You liquified a $/, '$1您彻底液化了一个'], //其他消息等
+    [/^Resources Found: Helium - (.*), Max Trimps - (.*), Fragments - (.*), Food - (.*), Wood - (.*), Metal -$/, '获得资源：氦 - $1，脆皮上限 - $2，碎片 - $3，食物 - $4，木头 - $5，金属 -'], //其他消息等
+    [/^Resources Found: Helium - (.*), Max Trimps - (.*), Fragments -$/, '获得资源：氦 - $1，脆皮上限 - $2，碎片 -'], //其他消息等
+    [/^Resources Found: Helium - (.*), Food - (.*), Wood - (.*), Metal -$/, '获得资源：氦 - $1，食物 - $2，木头 - $3，金属 -'], //其他消息等
+    [/^Resources Found: Max Trimps - (.*), Fragments - (.*), Food - (.*), Wood - (.*), Metal -$/, '获得资源：脆皮上限 - $1，碎片 - $2，食物 - $3，木头 - $4，金属 -'], //其他消息等
+    [/^Resources Found: Max Trimps - (.*), Fragments -$/, '获得资源：脆皮上限 - $1，碎片 -'], //其他消息等
+    [/^Resources Found: Food - (.*), Wood - (.*), Metal -$/, '获得资源：食物 - $1，木头 - $2，金属 -'], //其他消息等
+    [/^Rare Imps: Feyimp - (.*), Magnimp - (.*), Tauntimp - (.*), Venimp - (.*), Whipimp -$/, '稀有脆皮：脆皮小妖 - $1，脆皮磁王 - $2，脆皮咚咚 - $3，脆皮爱神 - $4，脆皮鞭者 -'], //其他消息等
+    [/^Rare Imps: Feyimp - (.*), Magnimp - (.*), Tauntimp - (.*), Venimp -$/, '稀有脆皮：脆皮小妖 - $1，脆皮磁王 - $2，脆皮咚咚 - $3，脆皮爱神 -'], //其他消息等
+    [/^Rare Imps: Feyimp - (.*), Magnimp - (.*), Tauntimp - (.*), Whipimp -$/, '稀有脆皮：脆皮小妖 - $1，脆皮磁王 - $2，脆皮咚咚 - $3，脆皮鞭者 -'], //其他消息等
+    [/^Rare Imps: Feyimp - (.*), Magnimp - (.*), Venimp - (.*), Whipimp -$/, '稀有脆皮：脆皮小妖 - $1，脆皮磁王 - $2，脆皮爱神 - $3，脆皮鞭者 -'], //其他消息等
+    [/^Rare Imps: Feyimp - (.*), Tauntimp - (.*), Venimp - (.*), Whipimp -$/, '稀有脆皮：脆皮小妖 - $1，脆皮咚咚 - $2，脆皮爱神 - $3，脆皮鞭者 -'], //其他消息等
+    [/^Rare Imps: Magnimp - (.*), Tauntimp - (.*), Venimp - (.*), Whipimp -$/, '稀有脆皮：脆皮磁王 - $1，脆皮咚咚 - $2，脆皮爱神 - $3，脆皮鞭者 -'], //其他消息等
+    [/^Rare Imps: Feyimp - (.*), Magnimp - (.*), Tauntimp -$/, '稀有脆皮：脆皮小妖 - $1，脆皮磁王 - $2，脆皮咚咚 -'], //其他消息等
+    [/^Rare Imps: Feyimp - (.*), Magnimp - (.*), Venimp -$/, '稀有脆皮：脆皮小妖 - $1，脆皮磁王 - $2，脆皮爱神 -'], //其他消息等
+    [/^Rare Imps: Feyimp - (.*), Magnimp - (.*), Whipimp -$/, '稀有脆皮：脆皮小妖 - $1，脆皮磁王 - $2，脆皮鞭者 -'], //其他消息等
+    [/^Rare Imps: Feyimp - (.*), Tauntimp - (.*), Venimp -$/, '稀有脆皮：脆皮小妖 - $1，脆皮咚咚 - $2，脆皮爱神 -'], //其他消息等
+    [/^Rare Imps: Feyimp - (.*), Tauntimp - (.*), Whipimp -$/, '稀有脆皮：脆皮小妖 - $1，脆皮咚咚 - $2，脆皮鞭者 -'], //其他消息等
+    [/^Rare Imps: Feyimp - (.*), Venimp - (.*), Whipimp -$/, '稀有脆皮：脆皮小妖 - $1，脆皮爱神 - $2，脆皮鞭者 -'], //其他消息等
+    [/^Rare Imps: Magnimp - (.*), Tauntimp - (.*), Venimp -$/, '稀有脆皮：脆皮磁王 - $1，脆皮咚咚 - $2，脆皮爱神 -'], //其他消息等
+    [/^Rare Imps: Magnimp - (.*), Tauntimp - (.*), Whipimp -$/, '稀有脆皮：脆皮磁王 - $1，脆皮咚咚 - $2，脆皮鞭者 -'], //其他消息等
+    [/^Rare Imps: Magnimp - (.*), Venimp - (.*), Whipimp -$/, '稀有脆皮：脆皮磁王 - $1，脆皮爱神 - $2，脆皮鞭者 -'], //其他消息等
+    [/^Rare Imps: Tauntimp - (.*), Venimp - (.*), Whipimp -$/, '稀有脆皮：脆皮咚咚 - $1，脆皮爱神 - $2，脆皮鞭者 -'], //其他消息等
+    [/^Rare Imps: Feyimp - (.*), Magnimp -$/, '稀有脆皮：脆皮小妖 - $1，脆皮磁王 -'], //其他消息等
+    [/^Rare Imps: Feyimp - (.*), Tauntimp -$/, '稀有脆皮：脆皮小妖 - $1，脆皮咚咚 -'], //其他消息等
+    [/^Rare Imps: Feyimp - (.*), Venimp -$/, '稀有脆皮：脆皮小妖 - $1，脆皮爱神 -'], //其他消息等
+    [/^Rare Imps: Feyimp - (.*), Whipimp -$/, '稀有脆皮：脆皮小妖 - $1，脆皮鞭者 -'], //其他消息等
+    [/^Rare Imps: Magnimp - (.*), Tauntimp -$/, '稀有脆皮：脆皮磁王 - $1，脆皮咚咚 -'], //其他消息等
+    [/^Rare Imps: Magnimp - (.*), Venimp -$/, '稀有脆皮：脆皮磁王 - $1，脆皮爱神 -'], //其他消息等
+    [/^Rare Imps: Magnimp - (.*), Whipimp -$/, '稀有脆皮：脆皮磁王 - $1，脆皮鞭者 -'], //其他消息等
+    [/^Rare Imps: Tauntimp - (.*), Venimp -$/, '稀有脆皮：脆皮咚咚 - $1，脆皮爱神 -'], //其他消息等
+    [/^Rare Imps: Tauntimp - (.*), Whipimp -$/, '稀有脆皮：脆皮咚咚 - $1，脆皮鞭者 -'], //其他消息等
+    [/^Rare Imps: Venimp - (.*), Whipimp -$/, '稀有脆皮：脆皮爱神 - $1，脆皮鞭者 -'], //其他消息等
+    [/^Found (.*) Token(s*) of Poison!$/, '发现了$1毒符记！'], //其他消息等
+    [/^Found (.*) Token(s*) of Wind!$/, '发现了$1风符记！'], //其他消息等
+    [/^Found (.*) Token(s*) of Ice!$/, '发现了$1冰符记！'], //其他消息等
 
 
     [/^(.*)AutoTrimps - Zek Fork Loaded!$/, '$1自动脆皮脚本 - Zek Fork 已成功载入！'], //脚本3载入消息
@@ -7020,7 +7125,6 @@ var cnRegReplace = new Map([
     [/^Knowledge Tower ([IVXLCDM]+)$/, '知识塔 $1'],
 	[/^You have spent (.+) Helium on this Perk$/, '你已经花费 $1 氦在这个附带特权上'],
 	[/^You have been in this Zone for (\d+) mins$/, '你已经在该区域待了$1分钟'],
-	[/^You found (.+) Dark Essence!$/, '你找到了$1黑暗精华'],
 	[/^Trimps have (.+) more attack on even numbered Zones$/, '脆皮在偶数区域增加$1攻击'],
 	[/^Trimps have (.+) less attack on odd numbered Zones$/, '脆皮在奇数区域减少$1攻击'],
 	[/^Equipment is (.+) cheaper.$/, '装备的价格下降$1'],
