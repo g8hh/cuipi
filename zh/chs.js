@@ -229,7 +229,7 @@ var cnItems = {
     'Settings': '设置',
     'Browse All': '查看全部选项',
     'Choose a Category Below, or Search for a Setting/Keyword': '选择一个类别，或者搜索一个设置/关键字',
-    'New': '新获得',
+    'New': '新',
     'General': '常规',
     'Performance': '性能',
     'Quality of Life': '生活质量',
@@ -2777,6 +2777,71 @@ var cnItems = {
     'Convert Ice to Wind': '将冰符记转换为风符记',
     //自然赋能相关结束
     //故事-尖塔
+    'It has been forever, yet now we meet,': '过去这么多年，我们终又相遇，',
+    'I\'m not surprised you don\'t remember me.': '我并不奇怪，你已将我忘记。',
+    'I believe it is I who you currently seek,': '我就是那个人，你所正在寻觅，',
+    'Lifetimes ago I was Druopitee.': '若干世前，我曾叫德罗披提。',
+    'You\'re glad you remembered his name correctly! You feel tougher as memories begin to flood back, and': '您很高兴，您还正确地记得他的名字！记忆如潮水般涌来，您感觉更加坚韧了，并',
+    'unlocked Toughness II': '解锁了坚韧 II',
+    'On our planet you and I studied time,': '在家乡那我们一起研究时间，',
+    'We realized Warp Speed could affect that line.': '我们发现曲速可以影响时间线。',
+    'I took our work in a ship of my own design,': '我将成果与我的飞船相联，',
+    'To test the effects of our new paradigm.': '来测试新型号会有什么改变。',
+    'Oh yeah. That\'s where you knew him from! Wait doesn\'t he owe you some money? You feel fair taking a vial of': '噢，是啊。就是在那里认识的他！等等，他是不是欠了您钱还没还？您从实验桌上拿走了 ',
+    '40 Nullifium': '40虚空物质',
+    'from a research table.': '，您觉得这样才算两清了。',
+    'My tests made other dimensions appear,': '我的测试使其他的维度出现，',
+    'I found this planet in one and flew here.': '一个维度中，我发现这行星并飞到这边。',
+    'There were hordes of enemies, if that wasn\'t clear,': '敌人到处都是，结论只有一点，',
+    'The finding was huge but the threat severe.': '这里的发现巨大但威胁仍然不减。',
+    'Ah, so you\'re in a different dimension than your friends and family, comforting.': '啊，所以您只是在跟家人朋友们不同的维度里，真是令人安心。',
+    'Ah, so you\'re in a different dimension than your friends and family, comforting. Your desire to go home some day causes strength to flow through you, and you': '啊，所以您只是在跟家人朋友们不同的维度里，真是令人安心。回家的渴望使您身体中充满了力量，并',
+    'unlocked Power II': '解锁了力量 II',
+    'To stay safe, I built many large towers.': '为了安全起见，我建造了很多巨塔。',
+    'I\'d climb up, and I\'d peer out for hours.': '我爬到顶上，一直向外观察。',
+    'I searched for lifetimes, my mind became devoured,': '研究几世以后，我的意识被吞噬变化，',
+    'then one day I found a way to gain power.': '终有一天，我发现了获取力量的方法。',
+    'Dammit Druopitee. This is all going to end up being his fault, isn\'t it? You look for something to steal to try and even the playing field, but can\'t find anything. Oh well.': '该死的德罗披提，原来都是你在搞的鬼，不是吗？您找遍了到处，甚至连操场也翻遍了，却一无所获。好吧。',
+    'After many lifetimes of observation,': '靠着许多世观察的帮助，',
+    'I had finally found my salvation.': '我终于找到了救赎之路。',
+    'An airborne chemical to cause great mutation,': '散入大气，引起变异的化学药物，',
+    'the Corruption was my new creation.': '腐化，我的新发明，让我感到满足。',
+    'Yup, totally his fault.': '瞧，都是他的锅。',
+    'Yup, totally his fault.Your desire to stop him is so strong that you\'ve': '瞧，都是他的锅。您想要阻止他的决心如此强烈，竟',
+    'unlocked Motivation II': '解锁了鼓舞 II',
+    'I pumped Corruption up from my spires,': '腐化从我的尖塔顶部涌出，',
+    'I watched as it spread outward like wildfires.': '我看着它蔓延像野火般飞速。',
+    'They now bowed to me, their brains freshly rewired,': '它们终臣服于我，意识由我挥毫所书，',
+    'I had almost all that I desired.': '我几乎获得了想要的全部。',
+    'You feel like anyone willing to pump something called \'Corruption\' into a planet\'s atmosphere probably qualifies as a supervillain. You feel no remorse taking another vial filled with': '您觉得任何想要把什么“腐化”注入行星大气的家伙都只能是超级反派。您毫无心理障碍地拿走了',
+    '60 Nullifium': '60虚空物质',
+    'But Trimps, who in numbers are tough as stone,': '但是只有脆皮，像岩石般顽固，',
+    'weren\'t changed and I couldn\'t control them alone.': '从不改变，无法独自收服。',
+    'So I got in my ship and I went to our home,': '所以我回到家乡，到你所在之处，',
+    'I brought you here to the native Trimp Zones.': '将你带来，脆皮生活乐土。',
+    'You don\'t remember that, but are pretty sure you weren\'t OK with it. Kidnapping definitely justifies taking this research': '对这事您没什么印象了，但您很肯定没法赞同这么做的。既然他绑架在先，那么您拿走刚找到的 ',
+    'Heirloom': '传家宝',
+    'you just found.': '也就不存在什么问题了。',
+    'You disliked my plan and had to be forced,': '你不满我的计划，我只好强迫，',
+    'so I wiped your mind and plotted your course.': '所以我抹去你的记忆，规划你的路线经过。',
+    'I came up with plans for equipment and resorts,': '我想出了装备和帮助一类的收获，',
+    'I wrote all I knew and left you reports.': '我写下了一切，默默对你诉说。',
+    'Oh HE wrote those? Now that you think about it, you can see a lot of ways the designs could be improved, and': '哦，原来都是他写的？既然这么说，您就有不少方法能进行改进了，借此',
+    'unlocked Carpentry II': '解锁了木工 II',
+    'Oh HE wrote those? Now that you think about it, you can see a lot of ways the designs could be improved.': '哦，原来都是他写的？既然这么说，您就有不少方法能进行改进了。',
+    'Your Trimps grew strong while I watched and waited,': '我在观察等待，而你的脆皮逐渐飞跃，',
+    'Their loyalty can not be debated.': '它们的忠诚无可否决。',
+    'You knew not of my plan, yet participated,': '你不知我的计划，但仍然参与入列，',
+    'Now bow to me or be terminated.': '现在选择臣服，或是毁灭。',
+    'Yeah you don\'t really feel too much like bowing and probably won\'t be doing that.': '您不怎么喜欢臣服，也不会那么做的。',
+    'unlock Looting II': '解锁了劫掠 II',
+    '. Your skills at salvaging things from this Spire have helped you': '。您搜刮尖塔的本事帮助您',
+    'You notice a small timeworn chest in the back of the room, where Druopitee had been storing the Skeletimp bones that he had collected over many timelines. You open it and find': '您注意到房间后面有一个小小的古旧箱子，德罗披提在那里面存放了许多时间线上收集来的脆皮骷髅骨头。您将它打开，找到了',
+    '20 Perfect Skeletimp Bones!': '20块保存完好的脆皮骷髅骨头！',
+    'You can tell though that these bones won\'t be here next time. The Spire\'s power grants you a permanent 4x bonus to all Dark Essence you collect, you can carry an additional Heirloom back through the Portal, and your Portal has also modified itself to now Liquify Zones equal to 5% of your highest Zone reached. You\'re not quite sure what a liquify is, but you\'re excited to find out!': '您知道下次这些骨头应该不会再出现了。尖塔的力量使您获取的黑暗精华永久变为4倍，您从此可以多携带一个传家宝通过传送门，且传送门也进行了调整，可以液化不高于最高通过区域5%的区域了。您现在还不知道液化是什么，但您很期待得知答案！',
+    'You\'ve also found a large, pulsing core that seems to be powering the Spire. You try to carefully remove it but instead smash it into 20 still-humming pieces! You give the pieces to your Scientists, who name the magical new material "Spirestones" and use them to begin construction on your own Spire!': '您还发现了一个巨大的脉冲核心，看来就是它在为尖塔供能了。您尝试将它卸下来，但是却失手将它打碎成了20片嗡嗡作响的碎块！您将这些碎块带给科学家们，它们将这种魔法般的新材料命名为“尖塔石头”，然后开始用这些材料来建造您自己的尖塔了！',
+    'You were able to properly remove the Core this time, and have found a Common Spire Core Heirloom!': '这次您成功把尖塔核心卸了下来，获得了一个普通稀有度的尖塔核心传家宝！',
+    'You\'ve helped the Trimps establish a legendary population and economy, and have brought down the man responsible for the chaos in this world. You could leave now and the Universe will forever be better because you existed. Trimps will erect statues of you as long as their civilization survives. But you know there are still other spires out there, pumping Corruption into the planet. Maybe the statues would be bigger if you stayed and helped out?': '在您的帮助下，脆皮们人口兴旺，经济繁荣，并且已经击败了让这个世界陷入混乱的人。哪怕现在离开，因为您来过，这个宇宙也会变得更好。只要脆皮的文明还存在，它们就会为您竖起一座雕像。但是您也知道，在世界上还有着其他的尖塔，将腐化注入这个行星。如果您留下来帮忙，或许那个雕像还能更大一些？',
     'Healthy mutation bad...': '健康变异，很是不好……',
     'Slows delirium': '狂暴之速，因此减少',
     'Well that doesn\'t really sound like a bad thing. You found 200 Nullifium!': '嗯，听起来不坏。您发现了200虚空物质！',
@@ -2787,7 +2852,6 @@ var cnItems = {
     'Though your resolve is something that I admire': '对你的决心我钦佩甚颇',
     'Your little plan will surely backfire': '但你的小小计划必将你自己打破',
     'So it seems like all of the Spires are actually sentient thanks to Druopitee. You\'re just glad the narrator isn\'t trying to do the poetry anymore. Hey wait...': '看来，拜德罗披提所赐，所有的尖塔都活过来了。不过，您高兴的是至少那位仁兄闭口不言了。嘿，等等……',
-    'You found 300 Nullifium!': '您发现了300虚空物质！',
     'I see you found my notes on my Healthy mutation': '我知道你发现了我的健康变异笔记',
     'I bet you even think it could be your salvation': '我赌你觉得它可成为救赎之依',
     'Improving this world must be quite the temptation': '拯救世界的确令人痴迷',
@@ -2800,9 +2864,10 @@ var cnItems = {
     'It sounds like he\'s trying to tell you that the Healthy mutation would make your enemies even stronger. Still seems like releasing it would be the right thing to do, though. You search around for some more resources but find nothing. Lame.': '看起来，他想告诉您健康变异只会使敌人变得更强。不管怎么说，散播它应该还是没错的。您在附近找了找，什么有用的资源都没找到。真是弱爆了。',
     'a brand new Spire Core': '一个崭新的尖塔核心',
     'brand new Spire Core': '崭新的尖塔核心',
-    '! For your first time killing this Echo in any timeline, you have permanently added another 5% to your Liquification bonus, increased your Dark Essence gains by 4x, and earned': '！由于这是您第一次击杀此幻影，您永久增加了5%液化加成，黑暗精华获取量变为4倍，并获得了',
+    '! For your first time killing this Echo in any timeline, you have permanently added another 5% to your Liquification bonus, increased your Dark Essence gains by 4x, and earned': '！由于这是您在所有世界线中第一次击杀此幻影，您永久增加了5%液化加成，黑暗精华获取量变为4倍，并获得了',
+    'For your first time killing this Echo in any timeline, you have permanently added another 5% to your Liquification bonus, increased your Dark Essence gains by 4x, and earned': '由于这是您在所有世界线中第一次击杀此幻影，您永久增加了5%液化加成，黑暗精华获取量变为4倍，并获得了',
     '20 bones!': '20骨头！',
-    'You have also unlocked the': '您同时还解锁了',
+    'You have also unlocked the': '您同时还解锁了 ',
     'perk and can carry an additional Heirloom!': '特权，并且从此可以多携带一个传家宝！',
     'WHAT': '什',
     'WHO': '谁',
@@ -2823,11 +2888,27 @@ var cnItems = {
     'Stop to reconsider, we could be something greater': '停下想想吧，我们可以有更好结果',
     'Or continue your path as a time traveling slaver': '要不就像个奴隶主，继续时空穿梭',
     'Slaver?! Your Trimps all know that they\'re free to leave whenever they want. He\'s just trying to get under your skin! You search around for some more resources but find nothing. Lame.': '奴隶主？！您的脆皮们都知道想要走的话随时都可以走。他不过是想惹毛您！您在附近找了找，什么有用的资源都没找到。真是弱爆了。',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
+    'Please just go around, there\'s nothing to see': '转身离开吧，这里没什么可看',
+    'Why is my demise something you must guarantee?': '我的死亡，为何就是你的期盼',
+    'I beg you once more, please hear my plea': '再次恳求你，想想我们的羁绊',
+    'We could rule for all time, just you and me': '时间永恒，我们可以统治各半',
+    'No thanks, Druopitee. It\'s kinda nice to see him scared though! You found a Z500 Heirloom!': '别逗了，德罗披提。看他慌成这样真是太爽了！您发现了一个相当于区域500掉落的传家宝！',
+    'Well here is something I wouldn\'t normally say': '以下的话我平时从来不讲',
+    'Since it seems like you won\'t be going away': '但因为你也不像会退让',
+    'Each of my Echoes you slay makes my mind decay': '死去的幻影让我的意识衰亡',
+    'I may not be able to communicate after today': '从此以后我恐怕将交谈遗忘',
+    'Yes, that was becoming pretty obvious. His mind must really be decaying fast if he thought this admission would be anything other than motivating. You found 15 of each type of Nature Token!': '是啊，这太明显了。他的意识一定是在快速衰亡，他竟然觉得这样的话不是在鼓励。您发现了数量各为15的三种自然符记！',
+    'Why don\'t you care that you\'re making things harder?': '为何你不在意把事情弄得更难？',
+    'To repair the planet you\'d give enemies armor?': '为了修复行星你要把敌人变得强悍？',
+    'When I brought you here, I thought you\'d be smarter': '我带你来时以为你会聪明能干',
+    'But it seems like there\'s no room left to barter': '现在看来已经没什么好谈',
+    'No, there\'s not. You\'re almost there. You search around for some more resources but find nothing. Lame.': '谈？是没什么好谈了。您都快到塔顶了。您在附近找了找，什么有用的资源都没找到。真是弱爆了。',
+    'perk!': '特权！',
+    'You are weak. I\'ll be on the top floor.': '你太弱了。等你来送死，我在塔顶上。',
+    'Your death warrant\'s signed, soon you\'ll be no more.': '死期将至，你命不久矣。',
+    'I gave you everything you have, it was no easy chore.': '我给了你一切，这不是简单的儿戏。',
+    'Your Trimps are MINE, prepare for war!': '你的脆皮归我，你无法与我匹敌！',
+    'Even in death this guy\'s a dick. You search around for some more resources but find nothing. Lame.': '这家伙都死了还不消停。您在附近找了找，什么有用的资源都没找到。真是弱爆了。',
     //故事-尖塔结束
     //杂项
     'AutoSave has been disabled to prevent damage to your save. If you previously had a save file, it should still be waiting for you once you fix your browser settings.': '为了保护您的存档，自动存档已被关闭。如果您之前有存档文件，在修改完设置以后应该就能恢复使用了。',
@@ -4325,7 +4406,6 @@ var cnItems = {
     'Shift Down': '下移',
     'Sell Trap/Tower': '出售陷阱/塔',
     'Queue': '队列',
-    'Heirloom': '传家宝',
     'World Info': '世界信息',
     'Threat': '威胁',
     'Enemies': '敌人',
@@ -4398,7 +4478,6 @@ var cnItems = {
     'Upgrade (': '升级 (',
     'Pause Spire': '暂停尖塔',
     'Clear Spire III to unlock the Lightning Trap and Knowledge Tower, then raise your Spire\'s Threat to 1100 and build your eleventh Floor.': '清除尖塔 III去解锁闪电陷阱和知识塔，然后将尖塔的威胁提高到1100并建立你的第11层。',
-    'Exotic Imp-orts will be unlocked permanently once purchased, and will stick around through portals. Each has a 3% chance to spawn per square and better loot than normal enemies. Collect them all!': '一旦购买，奇异外皮将永久解锁，并将通过传送门保持不变。 每个方块产生3％的几率和比普通敌人更好的战利品。 全部收集它们！',
     'You\'ve got a new Trap and Tower, your Spire is still growing, and your power is growing with it! Your Trimps are slightly annoyed that they have to clean up the occasional Bad Guy that makes it through the Spire and into the town, but they can handle it. They all agree that life in general is just more fun when there\'s a giant Spire grinding Bad Guys at the entrance to their town.': '你有一个新的陷阱和塔，你的尖塔仍在增长，你的力量正在增长！ 你的脆皮有点恼火，他们不得不清理偶尔通过尖塔并进入城镇的坏家伙，但他们可以处理它。 他们都同意，当他们的城镇入口处有一个巨大的尖塔磨坏人们时，生活总体上会更有趣。',
     'While you\'re feeling comfortable maintaining your Spire\'s defenses with the tools you have, you still feel like there\'s something missing. Your Scientists say that they could perhaps create one more Trap and Tower, but again they\'ll need to study a Core from an even higher Spire.': '虽然你觉得使用你拥有的工具来维持尖塔的格挡感觉很舒服，但你仍然觉得有些东西缺失了。 你的科学家说，他们或许可以创造一个更多的陷阱和塔，但他们再次需要从更高的尖塔学习核心。',
     'Sell a Trap/Tower': '出售一个陷阱/塔',
@@ -6432,6 +6511,13 @@ var cnRegReplace = new Map([
     [/^(.*)You ruined a(n*) $/, '$1您破坏了一个'], //击杀消息
     [/^(.*)You wrecked a(n*) $/, '$1您击毁了一个'], //击杀消息
     [/^(.*)You obliterated a(n*) $/, '$1您抹消了一个'], //击杀消息
+    [/^(.*)The voice booms again, and sounds as if it is coming from the walls themselves.$/, '$1声音再次响了起来，听上去像是从墙壁中来的。'], //故事-尖塔消息
+    [/^Dammit Druopitee. This is all going to end up being his fault, isn't it\? You help yourself to a container filled with (.*) Helium, and figure he'll owe you a lot more than that once you hear some more.$/, '该死的德罗披提，原来都是你在搞的鬼，不是吗？您装走了一个容器中的$1氦，您觉得这么听下去，他欠你的只会越来越多。'], //故事-尖塔消息
+    [/^Yeah you don't really feel too much like bowing and probably won't be doing that. You did however find (.*) more Helium just sitting around, which you feel no qualms about taking.$/, '您不怎么喜欢臣服，也不会那么做的。您在附近找到了$1氦，毫不犹豫地将它带走了。'], //故事-尖塔消息
+    [/^(.*)Druopitee collapses to the floor. You were hoping he'd be a little more sane, but whatever. You shut down the corruption device and hope the planet will repair itself soon, then you rummage through his stuff and find keys, surely for the ship!$/, '$1德罗披提倒在了地上。您曾希望他能恢复哪怕一点点的理智，但终究是徒劳。您关闭了腐化装置，希望这个行星能够尽快自我恢复，然后您在他的东西里面翻找了一会儿，找到了几把钥匙，显然是飞船的钥匙！'], //故事-尖塔消息
+    [/^(.*)Druopitee collapses to the floor. You were hoping he'd be a little more sane, but whatever. You shut down the corruption device and hope the planet will repair itself soon, then you rummage through his stuff and find keys, surely for the ship! You also find a massive stockpile of$/, '$1德罗披提倒在了地上。您曾希望他能恢复哪怕一点点的理智，但终究是徒劳。您关闭了腐化装置，希望这个行星能够尽快自我恢复，然后您在他的东西里面翻找了一会儿，找到了几把钥匙，显然是飞船的钥匙！您同时发现了'], //故事-尖塔消息
+    [/^(.*)Druopitee collapses to the floor. You were hoping he'd be a little more sane, but whatever. You shut down the corruption device and hope the planet will repair itself soon, then you rummage through his stuff and find keys, surely for the ship! Your skills at salvaging things from this Spire have helped you$/, '$1德罗披提倒在了地上。您曾希望他能恢复哪怕一点点的理智，但终究是徒劳。您关闭了腐化装置，希望这个行星能够尽快自我恢复，然后您在他的东西里面翻找了一会儿，找到了几把钥匙，显然是飞船的钥匙！您搜刮尖塔的本事帮助您'], //故事-尖塔消息
+    [/^(.*)You found (.*) helium!$/, '$1您发现了$2氦！'], //故事-尖塔消息
     [/^(.*)Everything in this Spire seems less tidy than the last, he never thought the first was something you could pass. You find a small note amongst some Nullifium.$/, '$1这座尖塔中，一切东西都比上一座脏乱了一些，他怕是压根没想到您能通过第一座尖塔。您在一些虚空物质中发现了一份小笔记。'], //故事-尖塔消息
     [/^(.*)As you near the halfway point without too much strife, the Spire itself seems to become alive. You don't know what could be activating it since Druopitee is dead, so you keep your head down and you watch where you tread.$/, '$1您的路途已经近半而一路没什么敌人来妨碍，尖塔本身似乎活了过来。德罗披提已死也没人知道是啥激活了它，所以您只是低头看着脚下。'], //故事-尖塔消息
     [/^There's also some little containers floating a tiny bit off the ground, so you go check em out. You help yourself to a container filled with (.*) Helium!$/, '有一些小容器在离地不远的地方漂浮着，所以您去看了看。随后您装走了其中一个容器中的$1氦！'], //故事-尖塔消息
@@ -6442,30 +6528,40 @@ var cnRegReplace = new Map([
     [/^It sounds like he's trying to tell you that the Healthy mutation would make your enemies even stronger. Still seems like releasing it would be the right thing to do, though. You figure you'll help yourself to another container filled with (.*) Helium!$/, '看起来，他想告诉您健康变异只会使敌人变得更强。不管怎么说，散播它应该还是没错的。您装走了另一个容器中的$1氦！'], //故事-尖塔消息
     [/^(.*)As the Echo of Druopitee falls, you notice a large tank of some brown looking liquid, and you see pipes and tubes running from it to the top of the Spire. A label on the tank seems to indicate that this is the Healthy mutation and that you shouldn't touch it. But you know that what you want and what Druopitee wants are different things, so you start turning all the nozzles you can find. A fine brown mist begins to spout from the top of the Spire and you can tell that the world is finally healing. Now you just hope he was lying about this making the enemies stronger...  You find a large stockpile of$/, '$1德罗披提的幻影倒下后，您注意到一个装着棕色液体的大罐子，罐子上有许多管道连向尖塔顶部。罐子上的标签表明这里面装着可以引起健康变异的东西，而且您不应该碰它。不过，您知道您与德罗披提不是一路人，所以您开启了所有能找到的喷嘴。尖塔顶部开始喷出一缕缕细小的棕色烟雾，这个世界终于肉眼可见地开始复原了。不过现在您只希望他所谓的健康变异会加强敌人这个说法是个谎言……您发现了 '], //故事-尖塔消息
     [/^(.*)As the Echo of Druopitee falls, you notice a large tank of some brown looking liquid, and you see pipes and tubes running from it to the top of the Spire. A label on the tank seems to indicate that this is the Healthy mutation and that you shouldn't touch it. But you know that what you want and what Druopitee wants are different things, so you start turning all the nozzles you can find. A fine brown mist begins to spout from the top of the Spire and you can tell that the world is finally healing. Now you just hope he was lying about this making the enemies stronger...  You find a$/, '$1德罗披提的幻影倒下后，您注意到一个装着棕色液体的大罐子，罐子上有许多管道连向尖塔顶部。罐子上的标签表明这里面装着可以引起健康变异的东西，而且您不应该碰它。不过，您知道您与德罗披提不是一路人，所以您开启了所有能找到的喷嘴。尖塔顶部开始喷出一缕缕细小的棕色烟雾，这个世界终于肉眼可见地开始复原了。不过现在您只希望他所谓的健康变异会加强敌人这个说法是个谎言……您发现了一个'], //故事-尖塔消息
-    [/^(.*)There seems to be a pattern here of each spire looking considerably more trashed than the one before it. The walls feel cold and the vibration inside is very faint. Nobody's watching you, so you dig around looking for some stuff to take. You found 400 Nullifium!$/, '$1每个尖塔都比上一个尖塔更加破败一些，看起来这已经形成规律了。墙壁摸起来非常冰冷，内部的震动也很微弱。反正也没有谁在看着您，所以您干脆开始在周围翻了起来，想看看有没有什么能用上的东西。最后，您发现了400虚空物质！'], //故事-尖塔消息
+    [/^(.*)There seems to be a pattern here of each spire looking considerably more trashed than the one before it. The walls feel cold and the vibration inside is very faint. Nobody's watching you, so you dig around looking for some stuff to take. You found 400 Nullifium!$/, '$1每个尖塔都比上一个尖塔更加破败一些，看起来这已经形成规律了。这儿的墙壁摸起来非常冰冷，内部的震动也很微弱。反正也没有谁在看着您，所以您干脆开始在周围翻了起来，想看看有没有什么能用上的东西。最后，您发现了400虚空物质！'], //故事-尖塔消息
     [/^(.*)The vibrations within the walls grow stronger with each step you take towards the top. The air has become noticeably warmer, and you expect the walls to start talking to you again soon. You help yourself to a container filled with (.*) Helium!$/, '$1随着您的逐级前行，墙内的震动越来越强烈了。空气温度明显高了起来，您觉得墙壁很快又要开始喋喋不休了。您装走了一个容器中的$2氦！'], //故事-尖塔消息
     [/^(.*)The vibrations within the walls grow stronger with each step you take towards the top. The air has become noticeably warmer, and you expect the walls to start talking to you again soon.$/, '$1随着您的逐级前行，墙内的震动越来越强烈了。空气温度明显高了起来，您觉得墙壁很快又要开始喋喋不休了。'], //故事-尖塔消息
     [/^(.*)Fluffy suddenly drops to all of his extremities and begins closely inspecting the walls. After a few moments he chooses a location and smashes a hole in it, then pulls a small book out of said hole. Without even opening it up, he eats the book and gains (.*) experience! What a magnificent creature.$/, '$1绒绒突然四肢着地，开始仔细观察墙壁。过了没多久，它选定了一个地方，在那上面捅了个窟窿，然后从里面拿出了一本小书。它看都没看内容，直接就把书吃掉了，因此获得了$2经验值！真是了不起。'], //故事-尖塔消息
     [/^Slaver\?! Your Trimps all know that they're free to leave whenever they want. He's just trying to get under your skin! You figure you'll help yourself to another container filled with (.*) Helium!$/, '奴隶主？！您的脆皮们都知道想要走的话随时都可以走。他不过是想惹毛您！您装走了另一个容器中的$1氦！'], //故事-尖塔消息
-    [/^(.*)Well, that's one Druopitee and two Echoes of Druopitee down now. He says that he has infinite Spires and infinite versions of himself, but you could tell at the end there that his Echoes are losing power. You might be able to knock the sentience out of all of his Spires by just clearing one more! You set your sights 100 Zones forward, turn some more nozzles to spread some more Health around the world, you take your helium, spit on the floor of the Spire, and move on.  You find a large stockpile of$/, '$1很好，到现在为止已经干掉三个德罗披提了————一个本体，两个幻影。他声称他的尖塔和幻影是无穷无尽的，但您看得出来，他的幻影也在失去力量。再通过一个尖塔可能就可以把他的意识彻底打散了！您看向前方的100个区域，打开了更多的喷嘴，向世界散播了更多健康变异。您拿走了氦，往地上吐了一口唾沫，拂袖而去。您发现了'], //故事-尖塔消息
+    [/^(.*)Well, that's one Druopitee and two Echoes of Druopitee down now. He says that he has infinite Spires and infinite versions of himself, but you could tell at the end there that his Echoes are losing power. You might be able to knock the sentience out of all of his Spires by just clearing one more! You set your sights 100 Zones forward, turn some more nozzles to spread some more Health around the world, you take your helium, spit on the floor of the Spire, and move on.  You find a large stockpile of$/, '$1很好，到现在为止已经干掉三个德罗披提了————一个本体，两个幻影。他声称他的尖塔和幻影是无穷无尽的，但您看得出来，他的幻影也在失去力量。再通过一个尖塔可能就可以把他的意识彻底打散了！您看向前方的100个区域，打开了更多的喷嘴，向世界散播了更多健康变异。您拿走了氦，往地上吐了一口唾沫，拂袖而去。您发现了 '], //故事-尖塔消息
     [/^(.*)Well, that's one Druopitee and two Echoes of Druopitee down now. He says that he has infinite Spires and infinite versions of himself, but you could tell at the end there that his Echoes are losing power. You might be able to knock the sentience out of all of his Spires by just clearing one more! You set your sights 100 Zones forward, turn some more nozzles to spread some more Health around the world, you take your helium, spit on the floor of the Spire, and move on.  You find a$/, '$1很好，到现在为止已经干掉三个德罗披提了————一个本体，两个幻影。他声称他的尖塔和幻影是无穷无尽的，但您看得出来，他的幻影也在失去力量。再通过一个尖塔可能就可以把他的意识彻底打散了！您看向前方的100个区域，打开了更多的喷嘴，向世界散播了更多健康变异。您拿走了氦，往地上吐了一口唾沫，拂袖而去。您发现了一个'], //故事-尖塔消息
-    [/^$/, ''], //故事-尖塔消息
-    [/^$/, ''], //故事-尖塔消息
-    [/^$/, ''], //故事-尖塔消息
-    [/^$/, ''], //故事-尖塔消息
-    [/^$/, ''], //故事-尖塔消息
-    [/^$/, ''], //故事-尖塔消息
-    [/^$/, ''], //故事-尖塔消息
-    [/^$/, ''], //故事-尖塔消息
-    [/^$/, ''], //故事-尖塔消息
-
-
-
-
-
-
-
-
+    [/^(.*)As you guessed before you even stepped in, this Spire is in even worse condition than the one before. The air is colder, the walls are more still, and there's a feeling of vacancy. Might as well look for stuff to take! You found 800 Nullifium!$/, '$1跟您进来前预料的一致，这个尖塔的情况比上一个还糟糕。这里的空气更加冷冽，墙壁更加静谧，一阵空虚感油然而生。别管了，还是看看有什么可以拿走的吧！您发现了800虚空物质！'], //故事-尖塔消息
+    [/^(.*)You wonder if the Echo of Druopitee will even be able to speak anymore. You know he'll be at the top waiting, just like the infinite other Spires, but maybe he'll just leave you be this time. You help yourself to a container filled with (.*) Helium!$/, '$1您也不确信德罗披提的幻影还能不能说话了。您知道他会在塔顶等着，就像其他无数的尖塔一样，但或许这次他不会在路上打扰您了。您装走了一个容器中的$2氦！'], //故事-尖塔消息
+    [/^(.*)You wonder if the Echo of Druopitee will even be able to speak anymore. You know he'll be at the top waiting, just like the infinite other Spires, but maybe he'll just leave you be this time.$/, '$1您也不确信德罗披提的幻影还能不能说话了。您知道他会在塔顶等着，就像其他无数的尖塔一样，但或许这次他不会在路上打扰您了。'], //故事-尖塔消息
+    [/^(.*)The Spire is warming up again. Maybe Druopitee will make his final appearance soon. You found 1200 Nullifium!$/, '$1尖塔又开始热起来了。或许这是德罗披提最后一次出现了。您发现了1200虚空物质！'], //故事-尖塔消息
+    [/^No, there's not. You're almost there. You figure you'll help yourself to another container filled with (.*) Helium!$/, '谈？是没什么好谈了。您都快到塔顶了。您装走了另一个容器中的$1氦！'], //故事-尖塔消息
+    [/^(.*)As this third Echo of Druopitee falls, the Spire suddenly feels twice as cold. Druopitee told you that he placed infinite versions of himself in infinite Spires, but his will should no longer be conscious in any of them. You turn another set of knobs to release some more of the Healthy mutation into the world, and you figure there's nothing better to do than to keep looking for more to release. You just wouldn't be surprised to not hear from Druopitee again, at least not in this timeline.  You find a large stockpile of$/, '$1第三个德罗披提的幻影也倒下了，然后尖塔的寒冷程度突然加倍了。德罗披提曾说过在无穷无尽的尖塔中有无穷无尽个他，但之后的那些估计只是行尸走肉了。您转动另一组旋钮，向世界释放了更多健康变异，您觉得没什么比释放更多健康变异更好的了。如果从此德罗披提没法再说话的话，您是不会感到奇怪的，至少这条世界线中如此。您发现了 '], //故事-尖塔消息
+    [/^(.*)As this third Echo of Druopitee falls, the Spire suddenly feels twice as cold. Druopitee told you that he placed infinite versions of himself in infinite Spires, but his will should no longer be conscious in any of them. You turn another set of knobs to release some more of the Healthy mutation into the world, and you figure there's nothing better to do than to keep looking for more to release. You just wouldn't be surprised to not hear from Druopitee again, at least not in this timeline.  You find a$/, '$1第三个德罗披提的幻影也倒下了，然后尖塔的寒冷程度突然加倍了。德罗披提曾说过在无穷无尽的尖塔中有无穷无尽个他，但之后的那些估计只是行尸走肉了。您转动另一组旋钮，向世界释放了更多健康变异，您觉得没什么比释放更多健康变异更好的了。如果从此德罗披提没法再说话的话，您是不会感到奇怪的，至少这条世界线中如此。您发现了一个'], //故事-尖塔消息
+    [/^(.*)While you walk through the Spire, you whistle a tune. You haven't yet tired, your motivations zoom. As Fluffy checks for loot in this dark, dusty room, you suddenly see fire and hear a huge boom. You found 1600 Nullifium!$/, '$1进入尖塔的时候，您哼着小曲丝毫不怕。精力充沛完全不愁，您的动力越来越大。绒绒在这个阴暗尘封的房间为宝藏而搜查，您却突然看到了火光听到了大爆炸。您发现了1600虚空物质！'], //故事-尖塔消息
+    [/^(.*)The fires still grow, but they leave a clear path. Just one direction shown, the thought makes you laugh. Unwisely Druopitee tried to rig this booby trap, but the fire shows the way to go so you thank him for the map. You help yourself to a container filled with (.*) Helium!$/, '$1火焰还在燃烧，却已清出了一条路。如此简单甚至不用动脑，您笑着往前踱步。愚蠢的德罗披提想用陷阱让您停住，却不曾想恰恰是向您提供了地图。您装走了一个容器中的$2氦！'], //故事-尖塔消息
+    [/^(.*)The fires still grow, but they leave a clear path. Just one direction shown, the thought makes you laugh. Unwisely Druopitee tried to rig this booby trap, but the fire shows the way to go so you thank him for the map.$/, '$1火焰还在燃烧，却已清出了一条路。如此简单甚至不用动脑，您笑着往前踱步。愚蠢的德罗披提想用陷阱让您停住，却不曾想恰恰是向您提供了地图。'], //故事-尖塔消息
+    [/^(.*)Against your better judgment, you continue to climb. Heat fills this dungeon, and doubt fills your mind. You feel a great evil that's long been confined, but with reluctance you move on for the good of Trimpkind. You found 2400 Nullifium!$/, '$1与理性的判断不同，您并没有选择退回。热量重新上涌，疑虑充满了您的思维。您感到前方有个被囚禁的魔鬼，但为了脆皮们您已无路可退。您发现了2400虚空物质！'], //故事-尖塔消息
+    [/^(.*)You're close to the top of this large, awful tower. Your fearful thoughts drop, your will is empowered. Luckily you have Fluffy to support you in this hour, you two will never stop until these echoes are devoured.You found a Z600 Heirloom!$/, '$1你靠近了这个巨大而糟糕的尖塔的顶部。恐惧不翼而飞，意志愈加坚固。幸好绒绒还在身旁为您提供帮助，您和它不会停下，除非所有幻影都被消除。您发现了一个相当于区域600掉落的传家宝！'], //故事-尖塔消息
+    [/^(.*)The presence here is unique from what you felt before. You know it can't speak but it's not done for. An intrusive thought knocks on your mind's back door$/, '$1这里的它跟之前不一样。您知道它已经不能说话，但它并没有灭亡。脑海中一个闯入的声音愈发明朗'], //故事-尖塔消息
+    [/^(.*)Another thought enters your mind, this time louder than before$/, '$1您的脑海里响起了另一个声音，这次更加歇斯底里'], //故事-尖塔消息
+    [/^Even in death this guy's a dick. You figure you'll help yourself to another container filled with (.*) Helium!$/, '这家伙都死了还不消停。您装走了另一个容器中的$1氦！'], //故事-尖塔消息
+    [/^(.*)As yet another Echo of Druopitee fades into nothingness, you feel something urging you to check underneath a loose stone in the corner of the room. After lifting it up, you find a small notebook with the words "Global Domination" written on it. The text all seems to be in Druopitee's handwriting, which you instantly recognize from the books you've found around the planet. The first few pages all discuss Druopitee's success with various creatures here, followed by multiple pages documenting failures at attempts to control the Trimps. The very last page with any writing in it indicates that Druopitee intended to create leaders they'd be more likely to follow, by creating clones of himself mixed with varying amounts of Trimp DNA. Is this where Fluffy came from\?!  You find a large stockpile of$/, '$1又一个德罗披提的幻影被抹杀了，您感觉好像有什么驱使着您检查房间角落一块松动的石头下面。把石头搬开以后，您发现了一本写着《主宰世界》的小笔记本。您立刻认出了里面是德罗披提的字迹，跟行星上找到的那些书一致。前面几页写着关于成功制造了许多生物的事，接着又写了控制脆皮失败的事。最后几页的只言片语中，可以看出德罗披提想要制造一个它们更可能跟随的领袖，因此他将自己的DNA与脆皮的混合后，制造出了一些复制体。难道绒绒就是这么来的吗？！您发现了 '], //故事-尖塔消息
+    [/^(.*)As yet another Echo of Druopitee fades into nothingness, you feel something urging you to check underneath a loose stone in the corner of the room. After lifting it up, you find a small notebook with the words "Global Domination" written on it. The text all seems to be in Druopitee's handwriting, which you instantly recognize from the books you've found around the planet. The first few pages all discuss Druopitee's success with various creatures here, followed by multiple pages documenting failures at attempts to control the Trimps. The very last page with any writing in it indicates that Druopitee intended to create leaders they'd be more likely to follow, by creating clones of himself mixed with varying amounts of Trimp DNA. Is this where Fluffy came from\?!  You find a$/, '$1又一个德罗披提的幻影被抹杀了，您感觉好像有什么驱使着您检查房间角落一块松动的石头下面。把石头搬开以后，您发现了一本写着《主宰世界》的小笔记本。您立刻认出了里面是德罗披提的字迹，跟行星上找到的那些书一致。前面几页写着关于成功制造了许多生物的事，接着又写了控制脆皮失败的事。最后几页的只言片语中，可以看出德罗披提想要制造一个它们更可能跟随的领袖，因此他将自己的DNA与脆皮的混合后，制造出了一些复制体。难道绒绒就是这么来的吗？！您发现了一个'], //故事-尖塔消息
+    [/^(.*)(?<!(! |\. ))You found (.*) Nullifium!$/, '$1您发现了$3虚空物质！'], //故事-尖塔消息
+    [/^(.*)(?<!\. )You help yourself to a container filled with (.*) Helium!$/, '$1您装走了一个容器中的$2氦！'], //故事-尖塔消息
+    [/^(.*)(?<!(\.|! |\. ))You found a Z(.*) Heirloom!$/, '$1您发现了一个相当于区域$3掉落的传家宝！'], //故事-尖塔消息
+    [/^(.*)(?<!\. )You found (.*) of each type of Nature Token!$/, '$1您发现了数量各为$2的三种自然符记！'], //故事-尖塔消息
+    [/^(.*)(?<!(! |\. ))You figure you'll help yourself to another container filled with (.*) Helium!$/, '$1您装走了另一个容器中的$3氦！'], //故事-尖塔消息
+    [/^(.*)(?<!(! |\. ))You search around for some more resources but find nothing. Lame.$/, '$1您在附近找了找，什么有用的资源都没找到。真是弱爆了。'], //故事-尖塔消息
+    [/^(.*)You find a large stockpile of$/, '$1您发现了 '], //故事-尖塔消息
+    [/^(.*)You find a$/, '$1您发现了一个'], //故事-尖塔消息
+    [/^At the top of this Spire, you found a gigantic, pitch-black cache with (.*) Dark Essence inside, just enough to complete your entire collection!$/, '在尖塔顶部，您发现了一个巨大的黑箱子，里面装着$1黑暗精华，正好足够您升级所有的专精！'], //故事-尖塔消息
+    [/^(.*)As you're leaving, you find (.*) helium!$/, '$1离开时，您发现了$2氦！'], //故事-尖塔消息
     [/^(.*)Due to an error occuring, saving has been disabled to prevent corruption$/, '$1由于发生错误，为了防止崩溃，已禁止存档'], //其他消息等
     [/^(.*)Game Saved!$/, '$1游戏已存档！'], //其他消息等
     [/^(.*)For some reason, your game is not saving. Make sure you export and back up your save!$/, '$1由于某些原因，游戏未能存档。请手动导出游戏存档并妥善保管！'], //其他消息等
