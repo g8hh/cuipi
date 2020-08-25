@@ -2459,7 +2459,7 @@ var cnItems = {
     'of current amount (compounding': '(叠乘',
     'while keeping the stat bonus the same.': '同时协作的加成不变。',
     'Siphonology': '虹吸学',
-    'Use strategies discovered in alternate dimensions to siphon Map Bonus Damage stacks from lower level maps. For each level of Siphonology, you will earn stacks from maps one level lower than your current Zone number. Maximum of 3 levels.': '在其他维度中，您找到了从更低级的地图中虹吸地图奖励的方法。每级虹吸学可以从比当前区域低1级的地图中获取地图奖励。最高3级。',
+    'Use strategies discovered in alternate dimensions to siphon Map Bonus Damage stacks from lower level maps. For each level of Siphonology, you will earn stacks from maps one level lower than your current Zone number. Maximum of 3 levels.': '在其他维度中，您发现了从更低级的地图中虹吸地图奖励的方法。每级虹吸学可以从比当前区域低1级的地图中获取地图奖励。最高3级。',
     'Anticipation': '预期',
     'Resilience': '弹性',
     'Use your acquired skills in Trimp strengthening to gain a': '利用您的脆皮强化技能，使脆皮生命值每级增加',
@@ -2776,6 +2776,59 @@ var cnItems = {
     'Convert Ice to Poison': '将冰符记转换为毒符记',
     'Convert Ice to Wind': '将冰符记转换为风符记',
     //自然赋能相关结束
+    //故事-尖塔
+    'Healthy mutation bad...': '健康变异，很是不好……',
+    'Slows delirium': '狂暴之速，因此减少',
+    'Well that doesn\'t really sound like a bad thing. You found 200 Nullifium!': '嗯，听起来不坏。您发现了200虚空物质！',
+    'Gained 1 Trimp!': '您获得了1个脆皮！',
+    'There\'s also some little containers floating a tiny bit off the ground, so you go check em out. Gah! They\'re all empty!': '有一些小容器在离地不远的地方漂浮着，所以您去看了看。擦！里面啥也没有！',
+    'There is a piece of me in every last Spire': '每个尖塔中都有一部分我',
+    'I will ensure that Corruption is never retired': '我将确保腐化永远传播',
+    'Though your resolve is something that I admire': '对你的决心我钦佩甚颇',
+    'Your little plan will surely backfire': '但你的小小计划必将你自己打破',
+    'So it seems like all of the Spires are actually sentient thanks to Druopitee. You\'re just glad the narrator isn\'t trying to do the poetry anymore. Hey wait...': '看来，拜德罗披提所赐，所有的尖塔都活过来了。不过，您高兴的是至少那位仁兄闭口不言了。嘿，等等……',
+    'You found 300 Nullifium!': '您发现了300虚空物质！',
+    'I see you found my notes on my Healthy mutation': '我知道你发现了我的健康变异笔记',
+    'I bet you even think it could be your salvation': '我赌你觉得它可成为救赎之依',
+    'Improving this world must be quite the temptation': '拯救世界的确令人痴迷',
+    'But your journey will surely end in frustration': '但你的旅途必将终于失意',
+    'Well, you definitely want to get your hands on some of that Healthy mutation now. You found a Z400 Heirloom!': '很好，从此刻起您要认真考虑怎么引起健康变异了。您发现了一个相当于区域400掉落的传家宝！',
+    'Even if you were able, which you surely are not': '你觉得你很行，其实你并不',
+    'A Healthier world would not hasten your trot': '就算世界更健康也不会加速你的脚步',
+    'For there\'s strength in Health and you would be distraught': '因为健康中的力量只会使你躁怒',
+    'At the difficult challenge you yourself had wrought': '前方的艰险皆是你自己所筑',
+    'It sounds like he\'s trying to tell you that the Healthy mutation would make your enemies even stronger. Still seems like releasing it would be the right thing to do, though. You search around for some more resources but find nothing. Lame.': '看起来，他想告诉您健康变异只会使敌人变得更强。不管怎么说，散播它应该还是没错的。您在附近找了找，什么有用的资源都没找到。真是弱爆了。',
+    'a brand new Spire Core': '一个崭新的尖塔核心',
+    'brand new Spire Core': '崭新的尖塔核心',
+    '! For your first time killing this Echo in any timeline, you have permanently added another 5% to your Liquification bonus, increased your Dark Essence gains by 4x, and earned': '！由于这是您第一次击杀此幻影，您永久增加了5%液化加成，黑暗精华获取量变为4倍，并获得了',
+    '20 bones!': '20骨头！',
+    'You have also unlocked the': '您同时还解锁了',
+    'perk and can carry an additional Heirloom!': '特权，并且从此可以多携带一个传家宝！',
+    'WHAT': '什',
+    'WHO': '谁',
+    'How...': '怎……',
+    'That didn\'t seem very coherent. It seems like destroying his Echo in the last Spire has made some sort of impact. You found 600 Nullifium!': '这话听起来不怎么有条理。看起来上个尖塔中摧毁的幻影造成了某些影响。您发现了600虚空物质！',
+    'I see that you\'re attempting some planetary healing': '我知道你正在尝试将行星治好',
+    'Leaving me steaming in an unappealing feeling': '这让我不适让我倍受煎熬',
+    'Your freewheeling and stealing has just reached the ceiling': '你的肆意盗窃行为已达最高',
+    'Now commence kneeling or be sent off reeling': '要不臣服要不就被我打爆',
+    'At least he\'s gained enough consciousness back to continue with the threats. You know that now is not the time to back down. You found a Z400 Heirloom!': '至少他又清醒起来，能够继续威胁您了。您知道，现在只能寸步不让了。您发现了一个相当于区域400掉落的传家宝！',
+    'It\'s obvious that you want the Corruption to slow': '很明显你想阻止腐化蔓延',
+    'So I\'ll point out something you might not yet know': '因此我要指出你还不知的一点',
+    'My Spires are infinite, there is no plateau': '我的尖塔无穷无尽数量无限',
+    'You are doomed and you\'ve been so since long long ago': '你必然失败这早有预言',
+    'His Spires might be infinite, but it\'s not possible for his consciousness to be. You decide you\'ll worry about the rest of the spires once you\'ve beaten Druopitee into nothingness. You found 10 of each type of Nature Token!': '他的尖塔可能是无穷无尽的，但他的意识绝对不可能是的。您决定先彻底抹杀了德罗披提再来考虑剩下的尖塔怎么办。您发现了数量各为10的三种自然符记！',
+    'Still you climb on, won\'t your strength ever waver?': '还在这爬塔？你只会变弱',
+    'You\'re determined to be this planet\'s true savior?': '拯救行星？只是飞蛾扑火',
+    'Stop to reconsider, we could be something greater': '停下想想吧，我们可以有更好结果',
+    'Or continue your path as a time traveling slaver': '要不就像个奴隶主，继续时空穿梭',
+    'Slaver?! Your Trimps all know that they\'re free to leave whenever they want. He\'s just trying to get under your skin! You search around for some more resources but find nothing. Lame.': '奴隶主？！您的脆皮们都知道想要走的话随时都可以走。他不过是想惹毛您！您在附近找了找，什么有用的资源都没找到。真是弱爆了。',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    //故事-尖塔结束
     //杂项
     'AutoSave has been disabled to prevent damage to your save. If you previously had a save file, it should still be waiting for you once you fix your browser settings.': '为了保护您的存档，自动存档已被关闭。如果您之前有存档文件，在修改完设置以后应该就能恢复使用了。',
     'First Amalgamator': '第一个合并者',
@@ -2785,6 +2838,11 @@ var cnItems = {
     'Rare Imps: Venimp -': '稀有脆皮：脆皮爱神 -',
     'Rare Imps: Whipimp -': '稀有脆皮：脆皮鞭者 -',
     'Found a ': '发现了一个',
+    '10th Level of his 8th Evolution': '进化次数8等级10',
+    'and he promises he\'ll make it worth your time.': '它承诺这绝对值得您这么做的。',
+    'The Spire': '尖塔',
+    '': '',
+    '': '',
     '': '',
     //杂项结束
     //脚本3相关
@@ -5234,7 +5292,7 @@ var cnRegReplace = new Map([
     [/^(.*)The Moltimp thanked you for the combat, and handed you (.*) bars of metal! Then he died.$/, '$1脆皮熔金怪感谢您与它作战，并交给您 $2 金属！然后它就凉了。'], //特定敌人
     [/^(.*)The Entimp is no more. You manage to salvage (.*) logs of wood from his trunk!$/, '$1脆皮树人再也不会动了。您从它的树干上获取了 $2 木头！'], //特定敌人
     [/^(.*)Time for some stew! You scored (.*) food from that $/, '$1该炖点什么吃了！您获得了 $2 食物，因为您烹饪了那只'], //特定敌人
-    [/^(.*)You sift through the Gravelimp, and manage to find (.*) bars of metal! Good on you!$/, '$1您筛了一下碎石怪留下的东西，找到了 $2 金属！真不错！'], //特定敌人
+    [/^(.*)You sift through the Gravelimp, and manage to find (.*) bars of metal! Good on you!$/, '$1您筛了一下碎石怪留下的东西，发现了 $2 金属！真不错！'], //特定敌人
     [/^(.*)That Blimp dropped (.*) Food, Wood and Metal! That should be useful.$/, '$1脆皮飞艇掉落了 $2 食物，木头和金属！一定能用得上的。'], //特定敌人
     [/^(.*)You were able to extract (.*) Helium Canisters from that $/, '$1您提取了 $2 氦，取自'], //特定敌人
     [/^(.*)You were able to extract (.*) Radon Vials from that $/, '$1您提取了 $2 氡，取自'], //特定敌人
@@ -5281,7 +5339,7 @@ var cnRegReplace = new Map([
     [/^(.*)You have completed The Black Bog! 1 stack of Exhausted and Motivated have been removed from your Trimps.$/, '$1您通过了黑色泥沼！脆皮同时减少了1层疲惫不堪和1层积极前进。'], //特定敌人
     [/^(.*)That Randimp dropped (.*) gems! What a bro!$/, '$1脆皮百变怪掉落了 $2 宝石！真是好兄弟！'], //特定敌人
     [/^(.*)That Goblimp dropped (.*) gems! What a bro!$/, '$1脆皮地精掉落了 $2 宝石！真是好兄弟！'], //特定敌人
-    [/^Drops (.*)x Gems$/, '掉落 $1 倍的宝石'], //特定敌人
+    [/^Drops (.*)x Gems$/, '掉落$1倍的宝石'], //特定敌人
     [/^(.*)That Randimp gave you (.*) gems! Thanks $/, '$1脆皮百变怪交给您 $2 宝石！谢了'], //特定敌人
     [/^(.*)That Feyimp gave you (.*) gems! Thanks $/, '$1脆皮小妖交给您 $2 宝石！谢了'], //特定敌人
     [/^(.*)You stole (.*) fragments from that Randimp! It really didn't look like she needed them though, don't feel bad.$/, '$1您从脆皮百变怪那顺走了 $2 碎片！反正她看起来也不需要，别有负罪感。'], //特定敌人
@@ -5318,7 +5376,7 @@ var cnRegReplace = new Map([
     [/^(.*)You killed a Randimp! The strong magnetic forces now increase your loot by (.*)%!$/, '$1您击杀了一个脆皮百变怪！它的强大磁力使您战利品数量增加 $2% ！'], //特定敌人
     [/^(.*)You killed a Magnimp! The strong magnetic forces now increase your loot by (.*)%!$/, '$1您击杀了一个脆皮磁王！它的强大磁力使您战利品数量增加 $2% ！'], //特定敌人
     [/^(.*)Your Trimps managed to pull 1 perfectly preserved bone from that $/, '$1脆皮们获得了1块保存完好的骨头，取自'], //特定敌人
-    [/^(.*)That was a pretty big Skeletimp. Your Trimps scavenged the remains and found 2 perfectly preserved bones!$/, '$1这个脆皮骷髅相当巨大。脆皮们搜寻了残骸，找到了2块保存完好的骨头！'], //特定敌人
+    [/^(.*)That was a pretty big Skeletimp. Your Trimps scavenged the remains and found 2 perfectly preserved bones!$/, '$1这个脆皮骷髅相当巨大。脆皮们搜寻了残骸，发现了2块保存完好的骨头！'], //特定敌人
     [/^(.*)Oh, there seems to be an egg on the ground. You throw it really hard to break it, and find (.*) Food!$/, '$1哦，地上看起来有一个蛋。您重重地将它摔破了，发现了$2食物！'], //特定敌人
     [/^(.*)Oh, there seems to be an egg on the ground. You throw it really hard to break it, and find (.*) Wood!$/, '$1哦，地上看起来有一个蛋。您重重地将它摔破了，发现了$2木头！'], //特定敌人
     [/^(.*)Oh, there seems to be an egg on the ground. You throw it really hard to break it, and find (.*) Metal!$/, '$1哦，地上看起来有一个蛋。您重重地将它摔破了，发现了$2金属！'], //特定敌人
@@ -6374,6 +6432,40 @@ var cnRegReplace = new Map([
     [/^(.*)You ruined a(n*) $/, '$1您破坏了一个'], //击杀消息
     [/^(.*)You wrecked a(n*) $/, '$1您击毁了一个'], //击杀消息
     [/^(.*)You obliterated a(n*) $/, '$1您抹消了一个'], //击杀消息
+    [/^(.*)Everything in this Spire seems less tidy than the last, he never thought the first was something you could pass. You find a small note amongst some Nullifium.$/, '$1这座尖塔中，一切东西都比上一座脏乱了一些，他怕是压根没想到您能通过第一座尖塔。您在一些虚空物质中发现了一份小笔记。'], //故事-尖塔消息
+    [/^(.*)As you near the halfway point without too much strife, the Spire itself seems to become alive. You don't know what could be activating it since Druopitee is dead, so you keep your head down and you watch where you tread.$/, '$1您的路途已经近半而一路没什么敌人来妨碍，尖塔本身似乎活了过来。德罗披提已死也没人知道是啥激活了它，所以您只是低头看着脚下。'], //故事-尖塔消息
+    [/^There's also some little containers floating a tiny bit off the ground, so you go check em out. You help yourself to a container filled with (.*) Helium!$/, '有一些小容器在离地不远的地方漂浮着，所以您去看了看。随后您装走了其中一个容器中的$1氦！'], //故事-尖塔消息
+    [/^(.*)Out of the corner of your eye, you notice a creature who doesn't seem like he belongs. You walk up closer and notice that it's Fluffy! You turn around expecting to see your other Fluffy, but there is only one. You turn back as he waves at you in recognition, you feel a bit lightheaded, but you've had weirder things happen on this planet. You decide to keep moving up the Spire with your new old friend.$/, '$1在您视野的角落，您注意到了一个彷徨的生物。您走近一看，它竟然是绒绒！您回头想看看有没有第二只绒绒，但并没有。您转回来，看到绒绒认出了您，正向您挥手，您有点晕头转向，不过这个行星上您也见过更奇怪的事情了。您决定不管太多，跟新遇见的老朋友一同继续向尖塔高处行进。'], //故事-尖塔消息
+    [/^(.*)Out of the corner of your eye, you notice a creature who doesn't seem like he belongs. You walk up closer and notice that it's a Trimp! Only this Trimp is purple instead of blue, obviously a result of some experiments by Druopitee. You let him know not to worry, and that you'll keep him safe. You name him Fluffy, and vow to never let any harm come to him.$/, '$1在您视野的角落，您注意到了一个彷徨的生物。您走近一看，它竟然是一个脆皮！唯一不同的是，它浑身不是蓝色，而是紫色的，显然它是德罗披提什么实验的产物。您设法让它冷静下来，并且让它知道您会保护它。您给它取名为 绒绒 ，您发誓，永远不会让它受到伤害。'], //故事-尖塔消息
+    [/^(.*)A humming vibration suddenly fills the air, and a voice booms from the walls.$/, '$1嗡嗡作响的震动突然传遍空气，墙里传来了低沉的声音。'], //故事-尖塔消息
+    [/^(.*)Nothing here but a bunch of boxes, so you decide to rummage through them. You found 5 of each type of Nature Token!$/, '$1除了一些盒子以外，此地别无他物，所以您决定翻翻看有什么东西。接着，您发现了数量各为5的三种自然符记！'], //故事-尖塔消息
+    [/^It sounds like he's trying to tell you that the Healthy mutation would make your enemies even stronger. Still seems like releasing it would be the right thing to do, though. You figure you'll help yourself to another container filled with (.*) Helium!$/, '看起来，他想告诉您健康变异只会使敌人变得更强。不管怎么说，散播它应该还是没错的。您装走了另一个容器中的$1氦！'], //故事-尖塔消息
+    [/^(.*)As the Echo of Druopitee falls, you notice a large tank of some brown looking liquid, and you see pipes and tubes running from it to the top of the Spire. A label on the tank seems to indicate that this is the Healthy mutation and that you shouldn't touch it. But you know that what you want and what Druopitee wants are different things, so you start turning all the nozzles you can find. A fine brown mist begins to spout from the top of the Spire and you can tell that the world is finally healing. Now you just hope he was lying about this making the enemies stronger...  You find a large stockpile of$/, '$1德罗披提的幻影倒下后，您注意到一个装着棕色液体的大罐子，罐子上有许多管道连向尖塔顶部。罐子上的标签表明这里面装着可以引起健康变异的东西，而且您不应该碰它。不过，您知道您与德罗披提不是一路人，所以您开启了所有能找到的喷嘴。尖塔顶部开始喷出一缕缕细小的棕色烟雾，这个世界终于肉眼可见地开始复原了。不过现在您只希望他所谓的健康变异会加强敌人这个说法是个谎言……您发现了 '], //故事-尖塔消息
+    [/^(.*)As the Echo of Druopitee falls, you notice a large tank of some brown looking liquid, and you see pipes and tubes running from it to the top of the Spire. A label on the tank seems to indicate that this is the Healthy mutation and that you shouldn't touch it. But you know that what you want and what Druopitee wants are different things, so you start turning all the nozzles you can find. A fine brown mist begins to spout from the top of the Spire and you can tell that the world is finally healing. Now you just hope he was lying about this making the enemies stronger...  You find a$/, '$1德罗披提的幻影倒下后，您注意到一个装着棕色液体的大罐子，罐子上有许多管道连向尖塔顶部。罐子上的标签表明这里面装着可以引起健康变异的东西，而且您不应该碰它。不过，您知道您与德罗披提不是一路人，所以您开启了所有能找到的喷嘴。尖塔顶部开始喷出一缕缕细小的棕色烟雾，这个世界终于肉眼可见地开始复原了。不过现在您只希望他所谓的健康变异会加强敌人这个说法是个谎言……您发现了一个'], //故事-尖塔消息
+    [/^(.*)There seems to be a pattern here of each spire looking considerably more trashed than the one before it. The walls feel cold and the vibration inside is very faint. Nobody's watching you, so you dig around looking for some stuff to take. You found 400 Nullifium!$/, '$1每个尖塔都比上一个尖塔更加破败一些，看起来这已经形成规律了。墙壁摸起来非常冰冷，内部的震动也很微弱。反正也没有谁在看着您，所以您干脆开始在周围翻了起来，想看看有没有什么能用上的东西。最后，您发现了400虚空物质！'], //故事-尖塔消息
+    [/^(.*)The vibrations within the walls grow stronger with each step you take towards the top. The air has become noticeably warmer, and you expect the walls to start talking to you again soon. You help yourself to a container filled with (.*) Helium!$/, '$1随着您的逐级前行，墙内的震动越来越强烈了。空气温度明显高了起来，您觉得墙壁很快又要开始喋喋不休了。您装走了一个容器中的$2氦！'], //故事-尖塔消息
+    [/^(.*)The vibrations within the walls grow stronger with each step you take towards the top. The air has become noticeably warmer, and you expect the walls to start talking to you again soon.$/, '$1随着您的逐级前行，墙内的震动越来越强烈了。空气温度明显高了起来，您觉得墙壁很快又要开始喋喋不休了。'], //故事-尖塔消息
+    [/^(.*)Fluffy suddenly drops to all of his extremities and begins closely inspecting the walls. After a few moments he chooses a location and smashes a hole in it, then pulls a small book out of said hole. Without even opening it up, he eats the book and gains (.*) experience! What a magnificent creature.$/, '$1绒绒突然四肢着地，开始仔细观察墙壁。过了没多久，它选定了一个地方，在那上面捅了个窟窿，然后从里面拿出了一本小书。它看都没看内容，直接就把书吃掉了，因此获得了$2经验值！真是了不起。'], //故事-尖塔消息
+    [/^Slaver\?! Your Trimps all know that they're free to leave whenever they want. He's just trying to get under your skin! You figure you'll help yourself to another container filled with (.*) Helium!$/, '奴隶主？！您的脆皮们都知道想要走的话随时都可以走。他不过是想惹毛您！您装走了另一个容器中的$1氦！'], //故事-尖塔消息
+    [/^(.*)Well, that's one Druopitee and two Echoes of Druopitee down now. He says that he has infinite Spires and infinite versions of himself, but you could tell at the end there that his Echoes are losing power. You might be able to knock the sentience out of all of his Spires by just clearing one more! You set your sights 100 Zones forward, turn some more nozzles to spread some more Health around the world, you take your helium, spit on the floor of the Spire, and move on.  You find a large stockpile of$/, '$1很好，到现在为止已经干掉三个德罗披提了————一个本体，两个幻影。他声称他的尖塔和幻影是无穷无尽的，但您看得出来，他的幻影也在失去力量。再通过一个尖塔可能就可以把他的意识彻底打散了！您看向前方的100个区域，打开了更多的喷嘴，向世界散播了更多健康变异。您拿走了氦，往地上吐了一口唾沫，拂袖而去。您发现了'], //故事-尖塔消息
+    [/^(.*)Well, that's one Druopitee and two Echoes of Druopitee down now. He says that he has infinite Spires and infinite versions of himself, but you could tell at the end there that his Echoes are losing power. You might be able to knock the sentience out of all of his Spires by just clearing one more! You set your sights 100 Zones forward, turn some more nozzles to spread some more Health around the world, you take your helium, spit on the floor of the Spire, and move on.  You find a$/, '$1很好，到现在为止已经干掉三个德罗披提了————一个本体，两个幻影。他声称他的尖塔和幻影是无穷无尽的，但您看得出来，他的幻影也在失去力量。再通过一个尖塔可能就可以把他的意识彻底打散了！您看向前方的100个区域，打开了更多的喷嘴，向世界散播了更多健康变异。您拿走了氦，往地上吐了一口唾沫，拂袖而去。您发现了一个'], //故事-尖塔消息
+    [/^$/, ''], //故事-尖塔消息
+    [/^$/, ''], //故事-尖塔消息
+    [/^$/, ''], //故事-尖塔消息
+    [/^$/, ''], //故事-尖塔消息
+    [/^$/, ''], //故事-尖塔消息
+    [/^$/, ''], //故事-尖塔消息
+    [/^$/, ''], //故事-尖塔消息
+    [/^$/, ''], //故事-尖塔消息
+    [/^$/, ''], //故事-尖塔消息
+
+
+
+
+
+
+
+
     [/^(.*)Due to an error occuring, saving has been disabled to prevent corruption$/, '$1由于发生错误，为了防止崩溃，已禁止存档'], //其他消息等
     [/^(.*)Game Saved!$/, '$1游戏已存档！'], //其他消息等
     [/^(.*)For some reason, your game is not saving. Make sure you export and back up your save!$/, '$1由于某些原因，游戏未能存档。请手动导出游戏存档并妥善保管！'], //其他消息等
@@ -6402,20 +6494,20 @@ var cnRegReplace = new Map([
     [/^(.*)You open the Large Wooden Cache at the end of the map to find (.*) wood!$/, '$1您打开了地图最后的大木头储藏箱，获得了$2木头！'], //其他消息等
     [/^(.*)You open the Large Metal Cache at the end of the map to find (.*) metal!$/, '$1您打开了地图最后的大金属储藏箱，获得了$2金属！'], //其他消息等
     [/^(.*)You open the Large Research Cache at the end of the map to find (.*) science!$/, '$1您打开了地图最后的大研究储藏箱，获得了$2科学点！'], //其他消息等
-    [/^(.*)Fluffy found another Large Cache with another (.*) food!$/, '$1绒绒找到了另一个大储藏箱，获得了$2食物！'], //其他消息等
-    [/^(.*)Fluffy found another Large Cache with another (.*) wood!$/, '$1绒绒找到了另一个大储藏箱，获得了$2木头！'], //其他消息等
-    [/^(.*)Fluffy found another Large Cache with another (.*) metal!$/, '$1绒绒找到了另一个大储藏箱，获得了$2金属！'], //其他消息等
-    [/^(.*)Fluffy found another Small Savory Cache with another (.*) food!$/, '$1绒绒找到了另一个小美味储藏箱，获得了$2食物！'], //其他消息等
-    [/^(.*)Fluffy found another Small Wooden Cache with another (.*) wood!$/, '$1绒绒找到了另一个小木头储藏箱，获得了$2木头！'], //其他消息等
-    [/^(.*)Fluffy found another Small Metal Cache with another (.*) metal!$/, '$1绒绒找到了另一个小金属储藏箱，获得了$2金属！'], //其他消息等
-    [/^(.*)Fluffy found another Small Research Cache with another (.*) science!$/, '$1绒绒找到了另一个小研究储藏箱，获得了$2科学点！'], //其他消息等
-    [/^(.*)Fluffy found another Huge Cache with another (.*) food!$/, '$1绒绒找到了另一个巨大储藏箱，获得了$2食物！'], //其他消息等
-    [/^(.*)Fluffy found another Huge Cache with another (.*) wood!$/, '$1绒绒找到了另一个巨大储藏箱，获得了$2木头！'], //其他消息等
-    [/^(.*)Fluffy found another Huge Cache with another (.*) metal!$/, '$1绒绒找到了另一个巨大储藏箱，获得了$2金属！'], //其他消息等
-    [/^(.*)Fluffy found another Large Savory Cache with another (.*) food!$/, '$1绒绒找到了另一个大美味储藏箱，获得了$2食物！'], //其他消息等
-    [/^(.*)Fluffy found another Large Wooden Cache with another (.*) wood!$/, '$1绒绒找到了另一个大木头储藏箱，获得了$2木头！'], //其他消息等
-    [/^(.*)Fluffy found another Large Metal Cache with another (.*) metal!$/, '$1绒绒找到了另一个大金属储藏箱，获得了$2金属！'], //其他消息等
-    [/^(.*)Fluffy found another Large Research Cache with another (.*) science!$/, '$1绒绒找到了另一个大研究储藏箱，获得了$2科学点！'], //其他消息等
+    [/^(.*)Fluffy found another Large Cache with another (.*) food!$/, '$1绒绒发现了另一个大储藏箱，获得了$2食物！'], //其他消息等
+    [/^(.*)Fluffy found another Large Cache with another (.*) wood!$/, '$1绒绒发现了另一个大储藏箱，获得了$2木头！'], //其他消息等
+    [/^(.*)Fluffy found another Large Cache with another (.*) metal!$/, '$1绒绒发现了另一个大储藏箱，获得了$2金属！'], //其他消息等
+    [/^(.*)Fluffy found another Small Savory Cache with another (.*) food!$/, '$1绒绒发现了另一个小美味储藏箱，获得了$2食物！'], //其他消息等
+    [/^(.*)Fluffy found another Small Wooden Cache with another (.*) wood!$/, '$1绒绒发现了另一个小木头储藏箱，获得了$2木头！'], //其他消息等
+    [/^(.*)Fluffy found another Small Metal Cache with another (.*) metal!$/, '$1绒绒发现了另一个小金属储藏箱，获得了$2金属！'], //其他消息等
+    [/^(.*)Fluffy found another Small Research Cache with another (.*) science!$/, '$1绒绒发现了另一个小研究储藏箱，获得了$2科学点！'], //其他消息等
+    [/^(.*)Fluffy found another Huge Cache with another (.*) food!$/, '$1绒绒发现了另一个巨大储藏箱，获得了$2食物！'], //其他消息等
+    [/^(.*)Fluffy found another Huge Cache with another (.*) wood!$/, '$1绒绒发现了另一个巨大储藏箱，获得了$2木头！'], //其他消息等
+    [/^(.*)Fluffy found another Huge Cache with another (.*) metal!$/, '$1绒绒发现了另一个巨大储藏箱，获得了$2金属！'], //其他消息等
+    [/^(.*)Fluffy found another Large Savory Cache with another (.*) food!$/, '$1绒绒发现了另一个大美味储藏箱，获得了$2食物！'], //其他消息等
+    [/^(.*)Fluffy found another Large Wooden Cache with another (.*) wood!$/, '$1绒绒发现了另一个大木头储藏箱，获得了$2木头！'], //其他消息等
+    [/^(.*)Fluffy found another Large Metal Cache with another (.*) metal!$/, '$1绒绒发现了另一个大金属储藏箱，获得了$2金属！'], //其他消息等
+    [/^(.*)Fluffy found another Large Research Cache with another (.*) science!$/, '$1绒绒发现了另一个大研究储藏箱，获得了$2科学点！'], //其他消息等
     [/^(.*)You must create a map between level 6 and your highest Zone, (.*).$/, '$1您只能制造6级到您最高区域$2级之间等级的地图。'], //其他消息等
     [/^(.*)Woah, that's a lot of maps. You're certain your Scientists will just lose them if you make any more. Better recycle a few of them, it's good for the environment anyways.$/, '$1哇哦，地图也太多了。再制造下去就要被科学家们白白扔掉了。最好还是回收一些吧，这也是为了环保。'], //其他消息等
     [/^(.*)You can't afford this map! You need (.*) fragments.$/, '$1您的碎片不够，无法制造此地图！您需要$2碎片。'], //其他消息等
@@ -6486,6 +6578,13 @@ var cnRegReplace = new Map([
     [/^Found (.*) Token(s*) of Poison!$/, '发现了$1毒符记！'], //其他消息等
     [/^Found (.*) Token(s*) of Wind!$/, '发现了$1风符记！'], //其他消息等
     [/^Found (.*) Token(s*) of Ice!$/, '发现了$1冰符记！'], //其他消息等
+    [/^(.*)The Magma has solidified into impenetrable Obsidian; your Trimps have no hope of progressing here right now. Fluffy has an idea for remelting the world, but it will take a tremendous amount of energy from a place Fluffy isn't yet powerful enough to send you. Fluffy asks you to help him reach the$/, '$1岩浆凝固成了无法穿越的黑曜石，您的脆皮目前没有通过的可能。绒绒想到了一个法子，但是需要极其大量的能量，而绒绒目前还没法送您到可以获取那样能量的地方。所以绒绒请您将它升级到'], //其他消息等
+    [/^(.*)The Magma has solidified into impenetrable Obsidian; your Trimps have no hope of progressing here right now. However, all is not lost! Every 50 Zones of progress you make in the Radon Universe will allow you to harness enough energy for Fluffy to slow down the hardening of your World for an extra 10 Zones in this Universe.$/, '$1岩浆凝固成了无法穿越的黑曜石，您的脆皮目前没有通过的可能。不过，这并不代表着您就束手无策了！每在氡之宇宙中通过50个区域，您就可以获取到足够的能量，使绒绒可以延缓当前宇宙10个区域变成黑曜石。'], //其他消息等
+    [/^(.*)The Magma has solidified into impenetrable Obsidian; your Trimps have no hope of progressing here right now. However, all is not lost! Every 10 Zones of progress you make in the Radon Universe will allow you to harness enough energy for Fluffy to slow down the hardening of your World for an extra 10 Zones in this Universe.$/, '$1岩浆凝固成了无法穿越的黑曜石，您的脆皮目前没有通过的可能。不过，这并不代表着您就束手无策了！每在氡之宇宙中通过10个区域，您就可以获取到足够的能量，使绒绒可以延缓当前宇宙10个区域变成黑曜石。'], //其他消息等
+    [/^(.*)Recycled Bionic Wonderland(.*).$/, '$1回收了仿生仙境$2地图。'], //其他消息等
+    [/^(.*)You're not yet ready. Maybe you'll be of use in the next lifetime.$/, '$1您只是在自寻死路。或许下一世您能准备好了。'], //其他消息等
+    [/^(.*) group(s*) of Trimps ha(s|ve) perished in the Spire.$/, '$1队脆皮们倒在了尖塔中。'], //其他消息等
+
 
 
     [/^(.*)AutoTrimps - Zek Fork Loaded!$/, '$1自动脆皮脚本 - Zek Fork 已成功载入！'], //脚本3载入消息
