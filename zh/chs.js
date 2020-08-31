@@ -53,6 +53,8 @@ var cnItems = {
     'AutoStructure Off': '关闭自动建造',
     'Click twice to customize.': '双击以自定义。',
     'Configure AutoStructure': '自动建造设置',
+    'Toggle All Structures Off': '关闭所有建筑',
+    'Toggle All Structures On': '开启所有建筑',
     'Enabling this will cause your Trimps to automatically add a storage building to the queue if you reach max capacity. This will work on and offline if enabled.': '启用后，当资源到达上限时，自动建造相应的存储建筑。在线和离线时都可以生效。',
     'AutoStorage On': '开启自动存储',
     'AutoStorage Off': '关闭自动存储',
@@ -76,12 +78,19 @@ var cnItems = {
     'AutoPrestige All': '全部自动重铸',
     'Weapons Only': '只重铸武器',
     'Weapons First': '优先重铸武器',
+    'PANTS ONLY': '胖次最好了',
     'AutoUpgrade': '自动升级',
     'AutoUpgrade On': '开启自动升级',
     'AutoUpgrade Off': '关闭自动升级',
     'AutoEquip On': '开启自动装备',
     'AutoEquip Off': '关闭自动装备',
     'Configure AutoEquip': '自动装备设置',
+    'Toggle All Armor Off': '关闭所有护甲',
+    'Toggle All Armor On': '开启所有护甲',
+    'Only Buy From Highest Tier Off': '关闭只升级阶级最大的装备',
+    'Only Buy From Highest Tier On': '开启只升级阶级最大的装备',
+    'Toggle All Weapons Off': '关闭所有武器',
+    'Toggle All Weapons On': '开启所有武器',
     'Respec Masteries': '专精洗点',
     'Respec (': '洗点(',
     'Confirm Respec Masteries': '确认专精洗点',
@@ -162,6 +171,8 @@ var cnItems = {
     'Abandon Soldiers': '放弃士兵',
     'World': '世界',
     'Maps (': '地图 (',
+    'Void Maps (': '虚空地图 (',
+    'Back': '返回',
     'Configure Maps': '地图设置',
     'Repeat Map': '重复地图',
     'Repeat On': '开启重复',
@@ -1593,12 +1604,12 @@ var cnItems = {
     'No Achieve Popup': '不弹出获得成就提示框',
     'Popup Achievements': '弹出获得成就提示框',
     'Decide whether or not you want popups on completing an achievement.': '切换是否在获得成就以后弹出提示框。',
-    'Tier First': '级别优先',
-    'Tier first': '级别优先',
+    'Tier First': '阶级优先',
+    'Tier first': '阶级优先',
     'Equip first': '装备优先',
     'Equip First': '装备优先',
     'Choose which upgrades you want first if it has been a while since you last ran maps.': '选择想要在地图中先获得的升级。',
-    'will cause maps to drop all items for the lowest tier before moving to the next. (Greatsword II -> Breastplate II -> Shield III': '地图在掉落更高级升级前会优先掉落所有更低级升级 (巨剑 II -> 胸铠 II -> 盾牌 III',
+    'will cause maps to drop all items for the lowest tier before moving to the next. (Greatsword II -> Breastplate II -> Shield III': '地图在掉落更高阶升级前会优先掉落所有更低阶升级 (巨剑 II -> 胸铠 II -> 盾牌 III',
     'will start from Shield and drop all available Shield prestiges before continuing to Dagger and so on. (Shield III -> Shield IV -> Dagger III': '地图从盾牌的升级开始掉落，全部掉落完以后，再开始掉落匕首的升级，依此类推 (盾牌 III -> 盾牌 IV -> 匕首 III',
     'Repeat Forever': '永远重复',
     'Repeat to': '重复次数：',
@@ -2840,6 +2851,47 @@ var cnItems = {
     'Convert Ice to Poison': '将冰符记转换为毒符记',
     'Convert Ice to Wind': '将冰符记转换为风符记',
     //自然赋能相关结束
+    //绒绒污污相关
+    'Evolution': '进化次数',
+    'Fluffy cannot gain any Experience from Zones lower than': '绒绒无法获得经验值，因为当前区域低于',
+    'Fluffy needs  at least one point of Capable to gain any Exp': '绒绒至少需要1级能力特权才可以获得经验值',
+    'Fluffy needs  at least one point of Capable to gain any Exp. Complete Spire II to unlock Capable!': '绒绒至少需要1级能力特权才可以获得经验值。通过尖塔 II就可以解锁能力特权！',
+    'Fluffy\'s just chillin.': '绒绒很放松。',
+    'Scruffy\'s just chillin.': '污污很放松。',
+    'Fluffy can now predict the future, though he won\'t tell you what\'s going to happen.': '绒绒可以预测未来了，但它没法告诉您会发生什么。',
+    'Scruffy can now predict the future, though he won\'t tell you what\'s going to happen.': '污污可以预测未来了，但它没法告诉您会发生什么。',
+    'Fluffy\'s looking pretty buff.': '绒绒看起来很健美。',
+    'Scruffy\'s looking pretty buff.': '污污看起来很健美。',
+    'FLUFFY SMASH': '绒！绒！碎！击！',
+    'SCRUFFY SMASH': '污！污！碎！击！',
+    'Fluffy\'s smelling great today.': '绒绒今天闻起来味道不坏。',
+    'Scruffy\'s smelling great today.': '污污今天闻起来味道不坏。',
+    'Fluffy is a model Trimp.': '绒绒是脆皮楷模。',
+    'Scruffy is a model Trimp.': '污污是脆皮楷模。',
+    'Fluffy can do anything.': '绒绒无所不能。',
+    'Scruffy can do anything.': '污污无所不能。',
+    'Fluffy once killed a Snimp with a well-timed insult.': '绒绒曾经靠着嘴炮就骂死了一个王司……一个脆皮鹬。',
+    'Scruffy once killed a Snimp with a well-timed insult.': '污污曾经靠着嘴炮就骂死了一个王司……一个脆皮鹬。',
+    'Fluffy can juggle 3 dozen scientists without breaking a sweat.': '绒绒可以不费吹灰之力地同时用三打科学家来表演抛球杂技。',
+    'Scruffy can juggle 3 dozen scientists without breaking a sweat.': '污污可以不费吹灰之力地同时用三打科学家来表演抛球杂技。',
+    'Fluffy does a barrel roll.': '绒绒秀了一手横滚翻',
+    'Scruffy does a barrel roll.': '污污秀了一手横滚翻',
+    'Fluffy\'s thinking about writing a book.': '绒绒在考虑出书的事。',
+    'Scruffy\'s thinking about writing a book.': '污污在考虑出书的事。',
+    'He\'s enjoying the grind.': '它对刷刷刷很享受。',
+    'He can\'t wait to get stronger.': '它只想变得更强大。',
+    'He could probably use a shower.': '它最好去洗个澡。',
+    'He\'s growing up so fast.': '它在光速成长。',
+    'His fur is looking healthy today.': '它的气色看起来很好。',
+    'He\'s feeling quite capable.': '它觉得自己很有能力。',
+    'He still drools a bit in his sleep.': '它睡觉时流了点口水。',
+    'He loves a good game of fetch.': '它热衷于取物游戏。',
+    'He\'s been practicing juggling.': '它在练习抛球杂技。',
+    'He does a flip.': '它翻了个筋斗。',
+    'He\'s the only Trimp not scared by your campfire ghost stories.': '只有它一个脆皮没有被您的营火鬼故事吓倒。',
+    '': '',
+    '': '',
+    //绒绒污污相关结束
     //故事-尖塔
     'It has been forever, yet now we meet,': '过去这么多年，我们终又相遇，',
     'I\'m not surprised you don\'t remember me.': '我并不奇怪，你已将我忘记。',
@@ -2989,6 +3041,7 @@ var cnItems = {
     'AutoGolden Unlocked': '自动金色升级已解锁',
     'The Magma': '岩浆',
     'The Improbability': '乌有者',
+    'A Whole New World': '全新的世界',
     '': '',
     '': '',
     //杂项结束
@@ -4506,7 +4559,6 @@ var cnItems = {
     'Research first': '研究优先',
     'Challenge': '挑战',
     'Auto Saving': '自动保存',
-    'Void Maps (': '虚空地图 (',
     'This is a building in your queue, you\'ll need to click "Build" to build it. Clicking an item in the queue will cancel it for a full refund.': '这是您队列中的一个建筑物，您需要单击“建造”来构建它。 单击队列中的项目将取消它以获得全额退款。',
     'Download as File': '下载为文件',
     'Import your save string! It\'ll be fun, I promise.': '导入存档字符串！ 我保证，这会很有趣。',
@@ -4632,7 +4684,6 @@ var cnItems = {
     'Territory Bonus': '领土奖励',
     'Make Purchase': '购买',
     'Customize your settings for running maps!': '自定义你的地图运行设置！',
-    'Back': '后退',
 	"Your Trimps killed a lot of Bad Guys back there. It seems like you're getting the hang of this. However, the world is large, and there are many more Zones to explore. Chop chop.": "你的脆皮在那里杀死了很多坏人。 看起来你似乎已经弄清楚这是怎么一回事了。 然而这个世界很大，依然有去多区域需要探索，“砍”“砍”...",
 	"By your orders, your scientists have begun to try and figure out how large this planet is.": "根据您的命令，您的科学家们已经开始尝试了解这个星球有多大。",
 	"You order your Trimps to search the area for the keys to your ship, but nobody finds anything. Bummer.": "您命令脆皮在该地区搜索您的船只的钥匙，但没有人找到任何东西。真令人失望。",
@@ -5544,13 +5595,13 @@ var cnRegReplace = new Map([
     [/^(.*)Lame, this one just has stringy stuff in it.$/, '$1坑爹呢，这货就留了这么些南瓜丝？'], //特定敌人
     [/^(.*)You crack open your newly captured Pumpkimp and find... Nothing!$/, '$1您满怀希望地打开了刚捕获的脆皮南瓜怪，然后发现了……梅友仁！'], //特定敌人
     [/^(.*)Right before you finish the Pumpkimp off, it winks at you and rolls away. That was pretty weird.$/, '$1您都快要把这只南瓜怪干掉了，结果它眨了眨眼，就滚瓜了。真是怪哉。'], //特定敌人
-    [/^(.*)As the Pumpkimp takes his final breath, he manages to mutter the word 'Trick'. No loot here.$/, '$1这只南瓜怪咽气之前就嘟囔了一句，搞事。里面空无一物。'], //特定敌人
+    [/^(.*)As the Pumpkimp takes his final breath, he manages to mutter the word 'Trick'. No loot here.$/, '$1这只南瓜怪咽气之前就嘟囔了一句，捣蛋。里面空无一物。'], //特定敌人
     [/^(.*)You search the Pumpkimp for loot, but find nothing. Someone wasn't in the holiday spirit!$/, '$1您翻翻了这只南瓜怪，啥也没找到。说好的节日，说好的糖果呢？！'], //特定敌人
-    [/^(.*)That Pumpkimp rolled away before you could finish him off, yelling stuff about tricks.$/, '$1又一只在被干掉前就滚瓜的脆皮南瓜怪，还疯狂复读着搞事搞事搞事。'], //特定敌人
+    [/^(.*)That Pumpkimp rolled away before you could finish him off, yelling stuff about tricks.$/, '$1又一只在被干掉前就滚瓜的脆皮南瓜怪，还疯狂复读着捣蛋捣蛋捣蛋。'], //特定敌人
     [/^(.*)Thanks, you hate getting tricks instead of treats.$/, '$1不，谢了，您只想要糖果，不想要捣蛋。'], //特定敌人
     [/^(.*)You might have hit that Pumpkimp a bit too hard, there's nothing left to give you candy.$/, '$1您的下手可能是太重了，怎么看那只南瓜怪都不像是还能给您发糖的亚子。'], //特定敌人
     [/^(.*)The Pumpkimp suddenly bursts, spewing huge amounts of candy into the air. Your Trimps scramble about to pick up all they can and gain Sugar Rush!$/, '$1南瓜怪突然炸了，撒了一地的糖。一阵争抢以后，脆皮们把糖捡得七七八八，并获得了甜蜜冲刺！'], //特定敌人
-    [/^(.*)This Pumpkimp was so large that your Trimps could feast for weeks on all the candy inside. Oh, nope, looks like they'll be done in about 10 minutes. In the mean time, they should have a bit of extra energy!$/, '$1这么大的南瓜怪，里面的糖应该够脆皮们吃几个星期了。哦，不，等等，可能只够它们吃十来分钟了。至少这一阵子它们会更有干劲的吧！'], //特定敌人
+    [/^(.*)This Pumpkimp was so large that your Trimps could feast for weeks on all the candy inside. Oh, nope, looks like they'll be done in about 10 minutes. In the mean time, they should have a bit of extra energy!$/, '$1这么大一个南瓜怪，里面的糖应该够脆皮们吃几个星期了。哦，不，等等，可能只够它们吃十来分钟了。至少这一阵子它们会更有干劲的吧！'], //特定敌人
     [/^(.*)This Pumpkimp was totally stuffed with various types of sugary things. You give them all to your Trimps, which results in a huge boost of energy!$/, '$1这只脆皮南瓜怪里塞满了各种糖果。您把这些糖全部分给了脆皮们，大大提升了它们的干劲！'], //特定敌人
     [/^(.*)Your Trimps have begun carrying pillowcases with them in hopes of a legendary Pumpkimp like the one you just found. Filled to the brim with sugary goodies, this Pumpkimp should sate your Trimps for a few minutes!$/, '$1在碰到那个传奇南瓜怪以后，脆皮们都开始带上枕套了。那只南瓜怪装满了糖果，足够脆皮们享受好几分钟了！'], //特定敌人
     [/^(.*)Oops, that Pumpkimp just wanted to give you some candy. You found (.*) food!$/, '$1哦，那只南瓜怪只是想给您点糖果。您发现了$2食物！'], //特定敌人
@@ -5610,11 +5661,116 @@ var cnRegReplace = new Map([
     [/^(.*)What a haunting sight! The Pumpkimp was punted by a plump Trimp after the fight. As it flies away, it drops (.*) fragments!$/, '$1战斗结束以后，那只南瓜怪被一个胖胖的脆皮来了个凌空抽射，真是难忘的景象！南瓜怪飞远之前，掉下了$2碎片！'], //特定敌人
     [/^(.*)Yum, Turkimp! You eat some and put some in your pockets for later.$/, '$1脆皮火鸡，好吃！您把没吃完的部分打包带走了。'], //特定敌人
     [/^(.*)You seem very happy to see that this land came with free food too! You gobble up some turkimp.$/, '$1您很高兴，这块土地上也有免费的晚餐。您狼吞虎咽了几只脆皮火鸡。'], //特定敌人
-    [/^(.*)You're quite grateful to finally eat some protein! You eat a bunch of Turkimp and find a Trimp to carry the rest back for you.$/, '$1谢天谢地，终于能补充点蛋白质了！您吃掉了一堆脆皮火鸡，然后找了一个脆皮把剩下的带回去了。'], //特定敌人
+    [/^(.*)You're quite grateful to finally eat some protein! You eat a bunch of Turkimp and find a Trimp to carry the rest back for you.$/, '$1谢天谢地，终于能补充点蛋白质了！您吃掉了一堆脆皮火鸡，然后找了一个脆皮把剩下的带了回去。'], //特定敌人
     [/^(.*)Apparently your scientists are vegetarians. Hurray, more Turkimp for you!$/, '$1很显然科学家们不吃肉。太好了，分肉的又少了！'], //特定敌人
     [/^(.*)You hear a loud gobbling sound in the distance, it sounds angry. You disregard it because this Turkimp is delicious!$/, '$1远方传来了巨大的吞咽声，它听起来很生气。您完全不鸟它，因为这只脆皮火鸡太香了！'], //特定敌人
     [/^(.*)Ah, Turkimp. Nature's version of a Chickimp with a weirder head. Sure is tasty! You eat your fill and save some for later.$/, '$1啊，脆皮火鸡，脆皮小鸡的自然换头版本。当然也很好吃！您吃了个肚儿圆，然后把剩下的一并带走了。'], //特定敌人
-
+    [/^(.*)Your fingers are cold and numb, but that won't stop them from opening up this Presimpt! Inside you find (.*) food!$/, '$1您的手指又冷又麻，但这也没法阻止您打开那个脆皮小礼！在里面您发现了$2食物！'], //特定敌人
+    [/^(.*)Your fingers are cold and numb, but that won't stop them from opening up this Presimpt! Inside you find (.*) wood!$/, '$1您的手指又冷又麻，但这也没法阻止您打开那个脆皮小礼！在里面您发现了$2木头！'], //特定敌人
+    [/^(.*)Your fingers are cold and numb, but that won't stop them from opening up this Presimpt! Inside you find (.*) metal!$/, '$1您的手指又冷又麻，但这也没法阻止您打开那个脆皮小礼！在里面您发现了$2金属！'], //特定敌人
+    [/^(.*)Your fingers are cold and numb, but that won't stop them from opening up this Presimpt! Inside you find (.*) gems!$/, '$1您的手指又冷又麻，但这也没法阻止您打开那个脆皮小礼！在里面您发现了$2宝石！'], //特定敌人
+    [/^(.*)Your fingers are cold and numb, but that won't stop them from opening up this Presimpt! Inside you find (.*) fragments!$/, '$1您的手指又冷又麻，但这也没法阻止您打开那个脆皮小礼！在里面您发现了$2碎片！'], //特定敌人
+    [/^(.*)You contemplate saving this Presimpt to give to a Trimp, but you really really like opening them yourself. So you do, and you find (.*) food!$/, '$1您有考虑过把这个脆皮小礼赏给一个脆皮，但最后您还是决定自己来了。您发现了$2食物！'], //特定敌人
+    [/^(.*)You contemplate saving this Presimpt to give to a Trimp, but you really really like opening them yourself. So you do, and you find (.*) wood!$/, '$1您有考虑过把这个脆皮小礼赏给一个脆皮，但最后您还是决定自己来了。您发现了$2木头！'], //特定敌人
+    [/^(.*)You contemplate saving this Presimpt to give to a Trimp, but you really really like opening them yourself. So you do, and you find (.*) metal!$/, '$1您有考虑过把这个脆皮小礼赏给一个脆皮，但最后您还是决定自己来了。您发现了$2金属！'], //特定敌人
+    [/^(.*)You contemplate saving this Presimpt to give to a Trimp, but you really really like opening them yourself. So you do, and you find (.*) gems!$/, '$1您有考虑过把这个脆皮小礼赏给一个脆皮，但最后您还是决定自己来了。您发现了$2宝石！'], //特定敌人
+    [/^(.*)You contemplate saving this Presimpt to give to a Trimp, but you really really like opening them yourself. So you do, and you find (.*) fragments!$/, '$1您有考虑过把这个脆皮小礼赏给一个脆皮，但最后您还是决定自己来了。您发现了$2碎片！'], //特定敌人
+    [/^(.*)Imagine losing a fight to a Presimpt. You got this one though, and inside you see (.*) food!$/, '$1击败脆皮小礼并非什么难事，您在里面发现了$2食物！'], //特定敌人
+    [/^(.*)Imagine losing a fight to a Presimpt. You got this one though, and inside you see (.*) wood!$/, '$1击败脆皮小礼并非什么难事，您在里面发现了$2木头！'], //特定敌人
+    [/^(.*)Imagine losing a fight to a Presimpt. You got this one though, and inside you see (.*) metal!$/, '$1击败脆皮小礼并非什么难事，您在里面发现了$2金属！'], //特定敌人
+    [/^(.*)Imagine losing a fight to a Presimpt. You got this one though, and inside you see (.*) gems!$/, '$1击败脆皮小礼并非什么难事，您在里面发现了$2宝石！'], //特定敌人
+    [/^(.*)Imagine losing a fight to a Presimpt. You got this one though, and inside you see (.*) fragments!$/, '$1击败脆皮小礼并非什么难事，您在里面发现了$2碎片！'], //特定敌人
+    [/^(.*)You wonder what actually created these evil sentient gifts. However you instantly forget your concerns when you see the (.*) food!$/, '$1您思索了一下到底是什么创造了这些邪恶的活礼物。不过很快您就把这些抛之脑后，因为您发现了$2食物！'], //特定敌人
+    [/^(.*)You wonder what actually created these evil sentient gifts. However you instantly forget your concerns when you see the (.*) wood!$/, '$1您思索了一下到底是什么创造了这些邪恶的活礼物。不过很快您就把这些抛之脑后，因为您发现了$2木头！'], //特定敌人
+    [/^(.*)You wonder what actually created these evil sentient gifts. However you instantly forget your concerns when you see the (.*) metal!$/, '$1您思索了一下到底是什么创造了这些邪恶的活礼物。不过很快您就把这些抛之脑后，因为您发现了$2金属！'], //特定敌人
+    [/^(.*)You wonder what actually created these evil sentient gifts. However you instantly forget your concerns when you see the (.*) gems!$/, '$1您思索了一下到底是什么创造了这些邪恶的活礼物。不过很快您就把这些抛之脑后，因为您发现了$2宝石！'], //特定敌人
+    [/^(.*)You wonder what actually created these evil sentient gifts. However you instantly forget your concerns when you see the (.*) fragments!$/, '$1您思索了一下到底是什么创造了这些邪恶的活礼物。不过很快您就把这些抛之脑后，因为您发现了$2碎片！'], //特定敌人
+    [/^(.*)You were hoping for a TV or something, but you'll have to make do with the (.*) food!$/, '$1您想要一台大大的电视，但却得到旧旧的$2食物！'], //特定敌人
+    [/^(.*)You were hoping for a TV or something, but you'll have to make do with the (.*) wood!$/, '$1您想要一台大大的电视，但却得到旧旧的$2木头！'], //特定敌人
+    [/^(.*)You were hoping for a TV or something, but you'll have to make do with the (.*) metal!$/, '$1您想要一台大大的电视，但却得到旧旧的$2金属！'], //特定敌人
+    [/^(.*)You were hoping for a TV or something, but you'll have to make do with the (.*) gems!$/, '$1您想要一台大大的电视，但却得到旧旧的$2宝石！'], //特定敌人
+    [/^(.*)You were hoping for a TV or something, but you'll have to make do with the (.*) fragments!$/, '$1您想要一台大大的电视，但却得到旧旧的$2碎片！'], //特定敌人
+    [/^(.*)You run to the motionless Presimpt and give him a good shake. Sounds like (.*) food!$/, '$1您冲向那个一动不动的小礼，一阵好摇，听上去里面有$2食物！'], //特定敌人
+    [/^(.*)You run to the motionless Presimpt and give him a good shake. Sounds like (.*) wood!$/, '$1您冲向那个一动不动的小礼，一阵好摇，听上去里面有$2木头！'], //特定敌人
+    [/^(.*)You run to the motionless Presimpt and give him a good shake. Sounds like (.*) metal!$/, '$1您冲向那个一动不动的小礼，一阵好摇，听上去里面有$2金属！'], //特定敌人
+    [/^(.*)You run to the motionless Presimpt and give him a good shake. Sounds like (.*) gems!$/, '$1您冲向那个一动不动的小礼，一阵好摇，听上去里面有$2宝石！'], //特定敌人
+    [/^(.*)You run to the motionless Presimpt and give him a good shake. Sounds like (.*) fragments!$/, '$1您冲向那个一动不动的小礼，一阵好摇，听上去里面有$2碎片！'], //特定敌人
+    [/^(.*)One of your Trimps excitedly grabs the Presimpt and brings it to you. You let him open it to find (.*) food!$/, '$1一个脆皮很兴奋地抓过小礼将它带给了您。您让它打开了小礼，发现了$2食物！'], //特定敌人
+    [/^(.*)One of your Trimps excitedly grabs the Presimpt and brings it to you. You let him open it to find (.*) wood!$/, '$1一个脆皮很兴奋地抓过小礼将它带给了您。您让它打开了小礼，发现了$2木头！'], //特定敌人
+    [/^(.*)One of your Trimps excitedly grabs the Presimpt and brings it to you. You let him open it to find (.*) metal!$/, '$1一个脆皮很兴奋地抓过小礼将它带给了您。您让它打开了小礼，发现了$2金属！'], //特定敌人
+    [/^(.*)One of your Trimps excitedly grabs the Presimpt and brings it to you. You let him open it to find (.*) gems!$/, '$1一个脆皮很兴奋地抓过小礼将它带给了您。您让它打开了小礼，发现了$2宝石！'], //特定敌人
+    [/^(.*)One of your Trimps excitedly grabs the Presimpt and brings it to you. You let him open it to find (.*) fragments!$/, '$1一个脆皮很兴奋地抓过小礼将它带给了您。您让它打开了小礼，发现了$2碎片！'], //特定敌人
+    [/^(.*)Nothing like some global conquest during the Holidays! You open your Presimpt and find (.*) food!$/, '$1节日就该干节日该干的事，比如让小礼唱征服啥的！您发现了$2食物！'], //特定敌人
+    [/^(.*)Nothing like some global conquest during the Holidays! You open your Presimpt and find (.*) wood!$/, '$1节日就该干节日该干的事，比如让小礼唱征服啥的！您发现了$2木头！'], //特定敌人
+    [/^(.*)Nothing like some global conquest during the Holidays! You open your Presimpt and find (.*) metal!$/, '$1节日就该干节日该干的事，比如让小礼唱征服啥的！您发现了$2金属！'], //特定敌人
+    [/^(.*)Nothing like some global conquest during the Holidays! You open your Presimpt and find (.*) gems!$/, '$1节日就该干节日该干的事，比如让小礼唱征服啥的！您发现了$2宝石！'], //特定敌人
+    [/^(.*)Nothing like some global conquest during the Holidays! You open your Presimpt and find (.*) fragments!$/, '$1节日就该干节日该干的事，比如让小礼唱征服啥的！您发现了$2碎片！'], //特定敌人
+    [/^(.*)You're a bit curious as to where the Presimpts hide during the rest of the year, but you forget about it when you see your new shiny (.*) food!$/, '$1您考虑了一下过完年小礼们又会藏在什么地方，但很快就不想这些了，毕竟有了$2食物！'], //特定敌人
+    [/^(.*)You're a bit curious as to where the Presimpts hide during the rest of the year, but you forget about it when you see your new shiny (.*) wood!$/, '$1您考虑了一下过完年小礼们又会藏在什么地方，但很快就不想这些了，毕竟有了$2木头！'], //特定敌人
+    [/^(.*)You're a bit curious as to where the Presimpts hide during the rest of the year, but you forget about it when you see your new shiny (.*) metal!$/, '$1您考虑了一下过完年小礼们又会藏在什么地方，但很快就不想这些了，毕竟有了$2金属！'], //特定敌人
+    [/^(.*)You're a bit curious as to where the Presimpts hide during the rest of the year, but you forget about it when you see your new shiny (.*) gems!$/, '$1您考虑了一下过完年小礼们又会藏在什么地方，但很快就不想这些了，毕竟有了$2宝石！'], //特定敌人
+    [/^(.*)You're a bit curious as to where the Presimpts hide during the rest of the year, but you forget about it when you see your new shiny (.*) fragments!$/, '$1您考虑了一下过完年小礼们又会藏在什么地方，但很快就不想这些了，毕竟有了$2碎片！'], //特定敌人
+    [/^(.*)You'll never complain about free stuff, and this Presimpt is full of it! Found (.*) food!$/, '$1有了免费午餐，谁能不喊真香？您发现了$2食物！'], //特定敌人
+    [/^(.*)You'll never complain about free stuff, and this Presimpt is full of it! Found (.*) wood!$/, '$1有了免费午餐，谁能不喊真香？您发现了$2木头！'], //特定敌人
+    [/^(.*)You'll never complain about free stuff, and this Presimpt is full of it! Found (.*) metal!$/, '$1有了免费午餐，谁能不喊真香？您发现了$2金属！'], //特定敌人
+    [/^(.*)You'll never complain about free stuff, and this Presimpt is full of it! Found (.*) gems!$/, '$1有了免费午餐，谁能不喊真香？您发现了$2宝石！'], //特定敌人
+    [/^(.*)You'll never complain about free stuff, and this Presimpt is full of it! Found (.*) fragments!$/, '$1有了免费午餐，谁能不喊真香？您发现了$2碎片！'], //特定敌人
+    [/^(.*)You hurriedly open up the Presimpt, and find (.*) food!$/, '$1您急急忙忙地打开了脆皮小礼，并发现了$2食物！'], //特定敌人
+    [/^(.*)You hurriedly open up the Presimpt, and find (.*) wood!$/, '$1您急急忙忙地打开了脆皮小礼，并发现了$2木头！'], //特定敌人
+    [/^(.*)You hurriedly open up the Presimpt, and find (.*) metal!$/, '$1您急急忙忙地打开了脆皮小礼，并发现了$2金属！'], //特定敌人
+    [/^(.*)You hurriedly open up the Presimpt, and find (.*) gems!$/, '$1您急急忙忙地打开了脆皮小礼，并发现了$2宝石！'], //特定敌人
+    [/^(.*)You hurriedly open up the Presimpt, and find (.*) fragments!$/, '$1您急急忙忙地打开了脆皮小礼，并发现了$2碎片！'], //特定敌人
+    [/^(.*)Ooh look, a Presimpt! You tear it open and receive (.*) food!$/, '$1有礼自远方来，不亦乐乎？您把它拆开，发现了$2食物！'], //特定敌人
+    [/^(.*)Ooh look, a Presimpt! You tear it open and receive (.*) wood!$/, '$1有礼自远方来，不亦乐乎？您把它拆开，发现了$2木头！'], //特定敌人
+    [/^(.*)Ooh look, a Presimpt! You tear it open and receive (.*) metal!$/, '$1有礼自远方来，不亦乐乎？您把它拆开，发现了$2金属！'], //特定敌人
+    [/^(.*)Ooh look, a Presimpt! You tear it open and receive (.*) gems!$/, '$1有礼自远方来，不亦乐乎？您把它拆开，发现了$2宝石！'], //特定敌人
+    [/^(.*)Ooh look, a Presimpt! You tear it open and receive (.*) fragments!$/, '$1有礼自远方来，不亦乐乎？您把它拆开，发现了$2碎片！'], //特定敌人
+    [/^(.*)Nifty! That Presimpt was carrying around (.*) food!$/, '$1人无横财不富,马无夜草不肥！那个脆皮小礼带着$2食物！'], //特定敌人
+    [/^(.*)Nifty! That Presimpt was carrying around (.*) wood!$/, '$1人无横财不富,马无夜草不肥！那个脆皮小礼带着$2木头！'], //特定敌人
+    [/^(.*)Nifty! That Presimpt was carrying around (.*) metal!$/, '$1人无横财不富,马无夜草不肥！那个脆皮小礼带着$2金属！'], //特定敌人
+    [/^(.*)Nifty! That Presimpt was carrying around (.*) gems!$/, '$1人无横财不富,马无夜草不肥！那个脆皮小礼带着$2宝石！'], //特定敌人
+    [/^(.*)Nifty! That Presimpt was carrying around (.*) fragments!$/, '$1人无横财不富,马无夜草不肥！那个脆皮小礼带着$2碎片！'], //特定敌人
+    [/^(.*)Presimpts for everyone! Wait there's only one. Presimpt for you! With (.*) food!$/, '$1这是给所有人的小礼！等等，这里只有一个人。那就是给您的小礼！里面是$2食物！'], //特定敌人
+    [/^(.*)Presimpts for everyone! Wait there's only one. Presimpt for you! With (.*) wood!$/, '$1这是给所有人的小礼！等等，这里只有一个人。那就是给您的小礼！里面是$2木头！'], //特定敌人
+    [/^(.*)Presimpts for everyone! Wait there's only one. Presimpt for you! With (.*) metal!$/, '$1这是给所有人的小礼！等等，这里只有一个人。那就是给您的小礼！里面是$2金属！'], //特定敌人
+    [/^(.*)Presimpts for everyone! Wait there's only one. Presimpt for you! With (.*) gems!$/, '$1这是给所有人的小礼！等等，这里只有一个人。那就是给您的小礼！里面是$2宝石！'], //特定敌人
+    [/^(.*)Presimpts for everyone! Wait there's only one. Presimpt for you! With (.*) fragments!$/, '$1这是给所有人的小礼！等等，这里只有一个人。那就是给您的小礼！里面是$2碎片！'], //特定敌人
+    [/^(.*)This Presimpt has little snowman markings all over it! Inside, you find (.*) food!$/, '$1这个小礼上面画满了小雪人！在里面您发现了$2食物！'], //特定敌人
+    [/^(.*)This Presimpt has little snowman markings all over it! Inside, you find (.*) wood!$/, '$1这个小礼上面画满了小雪人！在里面您发现了$2木头！'], //特定敌人
+    [/^(.*)This Presimpt has little snowman markings all over it! Inside, you find (.*) metal!$/, '$1这个小礼上面画满了小雪人！在里面您发现了$2金属！'], //特定敌人
+    [/^(.*)This Presimpt has little snowman markings all over it! Inside, you find (.*) gems!$/, '$1这个小礼上面画满了小雪人！在里面您发现了$2宝石！'], //特定敌人
+    [/^(.*)This Presimpt has little snowman markings all over it! Inside, you find (.*) fragments!$/, '$1这个小礼上面画满了小雪人！在里面您发现了$2碎片！'], //特定敌人
+    [/^(.*)Fluffy seems really excited about all the Presimpts, so you let him open this one to find (.*) food!$/, '$1绒绒看起来对小礼感到很兴奋，所以您让它打开了小礼，并发现了$2食物！'], //特定敌人
+    [/^(.*)Fluffy seems really excited about all the Presimpts, so you let him open this one to find (.*) wood!$/, '$1绒绒看起来对小礼感到很兴奋，所以您让它打开了小礼，并发现了$2木头！'], //特定敌人
+    [/^(.*)Fluffy seems really excited about all the Presimpts, so you let him open this one to find (.*) metal!$/, '$1绒绒看起来对小礼感到很兴奋，所以您让它打开了小礼，并发现了$2金属！'], //特定敌人
+    [/^(.*)Fluffy seems really excited about all the Presimpts, so you let him open this one to find (.*) gems!$/, '$1绒绒看起来对小礼感到很兴奋，所以您让它打开了小礼，并发现了$2宝石！'], //特定敌人
+    [/^(.*)Fluffy seems really excited about all the Presimpts, so you let him open this one to find (.*) fragments!$/, '$1绒绒看起来对小礼感到很兴奋，所以您让它打开了小礼，并发现了$2碎片！'], //特定敌人
+    [/^(.*)Scruffy seems really excited about all the Presimpts, so you let him open this one to find (.*) food!$/, '$1污污看起来对小礼感到很兴奋，所以您让它打开了小礼，并发现了$2食物！'], //特定敌人
+    [/^(.*)Scruffy seems really excited about all the Presimpts, so you let him open this one to find (.*) wood!$/, '$1污污看起来对小礼感到很兴奋，所以您让它打开了小礼，并发现了$2木头！'], //特定敌人
+    [/^(.*)Scruffy seems really excited about all the Presimpts, so you let him open this one to find (.*) metal!$/, '$1污污看起来对小礼感到很兴奋，所以您让它打开了小礼，并发现了$2金属！'], //特定敌人
+    [/^(.*)Scruffy seems really excited about all the Presimpts, so you let him open this one to find (.*) gems!$/, '$1污污看起来对小礼感到很兴奋，所以您让它打开了小礼，并发现了$2宝石！'], //特定敌人
+    [/^(.*)Scruffy seems really excited about all the Presimpts, so you let him open this one to find (.*) fragments!$/, '$1污污看起来对小礼感到很兴奋，所以您让它打开了小礼，并发现了$2碎片！'], //特定敌人
+    [/^(.*)Without even a second of pause, Fluffy zooms to the Presimpt and tears it open. He brings you back the (.*) food!$/, '$1连丝毫犹豫都没有，绒绒就直接冲到了小礼旁边把它拆开了。它带回了$2食物！'], //特定敌人
+    [/^(.*)Without even a second of pause, Fluffy zooms to the Presimpt and tears it open. He brings you back the (.*) wood!$/, '$1连丝毫犹豫都没有，绒绒就直接冲到了小礼旁边把它拆开了。它带回了$2木头！'], //特定敌人
+    [/^(.*)Without even a second of pause, Fluffy zooms to the Presimpt and tears it open. He brings you back the (.*) metal!$/, '$1连丝毫犹豫都没有，绒绒就直接冲到了小礼旁边把它拆开了。它带回了$2金属！'], //特定敌人
+    [/^(.*)Without even a second of pause, Fluffy zooms to the Presimpt and tears it open. He brings you back the (.*) gems!$/, '$1连丝毫犹豫都没有，绒绒就直接冲到了小礼旁边把它拆开了。它带回了$2宝石！'], //特定敌人
+    [/^(.*)Without even a second of pause, Fluffy zooms to the Presimpt and tears it open. He brings you back the (.*) fragments!$/, '$1连丝毫犹豫都没有，绒绒就直接冲到了小礼旁边把它拆开了。它带回了$2碎片！'], //特定敌人
+    [/^(.*)Without even a second of pause, Scruffy zooms to the Presimpt and tears it open. He brings you back the (.*) food!$/, '$1连丝毫犹豫都没有，污污就直接冲到了小礼旁边把它拆开了。它带回了$2食物！'], //特定敌人
+    [/^(.*)Without even a second of pause, Scruffy zooms to the Presimpt and tears it open. He brings you back the (.*) wood!$/, '$1连丝毫犹豫都没有，污污就直接冲到了小礼旁边把它拆开了。它带回了$2木头！'], //特定敌人
+    [/^(.*)Without even a second of pause, Scruffy zooms to the Presimpt and tears it open. He brings you back the (.*) metal!$/, '$1连丝毫犹豫都没有，污污就直接冲到了小礼旁边把它拆开了。它带回了$2金属！'], //特定敌人
+    [/^(.*)Without even a second of pause, Scruffy zooms to the Presimpt and tears it open. He brings you back the (.*) gems!$/, '$1连丝毫犹豫都没有，污污就直接冲到了小礼旁边把它拆开了。它带回了$2宝石！'], //特定敌人
+    [/^(.*)Without even a second of pause, Scruffy zooms to the Presimpt and tears it open. He brings you back the (.*) fragments!$/, '$1连丝毫犹豫都没有，污污就直接冲到了小礼旁边把它拆开了。它带回了$2碎片！'], //特定敌人
+    [/^(.*)Fluffy is too busy eating the purple snow to open this one, so you do it yourself. Inside, you find (.*) food!$/, '$1绒绒忙着吃紫雪没空管这个小礼，所以您就代劳了。在里面你发现了$2食物！'], //特定敌人
+    [/^(.*)Fluffy is too busy eating the purple snow to open this one, so you do it yourself. Inside, you find (.*) wood!$/, '$1绒绒忙着吃紫雪没空管这个小礼，所以您就代劳了。在里面你发现了$2木头！'], //特定敌人
+    [/^(.*)Fluffy is too busy eating the purple snow to open this one, so you do it yourself. Inside, you find (.*) metal!$/, '$1绒绒忙着吃紫雪没空管这个小礼，所以您就代劳了。在里面你发现了$2金属！'], //特定敌人
+    [/^(.*)Fluffy is too busy eating the purple snow to open this one, so you do it yourself. Inside, you find (.*) gems!$/, '$1绒绒忙着吃紫雪没空管这个小礼，所以您就代劳了。在里面你发现了$2宝石！'], //特定敌人
+    [/^(.*)Fluffy is too busy eating the purple snow to open this one, so you do it yourself. Inside, you find (.*) fragments!$/, '$1绒绒忙着吃紫雪没空管这个小礼，所以您就代劳了。在里面你发现了$2碎片！'], //特定敌人
+    [/^(.*)Scruffy is too busy eating the purple snow to open this one, so you do it yourself. Inside, you find (.*) food!$/, '$1污污忙着吃紫雪没空管这个小礼，所以您就代劳了。在里面你发现了$2食物！'], //特定敌人
+    [/^(.*)Scruffy is too busy eating the purple snow to open this one, so you do it yourself. Inside, you find (.*) wood!$/, '$1污污忙着吃紫雪没空管这个小礼，所以您就代劳了。在里面你发现了$2木头！'], //特定敌人
+    [/^(.*)Scruffy is too busy eating the purple snow to open this one, so you do it yourself. Inside, you find (.*) metal!$/, '$1污污忙着吃紫雪没空管这个小礼，所以您就代劳了。在里面你发现了$2金属！'], //特定敌人
+    [/^(.*)Scruffy is too busy eating the purple snow to open this one, so you do it yourself. Inside, you find (.*) gems!$/, '$1污污忙着吃紫雪没空管这个小礼，所以您就代劳了。在里面你发现了$2宝石！'], //特定敌人
+    [/^(.*)Scruffy is too busy eating the purple snow to open this one, so you do it yourself. Inside, you find (.*) fragments!$/, '$1污污忙着吃紫雪没空管这个小礼，所以您就代劳了。在里面你发现了$2碎片！'], //特定敌人
+    [/^(.*)You shake the Presimpt before opening it, and can tell there's something special in this one. Yup! That thoughtful Presimpt gave you a perfectly preserved bone!$/, '$1您在打开前摇了摇那个脆皮小礼，感觉到里面似乎藏着什么奇珍异宝。哈，瞧，里面是一块保存完好的骨头！'], //特定敌人
     [/^A big, wooden shield. Adds (.*) health to each soldier per level.$/, '一面大木盾，每级增加每名士兵 $1 生命值。'], //装备
     [/^A big, wooden shield. Adds (.*) block to each soldier per level.$/, '一面大木盾，每级增加每名士兵 $1 格挡。'], //装备
     [/^Better than nothing. Adds (.*) attack to each soldier per level$/, '聊胜于无。每级增加每名士兵 $1 攻击力'], //装备
@@ -6661,6 +6817,33 @@ var cnRegReplace = new Map([
     [/^(.*)You found (.+) Token(s*) of Poison!$/, '$1您发现了$2毒符记！'], //自然赋能
     [/^(.*)You found (.+) Token(s*) of Wind!$/, '$1您发现了$2风符记！'], //自然赋能
     [/^(.*)You found (.+) Token(s*) of Ice!$/, '$1您发现了$2冰符记！'], //自然赋能
+    [/^(.*) \/ (.*) Exp$/, '$1 / $2 经验值'], //绒绒污污相关
+    [/^(.*)% damage$/, '$1%伤害'], //绒绒污污相关
+    [/^Fluffy's level and damage bonus are currently reduced. Fluffy will return to level (.*) when points are placed back in Capable.$/, '绒绒的等级和伤害暂时被限制了。提升能力特权等级以后绒绒可以回到$1级。'], //绒绒污污相关
+    [/^Scruffy's level and damage bonus are currently reduced. Scruffy will return to level (.*) when points are placed back in Capable.$/, '污污的等级和伤害暂时被限制了。提升能力特权等级以后污污可以回到$1级。'], //绒绒污污相关
+    [/^Fluffy needs  more points in Capable to gain Exp above level (.*).$/, '绒绒需要更高的能力特权等级才可以获得超过$1级的经验值。'], //绒绒污污相关
+    [/^Fluffy is earning (.*) Exp per Zone. Fluffy needs (.*) more Exp to level.$/, '绒绒每个区域获得$1经验值，还需要$2经验值才能升级。'], //绒绒污污相关
+    [/^Fluffy is earning (.*) Exp per Zone. Fluffy needs (.*) more Exp to level, equivalent to repeating your current run to this zone about (.*) more time(s*).$/, '绒绒每个区域获得$1经验值，还需要$2经验值才能升级，等同于再有$3次传送后到达当前区域。'], //绒绒污污相关
+    [/^Scruffy is earning (.*) Exp per Zone. Scruffy needs (.*) more Exp to level.$/, '污污每个区域获得$1经验值，还需要$2经验值才能升级。'], //绒绒污污相关
+    [/^Scruffy is earning (.*) Exp per Zone. Scruffy needs (.*) more Exp to level, equivalent to repeating your current run to this zone about (.*) more time(s*).$/, '污污每个区域获得$1经验值，还需要$2经验值才能升级，等同于再有$3次传送后到达当前区域。'], //绒绒污污相关
+    [/^Applies when running a Daily Challenge, and matches the extra Helium from your Daily. Currently (.*). Does not apply to Best Fluffy Exp.$/, '运行日常挑战时激活，获得日常挑战相应数值的加成。目前为$1。不影响最高绒绒经验。'], //绒绒污污相关
+    [/^Applies when running a Daily Challenge, and matches the extra Radon from your Daily. Currently (.*). Does not apply to Best Scruffy Exp.$/, '运行日常挑战时激活，获得日常挑战相应数值的加成。目前为$1。不影响最高污污经验。'], //绒绒污污相关
+    [/^Your Zone number. Currently (.*).$/, '您到达的区域数值。目前为$1。'], //绒绒污污相关
+    [/^The amount of levels placed in the Cunning Perk. Currently (.*).$/, '您的灵巧特权等级。目前为$1。'], //绒绒污污相关
+    [/^The amount of levels placed in the Curious Perk. Currently (.*).$/, '您的好奇特权等级。目前为$1。'], //绒绒污污相关
+    [/^The Zone Fluffy can start earning Experience at. This value is normally 301, and is currently reduced by (.*) thanks to (.*) level(s*) of Classy.$/, '绒绒开始获得经验的区域。此数值正常为301，由于$2级上等特权，减少了$1。'], //绒绒污污相关
+    [/^The Zone Fluffy can start earning Experience at. This value is normally 301, and is currently reduced by (.*) thanks to Classy.$/, '绒绒开始获得经验的区域。此数值正常为301，由于上等特权，减少了$1。'], //绒绒污污相关
+    [/^The bonus modifier applied from "Pet Exp" on a Plagued or higher tier Staff. Currently (.*).$/, '从天灾或更高阶权杖的修饰符上获得的经验值加成。目前为$1。'], //绒绒污污相关
+    [/^The bonus modifier from the Flufffocus Mastery \(\+25% exp per Prestige\). Fluffy has evolved (.*) time(s*), bringing this modifier to (.*).$/, '绒绒专注专精的加成(每次进化多获得25%的经验值)。绒绒进化了$1次，此加成变为$3。'], //绒绒污污相关
+    [/^The bonus modifier from the Flufffocus Mastery \(\+25% exp per Prestige\). Scruffy has evolved (.*) time(s*), bringing this modifier to (.*).$/, '污污专注专精的加成(每次进化多获得25%的经验值)。污污进化了$1次，此加成变为$3。'], //绒绒污污相关
+    [/^The bonus from your Knowledge Towers. You have (.*) Knowledge Tower(s*), granting a bonus of (.*)% each, bringing this modifier to (.*).$/, '知识塔的加成。您有$1个知识塔，每个可提供$3%的加成，总加成为$4。'], //绒绒污污相关
+    [/^From Enlightened Ice. Equal to \(1 \+ \(0.0025 \* Ice Levels\)\), currently (.*). Does not apply to Best Fluffy Exp.$/, '冰之启迪的加成。加成为(1+0.0025*冰赋能等级)，目前为$1。不影响最高绒绒经验。'], //绒绒污污相关
+
+
+
+
+
+
     [/^(.*) Trimp(s*) just ceased to be.$/, '$1个脆皮去世了。'], //死亡消息
     [/^(.*) Trimp(s*) just bit the dust.$/, '$1个脆皮战死沙场了。'], //死亡消息
     [/^(.*) Trimp(s*) just took a dirt nap.$/, '$1个脆皮入土为安了。'], //死亡消息
@@ -6861,6 +7044,9 @@ var cnRegReplace = new Map([
     [/^(.*) group(s*) of Trimps ha(s|ve) perished in the Spire.$/, '$1队脆皮们倒在了尖塔中。'], //其他消息等
 
 
+
+
+    [/^(.*)Get a leg up with PANTS! Until your next trou... browser refresh, you can enable the useless but stylish PANTS ONLY AutoPrestige setting! Denim-ite!$/, '$1胖次最好了，什么头套胖次之类的更是……咳咳，直到下次刷新页面之前您都可以使用这个没什么卵用但是很绅士的自动重铸设置了！蓝！白！碗！'], //其他消息等
 
     [/^(.*)AutoTrimps - Zek Fork Loaded!$/, '$1自动脆皮脚本 - Zek Fork 已成功载入！'], //脚本3载入消息
     [/^(.*)Adding dark-graph.css file$/, '$1黑暗图表已开启'], //脚本3图表消息
