@@ -521,7 +521,7 @@ var playerSpire = {
         var html = "<div id='playerSpireInfoTopSm'>";
         html += "<span onmouseover='playerSpire.infoTooltip(\"Runestones\", event)' onmouseout='tooltip(\"hide\")'>Rs: <span id='playerSpireRunestones'>" + prettify(this.runestones) + "</span><br/>";
         html += "Rs/S: <span id='RsPs'>" + prettify(this.getRsPs()) + "</span></span><br/>"
-        html += "<span onmouseover='playerSpire.infoTooltip(\"Enemies\", event)' onmouseout='tooltip(\"hide\")'>E: <span id='playerSpireCurrentEnemies'>" + this.currentEnemies + "</span> / <span id='playerSpireMaxEnemies'>" + this.maxEnemies + "</span></span><br/>";
+        html += "<span onmouseover='playerSpire.infoTooltip(\"Enemies\", event)' onmouseout='tooltip(\"hide\")'>敌: <span id='playerSpireCurrentEnemies'>" + this.currentEnemies + "</span> / <span id='playerSpireMaxEnemies'>" + this.maxEnemies + "</span></span><br/>";
         html += "<span onmouseover='playerSpire.infoTooltip(\"Spirestones\", event)' onmouseout='tooltip(\"hide\")' id='spirestoneBox'>" + this.getSpirestoneHtml() + "</span><br/>"
         html += "<span onmouseover='playerSpire.infoTooltip(\"Threat\", event)' onmouseout='tooltip(\"hide\")' id='playerSpireDifficulty'>" + this.getDifficultyHtml() + "</span><br/>";
         html += "</div>"; //playerSpireInfoTopSm
@@ -1015,7 +1015,7 @@ var playerSpire = {
             elem.textContent = this.getDifficultyHtml();
     },
     getDifficultyHtml: function() {
-        var text = ((this.smallMode) ? "T: " : "Threat: ") + prettify(Math.floor(this.difficulty));
+        var text = ((this.smallMode) ? "威: " : "Threat: ") + prettify(Math.floor(this.difficulty));
         var nextCost = (this.rowsAllowed < 20 && this.tutorialStep > 1) ? " / " + prettify(100 * (this.rowsAllowed + 1)) : "";
         return text + nextCost;
     },
