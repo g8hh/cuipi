@@ -128,7 +128,7 @@ var cnItems = {
     'current': '当前',
     'health.': '生命值。',
     'Poisoned': '中毒',
-    'Chilled': '冻结',
+    'Chilled': '冰冻',
     'Breezy': '风卷',
     'Domination: Dominating': '统治：支配者',
     'Domination: Weak': '统治：弱者',
@@ -264,8 +264,6 @@ var cnItems = {
     'YOUR GAME IS PAUSED!': '游戏已暂停！',
     'Click the flashing timer in the bottom right to unpause.': '点击右下方闪烁的计时器来取消暂停。',
     'Click the flashing timer in the bottom right, or press the spacebar to unpause.': '点击右下方闪烁的计时器，或者按下空格键来取消暂停。',
-    '': '',
-    '': '',
     //主界面结束
     //建筑相关
     'Trap': '陷阱',
@@ -952,7 +950,7 @@ var cnItems = {
     'of their maximum Health as': '数值的',
     '!. All enemy damage hits your Prismatic Shield before Health, and Prismatic Shield always regenerates to full after an enemy is killed.': '！所有敌人必须先击穿棱镜护盾后才能开始减少脆皮生命值，而且在一个敌人被击杀后，棱镜护盾将恢复全满。',
     'This book will increase the block gained from each Gym by 50%.': '这本书可以使每个健身房增加的格挡数值提升50%。',
-    'This book details the fine art of teaching your foremen to actually do stuff instead of just sitting around. When asked, your foremen will start construction on a new Trap if the queue is empty.': '这本书详细介绍了让工头们干活的艺术，现在他们不会再无所事事了。开启相应功能后，在队列为空时，工头们将自动建造陷阱。',
+    'This book details the fine art of teaching your foremen to actually do stuff instead of just sitting around. When asked, your foremen will start construction on a new Trap if the queue is empty.': '这本书详细介绍了让工头们干活的艺术，现在它们不会再无所事事了。开启相应功能后，在队列为空时，工头们将自动建造陷阱。',
     'This book explains methods of using a shield to actually block damage. The current shield will need to be completely destroyed and rebuilt, but it will give block instead of health.': '这本书说明了使用盾牌来格挡伤害的方法。目前的盾牌将被彻底摧毁，需要重新制造才行，重新制造后盾牌将提供格挡，而不再提供生命值。',
     'This is permanent': '此升级在下次传送前永久生效',
     'Your Shield Must be Prestige III or higher': '您至少需要重铸等级 III或者更高的盾牌才能购买此升级',
@@ -2343,9 +2341,9 @@ var cnItems = {
     'Coordinate': '协同',
     'Visit a dimension where Bad Guys are Coordinated but never fast, to allow you to study naturally evolved Coordination. Completing': '造访一个敌人协同作战但没有快速效果的维度。在那里可以研究自然进化出的协作是什么样的。在此挑战激活的前提下通过 ',
     'with this challenge active will cause all enemies to lose their Coordination.': '后，敌人将失去协作效果。',
-    'Visit a dimension where Bad Guys are Coordinated but never fast, chip \'em down!': '造访一个敌人协同作战但没有快速效果的维度。嫩死他们！',
+    'Visit a dimension where Bad Guys are Coordinated but never fast, chip \'em down!': '造访一个敌人协同作战但没有快速效果的维度。嫩死它们！',
     'You have the Coordinate challenge active. Visit a dimension where Bad Guys are Coordinated but never fast, to allow you to study naturally evolved Coordination. Completing': '您目前正在进行协同挑战。造访一个敌人协同作战但没有快速效果的维度。在那里可以研究自然进化出的协作是什么样的。在此挑战激活的前提下通过 ',
-    'You have the Coordinate challenge active. "Visit a dimension where Bad Guys are Coordinated but never fast, chip \'em down!"': '您目前正在进行协同挑战。造访一个敌人协同作战但没有快速效果的维度。嫩死他们！',
+    'You have the Coordinate challenge active. "Visit a dimension where Bad Guys are Coordinated but never fast, chip \'em down!"': '您目前正在进行协同挑战。造访一个敌人协同作战但没有快速效果的维度。嫩死它们！',
     'Crushed': '粉碎',
     'Journey to a dimension where the atmosphere is rich in helium, but Bad Guys have a 50% chance to Critical Strike for +400% damage unless your Block is as high as your current Health. Clearing': '前往一个大气中富含氦的维度，此维度中除非您的格挡达到当前生命值，否则敌人有50%概率暴击，多造成400%伤害。通过 ',
     'will reward you with an additional 400% of all helium earned up to but not including Z125. This challenge is repeatable.': '后，可额外获得氦，数值等于本次挑战完成前氦获取量的400%(不包含区域125获取的)。此挑战可重复完成。',
@@ -2434,9 +2432,9 @@ var cnItems = {
     'You have the Unbalance challenge active. Your scientists have discovered a new chaotic dimension! All enemies have 50% more attack, enemies in world have 100% more health, and enemies in maps have 200% more health. Starting at Zone 6, every time an enemy in the world is slain you will gain a stack of \'Unbalance\'. Every time an enemy in a map is slain, you will lose a stack of Unbalance. Each stack of Unbalance reduces your attack by 1%, but increases your Trimps\' gathering speed by 1%. Unbalance can stack to 500. Clearing': '您目前正在进行不平衡挑战。科学家发现了一个新的混沌维度！所有敌人的攻击力增加50%，世界上敌人的生命值增加100%，并且地图中敌人的生命值增加200%。从区域6开始，每在世界上击杀一名敌人，您获得一层“不平衡”。而每在地图中击杀一名敌人，您失去一层“不平衡”。每层不平衡减少1%攻击力，但增加脆皮1%资源获取速度。不平衡最高叠加到500层。通过 ',
     'You have the Unbalance challenge active. "Travel to a fun chaotic dimension! All enemies have 50% more attack, enemies in world have 100% more health, and enemies in maps have 200% more health. Starting at Zone 6, every time an enemy in the world is slain you will gain a stack of \'Unbalance\'. Every time an enemy in a map is slain, you will lose a stack of Unbalance. Each stack of Unbalance reduces your attack by 1%, but increases your Trimps\' gathering speed by 1%."': '您目前正在进行不平衡挑战。前往一个有趣的混沌维度！所有敌人的攻击力增加50%，世界上敌人的生命值增加100%，并且地图中敌人的生命值增加200%。从区域6开始，每在世界上击杀一名敌人，您获得一层“不平衡”。而每在地图中击杀一名敌人，您失去一层“不平衡”。每层不平衡减少1%攻击力，但增加脆皮1%资源获取速度。不平衡最高叠加到500层。',
     'Bublé': '布累',
-    'Tweak the portal to bring you to an alternate reality where Trimps really really don\'t like taking damage. Your Trimps start in this reality with an extra 250% Prismatic Shield, but as soon as they take any damage to health at all, they will refuse to fight again and the challenge will end. Clearing': '调节传送门，将您带到一个脆皮真的真的不喜欢受伤的异世界。脆皮初始拥有250%的额外棱镜护盾，但只要他们的生命值减少了，他们就将拒绝继续战斗，挑战也将以失败告终。在未失败过的前提下通过 ',
+    'Tweak the portal to bring you to an alternate reality where Trimps really really don\'t like taking damage. Your Trimps start in this reality with an extra 250% Prismatic Shield, but as soon as they take any damage to health at all, they will refuse to fight again and the challenge will end. Clearing': '调节传送门，将您带到一个脆皮真的真的不喜欢受伤的异世界。脆皮初始拥有250%的额外棱镜护盾，但只要它们的生命值减少了，它们就将拒绝继续战斗，挑战也将以失败告终。在未失败过的前提下通过 ',
     'without failing will complete this Challenge - granting an additional 300% of all Radon earned up to that point. Failing this Challenge will grant an additional 100% of all Radon earned up to the spot where you failed.': '后可以完成此挑战并额外获得氡，数值等于本次挑战完成前氡获取量的300%。挑战失败的话，可额外获得氡，数值等于本次挑战失败前氡获取量的100%。',
-    'You have the Bublé challenge active. Tweak the portal to bring you to an alternate reality where Trimps really really don\'t like taking damage. Your Trimps start in this reality with an extra 250% Prismatic Shield, but as soon as they take any damage to health at all, they will refuse to fight again and the challenge will end. Clearing': '您目前正在进行布累挑战。调节传送门，将您带到一个脆皮真的真的不喜欢受伤的异世界。脆皮初始拥有250%的额外棱镜护盾，但只要他们的生命值减少了，他们就将拒绝继续战斗，挑战也将以失败告终。在未失败过的前提下通过 ',
+    'You have the Bublé challenge active. Tweak the portal to bring you to an alternate reality where Trimps really really don\'t like taking damage. Your Trimps start in this reality with an extra 250% Prismatic Shield, but as soon as they take any damage to health at all, they will refuse to fight again and the challenge will end. Clearing': '您目前正在进行布累挑战。调节传送门，将您带到一个脆皮真的真的不喜欢受伤的异世界。脆皮初始拥有250%的额外棱镜护盾，但只要它们的生命值减少了，它们就将拒绝继续战斗，挑战也将以失败告终。在未失败过的前提下通过 ',
     'Duel': '决斗',
     'It\'s your Trimps vs the Bad Guys! Both teams start with 50 points, and both teams\' Crit Chance is locked to the amount of points the OTHER team has. Getting a Critical Strike steals 1 point from the other team, winning a battle steals 2 points, and winning a battle in one hit steals 5 points. Any team below 20 points gains 10x health, any team below 10 points always attacks first, and any team above 50 points gains 3x damage. Clearing': '这是脆皮与敌人之间的对决！双方分别以50点决斗点数开始，双方的暴击概率最高为对面的决斗点数。受到暴击的一方从另一方获得1点决斗点数，赢得战斗的一方从另一方获得2点决斗点数，一击赢得战斗的一方从另一方获得5点决斗点数。决斗点数小于20的一方获得10倍生命值，决斗点数小于10的一方永远抢先攻击，而决斗点数大于50的一方造成3倍伤害。通过 ',
     'It\'s your Trimps vs the Bad Guys! Both teams start with 50 points, and both teams\' Crit Chance is locked to the amount of points the OTHER team has. Getting a Critical Strike steals 1 point from the other team, winning a battle steals 2 points, and winning a battle in one hit steals 5 points. Any team below 20 points gains 10x health, Enemies attack first when less than 10 points (': '这是脆皮与敌人之间的对决！双方分别以50点决斗点数开始，双方的暴击概率最高为对面的决斗点数。受到暴击的一方从另一方获得1点决斗点数，赢得战斗的一方从另一方获得2点决斗点数，一击赢得战斗的一方从另一方获得5点决斗点数。决斗点数小于20的一方获得10倍生命值，当敌人决斗点数低于10的时候，它们永远抢先攻击 (',
@@ -2755,6 +2753,48 @@ var cnItems = {
     'Void': '虚空',
     //金色升级相关结束
     //尖塔相关
+    'Runestones': '符石',
+    'Rs': '符',
+    'Runestones (Rs) are earned by killing Bad Guys in your Spire, and the amount of Runestones gained is directly proportional to the Max Health of the slain Bad Guy.': '符石(缩写为符)可以通过在您的尖塔里击杀敌人获得，获得的符石数量与敌人的生命值成正比。',
+    'Runestones per Second': '每秒符石',
+    'Rs/S': '符/秒',
+    'Enemies': '敌人',
+    'The amount of enemies currently allowed in your Spire.': '目前尖塔中的敌人情况。',
+    'Your Spire can hold 1 Bad Guy, plus an additional 2.5 Bad Guys for each Floor in your Spire (rounded up).': '您的尖塔一开始最多可以容纳1名敌人，每多一层尖塔可以多容纳2.5名敌人(向上取整)。',
+    'Current Enemies in Spire': '当前尖塔中的敌人数量',
+    'Maximum Enemies Allowed in Spire': ' 尖塔可容纳的敌人上限',
+    'Spirestones (Ss) can only be earned by recycling Spire Cores found from Spires in the World, and can be used to add Floors to your Spire or upgrade other Cores.': '尖塔石只能通过回收尖塔核心获得，可以用于增加您的尖塔层数，或者是升级尖塔核心。',
+    'Current Spirestones': '当前的尖塔石数量',
+    'Spirestones Required for Next Floor': ' 下一层尖塔需要的尖塔石数量',
+    'Threat': '威胁度',
+    'Threat rises as you kill Bad Guys in your Spire, and falls as they escape. Threat is an average of kills/escapes over some time and may not always rise immediately after a kill or fall immediately after an escape, but will always stay near what your Spire can handle.': '当您在您的尖塔中击杀敌人时威胁度增加，当敌人逃脱时威胁度减少。威胁度由击杀数与逃脱数的比值决定，需要一定时间后才会稳定下来，在击杀一个敌人或一个敌人逃脱后并不会立刻变化，但最终会稳定在您的尖塔布局决定的数值上。',
+    'More Threat means Healthier Bad Guys, which means more Runestones. Threat is also required for adding additional Floors to your Spire, increasing by 100 Threat required per Floor.': '威胁度越高，您的尖塔中敌人的生命值就越高，符石也就越多。增加尖塔层数时也需要一定的威胁度，每层的威胁度需求高100。',
+    'The highest Threat your Spire has ever reached is': '您的尖塔最高达到的威胁度为',
+    'Displayed As': '面板上显示数值的意义为',
+    'Current Threat': '当前威胁度',
+    'Threat Required for Next Floor': ' 下一层尖塔需要的威胁度',
+    'Shrink Window': '缩小窗口',
+    'Enlarge': '放大',
+    'Sell': '出售',
+    'Are you sure you want to sell all Traps and Towers? You will get back 100% of Runestones spent on them.': '您确定要出售所有陷阱和塔吗？您将获得全额的符石返还。',
+    'Protip': '特别提示',
+    'Pause your Spire before selling your defenses if you want to avoid leaking!': '如果想要避免敌人大量通过，请在出售所有之前暂停尖塔！',
+    'Sell All?': '确定要出售所有吗？',
+    'Sell All': '出售所有',
+    'Unpause': '取消暂停',
+    'Pause Spire': '暂停尖塔',
+    'Shift Up': '上移',
+    'Shift your Traps and Towers up one cell!': '将陷阱和塔上移一格！',
+    'Click this to select Shift Up Mode, then click a Trap or Tower in your Spire. The Trap/Tower you select and all Traps/Towers after it will shift up one cell until the first empty space is hit.': '点击进入上移模式，然后点击您的尖塔中的一个陷阱或塔。您所选择的陷阱/塔以及它之后的所有陷阱/塔将上移一格，直到碰到第一个空位为止。',
+    'If there is no empty space, your last Trap/Tower will be sold.': '如果没有空位，那么您的最后一个陷阱/塔将被出售。',
+    'Shift Down': '下移',
+    'Shift your Traps and Towers down one cell!': '将陷阱和塔下移一格！',
+    'Click this to select Shift Down Mode, then click a Trap or Tower in your Spire. The Trap/Tower you select and all Traps/Towers before it will shift down one cell until the first empty space is hit.': '点击进入下移模式，然后点击您的尖塔中的一个陷阱或塔。您所选择的陷阱/塔以及它之后的所有陷阱/塔将下移一格，直到碰到第一个空位为止。',
+    'If there is no empty space, your first Trap/Tower will be sold.': '如果没有空位，那么您的第一个陷阱/塔将被出售。',
+    'Sell a Trap/Tower': '出售一个陷阱/塔',
+    'Sell a Trap or Tower! You\'ll get back 100% of what you spent on the last Trap or Tower of that type.': '出售一个陷阱或一个塔！您将获得全额返还。',
+    'Reach Z': '到达区域',
+    'Hotkey 0 or \'': '快捷键：0或\'',
     'Trap Layout': '陷阱布局',
     'This saved layout contains': '此陷阱布局包括',
     'This layout is currently empty. You can save your current setup to this layout, and load it later!': '此布局目前空无一物。您可以将当前的布局保存到这里，以便以后读取！',
@@ -2764,13 +2804,13 @@ var cnItems = {
     'Are you sure you want to save your current Spire layout to Preset 1? This will overwrite your currently saved layout.': '您确定要把当前的陷阱布局保存到布局1吗？之前保存过的布局将被覆盖。',
     'Are you sure you want to save your current Spire layout to Preset 2? This will overwrite your currently saved layout.': '您确定要把当前的陷阱布局保存到布局2吗？之前保存过的布局将被覆盖。',
     'If you want, you can also type a note to your future self below!': '如果有需要的话，您还可以在下面留下一些信息！',
-    'Save to Layout 1?': '确认要保存到布局1吗？',
-    'Save to Layout 2?': '确认要保存到布局2吗？',
+    'Save to Layout 1?': '确定要保存到布局1吗？',
+    'Save to Layout 2?': '确定要保存到布局2吗？',
     'Save Current Layout Here': '将当前陷阱布局进行保存',
     'Are you sure you want to load layout 1? This will remove all Traps and Towers currently placed in your Spire!': '您确定要读取布局1吗？您当前尖塔中的陷阱和塔将被全部覆盖！',
     'Are you sure you want to load layout 2? This will remove all Traps and Towers currently placed in your Spire!': '您确定要读取布局2吗？您当前尖塔中的陷阱和塔将被全部覆盖！',
-    'Load Layout 1?': '确认要读取布局1吗？',
-    'Load Layout 2?': '确认要读取布局2吗？',
+    'Load Layout 1?': '确定要读取布局1吗？',
+    'Load Layout 2?': '确定要读取布局2吗？',
     'Load This Layout': '读取此布局',
     'Floating Combat Text': '浮动的战况文本',
     'Make Static': '固定文本',
@@ -2779,19 +2819,125 @@ var cnItems = {
     'Visual Settings': '视觉设置',
     'Trap Icons': '陷阱图标',
     'Enemy Icons': '敌人图标',
-    'Chill Effect': '冻结效果',
+    'Chill Effect': '冰冻效果',
     'Shock Effect': '震荡效果',
     'Health as ': '显示生命值',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
+    'Are you sure you want to upgrade your Fire Trap? This upgrade is non-refundable!': '您确定要升级火焰陷阱吗？升级后将无法反悔！',
+    'Are you sure you want to upgrade your Frost Trap? This upgrade is non-refundable!': '您确定要升级冰霜陷阱吗？升级后将无法反悔！',
+    'Are you sure you want to upgrade your Poison Trap? This upgrade is non-refundable!': '您确定要升级剧毒陷阱吗？升级后将无法反悔！',
+    'Are you sure you want to upgrade your Lightning Trap? This upgrade is non-refundable!': '您确定要升级闪电陷阱吗？升级后将无法反悔！',
+    'Are you sure you want to upgrade your Strength Tower? This upgrade is non-refundable!': '您确定要升级力量塔吗？升级后将无法反悔！',
+    'Are you sure you want to upgrade your Condenser Tower? This upgrade is non-refundable!': '您确定要升级冷凝塔吗？升级后将无法反悔！',
+    'Are you sure you want to upgrade your Knowledge Tower? This upgrade is non-refundable!': '您确定要升级知识塔吗？升级后将无法反悔！',
+    'Upgrade Fire Trap?': '确定升级火焰陷阱吗？',
+    'Upgrade Frost Trap?': '确定升级冰霜陷阱吗？',
+    'Upgrade Poison Trap?': '确定升级剧毒陷阱吗？',
+    'Upgrade Lightning Trap?': '确定升级闪电陷阱吗？',
+    'Upgrade Strength Tower?': '确定升级力量塔吗？',
+    'Upgrade Condenser Tower?': '确定升级冷凝塔吗？',
+    'Upgrade Knowledge Tower?': '确定升级知识塔吗？',
+    'All Fire Traps gain': '所有火焰陷阱增加 ',
+    '"All Fire Traps gain': '所有火焰陷阱增加 ',
+    'damage.': '伤害。',
+    'damage."': '伤害。',
+    'Double': '翻倍',
+    'the damage of all Fire Traps, and all Fire Traps will instantly kill any enemy that has 20% or less health.': '火焰陷阱的伤害，并使所有火焰陷阱秒杀20%以下生命值的敌人。',
+    'the damage of all Fire Traps, and all Fire Traps will instantly kill any enemy that has 20% or less health."': '火焰陷阱的伤害，并使所有火焰陷阱秒杀20%以下生命值的敌人。',
+    'the damage of all Fire Traps.': '火焰陷阱的伤害。',
+    'the damage of all Fire Traps."': '火焰陷阱的伤害。',
+    'Dectuple': '十倍化',
+    'the damage of all Fire Traps once more, and all enemies drop 20% extra Runestones when they die on a Fire Trap.': '火焰陷阱的伤害，并使被火焰陷阱击杀的敌人额外掉落20%的符石。',
+    'the damage of all Fire Traps once more, and all enemies drop 20% extra Runestones when they die on a Fire Trap."': '火焰陷阱的伤害，并使被火焰陷阱击杀的敌人额外掉落20%的符石。',
+    'If an enemy with 20% health or less steps on a Fire Trap, it dies instantly.': '当低于20%生命值的敌人进入火焰陷阱时，它立刻死亡。',
+    'All Fire Traps grant 20% extra Runestones when they get the killing blow on an enemy.': '当火焰陷阱击杀敌人时额外获得20%符石。',
+    'Hotkey': '快捷键',
+    'Multiply Frost Trap damage': '将冰霜陷阱的伤害乘以',
+    '"Multiply Frost Trap damage': '将冰霜陷阱的伤害乘以',
+    'by': '数字',
+    'and increase the duration of Chilled by 1 cell.': '并使冰冻的效果多持续1格。',
+    'and increase the duration of Chilled by 1 cell."': '并使冰冻的效果多持续1格。',
+    '. Chilled enemies now take 25% more damage from Fire Traps.': '。被冰冻的敌人受到火焰陷阱的伤害额外增加25%。',
+    '. Chilled enemies now take 25% more damage from Fire Traps."': '。被冰冻的敌人受到火焰陷阱的伤害额外增加25%。',
+    '. If there is a Poison Trap directly before a Frost Trap, that Poison Trap becomes 4x as effective.': '。如果冰霜陷阱前一格有一个剧毒陷阱，则剧毒陷阱的效果变为4倍。',
+    '. If there is a Poison Trap directly before a Frost Trap, that Poison Trap becomes 4x as effective."': '。如果冰霜陷阱前一格有一个剧毒陷阱，则剧毒陷阱的效果变为4倍。',
+    'and each time an enemy can\'t move because it is slowed, that enemy becomes worth 2% more Runestones. This effect stacks additively.': '每当一名敌人因被减速而无法移动，它掉落的符石就增加2%。此效果相互叠加。',
+    'and each time an enemy can\'t move because it is slowed, that enemy becomes worth 2% more Runestones. This effect stacks additively."': '每当一名敌人因被减速而无法移动，它掉落的符石就增加2%。此效果相互叠加。',
+    'Enemies chilled by Frost Traps take 25% extra damage from Fire Traps.': '被冰霜陷阱冰冻的敌人受到火焰陷阱的伤害额外增加25%。',
+    'Any Poison Traps placed directly before a Frost Trap become 4x as effective.': '放置在冰霜陷阱前一格的剧毒陷阱效果变为4倍。',
+    'Each time an enemy can\'t move because it\'s slowed (from Chilled or Frozen), it becomes worth 2% more Runestones. This effect stacks additively.': '每当一名敌人因被减速(冰冻或冻结)而无法移动，它掉落的符石就增加2%。此效果相互叠加。',
+    'the amount of Toxicity added when an enemy steps on any Poison Trap.': '当敌人进入剧毒陷阱时增加的毒性数量。',
+    'the amount of Toxicity added when an enemy steps on any Poison Trap."': '当敌人进入剧毒陷阱时增加的毒性数量。',
+    'If there is a Poison Trap either directly before or after another Poison Trap, both Traps gain 3x damage. If a Poison Trap has Poison Traps on both sides of itself, it gains 9x damage instead.': '如果一个剧毒陷阱前一格或后一格有另一个剧毒陷阱的话，两个陷阱都增加3倍伤害。如果一个剧毒陷阱前后一格都有另外的剧毒陷阱，那么它的伤害增加9倍。',
+    '"If there is a Poison Trap either directly before or after another Poison Trap, both Traps gain 3x damage. If a Poison Trap has Poison Traps on both sides of itself, it gains 9x damage instead."': '如果一个剧毒陷阱前一格或后一格有另一个剧毒陷阱的话，两个陷阱都增加3倍伤害。如果一个剧毒陷阱前后一格都有另外的剧毒陷阱，那么它的伤害增加9倍。',
+    'the amount of Toxicity added when an enemy steps on any Poison Trap. In addition, if the enemy has 75% or less health remaining, the final amount of Toxicity added is multiplied by 5.': '当敌人进入剧毒陷阱时增加的毒性数量。另外，如果进入陷阱时敌人生命值不高于75%，那么最终增加的毒性数量再乘以5。',
+    'the amount of Toxicity added when an enemy steps on any Poison Trap. In addition, if the enemy has 75% or less health remaining, the final amount of Toxicity added is multiplied by 5."': '当敌人进入剧毒陷阱时增加的毒性数量。另外，如果进入陷阱时敌人生命值不高于75%，那么最终增加的毒性数量再乘以5。',
+    'the amount of Toxicity added when an enemy steps on any Poison Trap. In addition, if an enemy leaks, gain 10% of its total Toxicity as Runestones.': '当敌人进入剧毒陷阱时增加的毒性数量。另外，敌人被击杀时还可以额外获得总毒性数量10%的符石。',
+    'the amount of Toxicity added when an enemy steps on any Poison Trap. In addition, if an enemy leaks, gain 10% of its total Toxicity as Runestones."': '当敌人进入剧毒陷阱时增加的毒性数量。另外，敌人被击杀时还可以额外获得总毒性数量10%的符石。',
+    'If a Poison Trap is placed directly next to another Poison Trap, both Traps gain 3x damage. If a Poison Trap has other Poison Traps on both sides of itself, it gains 9x damage instead.': '如果一个剧毒陷阱的前一格或后一格有另一个剧毒陷阱的话，两个陷阱都增加3倍伤害。如果一个剧毒陷阱前后一格都有另外的剧毒陷阱，那么它的伤害增加9倍。',
+    'If an enemy leaks, gain 10% of its total Toxicity as Runestones.': '敌人被击杀时可以额外获得总毒性数量10%的符石。',
+    'Lightning Trap gains': '闪电陷阱增加 ',
+    '"Lightning Trap gains': '闪电陷阱增加 ',
+    'damage, and Lightning Trap now adds': '伤害，并且闪电陷阱从此增加 ',
+    'stacks of Shocked.': '层震荡。',
+    'stacks of Shocked."': '层震荡。',
+    'damage, and Shocked now causes the target to take 4x damage and Toxicity from Traps. Towers and slows are not boosted by this extra damage.': '伤害，并且震荡效果可以使敌人受到4倍陷阱伤害，增加4倍陷阱毒性。塔和减速不受此效果加成。',
+    'damage, and Shocked now causes the target to take 4x damage and Toxicity from Traps. Towers and slows are not boosted by this extra damage."': '伤害，并且震荡效果可以使敌人受到4倍陷阱伤害，增加4倍陷阱毒性。塔和减速不受此效果加成。',
+    'Lightning Trap increases the damage and effect of Fire and Poison Traps in its column by 10%, stacking additively with other Lightning Traps in the column.': '闪电陷阱将同一列的火焰陷阱和剧毒陷阱的效果增加10%，同一列的闪电陷阱此效果叠加。',
+    '"Lightning Trap increases the damage and effect of Fire and Poison Traps in its column by 10%, stacking additively with other Lightning Traps in the column."': '闪电陷阱将同一列的火焰陷阱和剧毒陷阱的效果增加10%，同一列的闪电陷阱此效果叠加。',
+    'damage, and Shocked now causes the target to take 8x damage and Toxicity from Traps. Towers and slows are not boosted by this extra damage.': '伤害，并且震荡效果可以使敌人受到8倍陷阱伤害，增加8倍陷阱毒性。塔和减速不受此效果加成。',
+    'damage, and Shocked now causes the target to take 8x damage and Toxicity from Traps. Towers and slows are not boosted by this extra damage."': '伤害，并且震荡效果可以使敌人受到8倍陷阱伤害，增加8倍陷阱毒性。塔和减速不受此效果加成。',
+    'Each Strength Tower grants an additional 15% attack to your Trimps.': '每个力量塔增加的脆皮攻击力多15%。',
+    '"Each Strength Tower grants an additional 15% attack to your Trimps."': '每个力量塔增加的脆皮攻击力多15%。',
+    'Your Strength Towers are currently granting a total of': '您的力量塔目前有 ',
+    'attack to your Trimps.': '的脆皮攻击力加成。',
+    'Each Condenser Tower grants an additional 5% Helium earned from all sources.': '每个冷凝塔增加的氦获取量多5%。',
+    '"Each Condenser Tower grants an additional 5% Helium earned from all sources."': '每个冷凝塔增加的氦获取量多5%。',
+    'Each Condenser Tower grants an additional 5% Radon earned from all sources.': '每个冷凝塔增加的氡获取量多5%。',
+    '"Each Condenser Tower grants an additional 5% Radon earned from all sources."': '每个冷凝塔增加的氡获取量多5%。',
+    'Your Condenser Towers are currently granting a total of': '您的冷凝塔目前有 ',
+    'additional Helium from all sources.': '的氦获取量加成。',
+    'additional Radon from all sources.': '的氡获取量加成。',
+    'Each Knowledge Tower grants an additional 7.5% Fluffy Exp earned from all sources.': '每个知识塔增加的绒绒经验值多7.5%。',
+    'Each Knowledge Tower grants an additional 7.5% Fluffy Exp  earned from all sources.': '每个知识塔增加的绒绒经验值多7.5%。',
+    '"Each Knowledge Tower grants an additional 7.5% Fluffy Exp earned from all sources."': '每个知识塔增加的绒绒经验值多7.5%。',
+    '"Each Knowledge Tower grants an additional 7.5% Fluffy Exp  earned from all sources."': '每个知识塔增加的绒绒经验值多7.5%。',
+    'Each Knowledge Tower grants an additional 7.5% Scruffy Exp earned from all sources.': '每个知识塔增加的污污经验值多7.5%。',
+    'Each Knowledge Tower grants an additional 7.5% Scruffy Exp  earned from all sources.': '每个知识塔增加的污污经验值多7.5%。',
+    '"Each Knowledge Tower grants an additional 7.5% Scruffy Exp earned from all sources."': '每个知识塔增加的污污经验值多7.5%。',
+    '"Each Knowledge Tower grants an additional 7.5% Scruffy Exp  earned from all sources."': '每个知识塔增加的污污经验值多7.5%。',
+    'Your Knowledge Towers are currently granting a total of': '您的知识塔目前有 ',
+    'additional Fluffy Exp.': '的绒绒经验值加成。',
+    'additional Scruffy Exp.': '的污污经验值加成。',
+    'Welcome to your Spire! You\'ve killed Druopitee and stolen some Spirestones: ancient construction materials that duplicate themselves across dimensions, traditionally used to create powerful Spires. Druopitee thought that he was the only one who could build tall buildings, but you\'re on a mission to prove him wrong!': '欢迎来到您的尖塔！您已经干掉了德罗披提，并且拿到了一些尖塔石，这些古老的建筑材料可以穿越维度复制自身，通常用于建造强大的尖塔。德罗披提觉得只有他才能建造出这么高的东西，是时候证明他的错误了！',
+    'You were able to finish constructing the first Floor of your very own Spire with the Spirestones you found, and you still have a few left over to try to make it even taller. You had your Trimps build a wall around the entire town, making your new Spire the only entrance and exit point. You feel super safe for a few seconds, and your Trimps are super stoked on their new fortress.': '您成功建成了您的第一层尖塔，而尖塔石还有一些剩余，或许还可以让它变得更高。您让您的脆皮们在整个城镇外修了一圈围墙，让尖塔成为了唯一的出入口。有一阵子，您觉得已经高枕无忧了，而与此同时，脆皮们对着它们的新堡垒指指点点兴奋不已。',
+    'After those few seconds are up, you see that the Spire is attracting a decent amount of unwanted attention from jealous enemies, who seem to take your Spire as a challenge.': '过了一会儿，您发现您的尖塔吸引了一些不速之客，这些敌人似乎把您的尖塔当成了什么挑战目标。',
+    'Luckily, your Scientists have managed to come up with a few Trap designs that can hopefully stop the flow of enemies into your town.': '幸好的是，科学家们设计出了一些陷阱来阻挡敌人。',
+    'Try placing a Frost Trap in the leftmost cell of your Spire, and a Fire Trap directly to the right of it.': '请试着在最左边放置一个冰霜陷阱，然后在它的右边放置一个火焰陷阱。',
+    'Perfect, everything seems to be working just as your Scientists explained. The Frost Trap slows the enemies down, and the Fire Trap finishes them off.': '太完美了，一切都像科学家们预料的那样。用冰霜陷阱使敌人减速，然后再用火焰陷阱结果了它们。',
+    'Unfortunately, it seems like each enemy you kill in here makes your Spire a more important target, causing stronger and stronger enemies to come through.': '不过坏消息是，您每在您的尖塔中干掉一个敌人，您的尖塔就会成为更重要的目标，吸引更强大的敌人进入。',
+    'Fortunately though, your Magical Spire Traps convert Bad Guys into a new type of resource whenever they kill one, which your Scientists call \'Runestones\'. Even more fortunately, larger enemies with more Max Health convert into larger amounts of Runestones! As your Spire\'s Threat increases, so will your Runestones per second, and so will your Spire\'s defenses (if you\'re doing your job).': '好消息是，您的陷阱击杀敌人时可以将它们转换为一种新的资源，科学家们把它命名为 符石 。更好的消息是，敌人越强，生命值越高，击杀后获得的符石也就越多！随着您的尖塔威胁度越来越高，您的每秒符石也会越来越高，依靠这些符石，您也能构筑出越来越完备的防御(如果您没有划水的话)。',
+    'You don\'t have to stay here while Runestones build up, you can go back to leading your Trimps while your Traps do some work. The enchanted Spirestones copy your progress to all possible dimensions, so you won\'t even lose your Traps if you Portal!': '您没必要一直在这个界面盯着符石变多，您可以继续去指派脆皮们干活，陷阱能自己搞定敌人。前面提到过，这些尖塔石可以穿越维度复制自身，这意味着哪怕传送后，尖塔内的一切也将保持原样！',
+    'Keep an eye on your Runestones, and add more Traps whenever you can. Try to fill this entire Floor with Traps!': '注意符石数量，尽可能多的增加陷阱。请试着用陷阱填满这一层尖塔！',
+    'You\'re a natural Spiarchitect! Your Scientists have finally finished adding the second Floor of your Spire, and the added height seems to be attracting even more enemies. Cool, more Runestones for you! You\'re starting to really like the idea of enemies constantly climbing to their demise in the teeth of your Traps.': '您真是个天生的尖塔建筑师！科学家们终于建成了第二层尖塔，尖塔变高以后，似乎吸引了更多的敌人进入。很好，这样就能获得更多符石了！您开始喜欢上敌人冲进尖塔送死然后被陷阱干掉的感觉了。',
+    'While you\'re appreciating your deadly handiwork, a small group of Scientists runs up to you and shares some new research. They say that the Runestones can also be used to create mini-towers that broadcast their energy to all Trimps in the World. Wasting no time, they hand you the schematics for the Strength Tower, which increases the effect of all Fire Traps on its Floor, and grants all of your Trimps an attack bonus.': '您还沉浸在这种感觉中时，一小队科学家向您跑来，然后跟您分享了最新的科研成果。它们表示，符石还可以用来建造一些小型的塔，用于将能量传播至世界上的所有脆皮。接着它们抓紧时间拿出了力量塔的原理图，它可以增加同一行火焰陷阱的效果，还可以使脆皮们获得攻击力加成。',
+    'Continue placing more Traps and Towers to fill out your Spire, and raise your Threat level to 300.': '请继续放置更多陷阱和塔，填满您的尖塔，并使威胁度提升到300。',
+    'Beautiful. It seems like you\'re getting the hang of this!': '很好，看起来您找到诀窍了！',
+    'You\'ve finished constructing the third Floor of your Spire, but it seems as if you\'ve used up your entire intial supply of Spirestones. You\'ll need to clear a Spire and crush its Core to earn more! Note that you\'ll find considerably better Cores worth more Spirestones from more difficult Spires.': '您已经建造了第三层尖塔，但看起来您已经用完了尖塔石。您需要通过更多的尖塔，获得核心，然后将它打碎后获得尖塔石。注意，通过更高难度的尖塔后，您可以获得更好的核心，从而获得数量多很多的尖塔石。',
+    'Collect 20 Spirestones and raise your Spire\'s Threat to 400 to build your fourth Floor.': '请获取20尖塔石，并将威胁度提升到400，这样就可以建造第四层尖塔了。',
+    'It\'s getting huge! However, the Traps are getting more expensive as you place more and more of them. At this rate you\'ll never be able to afford enough Strength Towers to make a huge impact on your Trimps.': '您的尖塔越来越大了！但是，您的陷阱的花费也越来越昂贵。这么下去，您就没法建造更多力量塔来加强脆皮们了。',
+    'You consult with your Scientists, who tell you that they can create upgrades for your Traps, but that they need to study corpses of high level enemies in order to exploit their weaknesses.': '于是，您找科学家们来出谋划策。它们表示可以升级陷阱，但需要研究更高级敌人的尸体才能发现它们的弱点。',
+    'Raise your Highest Zone Reached to Z230, and upgrade your Frost Trap.': '请将最高通过区域提升到区域230，然后升级冰霜陷阱。',
+    'Wow, look at that thing slow!': '哇哦，看那些敌人慢成什么样了！',
+    'You seem to have a pretty decent understanding of how to manage your Spire, and I believe you can handle it on your own for a while. Continue to raise your HZE to unlock more upgrades, collect Spirestones to add more Floors and enemies, and tweak your Trap layout every once in a while to make sure you\'re getting as many Runestones as you can, you\'ll definitely need them later.': '您看起来已经很了解如何使尖塔正常运作了，因此我相信接下来您可以自己决定如何处理。您可以继续提升最高通过区域以解锁升级，获得尖塔石来增加层数，调整陷阱布局来尽可能多的获得符石，您后面绝对还会用的上的。',
+    'Your Scientists let you know that they can possibly forge a new Trap and Tower, but they need to study a Core from a higher level Spire first.': '科学家们提醒您，它们可以建造新的陷阱和塔，但是它们需要先研究一下更高级尖塔的核心。',
+    'Complete Spire II to unlock Poison Trap and Condenser Tower! Once you have your new Traps, raise your Spire\'s Threat to 600 and build your sixth Floor.': '请通过尖塔 II以解锁剧毒陷阱和冷凝塔！当获得新的陷阱以后，请将威胁度提升到600并建造第六层尖塔。',
+    'Remember that you have to satisfy both the Threat and Spirestone requirements to add a new Floor!': '请注意，您必须同时满足威胁度和尖塔石的要求才可以增加尖塔层数！',
+    'You\'ve got a new Trap and Tower, your Spire is still growing, and your power is growing with it! Your Trimps are slightly annoyed that they have to clean up the occasional Bad Guy that makes it through the Spire and into the town, but they can handle it. They all agree that life in general is just more fun when there\'s a giant Spire grinding Bad Guys at the entrance to their town.': '您获得了新的陷阱和塔，您的尖塔正在成长，您的力量也随之变得更加强大！对于要时不时清理零星通过尖塔入侵城镇的敌人，脆皮们有一点烦恼，但它们表示能够自己搞定。它们一致同意，如果有一座巨大的尖塔在城镇入口不停击杀敌人的话，生活会更多姿多彩一些。',
+    'While you\'re feeling comfortable maintaining your Spire\'s defenses with the tools you have, you still feel like there\'s something missing. Your Scientists say that they could perhaps create one more Trap and Tower, but again they\'ll need to study a Core from an even higher Spire.': '虽然现有的工具已经足够您舒舒服服地构筑尖塔防御了，但您总觉得还是缺失了什么。科学家们表示，它们还可以建造另一种新陷阱和塔，但同样的，它们需要研究更高级尖塔的核心。',
+    'Clear Spire III to unlock the Lightning Trap and Knowledge Tower, then raise your Spire\'s Threat to 1100 and build your eleventh Floor.': '请通过尖塔 III以解锁闪电陷阱和知识塔，然后将威胁度提升到1100并建造第十一层尖塔。',
+    'And that\'s about all there is to teach you! The rest of the management of your Spire is left in your more-than-capable hands.': '我已经将所有知识倾囊相授了！剩下的一切就交给您了。',
+    'Raise your HZE, clear Spires, buy upgrades, build Floors, and come up with the perfect layout for your Spire.': '提升最高通过区域，通过尖塔，升级陷阱和塔，增加层数，最终您会制造出完美的尖塔布局的。',
+    'I\'ll hang out and make sure everything\'s OK until you reach Threat level 1300 and build your thirteenth Floor, and then you\'ll be on your own.': '这是最后的考验，请将威胁度提升到1300并建造第十三层尖塔，之后的修行，就在您个人了。',
     //尖塔相关结束
     //维度发生器相关
     'Dimensional Generator': '维度发生器',
@@ -2889,12 +3035,12 @@ var cnItems = {
     'Convert Wind to Poison': '将风符记转换为毒符记',
     'Convert Wind to Ice': '将风符记转换为冰符记',
     'Empowerment of Ice': '冰赋能',
-    'When this Empowerment is active, enemies will be Chilled each time your Trimps attack. The Chill debuff stacks, reduces the damage that enemy deals by': '当此赋能激活时，每次脆皮的攻击都可以冻结敌人。每层冻结减少 ',
+    'When this Empowerment is active, enemies will be Chilled each time your Trimps attack. The Chill debuff stacks, reduces the damage that enemy deals by': '当此赋能激活时，每次脆皮的攻击都可以冰冻敌人。每层冰冻减少 ',
     '(compounding) per stack, and increases the damage your Trimps deal to that enemy by the same amount (with diminishing returns, max of 100%) until it dies.': '敌人的伤害(叠乘)，并且您的脆皮会增加等量的攻击力(效果递减，直到100%)，直到敌人死亡。',
     '(compounding) per stack, and increases the damage your Trimps deal to that enemy by  twice that amount (with diminishing returns, max of +200% attack) until it dies.': '敌人的伤害(叠乘)，并且您的脆皮会增加该数值两倍的攻击力(效果递减，直到200%)，直到敌人死亡。',
     'Upgrade Empowerment of Ice': '升级冰赋能',
     'of your stacks transfer after you kill a Bad Guy during the Empowerment of Ice. Each level of this upgrade will increase the transfer rate by': '的层数可以在冰赋能生效时传递给下个敌人。每级升级可以增加传递率 ',
-    'Reduces the enemy\'s damage dealt from each stack of Chilled when the Empowerment of Ice is active by': '当冰赋能激活时，每层冻结减少 ',
+    'Reduces the enemy\'s damage dealt from each stack of Chilled when the Empowerment of Ice is active by': '当冰赋能激活时，每层冰冻减少 ',
     '(compounding), and increases the damage your Trimps deal to that enemy by the same amount (with diminishing returns, max of 100%). Your current bonus is': '敌人的伤害(叠乘)，并且您的脆皮会增加等量的攻击力(效果递减，直到100%)，您当前的加成为 ',
     '(compounding), and increases the damage your Trimps deal to that enemy by  twice that amount (with diminishing returns, max of +200% attack). Your current bonus is': '敌人的伤害(叠乘)，并且您的脆皮会增加该数值两倍的攻击力(效果递减，直到200%)，您当前的加成为 ',
     'and next level will bring your bonus to': '下一级加成变为 ',
@@ -2992,7 +3138,7 @@ var cnItems = {
     'Pet Exp, Plaguebringer, Void Map Drop Chance and Crit Chance mods on Heirlooms no longer suffer a penalty in Universe 2.': '传家宝上的污污经验值，瘟疫使者效果，虚空地图掉落概率和暴击率不再受到宇宙2的数值惩罚。',
     //绒绒污污相关结束
     //故事-尖塔
-    'It has been forever, yet now we meet,': '过去这么多年，我们终又相遇，',
+    'It has been forever, yet now we meet,': '过去这么多年，终于相遇此地，',
     'I\'m not surprised you don\'t remember me.': '我并不奇怪，你已将我忘记。',
     'I believe it is I who you currently seek,': '我就是那个人，你所正在寻觅，',
     'Lifetimes ago I was Druopitee.': '若干世前，我曾叫德罗披提。',
@@ -4297,6 +4443,9 @@ var cnItems = {
     'Hidden Next Group Breed Timer': '隐藏的繁殖计时',
     'How long your next army has been breeding for, or how many anticipation stacks you will have if you send a new army now.': '显示下一队士兵已经繁殖了多久，或者是如果现在让士兵开始战斗，预期能达到多少层。',
     'Army Count': '军队规模',
+    'Protect/Unprotect': '保护/取消保护',
+    'UnProtect': '取消保护',
+    'Protect': '保护',
     'Settings Profile': '设置文件',
     '<Delete Profile': '<删除设置文件',
     'Save New...': '另存为新的设置文件',
@@ -4549,19 +4698,12 @@ var cnItems = {
     'fragments': '碎片',
     'gems': '宝石',
     'science': '科学',
-    'Fire': '火焰',
-    'Frost': '冰霜',
     'Wind': '风',
     'Ice': '冰',
     //传家宝
     'miner': '矿工',
     'lumber': '木材',
     'farming': '农业',
-    'Poison': '剧毒',
-    'Knowledge': '知识',
-    'Condenser': '冷凝',
-    'Strength': '力量',
-    'Lightning': '闪电',
     'Corrupt': '腐化',
     'Healthy': '健康的',
     //特权
@@ -4606,14 +4748,9 @@ var cnItems = {
     'AutoGolden': '自动黄金升级',
     'Rename Preset': '重命名预设',
     'Empowerments of Nature': '自然赋能',
-    'Shift Up': '上移',
-    'Shift Down': '下移',
     'Sell Trap/Tower': '出售陷阱/塔',
     'Queue': '队列',
     'World Info': '世界信息',
-    'Threat': '威胁',
-    'Enemies': '敌人',
-    'Runestones': '符石',
     'Trimps Per Second': '每秒脆皮',
     'Max Trimps': '脆皮上限',
     'Import Perk Preset': '导入特权预设',
@@ -4656,15 +4793,7 @@ var cnItems = {
     'Base': '基础',
     'Item Health': '物品生命',
     'AutoFight': '自动战斗',
-    'Runestones per Second': '符石每秒',
-    'Sell All': '全部出售',
     'Upgrade (': '升级 (',
-    'Pause Spire': '暂停尖塔',
-    'Clear Spire III to unlock the Lightning Trap and Knowledge Tower, then raise your Spire\'s Threat to 1100 and build your eleventh Floor.': '清除尖塔 III去解锁闪电陷阱和知识塔，然后将尖塔的威胁提高到1100并建立你的第11层。',
-    'You\'ve got a new Trap and Tower, your Spire is still growing, and your power is growing with it! Your Trimps are slightly annoyed that they have to clean up the occasional Bad Guy that makes it through the Spire and into the town, but they can handle it. They all agree that life in general is just more fun when there\'s a giant Spire grinding Bad Guys at the entrance to their town.': '你有一个新的陷阱和塔，你的尖塔仍在增长，你的力量正在增长！ 你的脆皮有点恼火，他们不得不清理偶尔通过尖塔并进入城镇的坏家伙，但他们可以处理它。 他们都同意，当他们的城镇入口处有一个巨大的尖塔磨坏人们时，生活总体上会更有趣。',
-    'While you\'re feeling comfortable maintaining your Spire\'s defenses with the tools you have, you still feel like there\'s something missing. Your Scientists say that they could perhaps create one more Trap and Tower, but again they\'ll need to study a Core from an even higher Spire.': '虽然你觉得使用你拥有的工具来维持尖塔的格挡感觉很舒服，但你仍然觉得有些东西缺失了。 你的科学家说，他们或许可以创造一个更多的陷阱和塔，但他们再次需要从更高的尖塔学习核心。',
-    'Sell a Trap/Tower': '出售一个陷阱/塔',
-    'Shrink Window': '收缩窗口',
     ' Lv': ' 等级',
     'Chrome and Firefox are currently the only fully supported browsers.': 'Chrome和Firefox当前是唯一受完全支持的浏览器。',
     'click here to send a message on Reddit': '单击此处在Reddit上发送消息',
@@ -5414,6 +5543,12 @@ var cnExcludePostfix = [
 var cnRegReplace = new Map([
     [/^(.*)A green shimmer erupts then disappears, and you hit the ground. You look pretty hungry...$/, '$1一团绿光闪过后，您落到了地面上。您看起来饿极了……'], //源始消息
     [/^(.*)A blue shimmer erupts then disappears as you gracefully take its place. You look like you don't belong here... Well, better start gathering some food.$/, '$1一团蓝光闪过后，您优雅地落在了它之前的位置上。看来您并不属于这里……好吧，该开始收集一些食物了。'], //源始消息
+    [/^(.*) Runestones \((.+) Min(s*) (.+) Sec(s*)$/, '$1符石($2分$4秒'], //尖塔等，前置
+    [/^(.*) Runestones \((.+) Hour(s*) (.+) Min(s*)$/, '$1符石($2小时$4分'], //尖塔等，前置
+    [/^(.*) Runestones \((.+) Day(s*) (.+) Hour(s*)$/, '$1符石($2天$4小时'], //尖塔等，前置
+    [/^(.*) Runestones \((.+) Year(s*) (.+) Day(s*)$/, '$1符石($2年$4天'], //尖塔等，前置
+    [/^(.*) Runestones \((.+) Sec(s*)$/, '$1符石($2秒'], //尖塔等，前置
+    [/^(.*) Runestones \(Long Time$/, '$1符石(时间极长'], //尖塔等，前置
     [/^(.+) Min(s*) (.+) Sec(s*)$/, '$1分$3秒'], //主界面
     [/^(.+) Hour(s*) (.+) Min(s*)$/, '$1小时$3分'], //主界面
     [/^(.+) Day(s*) (.+) Hour(s*)$/, '$1天$3小时'], //主界面
@@ -6871,6 +7006,15 @@ var cnRegReplace = new Map([
     [/^Increase Radon gain by (.*)%.$/, '使氡的获取量增加$1%。'], //金色升级等
     [/^Increase Trimp attack and health by (.*)%.$/, '使脆皮的攻击力和生命值增加$1%。'], //金色升级等
     [/^Decrease the minimum amount of enemies between Void Map drops by (.*)%.$/, '使每张虚空地图掉落所需的敌人数减少$1%。'], //金色升级等
+    [/^You have found (.*) total Runestones.$/, '您总共获得了$1符石。'], //尖塔等
+    [/^(.*) Runestones have been spent on Upgrades.$/, '其中$1符石用于了升级。'], //尖塔等
+    [/^(.*) Runestones have been spent on Traps\/Towers in your current layout.$/, '$1符石用于了当前的布局。'], //尖塔等
+    [/^You are earning (.*)% more Runestones from all sources thanks to your Spire Core!$/, '由于尖塔核心的效果，您可以多获得$1%符石！'], //尖塔等
+    [/^You have an additional (.*) Maximum Enemies allowed in your Spire, thanks to Frost IV.$/, '由于冰霜陷阱 IV的效果，您可以多容纳$1名敌人。'], //尖塔等
+    [/^Ss: (.*) \/$/, '尖塔石：$1 /'], //尖塔等
+    [/^Spirestones: (.*) \/$/, '尖塔石：$1 /'], //尖塔等
+    [/^威: (.*) \/$/, '威：$1 /'], //尖塔等
+    [/^Threat: (.*) \/$/, '威胁度：$1 /'], //尖塔等
     [/^Total Cost: (.*) Rs$/, '总花费：$1符石'], //尖塔等
     [/^Value of Current Traps: (.*) Rs$/, '当前陷阱价值：$1符石'], //尖塔等
     [/^Remaining Cost: (.*) Rs$/, '还需要花费：$1符石'], //尖塔等
@@ -6882,6 +7026,27 @@ var cnRegReplace = new Map([
     [/^Lightning Trap([\sIVXLCDM]*)$/, '闪电陷阱$1'], //尖塔等
     [/^Condenser Tower([\sIVXLCDM]*)$/, '冷凝塔$1'], //尖塔等
     [/^Knowledge Tower([\sIVXLCDM]*)$/, '知识塔$1'], //尖塔等
+    [/^Fire(?! Trimps)([\sIVXLCDM]*)$/, '火焰$1'], //尖塔等
+    [/^Frost([\sIVXLCDM]*)$/, '冰霜$1'], //尖塔等
+    [/^Strength(?! in Health)([\sIVXLCDM]*)$/, '力量$1'], //尖塔等
+    [/^Poison(?! Tick)(?! active)(?! Calc)([\sIVXLCDM]*)$/, '剧毒$1'], //尖塔等
+    [/^Lightning([\sIVXLCDM]*)$/, '闪电$1'], //尖塔等
+    [/^Condenser([\sIVXLCDM]*)$/, '冷凝$1'], //尖塔等
+    [/^Knowledge([\sIVXLCDM]*)$/, '知识$1'], //尖塔等
+    [/^Cost: (.*) Rs$/, '花费：$1符石'], //尖塔等
+    [/^(.*) Rs$/, '$1符石'], //尖塔等
+    [/^(.*) Runestones \($/, '$1符石('], //尖塔等
+    [/^Deals (.*) damage when stepped on.$/, '当敌人进入时受到$1伤害。'], //尖塔等
+    [/^Deals (.*) damage when stepped on, and causes the target to become Chilled, slowing movement to 50% speed for (.*) moves. This speed reduction causes the target to stay on each Trap for twice as long, triggering each Trap twice. Note that Frost Traps are coated with antifreeze, preventing chill effects from working while an enemy is standing on a Frost Trap.$/, '当敌人进入时受到$1伤害，并且被冰冻，使敌人在$2格内移动速度减半。被减半移动速度后的敌人会在持续时间内停留在每格两下，触发每个陷阱两次。注意冰霜陷阱本身涂有防冻剂，所以被冰冻的敌人在冰霜陷阱上不触发冰冻效果。'], //尖塔等
+    [/^Adds (.*) Toxicity when stepped on. Target will take damage equal to its total Toxicity each time it attempts to move.$/, '当敌人进入时增加$1毒性。每次移动时敌人受到等同于毒性数量的伤害。'], //尖塔等
+    [/^If the enemy has 75% or less health remaining, (.*) Toxicity is added instead.$/, '如果进入陷阱时敌人生命值不高于75%，那么最终增加的毒性数量变为$1。'], //尖塔等
+    [/^Deals (.*) damage when stepped on, and afflicts the target with (.*) stack(s*) of Shocked. 1 stack of Shocked is consumed each time an enemy steps on a Trap or Tower, causing that Bad Guy to take (.*)x damage and (.*)x effect from the Trap or Tower that consumed the stack of Shocked. Shocked can boost the damage but not the effect of other Lightning Traps.$/, '当敌人进入时受到$1伤害，并且使敌人获得$2层震荡。每当敌人进入一个陷阱或塔时，消耗1层震荡，然后使此陷阱或塔的伤害增加$4倍，效果增加$5倍。震荡可以增加闪电陷阱的伤害，但无法增加它的效果。'], //尖塔等
+    [/^Each Lightning Trap increases the damage and effect of Fire and Poison Traps in its column by (.*)%, stacking additively.$/, '每个闪电陷阱将同一列的火焰陷阱和剧毒陷阱的效果增加$1%，此效果叠加。'], //尖塔等
+    [/^Increases the damage of all Fire Traps on the same Floor as a Strength Tower by (.*)%, and when stepped on deals damage equal to the combined damage of all Fire Traps on its Floor \(max of 1 Strength Tower per Floor\). In addition, this Tower increases the attack of your Trimps in Maps and the World by (.*)% \(additive with other Strength Towers\).$/, '将与力量塔同一行的火焰陷阱伤害增加$1%，当敌人进入力量塔时，受到等同于同一行所有火焰陷阱伤害之和的伤害(1行最多1个力量塔)。另外，每个力量塔还可以使脆皮们增加$2%攻击力(效果与其他力量塔叠加)。'], //尖塔等
+    [/^When stepped on, increases the target's Toxicity by  (.*)%. In addition, each Condenser Tower increases all Helium found by (.*)% \(additive with other Condenser Towers\).$/, '当敌人进入时，毒性增加$1%。另外，每个冷凝塔还会使氦获取量增加$2%(效果与其他冷凝塔叠加)。'], //尖塔等
+    [/^When stepped on, increases the target's Toxicity by  (.*)%. In addition, each Condenser Tower increases all Radon found by (.*)% \(additive with other Condenser Towers\).$/, '当敌人进入时，毒性增加$1%。另外，每个冷凝塔还会使氡获取量增加$2%(效果与其他冷凝塔叠加)。'], //尖塔等
+    [/^When stepped on by a Chilled enemy, Chilled becomes Frozen, slowing the target to 33% speed for 5 moves. In addition, each Knowledge Tower increases Fluffy's Experience gain by (.*)% \(additive with other Knowledge Towers\). Note that Knowledge Towers are coated with antifreeze, preventing chill effects from working until the enemy steps off of this Tower.$/, '当被冰冻的敌人进入时，冰冻效果变为冻结效果，使敌人在5格内移动速度减为33%。另外，每个知识塔还可以使绒绒经验值获取量增加$1%(效果与其他知识塔叠加)。请注意，知识塔本身涂有防冻剂，所以被冰冻的敌人直到离开前不触发冰冻效果。'], //尖塔等
+    [/^When stepped on by a Chilled enemy, Chilled becomes Frozen, slowing the target to 33% speed for 5 moves. In addition, each Knowledge Tower increases Scruffy's Experience gain by (.*)% \(additive with other Knowledge Towers\). Note that Knowledge Towers are coated with antifreeze, preventing chill effects from working until the enemy steps off of this Tower.$/, '当被冰冻的敌人进入时，冰冻效果变为冻结效果，使敌人在5格内移动速度减为33%。另外，每个知识塔还可以使污污经验值获取量增加$1%(效果与其他知识塔叠加)。请注意，知识塔本身涂有防冻剂，所以被冰冻的敌人直到离开前不触发冰冻效果。'], //尖塔等
     [/^(.*)(?<!Gain) Mi$/, '$1岩浆岩'], //维度发生器等
     [/^(.*) is not a valid number$/, '$1不是有效的数字'], //维度发生器等
     [/^Your Generator currently grants (.*) Max Trimps per tick at (.*) fuel \(the amount of fuel needed to tick\). Purchase this to increase the Generator's efficiency by 10% \(additive$/, '您的维度发生器目前每次消耗$2燃料(每次消耗的燃料数量)，并可以获得$1脆皮上限。升级此项可以维度发生器的工作效率增加10%(叠加'], //维度发生器等
@@ -7755,7 +7920,6 @@ var cnRegReplace = new Map([
     [/^([\d\.]+) Trimp$/, '$1 脆皮'],
     [/^([\d\.]+) Trimps$/, '$1 脆皮'],
     [/^(\d+) workspace$/, '$1 工作空间'],
-    [/^Spirestones: (.+) \/$/, '尖塔石: $1 \/'],
     [/^(.+) workspaces$/, '$1 工作台'],
     [/^Zone (\d+), Cell$/, '区域 $1, 格子'],
 	[/^You have spent (.+) Helium on this Perk$/, '你已经花费 $1 氦在这个附带特权上'],
