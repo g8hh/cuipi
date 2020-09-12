@@ -7038,7 +7038,7 @@ var cnRegReplace = new Map([
     [/^You will gain (.*)% to your bonus$/, '您将获得$1%的加成'], //挑战界面
     [/^s. You will gain (.*)% attack and health, and (.*)% Helium$/, '。您将获得$1%攻击力和生命值，及$2%的氦获取量'], //挑战界面
     [/^for every (.*) Zone(s*) reached.$/, '于每到达$1个区域。'], //挑战界面
-    [/^s. You will gain (.*)% attack and health, and (.*)% Helium for every (.*) Zone(s*) reached.$/, '。您将获得$1%攻击力和生命值，及$2%的氦获取量于每到达$1个区域。'], //挑战界面
+    [/^s. You will gain (.*)% attack and health, and (.*)% Helium for every (.*) Zone(s*) reached.$/, '。您将获得$1%攻击力和生命值，及$2%的氦获取量于每到达$3个区域。'], //挑战界面
     [/^Every (.*) Zone(s*) reached,$/, '且每到达$1个区域，'], //挑战界面
     [/^this bonus will increase by (.*)% attack and health, and (.*)% Helium.$/, '以上加成还将增加$1%攻击力和生命值，及$2%的氦获取量。'], //挑战界面
     [/^this bonus will increase by (.*)%.$/, '以上加成还将增加$1%。'], //挑战界面
