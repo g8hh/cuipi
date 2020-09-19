@@ -216,9 +216,13 @@ var cnItems = {
     'Void Maps (': '虚空地图 (',
     'Back': '返回',
     'Configure Maps': '地图设置',
+    'Customize your settings for running maps!': '设置运行地图的相关选项！',
     'Repeat Map': '重复地图',
     'Repeat On': '开启重复',
     'Repeat Off': '关闭重复',
+    'Allow the Trimps to find their way back to square 1 once they finish without your help. They grow up so fast.': '允许脆皮们在自己完成地图后回到第1个格子。它们繁殖得可真快。',
+    'If you are': '如果您 ',
+    'repeating, your current group of Trimps will not be abandoned after the map ends. (Hotkey: R': '是开启了重复，那么当前的军队将不会在完成地图后被放弃。(快捷键：R',
     'Heirlooms': '传家宝',
     'Finish Daily': '完成日常',
     'Clicking': '点击下方的 ',
@@ -1807,6 +1811,7 @@ var cnItems = {
     'Customize your three available Geneticistassist targets, choose options for firing and sending, and decide whether or not Geneticistassist should start automatically when unlocked each run.': '为您的遗传学家设置三个目标，设置解雇和雇佣的选项，以及设置是否在每轮解锁后立刻启用遗传学家助手。',
     'Unable to pull info from input boxes. Try saving and refreshing?': '无法读取输入数据。请保存后尝试刷新？',
     'Sorry, all numbers must be less than 5000.': '抱歉，所有的数字必须不大于5000。',
+    'Customize the target thresholds for your Geneticistassist! Use a number between 0.5 and 5000 seconds for all 3 boxes. Each box corresponds to a Geneticistassist toggle threshold.': '设置遗传学家助手的目标阈值！在下面的三个输入框内，请输入0.5至5000秒之间的数字。每个输入框内的数值都代表了遗传学家的一个阈值。',
     'Liquification Off': '关闭液化',
     'Liquification On': '开启液化',
     'Enable or disable Liquification. Nothing in game should be impossible to complete with Liquification enabled, but if you just want to slow things down then you have every right to do so.': '开启或关闭液化。没有东西是在液化下无法完成的，不过是否关闭您说了算。',
@@ -1838,6 +1843,32 @@ var cnItems = {
     'When enabled, you will automatically abandon your Trimps in the World and enter the Map Chamber as soon as you hit your specified Zone number.': '切换是否在到达特定层数以后放弃士兵并立刻进入地图界面。',
     'Configure with hotkey Z': '可以使用快捷键：Z来快速设置',
     'Set Map At Zone': '自动进图设置，预设区域必须为10以上，1000以下，且重复区域和预设区域、格子不可冲突，否则下方会有红字报错',
+    'Active?': '激活？',
+    'Exit On': '进图',
+    'Exit At': '进图',
+    'Run Map?': '进图？',
+    'Use': '使用',
+    'Map': '地图',
+    'Repeat': '重复',
+    'Set': '设置',
+    'Repeat Until': '重复次数',
+    'Exit To': '退出到',
+    'Run Bionic': '运行仿生',
+    'Run ': '运行',
+    'Don\'t Change': '不作变更',
+    'Repeat 25 Times': '重复25次',
+    'Repeat 50 Times': '重复50次',
+    'Repeat 100 Times': '重复100次',
+    'Just This Zone': '仅此区域',
+    'Run Every Zone': '每个区域都运行',
+    'Run Every Other Zone': '其他区域都运行',
+    'Run Every 3 Zones': '每3个区域运行',
+    'Run Every 5 Zones': '每5个区域运行',
+    'Run Every 10 Zones': '每10个区域运行',
+    'Run Every 30 Zones': '每30个区域运行',
+    'Add Row': '增加一行',
+    'Swap to Preset A': '切换为预设A',
+    'Swap to Preset B': '切换为预设B',
     'No Timestamps': '关闭时间戳',
     'Local Timestamps': '本地时间戳',
     'Run Timestamps': '自上次传送时间戳',
@@ -1903,10 +1934,10 @@ var cnItems = {
     'Enforce Gene Send': '强制遗传行军',
     'Wait For Gene Send': '等待遗传行军',
     'When': '当 ',
-    'is enabled, as long as you have one Geneticist, AutoFight will automatically send soldiers to fight if they have been breeding for longer than your Geneticistassist setting.': '时，只要您拥有遗传学家，就会在士兵繁殖时间超过遗传学家设置时间的情况下开始自动战斗。',
-    'is enabled, as long as you have one Geneticist, AutoFight will never send a group of Trimps to fight unless you are at max population or you have reached your set Geneticistassist timer.': '时，如果您拥有遗传学家，那么只在人口到达最大或者士兵繁殖时间超过遗传学家设置时间的情况下开始自动战斗。',
+    'is enabled, as long as you have one Geneticist, AutoFight will automatically send soldiers to fight if they have been breeding for longer than your Geneticistassist setting.': '时，只要您拥有遗传学家，就会在士兵繁殖计时超过遗传学家设置时间的情况下开始自动战斗。',
+    'is enabled, as long as you have one Geneticist, AutoFight will never send a group of Trimps to fight unless you are at max population or you have reached your set Geneticistassist timer.': '时，如果您拥有遗传学家，那么只在人口到达最大或者士兵繁殖计时超过遗传学家设置时间的情况下开始自动战斗。',
     'Finally, if you choose': '最后，如果选择 ',
-    'and have at least one Geneticist, AutoFight will only send Trimps to fight after they have been breeding long enough to reach your set Geneticistassist timer. This guarantees that Anticipation and Geneticist levels build up for as long as your set timer, but may result in no soldiers being sent for some time while you sit at full population.': '并拥有遗传学家，那么只在士兵繁殖时间超过遗传学家设置时间的情况下开始自动战斗。此选项可以保证预期特权和遗传学家尽可能的到达最大效果，但可能导致人口最大时一段时间不自动战斗。',
+    'and have at least one Geneticist, AutoFight will only send Trimps to fight after they have been breeding long enough to reach your set Geneticistassist timer. This guarantees that Anticipation and Geneticist levels build up for as long as your set timer, but may result in no soldiers being sent for some time while you sit at full population.': '并拥有遗传学家，那么只在士兵繁殖计时超过遗传学家设置时间的情况下开始自动战斗。此选项可以保证预期特权和遗传学家尽可能的到达最大效果，但可能导致人口最大时一段时间不自动战斗。',
     'Not Firing For Jobs': '关闭为工作而解雇',
     'Firing For Jobs': '开启为工作而解雇',
     'When enabled, hiring Trimps for jobs with scaling price increases (Trainer, Explorer, etc) while you have no workspaces will attempt to fire Farmers, Lumberjacks and Miners until you have enough room.': '切换是否在工作区不足以分配给价格累积的工作(训练师，探险家等)时解雇农民、伐木工或矿工腾出人手。',
@@ -2094,6 +2125,7 @@ var cnItems = {
     'Automatically gain Helium and Fluffy Exp equal to the amount you earned on your best run.': '自动获得一定数量的氦和绒绒经验，该数量分别与之前单次传送获得最多的数值相等。',
     'Automatically gain Helium, Nature Tokens equal to the amount you earned on your best run.': '自动获得一定数量的氦和自然符记，该数量分别与之前单次传送获得最多的数值相等。',
     'Automatically gain Helium, Nature Tokens and Fluffy Exp equal to the amount you earned on your best run.': '自动获得一定数量的氦，自然符记和绒绒经验，该数量分别与之前单次传送获得最多的数值相等。',
+    'Automatically gain Helium and Nature Tokens and Fluffy Exp equal to the amount you earned on your best run.': '自动获得一定数量的氦，自然符记和绒绒经验，该数量分别与之前单次传送获得最多的数值相等。',
     'Automatically gain Radon and Scruffy Exp equal to the amount you earned on your best run.': '自动获得一定数量的氡和污污经验，该数量分别与之前单次传送获得最多的数值相等。',
     'Fluffy is at Level 10 and will not gain Exp!': '绒绒已经达到了10级，无法再获得经验了！',
     'Scruffy is at Level 10 and will not gain Exp!': '污污已经达到了10级，无法再获得经验了！',
@@ -2252,6 +2284,29 @@ var cnItems = {
     'Close': '关闭',
     'Helium goes in, victory comes out': '有氦者，事竟成',
     'Radon goes in, victory comes out': '得氡者，得天下',
+    'Reach Zone 50 in Universe 2 to unlock Challenge': '在宇宙2中到达区域50后可以解锁挑战',
+    'which combine multiplicatively with your Challenge': '其加成将乘上挑战',
+    '. Just imagine the possibilities!': '的加成。想象一下可能性吧！',
+    'Click to toggle a challenge mode for your challenges!': '点击以切换为挑战模式，挑战自我，超越自我！',
+    'In Challenge': '挑战',
+    'mode, you can re-run some challenges in order to earn a permanent attack, health, and Helium bonus for your Trimps. MOST Challenge': '中, 您可以重新进行一些挑战，这些挑战可以让您的脆皮获得永久的攻击力、生命值和氦获取量加成。大多数挑战',
+    'mode, you can re-run some challenges in order to earn a permanent attack, health, and Radon bonus for your Trimps. MOST Challenge': '中, 您可以重新进行一些挑战，这些挑战可以让您的脆皮获得永久的攻击力、生命值和氡获取量加成。大多数挑战',
+    's will grant': '可获得',
+    '. This bonus is additive with all available Challenge': '。此加成与所有的挑战',
+    's, and your highest Zone reached for each challenge is saved and used.': '加成叠加，且您的每个挑战中最高通过区域都将被单独记录并生效。',
+    'No Challenge': '所有的挑战',
+    's end at any specific Zone': '都没有终点',
+    'they can only be completed by using your portal or abandoning through the \'View Perks\' menu. However,': '它们只能通过传送或者在“查看特权”界面中放弃来完成挑战。不过，',
+    'no Helium can drop, and no bonus Helium will be earned during or after the run': '挑战过程中不会掉落氦，且氦获取量也不会获得任何加成',
+    'no Radon can drop, and no bonus Radon will be earned during or after the run': '挑战过程中不会掉落氡，且氡获取量也不会获得任何加成',
+    'Note that your Headstart mastery will be disabled during Challenge': '请注意先声夺人专精在挑战',
+    'runs.': '中无效。',
+    '. Void Maps will still drop heirlooms, and all other currency can still be earned.': '。虚空地图仍然掉落传家宝，其他的货币也可以正常获得。',
+    'stacks multiplicatively with Challenge': '的加成将乘以挑战',
+    'creating one big, beautiful Challenge': '最终获得一个巨大而美妙的挑战',
+    'modifier': '加成倍率',
+    'in Universe 2. This brings your total Challenge': '加成。因此，挑战',
+    'bonus to': '的总加成变为',
     'Well, you did it. You followed your instincts through this strange world, made your way through the Dimension of Anger, and obtained this portal. But why? Maybe there will be answers through this portal... Your scientists tell you they can overclock it to bring more memories and items back, but they\'ll need helium to cool it.': '很好，您做到了。您凭着直觉在这个奇怪的世界里一路披荆斩棘，通过了愤怒维度，最后获得了这个传送门。但这么做的意义是？或许通过这个传送门以后，您就能找到答案了……科学家们告诉您，它们可以将传送门进行超频，带回更多的记忆和物品，但这么做还需要用到氦来冷却。',
     'The Radon Universe is harsh. Your Portal still retains some information about the Scientist upgrades, but it\'ll need an upgrade of its own to be able to utilize them in this new Universe.': '氡之宇宙的环境真的是太严苛了。您的传送门还保留有一些关于科学家升级的信息，但是看来需要在这个宇宙中升级后才能利用这些信息。',
     'Be ready to manually Gather some Food!': '得准备好，要手动收集一些食物了！',
@@ -3718,7 +3773,7 @@ var cnItems = {
     'Manual Gather/Build / Auto Gather/Build / Mining/Building Only': '手动采集和建造 / 自动采集和建造 / 只采矿和建造',
     'Dump into Looting': '主加劫掠',
     'Auto Allocate Off / Auto Allocate On / Dump into Looting': '关闭自动分配特权 / 打开自动分配特权 / 主加劫掠',
-    'Uses the AutoPerks ratio based preset system to automatically allocate your perks to spend whatever helium you have when you AutoPortal. Does not change Fixed Perks: siphonology, anticipation, meditation, relentlessness, range, agility, bait, trumps, packrat, capable. NEW: Dump into Looting, dumps all loot gained from previous portal at specified zone': '自动使用传送门时，根据当前的氡数量自动分配特权。不会修改特定特权的等级：虹吸学，预期，冥想，无情，范围，敏捷，诱饵，王牌，囤积成瘾，能力。新功能：主加劫掠，在特定区域将上次传送门获得的资源主加到劫掠上。',
+    'Uses the AutoPerks ratio based preset system to automatically allocate your perks to spend whatever helium you have when you AutoPortal. Does not change Fixed Perks: siphonology, anticipation, meditation, relentlessness, range, agility, bait, trumps, packrat, capable. NEW: Dump into Looting, dumps all loot gained from previous portal at specified zone': '自动使用传送门时，根据当前的氦数量自动分配特权。不会修改特定特权的等级：虹吸学，预期，冥想，无情，范围，敏捷，诱饵，王牌，囤积成瘾，能力。新功能：主加劫掠，在特定区域将上次传送门获得的资源主加到劫掠上。',
     'Greed Dump': '主加贪婪',
     'Dump Radon into Greed instead.': '分配氡时改为主加贪婪。',
     'AutoPortal': '自动传送门',
@@ -5072,7 +5127,6 @@ var cnItems = {
     'PlayFab Login': 'PlayFab 登录',
     'Housing': '房屋',
     'Territory Bonus': '领土奖励',
-    'Customize your settings for running maps!': '自定义你的地图运行设置！',
 	"Your Trimps killed a lot of Bad Guys back there. It seems like you're getting the hang of this. However, the world is large, and there are many more Zones to explore. Chop chop.": "你的脆皮在那里杀死了很多坏人。 看起来你似乎已经弄清楚这是怎么一回事了。 然而这个世界很大，依然有去多区域需要探索，“砍”“砍”...",
 	"By your orders, your scientists have begun to try and figure out how large this planet is.": "根据您的命令，您的科学家们已经开始尝试了解这个星球有多大。",
 	"You order your Trimps to search the area for the keys to your ship, but nobody finds anything. Bummer.": "您命令脆皮在该地区搜索您的船只的钥匙，但没有人找到任何东西。真令人失望。",
@@ -5117,11 +5171,6 @@ var cnItems = {
 
 
     'Radon Per Hour': '氡每小时',
-    'Click to toggle a challenge mode for your challenges!': '单击以切换到挑战模式，迎接您的挑战!',
-    'In Challenge': '在挑战',
-    'mode, you can re-run some challenges in order to earn a permanent attack, health, and Helium bonus for your Trimps. MOST Challenge': '模式中, 你可以重新进行一些挑战来为你的脆皮获得永久的攻击、生命和氦气加成。大多数挑战',
-    's will grant': '将给予',
-    '1% attack and health and 0.10% increased Helium for every 10 Zones reached. Every 100 Zones, the attack and health bonus will increase by an additional 1%, and the Helium bonus will increase by': '每达到10区域获得1%攻击和生命和0.10%氦气增加。每100区域，攻击和生命奖励将递增1%，氦气奖励递增',
     'You will earn a bonus from this enemy!': '你将会从这个敌人处获得奖励加成!',
     'You recently switched to Scryer Formation and will': '你刚刚切换到占卜者阵型，',
     'not': '不',
@@ -5876,11 +5925,6 @@ var cnRegReplace = new Map([
     [/^Thanks to your super cool Antenna array, you're also gaining \+(.*)% extra Food from gathering!$/, '由于您超级炫酷的气象天线阵列的效果，您可以额外采集$1%的食物！'], //工作
     [/^Thanks to your super cool Antenna array, you're also gaining \+(.*)% extra Food from gathering and  Health for your Soldiers!$/, '由于您超级炫酷的气象天线阵列的效果，您可以额外采集$1%的食物，并且士兵额外获得$1%生命值！'], //工作
     [/^Thanks to your super cool Antenna array, you're also gaining \+(.*)% extra Food from gathering,  Health for your Soldiers, and Metal from mining!$/, '由于您超级炫酷的气象天线阵列的效果，您可以额外采集$1%的食物和金属，并且士兵额外获得$1%生命值！'], //工作
-
-
-
-
-
     [/^(.*)That Chickimp dropped (.*) food!$/, '$1脆皮小鸡掉落了$2食物！'], //特定敌人
     [/^(.*)You hear nearby Kittimps running away in fear and decide to check out their former home. There, you find a prey pile with (.*) food!$/, '$1附近的脆皮小猫害怕地跑开了，您决定去它们的窝里看看。接着您在那发现了$2食物！'], //特定敌人
     [/^(.*)That Grimp dropped (.*) wood!$/, '$1脆皮护林者掉落了$2木头！'], //特定敌人
@@ -6526,6 +6570,7 @@ var cnRegReplace = new Map([
     [/^(.*) cannot be used twice. Please choose unique numbers!$/, '$1无法使用两次。请确保数字各不相同！'], //设置等
     [/^(.*) seconds would be really difficult to target. Could you pick a slightly more... numerical number\?$/, '$1秒有点难以实现。您能选择一个更加……像数字一点的值吗？'], //设置等
     [/^All numbers must be greater than 0.5. (.*) is not.$/, '所有的数字必须大于0.5，而$1并不是。'], //设置等
+    [/^(\s)Start disabled when unlocked each run$/, '$1每次传送后解锁遗传学家时将它设为关闭'], //设置等
     [/^(\s+)Making up lost time...(\s+)$/, '$1补偿时间中……$2'], //离线等
     [/^(\d+) Level map$/, '$1级的地图'], //离线等
     [/^(\d+) map(s*)$/, '$1张地图'], //离线等
@@ -7027,6 +7072,16 @@ var cnRegReplace = new Map([
     [/^Time Portal( Mk\. )?([IVXLCDM]*)$/, '时空传送门$1$2'], //挑战界面
     [/^(\s+)Total(\s+)$/, '$1总计$2'], //挑战界面
     [/^(\s+)Current Run(\s+)$/, '$1上次传送后$2'], //挑战界面
+    [/^(\d+)% attack and health and (.*)% increased Helium for every (\d+) Zones reached. Every (\d+) Zones, the attack and health bonus will increase by an additional (.*)%, and the Helium bonus will increase by$/, '$1%攻击力和生命值，及$2%的氦获取量于每到达$3个区域。且每到达$4个区域，以上加成还将增加攻击力和生命值 $5%，及氦获取量'], //挑战界面
+    [/^(\d+)% attack and health and (.*)% increased Radon for every (\d+) Zones reached. Every (\d+) Zones, the attack and health bonus will increase by an additional (.*)%, and the Radon bonus will increase by$/, '$1%攻击力和生命值，及$2%的氡获取量于每到达$3个区域。且每到达$4个区域，以上加成还将增加攻击力和生命值 $5%，及氡获取量'], //挑战界面
+    [/^(\d+)% Challenge$/, '$1%的挑战'], //挑战界面
+    [/^bonus for every (\d+) Zones reached. Every (\d+) Zones, this bonus will increase by an additional$/, '加成于每到达$1个区域。且每到达$2个区域，以上加成还将增加'], //挑战界面
+    [/^. You have a (.*)% bonus from Challenge$/, '。您在宇宙1中获得了$1%的挑战'], //挑战界面
+    [/^in Universe 1, and a (.*)% bonus from Challenge$/, '加成，在宇宙2中获得了$1%的挑战'], //挑战界面
+    [/^granting (.*)% extra attack and health, and (.*)% extra Helium.$/, '使您获得$1%攻击力和生命值，及$2%的氦获取量。'], //挑战界面
+    [/^granting (.*)% extra attack and health, and (.*)% extra Radon.$/, '使您获得$1%攻击力和生命值，及$2%的氡获取量。'], //挑战界面
+    [/^You are currently gaining (.*)% extra attack and health, and are gaining (.*)% extra Helium thanks to your Challenge$/, '您获得了$1%攻击力和生命值，及$2%的氦获取量，因为您有挑战'], //挑战界面
+    [/^You are currently gaining (.*)% extra attack and health, and are gaining (.*)% extra Radon thanks to your Challenge$/, '您获得了$1%攻击力和生命值，及$2%的氡获取量，因为您有挑战'], //挑战界面
     [/^is Z(.*) \(Capped to (.*) by Obsidian\), earning you (.*)% Challenge$/, '为区域$1(被黑曜石限制为区域$2)，使您获得$3%的挑战'], //挑战界面
     [/^is Z(.*) \(Capped to (.*) by Obsidian\), earning you (.*)% extra attack and health, and (.*)% more Helium from all sources.$/, '为区域$1(被黑曜石限制为区域$2)，使您获得$3%的额外攻击力和生命值，以及$4%的额外氦获取量。'], //挑战界面
     [/^is Z(.*), earning you (.*)% Challenge$/, '为区域$1，使您获得$2%的挑战'], //挑战界面
@@ -7040,8 +7095,8 @@ var cnRegReplace = new Map([
     [/^for every (.*) Zone(s*) reached.$/, '于每到达$1个区域。'], //挑战界面
     [/^s. You will gain (.*)% attack and health, and (.*)% Helium for every (.*) Zone(s*) reached.$/, '。您将获得$1%攻击力和生命值，及$2%的氦获取量于每到达$3个区域。'], //挑战界面
     [/^Every (.*) Zone(s*) reached,$/, '且每到达$1个区域，'], //挑战界面
-    [/^this bonus will increase by (.*)% attack and health, and (.*)% Helium.$/, '以上加成还将增加$1%攻击力和生命值，及$2%的氦获取量。'], //挑战界面
-    [/^this bonus will increase by (.*)%.$/, '以上加成还将增加$1%。'], //挑战界面
+    [/^this bonus will increase by (.*)% attack and health, and (.*)% Helium.$/, '以上加成还将增加攻击力和生命值 $1%，及氦获取量 $2%。'], //挑战界面
+    [/^this bonus will increase by (.*)%.$/, '以上加成还将增加 $1%。'], //挑战界面
     [/^You are currently at Zone (.*),$/, '您目前在区域$1，'], //挑战界面
     [/^You are currently at Zone (.*).$/, '您目前在区域$1。'], //挑战界面
     [/^your previous highest for this challenge was Zone (.*). If you abandon the challenge now, you'll add (.*)% to your total Challenge$/, '此挑战您之前最高到达的区域为区域$1。如果您现在放弃挑战，将增加$2%加成到总挑战'], //挑战界面
@@ -7278,7 +7333,7 @@ var cnRegReplace = new Map([
     [/^bonus of (.*)%. Purchasing this Mastery would increase your bonus by (.*)%, bringing your total Challenge$/, '的加成为$1%。购买这个专精以后加成将增加$2%， 总挑战'], //梅斯梅尔专精
     [/^bonus up to (.*)%.$/, '加成增加为$1%。'], //梅斯梅尔专精
     [/^Reduce the Zone that Fluffy can start earning Experience at by 3. With (\d+) level(s*) in Classy, Fluffy will start earning Experience at Z(\d+).$/, '绒绒提前3个区域开始获得经验值。上等特权提升$1级后，绒绒将从区域$3开始获得经验值。'], //上等特权
-    [/^Use your experiences in understanding the attention span of Trimps to increase the damage dealt by all soldiers based on how long it took to get an army together. Increases damage by 2% per level per second up to (\d+) seconds.$/, '脆皮的注意力持续时间您已了如指掌，所以您可以利用它增加脆皮的攻击力。军队每需要1秒进行繁殖，每级预期特权就可以使脆皮增加2%攻击力。繁殖时间上限为$1秒。'], //预期特权
+    [/^Use your experiences in understanding the attention span of Trimps to increase the damage dealt by all soldiers based on how long it took to get an army together. Increases damage by 2% per level per second up to (\d+) seconds.$/, '脆皮的注意力持续时间您已了如指掌，所以您可以利用它增加脆皮的攻击力。军队每需要1秒进行繁殖，每级预期特权就可以使脆皮增加2%攻击力。预期特权的效果上限为$1秒。'], //预期特权
     [/^Golden Battle ([IVXLCDM]+)$/, '金色战斗 $1'], //金色升级等
     [/^Golden Helium ([IVXLCDM]+)$/, '金色氦 $1'], //金色升级等
     [/^Golden Void ([IVXLCDM]+)$/, '金色虚空 $1'], //金色升级等
