@@ -35,6 +35,9 @@ var cnItems = {
     'Unlocks': '解锁',
     'Combat': '战斗',
     'Message Config': '消息设置',
+    'Here you can finely tune your message settings, to see only what you want from each category. Mouse over the name of a filter for more info.': '在这里您可以设置想要看到的消息种类。鼠标停留在消息名称上可以获取更多信息。',
+    '': '',
+    '': '',
     'AutoTraps On': '开启自动陷阱捕捉',
     'AutoTraps Off': '关闭自动陷阱捕捉',
     'Build': '建造',
@@ -46,6 +49,7 @@ var cnItems = {
     'Upgrades': '升级',
     'Equipment': '装备',
     'Mastery': '专精',
+    'Click to view your masteries.': '点击可以查看您的专精。',
     'Nature': '自然',
     'Custom': '自定义',
     'Max': '最大',
@@ -179,7 +183,7 @@ var cnItems = {
     'Corrupted Toughness': '腐化坚韧',
     'Corrupted Agility': '腐化敏捷',
     'Obsidian': '黑曜石',
-    'This enemy is rock solid, and there is no way to get past. This Zone is even more rocky and solid than anything you\'ve seen before. You don\'t think there\'s any way to get past for now.': '此敌人坚如磐石，想要通过这里简直是天方夜谭。此区域的坚硬程度超过了之前所有区域。您找不到方法通过了。',
+    'This enemy is rock solid, and there is no way to get past. This Zone is even more rocky and solid than anything you\'ve seen before. You don\'t think there\'s any way to get past for now.': '此敌人坚如磐石，想要通过这里简直是天方夜谭。此区域的坚硬程度超过了之前所有区域。看起来目前是无法再继续前进了。',
     'This enemy is rock solid, and there is no way to get past. Time to go to the Radon Universe and find a way to melt these Zones!': '此敌人坚如磐石，想要通过这里简直是天方夜谭。前往氡之宇宙吧，该想想怎么使这些区域熔化了。',
     'This enemy is rock solid, and there is no way to get past. Fluffy suggests that you find a way to get him to Evolution 8 Level 10 as quickly as possible so he can help you melt these Zones!': '此敌人坚如磐石，想要通过这里简直是天方夜谭。绒绒建议您尽快将它升级到进化次数8等级10，这样它就能帮您熔化这些区域了！',
     'This enemy is missing an effect thanks to Fluffy! It will still drop 45% of the helium you would normally get from completing this Zone.': '多亏了绒绒，此敌人失去了一项能力！尽管如此，它仍然会掉落氦，数值为通过此区域所得氦的45%。',
@@ -972,6 +976,7 @@ var cnItems = {
     'Egg': '蛋',
     'Doom': '末日神殿',
     'Trimple Of Doom': '末日神殿',
+    'Atlantrimp': '亚特兰蒂皮',
     'Tricky Paradise': '整蛊天堂',
     //世界解锁相关结束
     //地图解锁相关
@@ -1511,7 +1516,7 @@ var cnItems = {
     'Jester': '弄臣',
     'Advisor': '顾问',
     'Ruler': '支配者',
-    'U2 Speed: Atlantrimp': '宇宙2最速：亚特兰蒂斯',
+    'U2 Speed: Atlantrimp': '宇宙2最速：亚特兰蒂皮',
     'Sinker': '沉没者',
     'Floater': '漂浮者',
     'Swimmer': '游泳者',
@@ -1712,7 +1717,7 @@ var cnItems = {
     'Swap between Standard Formatting (12.7M, 540B), Engineering Notation (12.7e6, 540e9), Scientific Notation (1.27e7, 5.40e11), Alphabetic Notation (12.7b, 540c), Hybrid Notation (Standard up to e96, then Engineering. Mimics Standard pre 4.6), and Logarithmic Notation (10^7.10, 10^8.73). Hold Ctrl while clicking Logarithmic Notation to change the base.': '在标准格式(12.7M，540B)，工程记数法(12.7e6，540e9)，字母记数法(12.7b，540c)，混合记数法(直到e96之前使用标准格式，之后使用工程记数法)，对数记数法(10^7.10，10^8.73)，以及科学记数法(1.27e7，5.40e11)之间切换。当使用对数记数法时，按下Ctrl键再点击可以切换底数。',
     'Shift for Tooltips': '按Shift键显示提示框',
     'Showing Tooltips': '显示提示框',
-    'will ensure that all tooltips are shown when you mouse over them.': '可以在鼠标划过时显示所有提示框。',
+    'will ensure that all tooltips are shown when you mouse over them.': '可以在鼠标停留时显示所有提示框。',
     'will hide most tooltips by default, unless you are holding your shift key. Keep this setting in mind when unlocking new things to do, as much of the game is explained in tooltips!': '将默认隐藏绝大部分提示框，除非按住Shift键。解锁新内容时最好注意一下这边的设置，因为大部分内容都在提示框里进行说明了！',
     'Top Right Tips': '提示框顶部靠右',
     'Center Bottom Tips': '提示框底部居中',
@@ -2077,6 +2082,7 @@ var cnItems = {
     'Prismatic Palace (': '棱镜宫殿(',
     'Melting Point (': '熔点(',
     'Trimple Of Doom (': '末日神殿(',
+    'Atlantrimp (': '亚特兰蒂皮(',
     'Tricky Paradise (': '整蛊天堂(',
     'Dimension of Anger (': '愤怒维度(',
     'Dimension of Rage (': '暴怒维度(',
@@ -2987,12 +2993,48 @@ var cnItems = {
     'You currently have a C': '您目前 挑战',
     'Angelic': '天之赐福',
     'Your Trimps heal for 50% of their remaining health immediately before each attack. Due to the intense amount of evil present, Trimps cannot heal in never-before-cleared Spires.': '每次脆皮被攻击前恢复剩余生命值的50%。由于尖塔中邪恶存在过多，脆皮无法在从未通过的尖塔中恢复生命值。',
+    'You have already purchased this tier!': '您已经购买了这一层的所有升级！',
+    'You must buy this entire tier to be able to spend all of your Dark Essence.': '想要花费所有黑暗精华的话，您必须购买这一层的所有升级。',
+    'You can afford to purchase this entire tier!': '您有足够的黑暗精华来购买这一层的所有升级！',
+    'However, purchasing this entire tier right now may limit which other Masteries you can reach.': '但如果这么做的话，将影响您购买更高层的升级。',
+    'You cannot afford to purchase this entire tier.': '您的黑暗精华不足，无法购买这一层的所有升级。',
+    'Purchased': '已购买',
+    'Requires Void Power I': '需要购买过虚空力量 I',
+    'Requires Headstart I': '需要购买过先声夺人 I',
+    'Requires Turkimp Tamer I': '需要购买过脆皮火鸡饲主 I',
+    'Requires Headstart II': '需要购买过先声夺人 II',
+    'Requires Hyperspeed I': '需要购买过风驰电掣 I',
+    'Requires Blacksmithery I': '需要购买过锻铁术 I',
+    'Requires King of Bones I': '需要购买过骨头之王 I',
+    'Requires Explorer Aura I': '需要购买过探险家光环 I',
+    'Requires Void Power II': '需要购买过虚空力量 II',
+    'Requires Blacksmithery II': '需要购买过锻铁术 II',
+    'Requires Heirnuum I': '需要购买过传家虚物 I',
+    'Requires Scryhard I': '需要购买过努力占卜 I',
+    'Requires Map Reducer I': '需要购买过地图减压 I',
+    'Requires Natural Diplomacy I': '需要购买过自然斡旋 I',
+    'Requires Liquification I': '需要购买过液化 I',
+    'Requires Still Rowing I': '需要购买过尖塔排行 I',
+    'Requires Void Specialization I': '需要购买过虚空特化 I',
+    'Requires Void Specialization II': '需要购买过虚空特化 II',
+    'Requires Strength in Health I': '需要购买过健康之力 I',
+    'Requires Still Rowing II': '需要购买过尖塔排行 II',
+    'Requires Magmamancermancy': '需要购买过岩浆巫师学',
+    'Requires Still Rowing II and Magmamancermancy': '需要购买过尖塔排行 II和岩浆巫师学',
+    'Requires Liquification II': '需要购买过液化 II',
+    'You can afford to purchase this whole row! Hold Ctrl when clicking to buy this entire row and any uncompleted rows before it.': '您的黑暗精华足以购买这一层的所有升级！按下Ctrl键再点击这一层的任意升级，将购买这一层及之前的所有升级。',
     //专精相关结束
     //金色升级相关
     'Helium': '氦',
     'Radon': '氡',
     'Battle': '战斗',
     'Void': '虚空',
+    'You can only choose one of these three Golden Upgrades. Choose wisely...': '您只能选择这三个金色升级中的一个。请仔细思考后再选择……',
+    'You can only choose one of these two Golden Upgrades. Choose wisely...': '您只能选择这两个金色升级中的一个。请仔细思考后再选择……',
+    'This upgrade would put you over 72% increased Void Map chance, which would destabilize the universe. You don\'t want to destabilize the universe, do you?': '该升级将使金色虚空加成达到72%以上，使宇宙开始崩坏。您不会想让宇宙崩坏的，对吧？',
+    'Note: The absolute maximum value for Golden Void is +72%. Golden Void will no longer be able to be purchased if it would increase your bonus above 72%. Plan carefully!': '注意：金色虚空加成最高为72%。您无法购买使此加成高于72%的升级。请谋定后动！',
+    'You can\'t earn helium while running a Challenge': '您无法获得氦，因为您正在进行挑战',
+    'Free': '免费',
     //金色升级相关结束
     //尖塔相关
     'Runestones': '符石',
@@ -3550,6 +3592,14 @@ var cnItems = {
     'and Challenge': '与挑战',
     'allows them to combine multiplicatively into your Challenge': '之间的差异使它们可以叠乘起来，变为挑战',
     'Corruption': '腐化',
+    'Though you\'ve seen the Corruption grow since the planet broke, you can now see a giant spire pumping out tons of the purple goo. Things seem to be absorbing it at a higher rate now.': '行星破碎以后您就发现腐化一直在增长了，现在，您又看到了一座喷出大量紫色粘液的巨型尖塔。看起来，敌人吸收腐化的速度还在增长中。',
+    'Improbabilities and Void Maps are now more difficult.': '乌有者的能力上升，虚空地图的难度上升。',
+    'Improbabilities and Void Maps now drop 2x helium.': '乌有者和虚空地图的氦获取量变为2倍。',
+    'Off in the distance, you can see a giant spire grow larger as you approach it. Menacing plumes of some sort of goopy gas boil out of the spire and appear to be tainting the land even further. It looks to you like the Zones are permanently damaged, poor planet. You know that if you want to reach the spire, you\'ll have to deal with the goo.': '虽然还有一段距离，但是您已经可以看到一座巨型尖塔了，随着您的接近，它还在变得越来越大。某种看着就很危险的粘性气体正从尖塔上溢出，看起来，就是它使这片土地污染得越来越严重。就您所见而言，这些区域已经受到了永久的损伤，可怜的行星。您知道想要到达尖塔的话，就得先处理掉这些粘液才行。',
+    'You can now see a giant spire only about 20 Zones ahead of you. Menacing plumes of some sort of goopy gas boil out of the spire and appear to be tainting the land even further. It looks to you like the Zones are permanently damaged, poor planet. You know that if you want to reach the spire, you\'ll have to deal with the goo.': '您看到了20个区域以后的一座巨型尖塔。某种看着就很危险的粘性气体正从尖塔上溢出，看起来，就是它使这片土地污染得越来越严重。就您所见而言，这些区域已经受到了永久的损伤，可怜的行星。您知道想要到达尖塔的话，就得先处理掉这些粘液才行。',
+    'From now on as you press further through Zones, more and more corrupted cells of higher and higher difficulty will begin to spawn. Improbabilities and Void Maps are now more difficult.': '从现在起，随着您继续深入，腐化格子会变得越来越多，且难度越来越高。乌有者的能力上升，虚空地图的难度上升。',
+    'Improbabilities and Void Maps now drop 2x helium. Each corrupted cell will drop 15% of that Zone\'s helium reward.': '乌有者和虚空地图的氦获取量变为2倍。每个腐化格子将掉落该区域氦获取量15%的氦。',
+    'Bring it on': '放马过来吧',
     '10th Level of his 8th Evolution': '进化次数8等级10',
     'and he promises he\'ll make it worth your time.': '它承诺这绝对值得您这么做的。',
     'The Spire': '尖塔',
@@ -3559,12 +3609,26 @@ var cnItems = {
     'You have unlocked AutoGolden!': '您解锁了自动金色升级！',
     'The Magma': '岩浆',
     'The Improbability': '乌有者',
+    'That shouldn\'t have happened. There should have been a Blimp there. Something is growing unstable.': '这不大对劲。这里本来应该有一个脆皮飞艇的。有什么开始变得不稳定了。',
+    'Your Trimps seem to understand that they\'ll need to help out more, and you realize how to permanently use them to automate upgrades!': '脆皮们似乎明白了需要帮上更多才行，您现在可以让它们进行自动升级了！',
+    'Trimp breed speed reduced by a factor of 10. 20% of enemy damage can now penetrate your block.': '从现在起，脆皮繁殖速度将除以10。且敌人伤害的20%可以穿透格挡。',
+    'You have unlocked a new upgrade to learn a Formation. Helium harvested per Zone is increased by a factor of 5. Equipment cost is dramatically cheaper. Creating modified maps is now cheaper, and your scientists have found new ways to improve maps! You have access to the \'Trimp\' challenge!': '您解锁了阵型的升级。每个区域的氦获取量将乘以5。装备的花费显著下降。地图滑块的花费下降很多，而且科学家发现了改善地图的新方法！您还解锁了脆皮挑战！',
+    'Looks like the Corruption is starting early...': '看起来，腐化的出现区域也提前了……',
+    'I\'ll be fine': '我很好，没事的',
+    'I\'m Scared': '我很害怕',
     'A Whole New World': '全新的世界',
+    'Fluffy has reached Evolution 8 Level 10! He levitates above the ground, then realizes he seems a bit like a showoff so he floats back down. He strikes a good balance between power and humility by just having his eyes glow a little bit; you have to admit it\'s a good look on him.': '绒绒达到了进化次数8等级10！它在天上飘了一阵子，然后反应过来自己太飘了，于是又飘回来了。它的眼睛微微发光，很明显已经在力量和谦卑之间达到了良好的平衡。您必须承认，它确实好看多了。',
+    'Anyways, Fluffy walks over to your Portal Device and gives it a good smack. He uses some nifty telepathic powers to inform you that you can now use your Portal Device to travel to a different Universe, one that he himself handpicked for its usefulness.': '总之，绒绒走到了您的传送门装置旁，重重地敲了它一下。然后它用某种精确的心灵感应能力提醒您，从现在起您可以使用传送门装置前往一个不同的宇宙了，那个宇宙经过它的精心甄别，会对您有帮助的。',
+    'He continues to inform you that the Magma on this planet is beginning to harden, blocking later Spires behind impenetrable walls of Obsidian. If we want to have any hope of reaching them, we\'ll need a tremendous amount of energy from this new Universe!': '它继续提醒您，此行星上的岩浆正在开始硬化，形成无法穿越的黑曜石墙。如果想要穿过它们，需要从那个新宇宙中获取极其大量的能量！',
+    'You can now travel back and forth between Universe 1 - "The Helium Universe", and Universe 2 - "The Radon Universe". See the top left of your Portal for more information.': '您现在可以在宇宙1——氦之宇宙与宇宙2——氡之宇宙之间通行了。查看传送门界面左上角的按钮以获取更详细的信息。',
+    'Click this button to have your next Portal bring you to Universe 2 - The Radon Universe. Helium Perks and Fluffy can\'t come with you, but Fluffy\'s good pal Scruffy will be waiting for you.': '点击此按钮后，您的下次传送将进入宇宙2——氡之宇宙。氦相关的特权和绒绒无法生效，但绒绒的好伙伴污污将等着为您效力。',
+    'Click this button to have your next Portal bring you to Universe 1 - The Helium Universe. Radon Perks and Scruffy can\'t come with you, but Scruffy\'s good pal Fluffy will be waiting for you.': '点击此按钮后，您的下次传送将进入宇宙1——氦之宇宙。氡相关的特权和污污无法生效，但污污的好伙伴绒绒将等着为您效力。',
+    'Fluffy suggests having at least 15,000% Challenge': '绒绒建议至少拥有15000%的挑战',
+    'reward bonus before heading to Universe 2, but he trusts you to make your own decisions!': '奖励再进入宇宙2，但它也相信您可以自己作出决定。',
+    'You will earn Radon instead of Helium in Universe 2. It\'s an entirely new Universe to explore!': '宇宙2中您获取的资源从氦变为氡。探索新宇宙的时候到了！',
     'Eggs': '蛋来了',
     'It seems as if some sort of animal has placed a bunch of brightly colored eggs in the world. If you happen to see one, you can click on it to send a Trimp to pick it up! According to your scientists, they have a rare chance to contain some neat stuff, but they will not last forever...': '看起来有什么动物把一堆色彩鲜艳的蛋在世界上丢的到处都是。如果您碰到了的话，可以点击那些蛋，让一个脆皮去把它捡起来！根据科学家们的说法，它们可能有比较小的概率藏有什么宝贝，但它们无法永久存在……',
     'I\'ll keep an eye out.': '我会注意的。',
-    '': '',
-    '': '',
     '': '',
     '': '',
     //杂项结束
@@ -5069,7 +5133,6 @@ var cnItems = {
     'Amount': '数量',
     'Line Total': '总行数',
     'Allow the Trimps to start fighting on their own whenever their town gets overcrowded (Hotkey: A': '每当镇上人满为患时，让脆皮自己开始战斗（热键：A',
-    'our Trimps were a few minutes away from burning the place down': '我们的脆皮距离烧毁这个地方只有几分钟的路程',
     'Lost Time': '失去的时间',
     'Neat': '利落',
     'It\'s kind of heavy for your Trimps, but they\'ll manage. Adds 3 attack to each soldier per level': '这对你的脆皮来说有点重，但他们会处理的。每升一级增加3个攻击',
@@ -5081,7 +5144,6 @@ var cnItems = {
     '- Repeated': '- 重复',
     '- Secondary': '- 次要的',
     '- Unique': '- 独特',
-    'Here you can finely tune your message settings, to see only what you want from each category. Mouse over the name of a filter for more info.': '在这里，你可以微调你的消息设置，只看到你想从每个类别。鼠标移到过滤器的名称上以获取更多信息。',
     'Repeated': '重复的',
     'Unique': '独特的',
     'Bone': '骨头',
@@ -5116,10 +5178,6 @@ var cnItems = {
     'You stumble across a large locked chest, unlike anything you\'ve ever seen. The lock looks rusty, you smack it with a rock, and it falls right off. Immediately the ground shakes and cracks beneath your feet, intense heat hits your face, and Magma boils up from the core.': '您偶然发现了一个巨大的上锁的胸部，这与您见过的任何东西都不一样。 锁看上去生锈了，用石头砸了一下，马上就掉了。 地面立即在您的脚下震动并破裂，强烈的热量击中您的脸，岩浆从核心沸腾。',
     'Where one minute ago there was dirt, grass, and noxious fog, there are now rivers of molten rock (and noxious fog). You\'d really like to try and repair the planet somehow, so you decide to keep pushing on. It\'s been working out well so far, there was some useful stuff in that chest!': '一分钟前有泥土，草丛和有害雾气的地方，现在有熔岩河（有毒雾气）。 您真的很想尝试以某种方式修复地球，因此您决定继续前进。 到目前为止，效果一直很好，那个箱子里有一些有用的东西！',
     'The heat is tough on your Trimps, causing each Zone to reduce their attack and health by 20% more than the last. 10% of your Nurseries will permanently close after each Zone to avoid Magma flows, and Corruption has seeped into both Void and regular Maps, further increasing their difficulty.': '热浪对您的脆皮不利，导致每个区域的攻击力和生命值都比上一个区域减少20％。 每个区域结束后，您的苗圃中有10％将永久关闭，以避免岩浆流动，并且腐败渗透到了虚空地图和常规地图中，进一步增加了难度。',
-    'Though you\'ve seen the Corruption grow since the planet broke, you can now see a giant spire pumping out tons of the purple goo. Things seem to be absorbing it at a higher rate now.': '尽管自从行星破裂以来您已经看到了腐败的增长，但是现在您可以看到一个巨大的尖顶抽出大量的紫色粘胶。 现在看来，事物正在以更高的速度吸收它。',
-    'Bring it on': '来吧',
-    'Improbabilities and Void Maps are now more difficult.': '乌有者发生虚空地图现在都比较困难。',
-    'Improbabilities and Void Maps now drop 2x helium.': '乌有者和虚空图现在会掉落2倍的氦气。',
     'However, the chest contained plans and materials for the': '然而，箱子里装着的计划和材料',
     'Travel to the Map Chamber. Maps are filled with goodies, and for each max level map you clear you will gain a 20% stacking damage bonus for that Zone (stacks up to 10 times). (Hotkey: M': '去地图室。地图充满了好东西，每清除一张最高等级地图，你将获得该区域20%的堆叠伤害加成(堆叠最多10次)。(热键:M',
     '! In addition, all Zones are now wort': '!此外，所有的区域现在都是wort',
@@ -5313,6 +5371,7 @@ var cnPrefix = {
     "Prismatic Palace,": "棱镜宫殿，", //地图名称
     "Melting Point,": "熔点，", //地图名称
     "Trimple Of Doom,": "末日神殿，", //地图名称
+    "Atlantrimp,": "亚特兰蒂皮，", //地图名称
     "Tricky Paradise,": "整蛊天堂，", //地图名称
     "Dimension of Anger,": "愤怒维度，", //地图名称
     "Dimension of Rage,": "暴怒维度，", //地图名称
@@ -5803,6 +5862,7 @@ var cnRegReplace = new Map([
     [/^(.+) Secs \/ (.+) Secs$/, '$1秒/$2秒'], //主界面
     [/^(.+) Sec(s*)$/, '$1秒'], //主界面
     [/^employed(\s+)$/, '已雇佣$1'], //主界面
+    [/^You currently have (.*) Dark Essence.$/, '您目前拥有$1黑暗精华。'], //主界面
     [/^Trapping(.+)$/, '捕捉中$1'], //主界面
     [/^Check\sTraps(.+)$/, '检查陷阱$1'], //主界面
     [/^(.+) Foremen$/, '$1 工头'], //主界面
@@ -6548,10 +6608,10 @@ var cnRegReplace = new Map([
     [/^Clear Prismatic Palace in less than (.*) hour(s*) (.*) minute(s*) (.*) second(s*) from start of run$/, '使用传送门后，在$1小时$3分钟$5秒内通过棱镜宫殿'], //成就等
     [/^Clear Prismatic Palace in less than (.*) minute(s*) (.*) second(s*) from start of run$/, '使用传送门后，在$1分钟$3秒内通过棱镜宫殿'], //成就等
     [/^Clear Prismatic Palace in less than (.*):(.*):(.*) from start of run$/, '使用传送门后，在$1:$2:$3内通过棱镜宫殿'], //成就等
-    [/^Clear Atlantrimp in less than (.*) hour(s*) from start of run$/, '使用传送门后，在$1小时内通过亚特兰蒂斯'], //成就等
-    [/^Clear Atlantrimp in less than (.*) min(s*) from start of run$/, '使用传送门后，在$1分钟内通过亚特兰蒂斯'], //成就等
-    [/^Clear Atlantrimp in less than (.*) hour(s*) (.*) minute(s*) (.*) second(s*) from start of run$/, '使用传送门后，在$1小时$3分钟$5秒内通过亚特兰蒂斯'], //成就等
-    [/^Clear Atlantrimp in less than (.*) minute(s*) (.*) second(s*) from start of run$/, '使用传送门后，在$1分钟$3秒内通过亚特兰蒂斯'], //成就等
+    [/^Clear Atlantrimp in less than (.*) hour(s*) from start of run$/, '使用传送门后，在$1小时内通过亚特兰蒂皮'], //成就等
+    [/^Clear Atlantrimp in less than (.*) min(s*) from start of run$/, '使用传送门后，在$1分钟内通过亚特兰蒂皮'], //成就等
+    [/^Clear Atlantrimp in less than (.*) hour(s*) (.*) minute(s*) (.*) second(s*) from start of run$/, '使用传送门后，在$1小时$3分钟$5秒内通过亚特兰蒂皮'], //成就等
+    [/^Clear Atlantrimp in less than (.*) minute(s*) (.*) second(s*) from start of run$/, '使用传送门后，在$1分钟$3秒内通过亚特兰蒂皮'], //成就等
     [/^Clear Melting Point in less than (.*) hour(s*) from start of run$/, '使用传送门后，在$1小时内通过熔点'], //成就等
     [/^Clear Melting Point in less than (.*) min(s*) from start of run$/, '使用传送门后，在$1分钟内通过熔点'], //成就等
     [/^Clear Melting Point in less than (.*):(.*) from start of run$/, '使用传送门后，在$1:$2内通过熔点'], //成就等
@@ -6642,7 +6702,7 @@ var cnRegReplace = new Map([
     [/^(.*) Helium, (.*) Fluffy Exp$/, '$1氦，$2绒绒经验'], //骨头等
     [/^(.*) Radon, (.*) Scruffy Exp$/, '$1氡，$2污污经验'], //骨头等
     [/^(.*)(?<!and (.*)\%)(?<!Current)(?<!30 total)(?<!Battle)(?<!Cool For)(?<!AutoGold) Helium$/, '$1氦'], //骨头等
-    [/^(.*)(?<!Current)(?<!Helium \/)(?<!Battle)(?<!Raging)(?<!AutoGold) Radon$/, '$1氡'], //骨头等
+    [/^(.*)(?<!-)(?<!Current)(?<!Helium \/)(?<!Battle)(?<!Raging)(?<!AutoGold) Radon$/, '$1氡'], //骨头等
     [/^(\d+\%) Map Loot$/, '$1 地图资源获取'], //骨头等
     [/^(\d+\%) Trimp Damage$/, '$1 脆皮伤害'], //骨头等
     [/^(\s+)Buy Heirloom \(30 bones\)(\s+)$/, '$1购买传家宝(30骨头)$2'], //骨头等
@@ -7332,15 +7392,89 @@ var cnRegReplace = new Map([
     [/^bonus down to (.*)%.$/, '加成减少为$1%。'], //梅斯梅尔专精
     [/^bonus of (.*)%. Purchasing this Mastery would increase your bonus by (.*)%, bringing your total Challenge$/, '的加成为$1%。购买这个专精以后加成将增加$2%， 总挑战'], //梅斯梅尔专精
     [/^bonus up to (.*)%.$/, '加成增加为$1%。'], //梅斯梅尔专精
+    [/^Locked \(Buy 2 Masteries from Tier (.*) to unlock Tier (.*). This Mastery also requires Void Power I$/, '未解锁(购买两个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过虚空力量 I'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock Tier (.*). This Mastery also requires Void Power I$/, '未解锁(再购买一个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过虚空力量 I'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock the next from Tier (.*). This Mastery also requires Void Power I$/, '未解锁(再购买一个第$1层的升级以解锁下一个升级于层数 $2。此专精还需要购买过虚空力量 I'], //专精等
+    [/^Locked \(Buy 2 Masteries from Tier (.*) to unlock Tier (.*). This Mastery also requires Headstart I$/, '未解锁(购买两个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过先声夺人 I'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock Tier (.*). This Mastery also requires Headstart I$/, '未解锁(再购买一个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过先声夺人 I'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock the next from Tier (.*). This Mastery also requires Headstart I$/, '未解锁(再购买一个第$1层的升级以解锁下一个升级于层数 $2。此专精还需要购买过先声夺人 I'], //专精等
+    [/^Locked \(Buy 2 Masteries from Tier (.*) to unlock Tier (.*). This Mastery also requires Turkimp Tamer I$/, '未解锁(购买两个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过脆皮火鸡饲主 I'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock Tier (.*). This Mastery also requires Turkimp Tamer I$/, '未解锁(再购买一个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过脆皮火鸡饲主 I'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock the next from Tier (.*). This Mastery also requires Turkimp Tamer I$/, '未解锁(再购买一个第$1层的升级以解锁下一个升级于层数 $2。此专精还需要购买过脆皮火鸡饲主 I'], //专精等
+    [/^Locked \(Buy 2 Masteries from Tier (.*) to unlock Tier (.*). This Mastery also requires Headstart II$/, '未解锁(购买两个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过先声夺人 II'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock Tier (.*). This Mastery also requires Headstart II$/, '未解锁(再购买一个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过先声夺人 II'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock the next from Tier (.*). This Mastery also requires Headstart II$/, '未解锁(再购买一个第$1层的升级以解锁下一个升级于层数 $2。此专精还需要购买过先声夺人 II'], //专精等
+    [/^Locked \(Buy 2 Masteries from Tier (.*) to unlock Tier (.*). This Mastery also requires Hyperspeed I$/, '未解锁(购买两个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过风驰电掣 I'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock Tier (.*). This Mastery also requires Hyperspeed I$/, '未解锁(再购买一个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过风驰电掣 I'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock the next from Tier (.*). This Mastery also requires Hyperspeed I$/, '未解锁(再购买一个第$1层的升级以解锁下一个升级于层数 $2。此专精还需要购买过风驰电掣 I'], //专精等
+    [/^Locked \(Buy 2 Masteries from Tier (.*) to unlock Tier (.*). This Mastery also requires Blacksmithery I$/, '未解锁(购买两个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过锻铁术 I'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock Tier (.*). This Mastery also requires Blacksmithery I$/, '未解锁(再购买一个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过锻铁术 I'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock the next from Tier (.*). This Mastery also requires Blacksmithery I$/, '未解锁(再购买一个第$1层的升级以解锁下一个升级于层数 $2。此专精还需要购买过锻铁术 I'], //专精等
+    [/^Locked \(Buy 2 Masteries from Tier (.*) to unlock Tier (.*). This Mastery also requires King of Bones I$/, '未解锁(购买两个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过骨头之王 I'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock Tier (.*). This Mastery also requires King of Bones I$/, '未解锁(再购买一个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过骨头之王 I'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock the next from Tier (.*). This Mastery also requires King of Bones I$/, '未解锁(再购买一个第$1层的升级以解锁下一个升级于层数 $2。此专精还需要购买过骨头之王 I'], //专精等
+    [/^Locked \(Buy 2 Masteries from Tier (.*) to unlock Tier (.*). This Mastery also requires Explorer Aura I$/, '未解锁(购买两个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过探险家光环 I'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock Tier (.*). This Mastery also requires Explorer Aura I$/, '未解锁(再购买一个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过探险家光环 I'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock the next from Tier (.*). This Mastery also requires Explorer Aura I$/, '未解锁(再购买一个第$1层的升级以解锁下一个升级于层数 $2。此专精还需要购买过探险家光环 I'], //专精等
+    [/^Locked \(Buy 2 Masteries from Tier (.*) to unlock Tier (.*). This Mastery also requires Void Power II$/, '未解锁(购买两个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过虚空力量 II'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock Tier (.*). This Mastery also requires Void Power II$/, '未解锁(再购买一个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过虚空力量 II'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock the next from Tier (.*). This Mastery also requires Void Power II$/, '未解锁(再购买一个第$1层的升级以解锁下一个升级于层数 $2。此专精还需要购买过虚空力量 II'], //专精等
+    [/^Locked \(Buy 2 Masteries from Tier (.*) to unlock Tier (.*). This Mastery also requires Blacksmithery II$/, '未解锁(购买两个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过锻铁术 II'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock Tier (.*). This Mastery also requires Blacksmithery II$/, '未解锁(再购买一个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过锻铁术 II'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock the next from Tier (.*). This Mastery also requires Blacksmithery II$/, '未解锁(再购买一个第$1层的升级以解锁下一个升级于层数 $2。此专精还需要购买过锻铁术 II'], //专精等
+    [/^Locked \(Buy 2 Masteries from Tier (.*) to unlock Tier (.*). This Mastery also requires Heirnuum I$/, '未解锁(购买两个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过传家虚物 I'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock Tier (.*). This Mastery also requires Heirnuum I$/, '未解锁(再购买一个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过传家虚物 I'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock the next from Tier (.*). This Mastery also requires Heirnuum I$/, '未解锁(再购买一个第$1层的升级以解锁下一个升级于层数 $2。此专精还需要购买过传家虚物 I'], //专精等
+    [/^Locked \(Buy 2 Masteries from Tier (.*) to unlock Tier (.*). This Mastery also requires Scryhard I$/, '未解锁(购买两个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过努力占卜 I'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock Tier (.*). This Mastery also requires Scryhard I$/, '未解锁(再购买一个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过努力占卜 I'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock the next from Tier (.*). This Mastery also requires Scryhard I$/, '未解锁(再购买一个第$1层的升级以解锁下一个升级于层数 $2。此专精还需要购买过努力占卜 I'], //专精等
+    [/^Locked \(Buy 2 Masteries from Tier (.*) to unlock Tier (.*). This Mastery also requires Map Reducer I$/, '未解锁(购买两个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过地图减压 I'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock Tier (.*). This Mastery also requires Map Reducer I$/, '未解锁(再购买一个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过地图减压 I'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock the next from Tier (.*). This Mastery also requires Map Reducer I$/, '未解锁(再购买一个第$1层的升级以解锁下一个升级于层数 $2。此专精还需要购买过地图减压 I'], //专精等
+    [/^Locked \(Buy 2 Masteries from Tier (.*) to unlock Tier (.*). This Mastery also requires Natural Diplomacy I$/, '未解锁(购买两个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过自然斡旋 I'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock Tier (.*). This Mastery also requires Natural Diplomacy I$/, '未解锁(再购买一个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过自然斡旋 I'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock the next from Tier (.*). This Mastery also requires Natural Diplomacy I$/, '未解锁(再购买一个第$1层的升级以解锁下一个升级于层数 $2。此专精还需要购买过自然斡旋 I'], //专精等
+    [/^Locked \(Buy 2 Masteries from Tier (.*) to unlock Tier (.*). This Mastery also requires Liquification I$/, '未解锁(购买两个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过液化 I'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock Tier (.*). This Mastery also requires Liquification I$/, '未解锁(再购买一个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过液化 I'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock the next from Tier (.*). This Mastery also requires Liquification I$/, '未解锁(再购买一个第$1层的升级以解锁下一个升级于层数 $2。此专精还需要购买过液化 I'], //专精等
+    [/^Locked \(Buy 2 Masteries from Tier (.*) to unlock Tier (.*). This Mastery also requires Still Rowing I$/, '未解锁(购买两个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过尖塔排行 I'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock Tier (.*). This Mastery also requires Still Rowing I$/, '未解锁(再购买一个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过尖塔排行 I'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock the next from Tier (.*). This Mastery also requires Still Rowing I$/, '未解锁(再购买一个第$1层的升级以解锁下一个升级于层数 $2。此专精还需要购买过尖塔排行 I'], //专精等
+    [/^Locked \(Buy 2 Masteries from Tier (.*) to unlock Tier (.*). This Mastery also requires Void Specialization I$/, '未解锁(购买两个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过虚空特化 I'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock Tier (.*). This Mastery also requires Void Specialization I$/, '未解锁(再购买一个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过虚空特化 I'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock the next from Tier (.*). This Mastery also requires Void Specialization I$/, '未解锁(再购买一个第$1层的升级以解锁下一个升级于层数 $2。此专精还需要购买过虚空特化 I'], //专精等
+    [/^Locked \(Buy 2 Masteries from Tier (.*) to unlock Tier (.*). This Mastery also requires Void Specialization II$/, '未解锁(购买两个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过虚空特化 II'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock Tier (.*). This Mastery also requires Void Specialization II$/, '未解锁(再购买一个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过虚空特化 II'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock the next from Tier (.*). This Mastery also requires Void Specialization II$/, '未解锁(再购买一个第$1层的升级以解锁下一个升级于层数 $2。此专精还需要购买过虚空特化 II'], //专精等
+    [/^Locked \(Buy 2 Masteries from Tier (.*) to unlock Tier (.*). This Mastery also requires Strength in Health I$/, '未解锁(购买两个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过健康之力 I'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock Tier (.*). This Mastery also requires Strength in Health I$/, '未解锁(再购买一个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过健康之力 I'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock the next from Tier (.*). This Mastery also requires Strength in Health I$/, '未解锁(再购买一个第$1层的升级以解锁下一个升级于层数 $2。此专精还需要购买过健康之力 I'], //专精等
+    [/^Locked \(Buy 2 Masteries from Tier (.*) to unlock Tier (.*). This Mastery also requires Still Rowing II and Magmamancermancy$/, '未解锁(购买两个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过尖塔排行 II和岩浆巫师学'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock Tier (.*). This Mastery also requires Still Rowing II and Magmamancermancy$/, '未解锁(再购买一个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过尖塔排行 II和岩浆巫师学'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock the next from Tier (.*). This Mastery also requires Still Rowing II and Magmamancermancy$/, '未解锁(再购买一个第$1层的升级以解锁下一个升级于层数 $2。此专精还需要购买过尖塔排行 II和岩浆巫师学'], //专精等
+    [/^Locked \(Buy 2 Masteries from Tier (.*) to unlock Tier (.*). This Mastery also requires Liquification II$/, '未解锁(购买两个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过液化 II'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock Tier (.*). This Mastery also requires Liquification II$/, '未解锁(再购买一个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过液化 II'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock the next from Tier (.*). This Mastery also requires Liquification II$/, '未解锁(再购买一个第$1层的升级以解锁下一个升级于层数 $2。此专精还需要购买过液化 II'], //专精等
+    [/^Locked \(Buy 2 Masteries from Tier (.*) to unlock Tier$/, '未解锁(购买两个第$1层的升级以解锁升级于层数'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock Tier$/, '未解锁(再购买一个第$1层的升级以解锁升级于层数'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock the next from Tier$/, '未解锁(再购买一个第$1层的升级以解锁下一个升级于层数'], //专精等
+    [/^(.*) Dark Essence \(Use Scrying Formation to earn more$/, '$1黑暗精华(使用占卜阵型以获取更多'], //专精等
+    [/^(.*) Dark Essence$/, '$1黑暗精华'], //专精等
     [/^Reduce the Zone that Fluffy can start earning Experience at by 3. With (\d+) level(s*) in Classy, Fluffy will start earning Experience at Z(\d+).$/, '绒绒提前3个区域开始获得经验值。上等特权提升$1级后，绒绒将从区域$3开始获得经验值。'], //上等特权
     [/^Use your experiences in understanding the attention span of Trimps to increase the damage dealt by all soldiers based on how long it took to get an army together. Increases damage by 2% per level per second up to (\d+) seconds.$/, '脆皮的注意力持续时间您已了如指掌，所以您可以利用它增加脆皮的攻击力。军队每需要1秒进行繁殖，每级预期特权就可以使脆皮增加2%攻击力。预期特权的效果上限为$1秒。'], //预期特权
     [/^Golden Battle ([IVXLCDM]+)$/, '金色战斗 $1'], //金色升级等
     [/^Golden Helium ([IVXLCDM]+)$/, '金色氦 $1'], //金色升级等
+    [/^Golden Radon ([IVXLCDM]+)$/, '金色氡 $1'], //金色升级等
     [/^Golden Void ([IVXLCDM]+)$/, '金色虚空 $1'], //金色升级等
+    [/^Golden Battle \(Tier ([IVXLCDM]+)$/, '金色战斗($1阶'], //金色升级等
+    [/^Golden Helium \(Tier ([IVXLCDM]+)$/, '金色氦($1阶'], //金色升级等
+    [/^Golden Void \(Tier ([IVXLCDM]+)$/, '金色虚空($1阶'], //金色升级等
     [/^Increase Helium gain by (.*)%.$/, '使氦的获取量增加$1%。'], //金色升级等
     [/^Increase Radon gain by (.*)%.$/, '使氡的获取量增加$1%。'], //金色升级等
     [/^Increase Trimp attack and health by (.*)%.$/, '使脆皮的攻击力和生命值增加$1%。'], //金色升级等
     [/^Decrease the minimum amount of enemies between Void Map drops by (.*)%.$/, '使每张虚空地图掉落所需的敌人数减少$1%。'], //金色升级等
+    [/^Each time Golden Upgrades are unlocked, they will increase in strength. You are currently gaining (.*)% from purchasing this upgrade (.*) time(s*) since your last portal.$/, '每次解锁新的金色升级，它的加成都会变得更高。由于传送后您购买了$2次该升级，该升级的加成变为$1%。'], //金色升级等
+    [/^Free \((.*) remaining$/, '免费(剩余$1次'], //金色升级等
     [/^You have found (.*) total Runestones.$/, '您总共获得了$1符石。'], //尖塔等
     [/^(.*) Runestones have been spent on Upgrades.$/, '其中$1符石用于了升级。'], //尖塔等
     [/^(.*) Runestones have been spent on Traps\/Towers in your current layout.$/, '$1符石用于了当前的布局。'], //尖塔等
@@ -7634,6 +7768,7 @@ var cnRegReplace = new Map([
     [/^(.*)Recycled Bionic Wonderland(.*).$/, '$1回收了仿生仙境$2地图。'], //其他消息等
     [/^(.*)You're not yet ready. Maybe you'll be of use in the next lifetime.$/, '$1您只是在自寻死路。或许下一世您能准备好了。'], //其他消息等
     [/^(.*) group(s*) of Trimps ha(s|ve) perished in the Spire.$/, '$1队脆皮们倒在了尖塔中。'], //其他消息等
+    [/^(.*)Sorry$/, '$1很抱歉'], //其他消息等
 
 
 
