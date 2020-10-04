@@ -131,8 +131,17 @@ var cnItems = {
     'Toggle All Weapons Off': '关闭所有武器',
     'Toggle All Weapons On': '开启所有武器',
     'Respec Masteries': '专精洗点',
+    'Click to Respec, refunding all Dark Essence that was spent on Masteries.': '点击开始洗点，返还花费在专精上的所有黑暗精华。',
+    'Your first 3 Respecs are free, and you still have 3 left! When there are no more left, each respec will cost 20 Bones.': '前3次洗点是免费的，您还剩下3次机会！用完3次免费洗点机会以后，每次洗点需要花费20骨头。',
+    'Your first 3 Respecs are free, and you still have 2 left! When there are no more left, each respec will cost 20 Bones.': '前3次洗点是免费的，您还剩下2次机会！用完3次免费洗点机会以后，每次洗点需要花费20骨头。',
+    'Your first 3 Respecs are free, and you still have 1 left! When there are no more left, each respec will cost 20 Bones.': '前3次洗点是免费的，您还剩下1次机会！用完3次免费洗点机会以后，每次洗点需要花费20骨头。',
+    'Free!': '免费！',
     'Respec (': '洗点(',
     'Confirm Respec Masteries': '确认专精洗点',
+    'This will return all Dark Essence that was spent on Masteries at the cost of 20 bones. Are you sure?': '您将花费20骨头并获得所有花费过的黑暗精华返还。您确定要这么做吗？',
+    'This will return all Dark Essence that was spent on Masteries, and will use one of your remaining 3 free Mastery Respecs.': '您将获得所有花费过的黑暗精华返还，但也将消耗3次免费洗点机会中的1次。',
+    'This will return all Dark Essence that was spent on Masteries, and will use one of your remaining 2 free Mastery Respecs.': '您将获得所有花费过的黑暗精华返还，但也将消耗2次免费洗点机会中的1次。',
+    'This will return all Dark Essence that was spent on Masteries, and will use your remaining 1 free Mastery Respec.': '您将获得所有花费过的黑暗精华返还，但也将消耗最后1次免费洗点机会。',
     'Your next mastery costs': '下一个专精花费',
     'No Formation': '无阵型',
     'Clear your formations, return to normal stats, and derp around the battlefield. (Hotkeys: X or': '取消阵型，恢复正常状态，在战场上瞎转悠。(快捷键： X 或',
@@ -156,6 +165,8 @@ var cnItems = {
     'BLK': '格挡',
     'Dodge!': '闪避!',
     'MagnetoShriek': '电磁尖啸',
+    'MagnetoShriek is currently active and will fire on the next Improbability.': '电磁尖啸已经激活，将对下个乌有者发射。',
+    'MagnetoShriek is NOT active and will not fire.': '电磁尖啸未激活，将不会发射。',
     'Crushing Blows': '粉碎之击',
     'Your current health is higher than your block, making you vulnerable to critical strikes from your enemies. Better fix that...': '您目前的生命值高于格挡，敌人的攻击可能造成暴击。最好修正之……',
     'Void Attack': '虚空突袭',
@@ -211,8 +222,12 @@ var cnItems = {
     'This Bad Guy is nice and plump from eating Trimps. Increases attack damage by 25% per stack': '此敌人由于吃掉脆皮变得更肥了。每层增加25%攻击力',
     'Sugar Rush': '甜蜜冲刺',
     'Trimps are not at all used to sugar, but they seem to be really enjoying it!': '脆皮们还没习惯糖的味道，但看起来它们很喜欢！',
+    'Fight': '战斗',
+    'Send your poor Trimps to certain doom in the battlefield. You\'ll get cool stuff though, they\'ll understand. (Hotkey: F': '将可怜的脆皮们送入战场，迎接它们注定的结局。您会因此获得好东西，所以它们一定能理解您的。(快捷键：F',
     'AutoFight On': '开启自动战斗',
     'AutoFight Off': '关闭自动战斗',
+    'AutoFight': '自动战斗',
+    'Allow the Trimps to start fighting on their own whenever their town gets overcrowded (Hotkey: A': '当脆皮们塞满城镇时，让它们自己开始战斗(快捷键：A',
     'Maps': '地图',
     'Abandon Soldiers': '放弃士兵',
     'World': '世界',
@@ -233,6 +248,7 @@ var cnItems = {
     'Finish': '完成',
     'below will end your daily challenge and you will be unable to attempt it again. You will earn': '按钮将结束日常挑战，您将永远无法再次进行那一天的日常挑战。您将获得',
     'Exit Spire': '退出尖塔',
+    'This will exit the spire, and you will be unable to re-enter until your next portal. Are you sure?': '您将退出尖塔，直到下次传送前无法再进入尖塔。您确定要这么做吗？',
     'Show/Hide Map Config': '显示/隐藏地图设置',
     'Click this to collapse/expand the map configuration options.': '点击以切换显示/隐藏地图设置选项。',
     'Map Preset': '地图预设',
@@ -1127,6 +1143,10 @@ var cnItems = {
     'Unlock the AutoStructure tool, allowing you to automatically purchase structures. In addition, all housing and battle territory bonuses will come with ready-to-fight Trimps inside!': '解锁自动建造功能，可以自动建造建筑。另外，所有住房和战斗领土加成在增加脆皮上限的同时，也会同时增加相应数量的脆皮！',
     'Geneticistassist': '遗传学家助手',
     'Unlock Geneticistassist, the most powerful Geneticist Automator in this side of the galaxy!': '解锁遗传学家助手，在这边星系中是最强大的遗传学家管理者！',
+    'The Geneticistassist': '遗传学家助手',
+    'Greetings, friend! I\'m your new robotic pal': '欢迎，朋友！我是您的新机器伙伴 ',
+    'and I am here to assist you with your Geneticists. I will hang out in your Jobs tab, and will appear every run after Geneticists are unlocked. You can customize me in Settings under \'General\'!': '，我可以帮助您管理遗传学家。我会一直停留在您的工作选项卡下，在每次传送后解锁遗传学家时同时出现。您可以在设置的 常规选项卡 下设置我的相关参数！',
+    'Thanks, Geneticistassist!': '谢了，遗传学家助手！',
     'DoubleBuild': '二重建造',
     'Stacked items in the Building Queue will be constructed two at a time.': '可以同时建造两个建筑。',
     //其他升级相关结束
@@ -1987,6 +2007,9 @@ var cnItems = {
     'You can pause the game by clicking the run timer in the bottom right of the screen. This setting allows you to remove that ability!': '您可以点击右下角的计时器来暂停游戏。此设置决定是否关闭此功能！',
     'Delete Save': '删除存档',
     'Delete your save and start fresh. Your Trimps will not be happy.': '删除存档重新开始。您的脆皮可能不会对这个决定高兴的。',
+    'Reset': '重置',
+    'Are you sure you want to reset? This will really actually reset your game. You won\'t get anything cool. It will be gone.': '您确定要重置吗？您的所有游戏进度都将被抹除，您将一无所有的。',
+    'This is not the soft-reset you\'re looking for. This will delete your save.': '这并不是您想象中的软重置。这只会删除您的存档。',
     //游戏设置相关结束
     //离线相关
     'Starting...': '开始……',
@@ -3603,11 +3626,24 @@ var cnItems = {
     '10th Level of his 8th Evolution': '进化次数8等级10',
     'and he promises he\'ll make it worth your time.': '它承诺这绝对值得您这么做的。',
     'The Spire': '尖塔',
+    'The Spire looms menacingly above you, and you take in a deep breath of corruption. You take a look back at your Trimps to help gather some courage, and you push the door open. You slowly walk inside and are greeted by an incredibly loud, deep, human voice.': '尖塔在您的面前露出了险恶的獠牙，您深深地吸了一口气，却全是腐化的味道。您回头看了看脆皮们，再次坚定决心，推开了门。您缓缓步入尖塔，突然，响起了极其响亮而低沉的人声。',
+    'Do you know what you face? If you are defeated ten times in this place, you shall be removed from this space. If you succeed, then you shall see the light of knowledge that you seek.': '你知道你面对的是什么样的存在吗？如果在此阵亡了十次，你将被逐出此地。如果走到了最后，那么你将看到你所追寻的知识之光。',
+    'This Zone is considerably more difficult than the previous and next Zones. If 10 groups of Trimps die in combat while in the spire, the world will return to normal.': '这个区域比之前和之后的区域都要难很多。如果在尖塔中有10队脆皮阵亡了，那么您将被迫退出尖塔，世界将恢复正常。',
+    'Each cell gives more and more helium. Every 10th cell gives a larger reward, and increases all loot gained until your next portal by 2% (including helium).': '每个格子掉落的氦将越来越多。每10个格子还会掉落更大的奖励，并且使直到下次传送前的战利品获取量增加2%(包括氦)。',
+    'You were moved to Maps to protect your limited chances at the spire. You can disable this in settings!': '为了避免无谓的伤亡，您自动进入了地图。您可以在设置中关闭此项！',
+    'The Universe Awaits': '宇宙在等待',
     'AutoGolden Unlocked': '自动金色升级已解锁',
     'Your Trimps have extracted and processed hundreds of Golden Upgrades by now, and though you\'re still nervous to leave things completely to them, you figure they can probably handle doing this on their own as well. You find the nearest Trimp and ask if he could handle buying Golden Upgrades on his own, as long as you told him which ones to buy. You can tell by the puddle of drool rapidly gaining mass at his feet that this is going to take either magic or a lot of hard work.': '到目前为止，您的脆皮们已经提取处理了数百个金色升级了，但您还是有点紧张，没法把事情完全交给它们，现在您觉得或许它们能够自己控制了。您随手招来离您最近的一个脆皮，询问它是否能够做到在需要的时候购买金色升级。从它脚下那一大滩口水来看，除非有魔法或者付出极大努力，不然完全没戏。',
     'You can\'t find any magic anywhere, so you decide to found Trimp University, a school dedicated to teaching Trimps how to extract the might of Golden Upgrades without any assistance. Weeks go by while you and your Trimps work tirelessly to set up the University, choosing only the finest building materials and hiring only the most renowned Foremen to draw the plans. Just as you\'re finishing up, a Scientist stops by, sees what you\'re doing, and offers to just handle the Golden Upgrades instead. Probably should have just asked one of them first.': '您没有魔法，所以您决定建造一所脆皮大学，用来传授脆皮们如何独自提取出金色升级。您和脆皮们忙了几周为脆皮大学做准备，选择最好的建筑材料，找来了最有名的工头。快要完工时，一个科学家经过，看到了这一切，主动提出由它来控制金色升级。或许一开始就应该先找它们的。',
     'You have unlocked AutoGolden!': '您解锁了自动金色升级！',
     'The Magma': '岩浆',
+    'You stumble across a large locked chest, unlike anything you\'ve ever seen. The lock looks rusty, you smack it with a rock, and it falls right off. Immediately the ground shakes and cracks beneath your feet, intense heat hits your face, and Magma boils up from the core.': '您偶然发现了一个巨大上锁的箱子，您从来没有见过类似的东西。箱子的锁已经是锈迹斑斑，您找了块石头砸了一下，它就掉了下来。突然，您的脚下开始地动山摇，空气开始酷热了起来，看来岩浆从地核中渗出了。',
+    'Where one minute ago there was dirt, grass, and noxious fog, there are now rivers of molten rock (and noxious fog). You\'d really like to try and repair the planet somehow, so you decide to keep pushing on. It\'s been working out well so far, there was some useful stuff in that chest!': '一分钟前，这里还有泥土，青草和毒雾，现在这里只剩下熔岩之河了(哦，还有毒雾)。您仍想让行星恢复，所以您决定继续前进，反正目前为止一切都还挺顺利。哦，等等，箱子里有些能用上的东西……',
+    'The heat is tough on your Trimps, causing each Zone to reduce their attack and health by 20% more than the last. 10% of your Nurseries will permanently close after each Zone to avoid Magma flows, and Corruption has seeped into both Void and regular Maps, further increasing their difficulty.': '岩浆的热量对您的脆皮是一个严峻的考验，脆皮们在每个区域都比上个区域减少20%的攻击力和生命值。通过每个区域后，都将有10%的托儿所永久关闭，以避免岩浆侵蚀。腐化渗透到了普通地图和虚空地图中，进一步增加了它们的难度。',
+    'However, the chest contained plans and materials for the': '但与此同时，您在箱子中发现了 ',
+    'building,': '的设计图和材料，另外还有',
+    '100 copies of Coordination': '100份协作升级',
+    '! In addition, all Zones are now worth': '！除了这些以外，从现在起，所有区域将获得',
     'The Improbability': '乌有者',
     'That shouldn\'t have happened. There should have been a Blimp there. Something is growing unstable.': '这不大对劲。这里本来应该有一个脆皮飞艇的。有什么开始变得不稳定了。',
     'Your Trimps seem to understand that they\'ll need to help out more, and you realize how to permanently use them to automate upgrades!': '脆皮们似乎明白了需要帮上更多才行，您现在可以让它们进行自动升级了！',
@@ -4819,7 +4855,6 @@ var cnItems = {
     'Current Settings will be lost!': '当前的设置将丢失！',
     'Switching to Default AutoTrimps settings profile!!!!': '将切换为默认的脚本设置文件！！！！',
     'This will': '这将 ',
-    'Reset': '重置',
     'the script to factory settings.': '脚本设置为出厂设置。',
     'Reset to Default Profile': '重置为默认',
     'Enter New Settings Profile Name': '输入新的设置文件的名称',
@@ -5007,8 +5042,6 @@ var cnItems = {
     
     
     
-    'Are you sure you want to reset? This will really actually reset your game. You won\'t get anything cool. It will be gone.': '确定要重置吗？这真的会重置你的游戏。你不会因此得到任何酷酷的东西。你的存档会消失的。',
-    'This is not the soft-reset you\'re looking for. This will delete your save.': '这不是你要找的软重置。这将删除您的所有存档。',
     'Activate firing mode, turning the job buttons red, and forcing them to fire trimps rather than hire them. The newly unemployed Trimps will start breeding instead of working, but you will not receive a refund on resources.': '激活解雇模式，工作类目下的按钮将变为红色，点击按钮将解雇脆皮，而不是雇佣它们。新失业的脆皮将开始繁殖，你也不会获得任何资源返还。',
     'Max wood': '木头上限',
     'Science Per Second': '每秒获得科学点',
@@ -5124,15 +5157,12 @@ var cnItems = {
     'Level': '等级',
     'Base': '基础',
     'Item Health': '物品生命',
-    'AutoFight': '自动战斗',
     'Upgrade (': '升级 (',
     ' Lv': ' 等级',
     'This is your save string. There are many like it but this one is yours. Save this save somewhere safe so you can save time next time.': '这是您的存档字符串。 有很多类似的东西，但这是你的。 将此保存到安全的地方，以便下次节省时间继续玩。',
-    'Send your poor Trimps to certain doom in the battlefield. You\'ll get cool stuff though, they\'ll understand. (Hotkey: F': '将您可怜的脆皮带到战场上的某些厄运。 他们会明白，但是您会得到很棒的东西。 （热键：F',
     'You have been in this Zone ': '你一直在这个区域',
     'Amount': '数量',
     'Line Total': '总行数',
-    'Allow the Trimps to start fighting on their own whenever their town gets overcrowded (Hotkey: A': '每当镇上人满为患时，让脆皮自己开始战斗（热键：A',
     'Lost Time': '失去的时间',
     'Neat': '利落',
     'It\'s kind of heavy for your Trimps, but they\'ll manage. Adds 3 attack to each soldier per level': '这对你的脆皮来说有点重，但他们会处理的。每升一级增加3个攻击',
@@ -5173,15 +5203,9 @@ var cnItems = {
     'You can only purchase 1 Shed at a time.': '您一次只能购买1个窝棚。',
     'but you wish you had a few more achievements': '但你希望自己能再有一些成就',
     'you\'d do fine with a few more achievements': '您会再取得一些成就',
-    'building,': '建筑,',
     'Got it!': '得到它！',
-    'You stumble across a large locked chest, unlike anything you\'ve ever seen. The lock looks rusty, you smack it with a rock, and it falls right off. Immediately the ground shakes and cracks beneath your feet, intense heat hits your face, and Magma boils up from the core.': '您偶然发现了一个巨大的上锁的胸部，这与您见过的任何东西都不一样。 锁看上去生锈了，用石头砸了一下，马上就掉了。 地面立即在您的脚下震动并破裂，强烈的热量击中您的脸，岩浆从核心沸腾。',
-    'Where one minute ago there was dirt, grass, and noxious fog, there are now rivers of molten rock (and noxious fog). You\'d really like to try and repair the planet somehow, so you decide to keep pushing on. It\'s been working out well so far, there was some useful stuff in that chest!': '一分钟前有泥土，草丛和有害雾气的地方，现在有熔岩河（有毒雾气）。 您真的很想尝试以某种方式修复地球，因此您决定继续前进。 到目前为止，效果一直很好，那个箱子里有一些有用的东西！',
-    'The heat is tough on your Trimps, causing each Zone to reduce their attack and health by 20% more than the last. 10% of your Nurseries will permanently close after each Zone to avoid Magma flows, and Corruption has seeped into both Void and regular Maps, further increasing their difficulty.': '热浪对您的脆皮不利，导致每个区域的攻击力和生命值都比上一个区域减少20％。 每个区域结束后，您的苗圃中有10％将永久关闭，以避免岩浆流动，并且腐败渗透到了虚空地图和常规地图中，进一步增加了难度。',
-    'However, the chest contained plans and materials for the': '然而，箱子里装着的计划和材料',
     'Travel to the Map Chamber. Maps are filled with goodies, and for each max level map you clear you will gain a 20% stacking damage bonus for that Zone (stacks up to 10 times). (Hotkey: M': '去地图室。地图充满了好东西，每清除一张最高等级地图，你将获得该区域20%的堆叠伤害加成(堆叠最多10次)。(热键:M',
     '! In addition, all Zones are now wort': '!此外，所有的区域现在都是wort',
-    'MagnetoShriek is NOT active and will not fire.': '电磁尖啸未激活，将不会发射。',
     'PlayFab Login': 'PlayFab 登录',
     'Housing': '房屋',
     'Territory Bonus': '领土奖励',
@@ -5872,6 +5896,7 @@ var cnRegReplace = new Map([
     [/^AutoGold Radon \((.*)\/$/, '金色升级氡($1/'], //主界面
     [/^AutoGold Battle \((.*)\/$/, '金色升级战斗($1/'], //主界面
     [/^AutoGold Void \((.*)\/$/, '金色升级虚空($1/'], //主界面
+    [/^Your pet RoboTrimp seems to be gifted at distorting the magnetic field around certain Bad Guys, especially Improbabilities. You can activate this ability once every 5 Zones in order to tell your RoboTrimp to reduce the attack damage of the next Improbability by (.*)%. This must be reactivated each time it comes off cooldown.$/, '您的小脆皮机器人似乎在扭曲某些敌人周围的磁场方面很有天赋，特别是面对乌有者时更甚。每5个区域，您可以激活此能力，让小脆皮机器人可以减少此区域乌有者$1%的攻击力。每次激活发射电磁尖啸后，都需要手动再次激活。'], //主界面
     [/^This enemy is harmed by the Empowerment of Poison, and is taking (.*) extra damage per turn.$/, '此敌人被毒赋能影响了，每回合额外受到$1伤害。'], //主界面
     [/^This enemy has been chilled by the Empowerment of Ice, is taking (.*)% more damage, and is dealing (.*)% less damage with each normal attack.$/, '此敌人因冰赋能被冰冻了，额外受到$1%伤害，普通攻击造成的伤害减少$2%。'], //主界面
     [/^There is a rather large amount of Wind swelling around this enemy, increasing all Helium gained by (.*)% and all other resources by (.*)%.$/, '敌人身旁的风相当猛烈，增加$1%的氦获取量以及其他资源$2%的获取量。'], //主界面
@@ -5925,6 +5950,7 @@ var cnRegReplace = new Map([
     [/^Spire([\sIVXLCDM]*)$/, '尖塔$1'], //主界面
     [/^(\d+)% Map Bonus$/, '$1%地图奖励'], //主界面
     [/^(\s+)Fight(\s+)$/, '$1战斗$2'], //主界面
+    [/^(\d+)(.*) Trimp(s*)$/, '$1$2脆皮'], //主界面
     [/^(\s+)AutoFight Off(\s+)$/, '$1关闭自动战斗$2'], //主界面
     [/^(\s+)Void Maps(\s+)$/, '$1虚空地图$2'], //主界面
     [/^(\s+)Portal(\s+)$/, '$1传送门$2'], //主界面
@@ -8392,9 +8418,7 @@ var cnRegReplace = new Map([
 
 
 
-    [/^(.+) copies of Coordination$/, '$1 份协调'],
-    [/^([\d\.]+) Trimp$/, '$1 脆皮'],
-    [/^([\d\.]+) Trimps$/, '$1 脆皮'],
+
     [/^(\d+) workspace$/, '$1 工作区'],
     [/^(.+) workspaces$/, '$1 工作区'],
     [/^Zone (\d+), Cell$/, '区域 $1, 格子'],
