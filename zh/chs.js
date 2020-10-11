@@ -24,6 +24,49 @@ var cnItems = {
     'Research': '研究',
     'Researching': '研究中',
     'Fragments': '碎片',
+    'Base': '基础值',
+    'Farmers': '农民',
+    'Lumberjacks': '伐木工',
+    'Gatherer (Scruffy': '采集者(污污)',
+    'Huge (Size': '巨大(尺寸挑战',
+    'Solitary (Downsize': '孤僻(精简挑战',
+    'Tweaky (Toxicity': '扭曲(毒性挑战',
+    'Strength (Balance': '力量(平衡挑战',
+    'Strength (Unbalance': '力量(不平衡挑战',
+    'Sanity (Decay': '理性(衰变挑战',
+    'Sanity (Melt': '理性(熔化挑战',
+    'Sleepy (Watch': '困倦(守望挑战',
+    'Determined (Lead': '决心(领导挑战',
+    'Insane (Insanity': '癫狂(失智挑战',
+    'Dedicated (Daily': '专注(日常挑战',
+    'Famine (Daily': '饥荒(日常挑战',
+    'Antenna Network': '气象网络',
+    'Parity (Staff': '对等(权杖',
+    'Swiftness (Wind': '迅捷(风',
+    'Heirloom (Staff': '传家宝(权杖',
+    'Sharing Food': '分享食物',
+    'Average Loot': '劫掠平均值',
+    'Food Per Second': '每秒食物获取量',
+    'Wood Per Second': '每秒木头获取量',
+    'Metal Per Second': '每秒金属获取量',
+    'Science Per Second': '每秒科学点获取量',
+    'Gems Per Second': '每秒宝石获取量',
+    'Fragments Per Second': '每秒碎片获取量',
+    'Breeding': '繁殖中',
+    'Nurseries': '托儿所',
+    'Broken Planet': '行星破碎',
+    'Quick Trimps': '快枪手脆皮',
+    'Dysfunctional (Daily': '无能(日常',
+    'Toxic (Daily': '毒性(日常',
+    'Toxic Air': '毒气',
+    'Heirloom (Shield': '传家宝(盾牌',
+    'Trimps Per Second': '每秒脆皮获取量',
+    'Item Attack': '攻击明细',
+    'Item Block': '格挡明细',
+    'Item Health': '生命值明细',
+    'Item Prismatic Shield': '棱镜护盾明细',
+    'Total': '总计',
+    'Min': '最小',
     'Long Time': '时间极长',
     'Complete Z': '通过区域',
     'Well Fed': '营养充足',
@@ -36,8 +79,48 @@ var cnItems = {
     'Combat': '战斗',
     'Message Config': '消息设置',
     'Here you can finely tune your message settings, to see only what you want from each category. Mouse over the name of a filter for more info.': '在这里您可以设置想要看到的消息种类。鼠标停留在消息名称上可以获取更多信息。',
-    '': '',
-    '': '',
+    '- Primary': '- 主要',
+    '- Log the common loot items: Food, Wood, and Metal.': '- 显示普通战利品的消息：食物，木头和金属。',
+    'Primary': '主要',
+    '- Secondary': '- 次要',
+    '- Log the less common loot items: Gems, Fragments, Territory Bonus, and others.': '- 显示不普通战利品的消息：宝石，碎片，战斗领土加成和其他等。',
+    'Secondary': '次要',
+    '- Events': '- 活动',
+    '- Log drops and messages from temporary events, such as holidays.': '- 显示活动相关的消息，例如节日活动。',
+    'Events': '活动',
+    '- Exotic': '- 奇异',
+    '- Log the rewards granted by Exotic Imports.': '- 显示奇异外皮奖励的消息。',
+    'Exotic': '奇异',
+    '- Helium': '- 氦',
+    '- Radon': '- 氡',
+    '- Log Helium rewards.': '- 显示氦相关奖励的消息。',
+    '- Log Radon rewards.': '- 显示氡相关奖励的消息。',
+    '- Repeated': '- 重复',
+    '- Log all unlocks that drop more than once per run, such as Speedfarming or Coordination.': '- 显示每次传送时掉落超过一次的升级的消息，例如耕作加速或协作。',
+    'Repeated': '重复',
+    '- Unique': '- 独特',
+    '- Log all unlocks that only drop once per portal, such as Gyms or Miners.': '- 显示每次传送时只掉落一次的升级的消息，例如健身房或矿工。',
+    'Unique': '独特',
+    '- Trimp': '- 脆皮',
+    '- Log all combat messages involving your Trimps.': '- 显示所有与您的脆皮有关的战斗的消息。',
+    '- Enemy': '- 敌人',
+    '- Log all combat messages involving the enemy.': '- 显示所有与敌人有关的战斗的消息。',
+    'Enemy': '敌人',
+    '- Essence': '- 精华',
+    '- Log all Dark Essence found by scrying.': '- 显示所有使用占卜者阵型找到的黑暗精华的消息。',
+    'Essence': '精华',
+    '- Magma': '- 岩浆',
+    '- Log drops from Magma cells, including Fuel and Magmite.': '- 显示所有岩浆格子掉落的消息，包括燃料和岩浆岩。',
+    '- Token': '- 符记',
+    '- Log Nature Tokens.': '- 显示自然符记的消息。',
+    'Token': '符记',
+    '- Cache': '- 储藏箱',
+    '- Log drops from Caches in maps.': '- 显示所有地图中储藏箱掉落的消息。',
+    'Cache': '储藏箱',
+    '- Log Bone drops from Skeletimps.': '- 显示脆皮骷髅骨头掉落的消息。',
+    '- Exp': '- 经验值',
+    '- Log Exp gained by pets.': '- 显示绒绒或污污获得经验值的消息。',
+    'Exp': '经验值',
     'AutoTraps On': '开启自动陷阱捕捉',
     'AutoTraps Off': '关闭自动陷阱捕捉',
     'Build': '建造',
@@ -47,6 +130,10 @@ var cnItems = {
     'This is a building in your queue, you\'ll need to click "Build" to build it. Clicking an item in the queue will cancel it for a full refund.': '您的队列中有建筑存在，您需要点击 建造 来进行建造。点击队列中的建筑将取消建造并全额返还资源。',
     'All': '全部',
     'Buildings': '建筑',
+    'You can only purchase 1 Barn at a time.': '您一次只能购买1个谷仓。',
+    'You can only purchase 1 Forge at a time.': '您一次只能购买1个锻造厂。',
+    'You can only purchase 1 Shed at a time.': '您一次只能购买1个窝棚。',
+    'You can only purchase 1 Antenna at a time.': '您一次只能购买1个气象天线。',
     'Jobs': '工作',
     'Upgrades': '升级',
     'Equipment': '装备',
@@ -177,6 +264,17 @@ var cnItems = {
     'Hotkeys: S or': '快捷键： S 或',
     'Wind Formation': '风阵型',
     'Hotkeys: W or': '快捷键： W 或',
+    'You recently switched to Scryer Formation and will': '您才刚切换到占卜者阵型， ',
+    'You recently switched to Wind Formation and will': '您才刚切换到风阵型， ',
+    'not': '不',
+    'earn a bonus from this enemy.': '会在这个敌人身上获得加成。',
+    'You will earn a bonus from this enemy!': '您可以在这个敌人身上获得加成！',
+    'You will earn a bonus from the Cache at the end of this map!': '您可以从地图最后的储藏箱获得加成！',
+    'You completed some of this map outside of Scryer Formation, and will': '您在地图中切换出了占卜者阵型，因此',
+    'You completed some of this map outside of Wind Formation, and will': '您在地图中切换出了风阵型，因此',
+    'earn a bonus from the Cache.': '会从储藏箱获得加成。',
+    'You will earn bonus Helium at the end of this map from Scryhard II!': '由于努力占卜II 的效果，您可以从地图最后获得氦加成！',
+    'earn a bonus to Helium from Scryhard II': '会因努力占卜 II的效果获得氦加成',
     'DMG': '攻击力',
     'Weak!': '虚弱!',
     'Crit!': '暴击!',
@@ -245,6 +343,7 @@ var cnItems = {
     'This Bad Guy is nice and plump from eating Trimps. Increases attack damage by 25% per stack': '此敌人由于吃掉脆皮变得更肥了。每层增加25%攻击力',
     'Sugar Rush': '甜蜜冲刺',
     'Trimps are not at all used to sugar, but they seem to be really enjoying it!': '脆皮们还没习惯糖的味道，但看起来它们很喜欢！',
+    'World Info': '世界信息',
     'Fight': '战斗',
     'Send your poor Trimps to certain doom in the battlefield. You\'ll get cool stuff though, they\'ll understand. (Hotkey: F': '将可怜的脆皮们送入战场，迎接它们注定的结局。您会因此获得好东西，所以它们一定能理解您的。(快捷键：F',
     'AutoFight On': '开启自动战斗',
@@ -298,6 +397,18 @@ var cnItems = {
     'Random': '随机',
     'Special Modifier': '特殊修饰符',
     'Select a special modifier to add to your map from the drop-down below! You can only add one of these to each map. The following bonuses are currently available': '请从下拉菜单中选择要使用的特殊修饰符！每张地图只能使用一个特殊修饰符。目前可以使用以下的特殊修饰符',
+    'Fast Attacks (FA': '快速攻击 (FA',
+    'Large Cache (LC': '大储藏箱 (LC',
+    'Small Savory Cache (SSC': '小美味储藏箱 (SSC',
+    'Small Wooden Cache (SWC': '小木头储藏箱 (SWC',
+    'Small Metal Cache (SMC': '小金属储藏箱 (SMC',
+    'Small Research Cache (SRC': '小研究储藏箱 (SRC',
+    'Prestigious (P': '重铸 (P',
+    'Huge Cache (HC': '巨大储藏箱 (HC',
+    'Large Savory Cache (LSC': '大美味储藏箱 (LSC',
+    'Large Wooden Cache (LWC': '大木头储藏箱 (LWC',
+    'Large Metal Cache (LMC': '大金属储藏箱 (LMC',
+    'Large Research Cache (LRC': '大研究储藏箱 (LRC',
     'No Modifier': '无修饰符',
     'Fast Attacks': '快速攻击',
     '- All attacks in this map happen 100ms faster.': '- 此地图中，所有攻击都快100ms。',
@@ -2416,11 +2527,22 @@ var cnItems = {
     'Price': '价格',
     'Spent': '已花',
     'Equality Scaling': '平等缩放',
+    'You can enable or disable Equality Scaling at any time.': '您可以在任何时候启用和禁用平等缩放。',
     'Scale Equality': '平等缩放',
     'On': '开启',
     'Off': '关闭',
+    'With Equality Scaling On, each Portal starts with 0 levels of Equality active. If a group of Trimps dies after attacking': '启用平等缩放时，每次传送后平等生效等级从0级开始。每当一队脆皮在攻击 ',
+    'or fewer time, one level of Equality will activate, up to your purchased level of Equality.': '次或者更少次就阵亡时，平等生效等级增加1级，最高等于您的平等特权等级。',
+    'or fewer times, one level of Equality will activate, up to your purchased level of Equality.': '次或者更少次就阵亡时，平等生效等级增加1级，最高等于您的平等特权等级。',
+    'Ctrl Click this button to customize your Equality settings.': '按下Ctrl键再点击可以自定义平等缩放设置。',
+    'Hotkey: E': '(快捷键：E',
     'Scale Equality Scaling': '平等缩放设置',
     'You can only respec once per run. Clicking cancel will not consume this use.': '每次传送后您可以洗点一次。点击取消则不会消耗次数。',
+    'Change this Slider to change the maximum amount of attacks Trimps need to make in order to not trigger Equality Scaling. Setting this slider to 0 will increase scaling whenever a group of Trimps is one-shot, 1 will increase if Trimps attack one or fewer times, 5 will only increase if they attack 5 or fewer times, etc. If Reversing is allowed, Equality stacks will also decrease whenever Trimps kill an enemy in more attacks than your current slider setting.': '修改滑块的数值影响脆皮在阵亡前攻击了多少次才不会触发平等缩放。滑块设置为0时，当一队脆皮被秒杀时增加平等生效等级。设置为1时，当一队脆皮只攻击了1次或者更少次就阵亡时增加平等生效等级。设置为5时，当一队脆皮只攻击了5次或者更少次就阵亡时增加平等生效等级。依此类推。如果开启了平等消除，那么在脆皮攻击超过滑块相应次数击杀敌人后，减少平等生效等级。',
+    'Your current setting is': '当前的平等滑块设置为 ',
+    'Allow Reversing': '开启平等消除',
+    'You can also manually set how many stacks of Equality should be used if Scaling is disabled changing the slider below. This allows you to customize exactly how many stacks of Equality to use without having to respec your Perks.': '如果关闭平等缩放，您还可以直接在下方设置平等生效等级。这样您就不必洗点特权也可以设置平等生效等级了。',
+    'Your Equality stacks when Scaling is disabled will be': '关闭平等缩放时，平等生效等级为 ',
     'Respec Perks': '特权洗点',
     'Change to Universe': '切换到宇宙',
     'Confirm': '确认',
@@ -3712,8 +3834,6 @@ var cnItems = {
     'Eggs': '蛋来了',
     'It seems as if some sort of animal has placed a bunch of brightly colored eggs in the world. If you happen to see one, you can click on it to send a Trimp to pick it up! According to your scientists, they have a rare chance to contain some neat stuff, but they will not last forever...': '看起来有什么动物把一堆色彩鲜艳的蛋在世界上丢的到处都是。如果您碰到了的话，可以点击那些蛋，让一个脆皮去把它捡起来！根据科学家们的说法，它们可能有比较小的概率藏有什么宝贝，但它们无法永久存在……',
     'I\'ll keep an eye out.': '我会注意的。',
-    '': '',
-    '': '',
     //杂项结束
     //脚本3相关
     'AutoTrimps': '自动脆皮',
@@ -3762,7 +3882,6 @@ var cnItems = {
     'Fluffy XP PerHour': '每小时绒绒经验',
     'Scruffy XP': '污污经验',
     'Scruffy XP PerHour': '每小时污污经验',
-    'Nurseries': '托儿所',
     'Amalgamators': '合并者',
     'Refresh': '刷新',
     'Clear All Previous Data': '清除全部数据',
@@ -4887,7 +5006,6 @@ var cnItems = {
     'Name': '名称',
     '%C': '加成：挑战',
     '%HZE': '区域比',
-    'Total': '总计',
     'Loading New AutoTrimps Profile...': '正在载入新的脚本设置文件……',
     'Current Settings will be lost': '当前的设置将丢失',
     'NOTICE': '注意',
@@ -5089,15 +5207,7 @@ var cnItems = {
     
     
     'Max wood': '木头上限',
-    'Science Per Second': '每秒获得科学点',
-    'Farmers': '农民',
-    'Lumberjacks': '伐木工',
-    'Item Block': '物品格挡',
-    'Breeding': '繁殖中',
-    'Food Per Second': '每秒获得食物',
     'Soldiers': '士兵',
-    'Item Attack': '物品攻击',
-    'Min': '最小',
     //未分类：
     'primary': '主要',
     'secondary': '次要',
@@ -5129,45 +5239,15 @@ var cnItems = {
     'Food/Wood/Metal': '食物/木头/金属',
     'cache': '储藏箱',
     'bone': '骨头',
-    'Tribute X': '贡品 X',
     'enabled': '启用',
-    //修饰符
-    'Fast Attacks (FA': '快速攻击 (FA',
-    'Large Cache (LC': '大储藏箱 (LC',
-    'Small Savory Cache (SSC': '小美味储藏箱 (SSC',
-    'Small Wooden Cache (SWC': '小木头储藏箱 (SWC',
-    'Small Metal Cache (SMC': '小金属储藏箱 (SMC',
-    'Small Research Cache (SRC': '小研究储藏箱 (SRC',
-    'Prestigious (P': '重铸 (P',
-    'Huge Cache (HC': '巨大储藏箱 (HC',
-    'Large Savory Cache (LSC': '大美味储藏箱 (LSC',
-    'Large Wooden Cache (LWC': '大木头储藏箱 (LWC',
-    'Large Metal Cache (LMC': '大金属储藏箱 (LMC',
-    'Large Research Cache (LRC': '大研究储藏箱 (LRC',
     //1.2.标题
-    'Trap X': '陷阱 X',
-    'Barn X': '谷仓 X',
-    'Shed X': '窝棚 X',
-    'Forge X': '锻造厂 X',
-    'Hut X': '小屋 X',
-    'House X': '宅院 X',
-    'Mansion X': '豪宅 X',
-    'Hotel X': '宾馆 X',
-    'Resort X': '度假村 X',
-    'Gym X': '健身房 X',
-    'Nursery X': '托儿所 X',
     'AutoGolden': '自动黄金升级',
     'Sell Trap/Tower': '出售陷阱/塔',
-    'World Info': '世界信息',
-    'Trimps Per Second': '每秒脆皮',
     'Max Trimps': '脆皮上限',
     //专精
     'Quick Gen': '快速发生',
     'Spire Settings': '尖塔设置',
     'Food/Wood/Metal Loot Breakdown': '食物/木头/金属 劫掠明细',
-    //成就
-    'Gym X10': '健身房 X10',
-    //成就结束
     'Block': '格挡',
     'Health': '生命值',
     'Attack': '攻击力',
@@ -5178,7 +5258,6 @@ var cnItems = {
     'Research first': '研究优先',
     'Challenge': '挑战',
     'Auto Saving': '自动保存',
-    'Helium Canisters': '氦罐',
     'Loot off': '劫掠 关闭',
     'Combat off': '战斗 关闭',
     'Unlocks off': '解锁 关闭',
@@ -5187,49 +5266,14 @@ var cnItems = {
     'Reward': '奖励',
     'better get some more achievements': '更好地获得更多的成就',
     'Level': '等级',
-    'Base': '基础',
-    'Item Health': '物品生命',
     'Upgrade (': '升级 (',
     ' Lv': ' 等级',
-    'You have been in this Zone ': '你一直在这个区域',
     'Amount': '数量',
     'Line Total': '总行数',
     'It\'s kind of heavy for your Trimps, but they\'ll manage. Adds 3 attack to each soldier per level': '这对你的脆皮来说有点重，但他们会处理的。每升一级增加3个攻击',
-    '- Bone': '- 骨头',
-    '- Enemy': '- 敌人',
-    '- Events': '- 事件',
-    '- Exotic': '- 奇异',
-    '- Primary': '- 主要',
-    '- Repeated': '- 重复',
-    '- Secondary': '- 次要的',
-    '- Unique': '- 独特',
-    'Repeated': '重复的',
-    'Unique': '独特的',
-    'Bone': '骨头',
-    'Enemy': '敌人',
-    'Events': '事件',
-    'Exotic': '奇异',
-    'Primary': '主要',
-    'Secondary': '次要的',
-    '- Log all unlocks that only drop once per portal, such as Gyms or Miners.': '- 记录每个传送门仅释放一次的所有解锁，如健身房或矿工。',
-    '- Log all unlocks that drop more than once per run, such as Speedfarming or Coordination.': '- 记录每次运行多次下降的所有解锁，例如耕作加速或协作。',
-    '- Log all combat messages involving the enemy.': '- 记录所有与敌人有关的战斗信息。',
-    '- Log all combat messages involving your Trimps.': '-记录所有涉及脆皮的战斗消息。',
-    '- Log Bone drops from Skeletimps.': '- 记录来自骷髅脆皮的骨头掉落',
-    '- Log drops and messages from temporary events, such as holidays.': '- 记录掉落和来自临时事件（例如假期）的消息。',
-    '- Log Helium rewards.': '- 记录氦奖励。',
-    '- Log the common loot items: Food, Wood, and Metal.': '- 记录常见的战利品：食物，木材和金属。',
-    '- Log the less common loot items: Gems, Fragments, Territory Bonus, and others.': '-记录不太常见的战利品：宝石，碎片，领土奖金等。',
-    '- Log the rewards granted by Exotic Imports.': '-记录奇异外皮授予的奖励。',
-    'Grants an extra 0.3% of current 脆皮': '额外捐赠当前脆皮的0.3％',
-    'Wood Per Second': '木头每秒产量',
-    'Metal Per Second': '金属每秒产量',
     'Max Food': '食物上限',
     'Max Metal': '金属上限',
     'Max Wood': '木头上限',
-    'You can only purchase 1 Barn at a time.': '您一次只能购买1个谷仓。',
-    'You can only purchase 1 Forge at a time.': '您一次只能购买1个锻造厂。',
-    'You can only purchase 1 Shed at a time.': '您一次只能购买1个窝棚。',
     'but you wish you had a few more achievements': '但你希望自己能再有一些成就',
     'you\'d do fine with a few more achievements': '您会再取得一些成就',
     'Got it!': '得到它！',
@@ -5277,12 +5321,6 @@ var cnItems = {
     //原样
     '': '',
     '': '',
-
-
-    'You will earn a bonus from this enemy!': '你将会从这个敌人处获得奖励加成!',
-    'You recently switched to Scryer Formation and will': '你刚刚切换到占卜者阵型，',
-    'not': '不',
-    'earn a bonus from this enemy.': '会从这个敌人处获得奖励加成',
 }
 
 
@@ -5911,6 +5949,7 @@ var cnRegReplace = new Map([
     [/^(.+) Year(s*) (.+) Day(s*)$/, '$1年$3天'], //主界面
     [/^(.+) Secs \/ (.+) Secs$/, '$1秒/$2秒'], //主界面
     [/^(.+) Sec(s*)$/, '$1秒'], //主界面
+    [/^(.+) minutes \(\+$/, '$1分钟(+'], //主界面
     [/^employed(\s+)$/, '已雇佣$1'], //主界面
     [/^You currently have (.*) Dark Essence.$/, '您目前拥有$1黑暗精华。'], //主界面
     [/^Trapping(.+)$/, '捕捉中$1'], //主界面
@@ -5926,12 +5965,46 @@ var cnRegReplace = new Map([
     [/^Magmamancer X(.*)$/, '岩浆巫师 X$1'], //主界面
     [/^Meteorologist X(.*)$/, '气象学家 X$1'], //主界面
     [/^Worshipper X(.*)$/, '崇信者 X$1'], //主界面
+    [/^Trap X(.*)$/, '陷阱 X$1'], //主界面
+    [/^Barn X(.*)$/, '谷仓 X$1'], //主界面
+    [/^Shed X(.*)$/, '窝棚 X$1'], //主界面
+    [/^Forge X(.*)$/, '锻造厂 X$1'], //主界面
+    [/^Hut X(.*)$/, '小屋 X$1'], //主界面
+    [/^House X(.*)$/, '宅院 X$1'], //主界面
+    [/^Mansion X(.*)$/, '豪宅 X$1'], //主界面
+    [/^Hotel X(.*)$/, '宾馆 X$1'], //主界面
+    [/^Resort X(.*)$/, '度假村 X$1'], //主界面
+    [/^Gateway X(.*)$/, '维度裂隙 X$1'], //主界面
+    [/^Wormhole X(.*)$/, '虫洞 X$1'], //主界面
+    [/^Collector X(.*)$/, '汲能设施 X$1'], //主界面
+    [/^Warpstation X(.*)$/, '跃迁核心 X$1'], //主界面
+    [/^Hub X(.*)$/, '中心枢纽 X$1'], //主界面
+    [/^Gym X(.*)$/, '健身房 X$1'], //主界面
+    [/^Smithy X(.*)$/, '铁匠铺 X$1'], //主界面
+    [/^Tribute X(.*)$/, '贡品 X$1'], //主界面
+    [/^Nursery X(.*)$/, '托儿所 X$1'], //主界面
+    [/^Microchip X(.*)$/, '微型芯片 X$1'], //主界面
+    [/^Antenna X(.*)$/, '气象天线 X$1'], //主界面
+    [/^Shield X(.*)$/, '盾牌 X$1'], //主界面
+    [/^Dagger X(.*)$/, '匕首 X$1'], //主界面
+    [/^Boots X(.*)$/, '靴子 X$1'], //主界面
+    [/^Mace X(.*)$/, '狼牙棒 X$1'], //主界面
+    [/^Helmet X(.*)$/, '头盔 X$1'], //主界面
+    [/^Polearm X(.*)$/, '战戟 X$1'], //主界面
+    [/^Pants X(.*)$/, '裤子 X$1'], //主界面
+    [/^Battleaxe X(.*)$/, '战斧 X$1'], //主界面
+    [/^Shoulderguards X(.*)$/, '护肩 X$1'], //主界面
+    [/^Greatsword X(.*)$/, '巨剑 X$1'], //主界面
+    [/^Breastplate X(.*)$/, '胸铠 X$1'], //主界面
+    [/^Arbalest X(.*)$/, '强弩 X$1'], //主界面
+    [/^Gambeson X(.*)$/, '棉甲 X$1'], //主界面
     [/^- (.+) Seconds$/, '- $1秒'], //主界面
     [/^0(\s+)for(\s+)no(\s+)limit$/, '设为0则无限制'], //主界面
     [/^AutoGold Helium \((.*)\/$/, '金色升级氦($1/'], //主界面
     [/^AutoGold Radon \((.*)\/$/, '金色升级氡($1/'], //主界面
     [/^AutoGold Battle \((.*)\/$/, '金色升级战斗($1/'], //主界面
     [/^AutoGold Void \((.*)\/$/, '金色升级虚空($1/'], //主界面
+	[/^(.*) remaining enem(y|ies) in your current Zone (is|are) holding Dark Essence. Your current enemy at this Zone would be worth (.*) Essence if it were holding any.$/, '当前区域剩下$1个敌人可掉落黑暗精华。如果当前敌人掉落了黑暗精华，掉落数量将为$4。'],
     [/^Your pet RoboTrimp seems to be gifted at distorting the magnetic field around certain Bad Guys, especially Improbabilities. You can activate this ability once every 5 Zones in order to tell your RoboTrimp to reduce the attack damage of the next Improbability by (.*)%. This must be reactivated each time it comes off cooldown.$/, '您的小脆皮机器人似乎在扭曲某些敌人周围的磁场方面很有天赋，特别是面对乌有者时更甚。每5个区域，您可以激活此能力，让小脆皮机器人可以减少此区域乌有者$1%的攻击力。每次激活发射电磁尖啸后，都需要手动再次激活。'], //主界面
     [/^This enemy is harmed by the Empowerment of Poison, and is taking (.*) extra damage per turn.$/, '此敌人被毒赋能影响了，每回合额外受到$1伤害。'], //主界面
     [/^This enemy has been chilled by the Empowerment of Ice, is taking (.*)% more damage, and is dealing (.*)% less damage with each normal attack.$/, '此敌人因冰赋能被冰冻了，额外受到$1%伤害，普通攻击造成的伤害减少$2%。'], //主界面
@@ -5986,6 +6059,19 @@ var cnRegReplace = new Map([
     [/^Trade(?! (.*) Tokens)(.*)$/, '交易$1'], //主界面
     [/^Spire([\sIVXLCDM]*)$/, '尖塔$1'], //主界面
     [/^(\d+)% Map Bonus$/, '$1%地图奖励'], //主界面
+    [/^Zone (.*), Cell$/, '区域 $1，格子'], //主界面
+	[/^You have been in this Zone for (.*) second(s*)$/, '您已经在此区域停留了$1秒'], //主界面
+	[/^You have been in this Zone for (.*) min(s*), (.*) sec(s*)$/, '您已经在此区域停留了$1分钟，$3秒'], //主界面
+	[/^You have been in this Zone for (.*)$/, '您已经在此区域停留了$1'], //主界面
+    [/^(.*) group(s*) of Trimps ha(s|ve) died in this Spire.$/, '尖塔中已经有$1队脆皮阵亡了。'], //主界面
+	[/^Bionic Wonderland ([IVXLCDM]+), Level (.*) \(P, FA\), Cell$/, '仿生仙境 $1，等级 $2 (P,FA)，格子'], //主界面
+	[/^ Level (.*) \((.*)\), Cell$/, '等级 $1 ($2)，格子'], //主界面
+	[/^ Level (.*), Cell$/, '等级 $1，格子'], //主界面
+	[/^You have been on this map for (.*) second(s*)$/, '您已经在此地图停留了$1秒'], //主界面
+	[/^You have been on this map for (.*) min(s*), (.*) sec(s*)$/, '您已经在此地图停留了$1分钟，$3秒'], //主界面
+	[/^You have been on this map for (.*)$/, '您已经在此地图停留了$1'], //主界面
+	[/^You have (.*) Void Map(s*) \((.*) stacked\).$/, '您有$1张虚空地图($3张已融合)。'], //主界面
+	[/^You have (.*) Void Map(s*)$/, '您有$1张虚空地图'], //主界面
     [/^(\s+)Fight(\s+)$/, '$1战斗$2'], //主界面
     [/^(\d+)(.*) Trimp(s*)$/, '$1$2脆皮'], //主界面
     [/^(\s+)AutoFight Off(\s+)$/, '$1关闭自动战斗$2'], //主界面
@@ -6022,7 +6108,9 @@ var cnRegReplace = new Map([
     [/^You are about to purchase (.*) Wormholes,$/, '您将购买$1个虫洞，'], //建筑
     [/^Each collector allows you to harvest more of the power of your home star, allowing your Trimps to colonize a larger chunk of your solar system. Each supports (.*) Trimp(s*).$/, '每个汲能设施都可以让您从母星汲取更多的能量，支持脆皮们在太阳系中占领更多的地盘。每个汲能设施可以容纳$1个脆皮。'], //建筑
     [/^Create a gigantic Warpstation, capable of housing tons of Trimps and instantly transporting them back to the home planet when needed. Supports (.*) Trimps.$/, '建造一个巨型的跃迁核心，可以容纳超大量的脆皮，并且在有需要的时候可以将它们传送回母星。每个跃迁核心可以容纳$1个脆皮。'], //建筑
+    [/^You had (.*) Warpstations when you purchased your last Gigastation \((.*)\).$/, '上次购买千兆核心($2)时您有$1个跃迁核心。'], //建筑
     [/^Cannot be purchased directly. Level is always equal to your total amount of Huts, Houses, Mansions, Hotels, Resorts, Gateways, and Collectors. Supports (.*) Trimps.$/, '无法直接建造。数量等于小屋、宅院、豪宅、宾馆、度假村、维度裂隙、汲能设施的数量之和。每个中心枢纽可以容纳$1个脆皮。'], //建筑
+    [/^A building where your Trimps can work out. Each Gym increases the amount of damage each trimp can block by (.*) and increases the base block of all Gyms by (.*)% \(compounding\).$/, '脆皮们解决问题的一个地方。每个健身房增加每个脆皮可以格挡的伤害量，数值为$1，并且使所有健身房的基础格档数值增加$2%(相互叠乘)。'], //建筑
     [/^A building where your Trimps can work out. Each Gym increases the amount of damage each trimp can block by (.*).$/, '脆皮们解决问题的一个地方。每个健身房增加每个脆皮可以格挡的伤害量，数值为$1。'], //建筑
     [/^You have purchased (.*) total Nurseries.$/, '您总共建造了$1个托儿所。'], //建筑
     [/^Train one of your Trimps in the ancient art of farming. Each Farmer harvests (.*) food per second.$/, '使用古老的耕作艺术训练一个脆皮。每个农民每秒收获$1食物。'], //工作
@@ -6373,7 +6461,7 @@ var cnRegReplace = new Map([
     [/^(.*)Scruffy is too busy eating the purple snow to open this one, so you do it yourself. Inside, you find (.*) fragments!$/, '$1污污忙着吃紫雪没空管这个小礼，所以您就代劳了。在里面您发现了$2碎片！'], //特定敌人
     [/^(.*)You shake the Presimpt before opening it, and can tell there's something special in this one. Yup! That thoughtful Presimpt gave you a perfectly preserved bone!$/, '$1您在打开前摇了摇那个脆皮小礼，感觉到里面似乎藏着什么奇珍异宝。哈，瞧，里面是一块保存完好的骨头！'], //特定敌人
     [/^A big, wooden shield. Adds (.*) health to each soldier per level.$/, '一面大木盾，每级增加每名士兵$1生命值。'], //装备
-    [/^A big, wooden shield. Adds (.*) block to each soldier per level.$/, '一面大木盾，每级增加每名士兵$1格挡。'], //装备
+    [/^A big, wooden shield. Adds (.*) block to each soldier per level. \((.*) after Trainers$/, '一面大木盾，每级增加每名士兵$1格挡。(将训练师效果计入则格档变为增加$2'], //装备
     [/^Better than nothing. Adds (.*) attack to each soldier per level$/, '聊胜于无。每级增加每名士兵$1攻击力'], //装备
     [/^At least their feet will be safe. Adds (.*) health to each soldier per level$/, '至少能保护到脚。每级增加每名士兵$1生命值'], //装备
     [/^It's kind of heavy for your Trimps, but they'll manage. Adds (.*) attack to each soldier per level$/, '对脆皮来说有点重，但它们能搞定。每级增加每名士兵$1攻击力'], //装备
@@ -6530,6 +6618,7 @@ var cnRegReplace = new Map([
     [/^(.*)That guy just left (.*) food on the ground! Sweet!$/, '$1那家伙在地上留下了$2食物！真是太好啦！'], //地图解锁等
     [/^(.*)You just found (.*) wood! That's pretty neat!$/, '$1您发现了$2木头！很好很强大！'], //地图解锁等
     [/^This book will teach your soldiers how to utilize the buddy system. Fighting will now require (.*)% more Trimps \(rounded up\), but attack and health will grow for each new Trimp.$/, '这本书可以教会士兵如何利用伙伴的力量。从现在起，战斗所需要的脆皮数量增加$1%(向上取整)，脆皮的攻击力和生命值也相应地提升。'], //其他升级等
+    [/^You need enough room for (.*) max Trimps. You are short (.*) Trimp(s*).$/, '您需要$1的脆皮上限才能升级。您还缺少$2的脆皮上限。'], //其他升级等
     [/^(.*)You just made a map to the Dimension of Anger! Should be fun!$/, '$1您制造了愤怒维度地图！应该会很有趣的！'], //其他升级等
     [/^(.*)You just made a map to the Dimension of Rage! Sounds like a great time!$/, '$1您制造了暴怒维度地图！听起来不错哦！'], //其他升级等
     [/^Your next Shield will grant (.*) block.$/, '下一级盾牌增加$1格挡。'], //其他升级等
@@ -6765,7 +6854,7 @@ var cnRegReplace = new Map([
     [/^(.*) Helium, (.*)x each Token$/, '$1氦，各$2自然符记'], //骨头等
     [/^(.*) Helium, (.*) Fluffy Exp$/, '$1氦，$2绒绒经验'], //骨头等
     [/^(.*) Radon, (.*) Scruffy Exp$/, '$1氡，$2污污经验'], //骨头等
-    [/^(.*)(?<!and (.*)\%)(?<!Current)(?<!30 total)(?<!Battle)(?<!Cool For)(?<!AutoGold) Helium$/, '$1氦'], //骨头等
+    [/^(.*)(?<!-)(?<!and (.*)\%)(?<!Current)(?<!30 total)(?<!Battle)(?<!Cool For)(?<!AutoGold) Helium$/, '$1氦'], //骨头等
     [/^(.*)(?<!-)(?<!Current)(?<!Helium \/)(?<!Battle)(?<!Raging)(?<!AutoGold) Radon$/, '$1氡'], //骨头等
     [/^(\d+\%) Map Loot$/, '$1 地图资源获取'], //骨头等
     [/^(\d+\%) Trimp Damage$/, '$1 脆皮伤害'], //骨头等
@@ -6858,7 +6947,7 @@ var cnRegReplace = new Map([
     [/^([0-9a-zA-Z\.\%\s]*)Void Map Drop Chance$/, '$1虚空地图掉落概率'], //传家宝
     [/^([0-9a-zA-Z\.\%\s]*)Void Map Drop Chance\*$/, '$1虚空地图掉落概率*'], //传家宝
     [/^([0-9a-zA-Z\.\%\s]*)Plaguebringer$/, '$1瘟疫使者效果'], //传家宝
-    [/^(.*)% of all non-lethal damage and nature stacks you afflict on your current enemy are copied onto the next enemy. Plaguebringer damage cannot bring an enemy below 5% health, but nature stacks will continue to accumulate.$/, '将对目前敌人造成的所有非致命伤害及累积的三种自然层数的$1%对下一个敌人生效。瘟疫使者的伤害效果无法将敌人的生命值降到5%以下，但自然层数无限制。'], //传家宝
+    [/^(.*)% of all non-lethal damage and nature stacks you afflict on your current enemy are copied onto the next enemy. Plaguebringer damage cannot bring an enemy below 5% health, but nature stacks will continue to accumulate.$/, '将对当前敌人造成的所有非致命伤害及累积的三种自然层数的$1%对下一个敌人生效。瘟疫使者的伤害效果无法将敌人的生命值降到5%以下，但自然层数无限制。'], //传家宝
     [/^(?!Item)([0-9a-zA-Z\.\%\s]*)Prismatic Shield$/, '$1棱镜护盾'], //传家宝
     [/^([0-9a-zA-Z\.\%\s]*)Gamma Burst$/, '$1伽马爆发'], //传家宝
     [/^Each attack by your Trimps adds 1 stack of Charging. When Charging reaches 5 stacks, your Trimps will release a burst of energy, dealing (.*)% of their attack damage. Stacks reset after releasing a Burst or when your Trimps die.$/, '脆皮每次攻击时增加1层“蓄能”。当蓄能层数到达5层时，脆皮将释放积蓄的能量，对敌人造成$1%攻击力的伤害。当能量释放或者脆皮死亡后，层数重置。'], //传家宝
@@ -7241,6 +7330,7 @@ var cnRegReplace = new Map([
     [/^You have (.*) extra Heirloom(s*), which will be recycled for (.*) Nullifium  and (.*) Spirestones if you portal now. Make sure you carry any that you want to save!$/, '临时栏中有$1个传家宝，传送时将被回收为$3虚空物质和$4尖塔石。如果有想携带的，现在还来得及！'], //挑战界面
     [/^You have (.*) Magmite, which is enough purchase an upgrade for your Dimensional Generator! If you portal now, (\d*)% of your Magmite will decay.$/, '您有$1岩浆岩，可以用于购买维度发生器的一项升级！如果现在传送，$2%岩浆岩将会衰变消失。'], //挑战界面
     [/^Preset: (.*)$/, '预设：$1'], //挑战界面
+    [/^You currently have (.*) stack(s*) of Equality active.$/, '您目前的平等生效等级为$1。'], //挑战界面
     [/^(.*)You have completed the$/, '$1您完成了 '], //通用挑战完成消息
     [/^Click to view todays challenge, which resets in less than (.*) day(s*).$/, '点击以查看今天的挑战，此挑战将在$1天内重置。'], //日常挑战消息
     [/^Click to view Sundays challenge, which resets in less than (.*) day(s*).$/, '点击以查看周日的挑战，此挑战将在$1天内重置。'], //日常挑战消息
@@ -7426,6 +7516,46 @@ var cnRegReplace = new Map([
     [/^Toughness(\s+)II$/, '坚韧 II'], //特权等
     [/^Your Trimps are frenzied for (.*) second(s*)! They are dealing (.*)% more damage.$/, '您的脆皮们的战狂状态持续时间还有$1秒！它们可以额外造成$3%伤害。'], //特权等
     [/^The Trimps that earned this Frenzy buff are still alive, and they will be able to refresh its duration starting in (.*) second(s*).$/, '最初触发战狂的脆皮们仍然还幸存着，再过$1秒，它们就可以刷新战狂状态持续时间了。'], //特权等
+    [/^(.*) Helium Canister(s*)$/, '$1氦'], //特权等
+    [/^(.*) Radon Vial(s*)$/, '$1氡'], //特权等
+	[/^You have spent (.*) Helium on this Perk.$/, '您已经在这个特权上花费了$1氦。'], //特权等
+	[/^You have spent (.*) Radon on this Perk.$/, '您已经在这个特权上花费了$1氡。'], //特权等
+	[/^Looting II X(.*)$/, '劫掠 II X$1'], //特权等
+	[/^Carpentry II X(.*)$/, '木工 II X$1'], //特权等
+	[/^Motivation II X(.*)$/, '鼓舞 II X$1'], //特权等
+	[/^Power II X(.*)$/, '力量 II X$1'], //特权等
+	[/^Toughness II X(.*)$/, '坚韧 II X$1'], //特权等
+	[/^Capable X(.*)$/, '能力 X$1'], //特权等
+	[/^Cunning X(.*)$/, '灵巧 X$1'], //特权等
+	[/^Curious X(.*)$/, '好奇 X$1'], //特权等
+	[/^Classy X(.*)$/, '上等 X$1'], //特权等
+	[/^Overkill X(.*)$/, '超杀 X$1'], //特权等
+	[/^Resourceful X(.*)$/, '足智多谋 X$1'], //特权等
+	[/^Coordinated X(.*)$/, '协同 X$1'], //特权等
+	[/^Siphonology X(.*)$/, '虹吸学 X$1'], //特权等
+	[/^Anticipation X(.*)$/, '预期 X$1'], //特权等
+	[/^Resilience X(.*)$/, '弹性 X$1'], //特权等
+	[/^Meditation X(.*)$/, '冥想 X$1'], //特权等
+	[/^Relentlessness X(.*)$/, '无情 X$1'], //特权等
+	[/^Greed X(.*)$/, '贪婪 X$1'], //特权等
+	[/^Tenacity X(.*)$/, '坚持 X$1'], //特权等
+	[/^Criticality X(.*)$/, '暴击限界 X$1'], //特权等
+	[/^Equality X(.*)$/, '平等 X$1'], //特权等
+	[/^Carpentry X(.*)$/, '木工 X$1'], //特权等
+	[/^Artisanistry X(.*)$/, '手艺娴熟 X$1'], //特权等
+	[/^Range X(.*)$/, '范围 X$1'], //特权等
+	[/^Agility X(.*)$/, '敏捷 X$1'], //特权等
+	[/^Bait X(.*)$/, '诱饵 X$1'], //特权等
+	[/^Trumps X(.*)$/, '王牌 X$1'], //特权等
+	[/^Pheromones X(.*)$/, '信息素 X$1'], //特权等
+	[/^Packrat X(.*)$/, '囤积成瘾 X$1'], //特权等
+	[/^Motivation X(.*)$/, '鼓舞 X$1'], //特权等
+	[/^Power X(.*)$/, '力量 X$1'], //特权等
+	[/^Toughness X(.*)$/, '坚韧 X$1'], //特权等
+	[/^Looting X(.*)$/, '劫掠 X$1'], //特权等
+	[/^Prismal X(.*)$/, '棱镜化 X$1'], //特权等
+	[/^Hunger X(.*)$/, '饥饿 X$1'], //特权等
+	[/^Frenzy X(.*)$/, '战狂 X$1'], //特权等
     [/^Your Trimps learn to harvest special Herbs while collecting Food! Increases Trimp Attack by a number based on your total stored food. Grants \+30% Attack at (.*) Food, or \+300% at (.*). At your current total of (.*) Food,$/, '您的脆皮现在可以在采集食物时同时采集百草！根据食物存储量增加攻击力。在$1食物时增加30%攻击力，在$2食物时增加300%攻击力。您当前共有$3食物，'], //神农专精
     [/^you are gaining \+([\d+\.]+)% Trimp Attack$/, '您获得了 +$1% 攻击力'], //神农专精
     [/^you would gain \+([\d+\.]+)% Trimp Attack$/, '您可获得 +$1% 攻击力'], //神农专精
@@ -7665,7 +7795,7 @@ var cnRegReplace = new Map([
     [/^(.*)You wrecked a(n*) $/, '$1您击毁了一个'], //击杀消息
     [/^(.*)You obliterated a(n*) $/, '$1您抹消了一个'], //击杀消息
     [/^(.*)The voice booms again, and sounds as if it is coming from the walls themselves.$/, '$1声音再次响了起来，听上去像是从墙壁中来的。'], //故事-尖塔消息
-    [/^Dammit Druopitee. This is all going to end up being his fault, isn't it\? You help yourself to a container filled with (.*) Helium, and figure he'll owe you a lot more than that once you hear some more.$/, '该死的德罗披提，原来都是你在搞的鬼，不是吗？您装走了一个容器中的$1氦，您觉得这么听下去，他欠你的只会越来越多。'], //故事-尖塔消息
+    [/^Dammit Druopitee. This is all going to end up being his fault, isn't it\? You help yourself to a container filled with (.*) Helium, and figure he'll owe you a lot more than that once you hear some more.$/, '该死的德罗披提，原来都是你在搞的鬼，不是吗？您装走了一个容器中的$1氦，您觉得这么听下去，他欠您的只会越来越多。'], //故事-尖塔消息
     [/^Yeah you don't really feel too much like bowing and probably won't be doing that. You did however find (.*) more Helium just sitting around, which you feel no qualms about taking.$/, '您不怎么喜欢臣服，也不会那么做的。您在附近找到了$1氦，毫不犹豫地将它带走了。'], //故事-尖塔消息
     [/^(.*)Druopitee collapses to the floor. You were hoping he'd be a little more sane, but whatever. You shut down the corruption device and hope the planet will repair itself soon, then you rummage through his stuff and find keys, surely for the ship!$/, '$1德罗披提倒在了地上。您曾希望他能恢复哪怕一点点的理智，但终究是徒劳。您关闭了腐化装置，希望这个行星能够尽快自我恢复，然后您在他的东西里面翻找了一会儿，找到了几把钥匙，显然是飞船的钥匙！'], //故事-尖塔消息
     [/^(.*)Druopitee collapses to the floor. You were hoping he'd be a little more sane, but whatever. You shut down the corruption device and hope the planet will repair itself soon, then you rummage through his stuff and find keys, surely for the ship! You also find a massive stockpile of$/, '$1德罗披提倒在了地上。您曾希望他能恢复哪怕一点点的理智，但终究是徒劳。您关闭了腐化装置，希望这个行星能够尽快自我恢复，然后您在他的东西里面翻找了一会儿，找到了几把钥匙，显然是飞船的钥匙！您同时发现了'], //故事-尖塔消息
@@ -8460,9 +8590,4 @@ var cnRegReplace = new Map([
 
     [/^(\d+) workspace$/, '$1 工作区'],
     [/^(.+) workspaces$/, '$1 工作区'],
-    [/^Zone (\d+), Cell$/, '区域 $1, 格子'],
-	[/^You have spent (.+) Helium on this Perk$/, '你已经花费 $1 氦在这个附带特权上'],
-	[/^You have been in this Zone for (\d+) mins$/, '你已经在该区域待了$1分钟'],
-	[/^A building where your Trimps can work out. Each Gym increases the amount of damage each trimp can block by (.+) and increases the base block of all Gyms by 15% \(compounding\).$/, '一个你可以锻炼脆皮的建筑。每个健身房都可以增加每个脆皮$1格挡的伤害量，并且提高所有健身房15%(复合)基础格挡'],
-	[/^(\d+) remaining enemy?(ies)? in your current Zone are holding Dark Essence. Your current enemy at this Zone would be worth (.+) Essence if it were holding any.$/, '当前区域剩余 $1 敌人拥有黑暗精华。如果当前敌人拥有黑暗精华，它会掉落 $3'],
 ]);
