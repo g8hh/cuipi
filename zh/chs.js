@@ -67,6 +67,9 @@ var cnItems = {
     'Item Block': '格挡明细',
     'Item Health': '生命值明细',
     'Item Prismatic Shield': '棱镜护盾明细',
+    'Attack': '攻击力',
+    'Block': '格挡',
+    'Health': '生命值',
     'Lack Discipline': '缺乏纪律',
     'Unharnessed Luck': '脱缰之运',
     'Minimalist (Daily': '极简主义(日常挑战',
@@ -172,6 +175,10 @@ var cnItems = {
     'Loot': '劫掠',
     'Unlocks': '解锁',
     'Combat': '战斗',
+    'Story off': '故事 关闭',
+    'Loot off': '劫掠 关闭',
+    'Unlocks off': '解锁 关闭',
+    'Combat off': '战斗 关闭',
     'Message Config': '消息设置',
     'Here you can finely tune your message settings, to see only what you want from each category. Mouse over the name of a filter for more info.': '在这里您可以设置想要看到的消息种类。鼠标停留在消息名称上可以获取更多信息。',
     '- Primary': '- 主要',
@@ -543,6 +550,7 @@ var cnItems = {
     'Run Map': '运行地图',
     'Recycle Map': '回收地图',
     'Abandon Map': '放弃地图',
+    'Void Map': '虚空地图',
     'This Map will scale in level to your current Zone Number, enemies have a random buff, and the boss at the final cell will drop Helium. This map will disappear after it is completed once, and leaving the map will reset its progress.': '此地图的等级永远等于您当前区域，敌人将获得随机增益，最后一格的首领敌人将掉落氦。通过此地图以后它将消失，退出地图将重置此地图中的进度。',
     'This Map will scale in level to your current Zone Number, enemies have a random buff, and the boss at the final cell will drop Radon. This map will disappear after it is completed once, and leaving the map will reset its progress.': '此地图的等级永远等于您当前区域，敌人将获得随机增益，最后一格的首领敌人将掉落氡。通过此地图以后它将消失，退出地图将重置此地图中的进度。',
     'This Map will scale in level to your current Zone Number. Completing this map will reduce your stacks of Exhausted and Motivated by 1.': '此地图的等级永远等于您当前区域，通过此地图以后将使疲惫不堪和积极前进的层数各减少1层。',
@@ -565,12 +573,49 @@ var cnItems = {
     'Achievements': '成就',
     'You are dealing': '您可以多造成',
     '% extra damage': '%伤害',
+    'better get some more achievements': '最好多获得一些成就',
+    'you\'d do fine with a few more achievements': '再来一点成就会更好',
+    'but you wish you had a few more achievements': '您希望再多获得一些成就',
+    'your achievement game shows promise': '您的成就显露出了希望',
+    'on your path to achievement': '在通往成就的路上',
+    'thanks to your achievements': '多亏了您的成就',
+    'thanks to your bounty of achievements': '多亏了您的大量成就',
+    'must be all those achievements': '一定是因为这些成就',
+    'you are one with the achievements': '您是有成就之人',
+    'and you water your achievements daily': '您每天给成就浇水',
+    'your Trimps are mighty impressed': '您的脆皮对此印象深刻',
+    'your achievements are mind blowing': '您的成就令人振奋',
+    'You wake up, achieve, then sleep': '您醒来，您成就，您睡着',
+    'you have achievement in your blood': '成就在您的血脉中流动',
+    'your achievements are beyond mortal comprehension': '您的成就已经超凡脱俗了',
+    'Trimps far and wide tell stories of your achievement': '脆皮在到处传颂您的成就故事',
+    'you have achieved achievement': '您已经成就了成就',
+    'everything you touch turns to achievement': '您已经点石成就了',
+    'your achievements have achieved achievement': '您的成就已经成就了成就',
+    'news of your achievement spreads throughout the galaxy': '您成就的新闻传遍星空',
+    'achievements bend to your will': '成就服从您的意志',
+    'your achievements transcend reality': '您的成就已经超越现实了',
+    'word of your achievement spreads throughout the universe': '您成就的只言片语传遍了整个宇宙',
+    'everyone else is super jealous': '其他所有人都超级羡慕您',
+    'the achievements of your achievements have achieved achievement': '您成就的成就已经成就了成就',
+    'your achievements have gained sentience': '您的成就已经获得了知觉',
+    'everyone else just stays home': '其他所有人只是待在家里了',
+    'you appear if someone says \'Achievement\' 3 times in a mirror': '如果有人对着镜子喊三声 成就 ，您就会出现',
+    'news of your achievement spreads throughout the multiverse': '您成就的新闻传遍了整个多元宇宙',
+    '. It\'s actually over': '。实际上它已经超过',
+    'everyone else is legitimately impressed': '其他所有人都对此印象深刻',
+    'your great great grand achievements have achieved achievement': '您伟大的伟大成就已经成就了成就',
+    'If achievement was a game, you would win': '如果成就是一个游戏，那么您已经赢了',
+    '. You achieved enlightenment, then your enlightenment started achieving': '。您获得了启迪，然后您的启迪开始成就了',
+    'your Trimps tell all their friends how cool you are': '您的脆皮告诉它们的朋友您有多棒',
+    'you now gain your sustenance from achievements': '只要有成就的地方就有您的存在',
+    'your achievements bring all the Trimps to the Barn': '您的成就把所有脆皮带进了谷仓',
     'Click on an Achievement on this screen to track it!': '点击任一成就以追踪进度！',
     'Export': '导出',
     'This is your save string. There are many like it but this one is yours. Save this save somewhere safe so you can save time next time.': '以下是您的存档字符串。只属于您，独一无二。保存好它，这样下次就能省不少事了。',
     'Got it': '知道了',
     'Copy to Clipboard': '复制到剪贴板',
-    'Download as File': '下载存档',
+    'Download as File': '下载文件',
     'Import': '导入',
     'Import your save string! It\'ll be fun, I promise.': '导入存档字符串！我保证这会很有趣的。',
     'Import From PlayFab': '从PlayFab导入',
@@ -1446,6 +1491,8 @@ var cnItems = {
     //游戏成就相关
     'Zone Progress': '区域进度',
     'Complete Zone': '通过区域',
+    'Reward': '奖励',
+    'Row Finished!': '此类成就全部完成！',
     'Row Finished! (Highest is': '此类成就全部完成！(最高为',
     'This is Easy': '易如反掌',
     'Blimp Slayer': '脆皮飞艇杀手',
@@ -1947,8 +1994,9 @@ var cnItems = {
     //游戏成就相关结束
     //游戏设置相关
     'Not Saving': '不自动保存',
-    'AutoSaving': '自动保存',
+    'Auto Saving': '自动保存',
     'Automatically save the game once per minute': '每分钟自动保存一次游戏',
+    'AutoSaving': '自动保存',
     'Not AutoSaving': '不自动保存',
     'Not Saving Online': '不在线保存',
     'Saving with PlayFab': '使用PlayFab在线保存',
@@ -2562,6 +2610,7 @@ var cnItems = {
     'More Info': '详细信息',
     'Remove': '移除',
     '% bonus': '%加成',
+    'Challenge': '挑战',
     'You do not currently have an active challenge.': '目前没有进行中的挑战。',
     'Abandon Challenge': '放弃挑战',
     'Challenges': '挑战',
@@ -3372,6 +3421,7 @@ var cnItems = {
     'Click this to select Shift Down Mode, then click a Trap or Tower in your Spire. The Trap/Tower you select and all Traps/Towers before it will shift down one cell until the first empty space is hit.': '点击进入下移模式，然后点击您的尖塔中的一个陷阱或塔。您所选择的陷阱/塔以及它之后的所有陷阱/塔将下移一格，直到碰到第一个空位为止。',
     'If there is no empty space, your first Trap/Tower will be sold.': '如果没有空位，那么您的第一个陷阱/塔将被出售。',
     'Sell a Trap/Tower': '出售一个陷阱/塔',
+    'Sell Trap/Tower': '出售陷阱/塔',
     'Sell a Trap or Tower! You\'ll get back 100% of what you spent on the last Trap or Tower of that type.': '出售一个陷阱或一个塔！您将获得全额返还。',
     'Reach Z': '到达区域',
     'Hotkey 0 or \'': '快捷键：0或\'',
@@ -3392,6 +3442,7 @@ var cnItems = {
     'Load Layout 1?': '确定要读取布局1吗？',
     'Load Layout 2?': '确定要读取布局2吗？',
     'Load This Layout': '读取此布局',
+    'Spire Settings': '尖塔设置',
     'Floating Combat Text': '浮动的战况文本',
     'Make Static': '固定文本',
     'Trap Damage': '陷阱伤害',
@@ -3529,6 +3580,7 @@ var cnItems = {
     'Set to Gain Fuel': '设为得燃料',
     'Set to Gain Mi': '设为得岩浆岩',
     'Set to Hybrid': '设为混合型',
+    'Upgrade (': '升级 (',
     'Upgrade Generator': '升级维度发生器',
     'Multi Upgrades': '可重复升级',
     'Efficiency': '效率',
@@ -3698,6 +3750,8 @@ var cnItems = {
     'Abort Evolution': '取消进化',
     'Ability': '技能',
     'Damage': '伤害',
+    'Level': '等级',
+    ' Lv': ' 级',
     'Adds a 5% chance to earn the highest available heirloom tier, and subtracts a 5% chance from the lowest tier.': '增加目前最高稀有度传家宝5%的掉率，减少最低稀有度传家宝5%的掉率。',
     'Corrupt and Healthy enemies in active Spires have a 50% chance to be missing their special ability.': '尖塔内的腐化和健康敌人有50%概率失去特殊能力。',
     'When completing a map with a cache, you have a +25% chance to find a second cache.': '当完成有储藏箱修饰符的地图时，有25%的概率发现第二个储藏箱。',
@@ -3864,6 +3918,7 @@ var cnItems = {
     'Even in death this guy\'s a dick. You search around for some more resources but find nothing. Lame.': '这家伙都死了还不消停。您在附近找了找，什么有用的资源都没找到。真是弱爆了。',
     //故事-尖塔结束
     //杂项
+    'Error': '出错啦',
     'Welcome': '欢迎',
     'Welcome to Trimps! This game saves using Local Storage in your browser. Clearing your cookies or browser settings will cause your save to disappear! Please make sure you regularly back up your save file by either using the \'Export\' button in the bar below or the \'Online Saving\' option under \'Settings\'.': '欢迎来到脆皮！此游戏存档使用的是浏览器的本地存储。如果清除Cookies或者浏览器设置可能会导致丢失存档！请注意经常备份存档，您可以通过点击下方 导出 按钮或在 设置 中开启 在线保存 来进行备份。',
     'Chrome and Firefox are currently the only fully supported browsers.': '目前只有Chrome和Firefox是受到完全支持的浏览器。',
@@ -3940,6 +3995,13 @@ var cnItems = {
     'Eggs': '蛋来了',
     'It seems as if some sort of animal has placed a bunch of brightly colored eggs in the world. If you happen to see one, you can click on it to send a Trimp to pick it up! According to your scientists, they have a rare chance to contain some neat stuff, but they will not last forever...': '看起来有什么动物把一堆色彩鲜艳的蛋在世界上丢的到处都是。如果您碰到了的话，可以点击那些蛋，让一个脆皮去把它捡起来！根据科学家们的说法，它们可能有比较小的概率藏有什么宝贝，但它们无法永久存在……',
     'I\'ll keep an eye out.': '我会注意的。',
+    'Well this is embarrassing. Trimps has encountered an error. Try refreshing the page.': '尴尬了，游戏遇到了一个错误。请尝试刷新页面。',
+    'It would be awesome if you post the following to the': '如果您能把接下来的信息发至',
+    'trimps subreddit': 'Reddit上的Trimps子板块',
+    'or email it to trimpsgame@gmail.com': '或者trimpsgame@gmail.com，那么就再好不过了',
+    'Note: Saving has been disabled.': '注意：已禁止保存。',
+    'While attempting to save, the following error occured': '尝试保存时，发生了以下错误',
+    'Error, not copied': '出错了，未进行复制',
     //杂项结束
     //脚本3相关
     'AutoTrimps': '自动脆皮',
@@ -5211,170 +5273,8 @@ var cnItems = {
     'Delay Portal': '延迟传送',
     //脚本3相关结束
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    'Max wood': '木头上限',
-    //未分类：
-    'primary': '主要',
-    'secondary': '次要',
-    'exotic': '奇异',
-    'helium': '氦',
-    'essence': '精华',
-    'token': '符记',
-    'magma': '岩浆',
-    'events': '事件',
-    'repeated': '重复',
-    'unique': '独特',
-    'trimp': '脆皮',
-    'enemy': '敌人',
-    'food': '食物',
-    'wood': '木头',
-    'metal': '金属',
-    'fragments': '碎片',
-    'gems': '宝石',
-    'science': '科学',
-    'Wind': '风',
-    'Ice': '冰',
-    //传家宝
-    'miner': '矿工',
-    'lumber': '木材',
-    'farming': '农业',
-    'Corrupt': '腐化',
-    'Healthy': '健康的',
-    //特权
-    'cache': '储藏箱',
-    'bone': '骨头',
-    'enabled': '启用',
-    //1.2.标题
-    'AutoGolden': '自动黄金升级',
-    'Sell Trap/Tower': '出售陷阱/塔',
-    //专精
-    'Quick Gen': '快速发生',
-    'Spire Settings': '尖塔设置',
-    'Block': '格挡',
-    'Health': '生命值',
-    'Attack': '攻击力',
-    'Void Map': '虚空地图',
-    'Error': '出错啦',
 
     //未分类20190806
-    'Research first': '研究优先',
-    'Challenge': '挑战',
-    'Auto Saving': '自动保存',
-    'Loot off': '劫掠 关闭',
-    'Combat off': '战斗 关闭',
-    'Unlocks off': '解锁 关闭',
-    'Story off': '故事 关闭',
-    'Offline Progress': '离线进度',
-    'Reward': '奖励',
-    'better get some more achievements': '更好地获得更多的成就',
-    'Level': '等级',
-    'Upgrade (': '升级 (',
-    ' Lv': ' 等级',
-    'It\'s kind of heavy for your Trimps, but they\'ll manage. Adds 3 attack to each soldier per level': '这对你的脆皮来说有点重，但他们会处理的。每升一级增加3个攻击',
-    'but you wish you had a few more achievements': '但你希望自己能再有一些成就',
-    'you\'d do fine with a few more achievements': '您会再取得一些成就',
-    'Got it!': '得到它！',
-    '! In addition, all Zones are now wort': '!此外，所有的区域现在都是wort',
     "Your Trimps killed a lot of Bad Guys back there. It seems like you're getting the hang of this. However, the world is large, and there are many more Zones to explore. Chop chop.": "你的脆皮在那里杀死了很多坏人。 看起来你似乎已经弄清楚这是怎么一回事了。 然而这个世界很大，依然有去多区域需要探索，“砍”“砍”...",
     "By your orders, your scientists have begun to try and figure out how large this planet is.": "根据您的命令，您的科学家们已经开始尝试了解这个星球有多大。",
     "You order your Trimps to search the area for the keys to your ship, but nobody finds anything. Bummer.": "您命令脆皮在该地区搜索您的船只的钥匙，但没有人找到任何东西。真令人失望。",
@@ -6041,7 +5941,7 @@ var cnRegReplace = new Map([
     [/^(.*)% Min$/, '$1% 最小'], //主界面
     [/^(.*)% Max$/, '$1% 最大'], //主界面
     [/^Your Prismatic Shield is equal to (.*)% of your Trimps' maximum Health. All enemy damage hits your Prismatic Shield before Health, and Prismatic Shield always regenerates to full after an enemy is killed.$/, '棱镜护盾的数值等于脆皮最大生命值的$1%。所有的敌人必须将棱镜护盾击穿后方可攻击到脆皮，击杀敌人后棱镜护盾将恢复至上限。'], //主界面
-    [/^(.*) \((.*) min(s*)$/, '$1 ($2分钟'], //主界面
+    [/^(?!You're in)(?!Progress)(?!Row Finished)(.*) \((.*) min(s*)$/, '$1 ($2分钟'], //主界面
     [/^(.*)% \((.*)% Total$/, '$1% \(共$2%'], //主界面
     [/^(.*)(?<!Overkilled) Cells$/, '$1个格子'], //主界面
     [/^(.*) extra$/, '额外$1张'], //主界面
@@ -6167,7 +6067,7 @@ var cnRegReplace = new Map([
     [/^You have been in this Zone for (.*) min(s*), (.*) sec(s*)$/, '您已经在此区域停留了$1分钟，$3秒'], //主界面
     [/^You have been in this Zone for (.*)$/, '您已经在此区域停留了$1'], //主界面
     [/^(.*) group(s*) of Trimps ha(s|ve) died in this Spire.$/, '尖塔中已经有$1队脆皮阵亡了。'], //主界面
-    [/^Bionic Wonderland ([IVXLCDM]+), Level (.*) \(P, FA\), Cell$/, '仿生仙境 $1，等级 $2 (P,FA)，格子'], //主界面
+    [/^Bionic Wonderland ([IVXLCDM]+), Level (.*) \((.*)\), Cell$/, '仿生仙境 $1，等级 $2 ($3)，格子'], //主界面
     [/^ Level (.*) \((.*)\), Cell$/, '等级 $1 ($2)，格子'], //主界面
     [/^ Level (.*), Cell$/, '等级 $1，格子'], //主界面
     [/^You have been on this map for (.*) second(s*)$/, '您已经在此地图停留了$1秒'], //主界面
