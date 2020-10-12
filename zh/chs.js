@@ -25,6 +25,8 @@ var cnItems = {
     'Researching': '研究中',
     'Fragments': '碎片',
     'Base': '基础值',
+    'Total': '总计',
+    'Min': '最小',
     'Farmers': '农民',
     'Lumberjacks': '伐木工',
     'Gatherer (Scruffy': '采集者(污污)',
@@ -56,8 +58,8 @@ var cnItems = {
     'Nurseries': '托儿所',
     'Broken Planet': '行星破碎',
     'Quick Trimps': '快枪手脆皮',
-    'Dysfunctional (Daily': '无能(日常',
-    'Toxic (Daily': '毒性(日常',
+    'Dysfunctional (Daily': '无能(日常挑战',
+    'Toxic (Daily': '毒性(日常挑战',
     'Toxic Air': '毒气',
     'Heirloom (Shield': '传家宝(盾牌',
     'Trimps Per Second': '每秒脆皮获取量',
@@ -65,8 +67,101 @@ var cnItems = {
     'Item Block': '格挡明细',
     'Item Health': '生命值明细',
     'Item Prismatic Shield': '棱镜护盾明细',
-    'Total': '总计',
-    'Min': '最小',
+    'Lack Discipline': '缺乏纪律',
+    'Unharnessed Luck': '脱缰之运',
+    'Minimalist (Daily': '极简主义(日常挑战',
+    'Prodigal (Daily': '浪费(日常挑战',
+    'Prismatic (Z': '棱镜护盾(区域',
+    'Prismalicious (Z': '优质棱镜(区域',
+    'Prisms (Scruffy': '棱镜(污污',
+    'Prismal (Perk': '棱镜化(特权',
+    'Bublé (Challenge': '布累(挑战',
+    'Shield Layer': '护盾层数',
+    'Soldiers': '士兵',
+    'Antenna Array': '气象天线阵列',
+    'Scruffy is Life': '为污而生',
+    'Geneticists': '遗传学家',
+    'Formation': '阵型',
+    'Mayhem Completions': '暴乱挑战完成次数',
+    'Unliving (Life': '亡灵化(生命挑战',
+    'Rallying Cry (Duel': '集结号(决斗挑战',
+    'Winning (Duel': '胜者(决斗挑战',
+    'Weakness (Balance': '弱化(平衡挑战',
+    'Exhausted (Quagmire': '疲惫不堪(泥淖挑战',
+    'Finished Quests!': '任务完成奖励！',
+    'Relic Strength': '遗物之力',
+    'Beta Trimps': '贝塔脆皮',
+    'Weakness (Daily': '弱化(日常挑战',
+    'Oddly Weak (Daily': '奇数弱化(日常挑战',
+    'Even Stronger (Daily': '偶数强化(日常挑战',
+    'Rampage (Daily': '暴走(日常挑战',
+    'Pressure (Daily': '压力(日常挑战',
+    'Hardness (Wither': '硬化(凋零挑战',
+    'Golden Battle': '金色战斗',
+    'Void Power': '虚空力量',
+    'Strength in Health': '健康之力',
+    'Rewards': '奖励',
+    'Chilled Enemy': '冰冻敌人',
+    'Void Siphon (Fluffy E': '虚空吸收(绒绒进化次数',
+    'Overheating (Magma': '过热(岩浆',
+    'Strength Tower': '力量塔',
+    'Strength Towers': '力量塔',
+    'Sharp Trimps': '锋锐脆皮',
+    'Weakness (Unbalance': '弱化(不平衡挑战',
+    'Chance': '概率',
+    'Housing': '住房',
+    'Generated Housing': '发生器住房',
+    'Territory Bonus': '战斗领土加成',
+    'Huge': '巨大',
+    'Large (Daily': '大型(日常挑战',
+    'Max Trimps': '脆皮上限',
+    'Max Food': '食物上限',
+    'Max Wood': '木头上限',
+    'Max Metal': '金属上限',
+    'Food/Wood/Metal': '食物/木头/金属',
+    'Amount': '数量',
+    'Line Total': '合计',
+    'Dragimp Scouting': '脆皮龙收集',
+    'Omnipotrimp Bonus': '全能者加成',
+    'Improbability Bonus': '乌有者加成',
+    'Corruption Bonus': '腐化加成',
+    'Golden Helium': '金色氦',
+    'Golden Radon': '金色氡',
+    'Fluffy Helium': '绒绒氦',
+    'Scruffy Radon': '污污氡',
+    'Completed Quest!': '任务完成奖励！',
+    'Extra Map Zones': '额外地图区域',
+    'Low Map Level': '低地图等级',
+    'Map Loot': '地图劫掠',
+    'Looting (perk': '劫掠(特权',
+    'Looting II (perk': '劫掠 II(特权',
+    'Greed (perk': '贪婪(特权',
+    'Motivated (Quagmire': '积极前进(泥淖挑战',
+    'Wealthy (Scruffy': '富裕(污污',
+    'Karma (Daily': '业力(日常挑战',
+    'Spire Rows': '尖塔每行劫掠加成',
+    'Void Special': '虚空特化',
+    'Heirloom - Food (Staff': '传家宝-食物(权杖',
+    'Heirloom - Wood (Staff': '传家宝-木头(权杖',
+    'Heirloom - Metal (Staff': '传家宝-金属(权杖',
+    'Condenser Tower': '冷凝塔',
+    'Condenser Towers': '冷凝塔',
+    'Heliumy': '氦奇',
+    'Radonculous': '氡丰',
+    'Domination (Boss Only': '统治(只对Boss生效',
+    'Corruption Value': '腐化价值',
+    'Per Cell': '每格子',
+    'Per Zone': '每区域',
+    'Healthy Value': '健康价值',
+    'Mutation Total': '变异总和',
+    'Stacked Map (Fluffy': '融合地图(绒绒',
+    'Stacked Maps (Fluffy': '融合地图(绒绒',
+    'Challenge²': '挑战²',
+    'Food/Wood/Metal Loot Breakdown': '食物/木头/金属 劫掠明细',
+    'Fragments Loot Breakdown': '碎片 劫掠明细',
+    'Gems Loot Breakdown': '宝石 劫掠明细',
+    'Helium Loot Breakdown': '氦 劫掠明细',
+    'Radon Loot Breakdown': '氡 劫掠明细',
     'Long Time': '时间极长',
     'Complete Z': '通过区域',
     'Well Fed': '营养充足',
@@ -448,6 +543,9 @@ var cnItems = {
     'Run Map': '运行地图',
     'Recycle Map': '回收地图',
     'Abandon Map': '放弃地图',
+    'This Map will scale in level to your current Zone Number, enemies have a random buff, and the boss at the final cell will drop Helium. This map will disappear after it is completed once, and leaving the map will reset its progress.': '此地图的等级永远等于您当前区域，敌人将获得随机增益，最后一格的首领敌人将掉落氦。通过此地图以后它将消失，退出地图将重置此地图中的进度。',
+    'This Map will scale in level to your current Zone Number, enemies have a random buff, and the boss at the final cell will drop Radon. This map will disappear after it is completed once, and leaving the map will reset its progress.': '此地图的等级永远等于您当前区域，敌人将获得随机增益，最后一格的首领敌人将掉落氡。通过此地图以后它将消失，退出地图将重置此地图中的进度。',
+    'This Map will scale in level to your current Zone Number. Completing this map will reduce your stacks of Exhausted and Motivated by 1.': '此地图的等级永远等于您当前区域，通过此地图以后将使疲惫不堪和积极前进的层数各减少1层。',
     'Current Heirloom Drop Rates': '当前区域传家宝掉率',
     '- Next Rarity Increase at Z': '- 稀有度下次提升发生在区域',
     'Common': '普通',
@@ -1540,6 +1638,10 @@ var cnItems = {
     'Dayrailed': '日之脱轨',
     'Daypocalyptic': '日之灾变',
     'Humane Run': '仁慈的战斗',
+    'Progress': '进度',
+    'Complete!': '完成！',
+    'Not Earnable!': '无法获得！',
+    'Still Earnable!': '仍然可获得！',
     'Progress: You need to portal to become eligible': '进度：您需要使用传送门后才可以开始尝试成就',
     'Progress: You lost more than once on Z': '进度：您已经战败超过一次了，发生在区域',
     'Progress: You lost too many fights!': '进度：您输了太多次战斗了！',
@@ -1590,6 +1692,7 @@ var cnItems = {
     'Colossal Comfort': '巨大慰藉',
     'Ceaseless Comfort': '无休慰藉',
     'Speed: The Block': '最速: 障碍区',
+    'You\'re in the wrong Universe! Best run is': '您进入了错误的宇宙！最快为',
     'Progress: Best run is': '进度：最快为',
     'Progress: Too slow! Best run is': '进度：因太慢失败了！最快为',
     'Row Finished! (Best run is': '此类成就全部完成！(最快为',
@@ -1840,6 +1943,7 @@ var cnItems = {
     'Finish Berserk after reaching 20 Weakened Stacks before Z': '在到达特定区域前，至少拥有20层虚弱，然后完成狂战挑战。该区域为区域',
     'The Tortoise and the Bugs': '龟与虫',
     'Finish Exterminate with at least 1000 Swarm Stacks': '在虫群成长壮大层数至少有1000层的前提下，完成灭虫挑战',
+    'You have completed every Achievement!': '您完成了所有的成就！',
     //游戏成就相关结束
     //游戏设置相关
     'Not Saving': '不自动保存',
@@ -1887,6 +1991,8 @@ var cnItems = {
     'Hybrid Notation': '混合记数法',
     'Logarithmic Notation': '对数记数法',
     'Swap between Standard Formatting (12.7M, 540B), Engineering Notation (12.7e6, 540e9), Scientific Notation (1.27e7, 5.40e11), Alphabetic Notation (12.7b, 540c), Hybrid Notation (Standard up to e96, then Engineering. Mimics Standard pre 4.6), and Logarithmic Notation (10^7.10, 10^8.73). Hold Ctrl while clicking Logarithmic Notation to change the base.': '在标准格式(12.7M，540B)，工程记数法(12.7e6，540e9)，字母记数法(12.7b，540c)，混合记数法(直到e96之前使用标准格式，之后使用工程记数法)，对数记数法(10^7.10，10^8.73)，以及科学记数法(1.27e7，5.40e11)之间切换。当使用对数记数法时，按下Ctrl键再点击可以切换底数。',
+    'Enter a number here to use as the base for your logarithmic numbers! (Default is': '设置对数记数法使用的底数！(默认值为',
+    'Configure Log': '设置对数',
     'Shift for Tooltips': '按Shift键显示提示框',
     'Showing Tooltips': '显示提示框',
     'will ensure that all tooltips are shown when you mouse over them.': '可以在鼠标停留时显示所有提示框。',
@@ -2642,7 +2748,7 @@ var cnItems = {
     'Thursday resets in': '周四挑战内容重置倒计时：',
     'Friday resets in': '周五挑战内容重置倒计时：',
     'Saturday resets in': '周六挑战内容重置倒计时：',
-	'You have already attempted this Daily Challenge!': '您已经进行过此日常挑战了！',
+    'You have already attempted this Daily Challenge!': '您已经进行过此日常挑战了！',
     'Can only be run once!': '每个日常挑战只能运行一次！(译者注：就算用其他手段回到这一天也没法再运行了)',
     'Reward does not count toward Bone Portals or affect best Rn/Hr stat.': '日常挑战的奖励不影响骨头传送门的奖励，也不影响最高的氡/小时统计。',
     'Reward does not count toward Bone Portals or affect best He/Hr stat.': '日常挑战的奖励不影响骨头传送门的奖励，也不影响最高的氦/小时统计。',
@@ -2945,8 +3051,8 @@ var cnItems = {
     'Cloudy': '云',
     'Stormcloud': '风暴云',
     'Insanity': '失智',
-    'Travel to a dimension where instability takes over the mind. Maps above your World level have a chance to spawn a Horrimp in each cell, with the chance based on both actual map level and its level relative to your current World Zone. Horrimps are stronger than regular imps and when killed, give you a stack of Insanity. Maximum stacks is 500. Insanity decreases your health by 1% (compounding) but increases all resources gained (including radon) by 13.133% (additive). Every map (n below map level) ran reduces your current insanity by 2n and your maximum insanity by n. Challenge ends after clearing Z110. Completing this challenge will reward you with an additional 500% of all Radon earned and a feeling of deep satisfaction.': '前往一个意识不稳定的维度。高于您世界区域等级的地图，每格都有概率出现脆皮惊骇者，概率与地图等级及世界区域有关。脆皮惊骇者比普通的脆皮来得更强大，当被击杀时，使您获得一层失智。失智最高叠加到500层。每层失智减少1%生命值(叠乘)，但使所有资源的获取量(包括氡)增加13.133%(叠加)。每次运行低于当前区域等级的地图时，每低1级，就减少2层失智，并使失智层数叠加上限减少1层。挑战在通过区域110后结束。通过此挑战后您会获得极大的满足，并额外获得氡，数值等于本次挑战完成前氡获取量的500%。',
-    'You have the Insanity challenge active. Travel to a dimension where instability takes over the mind. Maps above your World level have a chance to spawn a Horrimp in each cell, with the chance based on both actual map level and its level relative to your current World Zone. Horrimps are stronger than regular imps and when killed, give you a stack of Insanity. Maximum stacks is 500. Insanity decreases your health by 1% (compounding) but increases all resources gained (including radon) by 13.133% (additive). Every map (n below map level) ran reduces your current insanity by 2n and your maximum insanity by n. Challenge ends after clearing Z110. Completing this challenge will reward you with an additional 500% of all Radon earned and a feeling of deep satisfaction.': '您目前正在进行失智挑战。前往一个意识不稳定的维度。高于您世界区域等级的地图，每格都有概率出现脆皮惊骇者，概率与地图等级及世界区域有关。脆皮惊骇者比普通的脆皮来得更强大，当被击杀时，使您获得一层失智。失智最高叠加到500层。每层失智减少1%生命值(叠乘)，但使所有资源的获取量(包括氡)增加13.133%(叠加)。每次运行低于当前区域等级的地图时，每低1级，就减少2层失智，并使失智层数叠加上限减少1层。挑战在通过区域110后结束。通过此挑战后您会获得极大的满足，并额外获得氡，数值等于本次挑战完成前氡获取量的500%。',
+    'Travel to a dimension where instability takes over the mind. Maps above your World level have a chance to spawn a Horrimp in each cell, with the chance based on both actual map level and its level relative to your current World Zone. Horrimps are stronger than regular imps and when killed, give you a stack of Insanity. Maximum stacks is 500. Insanity decreases your health by 1% (compounding) but increases all resources gained (including radon) by 13.133% (additive). Every map (n below map level) ran reduces your current insanity by 2n and your maximum insanity by n. Challenge ends after clearing Z110. Completing this challenge will reward you with an additional 500% of all Radon earned and a feeling of deep satisfaction.': '前往一个意识不稳定的维度。高于您世界区域等级的地图，每格都有概率出现脆皮惊骇者，概率与地图等级及世界区域有关。脆皮惊骇者比普通的脆皮来得更强大，当它被击杀时，使您获得一层失智。失智最高叠加到500层。每层失智减少1%生命值(叠乘)，但使所有资源的获取量(包括氡)增加13.133%(叠加)。每次运行低于当前区域等级的地图时，每低1级，就减少2层失智，并使失智层数叠加上限减少1层。挑战在通过区域110后结束。通过此挑战后您会获得极大的满足，并额外获得氡，数值等于本次挑战完成前氡获取量的500%。',
+    'You have the Insanity challenge active. Travel to a dimension where instability takes over the mind. Maps above your World level have a chance to spawn a Horrimp in each cell, with the chance based on both actual map level and its level relative to your current World Zone. Horrimps are stronger than regular imps and when killed, give you a stack of Insanity. Maximum stacks is 500. Insanity decreases your health by 1% (compounding) but increases all resources gained (including radon) by 13.133% (additive). Every map (n below map level) ran reduces your current insanity by 2n and your maximum insanity by n. Challenge ends after clearing Z110. Completing this challenge will reward you with an additional 500% of all Radon earned and a feeling of deep satisfaction.': '您目前正在进行失智挑战。前往一个意识不稳定的维度。高于您世界区域等级的地图，每格都有概率出现脆皮惊骇者，概率与地图等级及世界区域有关。脆皮惊骇者比普通的脆皮来得更强大，当它被击杀时，使您获得一层失智。失智最高叠加到500层。每层失智减少1%生命值(叠乘)，但使所有资源的获取量(包括氡)增加13.133%(叠加)。每次运行低于当前区域等级的地图时，每低1级，就减少2层失智，并使失智层数叠加上限减少1层。挑战在通过区域110后结束。通过此挑战后您会获得极大的满足，并额外获得氡，数值等于本次挑战完成前氡获取量的500%。',
     'YOU ARE GOING CRAZY.': '您去失理了智。',
     'Berserk': '狂战',
     'Travel to a dimension filled with lots of mild annoyances, sure to drive your Trimps berserk. All enemies in this dimension have 50% more attack and health. Every time your Trimps attack they have a 5% chance to become Frenzied, causing all kills to heal for 1% of max health, and also stack +50% attack and -2% max health, up to 25 times. If a frenzied group dies or is abandoned, your Trimps gain a permanent Weakened stack, reducing health by 4.99% per stack when outside of frenzy. If weakened stacks reach 20, Trimps can no longer become frenzied. Due to this dimension\'s annoying nature, the Angelic Mastery does not work. Completing Z115 will unlock a new perk!': '前往一个充满了会让脆皮们抓狂的细碎琐事的维度。此维度中的所有敌人攻击力和生命值增加50%。每次您的脆皮们攻击时都有5%的概率进入战狂状态，此状态下，每次击杀一名敌人，可以恢复最大生命值1%的生命值，并且每层战狂增加50%攻击力，减少2%生命值上限，层数最高为25。如果一队触发战狂的脆皮阵亡或者是被放弃了，那么您的脆皮将获得一层虚弱层数，虚弱效果将一直持续，在没有战狂效果时，每层减少4.99%的生命值。如果虚弱层数到达了20层，那么将无法进入战狂状态。由于此维度令人抓狂的特性，天之赐福专精无法生效。通过区域115后可以完成此挑战！',
@@ -3078,7 +3184,7 @@ var cnItems = {
     'Void Power II': '虚空力量 II',
     'Your Trimps gain an additional 20% attack and health inside Void Maps.': '虚空地图中脆皮再度增加20%攻击力和生命值。',
     'Map Reducer I': '地图减压 I',
-    'Reduces the starting point of the Low Map Level Loot Penalty by 1 level. This allows you to earn the same amount of loot by doing a map at your current Zone number, or at your current Zone number minus 1.': '将地图中劫掠的减成起始点降低1层。在跟区域相同层地图或比区域低1层的地图中劫掠的资源量相等。',
+    'Reduces the starting point of the Low Map Level Loot Penalty by 1 level. This allows you to earn the same amount of loot by doing a map at your current Zone number, or at your current Zone number minus 1.': '将地图中劫掠的低地图等级减成起始点降低1层。在跟区域相同层地图或比区域低1层的地图中劫掠的资源量相等。',
     'King of Bones I': '骨头之王 I',
     'Double the chance for a Megaskeletimp to appear instead of a Skeletimp.': '脆皮超级骷髅取代脆皮骷髅出现的概率翻倍。',
     'Safe Mapping': '安全绘图',
@@ -5207,7 +5313,6 @@ var cnItems = {
     
     
     'Max wood': '木头上限',
-    'Soldiers': '士兵',
     //未分类：
     'primary': '主要',
     'secondary': '次要',
@@ -5236,18 +5341,15 @@ var cnItems = {
     'Corrupt': '腐化',
     'Healthy': '健康的',
     //特权
-    'Food/Wood/Metal': '食物/木头/金属',
     'cache': '储藏箱',
     'bone': '骨头',
     'enabled': '启用',
     //1.2.标题
     'AutoGolden': '自动黄金升级',
     'Sell Trap/Tower': '出售陷阱/塔',
-    'Max Trimps': '脆皮上限',
     //专精
     'Quick Gen': '快速发生',
     'Spire Settings': '尖塔设置',
-    'Food/Wood/Metal Loot Breakdown': '食物/木头/金属 劫掠明细',
     'Block': '格挡',
     'Health': '生命值',
     'Attack': '攻击力',
@@ -5268,55 +5370,48 @@ var cnItems = {
     'Level': '等级',
     'Upgrade (': '升级 (',
     ' Lv': ' 等级',
-    'Amount': '数量',
-    'Line Total': '总行数',
     'It\'s kind of heavy for your Trimps, but they\'ll manage. Adds 3 attack to each soldier per level': '这对你的脆皮来说有点重，但他们会处理的。每升一级增加3个攻击',
-    'Max Food': '食物上限',
-    'Max Metal': '金属上限',
-    'Max Wood': '木头上限',
     'but you wish you had a few more achievements': '但你希望自己能再有一些成就',
     'you\'d do fine with a few more achievements': '您会再取得一些成就',
     'Got it!': '得到它！',
     '! In addition, all Zones are now wort': '!此外，所有的区域现在都是wort',
-    'Housing': '房屋',
-    'Territory Bonus': '领土奖励',
-	"Your Trimps killed a lot of Bad Guys back there. It seems like you're getting the hang of this. However, the world is large, and there are many more Zones to explore. Chop chop.": "你的脆皮在那里杀死了很多坏人。 看起来你似乎已经弄清楚这是怎么一回事了。 然而这个世界很大，依然有去多区域需要探索，“砍”“砍”...",
-	"By your orders, your scientists have begun to try and figure out how large this planet is.": "根据您的命令，您的科学家们已经开始尝试了解这个星球有多大。",
-	"You order your Trimps to search the area for the keys to your ship, but nobody finds anything. Bummer.": "您命令脆皮在该地区搜索您的船只的钥匙，但没有人找到任何东西。真令人失望。",
-	"Do you see that thing at the end of this zone? It's huge! It's terrifying! You've never seen anything like it before, but you know that it is a Blimp. How did you know that? Stop knowing things and go kill it.": "你看到尽头的那个东西了吗？多么的巨大！多么的可怕！ 你以前从未见过这样的东西,但是你知道这是一个脆皮飞艇。你是怎么知道的？别问为什么了，去杀死它！",
-	"Slow and steady wins the race. Unless you're racing someone who is actually trying.": "慢而稳事必成， 除非跟你竞争的人比你更努力。",
-	"You can't shake the feeling that you've been here before. Déjà-vu?": "你不能排除那种你以前来过这里的感觉，似曾相识。",
-	"Looks like another Blimp up ahead. Hard to tell from far away, but it looks like it has more heads than the last one.": "看起来像另一个脆皮飞艇。但很难说，特别是从这么远的地方，不过它看起来比上次那个多了一个头。",
-	"You're unstoppable as long as nothing stops you. Unfortunately, it seems like something really wants to stop you.": "你不可阻挡，只要没人阻拦你。 不幸的是，看起来有些东西像是真的想阻止你。",
-	"Did you see that green light flash by? Weird. Oh well.": "你看到绿光一闪而过吗？奇怪。噢，好吧。",
-	"Another day, another Blimp at the end of the zone": "另一天,又是一个脆皮飞艇在区域的尽头。",
-	"Seriously? Another Blimp so soon?": "你是认真的吗？又一个脆皮飞艇！",
-	"You climb a large cliff and look out over the new zone. Red dirt, scorched ground, and devastation. Is that a Dragimp flying around out there?!": "你爬上一个巨大的悬崖，俯瞰着一片新的区域。红色的泥土，烧焦的地面，一片荒芜。 那是一头龙在飞来飞去吗？！",
-	"There seems to be a strange force urging you to keep going. The atmosphere is becoming... angrier. Part of you wants to turn around and go back, but most of you wants to keep going.": "似乎有一种奇怪的力量鼓励你继续前行。气氛变得有点，愤怒的感觉。 你的身体的一部分想转身回去,但其他大部分想继续前行。",
-	"You look behind and see your kingdom. You have gems, a colony, and territory. You wonder if enough Trimps have already fallen in battle. After contemplation, one word falls out of your mouth as you begin to move forward. 'Nah'": "你回头看看你的王国，你拥有宝石、殖民地和领土。 你在想你的脆皮是不是已经在战斗中牺牲了。 沉思之后， 两个字从你的嘴里蹦了出来 “算了”",
-	"You can sense that you're close to your goal.": "你感觉到你离你的目标已经不远了。",
-	"A huge storm has formed and daylight has become a luxury you have mostly forgotten about. Your Trimps seem to want to go back home, but you're pretty sure you're supposed to keep going this way, so you do. You're very close to the anomaly.": "一场巨大的风暴已经形成，白昼已经成为一种你几乎忘记的奢侈品。你的脆皮似乎想回家，但你很确定你们应该继续向前走，所以你们继续前行。你已经离异常现象非常近了。",
-	"There it is. The anomaly is at the end of the zone. You can see it but you don't know what you're seeing. Where did that... thing... come from?! This is highly Improbable.": "它……就在那里。那个异常现象，就在这个区域的尽头。你能看得见它，但是你不知道你正在看的这个东西究竟是什么。这个……东西……是从哪来的？！这个东西太无序了。",
-	"A loud boom echoes in the distance, and one of your Trimps runs up to you with outstretched arms, looking quite frightened. He probably just wants some armor and weapons! You hand him some gear, and he accepts it with excitement.": "远处传来一阵响亮的隆隆声，然后一只脆皮伸出双手向你跑来，看起来他有些害怕。他可能只是想要一些武器和护甲！你递给他一些装备，他兴奋地接受了。",
-	"Do you see that thing at the end of this Zone? It's huge! It's terrifying! You've never seen anything like it before, but you know that it is a Blimp. How did you know that? Stop knowing things and go kill it.": "你看到尽头的那个东西了吗？多么的巨大！多么的可怕！ 你以前从未见过这样的东西,但是你知道这是一个脆皮飞艇。你是怎么知道的？别问为什么了，去杀死它！",
-	"You step over the corpse of the Blimp as it rapidly deflates, and one of your Trimps chuckles at the sound produced. You all cross the sulfuric river to the next Zone, and can feel the presence of an ancient knowledge. Better explore.": "你踩过了脆皮飞艇的尸体，它迅速的瘪了下去。你的其中一个脆皮听到这个声音，顿时咯咯地笑了起来。你们穿过了含硫的河流，来到了下一个区域，在这里你们感受到古代知识的存在。进行更好的探索吧。",
-	"Your settlement is getting crowded, there's Trimps in the streets, and you're taking heat. You feel a sudden strong desire to create a map, though you're not quite sure how that would help.": "你住的地方变得越来越拥挤，街道上到处都是脆皮，你感觉自己越来越热。你突然有强烈的愿望想要创建一个地图，尽管你不太确定这会有什么帮助。",
-	"Your scientists have finally concluded their report on the analysis of the size of the world. According to the report, they're pretty sure it's infinitely large, but you're pretty sure they just got bored of checking.": "你的科学家们终于完成了他们关于这世界大小的分析报告。根据报告，它们很确信这个世界是无限大的，但你也很确信它们只是对这项检查厌倦了。",
-	"You were trying to help bring back some of the Equipment your Trimps left on the ground in that last Zone, and you got a splinter. This planet is getting dangerous, stay alert.": "你试图帮助带回脆皮在上一个区域留在地上的一些装备，并且你得到了一个碎片。这个星球正在变得危险起来，保持警惕。",
-	"Another day, another Blimp at the end of the Zone.": "另一天,又是一个脆皮飞艇在区域的尽头。",
-	"You climb a large cliff and look out over the new Zone. Red dirt, scorched ground, and devastation. Is that a Dragimp flying around out there?!": "你爬上一个巨大的悬崖，俯瞰着一片新的区域。红色的泥土，烧焦的地面，一片荒芜。 那是一头龙在飞来飞去吗？！",
-	"Strange, the sky seems to be getting darker. You ask one of your Trimps for the time, but he doesn't know what a clock is.": "奇怪，天空看起来变的更黑了。你询问其中一只脆皮现在是什么时间，但是它都不知道什么是时钟。",
-	"You're a rebel. The universe pointed you into that portal, but you kept pushing forward. You feel... less like you've been here before.": "你是个叛逆者。宇宙指引你进入那个传送门，但是你执意向前推进。你感觉……自己好像没有来过这里。",
-	"It seems like the further you press on, the less you know. You still feel an urge to use the portal, though the urge has begun to dwindle.": "似乎你越向前进，你知道的就越少。你仍然有使用传送门的冲动，但是这冲动已经开始减少了。",
-	"Your Trimps came up with a pretty catchy battle song that got stuck in your head. None of them survived the next fight though, and you can't remember most of it. Life's tough.": "你的脆皮创造了一首非常吸引人的战歌，这首歌一直萦绕在你的脑海中。但是他们没有一人在下一场战斗中活下来，而且其中大部分的脆皮你也记不得了。生活是真的艰难。",
-	"You climb over a large hill that was separating this Zone from the last. The sky is pitch black and lightning crackles in the distance. This is a site of heavy corruption.": "你爬过一座将两个地区分开的大山。天空一片漆黑，远处有闪电划过。这里是一个腐化严重的地方。",
-	"You start to wonder how long you've been doing the same thing over and over. There must be something you can do to start to break the cycle. Perhaps you could alter the portal...": "想知道自己一遍遍地重复同样的事情已经多久了。你一定能做些什么来打破这个循环。或许你能对传送门做些修改……",
-	"You can't help but notice that the Trimps seem to be the only creatures on this planet not immediately hostile towards outsiders. You ask a nearby Trimp soldier what he thinks you are, and he drools a bit.": "你不禁注意到，脆皮可能是这个星球上唯一不会立刻对外界敌对的生物。你询问附近的一个脆皮士兵，他认为你是什么？然后他有点流口水(迷恋？)。",
-	"The world seems so barren out this far. You feel like you're finally starting to get ahead of the curve, but you know by now not to get comfortable.": "这个世界看起来如此贫瘠。你觉得自己终于开始走在前面了，但你现在知道，这并不能让你感到舒服。",
-	"Each day and night seems to grow longer than the one before. Is time slowing down? Argh! You fall to your knees with a splitting headache and a strong desire to use the portal. After a few minutes, it passes and you forget what happened. What are we talking about?": "白天和黑夜似乎都比以前更长了。是时间变慢了吗？啊！你跪倒在地，头痛欲裂，并有一种强烈的想使用传送门的渴望。几分钟后，这个感觉消退了，你也忘记了刚才发生了什么。我们刚才在讨论什么来着？",
-	"All traces of hills and mountains have long since been trudged past. The world is flat and hostile. You wish your Trimps were better conversationalists.": "回头望去，越过的山的痕迹越来越长。这个世界是平的，并充满了敌意。你希望你的脆皮们能更健谈一些。",
-	"As your Trimps scavenge every last bit of helium from that Blimp, one of them begins freaking out. He runs around waving his little arms and making funny noises for a while, eats some dirt, then takes a little nap. You wonder if that's normal. Yeah... probably fine.": "当脆皮们从脆皮飞艇身上提取最后一点氦时，其中一只开始发狂。他跑来跑去，挥舞着他的小胳膊，其中一段时间发出了有趣的声音，吃了一些泥土，然后就开始小睡。你很好奇他是否还正常。是的……可能他还算不错。.",
-	"It's been a long time since you've found any blueprints in the maps. You start to wonder where those things even come from.": "你很久没有在地图上找到蓝图了。你开始怀疑这些东西是从哪里来的。",
+    "Your Trimps killed a lot of Bad Guys back there. It seems like you're getting the hang of this. However, the world is large, and there are many more Zones to explore. Chop chop.": "你的脆皮在那里杀死了很多坏人。 看起来你似乎已经弄清楚这是怎么一回事了。 然而这个世界很大，依然有去多区域需要探索，“砍”“砍”...",
+    "By your orders, your scientists have begun to try and figure out how large this planet is.": "根据您的命令，您的科学家们已经开始尝试了解这个星球有多大。",
+    "You order your Trimps to search the area for the keys to your ship, but nobody finds anything. Bummer.": "您命令脆皮在该地区搜索您的船只的钥匙，但没有人找到任何东西。真令人失望。",
+    "Do you see that thing at the end of this zone? It's huge! It's terrifying! You've never seen anything like it before, but you know that it is a Blimp. How did you know that? Stop knowing things and go kill it.": "你看到尽头的那个东西了吗？多么的巨大！多么的可怕！ 你以前从未见过这样的东西,但是你知道这是一个脆皮飞艇。你是怎么知道的？别问为什么了，去杀死它！",
+    "Slow and steady wins the race. Unless you're racing someone who is actually trying.": "慢而稳事必成， 除非跟你竞争的人比你更努力。",
+    "You can't shake the feeling that you've been here before. Déjà-vu?": "你不能排除那种你以前来过这里的感觉，似曾相识。",
+    "Looks like another Blimp up ahead. Hard to tell from far away, but it looks like it has more heads than the last one.": "看起来像另一个脆皮飞艇。但很难说，特别是从这么远的地方，不过它看起来比上次那个多了一个头。",
+    "You're unstoppable as long as nothing stops you. Unfortunately, it seems like something really wants to stop you.": "你不可阻挡，只要没人阻拦你。 不幸的是，看起来有些东西像是真的想阻止你。",
+    "Did you see that green light flash by? Weird. Oh well.": "你看到绿光一闪而过吗？奇怪。噢，好吧。",
+    "Another day, another Blimp at the end of the zone": "另一天,又是一个脆皮飞艇在区域的尽头。",
+    "Seriously? Another Blimp so soon?": "你是认真的吗？又一个脆皮飞艇！",
+    "You climb a large cliff and look out over the new zone. Red dirt, scorched ground, and devastation. Is that a Dragimp flying around out there?!": "你爬上一个巨大的悬崖，俯瞰着一片新的区域。红色的泥土，烧焦的地面，一片荒芜。 那是一头龙在飞来飞去吗？！",
+    "There seems to be a strange force urging you to keep going. The atmosphere is becoming... angrier. Part of you wants to turn around and go back, but most of you wants to keep going.": "似乎有一种奇怪的力量鼓励你继续前行。气氛变得有点，愤怒的感觉。 你的身体的一部分想转身回去,但其他大部分想继续前行。",
+    "You look behind and see your kingdom. You have gems, a colony, and territory. You wonder if enough Trimps have already fallen in battle. After contemplation, one word falls out of your mouth as you begin to move forward. 'Nah'": "你回头看看你的王国，你拥有宝石、殖民地和领土。 你在想你的脆皮是不是已经在战斗中牺牲了。 沉思之后， 两个字从你的嘴里蹦了出来 “算了”",
+    "You can sense that you're close to your goal.": "你感觉到你离你的目标已经不远了。",
+    "A huge storm has formed and daylight has become a luxury you have mostly forgotten about. Your Trimps seem to want to go back home, but you're pretty sure you're supposed to keep going this way, so you do. You're very close to the anomaly.": "一场巨大的风暴已经形成，白昼已经成为一种你几乎忘记的奢侈品。你的脆皮似乎想回家，但你很确定你们应该继续向前走，所以你们继续前行。你已经离异常现象非常近了。",
+    "There it is. The anomaly is at the end of the zone. You can see it but you don't know what you're seeing. Where did that... thing... come from?! This is highly Improbable.": "它……就在那里。那个异常现象，就在这个区域的尽头。你能看得见它，但是你不知道你正在看的这个东西究竟是什么。这个……东西……是从哪来的？！这个东西太无序了。",
+    "A loud boom echoes in the distance, and one of your Trimps runs up to you with outstretched arms, looking quite frightened. He probably just wants some armor and weapons! You hand him some gear, and he accepts it with excitement.": "远处传来一阵响亮的隆隆声，然后一只脆皮伸出双手向你跑来，看起来他有些害怕。他可能只是想要一些武器和护甲！你递给他一些装备，他兴奋地接受了。",
+    "Do you see that thing at the end of this Zone? It's huge! It's terrifying! You've never seen anything like it before, but you know that it is a Blimp. How did you know that? Stop knowing things and go kill it.": "你看到尽头的那个东西了吗？多么的巨大！多么的可怕！ 你以前从未见过这样的东西,但是你知道这是一个脆皮飞艇。你是怎么知道的？别问为什么了，去杀死它！",
+    "You step over the corpse of the Blimp as it rapidly deflates, and one of your Trimps chuckles at the sound produced. You all cross the sulfuric river to the next Zone, and can feel the presence of an ancient knowledge. Better explore.": "你踩过了脆皮飞艇的尸体，它迅速的瘪了下去。你的其中一个脆皮听到这个声音，顿时咯咯地笑了起来。你们穿过了含硫的河流，来到了下一个区域，在这里你们感受到古代知识的存在。进行更好的探索吧。",
+    "Your settlement is getting crowded, there's Trimps in the streets, and you're taking heat. You feel a sudden strong desire to create a map, though you're not quite sure how that would help.": "你住的地方变得越来越拥挤，街道上到处都是脆皮，你感觉自己越来越热。你突然有强烈的愿望想要创建一个地图，尽管你不太确定这会有什么帮助。",
+    "Your scientists have finally concluded their report on the analysis of the size of the world. According to the report, they're pretty sure it's infinitely large, but you're pretty sure they just got bored of checking.": "你的科学家们终于完成了他们关于这世界大小的分析报告。根据报告，它们很确信这个世界是无限大的，但你也很确信它们只是对这项检查厌倦了。",
+    "You were trying to help bring back some of the Equipment your Trimps left on the ground in that last Zone, and you got a splinter. This planet is getting dangerous, stay alert.": "你试图帮助带回脆皮在上一个区域留在地上的一些装备，并且你得到了一个碎片。这个星球正在变得危险起来，保持警惕。",
+    "Another day, another Blimp at the end of the Zone.": "另一天,又是一个脆皮飞艇在区域的尽头。",
+    "You climb a large cliff and look out over the new Zone. Red dirt, scorched ground, and devastation. Is that a Dragimp flying around out there?!": "你爬上一个巨大的悬崖，俯瞰着一片新的区域。红色的泥土，烧焦的地面，一片荒芜。 那是一头龙在飞来飞去吗？！",
+    "Strange, the sky seems to be getting darker. You ask one of your Trimps for the time, but he doesn't know what a clock is.": "奇怪，天空看起来变的更黑了。你询问其中一只脆皮现在是什么时间，但是它都不知道什么是时钟。",
+    "You're a rebel. The universe pointed you into that portal, but you kept pushing forward. You feel... less like you've been here before.": "你是个叛逆者。宇宙指引你进入那个传送门，但是你执意向前推进。你感觉……自己好像没有来过这里。",
+    "It seems like the further you press on, the less you know. You still feel an urge to use the portal, though the urge has begun to dwindle.": "似乎你越向前进，你知道的就越少。你仍然有使用传送门的冲动，但是这冲动已经开始减少了。",
+    "Your Trimps came up with a pretty catchy battle song that got stuck in your head. None of them survived the next fight though, and you can't remember most of it. Life's tough.": "你的脆皮创造了一首非常吸引人的战歌，这首歌一直萦绕在你的脑海中。但是他们没有一人在下一场战斗中活下来，而且其中大部分的脆皮你也记不得了。生活是真的艰难。",
+    "You climb over a large hill that was separating this Zone from the last. The sky is pitch black and lightning crackles in the distance. This is a site of heavy corruption.": "你爬过一座将两个地区分开的大山。天空一片漆黑，远处有闪电划过。这里是一个腐化严重的地方。",
+    "You start to wonder how long you've been doing the same thing over and over. There must be something you can do to start to break the cycle. Perhaps you could alter the portal...": "想知道自己一遍遍地重复同样的事情已经多久了。你一定能做些什么来打破这个循环。或许你能对传送门做些修改……",
+    "You can't help but notice that the Trimps seem to be the only creatures on this planet not immediately hostile towards outsiders. You ask a nearby Trimp soldier what he thinks you are, and he drools a bit.": "你不禁注意到，脆皮可能是这个星球上唯一不会立刻对外界敌对的生物。你询问附近的一个脆皮士兵，他认为你是什么？然后他有点流口水(迷恋？)。",
+    "The world seems so barren out this far. You feel like you're finally starting to get ahead of the curve, but you know by now not to get comfortable.": "这个世界看起来如此贫瘠。你觉得自己终于开始走在前面了，但你现在知道，这并不能让你感到舒服。",
+    "Each day and night seems to grow longer than the one before. Is time slowing down? Argh! You fall to your knees with a splitting headache and a strong desire to use the portal. After a few minutes, it passes and you forget what happened. What are we talking about?": "白天和黑夜似乎都比以前更长了。是时间变慢了吗？啊！你跪倒在地，头痛欲裂，并有一种强烈的想使用传送门的渴望。几分钟后，这个感觉消退了，你也忘记了刚才发生了什么。我们刚才在讨论什么来着？",
+    "All traces of hills and mountains have long since been trudged past. The world is flat and hostile. You wish your Trimps were better conversationalists.": "回头望去，越过的山的痕迹越来越长。这个世界是平的，并充满了敌意。你希望你的脆皮们能更健谈一些。",
+    "As your Trimps scavenge every last bit of helium from that Blimp, one of them begins freaking out. He runs around waving his little arms and making funny noises for a while, eats some dirt, then takes a little nap. You wonder if that's normal. Yeah... probably fine.": "当脆皮们从脆皮飞艇身上提取最后一点氦时，其中一只开始发狂。他跑来跑去，挥舞着他的小胳膊，其中一段时间发出了有趣的声音，吃了一些泥土，然后就开始小睡。你很好奇他是否还正常。是的……可能他还算不错。.",
+    "It's been a long time since you've found any blueprints in the maps. You start to wonder where those things even come from.": "你很久没有在地图上找到蓝图了。你开始怀疑这些东西是从哪里来的。",
 
     //原样
     '': '',
@@ -5943,6 +6038,13 @@ var cnRegReplace = new Map([
     [/^(.*) Runestones \((.+) Year(s*) (.+) Day(s*)$/, '$1符石($2年$4天'], //尖塔等，前置
     [/^(.*) Runestones \((.+) Sec(s*)$/, '$1符石($2秒'], //尖塔等，前置
     [/^(.*) Runestones \(Long Time$/, '$1符石(时间极长'], //尖塔等，前置
+    [/^(.*)% Min$/, '$1% 最小'], //主界面
+    [/^(.*)% Max$/, '$1% 最大'], //主界面
+    [/^Your Prismatic Shield is equal to (.*)% of your Trimps' maximum Health. All enemy damage hits your Prismatic Shield before Health, and Prismatic Shield always regenerates to full after an enemy is killed.$/, '棱镜护盾的数值等于脆皮最大生命值的$1%。所有的敌人必须将棱镜护盾击穿后方可攻击到脆皮，击杀敌人后棱镜护盾将恢复至上限。'], //主界面
+    [/^(.*) \((.*) min(s*)$/, '$1 ($2分钟'], //主界面
+    [/^(.*)% \((.*)% Total$/, '$1% \(共$2%'], //主界面
+    [/^(.*)(?<!Overkilled) Cells$/, '$1个格子'], //主界面
+    [/^(.*) extra$/, '额外$1张'], //主界面
     [/^(.+) Min(s*) (.+) Sec(s*)$/, '$1分$3秒'], //主界面
     [/^(.+) Hour(s*) (.+) Min(s*)$/, '$1小时$3分'], //主界面
     [/^(.+) Day(s*) (.+) Hour(s*)$/, '$1天$3小时'], //主界面
@@ -5951,6 +6053,7 @@ var cnRegReplace = new Map([
     [/^(.+) Sec(s*)$/, '$1秒'], //主界面
     [/^(.+) minutes \(\+$/, '$1分钟(+'], //主界面
     [/^employed(\s+)$/, '已雇佣$1'], //主界面
+    [/^(.+) workspace(s*)$/, '$1 工作区'], //主界面
     [/^You currently have (.*) Dark Essence.$/, '您目前拥有$1黑暗精华。'], //主界面
     [/^Trapping(.+)$/, '捕捉中$1'], //主界面
     [/^Check\sTraps(.+)$/, '检查陷阱$1'], //主界面
@@ -6004,7 +6107,7 @@ var cnRegReplace = new Map([
     [/^AutoGold Radon \((.*)\/$/, '金色升级氡($1/'], //主界面
     [/^AutoGold Battle \((.*)\/$/, '金色升级战斗($1/'], //主界面
     [/^AutoGold Void \((.*)\/$/, '金色升级虚空($1/'], //主界面
-	[/^(.*) remaining enem(y|ies) in your current Zone (is|are) holding Dark Essence. Your current enemy at this Zone would be worth (.*) Essence if it were holding any.$/, '当前区域剩下$1个敌人可掉落黑暗精华。如果当前敌人掉落了黑暗精华，掉落数量将为$4。'],
+    [/^(.*) remaining enem(y|ies) in your current Zone (is|are) holding Dark Essence. Your current enemy at this Zone would be worth (.*) Essence if it were holding any.$/, '当前区域剩下$1个敌人可掉落黑暗精华。如果当前敌人掉落了黑暗精华，掉落数量将为$4。'],
     [/^Your pet RoboTrimp seems to be gifted at distorting the magnetic field around certain Bad Guys, especially Improbabilities. You can activate this ability once every 5 Zones in order to tell your RoboTrimp to reduce the attack damage of the next Improbability by (.*)%. This must be reactivated each time it comes off cooldown.$/, '您的小脆皮机器人似乎在扭曲某些敌人周围的磁场方面很有天赋，特别是面对乌有者时更甚。每5个区域，您可以激活此能力，让小脆皮机器人可以减少此区域乌有者$1%的攻击力。每次激活发射电磁尖啸后，都需要手动再次激活。'], //主界面
     [/^This enemy is harmed by the Empowerment of Poison, and is taking (.*) extra damage per turn.$/, '此敌人被毒赋能影响了，每回合额外受到$1伤害。'], //主界面
     [/^This enemy has been chilled by the Empowerment of Ice, is taking (.*)% more damage, and is dealing (.*)% less damage with each normal attack.$/, '此敌人因冰赋能被冰冻了，额外受到$1%伤害，普通攻击造成的伤害减少$2%。'], //主界面
@@ -6060,18 +6163,18 @@ var cnRegReplace = new Map([
     [/^Spire([\sIVXLCDM]*)$/, '尖塔$1'], //主界面
     [/^(\d+)% Map Bonus$/, '$1%地图奖励'], //主界面
     [/^Zone (.*), Cell$/, '区域 $1，格子'], //主界面
-	[/^You have been in this Zone for (.*) second(s*)$/, '您已经在此区域停留了$1秒'], //主界面
-	[/^You have been in this Zone for (.*) min(s*), (.*) sec(s*)$/, '您已经在此区域停留了$1分钟，$3秒'], //主界面
-	[/^You have been in this Zone for (.*)$/, '您已经在此区域停留了$1'], //主界面
+    [/^You have been in this Zone for (.*) second(s*)$/, '您已经在此区域停留了$1秒'], //主界面
+    [/^You have been in this Zone for (.*) min(s*), (.*) sec(s*)$/, '您已经在此区域停留了$1分钟，$3秒'], //主界面
+    [/^You have been in this Zone for (.*)$/, '您已经在此区域停留了$1'], //主界面
     [/^(.*) group(s*) of Trimps ha(s|ve) died in this Spire.$/, '尖塔中已经有$1队脆皮阵亡了。'], //主界面
-	[/^Bionic Wonderland ([IVXLCDM]+), Level (.*) \(P, FA\), Cell$/, '仿生仙境 $1，等级 $2 (P,FA)，格子'], //主界面
-	[/^ Level (.*) \((.*)\), Cell$/, '等级 $1 ($2)，格子'], //主界面
-	[/^ Level (.*), Cell$/, '等级 $1，格子'], //主界面
-	[/^You have been on this map for (.*) second(s*)$/, '您已经在此地图停留了$1秒'], //主界面
-	[/^You have been on this map for (.*) min(s*), (.*) sec(s*)$/, '您已经在此地图停留了$1分钟，$3秒'], //主界面
-	[/^You have been on this map for (.*)$/, '您已经在此地图停留了$1'], //主界面
-	[/^You have (.*) Void Map(s*) \((.*) stacked\).$/, '您有$1张虚空地图($3张已融合)。'], //主界面
-	[/^You have (.*) Void Map(s*)$/, '您有$1张虚空地图'], //主界面
+    [/^Bionic Wonderland ([IVXLCDM]+), Level (.*) \(P, FA\), Cell$/, '仿生仙境 $1，等级 $2 (P,FA)，格子'], //主界面
+    [/^ Level (.*) \((.*)\), Cell$/, '等级 $1 ($2)，格子'], //主界面
+    [/^ Level (.*), Cell$/, '等级 $1，格子'], //主界面
+    [/^You have been on this map for (.*) second(s*)$/, '您已经在此地图停留了$1秒'], //主界面
+    [/^You have been on this map for (.*) min(s*), (.*) sec(s*)$/, '您已经在此地图停留了$1分钟，$3秒'], //主界面
+    [/^You have been on this map for (.*)$/, '您已经在此地图停留了$1'], //主界面
+    [/^You have (.*) Void Map(s*) \((.*) stacked\).$/, '您有$1张虚空地图($3张已融合)。'], //主界面
+    [/^You have (.*) Void Map(s*)$/, '您有$1张虚空地图'], //主界面
     [/^(\s+)Fight(\s+)$/, '$1战斗$2'], //主界面
     [/^(\d+)(.*) Trimp(s*)$/, '$1$2脆皮'], //主界面
     [/^(\s+)AutoFight Off(\s+)$/, '$1关闭自动战斗$2'], //主界面
@@ -6679,18 +6782,23 @@ var cnRegReplace = new Map([
     [/^Progress: Your Shield has already hit (.*)% this run.$/, '进度：护盾曾经低至$1%，因此无法完成了。'], //成就等
     [/^Clear The Block in less than (.*) hour(s*) from start of run$/, '使用传送门后，在$1小时内通过障碍区'], //成就等
     [/^Clear The Block in less than (.*) hour(s*) (.*) minute(s*) (.*) second(s*) from start of run$/, '使用传送门后，在$1小时$3分钟$5秒内通过障碍区'], //成就等
+    [/^You're in the wrong Universe! Best run is (.*) min(s*)$/, '您进入了错误的宇宙！最快为$1分钟'], //成就等
     [/^Progress: Best run is (.*) min(s*)$/, '进度：最快为$1分钟'], //成就等
     [/^Progress: Too slow! Best run is (.*) min(s*)$/, '进度：因太慢失败了！最快为$1分钟'], //成就等
     [/^Row Finished! \(Best run is (.*) min(s*)$/, '此类成就全部完成！(最快为$1分钟'], //成就等
+    [/^You're in the wrong Universe! Best run is (.*) hour(s*)$/, '您进入了错误的宇宙！最快为$1小时'], //成就等
     [/^Progress: Best run is (.*) hour(s*)$/, '进度：最快为$1小时'], //成就等
     [/^Progress: Too slow! Best run is (.*) hour(s*)$/, '进度：因太慢失败了！最快为$1小时'], //成就等
     [/^Row Finished! \(Best run is (.*) hour(s*)$/, '此类成就全部完成！(最快为$1小时'], //成就等
+    [/^You're in the wrong Universe! Best run is (.*) minutes (.*) seconds$/, '您进入了错误的宇宙！最快为$1分钟$2秒'], //成就等
     [/^Progress: Best run is (.*) minutes (.*) seconds$/, '进度：最快为$1分钟$2秒'], //成就等
     [/^Progress: Too slow! Best run is (.*) minutes (.*) seconds$/, '进度：因太慢失败了！最快为$1分钟$2秒'], //成就等
     [/^Row Finished! \(Best run is (.*) minutes (.*) seconds$/, '此类成就全部完成！(最快为$1分钟$2秒'], //成就等
+    [/^You're in the wrong Universe! Best run is (\d+)$/, '您进入了错误的宇宙！最快为$1'], //成就等
     [/^Progress: Best run is (\d+)$/, '进度：最快为$1'], //成就等
     [/^Progress: Too slow! Best run is (\d+)$/, '进度：因太慢失败了！最快为$1'], //成就等
     [/^Row Finished! \(Best run is (\d+)$/, '此类成就全部完成！(最快为$1'], //成就等
+    [/^You're in the wrong Universe! Best run is (.*) hour(s*) (.*) minute(s*) (.*) second(s*)$/, '您进入了错误的宇宙！最快为$1小时$3分钟$5秒'], //成就等
     [/^Progress: Best run is (.*) hour(s*) (.*) minute(s*) (.*) second(s*)$/, '进度：最快为$1小时$3分钟$5秒'], //成就等
     [/^Progress: Too slow! Best run is (.*) hour(s*) (.*) minute(s*) (.*) second(s*)$/, '进度：因太慢失败了！最快为$1小时$3分钟$5秒'], //成就等
     [/^Row Finished! \(Best run is (.*) hour(s*) (.*) minute(s*) (.*) second(s*)$/, '此类成就全部完成！(最快为$1小时$3分钟$5秒'], //成就等
@@ -6776,6 +6884,7 @@ var cnRegReplace = new Map([
     [/^Beat the Spire with no respec and (.*) or less He Spent$/, '在氦花费不超过$1，且未在传送后进行特权洗点的前提下通过尖塔'], //成就等
     [/^Beat Spire II with no respec and (.*) or less He spent$/, '在氦花费不超过$1，且未在传送后进行特权洗点的前提下通过尖塔 II'], //成就等
     [/^Complete Wither with (.*) stacks of Hardened$/, '在拥有$1层硬化的前提下，完成凋零挑战'], //成就等
+    [/^(.*)% Damage$/, '$1%伤害'], //成就等
     [/^Your save on PlayFab has earned (.*) total Helium, defeated Zone (.*), and cleared (.*) total Zones. The save on your computer only has (.*) total Helium, has defeated Zone (.*), and cleared (.*) total Zones.$/, 'PlayFab上的存档一共获得了$1氦，最高通过了区域$2，总共通过了$3个区域。您的电脑上的存档只获得了$4氦，最高通过了区域$5，总共通过了$6个区域。'], //设置等
     [/^(.*)Unable to back up your save to PlayFab! Double check your internet connection, and don't forget to back up your save manually.$/, '$1无法将存档备份到PlayFab！请再次检查您的互联网连接是否正常，而且请不要忘了手动备份存档。'], //设置等
     [/^(.*)Game saved and backed up to PlayFab! Next automatic online save in 30 minutes.$/, '$1游戏已保存并备份至PlayFab！30分钟后会再次自动备份。'], //设置等
@@ -6854,8 +6963,8 @@ var cnRegReplace = new Map([
     [/^(.*) Helium, (.*)x each Token$/, '$1氦，各$2自然符记'], //骨头等
     [/^(.*) Helium, (.*) Fluffy Exp$/, '$1氦，$2绒绒经验'], //骨头等
     [/^(.*) Radon, (.*) Scruffy Exp$/, '$1氡，$2污污经验'], //骨头等
-    [/^(.*)(?<!-)(?<!and (.*)\%)(?<!Current)(?<!30 total)(?<!Battle)(?<!Cool For)(?<!AutoGold) Helium$/, '$1氦'], //骨头等
-    [/^(.*)(?<!-)(?<!Current)(?<!Helium \/)(?<!Battle)(?<!Raging)(?<!AutoGold) Radon$/, '$1氡'], //骨头等
+    [/^(.*)(?<!Fluffy)(?<!Golden)(?<!-)(?<!and (.*)\%)(?<!Current)(?<!30 total)(?<!Battle)(?<!Cool For)(?<!AutoGold) Helium$/, '$1氦'], //骨头等
+    [/^(.*)(?<!Scruffy)(?<!Golden)(?<!-)(?<!Current)(?<!Helium \/)(?<!Battle)(?<!Raging)(?<!AutoGold) Radon$/, '$1氡'], //骨头等
     [/^(\d+\%) Map Loot$/, '$1 地图资源获取'], //骨头等
     [/^(\d+\%) Trimp Damage$/, '$1 脆皮伤害'], //骨头等
     [/^(\s+)Buy Heirloom \(30 bones\)(\s+)$/, '$1购买传家宝(30骨头)$2'], //骨头等
@@ -7518,44 +7627,44 @@ var cnRegReplace = new Map([
     [/^The Trimps that earned this Frenzy buff are still alive, and they will be able to refresh its duration starting in (.*) second(s*).$/, '最初触发战狂的脆皮们仍然还幸存着，再过$1秒，它们就可以刷新战狂状态持续时间了。'], //特权等
     [/^(.*) Helium Canister(s*)$/, '$1氦'], //特权等
     [/^(.*) Radon Vial(s*)$/, '$1氡'], //特权等
-	[/^You have spent (.*) Helium on this Perk.$/, '您已经在这个特权上花费了$1氦。'], //特权等
-	[/^You have spent (.*) Radon on this Perk.$/, '您已经在这个特权上花费了$1氡。'], //特权等
-	[/^Looting II X(.*)$/, '劫掠 II X$1'], //特权等
-	[/^Carpentry II X(.*)$/, '木工 II X$1'], //特权等
-	[/^Motivation II X(.*)$/, '鼓舞 II X$1'], //特权等
-	[/^Power II X(.*)$/, '力量 II X$1'], //特权等
-	[/^Toughness II X(.*)$/, '坚韧 II X$1'], //特权等
-	[/^Capable X(.*)$/, '能力 X$1'], //特权等
-	[/^Cunning X(.*)$/, '灵巧 X$1'], //特权等
-	[/^Curious X(.*)$/, '好奇 X$1'], //特权等
-	[/^Classy X(.*)$/, '上等 X$1'], //特权等
-	[/^Overkill X(.*)$/, '超杀 X$1'], //特权等
-	[/^Resourceful X(.*)$/, '足智多谋 X$1'], //特权等
-	[/^Coordinated X(.*)$/, '协同 X$1'], //特权等
-	[/^Siphonology X(.*)$/, '虹吸学 X$1'], //特权等
-	[/^Anticipation X(.*)$/, '预期 X$1'], //特权等
-	[/^Resilience X(.*)$/, '弹性 X$1'], //特权等
-	[/^Meditation X(.*)$/, '冥想 X$1'], //特权等
-	[/^Relentlessness X(.*)$/, '无情 X$1'], //特权等
-	[/^Greed X(.*)$/, '贪婪 X$1'], //特权等
-	[/^Tenacity X(.*)$/, '坚持 X$1'], //特权等
-	[/^Criticality X(.*)$/, '暴击限界 X$1'], //特权等
-	[/^Equality X(.*)$/, '平等 X$1'], //特权等
-	[/^Carpentry X(.*)$/, '木工 X$1'], //特权等
-	[/^Artisanistry X(.*)$/, '手艺娴熟 X$1'], //特权等
-	[/^Range X(.*)$/, '范围 X$1'], //特权等
-	[/^Agility X(.*)$/, '敏捷 X$1'], //特权等
-	[/^Bait X(.*)$/, '诱饵 X$1'], //特权等
-	[/^Trumps X(.*)$/, '王牌 X$1'], //特权等
-	[/^Pheromones X(.*)$/, '信息素 X$1'], //特权等
-	[/^Packrat X(.*)$/, '囤积成瘾 X$1'], //特权等
-	[/^Motivation X(.*)$/, '鼓舞 X$1'], //特权等
-	[/^Power X(.*)$/, '力量 X$1'], //特权等
-	[/^Toughness X(.*)$/, '坚韧 X$1'], //特权等
-	[/^Looting X(.*)$/, '劫掠 X$1'], //特权等
-	[/^Prismal X(.*)$/, '棱镜化 X$1'], //特权等
-	[/^Hunger X(.*)$/, '饥饿 X$1'], //特权等
-	[/^Frenzy X(.*)$/, '战狂 X$1'], //特权等
+    [/^You have spent (.*) Helium on this Perk.$/, '您已经在这个特权上花费了$1氦。'], //特权等
+    [/^You have spent (.*) Radon on this Perk.$/, '您已经在这个特权上花费了$1氡。'], //特权等
+    [/^Looting II X(.*)$/, '劫掠 II X$1'], //特权等
+    [/^Carpentry II X(.*)$/, '木工 II X$1'], //特权等
+    [/^Motivation II X(.*)$/, '鼓舞 II X$1'], //特权等
+    [/^Power II X(.*)$/, '力量 II X$1'], //特权等
+    [/^Toughness II X(.*)$/, '坚韧 II X$1'], //特权等
+    [/^Capable X(.*)$/, '能力 X$1'], //特权等
+    [/^Cunning X(.*)$/, '灵巧 X$1'], //特权等
+    [/^Curious X(.*)$/, '好奇 X$1'], //特权等
+    [/^Classy X(.*)$/, '上等 X$1'], //特权等
+    [/^Overkill X(.*)$/, '超杀 X$1'], //特权等
+    [/^Resourceful X(.*)$/, '足智多谋 X$1'], //特权等
+    [/^Coordinated X(.*)$/, '协同 X$1'], //特权等
+    [/^Siphonology X(.*)$/, '虹吸学 X$1'], //特权等
+    [/^Anticipation X(.*)$/, '预期 X$1'], //特权等
+    [/^Resilience X(.*)$/, '弹性 X$1'], //特权等
+    [/^Meditation X(.*)$/, '冥想 X$1'], //特权等
+    [/^Relentlessness X(.*)$/, '无情 X$1'], //特权等
+    [/^Greed X(.*)$/, '贪婪 X$1'], //特权等
+    [/^Tenacity X(.*)$/, '坚持 X$1'], //特权等
+    [/^Criticality X(.*)$/, '暴击限界 X$1'], //特权等
+    [/^Equality X(.*)$/, '平等 X$1'], //特权等
+    [/^Carpentry X(.*)$/, '木工 X$1'], //特权等
+    [/^Artisanistry X(.*)$/, '手艺娴熟 X$1'], //特权等
+    [/^Range X(.*)$/, '范围 X$1'], //特权等
+    [/^Agility X(.*)$/, '敏捷 X$1'], //特权等
+    [/^Bait X(.*)$/, '诱饵 X$1'], //特权等
+    [/^Trumps X(.*)$/, '王牌 X$1'], //特权等
+    [/^Pheromones X(.*)$/, '信息素 X$1'], //特权等
+    [/^Packrat X(.*)$/, '囤积成瘾 X$1'], //特权等
+    [/^Motivation X(.*)$/, '鼓舞 X$1'], //特权等
+    [/^Power X(.*)$/, '力量 X$1'], //特权等
+    [/^Toughness X(.*)$/, '坚韧 X$1'], //特权等
+    [/^Looting X(.*)$/, '劫掠 X$1'], //特权等
+    [/^Prismal X(.*)$/, '棱镜化 X$1'], //特权等
+    [/^Hunger X(.*)$/, '饥饿 X$1'], //特权等
+    [/^Frenzy X(.*)$/, '战狂 X$1'], //特权等
     [/^Your Trimps learn to harvest special Herbs while collecting Food! Increases Trimp Attack by a number based on your total stored food. Grants \+30% Attack at (.*) Food, or \+300% at (.*). At your current total of (.*) Food,$/, '您的脆皮现在可以在采集食物时同时采集百草！根据食物存储量增加攻击力。在$1食物时增加30%攻击力，在$2食物时增加300%攻击力。您当前共有$3食物，'], //神农专精
     [/^you are gaining \+([\d+\.]+)% Trimp Attack$/, '您获得了 +$1% 攻击力'], //神农专精
     [/^you would gain \+([\d+\.]+)% Trimp Attack$/, '您可获得 +$1% 攻击力'], //神农专精
@@ -7964,12 +8073,9 @@ var cnRegReplace = new Map([
     [/^(.*)You're not yet ready. Maybe you'll be of use in the next lifetime.$/, '$1您只是在自寻死路。或许下一世您能准备好了。'], //其他消息等
     [/^(.*) group(s*) of Trimps ha(s|ve) perished in the Spire.$/, '$1队脆皮们倒在了尖塔中。'], //其他消息等
     [/^(.*)Sorry$/, '$1很抱歉'], //其他消息等
-
-
-
-
+    [/^(.*)Heavy use of the portal has created a chance for the Void to seep into your world. Be alert.$/, '$1多次使用传送门后，虚空开始渗入您的世界了。保持警惕。'], //其他消息等
     [/^(.*)Get a leg up with PANTS! Until your next trou... browser refresh, you can enable the useless but stylish PANTS ONLY AutoPrestige setting! Denim-ite!$/, '$1胖次最好了，什么头套胖次之类的更是……咳咳，直到下次刷新页面之前您都可以使用这个没什么卵用但是很绅士的自动重铸设置了！蓝！白！碗！'], //其他消息等
-
+    [/^(.*)Please use a number greater than 0!$/, '$1请输入大于0的数字！'], //其他消息等
     [/^(.*)AutoTrimps - Zek Fork Loaded!$/, '$1自动脆皮脚本 - Zek Fork 已成功载入！'], //脚本3载入消息
     [/^(.*)Adding dark-graph.css file$/, '$1黑暗图表已开启'], //脚本3图表消息
     [/^(.*)Removing dark-graph.css file$/, '$1黑暗图表已关闭'], //脚本3图表消息
@@ -8576,18 +8682,4 @@ var cnRegReplace = new Map([
     [/^(.*)Upgraded Prismatic$/, '$1购买升级：棱镜护盾'], //脚本3升级设置
     [/^(.*)Upgraded Prismalicious$/, '$1购买升级：优质棱镜'], //脚本3升级设置
     [/^(.*)Error: LocalStorage is full, or error. Attempt to delete some portals from your graph or restart browser.$/, '$1浏览器数据存储已满，或者出错。请删除一些图表中传送门的数据或重启浏览器。'], //脚本3公用设置
-
-
-
-
-
-
-
-
-
-
-
-
-    [/^(\d+) workspace$/, '$1 工作区'],
-    [/^(.+) workspaces$/, '$1 工作区'],
 ]);
