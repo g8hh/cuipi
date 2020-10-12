@@ -5273,46 +5273,6 @@ var cnItems = {
     'Delay Portal': '延迟传送',
     //脚本3相关结束
 
-
-    //未分类20190806
-    "Your Trimps killed a lot of Bad Guys back there. It seems like you're getting the hang of this. However, the world is large, and there are many more Zones to explore. Chop chop.": "你的脆皮在那里杀死了很多坏人。 看起来你似乎已经弄清楚这是怎么一回事了。 然而这个世界很大，依然有去多区域需要探索，“砍”“砍”...",
-    "By your orders, your scientists have begun to try and figure out how large this planet is.": "根据您的命令，您的科学家们已经开始尝试了解这个星球有多大。",
-    "You order your Trimps to search the area for the keys to your ship, but nobody finds anything. Bummer.": "您命令脆皮在该地区搜索您的船只的钥匙，但没有人找到任何东西。真令人失望。",
-    "Do you see that thing at the end of this zone? It's huge! It's terrifying! You've never seen anything like it before, but you know that it is a Blimp. How did you know that? Stop knowing things and go kill it.": "你看到尽头的那个东西了吗？多么的巨大！多么的可怕！ 你以前从未见过这样的东西,但是你知道这是一个脆皮飞艇。你是怎么知道的？别问为什么了，去杀死它！",
-    "Slow and steady wins the race. Unless you're racing someone who is actually trying.": "慢而稳事必成， 除非跟你竞争的人比你更努力。",
-    "You can't shake the feeling that you've been here before. Déjà-vu?": "你不能排除那种你以前来过这里的感觉，似曾相识。",
-    "Looks like another Blimp up ahead. Hard to tell from far away, but it looks like it has more heads than the last one.": "看起来像另一个脆皮飞艇。但很难说，特别是从这么远的地方，不过它看起来比上次那个多了一个头。",
-    "You're unstoppable as long as nothing stops you. Unfortunately, it seems like something really wants to stop you.": "你不可阻挡，只要没人阻拦你。 不幸的是，看起来有些东西像是真的想阻止你。",
-    "Did you see that green light flash by? Weird. Oh well.": "你看到绿光一闪而过吗？奇怪。噢，好吧。",
-    "Another day, another Blimp at the end of the zone": "另一天,又是一个脆皮飞艇在区域的尽头。",
-    "Seriously? Another Blimp so soon?": "你是认真的吗？又一个脆皮飞艇！",
-    "You climb a large cliff and look out over the new zone. Red dirt, scorched ground, and devastation. Is that a Dragimp flying around out there?!": "你爬上一个巨大的悬崖，俯瞰着一片新的区域。红色的泥土，烧焦的地面，一片荒芜。 那是一头龙在飞来飞去吗？！",
-    "There seems to be a strange force urging you to keep going. The atmosphere is becoming... angrier. Part of you wants to turn around and go back, but most of you wants to keep going.": "似乎有一种奇怪的力量鼓励你继续前行。气氛变得有点，愤怒的感觉。 你的身体的一部分想转身回去,但其他大部分想继续前行。",
-    "You look behind and see your kingdom. You have gems, a colony, and territory. You wonder if enough Trimps have already fallen in battle. After contemplation, one word falls out of your mouth as you begin to move forward. 'Nah'": "你回头看看你的王国，你拥有宝石、殖民地和领土。 你在想你的脆皮是不是已经在战斗中牺牲了。 沉思之后， 两个字从你的嘴里蹦了出来 “算了”",
-    "You can sense that you're close to your goal.": "你感觉到你离你的目标已经不远了。",
-    "A huge storm has formed and daylight has become a luxury you have mostly forgotten about. Your Trimps seem to want to go back home, but you're pretty sure you're supposed to keep going this way, so you do. You're very close to the anomaly.": "一场巨大的风暴已经形成，白昼已经成为一种你几乎忘记的奢侈品。你的脆皮似乎想回家，但你很确定你们应该继续向前走，所以你们继续前行。你已经离异常现象非常近了。",
-    "There it is. The anomaly is at the end of the zone. You can see it but you don't know what you're seeing. Where did that... thing... come from?! This is highly Improbable.": "它……就在那里。那个异常现象，就在这个区域的尽头。你能看得见它，但是你不知道你正在看的这个东西究竟是什么。这个……东西……是从哪来的？！这个东西太无序了。",
-    "A loud boom echoes in the distance, and one of your Trimps runs up to you with outstretched arms, looking quite frightened. He probably just wants some armor and weapons! You hand him some gear, and he accepts it with excitement.": "远处传来一阵响亮的隆隆声，然后一只脆皮伸出双手向你跑来，看起来他有些害怕。他可能只是想要一些武器和护甲！你递给他一些装备，他兴奋地接受了。",
-    "Do you see that thing at the end of this Zone? It's huge! It's terrifying! You've never seen anything like it before, but you know that it is a Blimp. How did you know that? Stop knowing things and go kill it.": "你看到尽头的那个东西了吗？多么的巨大！多么的可怕！ 你以前从未见过这样的东西,但是你知道这是一个脆皮飞艇。你是怎么知道的？别问为什么了，去杀死它！",
-    "You step over the corpse of the Blimp as it rapidly deflates, and one of your Trimps chuckles at the sound produced. You all cross the sulfuric river to the next Zone, and can feel the presence of an ancient knowledge. Better explore.": "你踩过了脆皮飞艇的尸体，它迅速的瘪了下去。你的其中一个脆皮听到这个声音，顿时咯咯地笑了起来。你们穿过了含硫的河流，来到了下一个区域，在这里你们感受到古代知识的存在。进行更好的探索吧。",
-    "Your settlement is getting crowded, there's Trimps in the streets, and you're taking heat. You feel a sudden strong desire to create a map, though you're not quite sure how that would help.": "你住的地方变得越来越拥挤，街道上到处都是脆皮，你感觉自己越来越热。你突然有强烈的愿望想要创建一个地图，尽管你不太确定这会有什么帮助。",
-    "Your scientists have finally concluded their report on the analysis of the size of the world. According to the report, they're pretty sure it's infinitely large, but you're pretty sure they just got bored of checking.": "你的科学家们终于完成了他们关于这世界大小的分析报告。根据报告，它们很确信这个世界是无限大的，但你也很确信它们只是对这项检查厌倦了。",
-    "You were trying to help bring back some of the Equipment your Trimps left on the ground in that last Zone, and you got a splinter. This planet is getting dangerous, stay alert.": "你试图帮助带回脆皮在上一个区域留在地上的一些装备，并且你得到了一个碎片。这个星球正在变得危险起来，保持警惕。",
-    "Another day, another Blimp at the end of the Zone.": "另一天,又是一个脆皮飞艇在区域的尽头。",
-    "You climb a large cliff and look out over the new Zone. Red dirt, scorched ground, and devastation. Is that a Dragimp flying around out there?!": "你爬上一个巨大的悬崖，俯瞰着一片新的区域。红色的泥土，烧焦的地面，一片荒芜。 那是一头龙在飞来飞去吗？！",
-    "Strange, the sky seems to be getting darker. You ask one of your Trimps for the time, but he doesn't know what a clock is.": "奇怪，天空看起来变的更黑了。你询问其中一只脆皮现在是什么时间，但是它都不知道什么是时钟。",
-    "You're a rebel. The universe pointed you into that portal, but you kept pushing forward. You feel... less like you've been here before.": "你是个叛逆者。宇宙指引你进入那个传送门，但是你执意向前推进。你感觉……自己好像没有来过这里。",
-    "It seems like the further you press on, the less you know. You still feel an urge to use the portal, though the urge has begun to dwindle.": "似乎你越向前进，你知道的就越少。你仍然有使用传送门的冲动，但是这冲动已经开始减少了。",
-    "Your Trimps came up with a pretty catchy battle song that got stuck in your head. None of them survived the next fight though, and you can't remember most of it. Life's tough.": "你的脆皮创造了一首非常吸引人的战歌，这首歌一直萦绕在你的脑海中。但是他们没有一人在下一场战斗中活下来，而且其中大部分的脆皮你也记不得了。生活是真的艰难。",
-    "You climb over a large hill that was separating this Zone from the last. The sky is pitch black and lightning crackles in the distance. This is a site of heavy corruption.": "你爬过一座将两个地区分开的大山。天空一片漆黑，远处有闪电划过。这里是一个腐化严重的地方。",
-    "You start to wonder how long you've been doing the same thing over and over. There must be something you can do to start to break the cycle. Perhaps you could alter the portal...": "想知道自己一遍遍地重复同样的事情已经多久了。你一定能做些什么来打破这个循环。或许你能对传送门做些修改……",
-    "You can't help but notice that the Trimps seem to be the only creatures on this planet not immediately hostile towards outsiders. You ask a nearby Trimp soldier what he thinks you are, and he drools a bit.": "你不禁注意到，脆皮可能是这个星球上唯一不会立刻对外界敌对的生物。你询问附近的一个脆皮士兵，他认为你是什么？然后他有点流口水(迷恋？)。",
-    "The world seems so barren out this far. You feel like you're finally starting to get ahead of the curve, but you know by now not to get comfortable.": "这个世界看起来如此贫瘠。你觉得自己终于开始走在前面了，但你现在知道，这并不能让你感到舒服。",
-    "Each day and night seems to grow longer than the one before. Is time slowing down? Argh! You fall to your knees with a splitting headache and a strong desire to use the portal. After a few minutes, it passes and you forget what happened. What are we talking about?": "白天和黑夜似乎都比以前更长了。是时间变慢了吗？啊！你跪倒在地，头痛欲裂，并有一种强烈的想使用传送门的渴望。几分钟后，这个感觉消退了，你也忘记了刚才发生了什么。我们刚才在讨论什么来着？",
-    "All traces of hills and mountains have long since been trudged past. The world is flat and hostile. You wish your Trimps were better conversationalists.": "回头望去，越过的山的痕迹越来越长。这个世界是平的，并充满了敌意。你希望你的脆皮们能更健谈一些。",
-    "As your Trimps scavenge every last bit of helium from that Blimp, one of them begins freaking out. He runs around waving his little arms and making funny noises for a while, eats some dirt, then takes a little nap. You wonder if that's normal. Yeah... probably fine.": "当脆皮们从脆皮飞艇身上提取最后一点氦时，其中一只开始发狂。他跑来跑去，挥舞着他的小胳膊，其中一段时间发出了有趣的声音，吃了一些泥土，然后就开始小睡。你很好奇他是否还正常。是的……可能他还算不错。.",
-    "It's been a long time since you've found any blueprints in the maps. You start to wonder where those things even come from.": "你很久没有在地图上找到蓝图了。你开始怀疑这些东西是从哪里来的。",
-
     //原样
     '': '',
     '': '',
@@ -6662,6 +6622,10 @@ var cnRegReplace = new Map([
     [/^(.*)Better hurry up to the fighting Zones so you don't have to sit around here all day watching Trimps breed.$/, '$1还是赶紧去战斗区域吧，不然整天没事干就只能看脆皮们繁殖了。'], //其他升级等
     [/^(.*)Apparently the Trimps breed if they're not working. Doesn't look pleasant.$/, '$1很显然，如果脆皮没有在干活，它们就开始繁殖了。看着不怎么舒服。'], //其他升级等
     [/^(.*), Z$/, '$1，区域'], //统计等
+    [/^You will find one Golden Upgrade every (.*) Zones. Frequency increases at (.*)% bonus damage.$/, '您每$1个区域可以获得一个金色升级。升级出现的频率在到达$2%伤害后将开始增加。'], //成就等
+    [/^You will find one Golden Upgrade every (.*) Zones. Start with 1 extra Golden Upgrade after each Portal for every 500% earned between 2000% and (.*)%. Currently gaining (.*) extra Golden Upgrade(s*).$/, '您每$1个区域可以获得一个金色升级，且伤害加成在2000%与$2%之间的部分，每有500%伤害加成，传送后就额外获得1个金色升级。目前可以获得$3个金色升级。'], //成就等
+    [/^You will find one Golden Upgrade every (.*) Zones. Start with 1 extra Golden Upgrade after each Portal for every 2000% earned above (.*)%. Currently gaining (.*) extra Golden Upgrade(s*).$/, '您每$1个区域可以获得一个金色升级，且伤害加成在$2%以上的部分，每有2000%伤害加成，传送后就额外获得1个金色升级。目前可以获得$3个金色升级。'], //成就等
+    [/^$/, ''], //成就等
     [/^Progress: (.*) \/$/, '进度：$1 /'], //成就等
     [/^Complete Zone (\d+) in Universe$/, '通过区域 $1 于宇宙'], //成就等
     [/^Reach (.*) displayed damage$/, '面板伤害值达到$1'], //成就等
@@ -7803,6 +7767,42 @@ var cnRegReplace = new Map([
     [/^(.*)You ruined a(n*) $/, '$1您破坏了一个'], //击杀消息
     [/^(.*)You wrecked a(n*) $/, '$1您击毁了一个'], //击杀消息
     [/^(.*)You obliterated a(n*) $/, '$1您抹消了一个'], //击杀消息
+    [/^(.*)Z:2 Your Trimps killed a lot of Bad Guys back there. It seems like you're getting the hang of this. However, the world is large, and there are many more Zones to explore. Chop chop.$/, '$1区域：2 您的脆皮已经干掉了不少敌人。看起来您也逐渐熟悉这些了。不过，世界还很大，还有很多区域等着您来探索。所以，加快速度吧。'], //故事消息
+    [/^(.*)Z:3 By your orders, your scientists have begun to try and figure out how large this planet is.$/, '$1区域：3 依照您的指示，科学家们已经开始测量这个行星的大小了。'], //故事消息
+    [/^(.*)Z:3 This planet seems so cold and lonely without Science.$/, '$1区域：3 这个没有科学家的行星看起来既冷又孤寂。'], //故事消息
+    [/^(.*)Z:4 You order your Trimps to search the area for the keys to your ship, but nobody finds anything. Bummer.$/, '$1区域：4 您指示脆皮们搜索这个区域，寻找您飞船的钥匙，但一无所获。啧。'], //故事消息
+    [/^(.*)Z:5 Do you see that thing at the end of this Zone\? It's huge! It's terrifying! You've never seen anything like it before, but you know that it is a Blimp. How did you know that\? Stop knowing things and go kill it.$/, '$1区域：5 看到这个区域最后的那个东西了吗？它很大！它很可怕！您之前从未见过类似的东西，但您就是知道，它叫脆皮飞艇。等等，您是怎么知道的？别问太多，干掉它就是了。'], //故事消息
+    [/^(.*)Z:6 You step over the corpse of the Blimp as it rapidly deflates, and one of your Trimps chuckles at the sound produced. You all cross the sulfuric river to the next Zone, and can feel the presence of an ancient knowledge. Better explore.$/, '$1区域：6 飞艇迅速瘪了下去，您踏过了飞艇的尸体，发出的声音让一个脆皮偷笑了出来。您带着脆皮们穿过了硫酸河，到达了下个区域，并感受到了古老知识的存在。最好去探索一下。'], //故事消息
+    [/^(.*)Z:7 Slow and steady wins the race. Unless you're racing someone who is actually trying.$/, '$1区域：7 稳扎稳打，无往不胜。但您也得打才行啊。'], //故事消息
+    [/^(.*)Z:8 Your settlement is getting crowded, there's Trimps in the streets, and you're taking heat. You feel a sudden strong desire to create a map, though you're not quite sure how that would help.$/, '$1区域：8 您住的地方越来越拥挤了，街上到处是脆皮，置身其中连您都感到热了。虽然不知道制造地图会有什么用，但您突然有一种强烈的欲望去这么做。'], //故事消息
+    [/^(.*)Z:9 You can't shake the feeling that you've been here before. Déjà-vu\?$/, '$1区域：9 您有一种强烈的感觉，您曾经来过这里。既视感……吗？'], //故事消息
+    [/^(.*)Z:10 Looks like another Blimp up ahead. Hard to tell from far away, but it looks like it has more heads than the last one.$/, '$1区域：10 看起来前方又有一个脆皮飞艇了。虽然离着太远看不真切，但还是能看得出来它的头比上一个更多一些。'], //故事消息
+    [/^(.*)Z:11 You're unstoppable as long as nothing stops you. Unfortunately, it seems like something really wants to stop you.$/, '$1区域：11 只要没人来阻止您，您就可以高喊“谁能挡我”了。不过，运气不好的是，似乎真有什么东西想要挡您了。希望您的下一句不会是“不可能”。'], //故事消息
+    [/^(.*)Z:12 Did you see that green light flash by\? Weird. Oh well.$/, '$1区域：12 您看到那一闪而过的绿光了吗？真奇怪。好吧，就这样。'], //故事消息
+    [/^(.*)Z:13 Your scientists have finally concluded their report on the analysis of the size of the world. According to the report, they're pretty sure it's infinitely large, but you're pretty sure they just got bored of checking.$/, '$1区域：13 科学家们完成了世界大小的分析并提交了报告。根据报告所述，这是一个无穷大的世界，但您能肯定的是，它们只是懒得再去验证了而已。'], //故事消息
+    [/^(.*)Z:14 You were trying to help bring back some of the Equipment your Trimps left on the ground in that last Zone, and you got a splinter. This planet is getting dangerous, stay alert.$/, '$1区域：14 您想取回脆皮们遗留在上个区域的装备，最后却只发现了残片而已。这个行星越来越危险了，保持警惕为上。'], //故事消息
+    [/^(.*)Z:15 Another day, another Blimp at the end of the Zone.$/, '$1区域：15 又是新的一天，又是新的脆皮飞艇。'], //故事消息
+    [/^(.*)Z:16 Seriously\? Another Blimp so soon\?$/, '$1区域：16 真的吗？这么快又是一个脆皮飞艇？'], //故事消息
+    [/^(.*)Z:17 You climb a large cliff and look out over the new Zone. Red dirt, scorched ground, and devastation. Is that a Dragimp flying around out there\?!$/, '$1区域：17 您爬上了一个巨大的悬崖顶部，眺望着新的区域。红泥，焦土，满目疮痍。等等，那飞来飞去的是……一只脆皮龙吗？！'], //故事消息
+    [/^(.*)Z:18 There seems to be a strange force urging you to keep going. The atmosphere is becoming... angrier. Part of you wants to turn around and go back, but most of you wants to keep going.$/, '$1区域：18 似乎有一股神秘的力量在促使您继续前进。空气似乎变得……更愤怒了。您的脑海里似乎有一个声音在喊着您回头，但另一个更响亮更坚定的声音想要继续前行。'], //故事消息
+    [/^(.*)Z:19 You look behind and see your kingdom. You have gems, a colony, and territory. You wonder if enough Trimps have already fallen in battle. After contemplation, one word falls out of your mouth as you begin to move forward. 'Nah'$/, '$1区域：19 您回头看了看您的王国。您有了宝石，有了居住地，还有了大块领土。获得这些的过程中，大量的脆皮失去了它们的生命。您沉思了一下，是不是已经死得够多了，随后，您继续前进，只留下了三个字。“还不够”'], //故事消息
+    [/^(.*)Z:20 You can sense that you're close to your goal.$/, '$1区域：20 您感觉到接近目标了。'], //故事消息
+    [/^(.*)Z:22 You hear a strange humming noise that seems to draw you towards it, though it also seems to come from no direction in particular. You can feel that it's being created by the Amalgamator, though you've never heard such a sound before. It's both unsettling and enchanting, and the Universe seems to hate it.$/, '$1区域：22 尽管找不到声音的源头，您还是被一阵奇怪的嗡嗡声吸引了过去。虽然没有听过类似的声音，但您可以感觉到这是合并者发出的。这声音既令人不安，又引人入胜，似乎连这个宇宙都痛恨它。'], //故事消息
+    [/^(.*)Z:22 You hear a strange humming noise that seems to draw you towards it, though it also seems to come from no direction in particular. You can feel that it's being created by an Amalgamator, though you've never heard such a sound before. It's both unsettling and enchanting, and the Universe seems to hate it.$/, '$1区域：22 尽管找不到声音的源头，您还是被一阵奇怪的嗡嗡声吸引了过去。虽然没有听过类似的声音，但您可以感觉到这是一个合并者发出的。这声音既令人不安，又引人入胜，似乎连这个宇宙都痛恨它。'], //故事消息
+    [/^(.*)Z:22 Strange, the sky seems to be getting darker. You ask one of your Trimps for the time, but he doesn't know what a clock is.$/, '$1区域：22 天空看起来更暗了，真奇怪啊。您想问一个脆皮现在几点了，但它连什么是时间都不知道。'], //故事消息
+    [/^(.*)Z:25 You're a rebel. The universe pointed you into that portal, but you kept pushing forward. You feel... less like you've been here before.$/, '$1区域：25 您这是要反了啊。这个宇宙指引着您进入传送门，而您却还在前进。不过，你感觉到……您好像没怎么来过这里。'], //故事消息
+    [/^(.*)Z:27 It seems like the further you press on, the less you know. You still feel an urge to use the portal, though the urge has begun to dwindle.$/, '$1区域：27 似乎前进得越远，您所知的就越少。您虽然还想使用传送门，但这个欲望已经开始消退了。'], //故事消息
+    [/^(.*)Z:29 Your Trimps came up with a pretty catchy battle song that got stuck in your head. None of them survived the next fight though, and you can't remember most of it. Life's tough.$/, '$1区域：29 您的脆皮们想出了一首琅琅上口的战歌，您感觉都要被洗脑了。遗憾的是它们全部在之后的战斗中阵亡了，而您再也想不起来歌的唱法了。人生已经如此的艰难，有些事情就不要拆穿。'], //故事消息
+
+
+
+
+
+
+
+
+
+
     [/^(.*)The voice booms again, and sounds as if it is coming from the walls themselves.$/, '$1声音再次响了起来，听上去像是从墙壁中来的。'], //故事-尖塔消息
     [/^Dammit Druopitee. This is all going to end up being his fault, isn't it\? You help yourself to a container filled with (.*) Helium, and figure he'll owe you a lot more than that once you hear some more.$/, '该死的德罗披提，原来都是你在搞的鬼，不是吗？您装走了一个容器中的$1氦，您觉得这么听下去，他欠您的只会越来越多。'], //故事-尖塔消息
     [/^Yeah you don't really feel too much like bowing and probably won't be doing that. You did however find (.*) more Helium just sitting around, which you feel no qualms about taking.$/, '您不怎么喜欢臣服，也不会那么做的。您在附近找到了$1氦，毫不犹豫地将它带走了。'], //故事-尖塔消息
