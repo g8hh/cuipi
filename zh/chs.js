@@ -7774,7 +7774,7 @@ var cnRegReplace = new Map([
     [/^(.*)Z:5 Do you see that thing at the end of this Zone\? It's huge! It's terrifying! You've never seen anything like it before, but you know that it is a Blimp. How did you know that\? Stop knowing things and go kill it.$/, '$1区域：5 看到这个区域最后的那个东西了吗？它很大！它很可怕！您之前从未见过类似的东西，但您就是知道，它叫脆皮飞艇。等等，您是怎么知道的？别问太多，干掉它就是了。'], //故事消息
     [/^(.*)Z:6 You step over the corpse of the Blimp as it rapidly deflates, and one of your Trimps chuckles at the sound produced. You all cross the sulfuric river to the next Zone, and can feel the presence of an ancient knowledge. Better explore.$/, '$1区域：6 飞艇迅速瘪了下去，您踏过了飞艇的尸体，发出的声音让一个脆皮偷笑了出来。您带着脆皮们穿过了硫酸河，到达了下个区域，并感受到了古老知识的存在。最好去探索一下。'], //故事消息
     [/^(.*)Z:7 Slow and steady wins the race. Unless you're racing someone who is actually trying.$/, '$1区域：7 稳扎稳打，无往不胜。但您也得打才行啊。'], //故事消息
-    [/^(.*)Z:8 Your settlement is getting crowded, there's Trimps in the streets, and you're taking heat. You feel a sudden strong desire to create a map, though you're not quite sure how that would help.$/, '$1区域：8 您住的地方越来越拥挤了，街上到处是脆皮，置身其中连您都感到热了。虽然不知道制造地图会有什么用，但您突然有一种强烈的欲望去这么做。'], //故事消息
+    [/^(.*)Z:8 Your settlement is getting crowded, there's Trimps in the streets, and you're taking heat. You feel a sudden strong desire to create a map, though you're not quite sure how that would help.$/, '$1区域：8 您住的地方越来越拥挤了，街上到处是脆皮，置身其中连您都感到热了。虽然不知道制造地图会有什么用，但您突然强烈渴望去这么做。'], //故事消息
     [/^(.*)Z:9 You can't shake the feeling that you've been here before. Déjà-vu\?$/, '$1区域：9 您有一种强烈的感觉，您曾经来过这里。既视感……吗？'], //故事消息
     [/^(.*)Z:10 Looks like another Blimp up ahead. Hard to tell from far away, but it looks like it has more heads than the last one.$/, '$1区域：10 看起来前方又有一个脆皮飞艇了。虽然离着太远看不真切，但还是能看得出来它的头比上一个更多一些。'], //故事消息
     [/^(.*)Z:11 You're unstoppable as long as nothing stops you. Unfortunately, it seems like something really wants to stop you.$/, '$1区域：11 只要没人来阻止您，您就可以高喊“谁能挡我”了。不过，运气不好的是，似乎真有什么东西想要挡您了。希望您的下一句不会是“不可能”。'], //故事消息
@@ -7793,6 +7793,28 @@ var cnRegReplace = new Map([
     [/^(.*)Z:25 You're a rebel. The universe pointed you into that portal, but you kept pushing forward. You feel... less like you've been here before.$/, '$1区域：25 您这是要反了啊。这个宇宙指引着您进入传送门，而您却还在前进。不过，你感觉到……您好像没怎么来过这里。'], //故事消息
     [/^(.*)Z:27 It seems like the further you press on, the less you know. You still feel an urge to use the portal, though the urge has begun to dwindle.$/, '$1区域：27 似乎前进得越远，您所知的就越少。您虽然还想使用传送门，但这个欲望已经开始消退了。'], //故事消息
     [/^(.*)Z:29 Your Trimps came up with a pretty catchy battle song that got stuck in your head. None of them survived the next fight though, and you can't remember most of it. Life's tough.$/, '$1区域：29 您的脆皮们想出了一首琅琅上口的战歌，您感觉都要被洗脑了。遗憾的是它们全部在之后的战斗中阵亡了，而您再也想不起来歌的唱法了。人生已经如此的艰难，有些事情就不要拆穿。'], //故事消息
+    [/^(.*)Z:33 You climb over a large hill that was separating this Zone from the last. The sky is pitch black and lightning crackles in the distance. This is a site of heavy corruption.$/, '$1区域：33 您爬上了区域分界线上的一座高山。天空漆黑如墨，时不时有闪电划破天际。这地方严重腐化了。'], //故事消息
+    [/^(.*)Z:35 You start to wonder how long you've been doing the same thing over and over. There must be something you can do to start to break the cycle. Perhaps you could alter the portal...$/, '$1区域：35 您开始怀疑您已经重复多少次轮回了。一定有什么东西能够打破这个轮回。或许您可以改变一下传送门……'], //故事消息
+    [/^(.*)Z:40 You can't help but notice that the Trimps seem to be the only creatures on this planet not immediately hostile towards outsiders. You ask a nearby Trimp soldier what he thinks you are, and he drools a bit.$/, '$1区域：40 您注意到了，这个行星上似乎只有脆皮对外来者会友好一些。您随手抓过旁边一个脆皮，并询问它是怎么看您的，然后它流了点口水。'], //故事消息
+    [/^(.*)Z:42 The world seems so barren out this far. You feel like you're finally starting to get ahead of the curve, but you know by now not to get comfortable.$/, '$1区域：42 到目前为止来看，这世界相当贫瘠。您感觉您终于开始超脱轮回了，但您知道现在还不是完全放松的时候。'], //故事消息
+    [/^(.*)Z:44 Each day and night seems to grow longer than the one before. Is time slowing down\? Argh! You fall to your knees with a splitting headache and a strong desire to use the portal. After a few minutes, it passes and you forget what happened. What are we talking about\?$/, '$1区域：44 每天似乎都在变得更长一些。是时间减慢了吗？啊！您突然感到头痛欲裂，倒了下去，并有一种使用传送门的强烈渴望。过了一会儿，疼痛平息了，您也忘记了发生了什么。不过，我们前面到底在聊什么来着？'], //故事消息
+    [/^(.*)Z:46 All traces of hills and mountains have long since been trudged past. The world is flat and hostile. You wish your Trimps were better conversationalists.$/, '$1区域：46 通过崇山峻岭的足迹已经拉得很长了。这个世界的恶意可谓是毫不掩饰。您觉得脆皮们如果能健谈一些就好了。'], //故事消息
+    [/^(.*)Z:48 As your Trimps scavenge every last bit of helium from that Blimp, one of them begins freaking out. He runs around waving his little arms and making funny noises for a while, eats some dirt, then takes a little nap. You wonder if that's normal. Yeah... probably fine.$/, '$1区域：48 您的脆皮们回收完脆皮飞艇的氦以后，其中一个脆皮突然开始举止异常。它开始边摇手臂边到处乱跑，并发出了一些有趣的声音，然后吃了点土，睡着了。您开始思考这到底算不算异常。嗯……大概不算吧。'], //故事消息
+    [/^(.*)Z:50 It's been a long time since you've found any blueprints in the maps. You start to wonder where those things even come from.$/, '$1区域：50 您很久没有在地图中找到蓝图了。这些到底是哪里来的呢……'], //故事消息
+    [/^(.*)Z:51 Your scientists have detected an anomaly at the end of Zone 59. They recommend that you stop doing whatever it is that you're doing.$/, '$1区域：51 科学家们在区域59的末尾检测到了异常现象。它们建议您立刻停止。'], //故事消息
+    [/^(.*)Z:53 As you get closer to the anomaly, you start to notice more and more strange behaviour from your Trimps. Holes in your memory are starting to become noticeable as multiple existences blend into one. Trippy.$/, '$1区域：53 随着您接近异常现象，您注意到脆皮的举止越来越古怪。您的记忆中缺失的部分越来越明显了，就好像好多世的记忆叠加到了一起一样。真是的。'], //故事消息
+    [/^(.*)Z:54 As you get closer to the anomaly, you start to notice more and more strange behaviour from your Trimps. Holes in your memory are starting to become noticeable as multiple existences blend into one. Trippy.$/, '$1区域：54 随着您接近异常现象，您注意到脆皮的举止越来越古怪。您的记忆中缺失的部分越来越明显了，就好像好多世的记忆叠加到了一起一样。真是的。'], //故事消息
+    [/^(.*)Z:56 A loud boom echoes in the distance, and one of your Trimps runs up to you with outstretched arms, looking quite frightened. He probably just wants some armor and weapons! You hand him some gear, and he accepts it with excitement.$/, '$1区域：56 远方传来了一声巨响，一个脆皮张开双臂向您跑来，它看起来很慌。或许它只是想要一些装备而已！您如是想，并给了它一些装备。它兴奋地收下了。'], //故事消息
+    [/^(.*)Z:58 A huge storm has formed and daylight has become a luxury you have mostly forgotten about. Your Trimps seem to want to go back home, but you're pretty sure you're supposed to keep going this way, so you do. You're very close to the anomaly.$/, '$1区域：58 阴雨连天，风暴来袭，阳光已经成了几乎忘却的奢侈品。脆皮们似乎一心只想着回家了，但您很肯定应该继续前进，所以您继续前进了。您越来越接近异常现象了。'], //故事消息
+    [/^(.*)Z:59 There it is. The anomaly is at the end of the Zone. You can see it but you don't know what you're seeing. Where did that... thing... come from\?! This is highly Improbable.$/, '$1区域：59 那就是那个异常现象了，就在区域最后。您可以看到它，但您完全无法理解您看到了什么。那个玩意……到底是从哪来的？！这也太子虚乌有了。'], //故事消息
+    [/^(.*)Z:60 The ground instantly cracks and large plumes of green gas escape from the planet's core to the atmosphere. The planet feels different. Everything feels different. This Universe has grown unstable, the planet has broken. What have you done\?$/, '$1区域：60 大地碎裂，大量绿色气体从行星的核心逸出到了空气中。这个行星不一样了。不，一切都不一样了。宇宙开始变得不稳定，行星破碎了。您都做了些什么？'], //故事消息
+
+
+
+
+
+
+
 
 
 
