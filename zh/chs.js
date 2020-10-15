@@ -7790,7 +7790,7 @@ var cnRegReplace = new Map([
     [/^(.*)Z:22 You hear a strange humming noise that seems to draw you towards it, though it also seems to come from no direction in particular. You can feel that it's being created by the Amalgamator, though you've never heard such a sound before. It's both unsettling and enchanting, and the Universe seems to hate it.$/, '$1区域：22 尽管找不到声音的源头，您还是被一阵奇怪的嗡嗡声吸引了过去。虽然没有听过类似的声音，但您可以感觉到这是合并者发出的。这声音既令人不安，又引人入胜，似乎连这个宇宙都痛恨它。'], //故事消息
     [/^(.*)Z:22 You hear a strange humming noise that seems to draw you towards it, though it also seems to come from no direction in particular. You can feel that it's being created by an Amalgamator, though you've never heard such a sound before. It's both unsettling and enchanting, and the Universe seems to hate it.$/, '$1区域：22 尽管找不到声音的源头，您还是被一阵奇怪的嗡嗡声吸引了过去。虽然没有听过类似的声音，但您可以感觉到这是一个合并者发出的。这声音既令人不安，又引人入胜，似乎连这个宇宙都痛恨它。'], //故事消息
     [/^(.*)Z:22 Strange, the sky seems to be getting darker. You ask one of your Trimps for the time, but he doesn't know what a clock is.$/, '$1区域：22 天空看起来更暗了，真奇怪啊。您想问一个脆皮现在几点了，但它连什么是时间都不知道。'], //故事消息
-    [/^(.*)Z:25 You're a rebel. The universe pointed you into that portal, but you kept pushing forward. You feel... less like you've been here before.$/, '$1区域：25 您这是要反了啊。这个宇宙指引着您进入传送门，而您却还在前进。不过，你感觉到……您好像没怎么来过这里。'], //故事消息
+    [/^(.*)Z:25 You're a rebel. The universe pointed you into that portal, but you kept pushing forward. You feel... less like you've been here before.$/, '$1区域：25 您这是要反了啊。这个宇宙指引着您进入传送门，而您却还在前进。不过，您感觉到……您好像没怎么来过这里。'], //故事消息
     [/^(.*)Z:27 It seems like the further you press on, the less you know. You still feel an urge to use the portal, though the urge has begun to dwindle.$/, '$1区域：27 似乎前进得越远，您所知的就越少。您虽然还想使用传送门，但这个欲望已经开始消退了。'], //故事消息
     [/^(.*)Z:29 Your Trimps came up with a pretty catchy battle song that got stuck in your head. None of them survived the next fight though, and you can't remember most of it. Life's tough.$/, '$1区域：29 您的脆皮们想出了一首琅琅上口的战歌，您感觉都要被洗脑了。遗憾的是它们全部在之后的战斗中阵亡了，而您再也想不起来歌的唱法了。人生已经如此的艰难，有些事情就不要拆穿。'], //故事消息
     [/^(.*)Z:33 You climb over a large hill that was separating this Zone from the last. The sky is pitch black and lightning crackles in the distance. This is a site of heavy corruption.$/, '$1区域：33 您爬上了区域分界线上的一座高山。天空漆黑如墨，时不时有闪电划破天际。这地方严重腐化了。'], //故事消息
@@ -7808,15 +7808,34 @@ var cnRegReplace = new Map([
     [/^(.*)Z:58 A huge storm has formed and daylight has become a luxury you have mostly forgotten about. Your Trimps seem to want to go back home, but you're pretty sure you're supposed to keep going this way, so you do. You're very close to the anomaly.$/, '$1区域：58 阴雨连天，风暴来袭，阳光已经成了几乎忘却的奢侈品。脆皮们似乎一心只想着回家了，但您很肯定应该继续前进，所以您继续前进了。您越来越接近异常现象了。'], //故事消息
     [/^(.*)Z:59 There it is. The anomaly is at the end of the Zone. You can see it but you don't know what you're seeing. Where did that... thing... come from\?! This is highly Improbable.$/, '$1区域：59 那就是那个异常现象了，就在区域最后。您可以看到它，但您完全无法理解您看到了什么。那个玩意……到底是从哪来的？！这也太子虚乌有了。'], //故事消息
     [/^(.*)Z:60 The ground instantly cracks and large plumes of green gas escape from the planet's core to the atmosphere. The planet feels different. Everything feels different. This Universe has grown unstable, the planet has broken. What have you done\?$/, '$1区域：60 大地碎裂，大量绿色气体从行星的核心逸出到了空气中。这个行星不一样了。不，一切都不一样了。宇宙开始变得不稳定，行星破碎了。您都做了些什么？'], //故事消息
-
-
-
-
-
-
-
-
-
+    [/^(.*)Z:61 Other than all the dead Trimps, that wasn't so bad.$/, '$1区域：61 从现在来看，除了挂掉那么多脆皮以外，好像也没那么坏了。'], //故事消息
+    [/^(.*)Z:65 The Universe seems even more upset than you expected here, but your Amalgamator doesn't really seem to care. You walk towards it to get a better look, but find yourself further away than you were.$/, '$1区域：65 看起来，您到这以后，这个宇宙比您想象中还要更失望，但合并者看起来并不在意。您向它走去，想看清楚一些，却发现离它越来越远了。'], //故事消息
+    [/^(.*)Z:65 The Universe seems even more upset than you expected here, but your Amalgamators don't really seem to care. You walk towards one to get a better look, but find yourself further away than you were.$/, '$1区域：65 看起来，您到这以后，这个宇宙比您想象中还要更失望，但合并者们看起来并不在意。您向其中一个合并者走去，想看清楚一些，却发现离它越来越远了。'], //故事消息
+    [/^(.*)Z:65 You feel more powerful than ever. The universe seems to be constantly adjusting itself to get rid of you, yet you rise against and persist. Something as tiny as you taking on an entire universe!$/, '$1区域：65 您感觉比之前都强大。这个宇宙一直在调整自己，想要把您干掉，但您同时也变得更强，抵抗住了变化。这简直是与全宇宙为敌还不落下风了！'], //故事消息
+    [/^(.*)Z:68 You figure some entertainment wouldn't be awful, and decide to teach your Trimps how to play soccer. A few hours and zero progress later, you really regret that decision.$/, '$1区域：68 您觉得找点乐子也不错，所以决定教脆皮们踢足球。一段时间过去，毫无进展，您后悔了。'], //故事消息
+    [/^(.*)Z:70 The Improbabilities haven't seemed to slow down. You know you need to figure out a plan, but you don't know what to plan for.$/, '$1区域：70 乌有者们还是接二连三地出现。您觉得应该想个计划，却想不出计划的内容该是什么。'], //故事消息
+    [/^(.*)Z:72 You slash through another Improbability with relative ease, but something isn't right. A sour smell hits your nose and in disgust, you whip around in search of the source. Oh, wait, it's just the Trimps.$/, '$1区域：72 您相当轻松地干掉了另一个乌有者，但是，好像有什么不对劲。一股酸臭味袭来，相当难闻，您四处张望寻找了一下来源。哦，是脆皮们身上的气味，那没事了。'], //故事消息
+    [/^(.*)Z:80 When's the last time you made a map\? You have a feeling you should probably do that.$/, '$1区域：80 您上次制造地图是什么时候来着？不管怎么样，您感觉自己应该再次那么做才是了。'], //故事消息
+    [/^(.*)Z:82 Whew, that was an exhilarating kill. You decide to reward your Trimps with some Improbability stew. It's pretty tasty.$/, '$1区域：82 呼，真是一次带劲的杀戮。您决定奖励脆皮们一些乌有者的炖肉。那味道很棒。'], //故事消息
+    [/^(.*)Z:83 That stew was probably a bad idea. Anyone else feeling sick\?$/, '$1区域：83 炖肉似乎不是个好主意，还有其他人感到不适的吗？'], //故事消息
+    [/^(.*)Z:85 An ancient and fuzzy memory just crept back into your head. You're not quite sure where it came from, but you know the memory is yours. You remember being on a ship, and seeing this planet from orbit. There was someone with you!$/, '$1区域：85 一段久远而模糊的记忆出现在您的脑海之中。虽然您不知道这是哪来的，但您可以肯定，这是您的记忆。您记得那是在一艘飞船上，从轨道上观察着一颗行星。还有……等等，您身边还有一个人！'], //故事消息
+    [/^(.*)Z:87 Bits and pieces of memories continue trickling back in as you continue to put distance between yourself and the source of Anger. You can almost see in your mind who you came here with. Where could they be...$/, '$1区域：87 点点滴滴的回忆随着您的前进而逐渐浮现出来。您快能看到跟您一起来的人了，他们都哪去了呢……'], //故事消息
+    [/^(.*)Z:90 You decide to ask your scientists to come up with an extravagant machine that can scan your brain for old memories to see if there's anything helpful up there. They seem excited about a new project and quickly get to work.$/, '$1区域：90 您决定让科学家们不计成本地制造一个能够扫描您脑中记忆的机器，看看能不能找到什么有用的记忆。科学家们对于新计划非常兴奋，立刻开始工作了。'], //故事消息
+    [/^(.*)Z:92 You hear a huge explosion from the science lab and realize that the brain scan machine will probably never be finished.$/, '$1区域：92 您听到实验室传来巨大的爆炸声，扫描脑子的机器恐怕是没戏了。'], //故事消息
+    [/^(.*)Z:95 The Amalgamator is starting to rapidly switch between different colors. It would be slightly entertaining if the fabric of existence wasn't falling apart around it.$/, '$1区域：95 那个合并者开始在不同的颜色之间迅速变换。如果不是宇宙的结构在它的身边不停崩坏的话，其实还挺有意思的。'], //故事消息
+    [/^(.*)Z:95 The Amalgamators are starting to rapidly switch between different colors. It would be slightly entertaining if the fabric of existence wasn't falling apart around them.$/, '$1区域：95 合并者们开始在不同的颜色之间迅速变换。如果不是宇宙的结构在它们的身边不停崩坏的话，其实还挺有意思的。'], //故事消息
+    [/^(.*)Z:95 Need some motivation\? You can do it! Maybe.$/, '$1区域：95 需要应援吗？不要输了，加勒个油。'], //故事消息
+    [/^(.*)Z:100 You stop dead in your tracks. You remember who you came here with, and you remember that you are not happy with Captain Druopitee for bringing you here. You know he landed with you. You know the ship is still here. He's here.$/, '$1区域：100 您停下了前进的步伐。您想起来了，想起来是跟谁一起来的了，舰长德罗披提，对，就是他，您那时很不满他把您带到这里。您还记得他跟您一起下了飞船。他的飞船一定还在这里，他也一定还在这里。'], //故事消息
+    [/^(.*)Z:105 You call a meeting with all of your Trimps to explain the situation. After giving an extremely long, epic, and motivational speech but hearing no reaction from the crowd, you remember that your Trimps cannot understand you. Will you ever learn\?$/, '$1区域：105 您把所有的脆皮召集起来开了个会解释目前的情况。在一通振奋人心的史诗级长篇大论后，脆皮们却仿佛对牛弹琴一般。然后您才想起来，脆皮们根本听不懂您的话。您是故意的吧？是吧？是吧？'], //故事消息
+    [/^(.*)Z:106 How long have you been trapped on this planet\? Months\? Decades\? Travelling through time sure screws up your chronological perception.$/, '$1区域：106 您被困在这行星多久了？几个月了？还是几个世纪了？穿越时空真的让您对时间没啥概念了。'], //故事消息
+    [/^(.*)Z:109 Though you have no idea which direction your home planet is, you still believe the ship's GPS could get you home. Maybe Druopitee has the keys. You really want to find him.$/, '$1区域：109 尽管您不知道家乡在何方，但您很肯定飞船上的导航系统一定能带您回家的。飞船的钥匙大概是在德罗披提那儿。您一定会找到他的。'], //故事消息
+    [/^(.*)Z:115 You just remembered what a taco was. You could really use a taco right now.$/, '$1区域：115 您刚想起来塔可饼是什么东西。您真的想来一口。'], //故事消息
+    [/^(.*)Z:120 Your stamina is quickly dwindling. Trying to keep up with so many more extra Trimps each Zone is beginning to wear you down. You'll need to practice fighting with stronger, smaller groups to succeed.$/, '$1区域：120 您的耐力正在下降。每个区域都要让脆皮数量增长跟上节奏让您疲惫不堪。您需要更短小精悍的战力才有机会成功。'], //故事消息
+    [/^(.*)Z:123 Woah, you have a lot of Trimps right now. You hadn't really stopped to think about just how many individual Trimps you have directly under your control in a while. Neat!$/, '$1区域：123 哇，您的脆皮都已经这么多了。您甚至没有停下来思考过有多少脆皮是您直接指挥的。这可太棒了！'], //故事消息
+    [/^(.*)Z:125 You smell metal and gears, and suddenly feel like you should run a map.$/, '$1区域：125 您闻到了金属和装备的味道，突然想要运行地图了。'], //故事消息
+    [/^(.*)Z:130 You decide to sit down and take a breather, when suddenly a Trimp comes waddle-galloping towards you holding a piece of paper. Hurriedly scrawled on the paper is a drawing of a strange weapon and piece of armor, along with numbers that seem to be dimensional coordinates. You would ask where he found it, but you know better by now.$/, '$1区域：130 您决定坐下歇息一番，突然有一个脆皮拿着一张纸向您蹒跚走来。纸上匆忙涂鸦着一套奇怪的武器和护甲，还有一些数字，似乎是相应的维度坐标。您本来想问问它是在哪找到的，但现在看来也没必要了。'], //故事消息
+    [/^(.*)Z:132 You can't stop thinking about where that Trimp found the coordinates for the Slow dimension. Why can't whatever is helping you just come out and help you\?$/, '$1区域：132 您一直在想脆皮到底是在哪找到迟缓维度的坐标的。那个不知名的好心人就不能直接点吗？'], //故事消息
+    [/^(.*)Z:135 Ugh, your back is getting sore. It seems like travelling back in time does not reverse the ageing process for the traveller. Bummer.$/, '$1区域：135 噢，您的背开始酸痛了。看起来虽然在穿梭时空，但您还是在变老。见鬼。'], //故事消息
 
 
 
