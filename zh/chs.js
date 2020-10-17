@@ -724,6 +724,13 @@ var cnItems = {
     'Presimpt': '脆皮小礼',
     'Turkimp': '脆皮火鸡',
     'Randimp': '脆皮百变怪',
+    'Corrupt Randimp': '腐化脆皮百变怪',
+    'Magma Randimp': '岩浆脆皮百变怪',
+    'Healthy Randimp': '健康脆皮百变怪',
+    'Hardened Randimp': '硬化脆皮百变怪',
+    'Snowy Randimp': '积雪脆皮百变怪',
+    'Toxic Randimp': '毒性脆皮百变怪',
+    'Gusty Randimp': '阵风脆皮百变怪',
     'Squimp': '脆皮乌贼',
     'Elephimp': '脆皮象',
     'Turtlimp': '脆皮龟',
@@ -817,7 +824,6 @@ var cnItems = {
     'Liquimps (': '液化者们 (',
     'Presimpts (': '脆皮小礼们 (',
     'Turkimps (': '脆皮火鸡们 (',
-    'Randimps (': '脆皮百变怪们 (',
     'Squimps (': '脆皮乌贼们 (',
     'Elephimps (': '脆皮象们 (',
     'Turtlimps (': '脆皮龟们 (',
@@ -5669,8 +5675,8 @@ var cnRegReplace = new Map([
     [/^Your Trimps have (.*) less attack, but all Trimps can gather (.*) faster. You will gain one stack from killing Bad Guys in the world, and lose one stack for killing Bad Guys in maps.$/, '您的脆皮们减少了$1攻击力，但资源获取速度增加了$2。每在世界上击杀一名敌人时获得一层，每在地图中击杀一名敌人时失去一层。'], //主界面
     [/^Your Trimps have (.*) less health, but all Trimps can gather (.*) faster. You will gain one stack from killing Bad Guys in the world, and lose one stack for killing Bad Guys in maps.$/, '您的脆皮们减少了$1生命值，但资源获取速度增加了$2。每在世界上击杀一名敌人时获得一层，每在地图中击杀一名敌人时失去一层。'], //主界面
     [/^Your Trimps are charging up for a Gamma Burst! When Charging reaches 5 stacks, your Trimps will release a burst of energy, dealing (.*)% of their attack damage.$/, '您的脆皮们正在为伽马爆发蓄能！当蓄能层数到达5层时，脆皮将释放积蓄的能量，对敌人造成$1%攻击力的伤害。'], //主界面
-    [/^Attack is increased (.*)X for the next (.*) second(s*)$/, '攻击力在剩余$2秒内增加$1倍'], //主界面
-    [/^Attack is increased (.*)X for the next (.*) minute(s*)$/, '攻击力在剩余$2分钟内增加$1倍'], //主界面
+    [/^Attack is increased (.*)X for the next (.*) second(s*)$/, '攻击力在剩余$2秒内变为$1倍'], //主界面
+    [/^Attack is increased (.*)X for the next (.*) minute(s*)$/, '攻击力在剩余$2分钟内变为$1倍'], //主界面
     [/^Things are quickly becoming tougher. Gathering, looting, and Trimp attack are reduced by (.*)%.$/, '事情变得越来越难了。采集、劫掠获取的资源量，以及脆皮攻击力减少了$1%。'], //主界面
     [/^Trimp attack and health increased by (.*).$/, '脆皮的攻击力和生命值增加了$1。'], //主界面
     [/^This Bad Guy is toxic. You will obtain (.*)% more resources! Oh, also, this Bad Guy has 5x attack, 2x health, your Trimps will lose 5% health each time they attack, and the toxic air is causing your Trimps to breed (.*)% slower. These stacks will reset after clearing the Zone.$/, '此敌人是有毒的。您可以额外获得$1%资源！哦，另外，此敌人攻击力为5倍，生命值为2倍，而且每次攻击一个毒性敌人后，脆皮将失去5%的生命值，同时毒气排入大气后脆皮繁殖速度会比之前的速度慢$2%。毒性层数在通过一个区域后重置。'], //主界面
@@ -5929,21 +5935,21 @@ var cnRegReplace = new Map([
     [/^(.*)Oops, that Pumpkimp just wanted to give you some candy. You found (.*) metal!$/, '$1哦，那只南瓜怪只是想给您点糖果。您发现了$2金属！'], //特定敌人
     [/^(.*)Oops, that Pumpkimp just wanted to give you some candy. You found (.*) gems!$/, '$1哦，那只南瓜怪只是想给您点糖果。您发现了$2宝石！'], //特定敌人
     [/^(.*)Oops, that Pumpkimp just wanted to give you some candy. You found (.*) fragments!$/, '$1哦，那只南瓜怪只是想给您点糖果。您发现了$2碎片！'], //特定敌人
-    [/^(.*)When checking the Pumpkimp for loot, you find a pouch that says to take one. You take all (.*) food!$/, '$1搜刮这只南瓜怪的时候，您发现了一个小袋子，上面写着可以拿走一个。您就拿走了全部的$2食物！'], //特定敌人
-    [/^(.*)When checking the Pumpkimp for loot, you find a pouch that says to take one. You take all (.*) wood!$/, '$1搜刮这只南瓜怪的时候，您发现了一个小袋子，上面写着可以拿走一个。您就拿走了全部的$2木头！'], //特定敌人
-    [/^(.*)When checking the Pumpkimp for loot, you find a pouch that says to take one. You take all (.*) metal!$/, '$1搜刮这只南瓜怪的时候，您发现了一个小袋子，上面写着可以拿走一个。您就拿走了全部的$2金属！'], //特定敌人
-    [/^(.*)When checking the Pumpkimp for loot, you find a pouch that says to take one. You take all (.*) gems!$/, '$1搜刮这只南瓜怪的时候，您发现了一个小袋子，上面写着可以拿走一个。您就拿走了全部的$2宝石！'], //特定敌人
-    [/^(.*)When checking the Pumpkimp for loot, you find a pouch that says to take one. You take all (.*) fragments!$/, '$1搜刮这只南瓜怪的时候，您发现了一个小袋子，上面写着可以拿走一个。您就拿走了全部的$2碎片！'], //特定敌人
+    [/^(.*)When checking the Pumpkimp for loot, you find a pouch that says to take one. You take all (.*) food!$/, '$1搜刮这只南瓜怪的时候，您发现了一个小袋子，上面写着可以拿一份走。您连着袋子全顺走了，获得了$2食物！'], //特定敌人
+    [/^(.*)When checking the Pumpkimp for loot, you find a pouch that says to take one. You take all (.*) wood!$/, '$1搜刮这只南瓜怪的时候，您发现了一个小袋子，上面写着可以拿一份走。您连着袋子全顺走了，获得了$2木头！'], //特定敌人
+    [/^(.*)When checking the Pumpkimp for loot, you find a pouch that says to take one. You take all (.*) metal!$/, '$1搜刮这只南瓜怪的时候，您发现了一个小袋子，上面写着可以拿一份走。您连着袋子全顺走了，获得了$2金属！'], //特定敌人
+    [/^(.*)When checking the Pumpkimp for loot, you find a pouch that says to take one. You take all (.*) gems!$/, '$1搜刮这只南瓜怪的时候，您发现了一个小袋子，上面写着可以拿一份走。您连着袋子全顺走了，获得了$2宝石！'], //特定敌人
+    [/^(.*)When checking the Pumpkimp for loot, you find a pouch that says to take one. You take all (.*) fragments!$/, '$1搜刮这只南瓜怪的时候，您发现了一个小袋子，上面写着可以拿一份走。您连着袋子全顺走了，获得了$2碎片！'], //特定敌人
     [/^(.*)That Pumpkimp gave you (.*) food!$/, '$1那只南瓜怪给了您$2食物！'], //特定敌人
     [/^(.*)That Pumpkimp gave you (.*) wood!$/, '$1那只南瓜怪给了您$2木头！'], //特定敌人
     [/^(.*)That Pumpkimp gave you (.*) metal!$/, '$1那只南瓜怪给了您$2金属！'], //特定敌人
     [/^(.*)That Pumpkimp gave you (.*) gems!$/, '$1那只南瓜怪给了您$2宝石！'], //特定敌人
     [/^(.*)That Pumpkimp gave you (.*) fragments!$/, '$1那只南瓜怪给了您$2碎片！'], //特定敌人
-    [/^(.*)Right before you finish the Pumpkimp off, it throws a large bag at you and rolls away. Inside, you find (.*) food!$/, '$1您都快要把这只南瓜怪干掉了，结果它扔了一只大袋子给您，滚瓜了。在袋子里您发现了$2食物！'], //特定敌人
-    [/^(.*)Right before you finish the Pumpkimp off, it throws a large bag at you and rolls away. Inside, you find (.*) wood!$/, '$1您都快要把这只南瓜怪干掉了，结果它扔了一只大袋子给您，滚瓜了。在袋子里您发现了$2木头！'], //特定敌人
-    [/^(.*)Right before you finish the Pumpkimp off, it throws a large bag at you and rolls away. Inside, you find (.*) metal!$/, '$1您都快要把这只南瓜怪干掉了，结果它扔了一只大袋子给您，滚瓜了。在袋子里您发现了$2金属！'], //特定敌人
-    [/^(.*)Right before you finish the Pumpkimp off, it throws a large bag at you and rolls away. Inside, you find (.*) gems!$/, '$1您都快要把这只南瓜怪干掉了，结果它扔了一只大袋子给您，滚瓜了。在袋子里您发现了$2宝石！'], //特定敌人
-    [/^(.*)Right before you finish the Pumpkimp off, it throws a large bag at you and rolls away. Inside, you find (.*) fragments!$/, '$1您都快要把这只南瓜怪干掉了，结果它扔了一只大袋子给您，滚瓜了。在袋子里您发现了$2碎片！'], //特定敌人
+    [/^(.*)Right before you finish the Pumpkimp off, it throws a large bag at you and rolls away. Inside, you find (.*) food!$/, '$1您都快要把这只南瓜怪干掉了，结果它扔了一只大袋子给您，就滚瓜了。在袋子里您发现了$2食物！'], //特定敌人
+    [/^(.*)Right before you finish the Pumpkimp off, it throws a large bag at you and rolls away. Inside, you find (.*) wood!$/, '$1您都快要把这只南瓜怪干掉了，结果它扔了一只大袋子给您，就滚瓜了。在袋子里您发现了$2木头！'], //特定敌人
+    [/^(.*)Right before you finish the Pumpkimp off, it throws a large bag at you and rolls away. Inside, you find (.*) metal!$/, '$1您都快要把这只南瓜怪干掉了，结果它扔了一只大袋子给您，就滚瓜了。在袋子里您发现了$2金属！'], //特定敌人
+    [/^(.*)Right before you finish the Pumpkimp off, it throws a large bag at you and rolls away. Inside, you find (.*) gems!$/, '$1您都快要把这只南瓜怪干掉了，结果它扔了一只大袋子给您，就滚瓜了。在袋子里您发现了$2宝石！'], //特定敌人
+    [/^(.*)Right before you finish the Pumpkimp off, it throws a large bag at you and rolls away. Inside, you find (.*) fragments!$/, '$1您都快要把这只南瓜怪干掉了，结果它扔了一只大袋子给您，就滚瓜了。在袋子里您发现了$2碎片！'], //特定敌人
     [/^(.*)This Pumpkimp was still in pretty good shape, so you let your Trimps carve it. Inside, they found (.*) food!$/, '$1这只南瓜怪外观还不错，所以您让脆皮们把它拿来雕刻。在里面，它们发现了$2食物！'], //特定敌人
     [/^(.*)This Pumpkimp was still in pretty good shape, so you let your Trimps carve it. Inside, they found (.*) wood!$/, '$1这只南瓜怪外观还不错，所以您让脆皮们把它拿来雕刻。在里面，它们发现了$2木头！'], //特定敌人
     [/^(.*)This Pumpkimp was still in pretty good shape, so you let your Trimps carve it. Inside, they found (.*) metal!$/, '$1这只南瓜怪外观还不错，所以您让脆皮们把它拿来雕刻。在里面，它们发现了$2金属！'], //特定敌人
