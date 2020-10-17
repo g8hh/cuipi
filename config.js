@@ -22,7 +22,7 @@ function newGame () {
 var toReturn = {
 	global: {
 		//New and accurate version
-		stringVersion: '5.4.0',
+		stringVersion: '5.4.2',
 		//Leave 'version' at 4.914 forever, for compatability with old saves
 		version: 4.914,
 		isBeta: false,
@@ -3939,7 +3939,7 @@ var toReturn = {
 		Quest: {
 			description: "Travel to an alternate reality where Trimps really love questing. Enemies in this reality gain 10% extra health each zone starting at Z6 (compounding). However, you'll also get a random Quest each Zone starting at 6. Completing this quest will grant a 2x Radon multiplier for the rest of the Zone (does not stack), and will increase your Trimps' attack by 10% for the rest of the Challenge (compounding). Check messages or the Zone info tooltip for quest progress. Clearing <b>Zone 85</b> will complete this Challenge, returning Trimp Attack and Enemy Health to normal.",
 			get squaredDescription(){
-				return "Travel to an alternate reality where Trimps really love questing. Enemies in this reality gain 10% extra health each zone starting at Z" + this.getQuestStartZone(true) + " (compounding). However, you'll also get a random Quest each Zone starting at the same Zone. Your Quest start Zone is always equal to your highest Zone on C3 minus 80, but never lower than 6. Completing this quest will grant a 2x Radon multiplier for the rest of the Zone (does not stack), and will increase your Trimps' attack by 10% for the rest of the Challenge (compounding). Check messages or the Zone info tooltip for quest prorgress.";
+				return "Travel to an alternate reality where Trimps really love questing. Enemies in this reality gain 10% extra health each zone starting at Z" + this.getQuestStartZone(true) + " (compounding). However, you'll also get a random Quest each Zone starting at the same Zone. Your Quest start Zone is always equal to your highest Zone on C3 minus 80, but never lower than 6. Completing this quest will grant a 2x Radon multiplier for the rest of the Zone (does not stack), and will increase your Trimps' attack by 10% for the rest of the Challenge (compounding). Check messages or the Zone info tooltip for quest progress.";
 			},
 			completed: false,
 			allowU2: true,
@@ -6305,7 +6305,7 @@ var toReturn = {
 					return modifier + "% of all non-lethal damage and nature stacks you afflict on your current enemy are copied onto the next enemy. Plaguebringer damage cannot bring an enemy below 5% health, but nature stacks will continue to accumulate."
 				},
 				steps: [-1, -1, -1, -1, -1, -1, -1, -1, [1, 15, 0.5],[15,30,0.5],[30,45,0.5]],
-				max: [0,0,0,0,0,0,0,0,75,100,100]
+				max: [0,0,0,0,0,0,0,0,75,100,125]
 			},
 			prismatic: {
 				name: "Prismatic Shield",
@@ -6709,7 +6709,7 @@ var toReturn = {
 		},
 		Pumpkimp: {
 			location: "Maps",
-			locked: 1,
+			locked: 0,
 			attack: 0.9,
 			health: 1.5,
 			fast: false,

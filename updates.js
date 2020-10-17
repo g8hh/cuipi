@@ -832,6 +832,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		costText = "Free";
 		if (getAvailableGoldenUpgrades() > 1) costText += " (" + getAvailableGoldenUpgrades() + " remaining)";
 		var numeral = (usingScreenReader) ? prettify(game.global.goldenUpgrades + 1) : romanNumeral(game.global.goldenUpgrades + 1);
+		if (game.global.universe == 2 && what == "Helium") what = "Radon";
 		what = "Golden " + what + " (Tier " + numeral + ")";
 	}
 	if (isItIn == "talents"){
@@ -2266,7 +2267,7 @@ function getBattleStatBd(what) {
 		textString += "<tr><td class='bdTitle'>Smithy</td><td>x 1.25</td><td>" + game.buildings.Smithy.owned + "</td><td>+ " + prettify((game.buildings.Smithy.getMult() - 1) * 100) + "%</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + ((what == "attack") ? getFluctuation(currentCalc, minFluct, maxFluct) : "") + "</tr>";
 	}
 	//Add antenna
-	if (what == "health" && game.buildings.Antenna.owned >= 10){
+	if (what == "health" && game.buildings.Antenna.owned >= 10 && game.global.universe == 2){
 		amt = game.jobs.Meteorologist.getExtraMult();
 		var pct = (amt - 1) * 100;
 		currentCalc *= amt;
@@ -5386,7 +5387,7 @@ function toggleSetting(setting, elem, fromPortal, updateOnly, backwards, fromHot
 	}
 
 	function checkAchieve(id, evalProperty, doubleChecking, noDisplay) {
-		if (id == "housing" && checkHousing() >= 100) giveSingleAchieve("Realtor");
+		if (id == "housing" && checkHousing(false, true) >= 100) giveSingleAchieve("Realtor");
 		var achievement = game.achievements[id];
 		if (typeof achievement.evaluate !== 'undefined') evalProperty = achievement.evaluate();
 		if (achievement.timed && evalProperty < 0) return;

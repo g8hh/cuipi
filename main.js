@@ -953,6 +953,11 @@ function load(saveString, autoLoad, fromPf) {
 	//Test server only
 	//End test server only
 	//Temporary until next patch
+	if (compareVersion([5,4,2], oldStringVersion)){
+		game.options.menu.showHoliday.enabled = 1;
+		game.options.menu.showHoliday.locked = false;
+		addNewSetting("showHoliday");
+	}
 	//End Temporary
 	portalUniverse = game.global.universe;
 	Fluffy.handleBox();
@@ -5683,7 +5688,6 @@ function checkVoidMap() {
 	if (game.global.ShieldEquipped && game.global.ShieldEquipped.rarity >= 10 && game.heirlooms.Shield.voidMaps.currentBonus > 0){
 		game.global.hazShieldCredit++;
 		if (game.global.hazShieldCredit >= 1000){
-			console.log('free hazardous void map');
 			createVoidMap();
 			game.global.hazShieldCredit = 0;
 		}
@@ -7565,6 +7569,7 @@ var mutations = {
 	},
 	Corruption: {
 		start: function (ignoreCorrupted){
+			if (game.global.universe == 2) return 9999;
 			if (game.global.challengeActive == "Eradicated") return 1;
 			var start = (game.talents.headstart.purchased && !game.global.runningChallengeSquared) ? ((game.talents.headstart2.purchased) ? ((game.talents.headstart3.purchased) ? 151 : 166) : 176) : 181;
 			if (ignoreCorrupted) return start;
@@ -7629,6 +7634,7 @@ var mutations = {
 	},
 	Magma: {
 		start: function (){
+			if (game.global.universe == 2) return 9999;
 			if (game.global.challengeActive == "Eradicated") return 1;
 			return 230;
 		},
@@ -8170,8 +8176,6 @@ var mutationEffects = {
 var visualMutations = {
 	Pumpkimp: {
 		active: function (){
-			return false;
-
 			if (game.global.world == 1) return false;
 			if (checkIfSpireWorld()) return false;
 			return (getRandomIntSeeded(game.global.holidaySeed++, 0, 100) < 8);
@@ -11700,6 +11704,7 @@ function runMapAtZone(index){
 	var setting = game.options.menu.mapAtZone.getSetZone()[index];
 	if (setting.preset == 5 && !game.global.challengeActive == "Quagmire" && setting.check) return;
 	if (setting.preset == 4 && !getNextVoidId() && setting.check) return;
+	if (setting.cell == 100 && game.global.challengeActive == "Mayhem") startFight();
 	mapsClicked(true);
 	if (game.global.spireActive && game.global.lastClearedCell != -1) deadInSpire();
 	toggleSetting('mapAtZone', null, false, true);
@@ -12335,13 +12340,16 @@ function giveHeliumReward(mod){ //used for spire only
 	return amt;
 }
 
-function checkHousing(getHighest){
+function checkHousing(getHighest, skipU2){
 	//returns the lowest number of housing buildings
 	var count = -1;
 	for (var item in game.buildings){
 		var building = game.buildings[item];
 		if (building.increase && building.increase.what == "trimps.max") {
 			if (count == -1) count = building.owned;
+			else if (skipU2 && building.blockU1){
+				continue;
+			}
 			else if (getHighest){
 				if (count < building.owned) count = building.owned;
 			}
