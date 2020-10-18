@@ -3458,6 +3458,10 @@ var cnItems = {
     'Allows you to spend an additional 10% of your total earned Nullifium on all of your Heirlooms.': '每个传家宝的可使用虚空物质上限再额外增加10%。',
     'Click for more detailed info': '点击以获取更详细的信息',
     //绒绒污污相关结束
+    //故事相关
+    'are': '什么',
+    'these?!': '鬼？！',
+    //故事相关结束
     //故事-尖塔
     'It has been forever, yet now we meet,': '过去这么多年，终于相遇此地，',
     'I\'m not surprised you don\'t remember me.': '我并不奇怪，你已将我忘记。',
@@ -7536,6 +7540,17 @@ var cnRegReplace = new Map([
     [/^(.*)Z:180 After clearing out the previous Zone, you decide to take a day hike to the top of another gigantic mountain to try to find more info about the smell. As you reach the top, your jaw drops. Clear as day, a healthy amount of purple goo is pouring into the atmosphere from the top of the spire. This must be what's causing all of this Corruption you've been trudging through. The planet seems pretty heavily Corrupted already, you wonder if you're too late.$/, '$1区域：180 通过上一个区域以后，您决定花一天时间爬到另一座高山的顶峰上收集一下这个气味的更多情报。当您到达目的地时，您震惊了。您看得真切，一大股紫色粘液从塔顶涌入了空气之中。一定就是这个才导致了您遇到那么多腐化格子。这个行星看来已经被重度腐化了，不知道还来不来得及。'], //故事消息
     [/^(.*)Z:182 Well, there's not really much doubt about it anymore. Some sort of intelligence is intentionally making life more difficult for you and your Trimps. You take this as a sign that you're pretty important, why else would something risk destroying an entire planet to stop you\? Your parents would be so proud.$/, '$1区域：182 很好，已经没有什么好疑惑的了。某种智慧生命就是故意想让您和您的脆皮们活得更艰难。您将这看成是您重要性的佐证，不然，怎么会有谁冒着摧毁行星的风险也要阻止您呢？您的父母可以以您为傲了。'], //故事消息
     [/^(.*)Z:184 The corruption seems to be more pronounced the closer you get to the Spire. Looks like there's (.+) of em now.$/, '$1区域：184 随着您靠近尖塔，腐化程度是越来越重了。比如目前区域就有$2个腐化格子了。'], //故事消息
+    [/^(.*)Z:185 You have trouble putting into words exactly what the Corruption does to the creatures on this planet. They seem to be stripped of all natural abilities and given powers that you didn't know could exist in the primary dimension.$/, '$1区域：185 您很难准确描述腐化到底对这个行星上的生物造成了什么样的影响。它们似乎被剥夺了所有天性，并获得了无法想象的力量。'], //故事消息
+    [/^(.*)Z:187 None of these corrupted enemies seem to have eyes, so you decide to see if you can get away with flipping one off. As it reacts by roaring and stomping around in a rage, you realize that these things are powerful enough not to need eyes to observe the world. What$/, '$1区域：187 这些腐化后的敌人似乎都失去了眼睛，所以您决定试试看竖中指它们有没有反应。就它们咆哮践踏地面的样子来看，腐化敌人不需要视力，也能看得到这个世界。这都是'], //故事消息
+    [/^(.*)Z:190 You awaken from your sleep in a cold sweat to a frantic and terrified noise from the back of the cave where you were sleeping. With urgency, you run to the source of the noise to make sure your Trimps are okay. As you reach the back, you see a handful of Trimps trying to use a small and very angry Snimp as a musical instrument. You put some sand in your ears and go back to sleep.$/, '$1区域：190 在您睡觉的山洞后面响起了疯狂而可怕的声音，您在冷汗中惊醒了。您急急忙忙地跑向声源，想看看脆皮们是否平安。当您到那里时，发现只是一小队脆皮想把一只几乎抓狂的小脆皮鹬当乐器来用而已。您往耳朵里塞了些沙子，又回去睡觉了。'], //故事消息
+    [/^(.*)Z:193 The corruption continues to thicken as you near the Spire. You're beginning to grow accustomed to the smell of the Spire, and really don't mind it anymore. It reminds you of blueberries. Evil blueberries.$/, '$1区域：193 您离尖塔越来越近，腐化也愈加严重了。您开始习惯了腐化的气味，不再那么介意了。这气味让您想起了蓝莓。该死的蓝莓。'], //故事消息
+    [/^(.*)Z:198 You're so close to the source of corruption that you can taste it, and it doesn't taste good.$/, '$1区域：198 您非常接近腐化的源头了，甚至您都可以尝出味道来。真够糟糕的味道。'], //故事消息
+    [/^(.*)Z:205 You look back at The Spire and feel kinda bad that there's still a ton of Corruption coming out of it, but you'll get him some time.$/, '$1区域：205 您回头看了看尖塔，它还在往外喷出腐化，真糟糕。总有一天您会让他付出代价的。'], //故事消息
+    [/^(.*)Z:205 You don't miss Druopitee too much. You don't remember all that much to miss, but the point stands.$/, '$1区域：205 您并不是很想念德罗披提。反正关于他的事您也记不起来多少了。'], //故事消息
+    [/^(.*)Z:210 It smells extra corrupt. That Spire can't be healthy for the environment.$/, '$1区域：210 这闻起来真的够腐化的。尖塔对环境来说简直是灾难。'], //故事消息
+    [/^(.*)Z:210 There's still Corruption, but it feels less threatening. You feel more at peace with the planet and feel like you're on track to repairing it. Surely nothing else terrible will happen any time soon.$/, '$1区域：210 四处还有一点腐化，但看起来已经没那么大威胁了。您一时感觉与世无争，而且，您应该是走在修复行星的路上了。已经没有什么好怕的了。'], //故事消息
+    [/^(.*)Z:220 Your Trimps seem content. They kinda wish that spire wasn't still pumping purple stuff into their world, but they don't mind too much.$/, '$1区域：220 脆皮们还是挺满意的。虽然它们希望尖塔能够停止排放腐化，但实际上它们也没那么在意。'], //故事消息
+    [/^(.*)Z:220 Your Trimps seem content. You taught some basic puppetry to them and they've been putting on some great shows with defeated Snimps.$/, '$1区域：220 脆皮们还是挺满意的。您教了一些简单的木偶戏技巧给它们，接着它们就用已经被打倒无力反抗的脆皮鹬开始表演起来了。'], //故事消息
 
 
 
