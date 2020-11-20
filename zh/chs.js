@@ -78,7 +78,7 @@ var cnItems = {
     'Prismalicious (Z': '优质棱镜(区域',
     'Prisms (Scruffy': '棱镜(污污',
     'Prismal (Perk': '棱镜化(特权',
-    'Bublé (Challenge': '布累(挑战',
+    'Bublé (Challenge': '泡影(挑战',
     'Shield Layer': '护盾层数',
     'Soldiers': '士兵',
     'Antenna Array': '气象天线阵列',
@@ -372,8 +372,8 @@ var cnItems = {
     'earn a bonus from this enemy.': '会在这个敌人身上获得加成。',
     'You will earn a bonus from this enemy!': '您可以在这个敌人身上获得加成！',
     'You will earn a bonus from the Cache at the end of this map!': '您可以从地图最后的储藏箱获得加成！',
-    'You completed some of this map outside of Scryer Formation, and will': '您在地图中切换出了占卜者阵型，因此',
-    'You completed some of this map outside of Wind Formation, and will': '您在地图中切换出了风阵型，因此',
+    'You completed some of this map outside of Scryer Formation, and will': '您在地图中切换到了占卜者阵型以外的阵型，因此',
+    'You completed some of this map outside of Wind Formation, and will': '您在地图中切换到了风阵型以外的阵型，因此',
     'earn a bonus from the Cache.': '会从储藏箱获得加成。',
     'You will earn bonus Helium at the end of this map from Scryhard II!': '由于努力占卜 II的效果，您可以从地图最后获得氦加成！',
     'earn a bonus to Helium from Scryhard II': '会因努力占卜 II的效果获得氦加成',
@@ -417,7 +417,7 @@ var cnItems = {
     'Corrupted Toughness': '腐化坚韧',
     'Corrupted Agility': '腐化敏捷',
     'Obsidian': '黑曜石',
-    'This enemy is rock solid, and there is no way to get past. This Zone is even more rocky and solid than anything you\'ve seen before. You don\'t think there\'s any way to get past for now.': '此敌人坚如磐石，想要通过这里简直是天方夜谭。此区域的坚硬程度超过了之前所有区域。看起来目前是无法再继续前进了。',
+    'This enemy is rock solid, and there is no way to get past. This Zone is even more rocky and solid than anything you\'ve seen before. You don\'t think there\'s any way to get past for now.': '此敌人坚如磐石，想要通过这里简直是天方夜谭。此区域的坚硬程度超过了之前所有区域。看起来您的征途到此为止了。',
     'This enemy is rock solid, and there is no way to get past. Time to go to the Radon Universe and find a way to melt these Zones!': '此敌人坚如磐石，想要通过这里简直是天方夜谭。前往氡之宇宙吧，那里有熔化这些区域的方法。',
     'This enemy is rock solid, and there is no way to get past. Fluffy suggests that you find a way to get him to Evolution 8 Level 10 as quickly as possible so he can help you melt these Zones!': '此敌人坚如磐石，想要通过这里简直是天方夜谭。绒绒建议您尽快将它升级到进化次数8等级10，这样它就能帮您熔化这些区域了！',
     'This enemy is missing an effect thanks to Fluffy! It will still drop 45% of the helium you would normally get from completing this Zone.': '多亏了绒绒，此敌人失去了一项能力！尽管如此，它仍然会掉落氦，数值为通过此区域所得氦的45%。',
@@ -438,16 +438,16 @@ var cnItems = {
     'Unliving': '亡灵化',
     'Your Trimps look perfectly normal and healthy now, which is not what you want in this dimension.': '您的脆皮们看起来完全正常，非常健康，在此维度中这可不是件好事情。',
     'The Bad Guys in this dimension seem to be way more dead than your Trimps!': '敌人看起来比您的脆皮们更亡灵！',
-    'Your Trimps are starting to look more lively and slow down, but at least they\'re still fairly pale.': '您的脆皮们开始变得更有生气了，但至少它们还是行动缓慢面色苍白的。',
+    'Your Trimps are starting to look more lively and slow down, but at least they\'re still fairly pale.': '您的脆皮们开始有生气了，它们的动作开始慢了下来，好在它们面色还算苍白。',
     'Your Trimps are looking quite dead, which is very healthy in this dimension. You\'re doing a great job!': '您的脆皮们已经面无皮色了，在此维度中是相当健康的情况。您干得很好！',
     'Electrified': '触电',
     'Your Trimps are dealing double damage, thanks to the ': '您的脆皮现在可以造成双倍伤害，多亏了',
     'This Bad Guy is nice and plump from eating Trimps. Increases attack damage by 25% per stack': '此敌人由于吃掉脆皮变得更肥了。每层增加25%攻击力',
     'Sugar Rush': '甜蜜冲刺',
-    'Trimps are not at all used to sugar, but they seem to be really enjoying it!': '脆皮们还没习惯糖的味道，但看起来很喜欢的样子！',
+    'Trimps are not at all used to sugar, but they seem to be really enjoying it!': '脆皮们还没习惯吃糖，但它们看起来很喜欢那甜味！',
     'World Info': '世界信息',
     'Fight': '战斗',
-    'Send your poor Trimps to certain doom in the battlefield. You\'ll get cool stuff though, they\'ll understand. (Hotkey: F': '将可怜的脆皮们送入战场，迎接它们注定的结局。您会因此获得好东西，所以它们一定能理解您的。(快捷键：F',
+    'Send your poor Trimps to certain doom in the battlefield. You\'ll get cool stuff though, they\'ll understand. (Hotkey: F': '将可怜的脆皮们送入战场，迎接它们注定的结局。它们一定能理解您的，因为这样您能获得好东西。(快捷键：F',
     'AutoFight On': '开启自动战斗',
     'AutoFight Off': '关闭自动战斗',
     'AutoFight': '自动战斗',
@@ -702,7 +702,7 @@ var cnItems = {
     'M = Magmamancer count. T = Time on Zone in minutes, divided by 10, rounded down.': 'M=岩浆巫师数量。T=在当前区域停留的分钟数除以10，结果向下取整。',
     'Metal/Sec *= 1 + (((1 - (0.9999 ^ M)) * 3) * ((1.2 ^ T) - 1)': '金属/秒 *= 1+(((1-(0.9999^M))*3)*((1.2^T)-1)',
     'Amalgamator': '合并者',
-    'Amalgamators cannot be hired or fired manually. They are magical beings that could barely be considered Trimps anymore, and they will automatically show up to your town whenever your total population to army size ratio rises above': '合并者无法手动雇佣或解雇。它们是已经无法再看成脆皮的神奇存在，当总人口与军队规模的比值超过 ',
+    'Amalgamators cannot be hired or fired manually. They are magical beings that could barely be considered Trimps anymore, and they will automatically show up to your town whenever your total population to army size ratio rises above': '合并者无法手动雇佣或解雇。它们已经超越了脆皮的范畴，当总人口与军队规模的比值超过 ',
     '. At your current army size, you need': '。以目前军队规模来看，您还需要 ',
     'total Trimps to trigger the next Amalgamator.': '总人口，下个合并者才会出现。',
     'Amalgamators fuse some of your spare Trimps to other soldiers, greatly strengthening them. Each Amalgamator increases the amount of Trimps that must be sent into each battle by 1000x (compounding), increases health by 40x (compounding), and increases damage by 50% (compounding).': '合并者将一些空闲的脆皮与其他士兵融合，极大地强化它们。每个合并者将军队规模变为1000倍(效果叠乘)，将生命值变为40倍(效果叠乘)，将伤害值增加50%(效果叠乘)。',
@@ -961,7 +961,7 @@ var cnItems = {
     'Tricky Paradise': '整蛊天堂',
     //世界解锁相关结束
     //地图解锁相关
-    'There seems to be a small RoboTrimp that you appear to have orphaned. You decide to take him with you, since you\'re pretty good at training stuff. He deals': '您发现了一个失去双亲的小脆皮机器人。您决定带着它一起走，反正对于训练您已经很熟练了。它可以让您的脆皮多造成 ',
+    'There seems to be a small RoboTrimp that you appear to have orphaned. You decide to take him with you, since you\'re pretty good at training stuff. He deals': '您发现了一个失去双亲的小脆皮机器人。您决定带着它一起走，毕竟您有特别的训练技巧。它可以让您的脆皮多造成 ',
     'extra damage for you, and has a special ability. You can learn more about the special ability by hovering over the new': '伤害，并且还有一个特殊能力。您可以将鼠标停留到士兵旁边的 ',
     'icon by your soldiers.': '图标上来了解这个能力的详细信息。',
     'You also found a map to a more powerful version of the Bionic Wonderland. You would bet there\'s another RoboTrimp who needs \'rescuing\' in there.': '您同时还发现了一张通往更高级的仿生仙境的地图。您很肯定那里一定也有另一个小脆皮机器人等待“拯救”。',
@@ -977,7 +977,7 @@ var cnItems = {
     'From the void, an auspicious presence reaches out and fills your mind. You feel at peace with the world. It asks you what you desire most. Wait... hasn\'t this happened before? Last time you asked for your Trimps to be smart enough to manage storage structures on their own. You can make it better this time! You excitedly ask for your Trimps to waste less resources when managing resources on their own. The presence lets you know that it is done, then dissipates. You get serious déjà-vu while regretting not asking to go home.': '一只瑞兽从虚空中出现，占满了您的意识。一时间您感觉与世无争。它询问您最想要的是什么，您……等等，好像这在之前发生过？上次您是希望脆皮们能聪明到自动建造存储建筑。这次您可以许个更好的愿望！您兴奋地问道，是否能让脆皮们管理资源时浪费更少。它告诉您愿望已经实现，然后就重归于虚无了。您对于后悔没让它送您回家这一点有了非常严重的即视感……',
     'From now on, storage facilities will be constructed instantly. If you collect more resources from one source than you can hold, the extra resources will be used to build new storage facilities without wasting any resources. You may not be home, but your Trimps are now quite talented!': '从现在起，存储建筑将跳过队列直接建造完成。如果您获取了超过上限的资源，多余的资源将自动被用于建造存储建筑，不会造成浪费。虽然您还没法回家，但至少脆皮们变得更有才了！',
     'Auspicious Presence Part II': '瑞兽 II',
-    'From the void, an auspicious presence reaches out and fills your mind. You feel at peace with the world. It asks you what you desire most. Wait... how many times has this happened now? You\'re fairly positive that there was something you regretted not asking last time, but you can\'t quite remember. You\'ve asked for Trimps to be able to manage storage structures, and you\'ve asked for them to be better at managing those structures. Even though you\'re content with your storage solutions, you suddenly realize the perfect request! You wish the Trimps would stop pushing so far through the Zones while you\'re sleeping, so you ask for a way to tell the Trimps to stop fighting at a Zone of your choosing. The presence lets you know that it is done, then dissipates. You realize as soon as it leaves that you could have asked to go home, but you don\'t really want to anymore. Next time you\'ll make sure to ask for invincible Trimps though, that may have been a better choice.': '一只瑞兽从虚空中出现，占满了您的意识。一时间您感觉与世无争。它询问您最想要的是什么，您……等等，这已经发生几次了？您记得上次到最后，是后悔没有许愿了什么东西，但是您记不起来那东西是啥了。您已经请求过脆皮们能聪明到自动建造存储建筑，而且您也请求过脆皮们自动建造存储建筑时浪费更少。您对存储已经很满意了，所以……等等，您知道该许什么愿望了！您希望在睡觉时，脆皮们别冲到那么后面的区域，所以您请求获得一种方法，让脆皮在特定的区域停止战斗。它告诉您愿望已经实现，然后就重归于虚无了。它一离开，您就想起来应该许愿回家的，但其实现在您也没那么想回家了。下次不如直接许愿让脆皮变成无敌好了，您想，这应该会是个更好的主意。',
+    'From the void, an auspicious presence reaches out and fills your mind. You feel at peace with the world. It asks you what you desire most. Wait... how many times has this happened now? You\'re fairly positive that there was something you regretted not asking last time, but you can\'t quite remember. You\'ve asked for Trimps to be able to manage storage structures, and you\'ve asked for them to be better at managing those structures. Even though you\'re content with your storage solutions, you suddenly realize the perfect request! You wish the Trimps would stop pushing so far through the Zones while you\'re sleeping, so you ask for a way to tell the Trimps to stop fighting at a Zone of your choosing. The presence lets you know that it is done, then dissipates. You realize as soon as it leaves that you could have asked to go home, but you don\'t really want to anymore. Next time you\'ll make sure to ask for invincible Trimps though, that may have been a better choice.': '一只瑞兽从虚空中出现，占满了您的意识。一时间您感觉与世无争。它询问您最想要的是什么，您……等等，这已经发生几次了？您记得上次到最后，是后悔没有许愿了什么东西，但是您记不起来那东西是啥了。您已经请求过脆皮们能聪明到自动建造存储建筑，而且您也请求过脆皮们自动建造存储建筑时浪费更少。您对存储已经很满意了，所以……等等，您知道该许什么愿望了！您希望在睡觉时，脆皮们别冲到那么后面的区域，所以您请求获得一种方法，让脆皮能够在特定的区域停止战斗。它告诉您愿望已经实现，然后就重归于虚无了。它一离开，您就想起来应该许愿回家的，但其实现在您也没那么想回家了。下次不如直接许愿让脆皮变成无敌好了，您想，这应该会是个更好的主意。',
     'From now on, you have access to the Map At Zone setting. This setting can be accessed through the Map Sidebar, Settings, or the \'Configure Maps\' popup!': '从现在起，您可以使用自动进图设置了。您可以从地图侧边栏，设置菜单，或者是“设置地图”窗口中进行设置！',
     'Auspicious Presence Part III': '瑞兽 III',
     'AutoEquip': '自动装备',
@@ -1043,7 +1043,7 @@ var cnItems = {
     'This book will teach your Farmers, Lumberjacks, Miners, Scientists, and Explorers to all be twice as productive.': '这本书将使农民，伐木工，矿工，科学家和探险家的产量翻倍。',
     'Your top scientists are pretty sure this is a Dragimp egg. They know Dragimps love shiny things, maybe it\'ll come out for some gems.': '您的顶尖科学家非常确信，这就是一个脆皮龙蛋。脆皮龙最爱闪闪发光的东西，也许它可以帮忙寻找宝石。',
     'Once again, this Prism will need to be polished before it can offer your Trimps any protection. After it\'s polished, this Prism will grant an additional 50% Prismatic Shield to your Trimps!': '棱镜又需要抛光了，不然没法提供保护。抛光后，棱镜可以额外增加50%的棱镜护盾！',
-    'Your scientists are pissed. Not because of anything you did, but this gem seems to be making them mad. It\'ll take some research, but you think you can create a map to the place the gem originated from.': '您的科学家们看起来怒气冲冲。您什么也没做，显然是那块宝石搞的鬼了。您需要点时间来研究它，您相信可以借此制造出通往宝石发源地的地图。',
+    'Your scientists are pissed. Not because of anything you did, but this gem seems to be making them mad. It\'ll take some research, but you think you can create a map to the place the gem originated from.': '您的科学家们看起来怒气冲冲，可您什么也没做，显然是那块宝石搞的鬼了。您需要点时间来研究它，您相信可以借此制造出通往宝石发源地的地图。',
     'Dimension of Anger': '愤怒维度',
     'Unsurprisingly, that Rage Gem you brought back has everyone up the walls. You should probably hurry up and figure out a way to extract the map from inside before your Scientists end up killing eachother.': '不出所料，您带回的暴怒宝石让所有人都抓狂了。您得抓紧时间从中提取出地图，不然科学家们迟早要开始自相残杀了。',
     'Dimension of Rage': '暴怒维度',
@@ -1056,7 +1056,7 @@ var cnItems = {
     'Miners': '矿工',
     'You really don\'t like reading books, but it seems better than mining yourself.': '您其实并不喜欢看书，但是，这总比要自己挖矿来的好。',
     'Scientists': '科学家',
-    'You really don\'t believe it, but that book indicates that Trimps can be smart. Better read it and find out how.': '那本书指出脆皮也可以变聪明，其实您是真不信的。但是最好还是看看它，看看需要怎么做。',
+    'You really don\'t believe it, but that book indicates that Trimps can be smart. Better read it and find out how.': '那本书指出脆皮也可以变聪明，其实您是真不信的。怎么样也好，还是看看需要怎么做吧。',
     'Trainers': '训练师',
     'This book holds all of the secrets of upper management. Train your Trimps to train other Trimps.': '这本书包含了高层管理的所有秘密。还可以让脆皮学会训练其他脆皮。',
     'Explorers': '探险家',
@@ -1107,7 +1107,7 @@ var cnItems = {
     'Unlock the AutoStructure tool, allowing you to automatically purchase structures. In addition, all housing and battle territory bonuses will come with ready-to-fight Trimps inside (Not including the Dimensional Generator)!': '解锁自动建造功能，可以自动建造建筑。另外，所有住房和战斗领土加成在增加脆皮上限的同时，也会同时增加相应数量的脆皮(不包括维度发生器)！',
     'Unlock the AutoStructure tool, allowing you to automatically purchase structures. In addition, all housing and battle territory bonuses will come with ready-to-fight Trimps inside!': '解锁自动建造功能，可以自动建造建筑。另外，所有住房和战斗领土加成在增加脆皮上限的同时，也会同时增加相应数量的脆皮！',
     'Geneticistassist': '遗传学家助手',
-    'Unlock Geneticistassist, the most powerful Geneticist Automator in this side of the galaxy!': '解锁遗传学家助手，在星系的此端是最强大的遗传学家管理者！',
+    'Unlock Geneticistassist, the most powerful Geneticist Automator in this side of the galaxy!': '解锁遗传学家助手，它在星系的此端是最强大的遗传学家管理者！',
     'The Geneticistassist': '遗传学家助手',
     'Greetings, friend! I\'m your new robotic pal': '欢迎，朋友！我是您的新机器伙伴 ',
     'and I am here to assist you with your Geneticists. I will hang out in your Jobs tab, and will appear every run after Geneticists are unlocked. You can customize me in Settings under \'General\'!': '，我可以帮助您管理遗传学家。我会一直停留在您的工作选项卡下，在每次传送后解锁遗传学家时同时出现。您可以在设置的 常规选项卡 下设置我的相关参数！',
@@ -1548,7 +1548,7 @@ var cnItems = {
     'Consolation Prize': '安慰奖',
     'Find an uncommon heirloom at Z146 or higher': '在区域146及以上获得一个罕见传家宝',
     'Holey': '多洞',
-    'Shaggy': '长毛',
+    'Shaggy': '粗糙',
     'Reach Z60 with rank III or lower equipment': '在装备未超过III级的前提下，到达区域60',
     'One-Hit Wonder': '一鸣惊人',
     'Kill an Improbability in one hit': '一击杀死一个乌有者',
@@ -1644,7 +1644,7 @@ var cnItems = {
     'Upsized': '增员',
     'Complete Unbalance with 500 stacks of Unbalance': '在拥有500层不平衡的前提下，完成不平衡挑战',
     'Unpoppable': '牢不可破',
-    'Complete Bublé without using Prismal or respeccing Perks': '在未加点棱镜化，也未在传送后进行特权洗点的前提下，完成布累挑战',
+    'Complete Bublé without using Prismal or respeccing Perks': '在未加点棱镜化，也未在传送后进行特权洗点的前提下，完成泡影挑战',
     'Pwnd': '大获全胜',
     'Complete Duel without ever falling below 20 points': '在从未低于20决斗点数的前提下，完成决斗挑战',
     'Solid': '固体',
@@ -1775,7 +1775,7 @@ var cnItems = {
     'This setting only matters if Repeat is on. Toggling Repeat off will still leave the map when it is finished no matter what.': '只有在开启重复时此设置才会生效。如果关闭重复，那么通过地图以后将会离开。',
     'Exit to Maps': '退回选地图',
     'Exit to World': '退回世界',
-    'Choose whether to go to the Maps Screen or World after completing a map.': '在通过地图以后切为选地图界面还是切为世界。',
+    'Choose whether to go to the Maps Screen or World after completing a map.': '在通过地图以后返回选地图界面还是返回世界。',
     'One Void Map': '只运行一张虚空地图',
     'Finish All Voids': '运行所有虚空地图',
     'Decide if you want to continue running the rest of your Void Maps after finishing one.': '切换在通过一张虚空地图后，是否继续运行剩余的虚空地图。',
@@ -1821,7 +1821,7 @@ var cnItems = {
     'Customize the target thresholds for your Geneticistassist! Use a number between 0.5 and 5000 seconds for all 3 boxes. Each box corresponds to a Geneticistassist toggle threshold.': '设置遗传学家助手的目标阈值！在下面的三个输入框内，请输入0.5至5000秒之间的数字。每个输入框内的数值都代表了遗传学家的一个阈值。',
     'Liquification Off': '关闭液化',
     'Liquification On': '开启液化',
-    'Enable or disable Liquification. Nothing in game should be impossible to complete with Liquification enabled, but if you just want to slow things down then you have every right to do so.': '开启或关闭液化。没有东西是在液化下无法完成的，不过是否关闭您说了算。',
+    'Enable or disable Liquification. Nothing in game should be impossible to complete with Liquification enabled, but if you just want to slow things down then you have every right to do so.': '开启或关闭液化。没有什么东西是在液化下做不到的，不过是否关闭您说了算。',
     'No Overcolors': '无超杀效果颜色',
     'Normal Overkill Colors': '普通超杀效果颜色',
     'Connected Overkill Colors': '连带超杀效果颜色',
@@ -2033,7 +2033,7 @@ var cnItems = {
     'while you wait!': '！',
     'Use it wisely...': '请善加利用……',
     'Use them wisely...': '请善加利用……',
-    'While you were out, your Trimps didn\'t get much done - unless you count destruction of property. Luckily you have a Time Portal! While you can\'t go forward in time, you can go back to keep the Trimps in line and I\'ll wait here for you.': '您不在的时候，脆皮们基本没什么进展——除非您把毁坏也算上。还好您有一个时空传送门！尽管您无法前往未来，您还是可以回到过去管管脆皮们，我会在这里等着您。',
+    'While you were out, your Trimps didn\'t get much done - unless you count destruction of property. Luckily you have a Time Portal! While you can\'t go forward in time, you can go back to keep the Trimps in line and I\'ll wait here for you.': '您不在的时候，脆皮们基本没什么进展——除非您把毁坏也算上。还好您有一个时空传送门！尽管您无法前往未来，您还是可以回到过去管管脆皮们，而我会在这里等着您。',
     'While you\'re in the past, everything will progress like normal, just much faster. The temporal displacement effects give you blurry vision and a headache (making fine control impossible), but you can force your Trimps to stop and run 1 map whenever you want for each 8 hours spent offline! Maps created this way will use your first preset settings at your selected level with Repeat for Items and Exit to World.': '当您回到过去时，一切都比正常来得更快。时移效应使您的视线模糊不清，且使您头疼欲裂(因此无法精密控制)，但每离线8个小时，您就可以强制脆皮们停下来运行1张地图！以此方法制造的地图等级与您选择的等级相同，将使用您的地图预设1，且启用重复到无特殊设置和退回世界设置。',
     'If your Trimps look stuck, you can always': '如果脆皮们卡住了，您可以随时 ',
     'to regain full control of your Trimps, and you\'ll still receieve resources from Trustworthy Trimps for any unused Time Warp time!': '来恢复脆皮的控制，而且您仍然可以从可信的脆皮那边获得时间跃迁剩余时间所对应的资源！',
@@ -2115,7 +2115,7 @@ var cnItems = {
     'You are about to purchase 12 hours of instant production for 20 bones. Is this what you wanted to do?': '您将花费20骨头购买立刻获得12小时的产量。您确定要购买吗？',
     'You are about to purchase 36 hours of instant production for 40 bones. Is this what you wanted to do?': '您将花费40骨头购买立刻获得36小时的产量。您确定要购买吗？',
     'Exotic Imp-orts': '奇异外皮',
-    'Exotic Imp-orts will be unlocked permanently once purchased, and will stick around through portals. Each has a 3% chance to spawn per cell and better loot than normal enemies. Collect them all!': '奇异外皮在购买后永久解锁，传送后也仍然存在。对于每种奇异外皮来说，每个格子都分别有3%的概率生成，比起普通敌人来说，战利品更好。早买早享受！',
+    'Exotic Imp-orts will be unlocked permanently once purchased, and will stick around through portals. Each has a 3% chance to spawn per cell and better loot than normal enemies. Collect them all!': '奇异外皮在购买后永久解锁，传送后也仍然存在。对于每种奇异外皮来说，每个格子都分别有3%的概率生成，比起普通敌人来说，战利品更好。早买早享受，晚买无折扣！',
     'Spawns in World': '在世界中出现',
     'Spawns in Maps': '在地图中出现',
     'Buy Feyimp (50 bones': '购买脆皮小妖(50骨头',
@@ -2177,7 +2177,7 @@ var cnItems = {
     'Nullifium, or Nu,': '虚空物质',
     'can only be gathered by recycling an Heirloom.': '只能通过回收传家宝获得。',
     'You can also click on the Heirloom\'s name on this menu to rename it, or click on the icon to change it!': '您还可以点击传家宝名称来重命名，或者点击图标来更改图标！',
-    'You can upgrade any Staff and Shield to HALF the value of your total earned Nu. Nu is not spent, but dictates how powerful your Heirlooms can be!': '您可以使用总虚空物质的一半来升级权杖和盾牌。虚空物质不会在此过程中被消耗，它直接决定了传家宝的强度！',
+    'You can upgrade any Staff and Shield to HALF the value of your total earned Nu. Nu is not spent, but dictates how powerful your Heirlooms can be!': '您可以使用总虚空物质的一半来升级权杖和盾牌。虚空物质不会在此过程中被消耗，它对传家宝的强度有着决定性的作用！',
     'Any Heirlooms in the "Temporary" section will be recycled for Nullifium on portal.': '“临时栏”中的传家宝在使用传送门时将被回收为虚空物质。',
     'Nothing.': '空无一宝',
     'Unequip': '取消装备',
@@ -2247,7 +2247,7 @@ var cnItems = {
     'Add Mod': '新增修饰符',
     'Replace Mod': '替换修饰符',
     'FEED ME': '求投食求养大',
-    'Gain a gathering bonus based on worker distribution equality': '根据工人的数量分布接近情况获得产量加成',
+    'Gain a gathering bonus based on worker distribution equality': '根据工人的数量接近情况获得产量加成',
     'Tip: You can click on this Heirloom\'s name or icon in this window to change them!': '提示：您可以点击此窗口中的传家宝名称或者图标来进行修改！',
     'ADDS this amount on to your total Prismatic Shield. This modifier can only function in the Radon Universe.': '将此数值加算到棱镜护盾数值中。只在氡之宇宙内有效。',
     'Charging': '蓄能',
@@ -2302,7 +2302,7 @@ var cnItems = {
     'Radon goes in, victory comes out': '得氡者，得天下',
     'Reach Zone 50 in Universe 2 to unlock Challenge': '在宇宙2中到达区域50后可以解锁挑战',
     'which combine multiplicatively with your Challenge': '其加成将乘上挑战',
-    '. Just imagine the possibilities!': '的加成。想象一下可能性吧！',
+    '. Just imagine the possibilities!': '的加成。未来将一片光明！',
     'Click to toggle a challenge mode for your challenges!': '点击以切换为挑战模式，挑战自我，超越自我！',
     'In Challenge': '挑战',
     'mode, you can re-run some challenges in order to earn a permanent attack, health, and Helium bonus for your Trimps. MOST Challenge': '中, 您可以重新进行一些挑战，这些挑战可以让您的脆皮获得永久的攻击力、生命值和氦获取量加成。大多数挑战',
@@ -2312,23 +2312,23 @@ var cnItems = {
     's, and your highest Zone reached for each challenge is saved and used.': '加成叠加，且您的每个挑战中最高通过区域都将被单独记录并生效。',
     'No Challenge': '所有的挑战',
     's end at any specific Zone': '都没有终点',
-    'they can only be completed by using your portal or abandoning through the \'View Perks\' menu. However,': '它们只能通过传送或者在“查看特权”界面中放弃来完成挑战。不过，',
-    'no Helium can drop, and no bonus Helium will be earned during or after the run': '挑战过程中不会掉落氦，且氦获取量也不会获得任何加成',
-    'no Radon can drop, and no bonus Radon will be earned during or after the run': '挑战过程中不会掉落氡，且氡获取量也不会获得任何加成',
+    'they can only be completed by using your portal or abandoning through the \'View Perks\' menu. However,': '只能通过传送或者在“查看特权”界面中放弃来完成它们。另外，',
+    'no Helium can drop, and no bonus Helium will be earned during or after the run': '挑战过程中不会掉落氦，且无论选择什么挑战，氦获取量也不会获得任何加成',
+    'no Radon can drop, and no bonus Radon will be earned during or after the run': '挑战过程中不会掉落氡，且无论选择什么挑战，氡获取量也不会获得任何加成',
     'Note that your Headstart mastery will be disabled during Challenge': '请注意先声夺人专精在挑战',
     'runs.': '中无效。',
-    '. Void Maps will still drop heirlooms, and all other currency can still be earned.': '。虚空地图仍然掉落传家宝，其他的货币也可以正常获得。',
+    '. Void Maps will still drop heirlooms, and all other currency can still be earned.': '。虚空地图仍然会掉落传家宝，其他东西也可以正常获得。',
     'stacks multiplicatively with Challenge': '的加成将乘以挑战',
     'creating one big, beautiful Challenge': '最终获得一个巨大而美妙的挑战',
     'modifier': '加成倍率',
     'in Universe 2. This brings your total Challenge': '加成。因此，挑战',
     'bonus to': '的总加成变为',
-    'Well, you did it. You followed your instincts through this strange world, made your way through the Dimension of Anger, and obtained this portal. But why? Maybe there will be answers through this portal... Your scientists tell you they can overclock it to bring more memories and items back, but they\'ll need helium to cool it.': '很好，您做到了。您凭着直觉在这个奇怪的世界里一路披荆斩棘，通过了愤怒维度，最后获得了这个传送门。但这么做的意义是？或许通过这个传送门以后，您就能找到答案了……科学家们告诉您，它们可以将传送门进行超频，带回更多的记忆和物品，但这么做还需要用到氦来冷却。',
+    'Well, you did it. You followed your instincts through this strange world, made your way through the Dimension of Anger, and obtained this portal. But why? Maybe there will be answers through this portal... Your scientists tell you they can overclock it to bring more memories and items back, but they\'ll need helium to cool it.': '很好，您做到了。您凭着直觉在这个奇怪的世界里一路披荆斩棘，通过了愤怒维度，最后获得了这个传送门。这么做的意义又是什么？或许通过这个传送门以后，您就能找到答案了……科学家们告诉您，它们可以将传送门进行超频，带回更多的记忆和物品，但需要氦来冷却传送门。',
     'The Radon Universe is harsh. Your Portal still retains some information about the Scientist upgrades, but it\'ll need an upgrade of its own to be able to utilize them in this new Universe.': '氡之宇宙的环境真的是太严苛了。您的传送门还保留有一些关于科学家升级的信息，但是看来需要在这个宇宙中升级后才能利用这些信息。',
     'Be ready to manually Gather some Food!': '得准备好，要手动收集一些食物了！',
     'Don\'t forget to bring a challenge': '传送前，不要忘了选择挑战',
     'Respec': '洗点',
-    'You can respec your perks once per portal. Clicking cancel after clicking this button will not consume your respec.': '每次传送后您可以洗点一次特权。开始洗点后点击取消退出不会消耗洗点次数。',
+    'You can respec your perks once per portal. Clicking cancel after clicking this button will not consume your respec.': '每次传送后您有一次洗点特权的机会。开始洗点后点击取消退出不会消耗洗点次数。',
     'Click a challenge below to learn more about and/or run it!': '点击下方的挑战来获取详细信息及/或运行它！',
     'None': '无',
     'Your highest Zone reached for this Challenge': '您的最高通过区域于此挑战',
@@ -2338,13 +2338,13 @@ var cnItems = {
     'You will also earn a new Perk!': '您还可以获得一个新的特权！',
     'You have already completed this challenge!': '您已经完成了此挑战！',
     'Are you sure you want to abandon this challenge?': '您确定要放弃此挑战吗？',
-    'Abandoning this challenge will cause the portal to become unstable and start you from the beginning of this run. (You\'ll keep your permanent rewards like helium and perks': '放弃挑战后，传送门将变得不稳定，使您从上次传送后的状态重新开始(保留永久的加成，例如氦和特权',
+    'Abandoning this challenge will cause the portal to become unstable and start you from the beginning of this run. (You\'ll keep your permanent rewards like helium and perks': '放弃挑战后，传送门将变得不稳定，使您从本次传送初始状态重新开始(保留永久的加成，例如氦和特权',
     'Click Confirm to abandon the challenge and restart at Z1, Cancel to go back, or Restart to go back to Z1 with the same challenge.': '点击确认后将放弃挑战并从区域1重新开始游戏，点击取消则返回，点击重新开始挑战则从区域1重新开始此挑战。',
     'Restart Challenge': '重新开始挑战',
     'This challenge issues rewards differently than most other Challenge': '此挑战的加成不同于其他大多数挑战',
     's.': '。',
     'You don\'t have an active challenge.': '您目前未激活任何挑战。',
-    'If you can\'t handle this Universe, you can always return to Universe 1. However, returning before finding the Portal Device will invalidate all Scruffy Exp and Radon earned.': '如果您在这个宇宙中感觉力不从心，您可以随时返回宇宙1。但是在找到传送门装置前就这么做的话，上次传送后获得的污污经验和氡将全部丢失。',
+    'If you can\'t handle this Universe, you can always return to Universe 1. However, returning before finding the Portal Device will invalidate all Scruffy Exp and Radon earned.': '如果您在这个宇宙中感觉力不从心，您可以随时返回宇宙1。但如果在找到传送门装置前就这么做的话，上次传送后获得的污污经验和氡将全部丢失。',
     'View Perks': '查看特权',
     'Return to Universe': '返回宇宙',
     'Helium Left Over': '剩余的氦',
@@ -2363,17 +2363,17 @@ var cnItems = {
     'On': '开启',
     'Off': '关闭',
     'With Equality Scaling On, each Portal starts with 0 levels of Equality active. If a group of Trimps dies after attacking': '启用平等缩放时，每次传送后平等生效等级从0级开始。每当一队脆皮在攻击 ',
-    'or fewer time, one level of Equality will activate, up to your purchased level of Equality.': '次或者更少次就阵亡时，平等生效等级增加1级，最高等于您的平等特权等级。',
-    'or fewer times, one level of Equality will activate, up to your purchased level of Equality.': '次或者更少次就阵亡时，平等生效等级增加1级，最高等于您的平等特权等级。',
+    'or fewer time, one level of Equality will activate, up to your purchased level of Equality.': '次或者更少次就阵亡时，平等生效等级就增加1级，最高可达到平等特权的等级。',
+    'or fewer times, one level of Equality will activate, up to your purchased level of Equality.': '次或者更少次就阵亡时，平等生效等级就增加1级，最高可达到平等特权的等级。',
     'Ctrl Click this button to customize your Equality settings.': '按下Ctrl键再点击可以自定义平等缩放设置。',
     'Hotkey: E': '(快捷键：E',
     'Scale Equality Scaling': '平等缩放设置',
-    'You can only respec once per run. Clicking cancel will not consume this use.': '每次传送后您可以洗点一次。点击取消则不会消耗次数。',
     'Change this Slider to change the maximum amount of attacks Trimps need to make in order to not trigger Equality Scaling. Setting this slider to 0 will increase scaling whenever a group of Trimps is one-shot, 1 will increase if Trimps attack one or fewer times, 5 will only increase if they attack 5 or fewer times, etc. If Reversing is allowed, Equality stacks will also decrease whenever Trimps kill an enemy in more attacks than your current slider setting.': '修改滑块的数值影响脆皮在阵亡前攻击了多少次才不会触发平等缩放。滑块设置为0时，当一队脆皮被秒杀时增加平等生效等级。设置为1时，当一队脆皮只攻击了1次或者更少次就阵亡时增加平等生效等级。设置为5时，当一队脆皮只攻击了5次或者更少次就阵亡时增加平等生效等级。依此类推。如果开启了平等消除，那么在脆皮攻击超过滑块相应次数击杀敌人后，减少平等生效等级。',
     'Your current setting is': '当前的平等滑块设置为 ',
     'Allow Reversing': '开启平等消除',
     'You can also manually set how many stacks of Equality should be used if Scaling is disabled changing the slider below. This allows you to customize exactly how many stacks of Equality to use without having to respec your Perks.': '如果关闭平等缩放，您还可以直接在下方设置平等生效等级。这样您就不必洗点特权也可以设置平等生效等级了。',
     'Your Equality stacks when Scaling is disabled will be': '关闭平等缩放时，平等生效等级为 ',
+    'You can only respec once per run. Clicking cancel will not consume this use.': '每次传送后您可以洗点一次。点击取消则不会消耗次数。',
     'Respec Perks': '特权洗点',
     'Change to Universe': '切换到宇宙',
     'Confirm': '确认',
@@ -2409,7 +2409,7 @@ var cnItems = {
     'Downsize Challenge': '精简挑战',
     'Transmute Challenge': '变形挑战',
     'Unbalance Challenge': '不平衡挑战',
-    'Bublé Challenge': '布累挑战',
+    'Bublé Challenge': '泡影挑战',
     'Duel Challenge': '决斗挑战',
     'Melt Challenge': '熔化挑战',
     'Trappapalooza Challenge': '捕手道达人挑战',
@@ -2437,7 +2437,7 @@ var cnItems = {
     'You do not have enough max Trimps with this Perk setup to sustain your Coordination.': '如果使用此特权设置，脆皮上限将不足以维持现有的协作等级。',
     'You have too many workers assigned for this Perk setup.': '如果使用此特权设置，工人数量将不足。',
     'You do not have enough max Trimps with this Perk setup to sustain your Coordination. You have too many workers assigned for this Perk setup.': '如果使用此特权设置，脆皮上限将不足以维持现有的协作等级。且工人数量将不足。',
-    'The daily challenge has changed since you looked at it. The challenge description has been refreshed, click Activate Portal to run it!': '在您查看的时候，日常挑战已经变了。挑战描述已经更新，点击激活传送门来进行挑战！',
+    'The daily challenge has changed since you looked at it. The challenge description has been refreshed, click Activate Portal to run it!': '在您查看的时候，日常挑战的内容已经发生了变化。挑战描述也已更新，点击激活传送门来进行挑战！',
     'You will unlock this challenge once you reach Zone': '欲解锁此挑战，您需要到达区域',
     'You will unlock this challenge once you  reach Zone': '欲解锁此挑战，您需要到达区域',
     'Daily': '日常',
@@ -2466,13 +2466,13 @@ var cnItems = {
     'of all Helium,  Nu from Heirlooms earned during the run, Dark Essence, Nature Tokens, and Fluffy Exp earned before finishing.': '的相应资源，包括：氦，挑战中获得的传家宝价值的虚空物质，黑暗精华，自然符记，绒绒经验。',
     'of all Radon, Nu from Heirlooms earned during the run, and Scruffy Exp earned before finishing.': '的相应资源，包括：氡，挑战中获得的传家宝价值的虚空物质，污污经验。',
     'Switch Daily': '选择日常挑战',
-    'Sunday resets in': '周日挑战内容重置倒计时：',
-    'Monday resets in': '周一挑战内容重置倒计时：',
-    'Tuesday resets in': '周二挑战内容重置倒计时：',
-    'Wednesday resets in': '周三挑战内容重置倒计时：',
-    'Thursday resets in': '周四挑战内容重置倒计时：',
-    'Friday resets in': '周五挑战内容重置倒计时：',
-    'Saturday resets in': '周六挑战内容重置倒计时：',
+    'Sunday resets in': '周日重置于：',
+    'Monday resets in': '周一重置于：',
+    'Tuesday resets in': '周二重置于：',
+    'Wednesday resets in': '周三重置于：',
+    'Thursday resets in': '周四重置于：',
+    'Friday resets in': '周五重置于：',
+    'Saturday resets in': '周六重置于：',
     'You have already attempted this Daily Challenge!': '您已经进行过此日常挑战了！',
     'Can only be run once!': '每个日常挑战只能运行一次！(译者注：就算用其他手段回到这一天也没法再运行了)',
     'Reward does not count toward Bone Portals or affect best Rn/Hr stat.': '日常挑战的奖励不影响骨头传送门的奖励，也不影响最高的氡/小时统计。',
@@ -2502,20 +2502,20 @@ var cnItems = {
     'Your scientists have discovered a chaotic dimension filled with helium. All enemies have 100% more health, enemies in world deal 17% more damage, and enemies in maps deal 135% more damage. Starting at Zone 6, every time an enemy in the world is slain you will gain a stack of \'Unbalance\'. Every time an enemy in a map is slain, you will lose a stack of Unbalance. Each stack of Unbalance reduces your health by 1%, but increases your Trimps\' gathering speed by 1%. Unbalance can only stack to 250. Completing': '您的科学家发现了一个充满氦的混沌维度。所有敌人生命值增加100%，世界上的敌人多造成17%伤害，地图中的敌人多造成135%伤害。从区域6开始，每在世界上击杀一名敌人，您获得一层“不平衡”。而每在地图中击杀一名敌人，您失去一层“不平衡”。每层不平衡减少1%生命值，但增加脆皮1%资源获取速度。不平衡最高叠加到250层。在此挑战激活的前提下通过 ',
     'Zone': '区域',
     'with this challenge active will grant an additional 100% of all helium earned up to that point. This challenge is repeatable!': '后，可额外获得氦，数值等于本次挑战完成前氦获取量的100%。此挑战可重复完成！',
-    'Your scientists have discovered a chaotic dimension filled with unharvestable but pretty helium. All enemies have 100% more health, enemies in world deal 17% more damage, and enemies in maps deal 135% more damage. Starting at Zone 6, every time an enemy in the world is slain you will gain a stack of \'Unbalance\'. Every time an enemy in a map is slain, you will lose a stack of Unbalance. Each stack of Unbalance reduces your health by 1%, but increases your Trimps\' gathering speed by 1%. Unbalance can only stack to 250.': '您的科学家发现了一个充满了氦的混沌维度，这个维度中的氦虽然量很大，但无法收集。所有敌人生命值增加100%，世界上的敌人多造成17%伤害，地图中的敌人多造成135%伤害。从区域6开始，每在世界上击杀一名敌人，您获得一层“不平衡”。而每在地图中击杀一名敌人，您失去一层“不平衡”。每层不平衡减少1%生命值，但增加脆皮1%资源获取速度。不平衡最高叠加到250层。',
+    'Your scientists have discovered a chaotic dimension filled with unharvestable but pretty helium. All enemies have 100% more health, enemies in world deal 17% more damage, and enemies in maps deal 135% more damage. Starting at Zone 6, every time an enemy in the world is slain you will gain a stack of \'Unbalance\'. Every time an enemy in a map is slain, you will lose a stack of Unbalance. Each stack of Unbalance reduces your health by 1%, but increases your Trimps\' gathering speed by 1%. Unbalance can only stack to 250.': '您的科学家发现了一个充满了氦的混沌维度，这个维度中的氦虽然储量很大，但无法收集。所有敌人生命值增加100%，世界上的敌人多造成17%伤害，地图中的敌人多造成135%伤害。从区域6开始，每在世界上击杀一名敌人，您获得一层“不平衡”。而每在地图中击杀一名敌人，您失去一层“不平衡”。每层不平衡减少1%生命值，但增加脆皮1%资源获取速度。不平衡最高叠加到250层。',
     'You have the Balance challenge active. Your scientists have discovered a chaotic dimension filled with helium. All enemies have 100% more health, enemies in world deal 17% more damage, and enemies in maps deal 135% more damage. Starting at Zone 6, every time an enemy in the world is slain you will gain a stack of \'Unbalance\'. Every time an enemy in a map is slain, you will lose a stack of Unbalance. Each stack of Unbalance reduces your health by 1%, but increases your Trimps\' gathering speed by 1%. Unbalance can only stack to 250. Completing': '您目前正在进行平衡挑战。您的科学家发现了一个充满氦的混沌维度。所有敌人生命值增加100%，世界上的敌人多造成17%伤害，地图中的敌人多造成135%伤害。从区域6开始，每在世界上击杀一名敌人，您获得一层“不平衡”。而每在地图中击杀一名敌人，您失去一层“不平衡”。每层不平衡减少1%生命值，但增加脆皮1%资源获取速度。不平衡最高叠加到250层。在此挑战激活的前提下通过 ',
-    'You have the Balance challenge active. "Your scientists have discovered a chaotic dimension filled with unharvestable but pretty helium. All enemies have 100% more health, enemies in world deal 17% more damage, and enemies in maps deal 135% more damage. Starting at Zone 6, every time an enemy in the world is slain you will gain a stack of \'Unbalance\'. Every time an enemy in a map is slain, you will lose a stack of Unbalance. Each stack of Unbalance reduces your health by 1%, but increases your Trimps\' gathering speed by 1%. Unbalance can only stack to 250."': '您目前正在进行平衡挑战。您的科学家发现了一个充满了氦的混沌维度，这个维度中的氦虽然量很大，但无法收集。所有敌人生命值增加100%，世界上的敌人多造成17%伤害，地图中的敌人多造成135%伤害。从区域6开始，每在世界上击杀一名敌人，您获得一层“不平衡”。而每在地图中击杀一名敌人，您失去一层“不平衡”。每层不平衡减少1%生命值，但增加脆皮1%资源获取速度。不平衡最高叠加到250层。',
+    'You have the Balance challenge active. "Your scientists have discovered a chaotic dimension filled with unharvestable but pretty helium. All enemies have 100% more health, enemies in world deal 17% more damage, and enemies in maps deal 135% more damage. Starting at Zone 6, every time an enemy in the world is slain you will gain a stack of \'Unbalance\'. Every time an enemy in a map is slain, you will lose a stack of Unbalance. Each stack of Unbalance reduces your health by 1%, but increases your Trimps\' gathering speed by 1%. Unbalance can only stack to 250."': '您目前正在进行平衡挑战。您的科学家发现了一个充满了氦的混沌维度，这个维度中的氦虽然储量很大，但无法收集。所有敌人生命值增加100%，世界上的敌人多造成17%伤害，地图中的敌人多造成135%伤害。从区域6开始，每在世界上击杀一名敌人，您获得一层“不平衡”。而每在地图中击杀一名敌人，您失去一层“不平衡”。每层不平衡减少1%生命值，但增加脆皮1%资源获取速度。不平衡最高叠加到250层。',
     'Scientist': '科学家',
     'Scientist II': '科学家 II',
     'Scientist III': '科学家 III',
     'Scientist IV': '科学家 IV',
     'Scientist V': '科学家 V',
-    'Attempt modifying the portal to retain positive qualities from previous dimensions. Until you perfect the technique, you will start with': '尝试调节传送门来保持之前维度的正面效果。直到您对这项技艺足够精进之前，您将从 ',
-    'Attempt modifying the portal to harvest resources when travelling. Until you perfect the technique, you will start with': '尝试调节传送门来在旅途中获取资源。直到您对这项技艺足够精进之前，您将从 ',
-    'science but will be unable to research or hire scientists and': '科学点开始，但无法研究或者雇佣科学家。并且',
+    'Attempt modifying the portal to retain positive qualities from previous dimensions. Until you perfect the technique, you will start with': '尝试调节传送门来保持之前维度的正面效果。直到您对这项技艺足够精进之前，您将初始拥有 ',
+    'Attempt modifying the portal to harvest resources when travelling. Until you perfect the technique, you will start with': '尝试调节传送门来在旅途中获取资源。直到您对这项技艺足够精进之前，您将初始拥有 ',
+    'science but will be unable to research or hire scientists and': '科学点，但无法研究或者雇佣科学家。并且',
     'all enemy damage will be 10X higher': '所有敌人的攻击力变为10倍',
     '. Choose your upgrades wisely! Clearing': '。仔细选择您的研究！通过 ',
-    'science but will be unable to research or hire scientists. Choose your upgrades wisely! Clearing': '科学点开始，但无法研究或者雇佣科学家。仔细选择您的研究！在此挑战激活的前提下通过 ',
+    'science but will be unable to research or hire scientists. Choose your upgrades wisely! Clearing': '科学点，但无法研究或者雇佣科学家。仔细选择您的研究！在此挑战激活的前提下通过 ',
     '\'The Block\' (': '障碍区地图(',
     'with this challenge active will cause you to start with 5000 Science, 100 Food, 100 Wood, 10 Traps, and 1 Foreman each time you use your portal.': '将使您每次使用传送门后，以5000科学点，100食物，100木头，10陷阱，以及1工头的状态开始游戏。',
     'with this challenge active will cause you to start with 5 Barns, 5 Sheds, 5 Forges, and T2 Equipment unlocked each time you use your portal.': '将使您每次使用传送门后，以5谷仓、5窝棚、5锻造厂，且解锁2级装备的状态开始游戏。',
@@ -2529,8 +2529,8 @@ var cnItems = {
     'From now on, you\'ll earn two levels of each prestige upgrade per map, unlock AutoPrestiges, and your Warpstations will build instantly, skipping the queue. This bonus will apply every time you portal. You\'ve unlocked Scientists, and': '从现在起，您每次使用传送门后，每张地图可以获得两级装备重铸升级，并解锁自动重铸，而且跃迁核心可以跳过队列直接建造完成。您也重新解锁了科学家，并且',
     'From now on, you\'ll permanently increase all Helium found by 0.5% to the power of your current Zone number. You\'ll also start with 1000% player efficiency and 50 Barns, Sheds, and Forges every time you portal. You\'ve unlocked Scientists, and': '从现在起，您的氦获取量每层区域永久比上一层区域多0.5%。且每次使用传送门后，以1000%玩家效率，50谷仓、50窝棚、50锻造厂的状态开始游戏。您也重新解锁了科学家，并且',
     'Don\'t forget that you can click Research on your Science again!': '不要忘了您又可以进行科学研究了！',
-    'You have the Scientist challenge active. Attempt modifying the portal to retain positive qualities from previous dimensions. Until you perfect the technique, you will start with': '您目前正在进行科学家挑战。尝试调节传送门来保持之前维度的正面效果。直到您对这项技艺足够精进之前，您将从 ',
-    'You have the Scientist challenge active. Attempt modifying the portal to harvest resources when travelling. Until you perfect the technique, you will start with': '您目前正在进行科学家挑战。尝试调节传送门来在旅途中获取资源。直到您对这项技艺足够精进之前，您将从 ',
+    'You have the Scientist challenge active. Attempt modifying the portal to retain positive qualities from previous dimensions. Until you perfect the technique, you will start with': '您目前正在进行科学家挑战。尝试调节传送门来保持之前维度的正面效果。直到您对这项技艺足够精进之前，您将初始拥有 ',
+    'You have the Scientist challenge active. Attempt modifying the portal to harvest resources when travelling. Until you perfect the technique, you will start with': '您目前正在进行科学家挑战。尝试调节传送门来在旅途中获取资源。直到您对这项技艺足够精进之前，您将初始拥有 ',
     'Meditate': '冥想',
     'Visit a dimension where everything is stronger, in an attempt to learn how to better train your Trimps. All enemies will have +100% health and +50% attack, but your Trimps will gather 25% faster. Completing': '进入一个敌人更加强大的维度来学习如何更好地训练脆皮。所有的敌人生命值增加100%，攻击力增加50%，但脆皮的资源获取速度也会提高25%。通过 ',
     '\'Trimple of Doom\' (': '末日神殿地图(',
@@ -2552,13 +2552,13 @@ var cnItems = {
     'You have the Trimp challenge active. Tweak the portal to bring you to a dimension where Trimps explode if more than 1 fights at a time. You will not be able to learn Coordination, but completing': '您目前正在进行脆皮挑战。调节传送门，将您带到一个脆皮只能单打独斗的维度中。您将无法研究协作，但通过 ',
     'You have the Trimp challenge active. "Tweak the portal to bring you to a dimension where Trimps explode if more than 1 fights at a time. You will not be able to learn Coordination."': '您目前正在进行脆皮挑战。调节传送门，将您带到一个脆皮只能单打独斗的维度中。您将无法研究协作。',
     'Trapper': '捕手',
-    'Travel to a dimension where Trimps refuse to breed in captivity, teaching yourself new ways to take advantage of situations where breed rate is low. Clearing': '前往一个被抓住的脆皮拒绝繁殖的维度。在那里可以学习如何利用低繁殖率做些什么。在此挑战激活的前提下通过 ',
+    'Travel to a dimension where Trimps refuse to breed in captivity, teaching yourself new ways to take advantage of situations where breed rate is low. Clearing': '前往一个被抓住的脆皮拒绝繁殖的维度。在那里可以学习如何利用低繁殖速度做些什么。在此挑战激活的前提下通过 ',
     '\'Trimple Of Doom\' (': '末日神殿地图(',
-    'with this challenge active will return your breeding rate to normal. Note that any bonuses that cause housing to come prefilled with Trimps will not work in a dimension where Trimps cannot breed.': '后繁殖率将恢复正常。注意，在脆皮无法繁殖的维度中，任何在住房建造完立刻使其获得满人口的加成均无效。',
+    'with this challenge active will return your breeding rate to normal. Note that any bonuses that cause housing to come prefilled with Trimps will not work in a dimension where Trimps cannot breed.': '后繁殖速度将恢复正常。注意，在脆皮无法繁殖的维度中，任何在住房建造完立刻使其获得满人口的加成均无效。',
     'Travel to a dimension where Trimps refuse to breed in captivity, good luck!': '前往一个被抓住的脆皮拒绝繁殖的维度，祝您好运！',
     'bored': '无所事事',
     'breeding': '繁殖中',
-    'You have the Trapper challenge active. Travel to a dimension where Trimps refuse to breed in captivity, teaching yourself new ways to take advantage of situations where breed rate is low. Clearing': '您目前正在进行捕手挑战。前往一个被抓住的脆皮拒绝繁殖的维度。在那里可以学习如何利用低繁殖率做些什么。在此挑战激活的前提下通过 ',
+    'You have the Trapper challenge active. Travel to a dimension where Trimps refuse to breed in captivity, teaching yourself new ways to take advantage of situations where breed rate is low. Clearing': '您目前正在进行捕手挑战。前往一个被抓住的脆皮拒绝繁殖的维度。在那里可以学习如何利用低繁殖速度做些什么。在此挑战激活的前提下通过 ',
     'You have the Trapper challenge active. "Travel to a dimension where Trimps refuse to breed in captivity, good luck!"': '您目前正在进行捕手挑战。前往一个被抓住的脆皮拒绝繁殖的维度，祝您好运！',
     'Electricity': '电流',
     'Use the keys you found in the Prison to bring your portal to an extremely dangerous dimension. In this dimension enemies will electrocute your Trimps, stacking a debuff with each attack that damages Trimps for 10% of total health per turn per stack, and reduces Trimp attack by 10% per stack. Clearing': '使用监狱地图中找到的钥匙，可以将您的传送门导向一个极端危险的维度。此维度中，敌人会电击您的脆皮，每次攻击给它们叠加一层“触电”。每层触电每轮对脆皮造成生命值上限10%的伤害，并且降低脆皮10%攻击力。通过 ',
@@ -2594,10 +2594,10 @@ var cnItems = {
     'will reward you with an additional 400% of all helium earned up to but not including Z125. This challenge is repeatable.': '后，可额外获得氦，数值等于本次挑战完成前氦获取量的400%(不包含区域125获取的)。此挑战可重复完成。',
     'You have the Crushed challenge active. Journey to a dimension where the atmosphere is rich in helium, but Bad Guys have a 50% chance to Critical Strike for +400% damage unless your Block is as high as your current Health. Clearing': '您目前正在进行粉碎挑战。前往一个大气中富含氦的维度，此维度中除非您的格挡达到当前生命值，否则敌人有50%概率暴击，多造成400%伤害。通过 ',
     'Slow': '迟缓',
-    'Legends tell of a dimension inhabited by incredibly fast Bad Guys, where blueprints exist for a powerful yet long forgotten weapon and piece of armor. All Bad Guys will attack first in this dimension, but clearing': '传说这个维度被极其迅捷的敌人占据了，另外这里还有着强大的武器及护甲的蓝图，就等着您来让它们重见天日了。此维度中，所有敌人都会抢先攻击，但在此挑战激活的前提下通过 ',
+    'Legends tell of a dimension inhabited by incredibly fast Bad Guys, where blueprints exist for a powerful yet long forgotten weapon and piece of armor. All Bad Guys will attack first in this dimension, but clearing': '传说这个维度被极其迅捷的敌人占据了，另外这里还有着强大的武器及护甲的蓝图，等着您来让它们重见天日。此维度中，所有敌人都会抢先攻击，但在此挑战激活的前提下通过 ',
     'with this challenge active will forever-after allow you to create these new pieces of equipment.': '后，您可以永久解锁这些新装备。',
     'Legends tell of a dimension inhabited by incredibly fast Bad Guys, and you seem to want to go there to prove something. All Bad Guys will attack first in this dimension, watch your health!': '传说这个维度被极其迅捷的敌人占据了，您看起来也想要证明自己。此维度中，所有敌人都会抢先攻击，注意您的生命值！',
-    'You have the Slow challenge active. Legends tell of a dimension inhabited by incredibly fast Bad Guys, where blueprints exist for a powerful yet long forgotten weapon and piece of armor. All Bad Guys will attack first in this dimension, but clearing': '您目前正在进行迟缓挑战。传说这个维度被极其迅捷的敌人占据了，另外这里还有着强大的武器及护甲的蓝图，就等着您来让它们重见天日了。此维度中，所有敌人都会抢先攻击，但在此挑战激活的前提下通过 ',
+    'You have the Slow challenge active. Legends tell of a dimension inhabited by incredibly fast Bad Guys, where blueprints exist for a powerful yet long forgotten weapon and piece of armor. All Bad Guys will attack first in this dimension, but clearing': '您目前正在进行迟缓挑战。传说这个维度被极其迅捷的敌人占据了，另外这里还有着强大的武器及护甲的蓝图，等着您来让它们重见天日。此维度中，所有敌人都会抢先攻击，但在此挑战激活的前提下通过 ',
     'You have the Slow challenge active. "Legends tell of a dimension inhabited by incredibly fast Bad Guys, and you seem to want to go there to prove something. All Bad Guys will attack first in this dimension, watch your health!"': '您目前正在进行迟缓挑战。传说这个维度被极其迅捷的敌人占据了，您看起来也想要证明自己。此维度中，所有敌人都会抢先攻击，注意您的生命值！',
     'Nom': '美味',
     'Travel to a dimension where Bad Guys enjoy the taste of Trimp. Whenever a group of Trimps dies, the Bad Guy will eat them, gaining 25% (compounding) more attack damage and healing for 5% of their maximum health. The methane-rich atmosphere causes your Trimps to lose 5% of their total health after each attack, but the Bad Guys are too big and slow to attack first. Clearing': '前往一个敌人垂涎于脆皮美味的维度。当一队脆皮死亡后，敌人会将它们吃掉，攻击力增加25%(叠乘)，且恢复上限5%的生命值。另外，此维度富含甲烷的大气还会使脆皮在每次攻击后失去上限5%的生命值。不过，敌人体型太大，行动太迟缓，因此它们无法抢先攻击。通过 ',
@@ -2613,11 +2613,11 @@ var cnItems = {
     'You have the Mapology challenge active. Travel to a dimension where maps are scarce, in an attempt to learn to be more resourceful. You will earn one map Credit for each World Zone you clear, and it costs 1 credit to run 1 map. Completing': '您目前正在进行地图学挑战。前往一个地图稀缺的维度，在那里可以学习如何变得更足智多谋。每通过一个区域，您可以获得一个地图代币，每次开始进入地图后消耗一个地图代币。在此挑战激活的前提下通过 ',
     'You have the Mapology challenge active. "Travel to a dimension where maps are scarce, in an attempt to learn to be more resourceful. You will earn one map Credit for each World Zone you clear, and it costs 1 credit to run 1 map.': '您目前正在进行地图学挑战。前往一个地图稀缺的维度，在那里可以学习如何变得更足智多谋。每通过一个区域，您可以获得一个地图代币，每次开始进入地图后消耗一个地图代币。',
     'Toxicity': '毒性',
-    'Travel to a dimension rich in helium, but also rich in toxic Bad Guys. All Bad Guys have 5x attack and 2x health. Each time you attack a Bad Guy, your Trimps lose 5% of their health, and toxins are released into the air which reduce the breeding speed of your Trimps by 0.3% (of the current amount), but also increase all resources obtained by 0.15% (including Helium), stacking up to 1500 times. These stacks will reset when you clear a Zone. Completing': '前往一个富含氦，但也富含大量毒性敌人的维度。所有敌人攻击力为5倍，生命值为2倍。每次攻击一个毒性敌人后，脆皮将失去5%的生命值，同时毒气排入大气后脆皮繁殖速度会比之前的速度慢0.3%，但资源获取量也会增加0.15%(包括氦)，此效果最高为1500层。在通过一个区域后层数重置。在此挑战激活的前提下通过 ',
+    'Travel to a dimension rich in helium, but also rich in toxic Bad Guys. All Bad Guys have 5x attack and 2x health. Each time you attack a Bad Guy, your Trimps lose 5% of their health, and toxins are released into the air which reduce the breeding speed of your Trimps by 0.3% (of the current amount), but also increase all resources obtained by 0.15% (including Helium), stacking up to 1500 times. These stacks will reset when you clear a Zone. Completing': '前往一个富含氦，但也富含大量毒性敌人的维度。所有敌人攻击力变为5倍，生命值变为2倍。每次攻击一个毒性敌人后，脆皮将失去5%的生命值，同时毒气排入大气后脆皮繁殖速度会比之前的速度慢0.3%，但资源获取量也会增加0.15%(包括氦)，此效果最高为1500层。在通过一个区域后层数重置。在此挑战激活的前提下通过 ',
     'with this challenge active will reward you with an additional 400% of all helium earned up to that point. This is repeatable!': '后，可额外获得氦，数值等于本次挑战完成前氦获取量的400%。此挑战可重复完成！',
-    'Travel to a dimension filled with the glory that comes from killing toxic Bad Guys. All Bad Guys have 5x attack and 2x health. Each time you attack a Bad Guy, your Trimps lose 5% of their health, and toxins are released into the air which reduce the breeding speed of your Trimps by 0.3% (of the current amount), but also increase all loot found by 0.15%, stacking up to 1500 times. These stacks will reset when you clear a Zone.': '前往一个以击杀毒性敌人为荣的维度。所有敌人攻击力为5倍，生命值为2倍。每次攻击一个毒性敌人后，脆皮将失去5%的生命值，同时毒气排入大气后脆皮繁殖速度会比之前的速度慢0.3%，但资源获取量也会增加0.15%(包括氦)，此效果最高为1500层。在通过一个区域后层数重置。',
+    'Travel to a dimension filled with the glory that comes from killing toxic Bad Guys. All Bad Guys have 5x attack and 2x health. Each time you attack a Bad Guy, your Trimps lose 5% of their health, and toxins are released into the air which reduce the breeding speed of your Trimps by 0.3% (of the current amount), but also increase all loot found by 0.15%, stacking up to 1500 times. These stacks will reset when you clear a Zone.': '前往一个以击杀毒性敌人为荣的维度。所有敌人攻击力变为5倍，生命值变为2倍。每次攻击一个毒性敌人后，脆皮将失去5%的生命值，同时毒气排入大气后脆皮繁殖速度会比之前的速度慢0.3%，但资源获取量也会增加0.15%，此效果最高为1500层。在通过一个区域后层数重置。',
     'You have the Toxicity challenge active. Travel to a dimension rich in helium, but also rich in toxic Bad Guys. All Bad Guys have 5x attack and 2x health. Each time you attack a Bad Guy, your Trimps lose 5% of their health, and toxins are released into the air which reduce the breeding speed of your Trimps by 0.3% (of the current amount), but also increase all resources obtained by 0.15% (including Helium), stacking up to 1500 times. These stacks will reset when you clear a Zone. Completing': '您目前正在进行毒性挑战。前往一个富含氦，但也富含大量毒性敌人的维度。所有敌人攻击力变为5倍，生命值变为2倍。每次攻击一个毒性敌人后，脆皮将失去5%的生命值，同时毒气排入大气后脆皮繁殖速度会比之前的速度慢0.3%，但资源获取量也会增加0.15%(包括氦)，此效果最高为1500层。在通过一个区域后层数重置。在此挑战激活的前提下通过 ',
-    'You have the Toxicity challenge active. "Travel to a dimension filled with the glory that comes from killing toxic Bad Guys. All Bad Guys have 5x attack and 2x health. Each time you attack a Bad Guy, your Trimps lose 5% of their health, and toxins are released into the air which reduce the breeding speed of your Trimps by 0.3% (of the current amount), but also increase all loot found by 0.15%, stacking up to 1500 times. These stacks will reset when you clear a Zone."': '您目前正在进行毒性挑战。前往一个以击杀毒性敌人为荣的维度。所有敌人攻击力变为5倍，生命值变为2倍。每次攻击一个毒性敌人后，脆皮将失去5%的生命值，同时毒气排入大气后脆皮繁殖速度会比之前的速度慢0.3%，但资源获取量也会增加0.15%(包括氦)，此效果最高为1500层。在通过一个区域后层数重置。',
+    'You have the Toxicity challenge active. "Travel to a dimension filled with the glory that comes from killing toxic Bad Guys. All Bad Guys have 5x attack and 2x health. Each time you attack a Bad Guy, your Trimps lose 5% of their health, and toxins are released into the air which reduce the breeding speed of your Trimps by 0.3% (of the current amount), but also increase all loot found by 0.15%, stacking up to 1500 times. These stacks will reset when you clear a Zone."': '您目前正在进行毒性挑战。前往一个以击杀毒性敌人为荣的维度。所有敌人攻击力变为5倍，生命值变为2倍。每次攻击一个毒性敌人后，脆皮将失去5%的生命值，同时毒气排入大气后脆皮繁殖速度会比之前的速度慢0.3%，但资源获取量也会增加0.15%，此效果最高为1500层。在通过一个区域后层数重置。',
     'Devastation': '破坏',
     'Travel to a harsh dimension where Trimps are penalized for the mistakes of previous generations. If your army is killed at any point, any overkill damage will be applied 750% to the next group of Trimps to fight. Completing': '前往一个脆皮要为前辈们错误买单的严苛维度。如果军队被敌人击杀，下一队脆皮将受到溢出伤害750%的伤害。通过 ',
     'Imploding Star (Zone': '爆炸之星地图 (区域',
@@ -2631,12 +2631,12 @@ var cnItems = {
     'Lead': '领导',
     'Travel to a dimension where life is easier or harder depending on the time. Odd numbered Zones will cause double resources to be earned from all sources, and will give your Trimps 50% extra attack. Starting an even numbered Zone will cause all enemies to gain 200 stacks of': '前往一个难度由时间决定的维度。在奇数区域中，脆皮资源获取量翻倍，且攻击力提高50%。在偶数区域中，所有敌人获得200层 ',
     'Momentum': '动量',
-    '. Clearing a World cell will cause 1 stack to be lost, and each stack will increase the enemy\'s damage and health by 4%, and block pierce by 0.1%. If your Trimps attack without killing their target, they will lose 0.03% of their health per enemy stack. Completing': ' 。在世界中通过一个格子后敌人失去一层动量，每层动量增加敌人4%的伤害和生命值，并且格挡穿透增加0.1%。如果脆皮攻击后没能击杀敌人，它们将根据动量层数，每层受到0.03%生命值的伤害。在此挑战激活的前提下通过 ',
+    '. Clearing a World cell will cause 1 stack to be lost, and each stack will increase the enemy\'s damage and health by 4%, and block pierce by 0.1%. If your Trimps attack without killing their target, they will lose 0.03% of their health per enemy stack. Completing': ' 。每在世界中通过一个格子后敌人失去一层动量，每层动量增加敌人4%的伤害和生命值，并且格挡穿透增加0.1%。如果脆皮攻击后没能击杀敌人，它们将根据动量层数，每层受到0.03%生命值的伤害。在此挑战激活的前提下通过 ',
     'with this challenge active will reward you with an additional 300% of all helium earned up to that point.': '后，可额外获得氦，数值等于本次挑战完成前氦获取量的300%。',
-    '. Clearing a World cell will cause 1 stack to be lost, and each stack will increase the enemy\'s damage and health by 4%, and block pierce by 0.1%. If your Trimps attack without killing their target, they will lose 0.03% of their health per enemy stack.': ' 。在世界中通过一个格子后敌人失去一层动量，每层动量增加敌人4%的伤害和生命值，并且格挡穿透增加0.1%。如果脆皮攻击后没能击杀敌人，它们将根据动量层数，每层受到0.03%生命值的伤害。',
+    '. Clearing a World cell will cause 1 stack to be lost, and each stack will increase the enemy\'s damage and health by 4%, and block pierce by 0.1%. If your Trimps attack without killing their target, they will lose 0.03% of their health per enemy stack.': ' 。每在世界中通过一个格子后敌人失去一层动量，每层动量增加敌人4%的伤害和生命值，并且格挡穿透增加0.1%。如果脆皮攻击后没能击杀敌人，它们将根据动量层数，每层受到0.03%生命值的伤害。',
     'You have the Lead challenge active. Travel to a dimension where life is easier or harder depending on the time. Odd numbered Zones will cause double resources to be earned from all sources, and will give your Trimps 50% extra attack. Starting an even numbered Zone will cause all enemies to gain 200 stacks of': '您目前正在进行领导挑战。前往一个难度由时间决定的维度。在奇数区域中，脆皮资源获取量翻倍，且攻击力提高50%。在偶数区域中，所有敌人获得200层 ',
     'You have the Lead challenge active. "Travel to a dimension where life is easier or harder depending on the time. Odd numbered Zones will cause double resources to be earned from all sources, and will give your Trimps 50% extra attack. Starting an even numbered Zone will cause all enemies to gain 200 stacks of': '您目前正在进行领导挑战。前往一个难度由时间决定的维度。在奇数区域中，脆皮资源获取量翻倍，且攻击力提高50%。在偶数区域中，所有敌人获得200层 ',
-    '. Clearing a World cell will cause 1 stack to be lost, and each stack will increase the enemy\'s damage and health by 4%, and block pierce by 0.1%. If your Trimps attack without killing their target, they will lose 0.03% of their health per enemy stack."': ' 。在世界中通过一个格子后敌人失去一层动量，每层动量增加敌人4%的伤害和生命值，并且格挡穿透增加0.1%。如果脆皮攻击后没能击杀敌人，它们将根据动量层数，每层受到0.03%生命值的伤害。',
+    '. Clearing a World cell will cause 1 stack to be lost, and each stack will increase the enemy\'s damage and health by 4%, and block pierce by 0.1%. If your Trimps attack without killing their target, they will lose 0.03% of their health per enemy stack."': ' 。每在世界中通过一个格子后敌人失去一层动量，每层动量增加敌人4%的伤害和生命值，并且格挡穿透增加0.1%。如果脆皮攻击后没能击杀敌人，它们将根据动量层数，每层受到0.03%生命值的伤害。',
     'Corrupted': '腐化',
     'with this challenge active will reward you with an extra 200% helium earned from any source up to that point, and will instantly transport you back to your normal dimension.': '后，可额外获得氦，数值等于本次挑战完成前氦获取量的200%，并立刻将您送回原来的维度。',
     'Domination': '统治',
@@ -2676,10 +2676,10 @@ var cnItems = {
     'Travel to a fun chaotic dimension! All enemies have 50% more attack, enemies in world have 100% more health, and enemies in maps have 200% more health. Starting at Zone 6, every time an enemy in the world is slain you will gain a stack of \'Unbalance\'. Every time an enemy in a map is slain, you will lose a stack of Unbalance. Each stack of Unbalance reduces your attack by 1%, but increases your Trimps\' gathering speed by 1%.': '前往一个有趣的混沌维度！所有敌人的攻击力增加50%，世界上敌人的生命值增加100%，并且地图中敌人的生命值增加200%。从区域6开始，每在世界上击杀一名敌人，您获得一层“不平衡”。而每在地图中击杀一名敌人，您失去一层“不平衡”。每层不平衡减少1%攻击力，但增加脆皮1%资源获取速度。不平衡最高叠加到500层。',
     'You have the Unbalance challenge active. Your scientists have discovered a new chaotic dimension! All enemies have 50% more attack, enemies in world have 100% more health, and enemies in maps have 200% more health. Starting at Zone 6, every time an enemy in the world is slain you will gain a stack of \'Unbalance\'. Every time an enemy in a map is slain, you will lose a stack of Unbalance. Each stack of Unbalance reduces your attack by 1%, but increases your Trimps\' gathering speed by 1%. Unbalance can stack to 500. Clearing': '您目前正在进行不平衡挑战。科学家发现了一个新的混沌维度！所有敌人的攻击力增加50%，世界上敌人的生命值增加100%，并且地图中敌人的生命值增加200%。从区域6开始，每在世界上击杀一名敌人，您获得一层“不平衡”。而每在地图中击杀一名敌人，您失去一层“不平衡”。每层不平衡减少1%攻击力，但增加脆皮1%资源获取速度。不平衡最高叠加到500层。通过 ',
     'You have the Unbalance challenge active. "Travel to a fun chaotic dimension! All enemies have 50% more attack, enemies in world have 100% more health, and enemies in maps have 200% more health. Starting at Zone 6, every time an enemy in the world is slain you will gain a stack of \'Unbalance\'. Every time an enemy in a map is slain, you will lose a stack of Unbalance. Each stack of Unbalance reduces your attack by 1%, but increases your Trimps\' gathering speed by 1%."': '您目前正在进行不平衡挑战。前往一个有趣的混沌维度！所有敌人的攻击力增加50%，世界上敌人的生命值增加100%，并且地图中敌人的生命值增加200%。从区域6开始，每在世界上击杀一名敌人，您获得一层“不平衡”。而每在地图中击杀一名敌人，您失去一层“不平衡”。每层不平衡减少1%攻击力，但增加脆皮1%资源获取速度。不平衡最高叠加到500层。',
-    'Bublé': '布累',
+    'Bublé': '泡影',
     'Tweak the portal to bring you to an alternate reality where Trimps really really don\'t like taking damage. Your Trimps start in this reality with an extra 250% Prismatic Shield, but as soon as they take any damage to health at all, they will refuse to fight again and the challenge will end. Clearing': '调节传送门，将您带到一个脆皮真的真的不喜欢受伤的异世界。脆皮初始拥有250%的额外棱镜护盾，但只要它们的生命值减少了，它们就将拒绝继续战斗，挑战也将以失败告终。在未失败过的前提下通过 ',
     'without failing will complete this Challenge - granting an additional 300% of all Radon earned up to that point. Failing this Challenge will grant an additional 100% of all Radon earned up to the spot where you failed.': '后可以完成此挑战并额外获得氡，数值等于本次挑战完成前氡获取量的300%。挑战失败的话，可额外获得氡，数值等于本次挑战失败前氡获取量的100%。',
-    'You have the Bublé challenge active. Tweak the portal to bring you to an alternate reality where Trimps really really don\'t like taking damage. Your Trimps start in this reality with an extra 250% Prismatic Shield, but as soon as they take any damage to health at all, they will refuse to fight again and the challenge will end. Clearing': '您目前正在进行布累挑战。调节传送门，将您带到一个脆皮真的真的不喜欢受伤的异世界。脆皮初始拥有250%的额外棱镜护盾，但只要它们的生命值减少了，它们就将拒绝继续战斗，挑战也将以失败告终。在未失败过的前提下通过 ',
+    'You have the Bublé challenge active. Tweak the portal to bring you to an alternate reality where Trimps really really don\'t like taking damage. Your Trimps start in this reality with an extra 250% Prismatic Shield, but as soon as they take any damage to health at all, they will refuse to fight again and the challenge will end. Clearing': '您目前正在进行泡影挑战。调节传送门，将您带到一个脆皮真的真的不喜欢受伤的异世界。脆皮初始拥有250%的额外棱镜护盾，但只要它们的生命值减少了，它们就将拒绝继续战斗，挑战也将以失败告终。在未失败过的前提下通过 ',
     'Duel': '决斗',
     'It\'s your Trimps vs the Bad Guys! Both teams start with 50 points, and both teams\' Crit Chance is locked to the amount of points the OTHER team has. Getting a Critical Strike steals 1 point from the other team, winning a battle steals 2 points, and winning a battle in one hit steals 5 points. Any team below 20 points gains 10x health, any team below 10 points always attacks first, and any team above 50 points gains 3x damage. Clearing': '这是脆皮与敌人之间的对决！双方分别以50点决斗点数开始，双方的暴击概率最高为对面的决斗点数。受到暴击的一方从另一方获得1点决斗点数，赢得战斗的一方从另一方获得2点决斗点数，一击赢得战斗的一方从另一方获得5点决斗点数。决斗点数小于20的一方获得10倍生命值，决斗点数小于10的一方永远抢先攻击，而决斗点数大于50的一方造成3倍伤害。通过 ',
     'It\'s your Trimps vs the Bad Guys! Both teams start with 50 points, and both teams\' Crit Chance is locked to the amount of points the OTHER team has. Getting a Critical Strike steals 1 point from the other team, winning a battle steals 2 points, and winning a battle in one hit steals 5 points. Any team below 20 points gains 10x health, Enemies attack first when less than 10 points (': '这是脆皮与敌人之间的对决！双方分别以50点决斗点数开始，双方的暴击概率最高为对面的决斗点数。受到暴击的一方从另一方获得1点决斗点数，赢得战斗的一方从另一方获得2点决斗点数，一击赢得战斗的一方从另一方获得5点决斗点数。决斗点数小于20的一方获得10倍生命值，当敌人决斗点数低于10的时候，它们永远抢先攻击 (',
@@ -2697,10 +2697,10 @@ var cnItems = {
     'will complete this Challenge - granting an additional 400% of all Radon collected through Z50. This Challenge is repeatable!': '后可以完成此挑战并额外获得氡，数值等于本次挑战到区域50为止氡获取量的400%。此挑战可重复完成！',
     'You have the Melt challenge active. Tweak the portal to bring you to an alternate reality, where there\'s plenty of risk and Radon. You will gain 10x loot (excluding Radon), 10x gathering, and 5x Trimp attack, but a stack of Melt will accumulate every second. Each stack of Melt reduces loot, gathering, and Trimp attack by 1% of the current amount. These stacks reset each time a Zone is cleared and cap at 500. Clearing': '您目前正在进行熔化挑战。调节传送门，将您带到一个充满危机，也充满氡的异世界中。您的战利品获取量变为10倍(氡除外)，资源获取速度变为10倍，且脆皮的攻击力变为5倍，但每秒都会增加一层“熔化”。每层熔化将战利品获取量、资源获取速度和脆皮攻击力减少当前数量的1%。当通过每个区域时层数重置，层数最高为500。通过 ',
     'Trappapalooza': '捕手道达人',
-    'Travel to a dimension where Trimps refuse to breed in captivity, teaching you to stop breeding such weak Trimps. Trimps also seem to release an unfortunate burst of radiation when Trapped in this reality, instantly destroying 10% of your stored Food, Wood, Metal, and Science. So like, be careful of that. Clearing': '前往一个被抓住的脆皮拒绝繁殖的维度。在那里可以让您学会停止繁殖这些弱鸡脆皮。另外，在此异世界中脆皮被抓住时，会释放出一种不幸念波，将当前10%的食物、木头、金属和科学点立刻摧毁。所以，请小心这点。通过 ',
-    'Travel to a dimension where Trimps refuse to breed in captivity, teaching you to stop breeding such weak Trimps. Trimps also release an unfortunate burst of radiation when Trapped in this reality, instantly destroying 10% of your stored Food, Wood, Metal, and Science. But you know to be careful of that.': '前往一个被抓住的脆皮拒绝繁殖的维度。在那里可以让您学会停止繁殖这些弱鸡脆皮。另外，在此异世界中脆皮被抓住时，会释放出一种不幸念波，将当前10%的食物、木头、金属和科学点立刻摧毁。您知道的，要小心这点。',
-    'You have the Trappapalooza challenge active. Travel to a dimension where Trimps refuse to breed in captivity, teaching you to stop breeding such weak Trimps. Trimps also seem to release an unfortunate burst of radiation when Trapped in this reality, instantly destroying 10% of your stored Food, Wood, Metal, and Science. So like, be careful of that. Clearing': '您目前正在进行捕手道达人挑战。前往一个被抓住的脆皮拒绝繁殖的维度。在那里可以让您学会停止繁殖这些弱鸡脆皮。另外，在此异世界中脆皮被抓住时，会释放出一种不幸念波，将当前10%的食物、木头、金属和科学点立刻摧毁。所以，请小心这点。通过 ',
-    'You have the Trappapalooza challenge active. "Travel to a dimension where Trimps refuse to breed in captivity, teaching you to stop breeding such weak Trimps. Trimps also release an unfortunate burst of radiation when Trapped in this reality, instantly destroying 10% of your stored Food, Wood, Metal, and Science. But you know to be careful of that."': '您目前正在进行捕手道达人挑战。前往一个被抓住的脆皮拒绝繁殖的维度。在那里可以让您学会停止繁殖这些弱鸡脆皮。另外，在此异世界中脆皮被抓住时，会释放出一种不幸念波，将当前10%的食物、木头、金属和科学点立刻摧毁。您知道的，要小心这点。',
+    'Travel to a dimension where Trimps refuse to breed in captivity, teaching you to stop breeding such weak Trimps. Trimps also seem to release an unfortunate burst of radiation when Trapped in this reality, instantly destroying 10% of your stored Food, Wood, Metal, and Science. So like, be careful of that. Clearing': '前往一个被抓住的脆皮拒绝繁殖的维度。在那里可以让您学会停止繁殖这些弱鸡脆皮。另外，在此异世界中脆皮被抓住时，会释放出一种不幸念波，将当前10%的食物、木头、金属和科学点立刻摧毁。所以，请小心这一点。通过 ',
+    'Travel to a dimension where Trimps refuse to breed in captivity, teaching you to stop breeding such weak Trimps. Trimps also release an unfortunate burst of radiation when Trapped in this reality, instantly destroying 10% of your stored Food, Wood, Metal, and Science. But you know to be careful of that.': '前往一个被抓住的脆皮拒绝繁殖的维度。在那里可以让您学会停止繁殖这些弱鸡脆皮。另外，在此异世界中脆皮被抓住时，会释放出一种不幸念波，将当前10%的食物、木头、金属和科学点立刻摧毁。您知道的，要小心这一点。',
+    'You have the Trappapalooza challenge active. Travel to a dimension where Trimps refuse to breed in captivity, teaching you to stop breeding such weak Trimps. Trimps also seem to release an unfortunate burst of radiation when Trapped in this reality, instantly destroying 10% of your stored Food, Wood, Metal, and Science. So like, be careful of that. Clearing': '您目前正在进行捕手道达人挑战。前往一个被抓住的脆皮拒绝繁殖的维度。在那里可以让您学会停止繁殖这些弱鸡脆皮。另外，在此异世界中脆皮被抓住时，会释放出一种不幸念波，将当前10%的食物、木头、金属和科学点立刻摧毁。所以，请小心这一点。通过 ',
+    'You have the Trappapalooza challenge active. "Travel to a dimension where Trimps refuse to breed in captivity, teaching you to stop breeding such weak Trimps. Trimps also release an unfortunate burst of radiation when Trapped in this reality, instantly destroying 10% of your stored Food, Wood, Metal, and Science. But you know to be careful of that."': '您目前正在进行捕手道达人挑战。前往一个被抓住的脆皮拒绝繁殖的维度。在那里可以让您学会停止繁殖这些弱鸡脆皮。另外，在此异世界中脆皮被抓住时，会释放出一种不幸念波，将当前10%的食物、木头、金属和科学点立刻摧毁。您知道的，要小心这一点。',
     'Quagmire': '泥淖',
     'Travel to an extremely muddy dimension. It\'s hard to walk out here, making Agility difficult. Your Trimps start each run with 100 stacks of Motivated, increasing all Loot gained by 40% per stack (including Radon). After each Zone, your Trimps gain 1 stack of Exhausted, reducing Trimp damage and breed speed by 10% per stack in the World, and 5% per stack in maps (compounding). For every 10 stacks of Exhausted, your Trimps will also attack 100ms slower. You\'ll also have access to run a special map called \'The Black Bog\', which will always scale to Zone level and is such a terrifying map that Exotic Imp-orts are unable to spawn there. Completing \'The Black Bog\' will reduce your Trimps\' Exhausted by 1 stack, but will also reduce their Motivated by 1 stack. Exhausted stacks can be negative, and will increase damage and breed speed. Completing Z70 or reaching 0 Motivated stacks with this Challenge active will end the Challenge, returning the World to normal. If the Challenge is ended by completing Z70, you will gain an additional 250% of all Radon earned.': '前往一个异常泥泞的维度。此维度极难行走，所以敏捷变得更加困难。脆皮初始拥有100层“积极前进”，每层增加40%的资源获取量(包括氡)。通过每个区域以后，脆皮获得1层“疲惫不堪”，每层使脆皮的伤害和繁殖速度在世界中减少10%，在地图中减少5%(效果叠乘)。且每有10层疲惫不堪，脆皮攻击就减慢100毫秒。但同时，您可以进入一张叫做“黑色泥沼”的地图，此地图等级永远等于区域层数，且无法生成奇异外皮。通过一次黑色泥沼将同时减少1层疲惫不堪和1层积极前进。疲惫不堪层数可以为负数，此时它将提高脆皮伤害及繁殖速度。通过区域70或者积极前进层数到达0后，挑战结束，世界将恢复正常。如果挑战以通过区域70结束的话，那么您还可以额外获得氡，数值等于本次挑战完成前氡获取量的250%。',
     'The Black ': '黑色',
@@ -2770,14 +2770,14 @@ var cnItems = {
     'Your Trimps are Poisoned! They take': '脆皮中毒了！每次攻击后受到 ',
     'damage after each attack. Poison bypasses Prismatic Shield!': '点伤害。毒伤害可以穿透棱镜护盾！',
     'Storm': '风暴',
-    'Same as storm but longer. You remember Storm, right?': '与普通的风暴挑战规则相同，只是持续区域更长了。您知道规则的，对吧？',
-    'You have the Storm challenge active. "Same as storm but longer. You remember Storm, right?"': '您目前正在进行风暴挑战。与普通的风暴挑战规则相同，只是持续区域更长了。您知道规则的，对吧？',
+    'Same as storm but longer. You remember Storm, right?': '此挑战与普通的风暴挑战规则相同，只是持续区域更长了。您知道规则的，对吧？',
+    'You have the Storm challenge active. "Same as storm but longer. You remember Storm, right?"': '您目前正在进行风暴挑战。此挑战与普通的风暴挑战规则相同，只是持续区域更长了。您知道规则的，对吧？',
     'Static': '静电',
     'Cloudy': '云',
     'Stormcloud': '风暴云',
     'Insanity': '失智',
-    'Travel to a dimension where instability takes over the mind. Maps above your World level have a chance to spawn a Horrimp in each cell, with the chance based on both actual map level and its level relative to your current World Zone. Horrimps are stronger than regular imps and when killed, give you a stack of Insanity. Maximum stacks is 500. Insanity decreases your health by 1% (compounding) but increases all resources gained (including radon) by 13.133% (additive). Every map (n below map level) ran reduces your current insanity by 2n and your maximum insanity by n. Challenge ends after clearing Z110. Completing this challenge will reward you with an additional 500% of all Radon earned and a feeling of deep satisfaction.': '前往一个意识不稳定的维度。高于您世界区域等级的地图，每格都有概率出现脆皮惊骇者，概率与地图等级及世界区域有关。脆皮惊骇者比普通的脆皮来得更强大，当它被击杀时，使您获得一层失智。失智最高叠加到500层。每层失智减少1%生命值(叠乘)，但使所有资源的获取量(包括氡)增加13.133%(叠加)。每次运行低于当前区域等级的地图时，每低1级，就减少2层失智，并使失智层数叠加上限减少1层。挑战在通过区域110后结束。通过此挑战后您会获得极大的满足，并额外获得氡，数值等于本次挑战完成前氡获取量的500%。',
-    'You have the Insanity challenge active. Travel to a dimension where instability takes over the mind. Maps above your World level have a chance to spawn a Horrimp in each cell, with the chance based on both actual map level and its level relative to your current World Zone. Horrimps are stronger than regular imps and when killed, give you a stack of Insanity. Maximum stacks is 500. Insanity decreases your health by 1% (compounding) but increases all resources gained (including radon) by 13.133% (additive). Every map (n below map level) ran reduces your current insanity by 2n and your maximum insanity by n. Challenge ends after clearing Z110. Completing this challenge will reward you with an additional 500% of all Radon earned and a feeling of deep satisfaction.': '您目前正在进行失智挑战。前往一个意识不稳定的维度。高于您世界区域等级的地图，每格都有概率出现脆皮惊骇者，概率与地图等级及世界区域有关。脆皮惊骇者比普通的脆皮来得更强大，当它被击杀时，使您获得一层失智。失智最高叠加到500层。每层失智减少1%生命值(叠乘)，但使所有资源的获取量(包括氡)增加13.133%(叠加)。每次运行低于当前区域等级的地图时，每低1级，就减少2层失智，并使失智层数叠加上限减少1层。挑战在通过区域110后结束。通过此挑战后您会获得极大的满足，并额外获得氡，数值等于本次挑战完成前氡获取量的500%。',
+    'Travel to a dimension where instability takes over the mind. Maps above your World level have a chance to spawn a Horrimp in each cell, with the chance based on both actual map level and its level relative to your current World Zone. Horrimps are stronger than regular imps and when killed, give you a stack of Insanity. Maximum stacks is 500. Insanity decreases your health by 1% (compounding) but increases all resources gained (including radon) by 13.133% (additive). Every map (n below map level) ran reduces your current insanity by 2n and your maximum insanity by n. Challenge ends after clearing Z110. Completing this challenge will reward you with an additional 500% of all Radon earned and a feeling of deep satisfaction.': '前往一个意识不稳定的维度。只要是高于您世界区域等级的地图，每格都有概率出现脆皮惊骇者，概率与地图等级及世界区域有关。脆皮惊骇者比普通的脆皮来得更强大，击杀它以后您获得一层失智。失智最高叠加到500层。每层失智减少1%生命值(叠乘)，但使所有资源的获取量(包括氡)增加13.133%(叠加)。每次运行低于当前区域等级的地图时，每低1级，就减少2层失智，并使失智层数叠加上限减少1层。挑战在通过区域110后结束。通过此挑战后您会获得极大的满足，并额外获得氡，数值等于本次挑战完成前氡获取量的500%。',
+    'You have the Insanity challenge active. Travel to a dimension where instability takes over the mind. Maps above your World level have a chance to spawn a Horrimp in each cell, with the chance based on both actual map level and its level relative to your current World Zone. Horrimps are stronger than regular imps and when killed, give you a stack of Insanity. Maximum stacks is 500. Insanity decreases your health by 1% (compounding) but increases all resources gained (including radon) by 13.133% (additive). Every map (n below map level) ran reduces your current insanity by 2n and your maximum insanity by n. Challenge ends after clearing Z110. Completing this challenge will reward you with an additional 500% of all Radon earned and a feeling of deep satisfaction.': '您目前正在进行失智挑战。前往一个意识不稳定的维度。只要是高于您世界区域等级的地图，每格都有概率出现脆皮惊骇者，概率与地图等级及世界区域有关。脆皮惊骇者比普通的脆皮来得更强大，击杀它以后您获得一层失智。失智最高叠加到500层。每层失智减少1%生命值(叠乘)，但使所有资源的获取量(包括氡)增加13.133%(叠加)。每次运行低于当前区域等级的地图时，每低1级，就减少2层失智，并使失智层数叠加上限减少1层。挑战在通过区域110后结束。通过此挑战后您会获得极大的满足，并额外获得氡，数值等于本次挑战完成前氡获取量的500%。',
     'YOU ARE GOING CRAZY.': '您去失理了智。',
     'Berserk': '狂战',
     'Travel to a dimension filled with lots of mild annoyances, sure to drive your Trimps berserk. All enemies in this dimension have 50% more attack and health. Every time your Trimps attack they have a 5% chance to become Frenzied, causing all kills to heal for 1% of max health, and also stack +50% attack and -2% max health, up to 25 times. If a frenzied group dies or is abandoned, your Trimps gain a permanent Weakened stack, reducing health by 4.99% per stack when outside of frenzy. If weakened stacks reach 20, Trimps can no longer become frenzied. Due to this dimension\'s annoying nature, the Angelic Mastery does not work. Completing Z115 will unlock a new perk!': '前往一个充满了会让脆皮们抓狂的细碎琐事的维度。此维度中的所有敌人攻击力和生命值增加50%。每次您的脆皮们攻击时都有5%的概率进入战狂状态，此状态下，每次击杀一名敌人，可以恢复最大生命值1%的生命值，并且每层战狂增加50%攻击力，减少2%生命值上限，层数最高为25。如果一队触发战狂的脆皮阵亡或者是被放弃了，那么您的脆皮将获得一层虚弱层数，虚弱效果将一直持续，在没有战狂效果时，每层减少4.99%的生命值。如果虚弱层数到达了20层，那么将无法进入战狂状态。由于此维度令人抓狂的特性，天之赐福专精无法生效。通过区域115后可以完成此挑战！',
@@ -2797,7 +2797,7 @@ var cnItems = {
     //挑战相关结束
     //特权相关
     'Apply your skills at salvaging things from the Spire to increase all loot gained by 0.25% per level. The price for this perk increases additively, and each level will cost exactly 10000 more than the previous level.': '将您搜刮尖塔的本事用在劫掠上，每级提升0.25%劫掠效果。此特权的价格线性增加，每级都比上一级贵10000。',
-    'You\'ve learned to look more objectively at the no longer mysterious building designs, allowing you to increase housing space by 0.25% per level. This multiplies on top of Carpentry I, but the bonus stacks additively. The price for this perk also increases additively, and each level will cost exactly 10000 more than the previous level.': '那些建筑图纸对您来说已经不再神秘了，您也学会了如何更客观地看待它们，每级可以增加0.25%居住空间。此加成与木工的效果叠乘，但加成是线性的。此特权的价格也是线性增加的，每级都比上一级贵10000。',
+    'You\'ve learned to look more objectively at the no longer mysterious building designs, allowing you to increase housing space by 0.25% per level. This multiplies on top of Carpentry I, but the bonus stacks additively. The price for this perk also increases additively, and each level will cost exactly 10000 more than the previous level.': '那些建筑图纸再也不是神秘莫测的了，您学会了如何更客观地看待它们，每级可以增加0.25%居住空间。此加成与木工的效果叠乘，但加成是线性的。此特权的价格也是线性增加的，每级都比上一级贵10000。',
     'Corruption and impending doom are great motivators to work a bit harder! Increases Trimp gather speed by 1% per level. The price for this perk increases additively, and each level will cost exactly 1000 more than the previous level.': '腐化与死亡威胁可以更好地鼓舞脆皮们工作！每级提升脆皮1%的资源获取速度。此特权的价格线性增加，每级都比上一级贵1000。',
     'You find strength in the desire to some day return home. Anger your Trimps by making them listen to you talk about it all the time, increasing their damage by 1% per level. The price for this perk increases additively, and each level will cost exactly 500 more than the previous level.': '回家的渴望给了您力量。对着脆皮一直不停地说，以此激怒它们从而每级增加1%攻击力。此特权的价格线性增加，每级都比上一级贵500。',
     'You feel more grounded as you remember where you came from. Spread your toughness to your Trimps, increasing health by 1% per level. The price for this perk increases additively, and each level will cost exactly 500 more than the previous level.': '想起故乡在何方以后，您感觉更踏实了。用这些教会脆皮何为坚韧，每级增加1%生命值。此特权的价格线性增加，每级都比上一级贵500。',
@@ -2809,16 +2809,16 @@ var cnItems = {
     'Fluffy is coming along, but he\'s coming along slowly. Each point of Curious will speed up Fluffy\'s progression by adding 60 Exp to the base amount he gains per Zone clear.': '绒绒在进步, 但还不够快。每级好奇可以将通过区域的基础经验奖励增加60。',
     'Classy': '上等',
     'Overkill': '超杀',
-    'You have overcome the otherworldly objective of obtaining Overkill, outstanding! Each level of this perk will allow 0.5% of your overkill damage to harm the next enemy. If this damage kills the next enemy, you will lose no time moving through that cell.': '您已经获得了超凡脱俗的超杀升级，非常出色！每级可以将0.5%的溢出伤害用来攻击下个敌人。如果下个敌人被此伤害击杀，那么您就可以直接通过该格子了。',
+    'You have overcome the otherworldly objective of obtaining Overkill, outstanding! Each level of this perk will allow 0.5% of your overkill damage to harm the next enemy. If this damage kills the next enemy, you will lose no time moving through that cell.': '这不是痴人说梦，您真的获得了超杀升级，太出色了！每级可以将0.5%的溢出伤害用来攻击下个敌人。如果下个敌人被此伤害击杀，那么您就可以直接通过该格子了。',
     'Resourceful': '足智多谋',
-    'Spending time with limited maps has taught you how to be more resourceful. Each level will allow you to spend 5% fewer resources': '经历过只能制造有限的地图以后，您学会了如何变得更加足智多谋。每级可以让所有建筑 ',
+    'Spending time with limited maps has taught you how to be more resourceful. Each level will allow you to spend 5% fewer resources': '经历过只能制造有限数量的地图以后，您学会了如何变得更加足智多谋。每级可以让所有建筑 ',
     'per level on all structures.': '少花费5%的资源。',
     'Coordinated': '协同', //包括成就描述
     'Use knowledge gained while studying Coordinated Bad Guys to reduce the amount of Trimps required per level of Coordination by': '通过研究协同作战的敌人，您明白了如何减少协作升级所需的脆皮。每级可以将协作升级所需的脆皮数量减少',
     'of current amount (compounding': '(叠乘',
     'while keeping the stat bonus the same.': '同时协作的加成不变。',
     'Siphonology': '虹吸学',
-    'Use strategies discovered in alternate dimensions to siphon Map Bonus Damage stacks from lower level maps. For each level of Siphonology, you will earn stacks from maps one level lower than your current Zone number.': '在其他维度中，您发现了从更低级的地图中虹吸地图奖励的方法。每级虹吸学可以从比当前区域低1级的地图中获取地图奖励。',
+    'Use strategies discovered in alternate dimensions to siphon Map Bonus Damage stacks from lower level maps. For each level of Siphonology, you will earn stacks from maps one level lower than your current Zone number.': '在其他维度中，您发现了从更低级的地图中虹吸地图奖励的方法。通常您只能从与当前区域等级相同的地图中获取地图奖励，但每级虹吸学可以使此等级数值减少1级。',
     'Anticipation': '预期',
     'Resilience': '弹性',
     'Use your acquired skills in Trimp strengthening to gain a': '利用您的脆皮强化技能，使脆皮生命值每级增加',
@@ -2841,7 +2841,7 @@ var cnItems = {
     'Equality': '平等',
     'Produce a Calming Aura from your Portal Device, reducing the Attack of Bad Guys AND Trimps by 10% (compounding). You can enable Equality Scaling, which causes Equality to start inactive and gain one level each time your Trimps die up to your purchased Perk level.': '用传送门装置发出一个镇静力场，同时减少脆皮和敌人10%的攻击力(相互叠乘)。您也可以激活平等缩放，激活后，平等在一开始不生效，而脆皮每阵亡一次，平等效果增加一级，最高等于您的平等特权等级。',
     'Carpentry': '木工',
-    'You\'ve built quite a few houses and you\'re getting pretty good at it. Bringing your expertise in construction back through the portal will allow you to house 10% more Trimps per level': '您已经建了很多房子，干这事您已经很熟练了。之前建造的心得使您每级可以比上一级多容纳10%的脆皮',
+    'You\'ve built quite a few houses and you\'re getting pretty good at it. Bringing your expertise in construction back through the portal will allow you to house 10% more Trimps per level': '您建了不少房子，已经开始摸到门道了。之前建造的心得使您每级可以比上一级多容纳10%的脆皮',
     'than the current amount (compounds': '(相互叠乘',
     'Artisanistry': '手艺娴熟',
     'You\'re beginning to notice ways to make equally powerful equipment with considerably fewer resources. Bringing back these new ideas will allow you to spend 5% fewer resources': '对于如何用更少的资源制造同样强度的装备，您已经有了头绪。每级可以使您在制造装备时 ',
@@ -2863,16 +2863,16 @@ var cnItems = {
     'Motivation': '鼓舞',
     'Practice public speaking with your Trimps. Each level increases the amount of resources that workers produce by 5%.': '练习在脆皮面前进行演讲。每级增加5%工人的资源获取量。',
     'Power': '力量',
-    'Trimps learn through example. Spending some time bench pressing dead Elephimps should inspire any future Trimps to become stronger too. Adds 5% attack permanently to your Trimps.': '脆皮通过实例来学习。花点时间用死去的脆皮象练习卧推可以让它们变得更加强大。永久增加脆皮5%攻击力。',
+    'Trimps learn through example. Spending some time bench pressing dead Elephimps should inspire any future Trimps to become stronger too. Adds 5% attack permanently to your Trimps.': '身体力行，方得真意。花点时间让脆皮们用死去的脆皮象练习卧推可以让它们变得更加强大。永久增加脆皮5%攻击力。',
     'Toughness': '坚韧',
-    'Pay your Trimps to knock you around a little bit. By learning to not be such a wuss, your Trimps will be less wussy as well. Adds 5% health permanently to your Trimps.': '让您的脆皮跟您对着比划几下，好好学学什么是纯爷们。永久增加脆皮5%生命值。',
+    'Pay your Trimps to knock you around a little bit. By learning to not be such a wuss, your Trimps will be less wussy as well. Adds 5% health permanently to your Trimps.': '让您的脆皮跟您对着练练，好好学学什么是纯爷们。永久增加脆皮5%生命值。',
     'Looting': '劫掠',
     'Walk back through the empty Zones, learning how to milk them for every last drop. Each level permanently increases the amount of resources gained from battle (Including Helium) by 5%.': '回到之前的区域，学会如何榨干敌人身上的每一个铜板。每级永久增加5%战利品获取量(包括氦)。',
     'Walk back through the empty Zones, learning how to milk them for every last drop. Each level permanently increases the amount of resources gained from battle (Including Radon) by 5%.': '回到之前的区域，学会如何榨干敌人身上的每一个铜板。每级永久增加5%战利品获取量(包括氡)。',
     'Prismal': '棱镜化',
     'Crystallize some Radon, creating an interdimensional Prism that you can carry back through Portals. Each level adds 1% to your Trimps\' Prismatic Shield and makes your Trimps feel 5% more comfortable in battle. Once you have 20 or more points of Prismal, you will automatically collect Prismalicious from the Prismatic Palace after completing Z20.': '将一些氡晶化，制造一个超次元的棱镜，这样就可以带着它通过传送门了。每级增加1%的棱镜护盾，并且可以使脆皮在战斗中舒适度增加5%（译者注：后半句无实际效果）。当棱镜化特权等级到达20级以上后，您就可以在通过区域20后自动获得棱镜宫殿的优质棱镜升级。',
     'Hunger': '饥饿',
-    'If Soldiers get hungry, the enemies are free food! Use your extra Overkill damage to process World enemies into healthy free-range meat! Each level of Hunger will allow your Trimps to turn 3% of their Overkill damage into some permanent damage.': '如果士兵们饥饿难耐，那么连敌人都能变成食物！使用溢出的伤害将世界上的敌人转变为野味！每级可以将3%的溢出伤害转换为永久的伤害。',
+    'If Soldiers get hungry, the enemies are free food! Use your extra Overkill damage to process World enemies into healthy free-range meat! Each level of Hunger will allow your Trimps to turn 3% of their Overkill damage into some permanent damage.': '饿急眼的士兵们什么都做得出来！利用溢出的伤害，它们可以把世界上的敌人变成绿色健康的有机食品！每级可以将3%的溢出伤害转换为永久的伤害加成。',
     'Frenzy': '战狂',
     'Each level grants your Trimps a 0.1% chance on attack to enter a Frenzy for 5 seconds per perk level, granting +50% attack (additive) per perk level. If your Trimps die while Frenzied, half of the remaining time on Frenzy is removed. Frenzy time can be refreshed once half of its total time has elapsed, but only if the group of Trimps that earned the buff has not died yet.': '使脆皮们每级增加0.1%的概率进入战狂状态，且每级使战狂持续时间增加5秒，攻击力多增加50%(相互叠加)。如果脆皮们在战狂状态下阵亡，那么剩余的战狂状态持续时间将减少一半。当战狂状态持续时间过半时，可以通过再次进入战狂状态来刷新它的持续时间，但前提是，最初触发战狂的那队脆皮们不可阵亡。',
     'Frenzied': '战狂',
@@ -2893,7 +2893,7 @@ var cnItems = {
     'Bounty Hunter': '赏金猎人',
     'Unlock Bounty immediately after clearing Z15.': '通过区域15后立刻解锁赏金升级。',
     'Explorer Aura I': '探险家光环 I',
-    'Automatically picks up SpeedExplorer books when you pass their Zone.': '通过对应区域后立刻解锁探险家加速升级。',
+    'Automatically picks up SpeedExplorer books when you pass their Zone.': '通过对应区域后立刻获得探险家加速升级。',
     'Void Power I': '虚空力量 I',
     'Your Trimps gain 15% attack and health inside Void Maps.': '虚空地图中脆皮增加15%攻击力和生命值。',
     'Metallic Coat': '金属外套',
@@ -3226,7 +3226,7 @@ var cnItems = {
     'You don\'t have to stay here while Runestones build up, you can go back to leading your Trimps while your Traps do some work. The enchanted Spirestones copy your progress to all possible dimensions, so you won\'t even lose your Traps if you Portal!': '您没必要一直在这个界面盯着符石变多，您可以继续去指派脆皮们干活，陷阱能自己搞定敌人。前面提到过，这些尖塔石可以穿越维度复制自身，这意味着哪怕传送后，尖塔内的一切也将保持原样！',
     'Keep an eye on your Runestones, and add more Traps whenever you can. Try to fill this entire Floor with Traps!': '注意符石数量，尽可能多的增加陷阱。请试着用陷阱填满这一层尖塔！',
     'You\'re a natural Spiarchitect! Your Scientists have finally finished adding the second Floor of your Spire, and the added height seems to be attracting even more enemies. Cool, more Runestones for you! You\'re starting to really like the idea of enemies constantly climbing to their demise in the teeth of your Traps.': '您真是个天生的尖塔建筑师！科学家们终于建成了第二层尖塔，尖塔变高以后，似乎吸引了更多的敌人进入。很好，这样就能获得更多符石了！您开始喜欢上敌人冲进尖塔送死然后被陷阱干掉的感觉了。',
-    'While you\'re appreciating your deadly handiwork, a small group of Scientists runs up to you and shares some new research. They say that the Runestones can also be used to create mini-towers that broadcast their energy to all Trimps in the World. Wasting no time, they hand you the schematics for the Strength Tower, which increases the effect of all Fire Traps on its Floor, and grants all of your Trimps an attack bonus.': '您还沉浸在这种感觉中时，一小队科学家向您跑来，然后跟您分享了最新的科研成果。它们表示，符石还可以用来建造一些小型的塔，用于将能量传播至世界上的所有脆皮。接着它们抓紧时间拿出了力量塔的原理图，它可以增加同一行火焰陷阱的效果，还可以使脆皮们获得攻击力加成。',
+    'While you\'re appreciating your deadly handiwork, a small group of Scientists runs up to you and shares some new research. They say that the Runestones can also be used to create mini-towers that broadcast their energy to all Trimps in the World. Wasting no time, they hand you the schematics for the Strength Tower, which increases the effect of all Fire Traps on its Floor, and grants all of your Trimps an attack bonus.': '您还沉浸在这种感觉中时，一小队科学家向您跑来，然后跟您分享了最新的科研成果。它们表示，符石还可以用来建造一些小型的塔，用于将能量传播至世界上的所有脆皮。接着它们马上拿出了力量塔的原理图，它可以增加同一行火焰陷阱的效果，还可以使脆皮们获得攻击力加成。',
     'Continue placing more Traps and Towers to fill out your Spire, and raise your Threat level to 300.': '请继续放置更多陷阱和塔，填满您的尖塔，并使威胁度提升到300。',
     'Beautiful. It seems like you\'re getting the hang of this!': '很好，看起来您找到诀窍了！',
     'You\'ve finished constructing the third Floor of your Spire, but it seems as if you\'ve used up your entire intial supply of Spirestones. You\'ll need to clear a Spire and crush its Core to earn more! Note that you\'ll find considerably better Cores worth more Spirestones from more difficult Spires.': '您已经建造了第三层尖塔，但看起来您已经用完了尖塔石。您需要通过更多的尖塔，获得核心，然后将它打碎后获得尖塔石。注意，通过更高难度的尖塔后，您可以获得更好的核心，从而获得数量多很多的尖塔石。',
@@ -3383,8 +3383,8 @@ var cnItems = {
     'Fluffy needs  at least one point of Capable to gain any Exp. Complete Spire II to unlock Capable!': '绒绒至少需要1级能力特权才可以获得经验值。通过尖塔 II就可以解锁能力特权！',
     'Fluffy\'s just chillin.': '绒绒很放松。',
     'Scruffy\'s just chillin.': '污污很放松。',
-    'Fluffy can now predict the future, though he won\'t tell you what\'s going to happen.': '绒绒可以预测未来了，但它没法告诉您会发生什么。',
-    'Scruffy can now predict the future, though he won\'t tell you what\'s going to happen.': '污污可以预测未来了，但它没法告诉您会发生什么。',
+    'Fluffy can now predict the future, though he won\'t tell you what\'s going to happen.': '绒绒可以预测未来了，但它没法告诉您。',
+    'Scruffy can now predict the future, though he won\'t tell you what\'s going to happen.': '污污可以预测未来了，但它没法告诉您。',
     'Fluffy\'s looking pretty buff.': '绒绒看起来很健美。',
     'Scruffy\'s looking pretty buff.': '污污看起来很健美。',
     'FLUFFY SMASH': '绒！绒！碎！击！',
@@ -3474,7 +3474,7 @@ var cnItems = {
     'We realized Warp Speed could affect that line.': '我们发现曲速可以影响时间线。',
     'I took our work in a ship of my own design,': '我将成果与我的飞船相联，',
     'To test the effects of our new paradigm.': '来测试新型号会有什么改变。',
-    'Oh yeah. That\'s where you knew him from! Wait doesn\'t he owe you some money? You feel fair taking a vial of': '噢，是啊。就是在那里认识的他！等等，他是不是欠了您钱还没还？您从实验桌上拿走了 ',
+    'Oh yeah. That\'s where you knew him from! Wait doesn\'t he owe you some money? You feel fair taking a vial of': '噢，是啊。您就是在那里认识的他！等等，他是不是欠了您钱还没还？您从实验桌上拿走了 ',
     '40 Nullifium': '40虚空物质',
     'from a research table.': '，您觉得这样才算两清了。',
     'My tests made other dimensions appear,': '我的测试使其他的维度出现，',
@@ -3519,7 +3519,7 @@ var cnItems = {
     'Your Trimps grew strong while I watched and waited,': '我在观察等待，而你的脆皮逐渐飞跃，',
     'Their loyalty can not be debated.': '它们的忠诚无可否决。',
     'You knew not of my plan, yet participated,': '你不知我的计划，但仍然参与入列，',
-    'Now bow to me or be terminated.': '现在选择臣服，或是毁灭。',
+    'Now bow to me or be terminated.': '现在选择臣服，或是被毁灭。',
     'Yeah you don\'t really feel too much like bowing and probably won\'t be doing that.': '您不怎么喜欢臣服，也不会那么做的。',
     'unlock Looting II': '解锁了劫掠 II',
     '. Your skills at salvaging things from this Spire have helped you': '。您搜刮尖塔的本事帮助您',
@@ -3528,7 +3528,7 @@ var cnItems = {
     'You can tell though that these bones won\'t be here next time. The Spire\'s power grants you a permanent 4x bonus to all Dark Essence you collect, you can carry an additional Heirloom back through the Portal, and your Portal has also modified itself to now Liquify Zones equal to 5% of your highest Zone reached. You\'re not quite sure what a liquify is, but you\'re excited to find out!': '您知道下次这些骨头应该不会再出现了。尖塔的力量使您获取的黑暗精华永久变为4倍，您从此可以多携带一个传家宝通过传送门，且传送门也进行了调整，可以液化不高于最高通过区域5%的区域了。您现在还不知道液化是什么，但您很期待得知答案！',
     'You\'ve also found a large, pulsing core that seems to be powering the Spire. You try to carefully remove it but instead smash it into 20 still-humming pieces! You give the pieces to your Scientists, who name the magical new material "Spirestones" and use them to begin construction on your own Spire!': '您还发现了一个巨大的脉冲核心，看来就是它在为尖塔供能了。您尝试将它卸下来，但是却失手将它打碎成了20片嗡嗡作响的碎块！您将这些碎块带给科学家们，它们将这种魔法般的新材料命名为“尖塔石”，然后开始用这些材料来建造您自己的尖塔了！',
     'You were able to properly remove the Core this time, and have found a Common Spire Core Heirloom!': '这次您成功把尖塔核心卸了下来，获得了一个普通稀有度的尖塔核心传家宝！',
-    'You\'ve helped the Trimps establish a legendary population and economy, and have brought down the man responsible for the chaos in this world. You could leave now and the Universe will forever be better because you existed. Trimps will erect statues of you as long as their civilization survives. But you know there are still other spires out there, pumping Corruption into the planet. Maybe the statues would be bigger if you stayed and helped out?': '在您的帮助下，脆皮们人口兴旺，经济繁荣，并且已经击败了让这个世界陷入混乱的人。哪怕现在离开，因为您来过，这个宇宙也会变得更好。只要脆皮的文明还存在，它们就会为您竖起一座雕像。但是您也知道，在世界上还有着其他的尖塔，将腐化注入这个行星。如果您留下来帮忙，或许那个雕像还能更大一些？',
+    'You\'ve helped the Trimps establish a legendary population and economy, and have brought down the man responsible for the chaos in this world. You could leave now and the Universe will forever be better because you existed. Trimps will erect statues of you as long as their civilization survives. But you know there are still other spires out there, pumping Corruption into the planet. Maybe the statues would be bigger if you stayed and helped out?': '在您的帮助下，脆皮们人口兴旺，经济繁荣，并且已经击败了让这个世界陷入混乱的罪魁祸首。哪怕现在离开，因为您来过，这个宇宙也会变得更好。只要脆皮的文明还存在，它们就会为您竖起一座雕像。但是您也知道，在世界上还有着其他的尖塔，将腐化注入这个行星。如果您留下来帮忙，或许那个雕像还能更大一些？',
     'Healthy mutation bad...': '健康变异，很是不好……',
     'Slows delirium': '狂暴之速，因此减少',
     'Well that doesn\'t really sound like a bad thing. You found 200 Nullifium!': '嗯，听起来不坏。您发现了200虚空物质！',
@@ -5684,7 +5684,7 @@ var cnRegReplace = new Map([
     [/^Attack is increased (.*)X for the next (.*) minute(s*)$/, '攻击力在剩余$2分钟内变为$1倍'], //主界面
     [/^Things are quickly becoming tougher. Gathering, looting, and Trimp attack are reduced by (.*)%.$/, '事情变得越来越难了。采集、劫掠获取的资源量，以及脆皮攻击力减少了$1%。'], //主界面
     [/^Trimp attack and health increased by (.*).$/, '脆皮的攻击力和生命值增加了$1。'], //主界面
-    [/^This Bad Guy is toxic. You will obtain (.*)% more resources! Oh, also, this Bad Guy has 5x attack, 2x health, your Trimps will lose 5% health each time they attack, and the toxic air is causing your Trimps to breed (.*)% slower. These stacks will reset after clearing the Zone.$/, '此敌人是有毒的。您可以额外获得$1%资源！哦，另外，此敌人攻击力为5倍，生命值为2倍，而且每次攻击一个毒性敌人后，脆皮将失去5%的生命值，同时毒气排入大气后脆皮繁殖速度会比之前的速度慢$2%。毒性层数在通过一个区域后重置。'], //主界面
+    [/^This Bad Guy is toxic. You will obtain (.*)% more resources! Oh, also, this Bad Guy has 5x attack, 2x health, your Trimps will lose 5% health each time they attack, and the toxic air is causing your Trimps to breed (.*)% slower. These stacks will reset after clearing the Zone.$/, '此敌人是有毒的。您可以额外获得$1%资源！哦，另外，此敌人攻击力变为5倍，生命值变为2倍，而且每次攻击一个毒性敌人后，脆皮将失去5%的生命值，同时毒气排入大气后脆皮繁殖速度会比之前的速度慢$2%。毒性层数在通过一个区域后重置。'], //主界面
     [/^(.*)You have completed the Daily challenge! You have been rewarded with (.*) extra Helium!$/, '$1您完成了日常挑战！您额外获得了$2氦！'], //日常挑战完成消息，前置
     [/^(.*)You have completed the Daily challenge! You have been rewarded with (.*) extra Radon!$/, '$1您完成了日常挑战！您额外获得了$2氡！'], //日常挑战完成消息，前置
     [/^(.+) extra Helium!$/, '额外$1氦！'], //主界面
@@ -5922,7 +5922,7 @@ var cnRegReplace = new Map([
     [/^(.*)Hey there's an egg up there! You send a few Trimps to retrieve it and they bring back a Void Map!$/, '$1哈，前面有一个蛋！您派了一些脆皮拿到了它，里面有一张虚空地图！'], //特定敌人
     [/^(.*)Hey there's an egg up there! You send a few Trimps to retrieve it and they bring back (.*) Radon!$/, '$1哈，前面有一个蛋！您派了一些脆皮拿到了它，里面有$2氡！'], //特定敌人
     [/^(.*)Hey there's an egg up there! You send a few Trimps to retrieve it and they bring back (.*) Helium!$/, '$1哈，前面有一个蛋！您派了一些脆皮拿到了它，里面有$2氦！'], //特定敌人
-    [/^(.*)That Pumpkimp gave you nothing! What a jerk!$/, '$1那个脆皮南瓜怪就留了点皮下来，瓜的……皮？！'], //特定敌人
+    [/^(.*)That Pumpkimp gave you nothing! What a jerk!$/, '$1那只脆皮南瓜怪就留了点皮下来，瓜的……皮？！'], //特定敌人
     [/^(.*)Lame, this one just has stringy stuff in it.$/, '$1坑爹呢，这货就留了这么些南瓜丝？'], //特定敌人
     [/^(.*)You crack open your newly captured Pumpkimp and find... Nothing!$/, '$1您满怀希望地打开了刚捕获的脆皮南瓜怪，然后发现了……梅友仁！'], //特定敌人
     [/^(.*)Right before you finish the Pumpkimp off, it winks at you and rolls away. That was pretty weird.$/, '$1您都快要把这只南瓜怪干掉了，结果它眨了眨眼，就滚瓜了。真是怪哉。'], //特定敌人
@@ -5932,9 +5932,9 @@ var cnRegReplace = new Map([
     [/^(.*)Thanks, you hate getting tricks instead of treats.$/, '$1不，谢了，您只想要糖果，不想要捣蛋。'], //特定敌人
     [/^(.*)You might have hit that Pumpkimp a bit too hard, there's nothing left to give you candy.$/, '$1您的下手可能是太重了，怎么看那只南瓜怪都不像是还能给您发糖的亚子。'], //特定敌人
     [/^(.*)The Pumpkimp suddenly bursts, spewing huge amounts of candy into the air. Your Trimps scramble about to pick up all they can and gain Sugar Rush!$/, '$1南瓜怪突然炸了，撒了一地的糖。一阵争抢以后，脆皮们把糖捡得七七八八，并获得了甜蜜冲刺！'], //特定敌人
-    [/^(.*)This Pumpkimp was so large that your Trimps could feast for weeks on all the candy inside. Oh, nope, looks like they'll be done in about 10 minutes. In the mean time, they should have a bit of extra energy!$/, '$1这么大一个南瓜怪，里面的糖应该够脆皮们吃几个星期了。哦，不，等等，可能只够它们吃十来分钟了。至少这一阵子它们会更有干劲的吧！'], //特定敌人
+    [/^(.*)This Pumpkimp was so large that your Trimps could feast for weeks on all the candy inside. Oh, nope, looks like they'll be done in about 10 minutes. In the mean time, they should have a bit of extra energy!$/, '$1这么大一只南瓜怪，里面的糖应该够脆皮们吃几个星期了。哦，不，等等，可能只够它们吃十来分钟了。至少这一阵子它们会更有干劲的吧！'], //特定敌人
     [/^(.*)This Pumpkimp was totally stuffed with various types of sugary things. You give them all to your Trimps, which results in a huge boost of energy!$/, '$1这只脆皮南瓜怪里塞满了各种糖果。您把这些糖全部分给了脆皮们，大大提升了它们的干劲！'], //特定敌人
-    [/^(.*)Your Trimps have begun carrying pillowcases with them in hopes of a legendary Pumpkimp like the one you just found. Filled to the brim with sugary goodies, this Pumpkimp should sate your Trimps for a few minutes!$/, '$1在碰到那个传奇南瓜怪以后，脆皮们都开始带上枕套了。那只南瓜怪装满了糖果，足够脆皮们享受好几分钟了！'], //特定敌人
+    [/^(.*)Your Trimps have begun carrying pillowcases with them in hopes of a legendary Pumpkimp like the one you just found. Filled to the brim with sugary goodies, this Pumpkimp should sate your Trimps for a few minutes!$/, '$1在碰到那只传奇南瓜怪以后，脆皮们都开始带上枕套了。那只南瓜怪装满了糖果，足够脆皮们享受好几分钟了！'], //特定敌人
     [/^(.*)Oops, that Pumpkimp just wanted to give you some candy. You found (.*) food!$/, '$1哦，那只南瓜怪只是想给您点糖果。您发现了$2食物！'], //特定敌人
     [/^(.*)Oops, that Pumpkimp just wanted to give you some candy. You found (.*) wood!$/, '$1哦，那只南瓜怪只是想给您点糖果。您发现了$2木头！'], //特定敌人
     [/^(.*)Oops, that Pumpkimp just wanted to give you some candy. You found (.*) metal!$/, '$1哦，那只南瓜怪只是想给您点糖果。您发现了$2金属！'], //特定敌人
@@ -6160,7 +6160,7 @@ var cnRegReplace = new Map([
     [/^(.*)You don't have any Scientists to not know how to handle this book, so everything's chill.$/, '$1您没有科学家，没有人知道怎么处理这本书，所以一切都僵住了。'], //世界解锁等
     [/^(.*)You found a book called Megaminer! The front is really shiny and has a Trimp on it. Creepy, it seems to follow your eyes.$/, '$1您发现了一本书，叫做《超级采矿》！它的封面闪闪发光，上面还有一个脆皮。等等，好可怕，这玩意似乎在跟着您的视线动。'], //世界解锁等
     [/^(.*)Your scientists appreciate the fact that you've managed to find another useless book, but they make sure to let you know it's still useless.$/, '$1对于您又搞到一本没用的书这事，科学家们还是很欣赏的，但它们还是要让您知道，这本书没啥用。'], //世界解锁等
-    [/^(.*)Your Trimps report a strange bronze object on the floor, and you decide to come look at it. It looks freaky, so you ask one of your Trimps to pick it up first. He instantly starts itching his face and babbling off a bunch of science stuff, so you let another Trimp touch it and he does the same. This seems to make your Trimps smarter than Scientists, but may cause side effects.$/, '$1脆皮们在地上发现了一个奇怪的铜制物件，您决定去看看。它看起来很怪异，所以您让一个脆皮将它拿起来试试。它立刻开始挠自己的脸，并且开始胡言乱语一堆跟科学有关的，您让另一个脆皮触碰了那个物件，然后它跟第一位也一样了。看起来它能让脆皮变得比科学家还聪明，但是可能会造成副作用。'], //世界解锁等
+    [/^(.*)Your Trimps report a strange bronze object on the floor, and you decide to come look at it. It looks freaky, so you ask one of your Trimps to pick it up first. He instantly starts itching his face and babbling off a bunch of science stuff, so you let another Trimp touch it and he does the same. This seems to make your Trimps smarter than Scientists, but may cause side effects.$/, '$1脆皮们在地上发现了一个奇怪的铜制物件，您决定去看看。它看起来很怪异，所以您让一个脆皮将它拿起来试试。它立刻开始挠自己的脸，并且开始胡言乱语一堆跟科学有关的，您让另一个脆皮触碰了那个物件，然后它跟第一位也一样了。看起来它能让脆皮变得比科学家还聪明，但是可能会引起副作用。'], //世界解锁等
     [/^(.*)You found a crafting foreman! He will build buildings automatically for you!$/, '$1您发现了一个正在锻造的工头！它会为您自动建造建筑！'], //世界解锁等
     [/^(.*)You look down and see a green gem that seems to stare back. You pick it up and feel adrenaline surge through your body. Probably best to bring this back to the lab for some research.$/, '$1您往下看，看到一块绿色的宝石，看起来它是在回瞪着您。您将它拾了起来，立刻感到精神变得亢奋了。或许最好将它带回去做进一步的研究。'], //世界解锁等
     [/^(.*)You look down and see a blue gem that seems to stare back. You pick it up and are immediately overwhelmed by feelings of intense power. You figure this could be used to focus your Portal Generator in this Universe.$/, '$1您往下看，看到一块蓝色的宝石，看起来它是在回瞪着您。您将它拾了起来，立刻被强大的力量感淹没了。您觉得这可以用来集中这个宇宙的传送门发生器的能量。'], //世界解锁等
@@ -6239,7 +6239,7 @@ var cnRegReplace = new Map([
     [/^(.*)You found The Prison! You have a bad feeling about going in...$/, '$1您发现了监狱地图！您感觉进去后会有什么不好的事发生……'], //地图解锁等
     [/^(.*)You just made The Prison!$/, '$1您制造了监狱地图！'], //地图解锁等
     [/^(.*)You just made Bionic Wonderland (.*)!$/, '$1您制造了仿生仙境 $2地图！'], //地图解锁等
-    [/^(.*)You found a map to an Imploding Star inside of a supercooled dimension. The temperature there is perfect!$/, '$1您在一个超冷的维度中发现了爆炸之星地图。那儿的温度刚刚好！'], //地图解锁等
+    [/^(.*)You found a map to an Imploding Star inside of a supercooled dimension. The temperature there is perfect!$/, '$1您发现了爆炸之星地图。那维度超冷的，看来地图里的温度会刚刚好！'], //地图解锁等
     [/^(.*)You just made Imploding Star!$/, '$1您制造了爆炸之星地图！'], //地图解锁等
     [/^(.*)You found plans for a Mansion! Your Trimps will be pretty stoked$/, '$1您发现了豪宅的蓝图！脆皮们一定会很兴奋的'], //地图解锁等
     [/^(.*)You found plans for a hotel! \(A decent hotel, too$/, '$1您发现了宾馆的蓝图！(相当棒的宾馆'], //地图解锁等
@@ -6291,7 +6291,7 @@ var cnRegReplace = new Map([
     [/^(.*)There's a weird impish little creature in the trap. A Trimp, you decide to call it. Since you're so creative, you could probably train this Trimp to help out.$/, '$1陷阱里有一个看起来很皮的脆弱小动物，您决定叫它 脆皮 。既然您都这么有创造力了，不如干脆考虑训练脆皮来帮您干活好了。'], //其他升级等
     [/^(.*)Where would you be in life without Science\? Not this dimension, that's for sure.$/, '$1假如没有科学，生活会变得怎样？至少您就不会在这个维度了，肯定的。'], //其他升级等
     [/^(.*)This planet feels so familiar, yet so foreign. Maybe it's time to start sciencing things.$/, '$1这颗行星又熟悉又陌生。或许是时候研究点什么了。'], //其他升级等
-    [/^(.*)As you finally step out into the Battle Zones, the first thing you notice is that your Heirlooms feel weaker here. Oh well, 1000 more times into the fray...$/, '$1当您迈入战斗区域时，首先发现的是传家宝弱了很多。好吧，至少得先来个千人斩了……'], //其他升级等
+    [/^(.*)As you finally step out into the Battle Zones, the first thing you notice is that your Heirlooms feel weaker here. Oh well, 1000 more times into the fray...$/, '$1当您迈入战斗区域时，首先发现的是传家宝弱了很多。好吧，又得来个千区踏破啥的了……'], //其他升级等
     [/^(.*)War... what is it good for\? Exploration, or something.$/, '$1战争……人是为何而战的呢？为了探索，还是为了什么……'], //其他升级等
     [/^(.*)The newly established Trimp zoning committee is too busy drooling to approve anything, so you take it on yourself to start building some Huts.$/, '$1新成立的脆皮区委会忙着流口水，没空审批，还是您自己来建造小屋吧。'], //其他升级等
     [/^(.*)Doesn't seem like all of these little guys will fit in your ship. Luckily, you remember how to make small huts for shelter.$/, '$1这么多小家伙是没法全塞进您的飞船的。幸好，您记得如何建造小屋。'], //其他升级等
@@ -6304,7 +6304,6 @@ var cnRegReplace = new Map([
     [/^You will find one Golden Upgrade every (.*) Zones. Frequency increases at (.*)% bonus damage.$/, '您每$1个区域可以获得一个金色升级。升级出现的频率在到达$2%伤害后将开始增加。'], //成就等
     [/^You will find one Golden Upgrade every (.*) Zones. Start with 1 extra Golden Upgrade after each Portal for every 500% earned between 2000% and (.*)%. Currently gaining (.*) extra Golden Upgrade(s*).$/, '您每$1个区域可以获得一个金色升级，且伤害加成在2000%与$2%之间的部分，每有500%伤害加成，传送后就额外获得1个金色升级。目前可以获得$3个金色升级。'], //成就等
     [/^You will find one Golden Upgrade every (.*) Zones. Start with 1 extra Golden Upgrade after each Portal for every 2000% earned above (.*)%. Currently gaining (.*) extra Golden Upgrade(s*).$/, '您每$1个区域可以获得一个金色升级，且伤害加成在$2%以上的部分，每有2000%伤害加成，传送后就额外获得1个金色升级。目前可以获得$3个金色升级。'], //成就等
-    [/^$/, ''], //成就等
     [/^Progress: (.*) \/$/, '进度：$1 /'], //成就等
     [/^Complete Zone (\d+) in Universe$/, '通过区域 $1 于宇宙'], //成就等
     [/^Reach (.*) displayed damage$/, '面板伤害值达到$1'], //成就等
@@ -7068,13 +7067,13 @@ var cnRegReplace = new Map([
     [/^You have the Corrupted challenge active. Travel to a dimension where enemies have 3X attack and Corruption runs rampant, beginning at Z60. The Corruption in this dimension grants helium, but 50% less than normal. Improbabilities and Void Maps will still not gain strength or double reward until Z(\d+). Completing$/, '您目前正在进行腐化挑战。前往一个敌人攻击力为3倍，且腐化更加泛滥，从区域60就开始的维度。此维度中腐化格子给予氦，但只有正常维度的一半。乌有者及虚空地图直到区域$1之前，既不会因此变强，也不会有双倍奖励。在此挑战激活的前提下通过 '], //腐化挑战等
     [/^(.*)You have completed the Corrupted challenge! You have been rewarded with (.*) Helium, and you may repeat the challenge.$/, '$1您完成了腐化挑战！您获取了$2氦，现在您又可以重新挑战了。'], //腐化挑战完成消息
     [/^(.*)You have completed the Domination challenge! You have been rewarded with (.*) Helium, and you may repeat the challenge.$/, '$1您完成了统治挑战！您获取了$2氦，现在您又可以重新挑战了。'], //统治挑战完成消息
-    [/^Against your better judgement, travel to a dimension that's simply just not very friendly. Liquimps are unable to liquify, enemies have (.*)x attack and health, and equipment is (.*)x more expensive. Every 10 Zones, enemy attack and health will increase by another 10x.$/, '前往一个对您完全不友好的维度，您知道的，这不是什么好主意。此维度中无法进行液化，敌人的攻击力和生命值为正常的$1倍，装备成本为正常的$2倍。每通过10层，敌人的攻击力和生命值还会再增加10倍。'], //抹杀挑战等
-    [/^You have the Obliterated challenge active. "Against your better judgement, travel to a dimension that's simply just not very friendly. Liquimps are unable to liquify, enemies have (.*)x attack and health, and equipment is (.*)x more expensive. Every 10 Zones, enemy attack and health will increase by another 10x."$/, '您目前正在进行抹杀挑战。前往一个对您完全不友好的维度，您知道的，这不是什么好主意。此维度中无法进行液化，敌人的攻击力和生命值为正常的$1倍，装备成本为正常的$2倍。每通过10层，敌人的攻击力和生命值还会再增加10倍。'], //抹杀挑战等
+    [/^Against your better judgement, travel to a dimension that's simply just not very friendly. Liquimps are unable to liquify, enemies have (.*)x attack and health, and equipment is (.*)x more expensive. Every 10 Zones, enemy attack and health will increase by another 10x.$/, '前往一个对您完全不友好的维度，这绝非明智之举。此维度中无法进行液化，敌人的攻击力和生命值为正常的$1倍，装备成本为正常的$2倍。每通过10层，敌人的攻击力和生命值还会再增加10倍。'], //抹杀挑战等
+    [/^You have the Obliterated challenge active. "Against your better judgement, travel to a dimension that's simply just not very friendly. Liquimps are unable to liquify, enemies have (.*)x attack and health, and equipment is (.*)x more expensive. Every 10 Zones, enemy attack and health will increase by another 10x."$/, '您目前正在进行抹杀挑战。前往一个对您完全不友好的维度，这绝非明智之举。此维度中无法进行液化，敌人的攻击力和生命值为正常的$1倍，装备成本为正常的$2倍。每通过10层，敌人的攻击力和生命值还会再增加10倍。'], //抹杀挑战等
     [/^If you thought Obliterated was not very friendly, wait until you see this dimension! Liquimps are unable to liquify, enemies have (.*)x attack and health, and equipment is (.*)x more expensive. Every 2 Zones, enemy attack and health will increase by another 3x.$/, '如果抹杀挑战已经让您感受到世界的恶意，那么这个挑战可能会让您怀疑人生。此维度中无法进行液化，敌人的攻击力和生命值为正常的$1倍，装备成本为正常的$2倍。每通过2层，敌人的攻击力和生命值还会再变为之前的3倍。'], //灭绝挑战等
     [/^You have the Eradicated challenge active. "If you thought Obliterated was not very friendly, wait until you see this dimension! Liquimps are unable to liquify, enemies have (.*)x attack and health, and equipment is (.*)x more expensive. Every 2 Zones, enemy attack and health will increase by another 3x.$/, '您目前正在进行灭绝挑战。如果抹杀挑战已经让您感受到世界的恶意，那么这个挑战可能会让您怀疑人生。此维度中无法进行液化，敌人的攻击力和生命值为正常的$1倍，装备成本为正常的$2倍。每通过2层，敌人的攻击力和生命值还会再变为之前的3倍。'], //灭绝挑战等
     [/^(.*)You have completed the Unbalance challenge! You have unlocked the Equality Perk!$/, '$1您完成了不平衡挑战！您解锁了 平等 特权！'], //不平衡挑战完成消息
-    [/^(.*)Oh no, you failed the Bublé challenge! You have been rewarded with (.*) extra Radon, and you may try again.$/, '$1太糟了，布累挑战失败了！您获取了$2氡，现在您又可以重新挑战了。'], //布累挑战失败消息
-    [/^(.*)You have completed the Bublé challenge! You're a hero among Trimps! You have been rewarded with (.*) extra Radon, and you may repeat the challenge.$/, '$1您完成了布累挑战！您是脆皮英雄！您获取了$2氡，现在您又可以重新挑战了。'], //布累挑战成功消息
+    [/^(.*)Oh no, you failed the Bublé challenge! You have been rewarded with (.*) extra Radon, and you may try again.$/, '$1太糟了，泡影挑战失败了！您获取了$2氡，现在您又可以重新挑战了。'], //泡影挑战失败消息
+    [/^(.*)You have completed the Bublé challenge! You're a hero among Trimps! You have been rewarded with (.*) extra Radon, and you may repeat the challenge.$/, '$1您完成了泡影挑战！您是脆皮英雄！您获取了$2氡，现在您又可以重新挑战了。'], //泡影挑战成功消息
     [/^Your Trimps have (\d+) Duel Points.$/, '脆皮有$1点决斗点数。'], //决斗挑战等
     [/^The Bad Guys have (\d+) Duel Points.$/, '敌人有$1点决斗点数。'], //决斗挑战等
     [/^Your Trimps have (\d+) Duel Points. Your Trimps have 3x attack for being over 50 points.$/, '脆皮有$1点决斗点数。因为脆皮决斗点数大于50，它们获得了3倍攻击力。'], //决斗挑战等
@@ -7166,6 +7165,8 @@ var cnRegReplace = new Map([
     [/^Motivation(\s+)II$/, '鼓舞 II'], //特权等
     [/^Power(\s+)II$/, '力量 II'], //特权等
     [/^Toughness(\s+)II$/, '坚韧 II'], //特权等
+    [/^Reduce the Zone that Fluffy can start earning Experience at by 3. With (\d+) level(s*) in Classy, Fluffy will start earning Experience at Z(\d+).$/, '绒绒提前3个区域开始获得经验值。上等特权提升$1级后，绒绒将从区域$3开始获得经验值。'], //特权等
+    [/^Use your experiences in understanding the attention span of Trimps to increase the damage dealt by all soldiers based on how long it took to get an army together. Increases damage by 2% per level per second up to (\d+) seconds.$/, '脆皮的注意力持续时间您已了如指掌，所以您可以利用它增加脆皮的攻击力。军队每需要1秒进行繁殖，每级预期特权就可以使脆皮增加2%攻击力。预期特权的效果上限为$1秒。'], //特权等
     [/^Your Trimps are frenzied for (.*) second(s*)! They are dealing (.*)% more damage.$/, '您的脆皮们的战狂状态持续时间还有$1秒！它们可以额外造成$3%伤害。'], //特权等
     [/^The Trimps that earned this Frenzy buff are still alive, and they will be able to refresh its duration starting in (.*) second(s*).$/, '最初触发战狂的脆皮们仍然还幸存着，再过$1秒，它们就可以刷新战狂状态持续时间了。'], //特权等
     [/^(.*) Helium Canister(s*)$/, '$1氦'], //特权等
@@ -7307,8 +7308,6 @@ var cnRegReplace = new Map([
     [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock the next from Tier$/, '未解锁(再购买一个第$1层的升级以解锁下一个升级于层数'], //专精等
     [/^(.*) Dark Essence \(Use Scrying Formation to earn more$/, '$1黑暗精华(使用占卜阵型以获取更多'], //专精等
     [/^(.*) Dark Essence$/, '$1黑暗精华'], //专精等
-    [/^Reduce the Zone that Fluffy can start earning Experience at by 3. With (\d+) level(s*) in Classy, Fluffy will start earning Experience at Z(\d+).$/, '绒绒提前3个区域开始获得经验值。上等特权提升$1级后，绒绒将从区域$3开始获得经验值。'], //上等特权
-    [/^Use your experiences in understanding the attention span of Trimps to increase the damage dealt by all soldiers based on how long it took to get an army together. Increases damage by 2% per level per second up to (\d+) seconds.$/, '脆皮的注意力持续时间您已了如指掌，所以您可以利用它增加脆皮的攻击力。军队每需要1秒进行繁殖，每级预期特权就可以使脆皮增加2%攻击力。预期特权的效果上限为$1秒。'], //预期特权
     [/^Golden Battle ([IVXLCDM]+)$/, '金色战斗 $1'], //金色升级等
     [/^Golden Helium ([IVXLCDM]+)$/, '金色氦 $1'], //金色升级等
     [/^Golden Radon ([IVXLCDM]+)$/, '金色氡 $1'], //金色升级等
@@ -7446,14 +7445,14 @@ var cnRegReplace = new Map([
     [/^(.*)You ruined a(n*) $/, '$1您破坏了一个'], //击杀消息
     [/^(.*)You wrecked a(n*) $/, '$1您击毁了一个'], //击杀消息
     [/^(.*)You obliterated a(n*) $/, '$1您抹消了一个'], //击杀消息
-    [/^(.*)Z:2 Your Trimps killed a lot of Bad Guys back there. It seems like you're getting the hang of this. However, the world is large, and there are many more Zones to explore. Chop chop.$/, '$1区域：2 您的脆皮已经干掉了不少敌人。看起来您也逐渐熟悉这些了。不过，世界还很大，还有很多区域等着您来探索。所以，加快速度吧。'], //故事消息
+    [/^(.*)Z:2 Your Trimps killed a lot of Bad Guys back there. It seems like you're getting the hang of this. However, the world is large, and there are many more Zones to explore. Chop chop.$/, '$1区域：2 您的脆皮已经干掉了不少敌人。看起来您也逐渐熟悉起来了。不过，世界还很大，还有很多区域等着您来探索。所以，加快速度吧。'], //故事消息
     [/^(.*)Z:3 By your orders, your scientists have begun to try and figure out how large this planet is.$/, '$1区域：3 依照您的指示，科学家们已经开始测量这个行星的大小了。'], //故事消息
-    [/^(.*)Z:3 This planet seems so cold and lonely without Science.$/, '$1区域：3 这个没有科学家的行星看起来既冷又孤寂。'], //故事消息
+    [/^(.*)Z:3 This planet seems so cold and lonely without Science.$/, '$1区域：3 这个没有科学家的行星看起来既冰冷又孤寂。'], //故事消息
     [/^(.*)Z:4 You order your Trimps to search the area for the keys to your ship, but nobody finds anything. Bummer.$/, '$1区域：4 您指示脆皮们搜索这个区域，寻找您飞船的钥匙，但一无所获。啧。'], //故事消息
     [/^(.*)Z:5 Do you see that thing at the end of this Zone\? It's huge! It's terrifying! You've never seen anything like it before, but you know that it is a Blimp. How did you know that\? Stop knowing things and go kill it.$/, '$1区域：5 看到这个区域最后的那个东西了吗？它很大！它很可怕！您之前从未见过类似的东西，但您就是知道，它叫脆皮飞艇。等等，您是怎么知道的？别问太多，干掉它就是了。'], //故事消息
     [/^(.*)Z:6 You step over the corpse of the Blimp as it rapidly deflates, and one of your Trimps chuckles at the sound produced. You all cross the sulfuric river to the next Zone, and can feel the presence of an ancient knowledge. Better explore.$/, '$1区域：6 飞艇迅速瘪了下去，您踏过了飞艇的尸体，发出的声音让一个脆皮偷笑了出来。您带着脆皮们穿过了硫酸河，到达了下个区域，并感受到了古老知识的存在。最好去探索一下。'], //故事消息
     [/^(.*)Z:7 Slow and steady wins the race. Unless you're racing someone who is actually trying.$/, '$1区域：7 稳扎稳打，无往不胜。但您也得打才行啊。'], //故事消息
-    [/^(.*)Z:8 Your settlement is getting crowded, there's Trimps in the streets, and you're taking heat. You feel a sudden strong desire to create a map, though you're not quite sure how that would help.$/, '$1区域：8 您住的地方越来越拥挤了，街上到处是脆皮，置身其中连您都感到热了。虽然不知道制造地图会有什么用，但您突然强烈渴望去这么做。'], //故事消息
+    [/^(.*)Z:8 Your settlement is getting crowded, there's Trimps in the streets, and you're taking heat. You feel a sudden strong desire to create a map, though you're not quite sure how that would help.$/, '$1区域：8 您住的地方越来越拥挤了，街上到处是脆皮，置身其中连您都感到热了。虽然不知道制造地图会有什么用，但您突然强烈渴望去这么做了。'], //故事消息
     [/^(.*)Z:9 You can't shake the feeling that you've been here before. Déjà-vu\?$/, '$1区域：9 您有一种强烈的感觉，您曾经来过这里。既视感……吗？'], //故事消息
     [/^(.*)Z:10 Looks like another Blimp up ahead. Hard to tell from far away, but it looks like it has more heads than the last one.$/, '$1区域：10 看起来前方又有一个脆皮飞艇了。虽然离着太远看不真切，但还是能看得出来它的头比上一个更多一些。'], //故事消息
     [/^(.*)Z:11 You're unstoppable as long as nothing stops you. Unfortunately, it seems like something really wants to stop you.$/, '$1区域：11 只要没人来阻止您，您就可以高喊“谁能挡我”了。不过，运气不好的是，似乎真有什么东西想要挡您了。希望您的下一句不会是“不可能”。'], //故事消息
@@ -7471,11 +7470,11 @@ var cnRegReplace = new Map([
     [/^(.*)Z:22 Strange, the sky seems to be getting darker. You ask one of your Trimps for the time, but he doesn't know what a clock is.$/, '$1区域：22 天空看起来更暗了，真奇怪啊。您想问一个脆皮现在几点了，但它连什么是时间都不知道。'], //故事消息
     [/^(.*)Z:25 You're a rebel. The universe pointed you into that portal, but you kept pushing forward. You feel... less like you've been here before.$/, '$1区域：25 您这是要反了啊。这个宇宙指引着您进入传送门，而您却还在前进。不过，您感觉到……您好像没怎么来过这里。'], //故事消息
     [/^(.*)Z:27 It seems like the further you press on, the less you know. You still feel an urge to use the portal, though the urge has begun to dwindle.$/, '$1区域：27 似乎前进得越远，您所知的就越少。您虽然还想使用传送门，但这个欲望已经开始消退了。'], //故事消息
-    [/^(.*)Z:29 Your Trimps came up with a pretty catchy battle song that got stuck in your head. None of them survived the next fight though, and you can't remember most of it. Life's tough.$/, '$1区域：29 您的脆皮们想出了一首琅琅上口的战歌，您感觉都要被洗脑了。遗憾的是它们全部在之后的战斗中阵亡了，而您再也想不起来歌的唱法了。人生已经如此的艰难，有些事情就不要拆穿。'], //故事消息
+    [/^(.*)Z:29 Your Trimps came up with a pretty catchy battle song that got stuck in your head. None of them survived the next fight though, and you can't remember most of it. Life's tough.$/, '$1区域：29 您的脆皮们想出了一首琅琅上口的战歌，您感觉都要被洗脑了。遗憾的是它们在之后的战斗中全部阵亡了，而您再也想不起来歌的唱法了。人生已经如此的艰难，有些事情就不要拆穿。'], //故事消息
     [/^(.*)Z:33 You climb over a large hill that was separating this Zone from the last. The sky is pitch black and lightning crackles in the distance. This is a site of heavy corruption.$/, '$1区域：33 您爬上了区域分界线上的一座高山。天空漆黑如墨，时不时有闪电划破天际。这地方严重腐化了。'], //故事消息
     [/^(.*)Z:35 You start to wonder how long you've been doing the same thing over and over. There must be something you can do to start to break the cycle. Perhaps you could alter the portal...$/, '$1区域：35 您开始怀疑您已经重复多少次轮回了。一定有什么东西能够打破这个轮回。或许您可以改变一下传送门……'], //故事消息
     [/^(.*)Z:40 You can't help but notice that the Trimps seem to be the only creatures on this planet not immediately hostile towards outsiders. You ask a nearby Trimp soldier what he thinks you are, and he drools a bit.$/, '$1区域：40 您注意到了，这个行星上似乎只有脆皮对外来者会友好一些。您随手抓过旁边一个脆皮，并询问它是怎么看您的，然后它流了点口水。'], //故事消息
-    [/^(.*)Z:42 The world seems so barren out this far. You feel like you're finally starting to get ahead of the curve, but you know by now not to get comfortable.$/, '$1区域：42 到目前为止来看，这世界相当贫瘠。您感觉您终于开始超脱轮回了，但您知道现在还不是完全放松的时候。'], //故事消息
+    [/^(.*)Z:42 The world seems so barren out this far. You feel like you're finally starting to get ahead of the curve, but you know by now not to get comfortable.$/, '$1区域：42 就目前情况而言，这世界相当贫瘠。您感觉您终于开始超脱轮回了，但您知道现在还不是完全放松的时候。'], //故事消息
     [/^(.*)Z:44 Each day and night seems to grow longer than the one before. Is time slowing down\? Argh! You fall to your knees with a splitting headache and a strong desire to use the portal. After a few minutes, it passes and you forget what happened. What are we talking about\?$/, '$1区域：44 每天似乎都在变得更长一些。是时间减慢了吗？啊！您突然感到头痛欲裂，倒了下去，并有一种使用传送门的强烈渴望。过了一会儿，疼痛平息了，您也忘记了发生了什么。不过，我们前面到底在聊什么来着？'], //故事消息
     [/^(.*)Z:46 All traces of hills and mountains have long since been trudged past. The world is flat and hostile. You wish your Trimps were better conversationalists.$/, '$1区域：46 通过崇山峻岭的足迹已经拉得很长了。这个世界的恶意可谓是毫不掩饰。您觉得脆皮们如果能健谈一些就好了。'], //故事消息
     [/^(.*)Z:48 As your Trimps scavenge every last bit of helium from that Blimp, one of them begins freaking out. He runs around waving his little arms and making funny noises for a while, eats some dirt, then takes a little nap. You wonder if that's normal. Yeah... probably fine.$/, '$1区域：48 您的脆皮们回收完脆皮飞艇的氦以后，其中一个脆皮突然开始举止异常。它开始边摇手臂边到处乱跑，并发出了一些有趣的声音，然后吃了点土，睡着了。您开始思考这到底算不算异常。嗯……大概不算吧。'], //故事消息
@@ -7484,15 +7483,15 @@ var cnRegReplace = new Map([
     [/^(.*)Z:53 As you get closer to the anomaly, you start to notice more and more strange behaviour from your Trimps. Holes in your memory are starting to become noticeable as multiple existences blend into one. Trippy.$/, '$1区域：53 随着您接近异常现象，您注意到脆皮的举止越来越古怪。您的记忆中缺失的部分越来越明显了，就好像好多世的记忆叠加到了一起一样。真是的。'], //故事消息
     [/^(.*)Z:54 As you get closer to the anomaly, you start to notice more and more strange behaviour from your Trimps. Holes in your memory are starting to become noticeable as multiple existences blend into one. Trippy.$/, '$1区域：54 随着您接近异常现象，您注意到脆皮的举止越来越古怪。您的记忆中缺失的部分越来越明显了，就好像好多世的记忆叠加到了一起一样。真是的。'], //故事消息
     [/^(.*)Z:56 A loud boom echoes in the distance, and one of your Trimps runs up to you with outstretched arms, looking quite frightened. He probably just wants some armor and weapons! You hand him some gear, and he accepts it with excitement.$/, '$1区域：56 远方传来了一声巨响，一个脆皮张开双臂向您跑来，它看起来很慌。或许它只是想要一些装备而已！您如是想，并给了它一些装备。它兴奋地收下了。'], //故事消息
-    [/^(.*)Z:58 A huge storm has formed and daylight has become a luxury you have mostly forgotten about. Your Trimps seem to want to go back home, but you're pretty sure you're supposed to keep going this way, so you do. You're very close to the anomaly.$/, '$1区域：58 阴雨连天，风暴来袭，阳光已经成了几乎忘却的奢侈品。脆皮们似乎一心只想着回家了，但您很肯定应该继续前进，所以您继续前进了。您越来越接近异常现象了。'], //故事消息
+    [/^(.*)Z:58 A huge storm has formed and daylight has become a luxury you have mostly forgotten about. Your Trimps seem to want to go back home, but you're pretty sure you're supposed to keep going this way, so you do. You're very close to the anomaly.$/, '$1区域：58 阴雨连天，风暴来袭，阳光已经成了几乎忘却的奢侈品。脆皮们似乎一心只想着回家了，但您很肯定应该继续前进，所以您指挥着它们继续前进了。您越来越接近异常现象了。'], //故事消息
     [/^(.*)Z:59 There it is. The anomaly is at the end of the Zone. You can see it but you don't know what you're seeing. Where did that... thing... come from\?! This is highly Improbable.$/, '$1区域：59 那就是那个异常现象了，就在区域最后。您可以看到它，但您完全无法理解您看到了什么。那个玩意……到底是从哪来的？！这也太子虚乌有了。'], //故事消息
     [/^(.*)Z:60 The ground instantly cracks and large plumes of green gas escape from the planet's core to the atmosphere. The planet feels different. Everything feels different. This Universe has grown unstable, the planet has broken. What have you done\?$/, '$1区域：60 大地碎裂，大量绿色气体从行星的核心逸出到了空气中。这个行星不一样了。不，一切都不一样了。宇宙开始变得不稳定，行星破碎了。您都做了些什么？'], //故事消息
     [/^(.*)Z:61 Other than all the dead Trimps, that wasn't so bad.$/, '$1区域：61 从现在来看，除了挂掉那么多脆皮以外，好像也没那么坏了。'], //故事消息
     [/^(.*)Z:65 The Universe seems even more upset than you expected here, but your Amalgamator doesn't really seem to care. You walk towards it to get a better look, but find yourself further away than you were.$/, '$1区域：65 看起来，您到这以后，这个宇宙比您想象中还要更失望，但合并者看起来并不在意。您向它走去，想看清楚一些，却发现离它越来越远了。'], //故事消息
     [/^(.*)Z:65 The Universe seems even more upset than you expected here, but your Amalgamators don't really seem to care. You walk towards one to get a better look, but find yourself further away than you were.$/, '$1区域：65 看起来，您到这以后，这个宇宙比您想象中还要更失望，但合并者们看起来并不在意。您向其中一个合并者走去，想看清楚一些，却发现离它越来越远了。'], //故事消息
-    [/^(.*)Z:65 You feel more powerful than ever. The universe seems to be constantly adjusting itself to get rid of you, yet you rise against and persist. Something as tiny as you taking on an entire universe!$/, '$1区域：65 您感觉比之前都强大。这个宇宙一直在调整自己，想要把您干掉，但您同时也变得更强，抵抗住了变化。这简直是与全宇宙为敌还不落下风了！'], //故事消息
+    [/^(.*)Z:65 You feel more powerful than ever. The universe seems to be constantly adjusting itself to get rid of you, yet you rise against and persist. Something as tiny as you taking on an entire universe!$/, '$1区域：65 您感觉比之前都强大。这个宇宙一直在调整自己，想要把您干掉，但您同时也变得更强，抵抗住了变化。这简直是以一人之力独撼宇宙了！'], //故事消息
     [/^(.*)Z:68 You figure some entertainment wouldn't be awful, and decide to teach your Trimps how to play soccer. A few hours and zero progress later, you really regret that decision.$/, '$1区域：68 您觉得找点乐子也不错，所以决定教脆皮们踢足球。一段时间过去，毫无进展，您后悔了。'], //故事消息
-    [/^(.*)Z:70 The Improbabilities haven't seemed to slow down. You know you need to figure out a plan, but you don't know what to plan for.$/, '$1区域：70 乌有者们还是接二连三地出现。您觉得应该想个计划，却想不出计划的内容该是什么。'], //故事消息
+    [/^(.*)Z:70 The Improbabilities haven't seemed to slow down. You know you need to figure out a plan, but you don't know what to plan for.$/, '$1区域：70 乌有者们还是接二连三地出现。您觉得应该对此想个计划，却不知道计划的内容该是什么。'], //故事消息
     [/^(.*)Z:72 You slash through another Improbability with relative ease, but something isn't right. A sour smell hits your nose and in disgust, you whip around in search of the source. Oh, wait, it's just the Trimps.$/, '$1区域：72 您相当轻松地干掉了另一个乌有者，但是，好像有什么不对劲。一股酸臭味袭来，相当难闻，您四处张望寻找了一下来源。哦，是脆皮们身上的气味，那没事了。'], //故事消息
     [/^(.*)Z:80 When's the last time you made a map\? You have a feeling you should probably do that.$/, '$1区域：80 您上次制造地图是什么时候来着？不管怎么样，您感觉自己应该再次那么做才是了。'], //故事消息
     [/^(.*)Z:82 Whew, that was an exhilarating kill. You decide to reward your Trimps with some Improbability stew. It's pretty tasty.$/, '$1区域：82 呼，真是一次带劲的杀戮。您决定奖励脆皮们一些乌有者的炖肉。那味道很棒。'], //故事消息
@@ -7505,7 +7504,7 @@ var cnRegReplace = new Map([
     [/^(.*)Z:95 The Amalgamators are starting to rapidly switch between different colors. It would be slightly entertaining if the fabric of existence wasn't falling apart around them.$/, '$1区域：95 合并者们开始在不同的颜色之间迅速变换。如果不是宇宙的结构在它们的身边不停崩坏的话，其实还挺有意思的。'], //故事消息
     [/^(.*)Z:95 Need some motivation\? You can do it! Maybe.$/, '$1区域：95 需要应援吗？不要输了，加勒个油。'], //故事消息
     [/^(.*)Z:100 You stop dead in your tracks. You remember who you came here with, and you remember that you are not happy with Captain Druopitee for bringing you here. You know he landed with you. You know the ship is still here. He's here.$/, '$1区域：100 您停下了前进的步伐。您想起来了，想起来是跟谁一起来的了，舰长德罗披提，对，就是他，您那时很不满他把您带到这里。您还记得他跟您一起下了飞船。他的飞船一定还在这里，他也一定还在这里。'], //故事消息
-    [/^(.*)Z:105 You call a meeting with all of your Trimps to explain the situation. After giving an extremely long, epic, and motivational speech but hearing no reaction from the crowd, you remember that your Trimps cannot understand you. Will you ever learn\?$/, '$1区域：105 您把所有的脆皮召集起来开了个会解释目前的情况。在一通振奋人心的史诗级长篇大论后，脆皮们却仿佛对牛弹琴一般。然后您才想起来，脆皮们根本听不懂您的话。您是故意的吧？是吧？是吧？'], //故事消息
+    [/^(.*)Z:105 You call a meeting with all of your Trimps to explain the situation. After giving an extremely long, epic, and motivational speech but hearing no reaction from the crowd, you remember that your Trimps cannot understand you. Will you ever learn\?$/, '$1区域：105 您把所有的脆皮召集起来开了个会解释目前的情况。在一通振奋人心的史诗级长篇大论后，脆皮们却毫无反应，简直是对皮弹琴。然后您才想起来，脆皮们根本听不懂您的话。您是故意的吧？是吧？是吧？'], //故事消息
     [/^(.*)Z:106 How long have you been trapped on this planet\? Months\? Decades\? Travelling through time sure screws up your chronological perception.$/, '$1区域：106 您被困在这行星多久了？几个月了？还是几个世纪了？穿越时空真的让您对时间没啥概念了。'], //故事消息
     [/^(.*)Z:109 Though you have no idea which direction your home planet is, you still believe the ship's GPS could get you home. Maybe Druopitee has the keys. You really want to find him.$/, '$1区域：109 尽管您不知道家乡在何方，但您很肯定飞船上的导航系统一定能带您回家的。飞船的钥匙大概是在德罗披提那儿。您一定会找到他的。'], //故事消息
     [/^(.*)Z:115 You just remembered what a taco was. You could really use a taco right now.$/, '$1区域：115 您刚想起来塔可饼是什么东西。您真的想来一口。'], //故事消息
@@ -7519,7 +7518,7 @@ var cnRegReplace = new Map([
     [/^(.*)Z:137 One of your scientists has informed you that an outbreak of a new disease was detected in the laboratory. You go to check on your scientists, and it's quite obvious that they're faking it for attention. You sigh heavily.$/, '$1区域：137 您的一个科学家提醒您，实验室里爆发了疫病。您过去查看的时候，发现它们只是想获得存在感而已。您重重地叹了口气。'], //故事消息
     [/^(.*)Z:138 You spot another scientist running full speed towards you. He hurriedly informs you that they discovered a new dimension near Zone 35 that is occupied by gigantic Trimps. You sigh heavily.$/, '$1区域：138 您看到又一个科学家以全速冲刺过来。它急急忙忙地说，区域35附近的一个新维度被巨型脆皮占据了。您重重地叹了口气。'], //故事消息
     [/^(.*)Z:139 Another scientist is coming. You sigh heavily. He says something dumb. You decide to ignore the scientists for a little bit.$/, '$1区域：139 您又看到了一个科学家。您重重地叹了口气。它说了些蠢话，然后您决定暂时不理这些科学家了。'], //故事消息
-    [/^(.*)Z:140 It sure is calm and peaceful now. You watch a Falcimp turn a few circles in the sky. You wouldn't mind having wings, but overall you're pretty happy with your species.$/, '$1区域：140 世界终于清静了。您看着一只脆皮鹰在高空中盘旋。如果能有翅膀应该会不错，但您对自己生而为人这件事并不感到抱歉。'], //故事消息
+    [/^(.*)Z:140 It sure is calm and peaceful now. You watch a Falcimp turn a few circles in the sky. You wouldn't mind having wings, but overall you're pretty happy with your species.$/, '$1区域：140 世界终于清静了。您看着一只脆皮鹰在高空中盘旋。如果能获得翅膀大概也不错，但您对自己生而为人这件事并不感到抱歉。'], //故事消息
     [/^(.*)Z:143 There's a scientist jumping around trying to get your attention. There's nothing interesting in the sky so you pretend to be fascinated with a rock. The scientist can see you're busy and waits patiently.$/, '$1区域：143 又一个科学家在到处蹦蹦跳跳想引起您的注意。天上没什么值得注意的东西，所以您假装被一块石头吸引住了。那个科学家注意到您还在忙，于是在一旁耐心等候了。'], //故事消息
     [/^(.*)Z:145 Your Scientists are not making it easy to ignore them. You not-so-calmly ask what they want. One of them explains that they discovered a new dimension with lots of extra helium. You'll probably check it out, but you won't tell them that.$/, '$1区域：145 看起来科学家们没那么容易糊弄过去。您有点不耐烦地问它们有什么事。其中一个科学家表示，它们找到了一个富含氦的维度。您之后可能会去看看的，但您绝对不会告诉这些科学家。'], //故事消息
     [/^(.*)Z:150 Wow. These structures are getting expensive. There's probably a dimension for that...$/, '$1区域：150 哇哦。这些建筑真是越来越贵了。或许有个维度能解决这个问题……'], //故事消息
@@ -7532,7 +7531,7 @@ var cnRegReplace = new Map([
     [/^(.*)Z:165 What's this now\?! You found a little green piece of metal. Your scientists tell you that it came from a toxic dimension, but that it is also from a dimension rich in helium. They let you know that they can tune your portal to travel to the dimension it originated from, should you want to check it out.$/, '$1区域：165 您发现了一小片绿色金属。这又是什么？！科学家们告诉您，这是来自一个毒性维度的，那里也富含氦。它们表示只要您有这个需求的话，可以帮助调整传送门前往那个维度。'], //故事消息
     [/^(.*)Z:166 That last Improbability seemed like a nice guy.$/, '$1区域：166 最后的那个乌有者看起来还不算坏。'], //故事消息
     [/^(.*)Z:168 Hopefully spaceships don't rust.$/, '$1区域：168 希望飞船不会生锈。'], //故事消息
-    [/^(.*)Z:170 You reach the top of an incredibly large mountain. You can see at least 50 Zones sprawled out before you. About 30 Zones away, you can see a gigantic spire. It looks like architecture from your home world. You hope it's not a mirage...$/, '$1区域：170 您爬上了一座极高的山峰的顶部。您差不多可以看到前方的50个区域。差不多30个区域后，矗立着一座巨大的尖塔。看起来像是您家乡的设计风格。但愿这不是海市蜃楼……'], //故事消息
+    [/^(.*)Z:170 You reach the top of an incredibly large mountain. You can see at least 50 Zones sprawled out before you. About 30 Zones away, you can see a gigantic spire. It looks like architecture from your home world. You hope it's not a mirage...$/, '$1区域：170 您爬上了一座险峰的顶部。您差不多可以看到前方的50个区域。差不多30个区域后，矗立着一座巨大的尖塔。看起来像是您家乡的设计风格。但愿这不是海市蜃楼……'], //故事消息
     [/^(.*)Z:172 Something smells purple. That's probably not good.$/, '$1区域：172 有什么东西闻起来像是紫色的。恐怕不是什么好东西。'], //故事消息
     [/^(.*)Z:174 Strange smells continue to swell around you. Judging by changes in wind direction, the smells are coming from the spire. You still can't describe it other than purple.$/, '$1区域：174 身旁仍然是这种奇怪的气味。根据风向的改变来看，这气味来自于那座尖塔。除了紫色，您想不出其他词来形容它。'], //故事消息
     [/^(.*)Z:175 Your Trimps seem happy. They're not used to having a purpose, and having one seems to positively affect them! You call a Trimp over and ask him how he's doing, then you remember that he can't talk.$/, '$1区域：175 您的脆皮们看起来很高兴。它们很少因为某个目的而行动，这似乎对它们产生了正面的影响！您唤来一个脆皮，询问它的情况，然后您才想起来它不会说话。'], //故事消息
@@ -7559,7 +7558,7 @@ var cnRegReplace = new Map([
     [/^(.*)Z:236 As you climb over a rather large mountain and into the next Zone, you see that the green clouds have finally made it to the ground. Your worries about their toxicity seem to have been needless though, as your Trimps appear to greatly enjoy this rare treat. You watch in amazement as your Trimps begin to grow spines that drip with toxic sludge, and they immediately use their new powers to try to stick each other. You bet they're a bit stronger now.$/, '$1区域：236 您翻过一座大山，到达下个区域以后，发现那朵绿云最后来到了地面。您担心它们的毒性似乎没有什么用处，但脆皮们似乎很享受这种乐趣。您惊喜地发现，脆皮们开始长出了滴着毒液的尖刺，然后它们马上开始互相戳了起来。它们应该是变得更强了。'], //故事消息
     [/^(.*)Z:240 You and your Trimps have been really enjoying the benefits of what your Scientists call an "Empowerment of Nature". However, something up ahead seems to be absorbing all of the Poisonous clouds. Oh no! Your scientists think this will be your last zone with the Poison Empowerment, but they seem convinced that there will be another Empowerment to take its place!$/, '$1区域：240 您和您的脆皮们由于那些被称为 自然赋能 的东西已经获益匪浅。但是，前方似乎出现了什么东西正在吸收所有的毒云。真糟糕！科学家们认为这个区域是最后一个毒赋能的区域了，但它们更肯定的是会有另一个赋能取而代之出现的！'], //故事消息
     [/^(.*)Z:241 As you reach the new Zone, you happen to see a Bad Guy finish absorbing the last bit of Poison in the entire Zone, leaving no trace of your new ally, Nature. Before you get too upset about the thought of having to tackle the Magma alone again, Wind floods in to take Poison's place. The spikes on your Trimps stop dripping sludge and begin to spin like propellers, the sound resembling a gigantic swarm of beeimps. These controllable Trimp-generated gusts of wind should be helpful for knocking extra resources into your reach, but you'll still need to deal with that Bad Guy that sucked in all of the Poison...$/, '$1区域：241 到达新区域以后，您撞见一个敌人将整个区域的毒全部吸收掉了。您正有点沮丧要在没有赋能的前提下继续前进时，吹起了风。脆皮身上的尖刺停止了滴落毒液，而是像螺旋浆一样旋转了起来，听起来就像一群脆皮蜂一样。这些由脆皮制造的风应该可以使您获得更多的资源，但首先，您得先处理掉那个吸收了毒的敌人……'], //故事消息
-    [/^(.*)Z:243 The middle of these Windy Zones are the most beautiful you've seen yet. The Magma and Wind bring all sorts of nutrients and seeds here, leaving the area rich in plant biodiversity. For the first time since you arrived on this planet, you feel truly peaceful. Nature is repairing itself, and you've become one of its tools \(but like in a good way\).$/, '$1区域：243 风区域的景色是您所见过最美丽的。岩浆和风为大地带来了充足的养分，播撒下了许多种子，使这些区域充满了多种多样的植物。自从来到这个行星以后，您第一次真正地平和了下来。大自然开始了自我修复，而您成了它的工具人(并不是坏事，嗯)。'], //故事消息
+    [/^(.*)Z:243 The middle of these Windy Zones are the most beautiful you've seen yet. The Magma and Wind bring all sorts of nutrients and seeds here, leaving the area rich in plant biodiversity. For the first time since you arrived on this planet, you feel truly peaceful. Nature is repairing itself, and you've become one of its tools \(but like in a good way\).$/, '$1区域：243 风区域的景色是您所见过最美丽的。岩浆和风为大地带来了充足的养分，播撒下了许多种子，由于它们的作用，这些区域充满了多种多样的植物。自从来到这个行星以后，您第一次真正地平和了下来。大自然开始了自我修复，而您成了它的工具人(并不是坏事，嗯)。'], //故事消息
     [/^(.*)Z:244 Your Magmamancers have figured out how to make little fountains in the Magma around the base. You like the effect.$/, '$1区域：244 您的岩浆巫师们摸索出了利用基地周围的岩浆制作小喷泉的方法。是您喜欢的效果。'], //故事消息
     [/^(.*)Z:244 You remember Magmamancers as being pretty cool.$/, '$1区域：244 您记得岩浆巫师们很酷的。'], //故事消息
     [/^(.*)Z:245 Something in the next zone appears to be sucking up all of the Wind again. You've enjoyed all of the extra resources, but you're excited to see what Nature has next for you!$/, '$1区域：245 下个区域好像又有什么在吸收风了。您是挺喜欢这些额外资源的，但您也想看看，自然还为您准备了什么惊喜！'], //故事消息
@@ -7578,7 +7577,8 @@ var cnRegReplace = new Map([
     [/^(.*)Z:285 Something feels wrong, but you can't quite figure out what. You eventually find a pebble in your shoe and everything seems much better!$/, '$1区域：285 您总觉得心神不宁，但又说不出个所以然来。折腾了半天，您从鞋子里取出了一块鹅卵石，这样似乎就好多了！'], //故事消息
     [/^(.*)Z:286 You hear the voice again, and can tell there's definitely something weird about it - as if it was coming from a ghost or something. Though you suppose that makes sense, since you've already killed Druopitee.$/, '$1区域：286 您再次听到了那个声音，那个声音似乎有哪里不大对劲————那根本就不是活人的声音啊。不过考虑到您已经亲手将德罗披提干掉了，这似乎也没什么不对的样子。'], //故事消息
     [/^(.*)Z:286 You hear something rustling in a bush and get totally psyched up for something new and exciting. As you walk cautiously towards the bush, a Rabbimp quickly runs out and away.$/, '$1区域：286 灌木丛中传出了沙沙的声音，您想着，或许能发现什么有趣的东西，于是谨慎地向它走去。快要到达的时候，一只脆皮兔从中跳了出来，飞快地逃走了。'], //故事消息
-
+    [/^(.*)Z:290 As you get closer and closer to the spire, the voice gets clearer and clearer. You can pick up notes of terror from whatever being is up there, as if he wants to just be left alone to destroy the world. You don't feel much sympathy though.$/, '$1区域：290 随着您离尖塔越来越近，声音也越来清晰了。那位仁兄似乎正在发出非常可怕的声音，就好像他想要一个人把世界毁灭了。那又如何呢，他的遭遇根本不值得同情。'], //故事消息
+    [/^(.*)Z:290 You trip over a rock and stumble a bit, but fix your footing before totally falling over. You glance around and it doesn't seem like any of the Trimps noticed!$/, '$1区域：290 您被一块石头拌了一下，幸好在完全失去平衡之前稳住了。您环顾四周，很好，没有任何脆皮注意到这边。'], //故事消息
 
 
 
@@ -7754,9 +7754,9 @@ var cnRegReplace = new Map([
     [/^Found (.*) Token(s*) of Poison!$/, '发现了$1毒符记！'], //其他消息等
     [/^Found (.*) Token(s*) of Wind!$/, '发现了$1风符记！'], //其他消息等
     [/^Found (.*) Token(s*) of Ice!$/, '发现了$1冰符记！'], //其他消息等
-    [/^(.*)The Magma has solidified into impenetrable Obsidian; your Trimps have no hope of progressing here right now. Fluffy has an idea for remelting the world, but it will take a tremendous amount of energy from a place Fluffy isn't yet powerful enough to send you. Fluffy asks you to help him reach the$/, '$1岩浆凝固成了无法穿越的黑曜石，您的脆皮目前没有通过的可能。绒绒想到了一个法子，但是需要极其大量的能量，而绒绒目前还没法送您到可以获取那样能量的地方。所以绒绒请您将它升级到'], //其他消息等
-    [/^(.*)The Magma has solidified into impenetrable Obsidian; your Trimps have no hope of progressing here right now. However, all is not lost! Every 50 Zones of progress you make in the Radon Universe will allow you to harness enough energy for Fluffy to slow down the hardening of your World for an extra 10 Zones in this Universe.$/, '$1岩浆凝固成了无法穿越的黑曜石，您的脆皮目前没有通过的可能。不过，这并不代表着您就束手无策了！每在氡之宇宙中通过50个区域，您就可以获取到足够的能量，使绒绒可以延缓当前宇宙10个区域变成黑曜石。'], //其他消息等
-    [/^(.*)The Magma has solidified into impenetrable Obsidian; your Trimps have no hope of progressing here right now. However, all is not lost! Every 10 Zones of progress you make in the Radon Universe will allow you to harness enough energy for Fluffy to slow down the hardening of your World for an extra 10 Zones in this Universe.$/, '$1岩浆凝固成了无法穿越的黑曜石，您的脆皮目前没有通过的可能。不过，这并不代表着您就束手无策了！每在氡之宇宙中通过10个区域，您就可以获取到足够的能量，使绒绒可以延缓当前宇宙10个区域变成黑曜石。'], //其他消息等
+    [/^(.*)The Magma has solidified into impenetrable Obsidian; your Trimps have no hope of progressing here right now. Fluffy has an idea for remelting the world, but it will take a tremendous amount of energy from a place Fluffy isn't yet powerful enough to send you. Fluffy asks you to help him reach the$/, '$1岩浆凝固成了无法穿越的黑曜石，您的脆皮目前是无法通过的。绒绒想到了一个法子，但是需要极其大量的能量，而绒绒目前还没法送您到可以获取那样能量的地方。所以绒绒请您将它升级到'], //其他消息等
+    [/^(.*)The Magma has solidified into impenetrable Obsidian; your Trimps have no hope of progressing here right now. However, all is not lost! Every 50 Zones of progress you make in the Radon Universe will allow you to harness enough energy for Fluffy to slow down the hardening of your World for an extra 10 Zones in this Universe.$/, '$1岩浆凝固成了无法穿越的黑曜石，您的脆皮目前是无法通过的。不过，这并不代表着您就束手无策了！每在氡之宇宙中通过50个区域，您就可以获取到足够的能量，使绒绒可以延缓当前宇宙10个区域变成黑曜石。'], //其他消息等
+    [/^(.*)The Magma has solidified into impenetrable Obsidian; your Trimps have no hope of progressing here right now. However, all is not lost! Every 10 Zones of progress you make in the Radon Universe will allow you to harness enough energy for Fluffy to slow down the hardening of your World for an extra 10 Zones in this Universe.$/, '$1岩浆凝固成了无法穿越的黑曜石，您的脆皮目前是无法通过的。不过，这并不代表着您就束手无策了！每在氡之宇宙中通过10个区域，您就可以获取到足够的能量，使绒绒可以延缓当前宇宙10个区域变成黑曜石。'], //其他消息等
     [/^(.*)Recycled Bionic Wonderland(.*).$/, '$1回收了仿生仙境$2地图。'], //其他消息等
     [/^(.*)You're not yet ready. Maybe you'll be of use in the next lifetime.$/, '$1您只是在自寻死路。或许下一世您能准备好了。'], //其他消息等
     [/^(.*) group(s*) of Trimps ha(s|ve) perished in the Spire.$/, '$1队脆皮们倒在了尖塔中。'], //其他消息等
@@ -7801,7 +7801,7 @@ var cnRegReplace = new Map([
     [/^Portal (.*): Downsize$/, '传送门$1：精简'], //脚本3图表
     [/^Portal (.*): Transmute$/, '传送门$1：变形'], //脚本3图表
     [/^Portal (.*): Unbalance$/, '传送门$1：不平衡'], //脚本3图表
-    [/^Portal (.*): Bublé$/, '传送门$1：布累'], //脚本3图表
+    [/^Portal (.*): Bublé$/, '传送门$1：泡影'], //脚本3图表
     [/^Portal (.*): Duel$/, '传送门$1：决斗'], //脚本3图表
     [/^Portal (.*): Melt$/, '传送门$1：熔化'], //脚本3图表
     [/^Portal (.*): Trappapalooza$/, '传送门$1：捕手道达人'], //脚本3图表
