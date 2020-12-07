@@ -171,6 +171,7 @@ var cnItems = {
     'That Turkimp was delicious, and you have leftovers. If you set yourself to gather Food, Wood, or Metal while this buff is active, you can share with your workers to increase their gather speed by': '脆皮火鸡着实量大又美味，尽管您胃口很好，还是吃不完。不过您也有办法，在此加成生效期间，如果您进行采集食物，砍伐木头或者采矿金属，则可以将剩下的脆皮火鸡与工人们分享，使它们相应资源的获取速度增加',
     'Fluffy': '绒绒',
     'Scruffy': '污污',
+    'Cruffys': '朽朽',
     'Story': '故事',
     'Loot': '劫掠',
     'Unlocks': '解锁',
@@ -689,6 +690,8 @@ var cnItems = {
     'Once 10 Antennas have been built, your Soldiers can use the data to always properly dress for the weather, granting 50% of the Meteorologist\'s bonus percentage to Soldier Health.': '当建造了10个气象天线以后，士兵们可以根据气象数据来合理选择护甲，使气象学家加成的一半也对士兵生命值生效。',
     'Once 15 Antennas have been built, the network will be strong enough to locate rich mineral deposits all over the planet, granting 50% of the Meteorologist\'s bonus percentage to Mining income!': '当建造了15个气象天线以后，气象网络将强化到可以用于定位矿脉，使气象学家加成的一半也对金属产量生效！',
     'Once 20 Antennas have been built, the network becomes so strong that all non-Radon Meteorologist bonuses are increased to 75% of the Meteorologist\'s bonus! For each 5 Antennas built after 20, the Meteorologists\' non-Radon bonuses are increased by another 25%.': '当建造了20个气象天线以后，气象网络将更加强化，使之前所有非氡的加成从气象学家加成的一半变为气象学家加成的75%！且在20个气象天线后，每建造5个气象天线，该加成数值再增加25%(25个气象天线将使加成数值变为100%)。',
+    'Laboratory': '实验室',
+    'Build a giant Laboratory that Cruffys can use for research. Each Laboratory constructed increases Cruffys\' Exp gain by 10% (compounding), but will pollute the world with toxic waste and research chemicals, increasing all Enemy attack and health by 3.5% (compounding).': '建造一个巨型实验室以供朽朽进行研究。每个实验室可以使朽朽经验值获取量增加10%(效果叠乘)，但是同时，也会向大气排放有害物质，从而使所有敌人的攻击力和生命值增加3.5%(效果叠乘)。',
     //建筑相关结束
     //工作相关
     'Farmer': '农民',
@@ -1157,6 +1160,8 @@ var cnItems = {
     'Best Scruffy Exp/Hr this Run': '自上次传送后最高污污经验/小时',
     'Best Fluffy Exp/Hr': '最高绒绒经验/小时',
     'Best Scruffy Exp/Hr': '最高污污经验/小时',
+    'Fluffy Pats': '绒绒拍头次数',
+    'Scruffy Pats': '污污拍头次数',
     'Total Portals Used': '传送门使用次数',
     'Total Radon Portals': '宇宙2传送门使用次数',
     'Planets Broken': '行星破碎数',
@@ -2423,6 +2428,7 @@ var cnItems = {
     'Insanity Challenge': '失智挑战',
     'Berserk Challenge': '狂战挑战',
     'Exterminate Challenge': '灭虫挑战',
+    'Nurture Challenge': '培养挑战',
     'Are you sure you want to enter the portal? You will lose all progress other than the portal-compatible upgrades you\'ve earned, such as Helium, Perks, Bones, and Exotic Imports. Who knows where or when it will send you.': '您确定要进入传送门吗？传送后您只能保留兼容传送门的升级，例如氦，特权，骨头和奇异外皮之类的。天知道它会把您送到何时何地去。',
     'You still have the Daily challenge active! If you portal right now, your reward will be applied at the beginning of your next run. Alternatively, click \'Finish Daily\' in the World or inside \'View Perks\' to get the bonus now.': '您正在进行日常挑战！如果您现在使用传送门，那么传送后才能获得奖励。相反，如果在世界上或者“查看特权”选项卡中点击“完成日常”，那么可以立刻获得奖励。',
     'Spend Magmite': '分配岩浆岩',
@@ -2681,14 +2687,14 @@ var cnItems = {
     'without failing will complete this Challenge - granting an additional 300% of all Radon earned up to that point. Failing this Challenge will grant an additional 100% of all Radon earned up to the spot where you failed.': '后可以完成此挑战并额外获得氡，数值等于本次挑战完成前氡获取量的300%。挑战失败的话，可额外获得氡，数值等于本次挑战失败前氡获取量的100%。',
     'You have the Bublé challenge active. Tweak the portal to bring you to an alternate reality where Trimps really really don\'t like taking damage. Your Trimps start in this reality with an extra 250% Prismatic Shield, but as soon as they take any damage to health at all, they will refuse to fight again and the challenge will end. Clearing': '您目前正在进行泡影挑战。调节传送门，将您带到一个脆皮真的真的不喜欢受伤的异世界。脆皮初始拥有250%的额外棱镜护盾，但只要它们的生命值减少了，它们就将拒绝继续战斗，挑战也将以失败告终。在未失败过的前提下通过 ',
     'Duel': '决斗',
-    'It\'s your Trimps vs the Bad Guys! Both teams start with 50 points, and both teams\' Crit Chance is locked to the amount of points the OTHER team has. Getting a Critical Strike steals 1 point from the other team, winning a battle steals 2 points, and winning a battle in one hit steals 5 points. Any team below 20 points gains 10x health, any team below 10 points always attacks first, and any team above 50 points gains 3x damage. Clearing': '这是脆皮与敌人之间的对决！双方分别以50点决斗点数开始，双方的暴击概率最高为对面的决斗点数。受到暴击的一方从另一方获得1点决斗点数，赢得战斗的一方从另一方获得2点决斗点数，一击赢得战斗的一方从另一方获得5点决斗点数。决斗点数小于20的一方获得10倍生命值，决斗点数小于10的一方永远抢先攻击，而决斗点数大于50的一方造成3倍伤害。通过 ',
-    'It\'s your Trimps vs the Bad Guys! Both teams start with 50 points, and both teams\' Crit Chance is locked to the amount of points the OTHER team has. Getting a Critical Strike steals 1 point from the other team, winning a battle steals 2 points, and winning a battle in one hit steals 5 points. Any team below 20 points gains 10x health, Enemies attack first when less than 10 points (': '这是脆皮与敌人之间的对决！双方分别以50点决斗点数开始，双方的暴击概率最高为对面的决斗点数。受到暴击的一方从另一方获得1点决斗点数，赢得战斗的一方从另一方获得2点决斗点数，一击赢得战斗的一方从另一方获得5点决斗点数。决斗点数小于20的一方获得10倍生命值，当敌人决斗点数低于10的时候，它们永远抢先攻击 (',
+    'It\'s your Trimps vs the Bad Guys! Both teams start with 50 points, and both teams\' Crit Chance is locked to the amount of points the OTHER team has. Getting a Critical Strike steals 1 point from the other team, winning a battle steals 2 points, and winning a battle in one hit steals 5 points. Any team below 20 points gains 10x health, any team below 10 points always attacks first, and any team above 50 points gains 3x damage. Clearing': '这是脆皮与敌人之间的对决！双方分别以50点决斗点数开始，双方的暴击率最高为对面的决斗点数。受到暴击的一方从另一方获得1点决斗点数，赢得战斗的一方从另一方获得2点决斗点数，一击赢得战斗的一方从另一方获得5点决斗点数。决斗点数小于20的一方获得10倍生命值，决斗点数小于10的一方永远抢先攻击，而决斗点数大于50的一方造成3倍伤害。通过 ',
+    'It\'s your Trimps vs the Bad Guys! Both teams start with 50 points, and both teams\' Crit Chance is locked to the amount of points the OTHER team has. Getting a Critical Strike steals 1 point from the other team, winning a battle steals 2 points, and winning a battle in one hit steals 5 points. Any team below 20 points gains 10x health, Enemies attack first when less than 10 points (': '这是脆皮与敌人之间的对决！双方分别以50点决斗点数开始，双方的暴击率最高为对面的决斗点数。受到暴击的一方从另一方获得1点决斗点数，赢得战斗的一方从另一方获得2点决斗点数，一击赢得战斗的一方从另一方获得5点决斗点数。决斗点数小于20的一方获得10倍生命值，当敌人决斗点数低于10的时候，它们永远抢先攻击 (',
     'Duel Points': '决斗点数',
     'Trimps cannot become Fast on this Challenge in Challenge': '脆皮无法抢先攻击，因为它们在挑战',
     'mode!': '模式！',
     '), and any team above 50 points gains 3x damage.': ')，而决斗点数大于50的一方造成3倍伤害。',
-    'You have the Duel challenge active. It\'s your Trimps vs the Bad Guys! Both teams start with 50 points, and both teams\' Crit Chance is locked to the amount of points the OTHER team has. Getting a Critical Strike steals 1 point from the other team, winning a battle steals 2 points, and winning a battle in one hit steals 5 points. Any team below 20 points gains 10x health, any team below 10 points always attacks first, and any team above 50 points gains 3x damage. Clearing': '您目前正在进行决斗挑战。这是脆皮与敌人之间的对决！双方分别以50点决斗点数开始，双方的暴击概率最高为对面的决斗点数。受到暴击的一方从另一方获得1点决斗点数，赢得战斗的一方从另一方获得2点决斗点数，一击赢得战斗的一方从另一方获得5点决斗点数。决斗点数小于20的一方获得10倍生命值，决斗点数小于10的一方永远抢先攻击，而决斗点数大于50的一方造成3倍伤害。通过 ',
-    'You have the Duel challenge active. "It\'s your Trimps vs the Bad Guys! Both teams start with 50 points, and both teams\' Crit Chance is locked to the amount of points the OTHER team has. Getting a Critical Strike steals 1 point from the other team, winning a battle steals 2 points, and winning a battle in one hit steals 5 points. Any team below 20 points gains 10x health, Enemies attack first when less than 10 points (': '您目前正在进行决斗挑战。这是脆皮与敌人之间的对决！双方分别以50点决斗点数开始，双方的暴击概率最高为对面的决斗点数。受到暴击的一方从另一方获得1点决斗点数，赢得战斗的一方从另一方获得2点决斗点数，一击赢得战斗的一方从另一方获得5点决斗点数。决斗点数小于20的一方获得10倍生命值，当敌人决斗点数低于10的时候，它们永远抢先攻击 (',
+    'You have the Duel challenge active. It\'s your Trimps vs the Bad Guys! Both teams start with 50 points, and both teams\' Crit Chance is locked to the amount of points the OTHER team has. Getting a Critical Strike steals 1 point from the other team, winning a battle steals 2 points, and winning a battle in one hit steals 5 points. Any team below 20 points gains 10x health, any team below 10 points always attacks first, and any team above 50 points gains 3x damage. Clearing': '您目前正在进行决斗挑战。这是脆皮与敌人之间的对决！双方分别以50点决斗点数开始，双方的暴击率最高为对面的决斗点数。受到暴击的一方从另一方获得1点决斗点数，赢得战斗的一方从另一方获得2点决斗点数，一击赢得战斗的一方从另一方获得5点决斗点数。决斗点数小于20的一方获得10倍生命值，决斗点数小于10的一方永远抢先攻击，而决斗点数大于50的一方造成3倍伤害。通过 ',
+    'You have the Duel challenge active. "It\'s your Trimps vs the Bad Guys! Both teams start with 50 points, and both teams\' Crit Chance is locked to the amount of points the OTHER team has. Getting a Critical Strike steals 1 point from the other team, winning a battle steals 2 points, and winning a battle in one hit steals 5 points. Any team below 20 points gains 10x health, Enemies attack first when less than 10 points (': '您目前正在进行决斗挑战。这是脆皮与敌人之间的对决！双方分别以50点决斗点数开始，双方的暴击率最高为对面的决斗点数。受到暴击的一方从另一方获得1点决斗点数，赢得战斗的一方从另一方获得2点决斗点数，一击赢得战斗的一方从另一方获得5点决斗点数。决斗点数小于20的一方获得10倍生命值，当敌人决斗点数低于10的时候，它们永远抢先攻击 (',
     '), and any team above 50 points gains 3x damage."': ')，而决斗点数大于50的一方造成3倍伤害。',
     'Melt': '熔化',
     'Tweak the portal to bring you to an alternate reality, where there\'s plenty of risk and Radon. You will gain 10x loot (excluding Radon), 10x gathering, and 5x Trimp attack, but a stack of Melt will accumulate every second. Each stack of Melt reduces loot, gathering, and Trimp attack by 1% of the current amount. These stacks reset each time a Zone is cleared and cap at 500. Clearing': '调节传送门，将您带到一个充满危机，也充满氡的异世界中。您的战利品获取量变为10倍(氡除外)，资源获取速度变为10倍，且脆皮的攻击力变为5倍，但每秒都会增加一层“熔化”。每层熔化将战利品获取量、资源获取速度和脆皮攻击力减少当前数量的1%。当通过每个区域时层数重置，层数最高为500。通过 ',
@@ -2794,6 +2800,12 @@ var cnItems = {
     'Experienced': '经验丰富',
     'This group of Trimps has killed a bug and knows their weakness, allowing them to attack first.': '这队脆皮击杀过虫子，了解它们的弱点，所以可以抢先攻击。',
     'The Swarm Grows': '虫群成长壮大',
+    'Nurture': '培养',
+    'Travel to a dimension filled with gigantic monsters. All enemies have 2x attack, World enemies have 2x health and map enemies have 10x health. Luckily, Scruffy has a brother in this dimension who will help you out if you level him up! You\'ll gain access to the special Laboratory building while on this challenge, which will give bonus Exp to Scruffy\'s brother, Cruffys. Check the Scruffy and Laboratory tooltips while on this Challenge for more info. Clearing': '前往一个充满了巨型怪物的维度。所有敌人获得2倍攻击力，世界上的敌人生命值变为2倍，地图中的敌人生命值变为10倍。但幸运的是，污污在此维度中有一个兄弟，如果善加培养，它就能帮到大忙了！此挑战中您可以建造特殊的实验室建筑，可为污污的兄弟，朽朽提供额外的经验值。在此挑战中查看污污或实验室的提示框可以获取更详细的信息。在此挑战激活的前提下通过 ',
+    'with this Challenge active will grant an additional 400% of all Radon earned up until that point, and will (mostly) return the world to normal.': '后，可额外获得氡，数值等于本次挑战完成前氡获取量的400%，然后世界将(基本上)回归正常。',
+    'Complete this Challenge with Cruffys at Level 10 or higher to earn a new Perk!': '在朽朽达到10级的前提下完成此挑战将获得一个新的特权！',
+    'You have the Nurture challenge active. Travel to a dimension filled with gigantic monsters. All enemies have 2x attack, World enemies have 2x health and map enemies have 10x health. Luckily, Scruffy has a brother in this dimension who will help you out if you level him up! You\'ll gain access to the special Laboratory building while on this challenge, which will give bonus Exp to Scruffy\'s brother, Cruffys. Check the Scruffy and Laboratory tooltips while on this Challenge for more info. Clearing': '您目前正在进行培养挑战。前往一个充满了巨型怪物的维度。所有敌人获得2倍攻击力，世界上的敌人生命值变为2倍，地图中的敌人生命值变为10倍。但幸运的是，污污在此维度中有一个兄弟，如果善加培养，它就能帮到大忙了！此挑战中您可以建造特殊的实验室建筑，可为污污的兄弟，朽朽提供额外的经验值。在此挑战中查看污污或实验室的提示框可以获取更详细的信息。在此挑战激活的前提下通过 ',
+    'You will unlock this challenge once you  reach Zone 130 and wait a few more days!': '欲解锁此挑战，您需要到达区域130，并等待一阵子！',
     //挑战相关结束
     //特权相关
     'Apply your skills at salvaging things from the Spire to increase all loot gained by 0.25% per level. The price for this perk increases additively, and each level will cost exactly 10000 more than the previous level.': '将您搜刮尖塔的本事用在劫掠上，每级提升0.25%劫掠效果。此特权的价格线性增加，每级都比上一级贵10000。',
@@ -2879,6 +2891,11 @@ var cnItems = {
     'Your Trimps are no longer frenzied!': '您的脆皮不再有战狂状态了！',
     'Your Trimps have died under this Frenzy buff and will be unable to recharge it.': '最初触发战狂的脆皮们已经阵亡了，战狂状态持续时间无法再刷新了。',
     'Your Trimps are able to refresh this Frenzy buff!': '脆皮们可以刷新战狂状态的持续时间！',
+    'Observation': '洞察',
+    'You will have a': '您将有',
+    'chance to find a Runetrinket at Z100.': '概率在区域100找到一个小符饰。',
+    'You have a': '您有',
+    'chance to find a Runetrinket at the end of this Zone.': '概率在通过这个区域后找到一个小符饰。',
     //特权相关结束
     //专精相关
     'Portal Generator': '传送门发生器',
@@ -3377,6 +3394,9 @@ var cnItems = {
     'Convert Ice to Wind': '将冰符记转换为风符记',
     //自然赋能相关结束
     //绒绒污污相关
+    'IT\'S CRUFFYS': '这边是朽朽哟',
+    'Show Scruffy Info': '显示污污的信息',
+    'Show Cruffys Info': '显示朽朽的信息',
     'Evolution': '进化次数',
     'Fluffy cannot gain any Experience from Zones lower than': '绒绒无法获得经验值，因为当前区域低于',
     'Fluffy needs  at least one point of Capable to gain any Exp': '绒绒至少需要1级能力特权才可以获得经验值',
@@ -3421,6 +3441,7 @@ var cnItems = {
     'Scruffy\'s Exp gain at the end of each Zone is equal to': '污污通过每个区域时获得的经验值等于',
     'dailyHeliumModifier': '日常氦倍率',
     'dailyRadonModifier': '日常氡倍率',
+    'Labs': '实验室',
     'You are about to abort Fluffy\'s Evolution. This will return you to level 10 on your last Evolution, but you will permanently lose all Experience earned towards the current Evolution. Are you sure you want to abort?': '您将取消绒绒的进化。取消后，绒绒将回到上一次进化的等级10，但您将失去本次进化获得的所有经验值，您确定要这么做吗？',
     'You are about to abort Scruffy\'s Evolution. This will return you to level 10 on your last Evolution, but you will permanently lose all Experience earned towards the current Evolution. Are you sure you want to abort?': '您将取消污污的进化。取消后，污污将回到上一次进化的等级10，但您将失去本次进化获得的所有经验值，您确定要这么做吗？',
     'Abort Evolution': '取消进化',
@@ -3457,7 +3478,19 @@ var cnItems = {
     'Start each zone with 15% of last zone\'s Tenacity time already applied.': '进入每个区域时，使上个区域花费时间的15%计入本区域坚持特权的时间。',
     'Reduces the compounding cost increase of all Smithy materials by 20% (from x50 per Smithy purchased to x40).': '使铁匠铺花费的材料增加速度减少20%(从每个铁匠铺成本乘以50变为乘以40)。',
     'Allows you to spend an additional 10% of your total earned Nullifium on all of your Heirlooms.': '每个传家宝的可使用虚空物质上限再额外增加10%。',
+    'Provides no bonus other than damage. Will some day evolve into a more powerful boost!': '暂时只提供伤害加成。今后可能会变为更强大的加成！',
+    'Multiplies Radon earned by 1.5.': '氡获取量变为1.5倍。',
+    'Multiplies Radon earned by 2, and grants 5% increased health and attack to your Trimps.': '氡获取量变为2倍，您的脆皮们增加5%生命值和攻击力。',
+    'Multiplies Radon earned by 2.5, and increases all looted or gathered resources by 15%.': '氡获取量变为2.5倍，所有资源的获取量增加15%。',
+    'Multiplies Radon earned by 3, and grants 20% Void Map Drop Chance.': '氡获取量变为3倍，虚空地图掉落概率增加20%。',
+    'Grants 35% Crit Chance and adds 50% to base Crit Damage.': '暴击率增加35%，基础暴击伤害增加50%。',
+    'Multiplies Radon earned by 1.75, and increases Cruffys\' Trimp health and attack bonuses by 10%.': '氡获取量变为1.75倍，朽朽提供的生命值和攻击力加成增加10%。',
+    'Multiplies Radon earned by 2, and adds 25% to the Level 3 Resource bonus.': '氡获取量变为2倍，使朽朽3级的资源获取量的加成再增加25%。',
+    'Multiplies Radon earned by 1.1, and Cruffys will stick around for 5 Zones after Nurture ends, granting all non-Radon bonuses.': '氡获取量变为1.1倍，朽朽在培养挑战结束后还会继续存在5个区域，提供所有非氡的加成。',
+    'Multiplies Radon earned by 1.1, and increases Cruffys\' Trimp attack, health, and resource bonuses by an additional 20%. Cruffys will stay in your Universe for 5 additional Zones after Nurture ends.': '氡获取量变为1.1倍，朽朽提供的生命值，攻击力和资源获取量加成再增加20%。朽朽在培养挑战结束后还会再多存在5个区域。',
+    'Multiplies Radon earned by 1.03, and increases Cruffys\' Trimp attack, health, and resource bonuses by an additional 10%. Cruffys will stay in your Universe for 1 additional Zone after Nurture ends. This is repeatable up to 5 times to a max level of 14.': '氡获取量变为1.03倍，朽朽提供的生命值，攻击力和资源获取量加成再增加10%。朽朽在培养挑战结束后还会再多存在1个区域。此项加成对应朽朽10级到朽朽14级。',
     'Click for more detailed info': '点击以获取更详细的信息',
+    'Pat': '拍头',
     //绒绒污污相关结束
     //故事相关
     'are': '什么',
@@ -5755,6 +5788,7 @@ var cnRegReplace = new Map([
     [/^A building where your Trimps can work out. Each Gym increases the amount of damage each trimp can block by (.*) and increases the base block of all Gyms by (.*)% \(compounding\).$/, '脆皮们解决问题的一个地方。每个健身房增加每个脆皮可以格挡的伤害量，数值为$1，并且使所有健身房的基础格档数值增加$2%(相互叠乘)。'], //建筑
     [/^A building where your Trimps can work out. Each Gym increases the amount of damage each trimp can block by (.*).$/, '脆皮们解决问题的一个地方。每个健身房增加每个脆皮可以格挡的伤害量，数值为$1。'], //建筑
     [/^You have purchased (.*) total Nurseries.$/, '您总共建造了$1个托儿所。'], //建筑
+    [/^Currently increasing Cruffys' Exp by (.+)% and Enemy attack and health by (.+)%.$/, '目前使朽朽的经验值获取量增加$1%，敌人的攻击力和生命值增加$2%。'], //建筑
     [/^Train one of your Trimps in the ancient art of farming. Each Farmer harvests (.*) food per second.$/, '使用古老的耕作艺术训练一个脆皮。每个农民每秒收获$1食物。'], //工作
     [/^Show a Trimp how to cut one of those weird trees down. Each Lumberjack hauls back (.*) logs per second.$/, '向一个脆皮展示如何砍伐那些怪树。每个伐木工每秒拉回$1木头。'], //工作
     [/^Send your misbehaving Trimps to the mines for some therapeutic work. Each Miner can find and smelt (.*) bars of metal per second.$/, '把品行不端的脆皮丢到矿井里干点“放松”的活。每个矿工每秒收获$1金属。'], //工作
@@ -7012,8 +7046,8 @@ var cnRegReplace = new Map([
     [/^Enemy attack in maps increased by (.*)%.$/, '地图中的敌人攻击力增加$1%。'], //日常挑战消息
     [/^Enemy health in maps increased by (.*)%.$/, '地图中的敌人生命值增加$1%。'], //日常挑战消息
     [/^Enemies have a 25% chance to crit for (.*)% of normal damage.$/, '敌人有25%的概率额外造成$1%的伤害。'], //日常挑战消息
-    [/^Your Trimps have \+(.*)% Crit Chance.$/, '您的脆皮暴击概率增加$1%。'], //日常挑战消息
-    [/^Your Trimps have -(.*)% Crit Chance.$/, '您的脆皮暴击概率减少$1%。'], //日常挑战消息
+    [/^Your Trimps have \+(.*)% Crit Chance.$/, '您的脆皮暴击率增加$1%。'], //日常挑战消息
+    [/^Your Trimps have -(.*)% Crit Chance.$/, '您的脆皮暴击率减少$1%。'], //日常挑战消息
     [/^Your Trimps lose (.*)% of their max health after each attack.$/, '[泥沼]您的脆皮在每次攻击后失去生命值上限$1%的生命值。'], //日常挑战消息
     [/^Your Trimps breed (.*)% slower$/, '脆皮繁殖速度减少$1%'], //日常挑战消息
     [/^Trimps have (.*)% less attack on odd numbered Zones$/, '脆皮在奇数区域攻击力减少$1%'], //日常挑战消息
@@ -7082,8 +7116,8 @@ var cnRegReplace = new Map([
     [/^The Bad Guys have (\d+) Duel Points. The Bad Guys always attack first and have 10x health for being below 10 points.$/, '敌人有$1点决斗点数。因为敌人决斗点数小于10，它们获得了抢先攻击的效果和10倍生命值。'], //决斗挑战等
     [/^Your Trimps have (\d+) Duel Points. Your Trimps have 10x health for being below 20 points.$/, '脆皮有$1点决斗点数。因为脆皮决斗点数小于20，它们获得了10倍生命值。'], //决斗挑战等
     [/^The Bad Guys have (\d+) Duel Points. The Bad Guys have 10x health for being below 20 points.$/, '敌人有$1点决斗点数。因为敌人决斗点数小于20，它们获得了10倍生命值。'], //决斗挑战等
-    [/^Your Trimps have (\d+)% Crit Chance based on enemy stacks.$/, '根据敌人的决斗点数，脆皮获得$1点暴击概率。'], //决斗挑战等
-    [/^The Bad Guys have (\d+)% Crit Chance based on your stacks.$/, '根据脆皮的决斗点数，敌人获得$1点暴击概率。'], //决斗挑战等
+    [/^Your Trimps have (\d+)% Crit Chance based on enemy stacks.$/, '根据敌人的决斗点数，脆皮获得$1点暴击率。'], //决斗挑战等
+    [/^The Bad Guys have (\d+)% Crit Chance based on your stacks.$/, '根据脆皮的决斗点数，敌人获得$1点暴击率。'], //决斗挑战等
     [/^(.*)You have completed the Duel challenge! You have unlocked the Criticality Perk!$/, '$1您完成了决斗挑战！您解锁了 暴击限界 特权！'], //决斗挑战完成消息
     [/^(.*)You have completed the Melt challenge! You have been rewarded with (.*) Radon, and you may repeat the challenge.$/, '$1您完成了熔化挑战！您获取了$2氡，现在您又可以重新挑战了。'], //熔化挑战完成消息
     [/^(.*)You have completed the 'Trappapalooza' challenge! Your Trimps now remember how to breed, and you have unlocked a new perk!$/, '$1您完成了捕手道达人挑战！您的脆皮想起来如何繁殖了，而且您解锁了一个新的特权！'], //捕手道达人挑战完成消息
@@ -7159,6 +7193,8 @@ var cnRegReplace = new Map([
     [/^All World enemies in this dimension have grown while you were in maps, granting +(.*)% attack and health.$/, '此维度中，世界上的所有敌人在您之前进入地图时成长壮大了，获得了$1%的攻击力和生命值。'], //灭虫挑战等
     [/^All World enemies in this dimension are growing while you are in maps, granting +(.*)% attack and health.$/, '此维度中，世界上的所有敌人在您进入地图时成长壮大了，获得了$1%的攻击力和生命值。'], //灭虫挑战等
     [/^(.*)You have completed the Exterminate Challenge! You have unlocked the Hub, a revolutionary new way to store your extra Trimps!$/, '$1您完成了灭虫挑战！您解锁了中心枢纽，一种容纳脆皮的新建筑！'], //灭虫挑战完成消息
+    [/^(.*)You have completed the Nurture challenge! You have gained an extra (.+) Radon, and your world has been returned to normal.$/, '$1您完成了培养挑战！您额外获取了$2氡，世界恢复了正常。'], //培养挑战完成消息
+    [/^(.*)You have also unlocked the Observation Perk!$/, '$1您同时还解锁了洞察特权！'], //培养挑战完成消息
     [/^Maximum of (.*) levels.$/, '最高$1级。'], //特权等
     [/^Looting(\s+)II$/, '劫掠 II'], //特权等
     [/^Carpentry(\s+)II$/, '木工 II'], //特权等
@@ -7169,6 +7205,8 @@ var cnRegReplace = new Map([
     [/^Use your experiences in understanding the attention span of Trimps to increase the damage dealt by all soldiers based on how long it took to get an army together. Increases damage by 2% per level per second up to (\d+) seconds.$/, '脆皮的注意力持续时间您已了如指掌，所以您可以利用它增加脆皮的攻击力。军队每需要1秒进行繁殖，每级预期特权就可以使脆皮增加2%攻击力。预期特权的效果上限为$1秒。'], //特权等
     [/^Your Trimps are frenzied for (.*) second(s*)! They are dealing (.*)% more damage.$/, '您的脆皮们的战狂状态持续时间还有$1秒！它们可以额外造成$3%伤害。'], //特权等
     [/^The Trimps that earned this Frenzy buff are still alive, and they will be able to refresh its duration starting in (.*) second(s*).$/, '最初触发战狂的脆皮们仍然还幸存着，再过$1秒，它们就可以刷新战狂状态持续时间了。'], //特权等
+    [/^Grants your Trimps the ability to locate small Runetrinkets around the World. For each level of this perk, your Trimps will gain a chance per Zone cleared above Z100 to find a Runetrinket. Each Runetrinket increases your Trimps' attack, health, and gathered primary resources by 1% \(additive\) per perk level. You can store a maximum of (.+) Runetrinkets per perk level, reducing levels in this perk will deactivate any trinkets above cap but not lose them. Runetrinkets persist through Portal and never reset. The chance to find a Runetrinket increases by about 50% per level of this Perk, and scales as the Zone number increases \(up to Z200\). You'll also find 1 guaranteed Runetrinket every 25 Zones above Z100 for every 2 levels of this perk.$/, '使您的脆皮们可以在世界上找到小符饰。此特权每级都能增加脆皮找到小符饰的概率，此概率还与本次传送后到达的区域数量有关，但只计算超过区域100的部分。每有1级特权，每个小符饰都可以使您的脆皮的攻击力，生命值和食物、木头、金属获取量增加1%(效果叠加)。每级特权可以使小符饰上限增加$1，如果对此特权进行洗点，超出上限的小符饰将暂时失效，但重新加点后将重新生效。小符饰传送后仍然存在，数量不会重置。每级特权可以使找到小符饰的概率增加约50%，并且随着区域数量的增加而增加(上限为区域200)。另外，每有2级特权，每在区域100以上通过25个区域，就可以稳定获得1个小符饰。'], //特权等
+    [/^(.*)You found (.+) Runetrinket(s*)!$/, '$1您找到了$2个小符饰！'], //特权等
     [/^(.*) Helium Canister(s*)$/, '$1氦'], //特权等
     [/^(.*) Radon Vial(s*)$/, '$1氡'], //特权等
     [/^You have spent (.*) Helium on this Perk.$/, '您已经在这个特权上花费了$1氦。'], //特权等
@@ -7392,6 +7430,7 @@ var cnRegReplace = new Map([
     [/^(.*)You found (.+) Token(s*) of Ice!$/, '$1您发现了$2冰符记！'], //自然赋能
     [/^(.*) \/ (.*) Exp$/, '$1/$2经验值'], //绒绒污污相关
     [/^(.*)% damage$/, '$1%伤害'], //绒绒污污相关
+    [/^Cruffys cannot gain Experience after the Nurture Challenge ends, but will stick around for (.+) more Zones.$/, '朽朽在培养挑战结束后无法再获得经验值了，但还会在$1个区域内继续存在。'], //绒绒污污相关
     [/^Fluffy's level and damage bonus are currently reduced. Fluffy will return to level (.*) when points are placed back in Capable.$/, '绒绒的等级和伤害暂时被限制了。提升能力特权等级以后绒绒可以回到$1级。'], //绒绒污污相关
     [/^Scruffy's level and damage bonus are currently reduced. Scruffy will return to level (.*) when points are placed back in Capable.$/, '污污的等级和伤害暂时被限制了。提升能力特权等级以后污污可以回到$1级。'], //绒绒污污相关
     [/^Fluffy needs  more points in Capable to gain Exp above level (.*).$/, '绒绒需要更高的能力特权等级才可以获得超过$1级的经验值。'], //绒绒污污相关
@@ -7399,6 +7438,18 @@ var cnRegReplace = new Map([
     [/^Fluffy is earning (.*) Exp per Zone. Fluffy needs (.*) more Exp to level, equivalent to repeating your current run to this zone about (.*) more time(s*).$/, '绒绒每个区域获得$1经验值，还需要$2经验值才能升级，等同于再有$3次传送后到达当前区域。'], //绒绒污污相关
     [/^Scruffy is earning (.*) Exp per Zone. Scruffy needs (.*) more Exp to level.$/, '污污每个区域获得$1经验值，还需要$2经验值才能升级。'], //绒绒污污相关
     [/^Scruffy is earning (.*) Exp per Zone. Scruffy needs (.*) more Exp to level, equivalent to repeating your current run to this zone about (.*) more time(s*).$/, '污污每个区域获得$1经验值，还需要$2经验值才能升级，等同于再有$3次传送后到达当前区域。'], //绒绒污污相关
+    [/^Fluffy makes a purr-like sound. You've pet Fluffy (.+) times?.$/, '绒绒发出了非常愉悦的咕噜声。您已经拍了它$1次。'], //绒绒污污相关
+    [/^Scruffy makes a purr-like sound. You've pet Scruffy (.+) times?.$/, '污污发出了非常愉悦的咕噜声。您已经拍了它$1次。'], //绒绒污污相关
+    [/^Fluffy reminds you to scratch behind the ears. You've pet Fluffy (.+) times?.$/, '绒绒希望您再挠挠耳朵后面。您已经拍了它$1次。'], //绒绒污污相关
+    [/^Scruffy reminds you to scratch behind the ears. You've pet Scruffy (.+) times?.$/, '污污希望您再挠挠耳朵后面。您已经拍了它$1次。'], //绒绒污污相关
+    [/^Fluffy appreciates the pat! You've pet Fluffy (.+) times?.$/, '绒绒很喜欢您的手法！您已经拍了它$1次。'], //绒绒污污相关
+    [/^Scruffy appreciates the pat! You've pet Scruffy (.+) times?.$/, '污污很喜欢您的手法！您已经拍了它$1次。'], //绒绒污污相关
+    [/^Fluffy thinks you're the best. You've pet Fluffy (.+) times?.$/, '绒绒觉得您最好了。您已经拍了它$1次。'], //绒绒污污相关
+    [/^Scruffy thinks you're the best. You've pet Scruffy (.+) times?.$/, '污污觉得您最好了。您已经拍了它$1次。'], //绒绒污污相关
+    [/^Fluffy frickin loves pats! You've pet Fluffy (.+) times?.$/, '绒绒爱死拍头了！您已经拍了它$1次。'], //绒绒污污相关
+    [/^Scruffy frickin loves pats! You've pet Scruffy (.+) times?.$/, '污污爱死拍头了！您已经拍了它$1次。'], //绒绒污污相关
+    [/^Fluffy looks quite happy. You've pet Fluffy (.+) times?.$/, '绒绒看起来非常高兴。您已经拍了它$1次。'], //绒绒污污相关
+    [/^Scruffy looks quite happy. You've pet Scruffy (.+) times?.$/, '污污看起来非常高兴。您已经拍了它$1次。'], //绒绒污污相关
     [/^Applies when running a Daily Challenge, and matches the extra Helium from your Daily. Currently (.*). Does not apply to Best Fluffy Exp.$/, '运行日常挑战时激活，获得日常挑战相应数值的加成。目前为$1。不影响最高绒绒经验。'], //绒绒污污相关
     [/^Applies when running a Daily Challenge, and matches the extra Radon from your Daily. Currently (.*). Does not apply to Best Scruffy Exp.$/, '运行日常挑战时激活，获得日常挑战相应数值的加成。目前为$1。不影响最高污污经验。'], //绒绒污污相关
     [/^Your Zone number. Currently (.*).$/, '您到达的区域数值。目前为$1。'], //绒绒污污相关
@@ -7411,10 +7462,12 @@ var cnRegReplace = new Map([
     [/^The bonus modifier from the Flufffocus Mastery \(\+25% exp per Prestige\). Scruffy has evolved (.*) time(s*), bringing this modifier to (.*).$/, '污污专注专精的加成(每次进化多获得25%的经验值)。污污进化了$1次，此加成变为$3。'], //绒绒污污相关
     [/^The bonus from your Knowledge Towers. You have (.*) Knowledge Tower(s*), granting a bonus of (.*)% each, bringing this modifier to (.*).$/, '知识塔的加成。您有$1个知识塔，每个可提供$3%的加成，总加成为$4。'], //绒绒污污相关
     [/^From Enlightened Ice. Equal to \(1 \+ \(0.0025 \* Ice Levels\)\), currently (.*). Does not apply to Best Fluffy Exp.$/, '冰之启迪的加成。加成为(1+0.0025*冰赋能等级)，目前为$1。不影响最高绒绒经验。'], //绒绒污污相关
+    [/^From Nurture. Increases Exp gain by 25% (additive) per constructed Laboratory. Currently granting (.*)x.$/, '培养的加成。每个实验室增加25%(效果叠加)的经验值获取量。目前可获取$1倍。'], //绒绒污污相关
     [/^damage to (.*)x and$/, '伤害变为$1倍，且'], //绒绒污污相关
     [/^damage to (.*)x.$/, '伤害变为$1倍。'], //绒绒污污相关
     [/^Allows an additional 4 Void Maps with the same name to stick together, bringing the max stack size to (.*). Each map in the stack that Fluffy clears grants an additional 50% Helium to all other maps in the stack, giving a bonus of up to \+(.*)% to each of the (.*) Fluffy maps from a (.*) stack.$/, '使虚空地图的融合张数上限增加4，达到$1张。每融合一张地图，所有绒绒完成的该名字的地图奖励都增加50%。如果融合地图张数达到最高的$4张，那么绒绒完成的$3张虚空地图每张可以额外获得$2%氦。'], //绒绒污污相关
     [/^Increases Radon gain from all sources by 3% for each Zone you reached on your last Portal in this Universe \(compounding\). You reached Z(.*) last Portal, worth \+(.*)% Radon.$/, '此宇宙上次传送前每通过一个区域，传送后获得的氡就增加3%(效果叠乘)。您上次传送前到达了区域$1，氡获取量加成为$2%。'], //绒绒污污相关
+    [/^Currently increasing attack, health and resources by (.+)% and Cruffys will stay for (.+) additional Zones.$/, '目前使脆皮的攻击力，生命值和资源获取量增加$1%，朽朽可以额外存在$2个区域。'], //绒绒污污相关
     [/^(.*)Your Worshippers successfully inspire Scruffy, granting (.*) Exp!$/, '$1您的崇信者成功启迪了污污，使它获得了$2经验值！'], //绒绒污污相关
     [/^(.*) Trimp(s*) just ceased to be.$/, '$1个脆皮去世了。'], //死亡消息
     [/^(.*) Trimp(s*) just bit the dust.$/, '$1个脆皮战死沙场了。'], //死亡消息
@@ -7579,12 +7632,12 @@ var cnRegReplace = new Map([
     [/^(.*)Z:286 You hear something rustling in a bush and get totally psyched up for something new and exciting. As you walk cautiously towards the bush, a Rabbimp quickly runs out and away.$/, '$1区域：286 灌木丛中传出了沙沙的声音，您想着，或许能发现什么有趣的东西，于是谨慎地向它走去。快要到达的时候，一只脆皮兔从中跳了出来，飞快地逃走了。'], //故事消息
     [/^(.*)Z:290 As you get closer and closer to the spire, the voice gets clearer and clearer. You can pick up notes of terror from whatever being is up there, as if he wants to just be left alone to destroy the world. You don't feel much sympathy though.$/, '$1区域：290 随着您离尖塔越来越近，声音也越来清晰了。那位仁兄似乎正在发出非常可怕的声音，就好像他想要一个人把世界毁灭了。那又如何呢，他的遭遇根本不值得同情。'], //故事消息
     [/^(.*)Z:290 You trip over a rock and stumble a bit, but fix your footing before totally falling over. You glance around and it doesn't seem like any of the Trimps noticed!$/, '$1区域：290 您被一块石头拌了一下，幸好在完全失去平衡之前稳住了。您环顾四周，很好，没有任何脆皮注意到这边。'], //故事消息
-
-
-
-
-
-
+    [/^(.*)Z:295 You're now so close to this new spire that you can taste it, literally. These things are gross.$/, '$1区域：295 您离新的那座尖塔太近了，真的，太近了，甚至连它的味道都可以尝出来。真是令人作呕的味道。'], //故事消息
+    [/^(.*)Z:295 You wonder if you could get your scientists to invent chewing gum...$/, '$1区域：295 您在想是不是能让科学家们尝试着研发一下口香糖……'], //故事消息
+    [/^(.*)Z:298 The deranged spirit in the tower is now begging that you stay back. It obviously knows you destroyed the last tower and doesn't want you taking out another. Too bad, buddy. You're coming.$/, '$1区域：298 尖塔里那个疯子的残魂已经开始乞求您别再靠近了。很显然，他知道正是您摧毁了上一个尖塔，而且他不想步之前那一位的后尘。风水轮流转，现在才来求饶实在是晚了，老兄，真的晚了。现在，该轮到谁选择臣服，还是毁灭了？'], //故事消息
+    [/^(.*)Z:298 A voice in the back of your mind tells you there should be something big soon, but you see nothing. Oh well.$/, '$1区域：298 脑海中总有一个声音告诉您，这里应该有一个什么庞然大物的。怎么样也好，反正您是什么也没看到。'], //故事消息
+    [/^(.*)Z:303 You're glad you have Fluffy around now. He seems to be getting along well with the other Trimps, and seems happy to have found others like him. He doesn't seem to be any smarter than a normal Trimp so you're sure you'll get some entertainment out of him.$/, '$1区域：303 您很高兴有绒绒陪着您。它看起来与其他脆皮相处得不错，跟同类在一起也让它很开心。它看起来并没有比普通的脆皮聪明多少，但有它的陪伴，在这边的生活应该能更多姿多彩一些。'], //故事消息
+    [/^(.*)Z:303 You wish you had a pet.$/, '$1区域：303 如果能有一只宠物该有多好啊。'], //故事消息
 
 
 
