@@ -6463,6 +6463,7 @@ var cnRegReplace = new Map([
     [/^Beat Spire II with no respec and (.*) or less He spent$/, '在氦花费不超过$1，且未在传送后进行特权洗点的前提下通过尖塔 II'], //成就等
     [/^Complete Wither with (.*) stacks of Hardened$/, '在拥有$1层硬化的前提下，完成凋零挑战'], //成就等
     [/^(.*)% Damage$/, '$1%伤害'], //成就等
+    [/^Repeat (.+) Times?$/, '重复$1次'], //设置等
     [/^Your save on PlayFab has earned (.*) total Helium, defeated Zone (.*), and cleared (.*) total Zones. The save on your computer only has (.*) total Helium, has defeated Zone (.*), and cleared (.*) total Zones.$/, 'PlayFab上的存档一共获得了$1氦，最高通过了区域$2，总共通过了$3个区域。您的电脑上的存档只获得了$4氦，最高通过了区域$5，总共通过了$6个区域。'], //设置等
     [/^(.*)Unable to back up your save to PlayFab! Double check your internet connection, and don't forget to back up your save manually.$/, '$1无法将存档备份到PlayFab！请再次检查您的互联网连接是否正常，而且请不要忘了手动备份存档。'], //设置等
     [/^(.*)Game saved and backed up to PlayFab! Next automatic online save in 30 minutes.$/, '$1游戏已保存并备份至PlayFab！30分钟后会再次自动备份。'], //设置等
@@ -7340,6 +7341,12 @@ var cnRegReplace = new Map([
     [/^Locked \(Buy 2 Masteries from Tier (.*) to unlock Tier (.*). This Mastery also requires Still Rowing II and Magmamancermancy$/, '未解锁(购买两个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过尖塔排行 II和岩浆巫师学'], //专精等
     [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock Tier (.*). This Mastery also requires Still Rowing II and Magmamancermancy$/, '未解锁(再购买一个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过尖塔排行 II和岩浆巫师学'], //专精等
     [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock the next from Tier (.*). This Mastery also requires Still Rowing II and Magmamancermancy$/, '未解锁(再购买一个第$1层的升级以解锁下一个升级于层数 $2。此专精还需要购买过尖塔排行 II和岩浆巫师学'], //专精等
+    [/^Locked \(Buy 2 Masteries from Tier (.*) to unlock Tier (.*). This Mastery also requires Still Rowing II$/, '未解锁(购买两个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过尖塔排行 II'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock Tier (.*). This Mastery also requires Still Rowing II$/, '未解锁(再购买一个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过尖塔排行 II'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock the next from Tier (.*). This Mastery also requires Still Rowing II$/, '未解锁(再购买一个第$1层的升级以解锁下一个升级于层数 $2。此专精还需要购买过尖塔排行 II'], //专精等
+    [/^Locked \(Buy 2 Masteries from Tier (.*) to unlock Tier (.*). This Mastery also requires Magmamancermancy$/, '未解锁(购买两个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过岩浆巫师学'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock Tier (.*). This Mastery also requires Magmamancermancy$/, '未解锁(再购买一个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过岩浆巫师学'], //专精等
+    [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock the next from Tier (.*). This Mastery also requires Magmamancermancy$/, '未解锁(再购买一个第$1层的升级以解锁下一个升级于层数 $2。此专精还需要购买过岩浆巫师学'], //专精等
     [/^Locked \(Buy 2 Masteries from Tier (.*) to unlock Tier (.*). This Mastery also requires Liquification II$/, '未解锁(购买两个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过液化 II'], //专精等
     [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock Tier (.*). This Mastery also requires Liquification II$/, '未解锁(再购买一个第$1层的升级以解锁升级于层数 $2。此专精还需要购买过液化 II'], //专精等
     [/^Locked \(Buy 1 more Mastery from Tier (.*) to unlock the next from Tier (.*). This Mastery also requires Liquification II$/, '未解锁(再购买一个第$1层的升级以解锁下一个升级于层数 $2。此专精还需要购买过液化 II'], //专精等
