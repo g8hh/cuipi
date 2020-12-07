@@ -819,6 +819,8 @@ var cnItems = {
     'Magma': '岩浆',
     'Healthy': '健康',
     'Snowy': '积雪',
+    'Snowy Druopitee': '积雪德罗披提',
+    'Snowy Echo of Druopitee': '积雪德罗披提的幻影',
     'Living': '非亡灵',
     'Gusty': '阵风',
     'Druopitee and Pals': '德罗披提和随从们',
