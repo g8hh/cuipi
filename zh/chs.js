@@ -6031,7 +6031,7 @@ var cnRegReplace = new Map([
     [/^(.*)You're quite grateful to finally eat some protein! You eat a bunch of Turkimp and find a Trimp to carry the rest back for you.$/, '$1谢天谢地，终于能补充点蛋白质了！您吃掉了一堆脆皮火鸡，然后找了一个脆皮把剩下的带了回去。'], //特定敌人
     [/^(.*)Apparently your scientists are vegetarians. Hurray, more Turkimp for you!$/, '$1很显然科学家们不吃肉。太好了，分肉的又少了！'], //特定敌人
     [/^(.*)You hear a loud gobbling sound in the distance, it sounds angry. You disregard it because this Turkimp is delicious!$/, '$1远方传来了巨大的吞咽声，它听起来很生气。您完全不鸟它，因为这只脆皮火鸡太香了！'], //特定敌人
-    [/^(.*)Ah, Turkimp. Nature's version of a Chickimp with a weirder head. Sure is tasty! You eat your fill and save some for later.$/, '$1啊，脆皮火鸡，脆皮小鸡的自然换头版本。当然也很好吃！您吃了个肚儿圆，然后把剩下的一并带走了。'], //特定敌人
+    [/^(.*)Ah, Turkimp. Nature's version of a Chickimp with a weirder head. Sure is tasty! You eat your fill and save some for later.$/, '$1啊，脆皮火鸡，脆皮小鸡的鬼斧神工换头版本。当然也很好吃！您吃了个肚儿圆，然后把剩下的一并带走了。'], //特定敌人
     [/^(.*)Your fingers are cold and numb, but that won't stop them from opening up this Presimpt! Inside you find (.*) food!$/, '$1您的手指又冷又麻，但这也没法阻止您打开那个脆皮小礼！在里面您发现了$2食物！'], //特定敌人
     [/^(.*)Your fingers are cold and numb, but that won't stop them from opening up this Presimpt! Inside you find (.*) wood!$/, '$1您的手指又冷又麻，但这也没法阻止您打开那个脆皮小礼！在里面您发现了$2木头！'], //特定敌人
     [/^(.*)Your fingers are cold and numb, but that won't stop them from opening up this Presimpt! Inside you find (.*) metal!$/, '$1您的手指又冷又麻，但这也没法阻止您打开那个脆皮小礼！在里面您发现了$2金属！'], //特定敌人
@@ -7647,8 +7647,37 @@ var cnRegReplace = new Map([
     [/^(.*)Z:298 A voice in the back of your mind tells you there should be something big soon, but you see nothing. Oh well.$/, '$1区域：298 脑海中总有一个声音告诉您，这里应该有一个什么庞然大物的。怎么样也好，反正您是什么也没看到。'], //故事消息
     [/^(.*)Z:303 You're glad you have Fluffy around now. He seems to be getting along well with the other Trimps, and seems happy to have found others like him. He doesn't seem to be any smarter than a normal Trimp so you're sure you'll get some entertainment out of him.$/, '$1区域：303 您很高兴有绒绒陪着您。它看起来与其他脆皮相处得不错，跟同类在一起也让它很开心。它看起来并没有比普通的脆皮聪明多少，但有它的陪伴，在这边的生活应该能更多姿多彩一些。'], //故事消息
     [/^(.*)Z:303 You wish you had a pet.$/, '$1区域：303 如果能有一只宠物该有多好啊。'], //故事消息
-
-
+    [/^(.*)Z:315 These healthy spots of land seem to be increasing as the Spire pumps more and more into the air! Hopefully that's a good thing. You ask Fluffy what he thinks and he nods in approval.$/, '$1区域：315 随着尖塔把越来越多的健康变异气体排入大气，健康的区域看起来也越来越多了！希望这么做会带来好的结果。您询问了一下绒绒它的想法，而它只是点了点头。'], //故事消息
+    [/^(.*)Z:315 Geeze, this Corruption is starting to look pretty nasty. Those Spires need to fall soon...$/, '$1区域：315 噫，腐化真的是越看越烦人了。但愿世界不再有那些尖塔……'], //故事消息
+    [/^(.*)Z:340 Watch your step, there's some Magma on the ground over there.$/, '$1区域：340 注意您的脚下，那边的地上有些岩浆。'], //故事消息
+    [/^(.*)Z:350 If Druopitee has really immortalized himself in an infinite amount of Spires, you might be here for a while.$/, '$1区域：350 如果德罗披提真的已经在无穷无尽的尖塔中永生了，那您能做的恐怕也只有不死不休了。'], //故事消息
+    [/^(.*)Z:360 You attempt to put Fluffy through your rigorous Scientist training program, but he doesn't want to. He wouldn't have any trouble, but he doesn't want the label. You still couldn't be happier to have the little guy around!$/, '$1区域：360 您试图让绒绒通过严格的科学家训练，但它看起来完全没有兴趣。或许它只是单纯不想被打上这样的烙印。再说了，有这个小家伙在身边也挺欢乐的！'], //故事消息
+    [/^(.*)Z:360 You really feel like something is missing from your life. Everything feels hollow and sad.$/, '$1区域：360 您真的觉得自己缺少了什么东西。一切都那么的空虚寂寞冷，悲伤逆流成河。'], //故事消息
+    [/^(.*)Z:375 Should be coming up on another Spire Zone soon. You stop and sit beside a beautiful Magma river and wonder what kinds of crazy stuff could be waiting for you up there. Then you realize it's probably just another Spire, so you get up and keep moving.$/, '$1区域：375 下一个尖塔也该要来了。您在一条漂亮的岩浆河旁坐了下来，思考着，接下来还有什么新花样在等着您。最后您得出结论，这不过就是另一座尖塔而已，于是您起身，继续前进了。'], //故事消息
+    [/^(.*)Z:385 Some familiar Spirish odors begin hitting your nostrils again and you sneeze, hilariously startling a few billion Trimps. Never gets old.$/, '$1区域：385 又是熟悉的配方，熟悉的味道入侵了您的鼻孔。您打了个喷嚏，惊起脆皮无数。真是阴魂不散的玩意。'], //故事消息
+    [/^(.*)Z:390 You can finally see the next Spire in the distance, a thick purple cloud boiling out of the top. Hard to believe there's an infinite amount of these things, how big even is this planet\?$/, '$1区域：390 终于，您在远方看到了下一座尖塔，仍然有紫色云雾从塔顶上涌入空气中。即使到了现在，还是很难相信他的尖塔真的是无穷无尽的。说到底，这个行星到底得有多大来着？'], //故事消息
+    [/^(.*)Z:390 Weird, you feel like you should be able to see the next Spire by now, but it's not there. Maybe you should have checked the other Spires a bit more thoroughly.$/, '$1区域：390 奇怪，您感觉应该差不多能看到下一座尖塔了，但这里却一点痕迹也没有。或许您下次该考虑把之前那座尖塔先给打通了。'], //故事消息
+    [/^(.*)Z:395 Ahh, that gross old taste of Spire. You'll never get used to that. Most of your Trimps are trying to stay under trees, but Fluffy is running around with his tongue out as if he was trying to catch snowflakes.$/, '$1区域：395 呕，又是那作呕的味道。真的，这味道闻一次吐一次，永远习惯不了的。大部分脆皮都只想着躲在树下，但绒绒却开心地伸出舌头到处蹦蹦跳跳，就好像在捕捉空中看不见的雪花一样。'], //故事消息
+    [/^(.*)Z:395 Did you leave the oven on\? Oh yeah, you don't have an oven. Now you wonder what an oven even is. Oh well.$/, '$1区域：395 您是不是忘记关炉子了？哦，等一下，您并没有炉子一类的东西。说到底，所谓的炉子究竟又是什么玩意来着……好吧，管他呢。'], //故事消息
+    [/^(.*)Z:405 It really seemed like you weakened Druopitee back there. Maybe you'll be able to at least shut off any last conscious parts of him with just one more Spire\?$/, '$1区域：405 德罗披提真的变得更虚弱了。或许再杀他一次，他就变成了它，永远地闭嘴了。'], //故事消息
+    [/^(.*)Z:405 You can't shake the feeling like you forgot to do something.$/, '$1区域：405 您总有一种感觉挥之不去，就好像您忘了做什么事一样。'], //故事消息
+    [/^(.*)Z:415 The Healthy mutation is starting to spread nicely now. The Bad Guys hurt quite a bit more, but you're pretty sure you're doing the right thing which kinda makes you feel good.$/, '$1区域：415 健康变异在继续传播当中，效果看起来不错。变强的敌人有点棘手，但您的所作所为无愧于心。'], //故事消息
+    [/^(.*)Z:415 It seems like the Healthy mutation has stopped spreading. That's alright though, some other version of you will probably take care of it.$/, '$1区域：415 看起来，健康变异已经停止传播了。这也无关紧要，反正几世之后，您还会回来的。'], //故事消息
+    [/^(.*)Z:415 The land sure looks terrible and corrupted, but at least you have Fluffy.$/, '$1区域：415 这片大地看起来真的很糟糕，显然已经被严重腐化了，但至少绒绒还陪着您。'], //故事消息
+    [/^(.*)Z:415 What do you have against Fluffy\?$/, '$1区域：415 您是……不喜欢绒绒了吗？'], //故事消息
+    [/^(.*)Z:430 The Trimps tried tying two Turkimps to this tall tree, then the Turkimps thrashed those three trillion Trimps, throwing the Trimps tumbling towards the tall tree. The Trimps truly tried. Those Turkimps though... they tough.$/, '$1区域：430 脆皮火鸡，脆皮火鸡，跑得快，跑得快，一只没有眼睛，一只没有腐化，真奇怪，真奇怪。'], //故事消息
+    [/^(.*)Z:440 Wow, you've gotten pretty far. You would have never guessed there'd be this many Zones out there, but here you are.$/, '$1区域：440 不知不觉，您都走了这么远了。可能连您自己，都没有想到自己能来到这么多个区域之后吧。'], //故事消息
+    [/^(.*)Z:450 It's just about time for another Spire, don't you think\?$/, '$1区域：450 下一个尖塔也该来了，不是么？'], //故事消息
+    [/^(.*)Z:460 This part of the world seems to be at a much higher elevation than any other part that you've been at. The air is strangely clear, and you can see more of the planet sprawled out around you than ever before. It feels good to see everything you're fighting for and feel like it's worth it.$/, '$1区域：460 世界的这一部分似乎比之前的所有部分都来得高。空气异常清新，这个历经劫难的行星越来越好转了。世间自有公道，付出终有回报。'], //故事消息
+    [/^(.*)Z:470 This part of the world seems to be at a really low elevation, and lots of Corruption is building up in it. Gross.$/, '$1区域：470 世界的这一部分似乎海拔相当低，而这里充满了腐化。真够恶心的。看来，健康尚未成功，而您仍需努力。'], //故事消息
+    [/^(.*)Z:485 Once again, you can taste the Spire, it must just be over that next hill now. Fluffy seems excited.$/, '$1区域：485 好吧，又闻到尖塔的那个味道了，再翻过那座山脉，应该就能够到达了。绒绒看上去相当兴奋。'], //故事消息
+    [/^(.*)Z:485 Hey! Is that... oh, nope, just some dirt.$/, '$1区域：485 哈！那个是……哦，没事了，只是一些污迹而已。'], //故事消息
+    [/^(.*)Z:495 It's time. He's weak. You've got this. Time to make this planet Healthy again.$/, '$1区域：495 午时已到。他已经虚弱不堪了。您也做好准备了。是时候一劳永逸，让这场战斗画上一个句号了。一定要让这个行星再度健康起来。'], //故事消息
+    [/^(.*)Z:495 You're feeling rather itchy today. You ask some Trimps to scratch your back but they don't really want to.$/, '$1区域：495 您今天感觉身上很痒。您想让一些脆皮来帮忙挠挠，但它们看起来不情不愿的。'], //故事消息
+    [/^(.*)Z:505 Well you've totally 100% eradicated Druopitee's consciousness, now you figure it's just time to clear the rest of his brainless Echoes out of the remaining Spires.$/, '$1区域：505 终于，德罗披提彻底完蛋了，接下来要做的，就是把剩下的那些尖塔中行尸走肉一样的那些复制体处理掉了。这也是为了让他真正地解脱。'], //故事消息
+    [/^(.*)Z:505 Druopitee is just over there getting stronger, someone should really do something about him.$/, '$1区域：505 再这么放着不管下去，德罗披提要无法无天了，做点什么吧。'], //故事消息
+    [/^(.*)Z:702 The planet looks pretty charred. Fluffy looks proud of something but you're not sure what.$/, '$1区域：702 这个行星看起来一片焦黑。看起来绒绒正因为自己做了什么事而得意洋洋，但您并不知道发生了什么。'], //故事消息
+    [/^(.*)Z:707 You feel like there is supposed to be something here that isn't. You wonder if you had something to do with that.$/, '$1区域：707 您感觉这里本来会有什么东西的，但现在已经消失了。不知道您是不是跟这个有什么关系。'], //故事消息
 
 
 
