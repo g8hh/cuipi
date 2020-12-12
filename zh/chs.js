@@ -739,7 +739,7 @@ var cnItems = {
     'Turtlimp': '脆皮龟',
     'Chimp': '脆皮黑猩猩',
     'Penguimp': '脆皮企鹅',
-    'Snimp': '脆皮鹬',
+    'Snimp': '脆皮蛇',
     'Gorillimp': '脆皮大猩猩',
     'Blimp': '脆皮飞艇',
     'Dragimp': '脆皮龙',
@@ -775,13 +775,13 @@ var cnItems = {
     'Flowimp': '脆皮花妖',
     'Kangarimp': '脆皮袋鼠',
     'Gnomimp': '脆皮侏儒',
-    'Slosnimp': '脆皮慢鹬',
+    'Slosnimp': '脆皮慢蛇',
     'Entimp': '脆皮树人',
     'Squirrimp': '脆皮松鼠',
     'Gravelimp': '脆皮碎石怪',
     'Cthulimp': '脆皮克苏鲁',
     'Shadimp': '脆皮暗影怪',
-    'Voidsnimp': '脆皮虚空鹬',
+    'Voidsnimp': '脆皮虚空蛇',
     'Goblimp': '脆皮地精',
     'Flutimp': '脆皮飘兽',
     'Drops Fragments': '掉落碎片',
@@ -834,7 +834,7 @@ var cnItems = {
     'Turtlimps (': '脆皮龟们 (',
     'Chimps (': '脆皮黑猩猩们 (',
     'Penguimps (': '脆皮企鹅们 (',
-    'Snimps (': '脆皮鹬们 (',
+    'Snimps (': '脆皮蛇们 (',
     'Gorillimps (': '脆皮大猩猩们 (',
     'Blimps (': '脆皮飞艇们 (',
     'Dragimps (': '脆皮龙们 (',
@@ -863,13 +863,13 @@ var cnItems = {
     'Flowimps (': '脆皮花妖们 (',
     'Kangarimps (': '脆皮袋鼠们 (',
     'Gnomimps (': '脆皮侏儒们 (',
-    'Slosnimps (': '脆皮慢鹬们 (',
+    'Slosnimps (': '脆皮慢蛇们 (',
     'Entimps (': '脆皮树人们 (',
     'Squirrimps (': '脆皮松鼠们 (',
     'Gravelimps (': '脆皮碎石怪们 (',
     'Cthulimps (': '脆皮克苏鲁们 (',
     'Shadimps (': '脆皮暗影怪们 (',
-    'Voidsnimps (': '脆皮虚空鹬们 (',
+    'Voidsnimps (': '脆皮虚空蛇们 (',
     'Goblimps (': '脆皮地精们 (',
     'Flutimps (': '脆皮飘兽们 (',
     'Jestimps (': '脆皮弄臣们 (',
@@ -898,7 +898,7 @@ var cnItems = {
     'Turtlimps': '脆皮龟们',
     'Chimps': '脆皮黑猩猩们',
     'Penguimps': '脆皮企鹅们',
-    'Snimps': '脆皮鹬们',
+    'Snimps': '脆皮蛇们',
     'Gorillimps': '脆皮大猩猩们',
     'Dragimps': '脆皮龙们',
     'Mutimps': '脆皮变异者们',
@@ -1531,7 +1531,7 @@ var cnItems = {
     'Reach Z30 with no respec and 60 or less He spent': '在氦花费不超过60，且未在传送后进行特权洗点的前提下到达区域30',
     'Hoarder': '囤积者',
     'Needs Block': '需要格挡',
-    'Die 50 times to a single Voidsnimp': '在同一只脆皮虚空鹬上战败50次',
+    'Die 50 times to a single Voidsnimp': '在同一只脆皮虚空蛇上战败50次',
     'Underbalanced': '平衡不足',
     'Beat Balance, never having more than 100 stacks': '在平衡从未超过100层的前提下，完成平衡挑战',
     'Peacekeeper': '和平使者',
@@ -2013,7 +2013,7 @@ var cnItems = {
     'Your Trimps really missed you': '脆皮们真的想您',
     'Your Trimps didn\'t do dishes while you were gone': '您不在的时候脆皮们连碗都不洗',
     'A Scientist has been locked outside all night': '一名科学家一整晚都被锁在了外面',
-    'There\'s a Snimp in the pantry': '储藏室冒出来了一只脆皮鹬',
+    'There\'s a Snimp in the pantry': '储藏室冒出来了一只脆皮蛇',
     'Your Trimps threw a party while you were out': '您不在的时候脆皮们开了个派对',
     'Your Trimps raided your fridge while you were gone': '您不在的时候脆皮们把冰箱搬空了',
     'Some Trimps toilet papered your ship': '某几个脆皮把您的飞船弄得到处都是厕纸',
@@ -3417,8 +3417,8 @@ var cnItems = {
     'Scruffy is a model Trimp.': '污污是脆皮楷模。',
     'Fluffy can do anything.': '绒绒无所不能。',
     'Scruffy can do anything.': '污污无所不能。',
-    'Fluffy once killed a Snimp with a well-timed insult.': '绒绒曾经靠着嘴炮就骂死了一个王司……一个脆皮鹬。',
-    'Scruffy once killed a Snimp with a well-timed insult.': '污污曾经靠着嘴炮就骂死了一个王司……一个脆皮鹬。',
+    'Fluffy once killed a Snimp with a well-timed insult.': '绒绒曾经靠着嘴炮就骂死了一个王司……一个脆皮蛇。',
+    'Scruffy once killed a Snimp with a well-timed insult.': '污污曾经靠着嘴炮就骂死了一个王司……一个脆皮蛇。',
     'Fluffy can juggle 3 dozen scientists without breaking a sweat.': '绒绒可以不费吹灰之力地同时用三打科学家来表演抛球杂技。',
     'Scruffy can juggle 3 dozen scientists without breaking a sweat.': '污污可以不费吹灰之力地同时用三打科学家来表演抛球杂技。',
     'Fluffy does a barrel roll.': '绒绒秀了一手横滚翻',
@@ -5449,8 +5449,8 @@ var cnPostfix = {
     "Chimp group!": "脆皮黑猩猩集团！", //击杀消息末尾
     "Penguimp!": "脆皮企鹅！", //击杀消息末尾
     "Penguimp group!": "脆皮企鹅集团！", //击杀消息末尾
-    "Snimp!": "脆皮鹬！", //击杀消息末尾
-    "Snimp group!": "脆皮鹬集团！", //击杀消息末尾
+    "Snimp!": "脆皮蛇！", //击杀消息末尾
+    "Snimp group!": "脆皮蛇集团！", //击杀消息末尾
     "Gorillimp!": "脆皮大猩猩！", //击杀消息末尾
     "Gorillimp group!": "脆皮大猩猩集团！", //击杀消息末尾
     "Blimp!": "脆皮飞艇！", //击杀消息末尾
@@ -5513,8 +5513,8 @@ var cnPostfix = {
     "Kangarimp group!": "脆皮袋鼠集团！", //击杀消息末尾
     "Gnomimp!": "脆皮侏儒！", //击杀消息末尾
     "Gnomimp group!": "脆皮侏儒集团！", //击杀消息末尾
-    "Slosnimp!": "脆皮慢鹬！", //击杀消息末尾
-    "Slosnimp group!": "脆皮慢鹬集团！", //击杀消息末尾
+    "Slosnimp!": "脆皮慢蛇！", //击杀消息末尾
+    "Slosnimp group!": "脆皮慢蛇集团！", //击杀消息末尾
     "Entimp!": "脆皮树人！", //击杀消息末尾
     "Entimp group!": "脆皮树人集团！", //击杀消息末尾
     "Squirrimp!": "脆皮松鼠！", //击杀消息末尾
@@ -5525,8 +5525,8 @@ var cnPostfix = {
     "Cthulimp group!": "脆皮克苏鲁集团！", //击杀消息末尾
     "Shadimp!": "脆皮暗影怪！", //击杀消息末尾
     "Shadimp group!": "脆皮暗影怪集团！", //击杀消息末尾
-    "Voidsnimp!": "脆皮虚空鹬！", //击杀消息末尾
-    "Voidsnimp group!": "脆皮虚空鹬集团！", //击杀消息末尾
+    "Voidsnimp!": "脆皮虚空蛇！", //击杀消息末尾
+    "Voidsnimp group!": "脆皮虚空蛇集团！", //击杀消息末尾
     "Goblimp!": "脆皮地精！", //击杀消息末尾
     "Goblimp group!": "脆皮地精集团！", //击杀消息末尾
     "Flutimp!": "脆皮飘兽！", //击杀消息末尾
@@ -7604,7 +7604,7 @@ var cnRegReplace = new Map([
     [/^(.*)Z:184 The corruption seems to be more pronounced the closer you get to the Spire. Looks like there's (.+) of em now.$/, '$1区域：184 随着您靠近尖塔，腐化程度是越来越重了。比如目前区域就有$2个腐化格子了。'], //故事消息
     [/^(.*)Z:185 You have trouble putting into words exactly what the Corruption does to the creatures on this planet. They seem to be stripped of all natural abilities and given powers that you didn't know could exist in the primary dimension.$/, '$1区域：185 您很难准确描述腐化到底对这个行星上的生物造成了什么样的影响。它们似乎被剥夺了所有天性，并获得了无法想象的力量。'], //故事消息
     [/^(.*)Z:187 None of these corrupted enemies seem to have eyes, so you decide to see if you can get away with flipping one off. As it reacts by roaring and stomping around in a rage, you realize that these things are powerful enough not to need eyes to observe the world. What$/, '$1区域：187 这些腐化后的敌人似乎都失去了眼睛，所以您决定试试看竖中指它们有没有反应。就它们咆哮践踏地面的样子来看，腐化敌人不需要视力，也能看得到这个世界。这都是'], //故事消息
-    [/^(.*)Z:190 You awaken from your sleep in a cold sweat to a frantic and terrified noise from the back of the cave where you were sleeping. With urgency, you run to the source of the noise to make sure your Trimps are okay. As you reach the back, you see a handful of Trimps trying to use a small and very angry Snimp as a musical instrument. You put some sand in your ears and go back to sleep.$/, '$1区域：190 在您睡觉的山洞后面响起了疯狂而可怕的声音，您在一身冷汗中惊醒了。您急急忙忙地跑向声源，想看看脆皮们是否平安。当您到那里时，发现只是一小队脆皮想把一只几乎抓狂的小脆皮鹬当乐器来用而已。您往耳朵里塞了些沙子，又回去睡觉了。'], //故事消息
+    [/^(.*)Z:190 You awaken from your sleep in a cold sweat to a frantic and terrified noise from the back of the cave where you were sleeping. With urgency, you run to the source of the noise to make sure your Trimps are okay. As you reach the back, you see a handful of Trimps trying to use a small and very angry Snimp as a musical instrument. You put some sand in your ears and go back to sleep.$/, '$1区域：190 在您睡觉的山洞后面响起了疯狂而可怕的声音，您在一身冷汗中惊醒了。您急急忙忙地跑向声源，想看看脆皮们是否平安。当您到那里时，发现只是一小队脆皮想把一只几乎抓狂的小脆皮蛇当乐器来用而已。您往耳朵里塞了些沙子，又回去睡觉了。'], //故事消息
     [/^(.*)Z:193 The corruption continues to thicken as you near the Spire. You're beginning to grow accustomed to the smell of the Spire, and really don't mind it anymore. It reminds you of blueberries. Evil blueberries.$/, '$1区域：193 您离尖塔越来越近，腐化也愈加严重了。您开始习惯了腐化的气味，不再那么介意了。这气味让您想起了蓝莓。该死的蓝莓。'], //故事消息
     [/^(.*)Z:198 You're so close to the source of corruption that you can taste it, and it doesn't taste good.$/, '$1区域：198 您非常接近腐化的源头了，甚至您都可以尝出味道来。真够糟糕的味道。'], //故事消息
     [/^(.*)Z:205 You look back at The Spire and feel kinda bad that there's still a ton of Corruption coming out of it, but you'll get him some time.$/, '$1区域：205 您回头看了看尖塔，它还在往外喷出腐化，真糟糕。总有一天您会让他付出代价的。'], //故事消息
@@ -7612,7 +7612,7 @@ var cnRegReplace = new Map([
     [/^(.*)Z:210 It smells extra corrupt. That Spire can't be healthy for the environment.$/, '$1区域：210 这闻起来真的够腐化的。尖塔对环境来说简直是灾难。'], //故事消息
     [/^(.*)Z:210 There's still Corruption, but it feels less threatening. You feel more at peace with the planet and feel like you're on track to repairing it. Surely nothing else terrible will happen any time soon.$/, '$1区域：210 四处还有一点腐化，但看起来已经没那么大威胁了。您一时感觉与世无争，而且，您应该是走在修复行星的路上了。已经没有什么好怕的了。'], //故事消息
     [/^(.*)Z:220 Your Trimps seem content. They kinda wish that spire wasn't still pumping purple stuff into their world, but they don't mind too much.$/, '$1区域：220 脆皮们还是挺满意的。虽然它们希望尖塔能够停止排放腐化，但实际上它们也没那么在意。'], //故事消息
-    [/^(.*)Z:220 Your Trimps seem content. You taught some basic puppetry to them and they've been putting on some great shows with defeated Snimps.$/, '$1区域：220 脆皮们还是挺满意的。您教了一些简单的木偶戏技巧给它们，接着它们就用已经被打倒无力反抗的脆皮鹬开始表演起来了。'], //故事消息
+    [/^(.*)Z:220 Your Trimps seem content. You taught some basic puppetry to them and they've been putting on some great shows with defeated Snimps.$/, '$1区域：220 脆皮们还是挺满意的。您教了一些简单的木偶戏技巧给它们，接着它们就用已经被打倒无力反抗的脆皮蛇开始表演起来了。'], //故事消息
     [/^(.*)Z:225 You wake up in a sweat after a good night's sleep in a cool, dark cave. You dreamt that you were overheating, though that's never really been a problem before. Oh well, strange dreams and memories haven't really indicated anything important before, it's probably nothing.$/, '$1区域：225 在一个凉爽幽深的洞窟里睡了个饱觉以后，您在一身冷汗中惊醒了。您梦到自己过热了，这在之前从来就不是个问题。好吧，怪梦也好，回忆也好，都没什么事，应该只是个梦而已。'], //故事消息
     [/^(.*)Z:231 It's pretty hot.$/, '$1区域：231 好热啊。'], //故事消息
     [/^(.*)Z:232 The heat intensifies as you move further and further through the Zones. Instinct says to turn away from the heat, but that wouldn't be any fun.$/, '$1区域：232 随着您的前进，热量越来越高了。您的本能告诉您该转身离开，但那样就没意思了。'], //故事消息
@@ -7634,7 +7634,7 @@ var cnRegReplace = new Map([
     [/^(.*)Z:267 You're determined to repair the planet, and now that Nature is on your side you feel it might actually be possible. Either way, you know you must be doing something right to have earned the loyalty of Trimps and Nature.$/, '$1区域：267 您决心修复这个行星，而有了自然的帮助，这或许不再只是个梦想了。大概这就是，自助者，天助之。'], //故事消息
     [/^(.*)Z:270 This planet is really freaking big. You feel like you've been walking around it for years and still haven't seen everything there is to offer. Shouldn't there be another spire around here or something\?$/, '$1区域：270 这个行星真的太大了。尽管您已经待了这么多年，仍未能穷尽这个行星的一切。这里是不是应该有另一个尖塔来着？'], //故事消息
     [/^(.*)Z:277 It's starting to smell purple again. You must be getting close to another spire.$/, '$1区域：277 有的时候您都觉得自己是言出法随，这不，又开始有紫色的气味了。您应该离另一个尖塔不远了。'], //故事消息
-    [/^(.*)Z:283 During a boring night while waiting to cross a particularly rough Magma river, you managed to teach your Trimps how to stack on each other to create some funny shapes. You almost feel bad for the first Snimp to come across (.*) Trimps stuck together in the shape of a humongous Mongooseimp.$/, '$1区域：283 又是一个无聊的夜晚，您正在等待穿越一条崎岖的岩浆河。为了打发时间，您教会了脆皮们如何玩叠罗汉。没过多久，脆皮们就折腾出了一个由$2个脆皮组成的巨大猫鼬，您心中默默地为第一只向它走去的脆皮鹬哀悼了起来。'], //故事消息
+    [/^(.*)Z:283 During a boring night while waiting to cross a particularly rough Magma river, you managed to teach your Trimps how to stack on each other to create some funny shapes. You almost feel bad for the first Snimp to come across (.*) Trimps stuck together in the shape of a humongous Mongooseimp.$/, '$1区域：283 又是一个无聊的夜晚，您正在等待穿越一条崎岖的岩浆河。为了打发时间，您教会了脆皮们如何玩叠罗汉。没过多久，脆皮们就折腾出了一个由$2个脆皮组成的巨大猫鼬，您心中默默地为第一只向它走去的脆皮蛇哀悼了起来。'], //故事消息
     [/^(.*)Z:285 You can finally see it, clear as day. No more than 15 Zones in the distance stands a giant spire, even more menacing than the first. A loud, echoing voice booms from the tower, matching the tone and cadence of Druopitee himself. It's a little far away to hear perfectly, but it sounds like he's asking you nicely to please leave him be.$/, '$1区域：285 终于，又再见面了，是尖塔，一清二楚。它在15个区域后矗立着，看起来比第一个尖塔还要险恶。从塔顶上传来了巨大的回音，听上去像是德罗披提的声音。虽然隔了太远，听不太清楚他具体说了什么，但是从语气来看，大概是想请您赶紧离开这里。'], //故事消息
     [/^(.*)Z:285 Something feels wrong, but you can't quite figure out what. You eventually find a pebble in your shoe and everything seems much better!$/, '$1区域：285 您总觉得心神不宁，但又说不出个所以然来。折腾了半天，您从鞋子里取出了一块鹅卵石，这样似乎就好多了！'], //故事消息
     [/^(.*)Z:286 You hear the voice again, and can tell there's definitely something weird about it - as if it was coming from a ghost or something. Though you suppose that makes sense, since you've already killed Druopitee.$/, '$1区域：286 您再次听到了那个声音，那个声音似乎有哪里不大对劲————那根本就不是活人的声音啊。不过考虑到您已经亲手将德罗披提干掉了，这似乎也没什么不对的样子。'], //故事消息
@@ -7693,8 +7693,42 @@ var cnRegReplace = new Map([
     [/^(.*)Z:14 You ask Scruffy for more information on Radon, and he sits you down to tell you a story. He informs you that you're not the first human to come to their planet, that someone had been here 500 years ago who caused great harm to the planet. He set up giant Spires all around the World that harvested Radon from the atmosphere and beamed the power to a different Universe. You have a feeling that you know which Universe received this power, and you're starting to have a good idea of why Fluffy picked this particular Universe to send you to.$/, '$1区域：14 您问污污，能不能给您再详细说说氡的事，它让您坐下来，然后讲述了一段故事。它提醒您，您不是首位造访这个行星的，500年前也有一个人到来了，但那位对这个行星造成了巨大的破坏。他在这个世界上设立了大量的巨型尖塔，从大气中吸取氡，并且把能量传送到另一个宇宙中。您觉得您已经知道是哪个宇宙接收到了这些能量，绒绒之所以把您送到这来的原因，您现在也有头绪了。'], //宇宙2故事消息
     [/^(.*)Z:15 There is a device of great evil here. See if you can take it for yourself!$/, '$1区域：15 高能反应就是在这里了。能不能拿到那个装置就看您自己的了！'], //宇宙2故事消息
     [/^(.*)Z:20 Holy cowimp, there's an Improbability at the end of this Zone! But the planet doesn't look broken, this is... improbable...$/, '$1区域：20 我勒个乖乖，这个区域最后是从哪冒出来的一个乌有者？这行星都没破碎呢，这也太……乌有了……'], //宇宙2故事消息
-
-
+    [/^(.*)Z:22 Your Scientists have confirmed that the Spires are indeed still active on this planet, but are incredibly far away in lands your Trimps are nowhere near powerful enough to survive in.$/, '$1区域：22 科学家已经确认了一点，这个行星上也有尖塔的存在，但离您目前所在地还太远了，而且您的脆皮也没有强到可以在那里生存下来。'], //宇宙2故事消息
+    [/^(.*)Z:24 Knowing that Druopitee is in your Universe, you ask Scruffy who is manning the Spires. He hangs his head in shame and lets you know that there are 5 Trimps, previously friends of Scruffy's, that were enticed by Druopitee's magic. He doesn't seem to want to talk much more about it.$/, '$1区域：24 考虑到德罗披提是在另一个宇宙，因此您找到污污询问到底是谁在控制着尖塔。它羞愧地垂下了脑袋，提醒您是5个脆皮，它们曾经是污污的朋友，却被德罗披提的魔法影响到了。说完这些以后，看起来它暂时不想再多谈了。'], //宇宙2故事消息
+    [/^(.*)Z:26 Your Trimps catch a bird and build a little home for it, but it flies away.$/, '$1区域：26 脆皮们抓住了一只小鸟，给它做了个窝，但小鸟还是飞走了。'], //宇宙2故事消息
+    [/^(.*)Z:28 Your memories of the last Universe are fading and you have no idea how many times you've been here in this Universe. This could be your first or thousandth time here. Neat!$/, '$1区域：28 上一个宇宙的记忆开始逐渐模糊不清了，而您也记不起到底在这个宇宙待过多少次了。是第一次来这，还是成千上万次了？这可太棒了。'], //宇宙2故事消息
+    [/^(.*)Z:30 You're not sure how much more beautiful this one is than the last one, but it's hard not to stop and take in all the scenery every once in a while. Sprawling hills and flowing rivers in every direction make it almost worth the frankly ridiculous amount of enemies hiding everywhere.$/, '$1区域：30 您不太确定这儿的风景是不是越来越美了，总之您是一直在驻足欣赏这周围的风景。巍巍群山，江河奔流，哪怕要以到处遍布的这些敌人为代价才能尽览这一切也值得啊。'], //宇宙2故事消息
+    [/^(.*)Z:31 You deserve hazard pay or something.$/, '$1区域：31 您应该享有厄劫津贴啥的。'], //宇宙2故事消息
+    [/^(.*)Z:32 One of your regular Trimps seems to have picked up the ability to speak a few words from Scruffy. They're too dirty to repeat though.$/, '$1区域：32 您的一个脆皮似乎习得了复读技能，然后它就开始复读污污的一些话。说实话，实在是太污了。'], //宇宙2故事消息
+    [/^(.*)Z:34 As you reach the top of another in this seemingly infinite sea of hills, you notice a tiny tablet. It's written in some language you've never seen, so you figure you'll hold on to it and see if Scruffy can translate.$/, '$1区域：34 您到达了这崇山峻岭之间一座山峰的峰顶，然后发现了一块小小的牌子。上面的字迹似乎是用另一种语言书写的，您决定让污污来看看。'], //宇宙2故事消息
+    [/^(.*)Z:35 Scruffy seems to be avoiding you ever since you found the tablet. You're not like... 100% positive but you're pretty sure.$/, '$1区域：35 污污似乎是在躲着您。对此您不是100%确信，但也差不多了。'], //宇宙2故事消息
+    [/^(.*)Z:36 You finally catch Scruffy while he's eating and ask him about the tablet. He tells you it's not a big deal, but that him and his six friends were all given some "enhancements" by Druopitee 500 years ago. Together they helped carry out Druopitee's bidding, setting up seven different Spires, harvesting Radon, and beaming the Power away. Scruffy lets you know that Fluffy and himself eventually realized how much damage Druopitee was causing to their planet and rebelled against Druopitee and the other Five. This tablet was an order from Druopitee to apprehend them.$/, '$1区域：36 您终于在污污进食的时候找到了机会，您开始询问它那块牌子究竟是怎么回事。它告诉您，这并不是什么大不了的事，500年前，它和它的六个朋友获得了德罗披提的“强化”。它们一起帮着德罗披提实现他的计划，设立了七座不同的尖塔，获取氡，然后把能量传送走了。污污表示，绒绒和它最后明白了德罗披提到底给这个行星造成了什么样的破坏，它们从此与德罗披提和之前的同伴们一刀两断了。牌子上写着的是德罗披提要求捉拿它们的命令。'], //宇宙2故事消息
+    [/^(.*)Z:37 You just realized... you thought you named Fluffy Fluffy. That sneaky telepathic Trimp!$/, '$1区域：37 您突然明白过来了……您以为是您给绒绒起的名字，其实是这个家伙用了什么心灵感应能力干扰了您的思维吧。这个藏头露尾的家伙！'], //宇宙2故事消息
+    [/^(.*)Z:38 You haven't seen Scruffy around the town much since your last conversation. Telling stories about his old friends seems to be painful for him, though you'd expect him to have moved through the grief stages after 500 years.$/, '$1区域：38 自从上次交谈以后，您几乎没再见到污污。看来之前的那个话题对它来说还是太不堪回首了，500年的时光变迁，都没能让它释怀啊。'], //宇宙2故事消息
+    [/^(.*)Z:39 You ask Scruffy why he's so conversational and Fluffy is not. Scruffy shows you a whole trove of books that Druopitee had left behind, that Scruffy had been reading for the past 500 years. You figure Fluffy spent most of that 500 years stuck in a time loop.$/, '$1区域：39 您询问了污污，为何它能跟您对话，而绒绒却不能。污污展示了一大堆德罗披提留下的书籍，看来它这500年也不是闲着的。而绒绒呢，您想到，它在这500年却被困在了时间循环中。'], //宇宙2故事消息
+    [/^(.*)Z:40 A Trimp eats a rock.$/, '$1区域：40 一个脆皮吃掉了一块石头。'], //宇宙2故事消息
+    [/^(.*)Z:42 You wonder how Fluffy ended up in your Universe if he started out here. You'll ask Scruffy about it when he quits being all sulky.$/, '$1区域：42 如果绒绒之前是在这个宇宙，那它是怎么到另一个宇宙去的？等污污心情好一些以后，您一定要找它问个明白。'], //宇宙2故事消息
+    [/^(.*)Z:45 Today, you held the first annual Trimp Toss. It was a pretty nice day.$/, '$1区域：45 今天您第一次举行了脆皮年度庆典。这真是个好日子。'], //宇宙2故事消息
+    [/^(.*)Z:50 This zone is really freaking hot.$/, '$1区域：50 这个区域真的好热啊。'], //宇宙2故事消息
+    [/^(.*)Z:52 You catch Scruffy helping a group of small Trimps across a river. What a cool dude.$/, '$1区域：52 您发现污污在帮一队小脆皮过河。好家伙，真是好家伙。'], //宇宙2故事消息
+    [/^(.*)Z:57 A few of your Trimps are getting whiny so you take them for a walk. Seemed to do the trick, they just needed to burn some energy and pee.$/, '$1区域：57 几个脆皮有点烦躁，所以您带着它们一起去散步了。看起来效果不错，它们需要的也就是燃烧多余的能量和及时如厕了。'], //宇宙2故事消息
+    [/^(.*)Z:60 Scruffy is finally in a good mood and seems quite a bit stronger than before, so you figure now is a good time to ask him about Fluffy. In exchange for his good mood, he agrees to tell you the rest of the story. According to him, Fluffy was stationed at the seventh Spire while Scruffy was at the sixth. Fluffy and Scruffy each destroyed their own Spires, but Fluffy was caught by Druopitee and took the fall for both of them. Druopitee left the six remaining enhanced Trimps to take care of the remaining five Spires, and took Fluffy with him. You ask what the names of the other five Trimps are and he tells you - names so horrible that just hearing them could drive anyone to the brink of insanity: Huffy, Stuffy, Buffy, Tuffy, and Puffy.$/, '$1区域：60 污污看起来终于缓过来了，看起来它甚至比之前更加强大了。您觉得时机已经成熟，于是您找到它询问绒绒的情况。它继续讲述了之前没说完的故事。根据它的说法，绒绒本来是在第七座尖塔，而污污是在第六座的。绒绒和污污毁掉了它们所在的尖塔，最后，绒绒被德罗披提抓住，承担了摧毁两座尖塔的后果。德罗披提离开之前，要求剩下的六个强化版脆皮照看尖塔，然后把绒绒带走了。您向污污询问道，那剩下的五个脆皮名字又是什么呢，然后污污回答您，那五个名字可怕到能让人瞬间失去理智————它们的名字是怒怒，闷闷，醉醉，泰泰和彭彭。'], //宇宙2故事消息
+    [/^(.*)Z:61 Scruffy finally seems more inspired than sad. Looks like he wants to go take down some bad guys.$/, '$1区域：61 污污看起来真的走出来了，它看起来下定了决心，就像已经准备好干掉敌人了一样。'], //宇宙2故事消息
+    [/^(.*)Z:62 It seems like you've gotta take down the Five Evil Trimps. Scruffy reminds you that you're still about 140 Zones away from the first one though. You try to find something else to direct anger at, like that tree over there.$/, '$1区域：62 看起来您还需要对付五个坏脆皮。污污提醒您，您离最近的那个脆皮都还有140个区域之远。您只好找了旁边的树来泄愤了。'], //宇宙2故事消息
+    [/^(.*)Z:65 You wonder if Trimps came from this Universe, your original one, or somewhere else. Scruffy shrugs.$/, '$1区域：65 不知道脆皮是来自哪儿的，是这个宇宙，之前那个宇宙，还是其他哪里？污污对此也一无所知。'], //宇宙2故事消息
+    [/^(.*)Z:67 The weather is finally starting to cool back down, you and your Trimps are quite relieved.$/, '$1区域：67 气温终于又凉下来了，您和脆皮们都松了口气。'], //宇宙2故事消息
+    [/^(.*)Z:69 Giggity$/, '$1区域：69 咯咯咯'], //宇宙2故事消息
+    [/^(.*)Z:69 The Trimps are still enjoying the nice weather, and have even found a couple of sweet lakes to swim in!$/, '$1区域：69 脆皮们很享受这宜人的天气，它们甚至找到了几个可以尽情戏水的湖泊！'], //宇宙2故事消息
+    [/^(.*)Z:70 Your tenacity is inspiring.$/, '$1区域：70 您的坚持足以鼓舞人心。'], //宇宙2故事消息
+    [/^(.*)Z:72 You really don't like Druopitee. You've spent an unknown amount of lifetimes cleaning up his mess, and who knows how many different Universes he's corrupted.$/, '$1区域：72 您一点也不喜欢德罗披提。到了现在您还在替他擦屁股，天知道他还腐化了多少个宇宙。'], //宇宙2故事消息
+    [/^(.*)Z:75 You miss Fluffy, you should go visit him soon.$/, '$1区域：75 您有点想绒绒了，之后找个时间去看看它吧。'], //宇宙2故事消息
+    [/^(.*)Z:79 You're a little bit closer to the first Spire. Coming for you, Huffy.$/, '$1区域：79 您离第一个尖塔越来越近了。等着我，怒怒。'], //宇宙2故事消息
+    [/^(.*)Z:82 You thought you saw Druopitee but it was just a tree. On closer inspection it doesn't even look anything close to him.$/, '$1区域：82 粗粗一看您似乎看到了德罗披提，但实际上那只是一颗树而已。靠近观察以后，那一点也不像他了。'], //宇宙2故事消息
+    [/^(.*)Z:85 This zone feels needy, like it wants your help with something.$/, '$1区域：85 这个区域看着像是需要您帮忙做什么似的。'], //宇宙2故事消息
+    [/^(.*)Z:90 As you near the halfway point to the first Spire, Scruffy sits you down for another story. Excited to hear more about Fluffy and Scruffy's history together, you listen intently. Scruffy just rambles about gems and how we could be rich selling jewelry then starts dancing. Seems like Scruffy's been fermenting berries again.$/, '$1区域：90 您离尖塔还有一半多的路途，而污污似乎又有什么想对您说的。您专心地听着它说话，想着是不是还有更多的故事可以听。而污污只是随便聊了些关于宝石和加工珠宝赚大钱之类的话题，然后就开始手舞足蹈了起来。这货只是有点醉了吧。真是醉了。'], //宇宙2故事消息
+    [/^(.*)Z:93 Scruffy created some sort of instrument out of a Snimp and some wood that he calls the Riflunger. It makes better music than you expected, but you wouldn't buy any albums.$/, '$1区域：93 污污用一只脆皮蛇和一些木头做成了某种乐器，然后将它取名为利弗朗格。它用来演奏音乐还真的不错，超出了您的预期，不过反正您是不会去买它的专辑的。'], //宇宙2故事消息
+    [/^(.*)Z:95 Scruffy lets you know that Fluffy was the first modified Trimp created by Druopitee, and was always Druopitee's favorite. Druopitee was probably extra pissed when Fluffy was the one who rebelled and destroyed a couple Spires, that's probably why he was caged when you found him.$/, '$1区域：95 污污向您表示，绒绒是德罗披提制造的第一个强化脆皮，也是德罗披提最偏爱的一个。所以当绒绒毁掉尖塔时，德罗披提可以说是气得七窍生烟了。或许这就是第一次见面时，绒绒被关在笼子里的原因了。'], //宇宙2故事消息
+    [/^(.*)Z:100 Halfway there. The lands ahead are bare and undeveloped, but you appear to be pressing on anyways.$/, '$1区域：100 路途已经到了一半。前方一片荒芜，但您无论如何都会继续前进。'], //宇宙2故事消息
     [/^(.*)The voice booms again, and sounds as if it is coming from the walls themselves.$/, '$1声音再次响了起来，听上去像是从墙壁中来的。'], //故事-尖塔消息
     [/^Dammit Druopitee. This is all going to end up being his fault, isn't it\? You help yourself to a container filled with (.*) Helium, and figure he'll owe you a lot more than that once you hear some more.$/, '该死的德罗披提，原来都是你在搞的鬼，不是吗？您装走了一个容器中的$1氦，您觉得这么听下去，他欠您的只会越来越多。'], //故事-尖塔消息
     [/^Yeah you don't really feel too much like bowing and probably won't be doing that. You did however find (.*) more Helium just sitting around, which you feel no qualms about taking.$/, '您不怎么喜欢臣服，也不会那么做的。您在附近找到了$1氦，毫不犹豫地将它带走了。'], //故事-尖塔消息
