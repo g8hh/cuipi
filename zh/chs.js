@@ -2807,7 +2807,7 @@ var cnItems = {
     'with this Challenge active will grant an additional 400% of all Radon earned up until that point, and will (mostly) return the world to normal.': '后，可额外获得氡，数值等于本次挑战完成前氡获取量的400%，然后世界将(基本上)回归正常。',
     'Complete this Challenge with Cruffys at Level 10 or higher to earn a new Perk!': '在朽朽达到10级的前提下完成此挑战将获得一个新的特权！',
     'You have the Nurture challenge active. Travel to a dimension filled with gigantic monsters. All enemies have 2x attack, World enemies have 2x health and map enemies have 10x health. Luckily, Scruffy has a brother in this dimension who will help you out if you level him up! You\'ll gain access to the special Laboratory building while on this challenge, which will give bonus Exp to Scruffy\'s brother, Cruffys. Check the Scruffy and Laboratory tooltips while on this Challenge for more info. Clearing': '您目前正在进行培养挑战。前往一个充满了巨型怪物的维度。所有敌人获得2倍攻击力，世界上的敌人生命值变为2倍，地图中的敌人生命值变为10倍。但幸运的是，污污在此维度中有一个兄弟，如果善加培养，它就能帮到大忙了！此挑战中您可以建造特殊的实验室建筑，可为污污的兄弟，朽朽提供额外的经验值。在此挑战中查看污污或实验室的提示框可以获取更详细的信息。在此挑战激活的前提下通过 ',
-    'You will unlock this challenge once you  reach Zone 130 and wait a few more days!': '欲解锁此挑战，您需要到达区域130，并等待一阵子！',
+    'You will unlock this challenge once you  reach Zone 130.': '欲解锁此挑战，您需要到达区域130。',
     //挑战相关结束
     //特权相关
     'Apply your skills at salvaging things from the Spire to increase all loot gained by 0.25% per level. The price for this perk increases additively, and each level will cost exactly 10000 more than the previous level.': '将您搜刮尖塔的本事用在劫掠上，每级提升0.25%劫掠效果。此特权的价格线性增加，每级都比上一级贵10000。',
@@ -3490,7 +3490,7 @@ var cnItems = {
     'Multiplies Radon earned by 2, and adds 25% to the Level 3 Resource bonus.': '氡获取量变为2倍，使朽朽3级的资源获取量的加成再增加25%。',
     'Multiplies Radon earned by 1.1, and Cruffys will stick around for 5 Zones after Nurture ends, granting all non-Radon bonuses.': '氡获取量变为1.1倍，朽朽在培养挑战结束后还会继续存在5个区域，提供所有非氡的加成。',
     'Multiplies Radon earned by 1.1, and increases Cruffys\' Trimp attack, health, and resource bonuses by an additional 20%. Cruffys will stay in your Universe for 5 additional Zones after Nurture ends.': '氡获取量变为1.1倍，朽朽提供的生命值，攻击力和资源获取量加成再增加20%。朽朽在培养挑战结束后还会再多存在5个区域。',
-    'Multiplies Radon earned by 1.03, and increases Cruffys\' Trimp attack, health, and resource bonuses by an additional 10%. Cruffys will stay in your Universe for 1 additional Zone after Nurture ends. This is repeatable up to 5 times to a max level of 14.': '氡获取量变为1.03倍，朽朽提供的生命值，攻击力和资源获取量加成再增加10%。朽朽在培养挑战结束后还会再多存在1个区域。此项加成对应朽朽10级到朽朽14级。',
+    'Multiplies Radon earned by 1.04, and increases Cruffys\' Trimp attack, health, and resource bonuses by an additional 10%. Cruffys will stay in your Universe for 1 additional Zone after Nurture ends for every 2 levels earned (11, 13, 15 etc). This is repeatable up to 10 times to a max level of 19.': '氡获取量变为1.04倍，朽朽提供的生命值，攻击力和资源获取量加成再增加10%。每提升2级(11级，13级，15级等)，朽朽在培养挑战结束后还会再多存在1个区域。此项加成对应朽朽10级到朽朽19级。',
     'Click for more detailed info': '点击以获取更详细的信息',
     'Pat': '拍头',
     //绒绒污污相关结束
@@ -7209,6 +7209,8 @@ var cnRegReplace = new Map([
     [/^Your Trimps are frenzied for (.*) second(s*)! They are dealing (.*)% more damage.$/, '您的脆皮们的战狂状态持续时间还有$1秒！它们可以额外造成$3%伤害。'], //特权等
     [/^The Trimps that earned this Frenzy buff are still alive, and they will be able to refresh its duration starting in (.*) second(s*).$/, '最初触发战狂的脆皮们仍然还幸存着，再过$1秒，它们就可以刷新战狂状态持续时间了。'], //特权等
     [/^Grants your Trimps the ability to locate small Runetrinkets around the World. For each level of this perk, your Trimps will gain a chance per Zone cleared above Z100 to find a Runetrinket. Each Runetrinket increases your Trimps' attack, health, and gathered primary resources by 1% \(additive\) per perk level. You can store a maximum of (.+) Runetrinkets per perk level, reducing levels in this perk will deactivate any trinkets above cap but not lose them. Runetrinkets persist through Portal and never reset. The chance to find a Runetrinket increases by about 50% per level of this Perk, and scales as the Zone number increases \(up to Z200\). You'll also find 1 guaranteed Runetrinket every 25 Zones above Z100 for every 2 levels of this perk.$/, '使您的脆皮们可以在世界上找到小符饰。此特权每级都能增加脆皮找到小符饰的概率，此概率还与本次传送后到达的区域数量有关，但只计算超过区域100的部分。每有1级特权，每个小符饰都可以使您的脆皮的攻击力，生命值和食物、木头、金属获取量增加1%(效果叠加)。每级特权可以使小符饰上限增加$1，如果对此特权进行洗点，超出上限的小符饰将暂时失效，但重新加点后将重新生效。小符饰传送后仍然存在，数量不会重置。每级特权可以使找到小符饰的概率增加约50%，并且随着区域数量的增加而增加(上限为区域200)。另外，每有2级特权，每在区域100以上通过25个区域，就可以稳定获得1个小符饰。'], //特权等
+    [/^You have (.+) Runetrinket(s*).$/, '您拥有$1个小符饰！'], //特权等
+    [/^You have (.+) Runetrinket(s*). You are currently gaining (.+) attack, health, and gathered primary resources.$/, '您拥有$1个小符饰。目前小符饰使您脆皮的攻击力，生命值和食物、木头、金属获取量增加$3。'], //特权等
     [/^(.*)You found (.+) Runetrinket(s*)!$/, '$1您找到了$2个小符饰！'], //特权等
     [/^(.*) Helium Canister(s*)$/, '$1氦'], //特权等
     [/^(.*) Radon Vial(s*)$/, '$1氡'], //特权等
@@ -7471,12 +7473,12 @@ var cnRegReplace = new Map([
     [/^The bonus modifier from the Flufffocus Mastery \(\+25% exp per Prestige\). Scruffy has evolved (.*) time(s*), bringing this modifier to (.*).$/, '污污专注专精的加成(每次进化多获得25%的经验值)。污污进化了$1次，此加成变为$3。'], //绒绒污污相关
     [/^The bonus from your Knowledge Towers. You have (.*) Knowledge Tower(s*), granting a bonus of (.*)% each, bringing this modifier to (.*).$/, '知识塔的加成。您有$1个知识塔，每个可提供$3%的加成，总加成为$4。'], //绒绒污污相关
     [/^From Enlightened Ice. Equal to \(1 \+ \(0.0025 \* Ice Levels\)\), currently (.*). Does not apply to Best Fluffy Exp.$/, '冰之启迪的加成。加成为(1+0.0025*冰赋能等级)，目前为$1。不影响最高绒绒经验。'], //绒绒污污相关
-    [/^From Nurture. Increases Exp gain by 25% (additive) per constructed Laboratory. Currently granting (.*)x.$/, '培养的加成。每个实验室增加25%(效果叠加)的经验值获取量。目前可获取$1倍。'], //绒绒污污相关
+    [/^From Nurture. Increases Exp gain by 10% \(compounding\) per constructed Laboratory. Currently granting (.*)x.$/, '培养的加成。每个实验室增加10%(效果叠乘)的经验值获取量。目前可获取$1倍。'], //绒绒污污相关
     [/^damage to (.*)x and$/, '伤害变为$1倍，且'], //绒绒污污相关
     [/^damage to (.*)x.$/, '伤害变为$1倍。'], //绒绒污污相关
     [/^Allows an additional 4 Void Maps with the same name to stick together, bringing the max stack size to (.*). Each map in the stack that Fluffy clears grants an additional 50% Helium to all other maps in the stack, giving a bonus of up to \+(.*)% to each of the (.*) Fluffy maps from a (.*) stack.$/, '使虚空地图的融合张数上限增加4，达到$1张。每融合一张地图，所有绒绒完成的该名字的地图奖励都增加50%。如果融合地图张数达到最高的$4张，那么绒绒完成的$3张虚空地图每张可以额外获得$2%氦。'], //绒绒污污相关
     [/^Increases Radon gain from all sources by 3% for each Zone you reached on your last Portal in this Universe \(compounding\). You reached Z(.*) last Portal, worth \+(.*)% Radon.$/, '此宇宙上次传送前每通过一个区域，传送后获得的氡就增加3%(效果叠乘)。您上次传送前到达了区域$1，氡获取量加成为$2%。'], //绒绒污污相关
-    [/^Currently increasing attack, health and resources by (.+)% and Cruffys will stay for (.+) additional Zones.$/, '目前使脆皮的攻击力，生命值和资源获取量增加$1%，朽朽可以额外存在$2个区域。'], //绒绒污污相关
+    [/^Currently multiplying Radon earned by (.+), increasing attack, health and resources by (.+)% and Cruffys will stay for (.+) additional Zones.$/, '目前使氡获取量乘以$1，使脆皮的攻击力，生命值和资源获取量增加$2%，朽朽可以额外存在$3个区域。'], //绒绒污污相关
     [/^(.*)Your Worshippers successfully inspire Scruffy, granting (.*) Exp!$/, '$1您的崇信者成功启迪了污污，使它获得了$2经验值！'], //绒绒污污相关
     [/^(.*) Trimp(s*) just ceased to be.$/, '$1个脆皮去世了。'], //死亡消息
     [/^(.*) Trimp(s*) just bit the dust.$/, '$1个脆皮战死沙场了。'], //死亡消息
