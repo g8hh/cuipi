@@ -8207,11 +8207,6 @@ var cnRegReplace = new Map([
     [/^(.*)Check complete for ship frag map$/, '$1完成检查崇信者碎片地图'], //脚本3地图设置
     [/^(.*)ship frag map bought$/, '$1崇信者碎片地图已制造'], //脚本3地图设置
     [/^(.*)running ship frag map$/, '$1运行崇信者碎片地图'], //脚本3地图设置
-    [/^(.*)$/, '$1'], //脚本3地图设置
-    [/^(.*)$/, '$1'], //脚本3地图设置
-    [/^(.*)$/, '$1'], //脚本3地图设置
-    [/^(.*)$/, '$1'], //脚本3地图设置
-    [/^(.*)$/, '$1'], //脚本3地图设置
     [/^(.*)Upgraded Empowerment of Ice$/, '$1升级了冰赋能'], //脚本3自然设置
     [/^(.*)Upgraded Empowerment of Poison$/, '$1升级了毒赋能'], //脚本3自然设置
     [/^(.*)Upgraded Empowerment of Wind$/, '$1升级了风赋能'], //脚本3自然设置
