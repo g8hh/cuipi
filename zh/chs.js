@@ -3723,11 +3723,13 @@ var cnItems = {
     //脚本3相关
     'AutoTrimps': '自动脆皮',
     'AutoTrimps off': '自动脆皮 关闭',
-    'Its beta time': 'Beta版本',
+    'Fixed things. Check your TF settings U2 people i added a toggle': '修复了一些东西。宇宙2的玩家可以注意到，我在定时刷图那边加了一个开关',
+    'There is not enough space to describe how much stuff has changed. But its got all 5.4 content ready.': '改动过多，无法一一描述改动的内容。总之已经完全适配了5.4版本的内容。',
+    'CHANGED THE WAY JOBS, GEAR, BUILDINGS WORKS! CHECK SETTINGS!': '修改了工作、装备和建筑的工作机制，详见相应的设置！',
     'Various bug fixes.': '多个BUG修复。',
     'CHANGED THE WAY TF GATHER WORKS! CHECK TF SETTINGS!': '修改定时刷图的工作机制！详见定时刷图设置！',
     'CHANGED THE WAY MELTING POINT SETTING WORKS PLEASE CHECK SETTING IN MAPS!': '修改熔点设置的工作机制，详见地图设置！',
-    'Added Arch. Automated Quest. Fixed bugs. Updated calc.': '增加考古学。增加自动任务。修复BUG。升级计算器。',
+    //'Added Arch. Automated Quest. Fixed bugs. Updated calc.': '增加考古学。增加自动任务。修复BUG。升级计算器。',
     //'Added Quagmire functionality. Added time and tribute farming. Added option to run Dailies in either universe. Added check to c2runner to not run a challenge if you have not unlocked it. Autoallocation sort of fixed. Added Greed to loot dumping. Graphs are still bad when moving between universes. Removed autonu due to being broken.': '增加泥淖挑战相关设置。增加定时刷图和刷祭品。增加在两个宇宙刷日常的选项。增加一个判断条件，如果还没有解锁一个挑战，自动C2挑战将不会尝试它。自动分配修复一些问题。将贪婪加入主加特权列表。切换宇宙时，图表还是会有问题。移除了自动分配虚空物质，因为它无法正常工作。',
     //'CHECK COMBAT FOR BETTERAUTOFIGHT, IF MIGHT BE A BLACK BAR, CLICK IT!': '检查战斗选项下的改良自动战斗选项，它可能变成一个黑条，记得点一下！',
     //'A bunch of U2 stuff added, offline progress still being worked on.': '添加了许多宇宙2相关内容，离线进度仍需要完善。',
@@ -4153,6 +4155,10 @@ var cnItems = {
     'Advanced. Recommend: -1 until you reach Magma (z230+': '进阶设置。建议值：-1，直到岩浆区(区域230以上',
     'No Nurseries Until z': '托儿所起始区',
     'Builds Nurseries starting from this zone. -1 to build from when they are unlocked.': '从此区域开始建造托儿所。设为-1则在解琐托儿所时就开始建造。',
+    'AutoBuildings': '自动建筑',
+    'Buys buildings in an efficient way. Also enables Vanilla AutoStorage if its off.': '有效地管理购买建筑。如果通常的自动存储被关闭了，则也会打开它。',
+    'Max Labs': '实验室最大值',
+    'It is about 10 labs per level at level 10 plus.': '等级10以后，每级大概需要多造10个实验室。',
     'Melt Smithy': '熔点铁匠铺',
     'Run the Melting Point Map to gain one extra Smithy when at or above this value.': '当超过此数值时，进入熔点地图获取额外的铁匠铺。',
     'Smithy Savings': '节约铁匠铺',
@@ -4187,10 +4193,18 @@ var cnItems = {
     'Advanced. Cap your explorers (This is an absolute number not a ratio). recommend: -': '进阶设置。限制探险家数量(不是比例)。建议值：-',
     'Max Trainers': '训练师最大值',
     'Advanced. Cap your trainers (This is an absolute number not a ratio). recommend: -': '进阶设置。限制训练师数量(不是比例)。建议值：-',
-    'Auto Meteorologists': '自动气象学家',
-    'Auto buy Meteorologists. This value is the percent of food you want to spend on them. 100 would hire as soon as you can afford to. 1 would hire at 1% of your food. -1 or 0 to disable.': '自动雇佣气象学家。此项数值表示最多花费的食物比例。设为100则会在可以雇佣时立刻雇佣。设为1则只在雇佣花费低于1%食物时雇佣。设为-1或0则关闭此选项。',
-    'Meteorologists Zone': '气象学家区域',
-    'What zone to stop buying Meteorologists at. I.e if set to 70 it will not buy any Meteorologists from z70 onwards. Use 0 or -1 to disable this check.': '停止雇佣气象学家的区域。例如设为70，则从区域70开始停止雇佣气象学家。设为0或者-1则跳过此项。',
+    'Ship Farming': '刷崇信者',
+    'Turn Ship Farming off or on.': '是否开启刷崇信者所需要的资源。',
+    'SF: Zone': '刷崇信者：区域',
+    'Farms for specified worshippers in SF: Amount at zone according to this settings value. Can use 59,61,62.': '在特定的区域，以刷崇信者：数量中设置的数量来刷崇信者所需要的资源。可以输入多个数值，格式类似59,61,62这样。',
+    'SF: Cell': '刷崇信者：格子',
+    'Ship Farm at this Cell. -1 to run them at the default value, which is 1.': '在此格子开始刷崇信者所需要的资源。设为-1则在默认值时开始刷崇信者，即格子1。',
+    'SF: Amount': '刷崇信者：数量',
+    'How many Worshippers to farm at zone specified in SF. Can use 2,3,4. These values should match up to your SF zones. If using SF and SF: Amount examples (59 and 2) it will farm at z59 for 2 Worshippers.': '刷崇信者时在相应的区域刷到多少名崇信者所需要的资源。可以输入多个数值，格式类似2,3,4这样。请让此项的数值与刷崇信者：区域的数值能够一一对应。例如：将刷崇信者：区域设为59，刷崇信者：数量设为2的话，将在区域59刷到能够雇佣2名崇信者为止。',
+    'SF: Map Level': '刷崇信者：地图等级',
+    'What map level to use for SF. Can use -1,1,2. -1 to use a level down from world (Map Reducer mastery gives loot equal to world one level down), 0 to use world, 1 etc to use +maps. Using 0 by itself will use global level for all maps.': '刷崇信者时使用的地图等级。可以输入多个数值，格式类似-1,1,2这样。设为-1则使用比当前区域低一级的地图(地图减压专精效果下可以从低一级的地图中获得相同的劫掠资源量)，设为0则与世界区域数相等，1及以上则使用额外区域。只设为0的话，则所有地图都使用与世界区域数相等的等级。',
+    'SF: Frags': '刷崇信者：刷碎片',
+    'Turn this on to farm fragments if you cannot afford the map you have selected for SF.': '开启此项后，如果碎片不足以制造刷崇信者所需要的地图，则会先刷碎片。',
     'Armor: Buy Neither': '护甲：关闭',
     'Armor: Buy Both': '护甲：全部',
     'Armor: Prestiges': '护甲：重铸',
@@ -4243,11 +4257,35 @@ var cnItems = {
     'MUST ALWAYS HAVE A VALUE GREATER THAN 0!': '必须设置为大于0的数值！',
     'Always Level': '常时等级',
     'Always buys level 2 of weapons and armor regardless of efficiency': '无视效率，常时购买2级武器和护甲',
+    'AutoEquip. Buys Prestiges and levels equipment according to various settings. Will only buy prestiges if it is worth it. Levels all eqiupment according to best efficiency.': '自动装备。根据相应的设置，自动购买重铸升级和购买装备等级。只在有必要的时候购买重铸升级。根据效率来购买装备等级。',
+    'AE: Cut-off': '自动装备：界限',
+    'Decides when to buy gear. 1 is default. This means it will take 1 hit to kill an enemy. If zone is below the zone you have defined in AE: Zone then it will only buy equips when needed.': '设置购买装备的时机。默认值为1。这意味着可以秒杀敌人。如果当前区域比自动装备：区域中设置的数量来得低，则只会在有需要的时候购买装备。',
+    'AE: Amount': '自动装备：购买数量',
+    'How much equipment to level per time.': '每次购买多少数量的装备等级。',
+    'AE: Weapon Cap': '自动装备：武器限制',
+    'What level to stop buying Weapons at.': '达到相应数量后停止购买武器的装备等级。',
+    'AE: Armour Cap': '自动装备：护甲限制',
+    'What level to stop buying Armour at.': '达到相应数量后停止购买护甲的装备等级。',
+    'AE: Zone': '自动装备：区域',
+    'What zone to stop caring about H:D and buy as much prestiges and equipment as possible.': '从此区域开始，忽略生命伤害比，尽可能地购买重铸升级和装备等级。',
+    'AE: Percent': '自动装备：百分比',
+    'What percent of resources to spend on equipment before the zone you have set in AE: Zone': '在到达自动装备：区域中设置的区域之前，只购买成本低于此百分比的装备。',
+    'AE': '自动装备',
+    'AE: Farm': '自动装备：刷资源',
+    'AutoEquip Farm. Calculates metal needed to reach the target you have defined in the AEF settings. Will try to buy the best map you can make. Will never make a plus map as this is intended for us on deep push runs.': '是否刷自动装备所需要的资源。将根据自动装备刷资源的相应设置来计算所需要刷的金属数量。将尽可能地选择最合适的地图，但不会制造有额外区域的地图。',
+    'AEF: Zone': '自动装备刷资源：区域',
+    'What zone to start AEF: H:D and AEF: Multiplier.': '从此区域开始考虑自动装备刷资源：生命伤害比和自动装备刷资源：倍率。',
+    'AEF: H:D': '自动装备刷资源：生命伤害比',
+    'What H:D to use for AEF target.': '自动装备刷资源所使用的生命伤害比。',
+    'AEF: Multiplier': '自动装备刷资源：倍率',
+    'Starting from the zone above AEF: Zone, this setting will multiply the H:D you have set in AEF: H:D. So if AEF: Zone was 100, AEF: H:D was 10, AEF: Multiplier was 1.2, at z101 your H:D target will be 12, then at z102 it will be 14.4 and so on. This way you can account for the zones getting stronger and you will not waste time farming for a really low H:D.': '从自动装备刷资源：区域中设置的区域开始，将自动装备刷资源：生命伤害比中设置的数量乘以相应的倍率。这意味着如果自动装备刷资源：区域设置为100，自动装备刷资源：生命伤害比设置为10，自动装备刷资源：倍率设置为1.2，则在区域101时您的生命伤害比目标将变成12，区域102将变成14.4，依此类推。通过此项设置您可以考虑到区域变难的情况，同时也不需要在生命伤害比较低的时候浪费时间刷资源。',
+    'AEF: Hits': '自动装备刷资源：次数',
+    'How many hits do you want to kill an enemy in a AEF map.': '在自动装备刷资源的地图中需要用多少次攻击才能击杀敌人。',
     'Auto Maps Off': '关闭自动地图',
     'Auto Maps On': '开启自动地图',
     'Auto Maps No Unique': '非独特自动地图',
     'Auto Maps Off / Auto Maps On / Auto Maps No Unique': '关闭自动地图 / 开启自动地图 / 非独特自动地图',
-    'Automaps. The no unique setting will not run unique maps such as dimensions of anger. Recommended ON.': '自动地图开关。非独特自动地图不会进入类似愤怒维度的独特地图。建议开启。',
+    'Automaps. The no unique setting will not run unique maps such as dimensions of anger. Recommended ON. Do not use MaZ, it will not work.': '自动地图开关。非独特自动地图不会进入类似愤怒维度的独特地图。建议开启。不要再同时设置自动进图了，那不会生效的。',
     'AM Portal': '传送后自动地图',
     'Makes sure Auto Maps is on after portalling. Turn this off to disable this and remember your choice.': '使用传送门后开启自动地图。如果关闭了此项，请记得手动开启自动地图。',
     'Dynamic Siphonology': '动态虹吸学',
@@ -4295,10 +4333,12 @@ var cnItems = {
     'Only use if you have Scryhard II, for er, obvious reasons. Works without the scryer options.': '请只在拥有努力占卜 II专精时开启，原因不用多说。无需占卜阵型相关设置也能生效。',
     'VM Buy Weps': '虚空地图购买武器',
     'Buys gear in Void maps regardless of your H:D ratio. Useful if you want to overkill as much as possible.': '虚空地图中无视生命伤害比购买装备。对于超杀会有帮助。',
-    'Automaps. The no unique setting will not run unique maps such as dimensions of rage. Recommended ON.': '自动地图开关。非独特自动地图不会进入类似暴怒维度的独特地图。建议开启。',
+    'Automaps. The no unique setting will not run unique maps such as dimensions of rage. Recommended ON. Do not use MaZ, it will not work.': '自动地图开关。非独特自动地图不会进入类似暴怒维度的独特地图。建议开启。不要再同时设置自动进图了，那不会生效的。',
     'Plentiful': '丰饶',
     'Hits Survived': '伤害承受次数',
     'Set this value to tell the script how many enemy attacks you wish to survive for. The default is 10. The lower this is the less health the script will get. If you set this too high it will farm too much so please be careful.': '设置想要承受多少次攻击才死亡。默认值为10。数值越低，脚本的生命值目标就越低。如果设置过高，可能脚本会花过多时间刷资源，所以请小心设置。',
+    'Time Farm': '定时刷图开关',
+    'Turn this on if you want to use Time or Tribute Farming.': '如果您想使用定时刷图或者定时刷图：贡品，请开启此选项。',
     'Farms for specified minutes in TF: Time at zone according to this settings value. Can use 59,61,62.': '在特定的区域，以定时刷图：数值中设置的时间来刷资源。可以输入多个数值，格式类似59,61,62这样。',
     'TF: Cell': '定时刷图：格子',
     'Time Farm at this Cell. -1 to run them at the default value, which is 1.': '在此格子开始定时刷图。设为-1则在默认值时开始定时刷图，即格子1。',
@@ -4465,6 +4505,31 @@ var cnItems = {
     'M: Smart Map': '暴乱：智能地图',
     'M: Maps Off / M: Highest Map / M: Smart Map': '暴乱：关闭地图 / 暴乱：最高地图 / 暴乱：智能地图',
     'Control what maps you do to farm M: Attack and/or M: Health. M: Highest map always selects the highest map you have whether it be from Praiding, Time Farming or any you have manually created. M: Smart Map attempts to create a map best suited to the situation. Will calculate if you can survive and kill the map, and will try to buy all the necessary map attributes such as FA.': '控制在暴乱：攻击及暴乱：生命值激活时选择的地图。暴乱：最高地图总是选择最高级的地图，无论是重铸袭劫、定时刷图还是手动制造的地图。暴乱：智能地图会尝试制造最适合当前情况的地图。会计算您是否能够承受住伤害并通过地图，并且在有必要的时候会使用特殊修饰符。',
+    'Turn on Storm settings. This also controls the entireity of Storm settings. If you turn this off it will not do anything in Storm.': '切换是否启用风暴设置。所有风暴设置的总开关。如果关闭此项则风暴的其他设置均失效。',
+    'S: Zone': '风暴：区域',
+    'What zone to start S: H:D and S: Multiplier.': '从此区域开始考虑风暴：生命伤害比和风暴：倍率。',
+    'S: H:D': '风暴：生命伤害比',
+    'What H:D to use inside Storm.': '风暴所使用的生命伤害比。',
+    'S: Multiplier': '风暴：倍率',
+    'Starting from the zone above S: Zone, this setting will multiply the H:D you have set in S: H:D. So if S: Zone was 100, S: H:D was 10, S: Multiplier was 1.2, at z101 your H:D target will be 12, then at z102 it will be 14.4 and so on. This way you can account for the zones getting stronger and you will not waste time farming for a really low H:D.': '从风暴：区域中设置的区域开始，将风暴：生命伤害比中设置的数量乘以相应的倍率。这意味着如果风暴：区域设置为100，风暴：生命伤害比设置为10，风暴：倍率设置为1.2，则在区域101时您的生命伤害比目标将变成12，区域102将变成14.4，依此类推。通过此项设置您可以考虑到区域变难的情况，同时也不需要在生命伤害比较低的时候浪费时间刷资源。',
+    'Turn on Insanity settings. This also controls the entireity of IF. If you turn this off it will not Insanity Farm.': '切换是否启用失智设置。所有失智设置的总开关。如果关闭此项则失智的其他设置均失效。',
+    'Insanity Farming': '刷失智层数',
+    'Farms for specified stacks in IF: Stacks at zone according to this settings value. Can use 108,109,110.': '在特定的区域，以刷失智层数：层数中设置的数量来刷失智层数。可以输入多个数值，格式类似108,109,110这样。',
+    'IF: Cell': '刷失智层数：格子',
+    'Insanity Farm at this Cell. -1 to run them at the default value, which is 1.': '在此格子开始刷失智层数。设为-1则在默认值时开始刷失智层数，即格子1。',
+    'IF: Stacks': '刷失智层数：层数',
+    'How many stacks to farm at zone specified in IF. Can use 300,400,500. These values should match up to your IF zones. If using IF and IF: Stacks examples (110 and 500) it will farm at z110 for 500 stacks of insanity. If stacks specified are above maximum Insanity Stacks, it will farm for maximum.': '刷失智层数时在相应的区域刷到多少层。可以输入多个数值，格式类似300,400,500这样。请让此项的数值与刷失智层数：区域的数值能够一一对应。例如：将刷失智层数：区域设为110，刷失智层数：层数设为500的话，将在区域110刷到500层失智为止。如果层数超过了上限，则会刷到上限为止。',
+    'IF: Map Level': '刷失智层数：地图等级',
+    'What map level to use. Can use -1,1,2. -1 to use a level down from world (This is how to remove insanity stacks), 0 to use world, 1 etc to use +maps. Using 0 by itself will use global level for all maps.': '刷失智层数时使用的地图等级。可以输入多个数值，格式类似-1,1,2这样。设为-1则使用比当前区域低一级的地图(从而减少失智层数)，设为0则与世界区域数相等，1及以上则使用额外区域。只设为0的话，则所有地图都使用与世界区域数相等的等级。',
+    'IF: Frags': '刷失智层数：刷碎片',
+    'Turn this on to farm fragments if you cannot afford the map you have selected for IF.': '开启此项后，如果碎片不足以制造刷失智层数所需要的地图，则会先刷碎片。',
+    'Turn on Exterminate settings. This also controls the entireity of Exterminate. If you turn this off it will not calculate Exterminate.': '切换是否启用灭虫设置。所有灭虫设置的总开关。如果关闭此项则灭虫的其他设置均失效。',
+    'E: Calc': '灭虫：计算',
+    'Calculate Exterminate enemies instead of the usual ones. May improve your challenge experience.': '将灭虫的敌人纳入计算。可能会使灭虫挑战更容易。',
+    'E: Equality': '灭虫：平等',
+    'Will manage your equality \'better\' inside the challenge. When you have the experienced buff it will turn it off, when you dont it will turn it on and let it build up.': '在灭虫挑战中更好地管理平等层数。在您获得了经验丰富效果以后将关闭平等效果，如果没有经验丰富效果，则平等效果正常生效并正常进行平等缩放。',
+    'Enables the Lab setting in Buildings and building labs through it.': '切换是否开启建筑选项卡下的实验室设置，并根据它自动建造实验室。',
+    '': '',
     'Better AutoFight OFF': '关闭改良自动战斗',
     'Better Auto Fight': '开启改良自动战斗',
     'Vanilla': '通常自动战斗',
@@ -4519,7 +4584,9 @@ var cnItems = {
     'EC: On': '开启平等计算',
     'EC: Health': '平等计算：生命值',
     'Equality Calc Off / EC: On / EC: Health': '关闭平等计算 / 开启平等计算 / 平等计算：生命值',
-    'Adds Max Equality stacks to the battlecalc. Assumes you use Equality Scaling. Turning this on allows in-game Equality Scaling to adjust your Health accordingly. EC: Health only decreases enemies attack in the calculation which may improve speed.': '将最大的平等层数加入计算。计算时假设您已经开启平等缩放。开启此项后可以根据生命值直接调整平等缩放的层数。平等计算：生命值在计算过程中只减少敌人攻击力，可能会提高计算速度。',
+    'Adds Equality Scaling levels to the battlecalc. Will always calculate equality based on actual scaling levels when its turned off by other settings. Assumes you use Equality Scaling. Turning this on allows in-game Equality Scaling to adjust your Health accordingly. EC: Health only decreases enemies attack in the calculation which may improve speed.': '将平等缩放等级加入计算。当平等缩放被其他设置关闭时，将总是根据实际缩放等级来进行计算。计算时假设您已经开启平等缩放。开启此项后可以根据生命值直接调整平等缩放的层数。平等计算：生命值在计算过程中只减少敌人攻击力，可能会提高计算速度。',
+    'Manage Equality': '管理平等等级',
+    'Manages Equality for you. Sets Equality to 0 on Slow enemies, and Autoscaling on for Fast enemies.': '自动管理平等等级。在非快速敌人身上将平等生效等级设置为0，在快速敌人身上正常进行平等缩放。',
     'Enable Scryer Stance': '开启占卜者阵型',
     'Activates all other scrying settings, and overrides AutoStance when scryer conditions are met. Leave regular Autostance on while this is active. Scryer gives 2x Resources (Non-Helium/Nullifium) and a chance for Dark Essence. Once this is on, priority for Scryer decisions goes as such': '启用所有其他的占卜者阵型设置，满足占卜者阵型条件时，忽略自动阵型的设置。占卜者阵型可以获得2倍资源(非氦及虚空物质)，且可以获得黑暗精华。开启后，占卜者阵型优先级按照以下规律来考虑',
     'NEVER USE, FORCE USE, OVERKILL, MIN/MAX ZONE': '永不使用，强制使用，超杀，最低/最高区域',
@@ -8076,6 +8143,8 @@ var cnRegReplace = new Map([
     [/^(.*)Leftover magmite$/, '$1剩余岩浆岩'], //脚本3岩浆设置
     [/^Farming for Spire (.*)h left$/, '尖塔前刷资源，剩余$1小时'], //脚本3地图设置
     [/^Farming for Spire (.*)m:(.*)s left$/, '尖塔前刷资源，剩余$1分$2秒'], //脚本3地图设置
+    [/^Equip Farming to (.*) and (.*) Equality$/, '装备刷资源至$1及$2级平等'], //脚本3地图设置
+    [/^Storm Farming to (.*)$/, '风暴刷资源至$1'], //脚本3地图设置
     [/^Void Maps: (\d*) remaining$/, '虚空地图：剩余$1'], //脚本3地图设置
     [/^Void Maps: (\d*) \((\d*) stacked\) remaining$/, '虚空地图：剩余$1(融合了$2)'], //脚本3地图设置
     [/^Farming: (.*)x$/, '刷资源：生命伤害比$1'], //脚本3地图设置
@@ -8132,6 +8201,17 @@ var cnRegReplace = new Map([
     [/^(.*)1st map bought$/, '$1第一地图已制造'], //脚本3地图设置
     [/^(.*)Failed to Prestige Raid. Looks like you can't afford to or have no equips to get!$/, '$1重铸袭劫失败。您可能碎片不足无法制造地图，或者是已经没有可获取的装备了！'], //脚本3地图设置
     [/^(.*)running map$/, '$1运行地图'], //脚本3地图设置
+    [/^(.*)Check complete for insanity frag map$/, '$1完成检查失智碎片地图'], //脚本3地图设置
+    [/^(.*)insanity frag map bought$/, '$1失智碎片地图已制造'], //脚本3地图设置
+    [/^(.*)running insanity frag map$/, '$1运行失智碎片地图'], //脚本3地图设置
+    [/^(.*)Check complete for ship frag map$/, '$1完成检查崇信者碎片地图'], //脚本3地图设置
+    [/^(.*)ship frag map bought$/, '$1崇信者碎片地图已制造'], //脚本3地图设置
+    [/^(.*)running ship frag map$/, '$1运行崇信者碎片地图'], //脚本3地图设置
+    [/^(.*)$/, '$1'], //脚本3地图设置
+    [/^(.*)$/, '$1'], //脚本3地图设置
+    [/^(.*)$/, '$1'], //脚本3地图设置
+    [/^(.*)$/, '$1'], //脚本3地图设置
+    [/^(.*)$/, '$1'], //脚本3地图设置
     [/^(.*)Upgraded Empowerment of Ice$/, '$1升级了冰赋能'], //脚本3自然设置
     [/^(.*)Upgraded Empowerment of Poison$/, '$1升级了毒赋能'], //脚本3自然设置
     [/^(.*)Upgraded Empowerment of Wind$/, '$1升级了风赋能'], //脚本3自然设置
