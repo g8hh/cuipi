@@ -3442,6 +3442,7 @@ var cnItems = {
     'Evolve!': '进化！',
     'Fluffy\'s Exp gain at the end of each Zone is equal to': '绒绒通过每个区域时获得的经验值等于',
     'Scruffy\'s Exp gain at the end of each Zone is equal to': '污污通过每个区域时获得的经验值等于',
+    'Cruffys\'s Exp gain at the end of each Zone is equal to': '朽朽通过每个区域时获得的经验值等于',
     'dailyHeliumModifier': '日常氦倍率',
     'dailyRadonModifier': '日常氡倍率',
     'Labs': '实验室',
@@ -7450,6 +7451,7 @@ var cnRegReplace = new Map([
     [/^Fluffy is earning (.*) Exp per Zone. Fluffy needs (.*) more Exp to level, equivalent to repeating your current run to this zone about (.*) more time(s*).$/, '绒绒每个区域获得$1经验值，还需要$2经验值才能升级，等同于再有$3次传送后到达当前区域。'], //绒绒污污相关
     [/^Scruffy is earning (.*) Exp per Zone. Scruffy needs (.*) more Exp to level.$/, '污污每个区域获得$1经验值，还需要$2经验值才能升级。'], //绒绒污污相关
     [/^Scruffy is earning (.*) Exp per Zone. Scruffy needs (.*) more Exp to level, equivalent to repeating your current run to this zone about (.*) more time(s*).$/, '污污每个区域获得$1经验值，还需要$2经验值才能升级，等同于再有$3次传送后到达当前区域。'], //绒绒污污相关
+    [/^Cruffys is earning (.*) Exp per Zone. Cruffys needs (.*) more Exp to level.$/, '朽朽每个区域获得$1经验值，还需要$2经验值才能升级。'], //绒绒污污相关
     [/^Fluffy makes a purr-like sound. You've pet Fluffy (.+) times?.$/, '绒绒发出了非常愉悦的咕噜声。您已经拍了它$1次。'], //绒绒污污相关
     [/^Scruffy makes a purr-like sound. You've pet Scruffy (.+) times?.$/, '污污发出了非常愉悦的咕噜声。您已经拍了它$1次。'], //绒绒污污相关
     [/^Fluffy reminds you to scratch behind the ears. You've pet Fluffy (.+) times?.$/, '绒绒希望您再挠挠耳朵后面。您已经拍了它$1次。'], //绒绒污污相关
