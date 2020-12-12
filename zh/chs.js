@@ -239,6 +239,7 @@ var cnItems = {
     'You can only purchase 1 Antenna at a time.': '您一次只能购买1个气象天线。',
     'Jobs': '工作',
     'Upgrades': '升级',
+    '(Research first)': '(先研究吧)',
     'Equipment': '装备',
     'Mastery': '专精',
     'Click to view your masteries.': '点击可以查看您的专精。',
