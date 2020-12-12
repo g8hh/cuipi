@@ -6546,7 +6546,7 @@ var cnRegReplace = new Map([
     [/^(\d+) map(s*)$/, '$1张地图'], //离线等
     [/^You have (.+) Fragments.$/, '您有$1碎片。'], //离线等
     [/^Z (.+) map$/, '地图等级$1'], //离线等
-    [/^(.+) Frags$/, '花费$1碎片'], //离线等
+    [/^(?!SF)(?!IF)(.+) Frags$/, '花费$1碎片'], //离线等
     [/^(.+) items$/, '有$1个物品'], //离线等
     [/^Welcome back! You were offline for (\d+) second(s*).$/, '欢迎回来！您离线了$1秒。'], //离线等
     [/^Welcome back! You were offline for (\d+) minute(s*) and (\d+) second(s*).$/, '欢迎回来！您离线了$1分钟$3秒。'], //离线等
