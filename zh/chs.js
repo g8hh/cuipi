@@ -3255,7 +3255,7 @@ var cnItems = {
     'You consult with your Scientists, who tell you that they can create upgrades for your Traps, but that they need to study corpses of high level enemies in order to exploit their weaknesses.': '于是，您找科学家们来出谋划策。它们表示可以升级陷阱，但需要研究更高级敌人的尸体才能发现它们的弱点。',
     'Raise your Highest Zone Reached to Z230, and upgrade your Frost Trap.': '请将最高通过区域提升到区域230，然后升级冰霜陷阱。',
     'Wow, look at that thing slow!': '哇哦，看那些敌人慢成什么样了！',
-    'You seem to have a pretty decent understanding of how to manage your Spire, and I believe you can handle it on your own for a while. Continue to raise your HZE to unlock more upgrades, collect Spirestones to add more Floors and enemies, and tweak your Trap layout every once in a while to make sure you\'re getting as many Runestones as you can, you\'ll definitely need them later.': '您看起来已经很了解如何使尖塔正常运作了，因此我相信接下来您可以自己决定如何处理。您可以继续提升最高通过区域以解锁升级，获得尖塔石来增加层数，调整陷阱布局来尽可能多的获得符石，您后面绝对还会用的上的。',
+    'You seem to have a pretty decent understanding of how to manage your Spire, and I believe you can handle it on your own for a while. Continue to raise your HZE to unlock more upgrades, collect Spirestones to add more Floors and enemies, and tweak your Trap layout every once in a while to make sure you\'re getting as many Runestones as you can, you\'ll definitely need them later.': '您看起来已经很了解如何使尖塔正常运作了，因此我相信接下来您可以自己决定如何处理。您可以继续提升最高通过区域以解锁升级，获得尖塔石来增加层数，调整陷阱布局来尽可能多的获得符石，往后它们绝对会派上用场的。',
     'Your Scientists let you know that they can possibly forge a new Trap and Tower, but they need to study a Core from a higher level Spire first.': '科学家们提醒您，它们可以建造新的陷阱和塔，但是它们需要先研究一下更高级尖塔的核心。',
     'Complete Spire II to unlock Poison Trap and Condenser Tower! Once you have your new Traps, raise your Spire\'s Threat to 600 and build your sixth Floor.': '请通过尖塔 II以解锁剧毒陷阱和冷凝塔！当获得新的陷阱以后，请将威胁度提升到600并建造第六层尖塔。',
     'Remember that you have to satisfy both the Threat and Spirestone requirements to add a new Floor!': '请注意，您必须同时满足威胁度和尖塔石的要求才可以增加尖塔层数！',
@@ -5750,8 +5750,8 @@ var cnRegReplace = new Map([
     [/^AutoGold Radon \((.*)\/$/, '金色升级氡($1/'], //主界面
     [/^AutoGold Battle \((.*)\/$/, '金色升级战斗($1/'], //主界面
     [/^AutoGold Void \((.*)\/$/, '金色升级虚空($1/'], //主界面
-    [/^(.*) remaining enem(y|ies) in your current Zone (is|are) holding Dark Essence. Your current enemy at this Zone would be worth (.*) Essence if it were holding any.$/, '当前区域剩下$1个敌人可掉落黑暗精华。如果当前敌人掉落了黑暗精华，掉落数量将为$4。'],
-    [/^Your pet RoboTrimp seems to be gifted at distorting the magnetic field around certain Bad Guys, especially Improbabilities. You can activate this ability once every 5 Zones in order to tell your RoboTrimp to reduce the attack damage of the next Improbability by (.*)%. This must be reactivated each time it comes off cooldown.$/, '您的小脆皮机器人似乎在扭曲某些敌人周围的磁场方面很有天赋，特别是面对乌有者时更甚。每5个区域，您可以激活此能力，让小脆皮机器人可以减少此区域乌有者$1%的攻击力。每次激活发射电磁尖啸后，都需要手动再次激活。'], //主界面
+    [/^(.*) remaining enem(y|ies) in your current Zone (is|are) holding Dark Essence. Your current enemy at this Zone would be worth (.*) Essence if it were holding any.$/, '当前区域剩下$1个敌人可掉落黑暗精华。如果当前敌人掉落了黑暗精华，将掉落$4黑暗精华。'],
+    [/^Your pet RoboTrimp seems to be gifted at distorting the magnetic field around certain Bad Guys, especially Improbabilities. You can activate this ability once every 5 Zones in order to tell your RoboTrimp to reduce the attack damage of the next Improbability by (.*)%. This must be reactivated each time it comes off cooldown.$/, '您的小脆皮机器人似乎很擅长扭曲乌有者周围的磁场。每5个区域，您可以激活此能力，减少此区域乌有者$1%的攻击力。每次激活发射电磁尖啸后，都需要手动再次激活。'], //主界面
     [/^This enemy is harmed by the Empowerment of Poison, and is taking (.*) extra damage per turn.$/, '此敌人被毒赋能影响了，每回合额外受到$1伤害。'], //主界面
     [/^This enemy has been chilled by the Empowerment of Ice, is taking (.*)% more damage, and is dealing (.*)% less damage with each normal attack.$/, '此敌人因冰赋能被冰冻了，额外受到$1%伤害，普通攻击造成的伤害减少$2%。'], //主界面
     [/^There is a rather large amount of Wind swelling around this enemy, increasing all Helium gained by (.*)% and all other resources by (.*)%.$/, '敌人身旁的风相当猛烈，增加$1%的氦获取量以及其他资源$2%的获取量。'], //主界面
@@ -5781,12 +5781,12 @@ var cnRegReplace = new Map([
     [/^Your Trimps are dealing (.*)% less damage and taking (.*)% of their total health as damage per attack.$/, '您的脆皮减少$1%伤害，每次被攻击时受到生命值上限$2%的伤害。'], //主界面
     [/^Your Trimps are dealing (.*)% extra damage for taking (.*) second(s*) to prepare.$/, '由于脆皮们花费了$2秒来准备，它们可以多造成$1%伤害。'], //主界面
     [/^Your Trimps are dealing (.*)% extra damage for taking (.*) second(s*) to populate.$/, '由于脆皮们花费了$2秒来繁殖，它们可以多造成$1%伤害。'], //主界面
-    [/^Your Trimps have (.*) less attack, but all Trimps can gather (.*) faster. You will gain one stack from killing Bad Guys in the world, and lose one stack for killing Bad Guys in maps.$/, '您的脆皮们减少了$1攻击力，但资源获取速度增加了$2。每在世界上击杀一名敌人时获得一层，每在地图中击杀一名敌人时失去一层。'], //主界面
-    [/^Your Trimps have (.*) less health, but all Trimps can gather (.*) faster. You will gain one stack from killing Bad Guys in the world, and lose one stack for killing Bad Guys in maps.$/, '您的脆皮们减少了$1生命值，但资源获取速度增加了$2。每在世界上击杀一名敌人时获得一层，每在地图中击杀一名敌人时失去一层。'], //主界面
+    [/^Your Trimps have (.*) less attack, but all Trimps can gather (.*) faster. You will gain one stack from killing Bad Guys in the world, and lose one stack for killing Bad Guys in maps.$/, '您的脆皮们减少了$1攻击力，但资源获取速度增加了$2。每在世界上击杀敌人时获得一层，每在地图中击杀敌人时失去一层。'], //主界面
+    [/^Your Trimps have (.*) less health, but all Trimps can gather (.*) faster. You will gain one stack from killing Bad Guys in the world, and lose one stack for killing Bad Guys in maps.$/, '您的脆皮们减少了$1生命值，但资源获取速度增加了$2。每在世界上击杀敌人时获得一层，每在地图中击杀敌人时失去一层。'], //主界面
     [/^Your Trimps are charging up for a Gamma Burst! When Charging reaches 5 stacks, your Trimps will release a burst of energy, dealing (.*)% of their attack damage.$/, '您的脆皮们正在为伽马爆发蓄能！当蓄能层数到达5层时，脆皮将释放积蓄的能量，对敌人造成$1%攻击力的伤害。'], //主界面
     [/^Attack is increased (.*)X for the next (.*) second(s*)$/, '攻击力在剩余$2秒内变为$1倍'], //主界面
     [/^Attack is increased (.*)X for the next (.*) minute(s*)$/, '攻击力在剩余$2分钟内变为$1倍'], //主界面
-    [/^Things are quickly becoming tougher. Gathering, looting, and Trimp attack are reduced by (.*)%.$/, '事情变得越来越难了。采集、劫掠获取的资源量，以及脆皮攻击力减少了$1%。'], //主界面
+    [/^Things are quickly becoming tougher. Gathering, looting, and Trimp attack are reduced by (.*)%.$/, '一切都在快速变难中。采集、劫掠获取的资源量，以及脆皮攻击力减少了$1%。'], //主界面
     [/^Trimp attack and health increased by (.*).$/, '脆皮的攻击力和生命值增加了$1。'], //主界面
     [/^This Bad Guy is toxic. You will obtain (.*)% more resources! Oh, also, this Bad Guy has 5x attack, 2x health, your Trimps will lose 5% health each time they attack, and the toxic air is causing your Trimps to breed (.*)% slower. These stacks will reset after clearing the Zone.$/, '此敌人是有毒的。您可以额外获得$1%资源！哦，另外，此敌人攻击力变为5倍，生命值变为2倍，而且每次攻击一个毒性敌人后，脆皮将失去5%的生命值，同时毒气排入大气后脆皮繁殖速度会比之前的速度慢$2%。毒性层数在通过一个区域后重置。'], //主界面
     [/^(.*)You have completed the Daily challenge! You have been rewarded with (.*) extra Helium!$/, '$1您完成了日常挑战！您额外获得了$2氦！'], //日常挑战完成消息，前置
@@ -5809,7 +5809,7 @@ var cnRegReplace = new Map([
     [/^You have been in this Zone for (.*) second(s*)$/, '您已经在此区域停留了$1秒'], //主界面
     [/^You have been in this Zone for (.*) min(s*), (.*) sec(s*)$/, '您已经在此区域停留了$1分钟，$3秒'], //主界面
     [/^You have been in this Zone for (.*)$/, '您已经在此区域停留了$1'], //主界面
-    [/^(.*) group(s*) of Trimps ha(s|ve) died in this Spire.$/, '尖塔中已经有$1队脆皮阵亡了。'], //主界面
+    [/^(.*) group(s*) of Trimps ha(s|ve) died in this Spire.$/, '$1队脆皮已阵亡于尖塔之中。'], //主界面
     [/^Bionic Wonderland ([IVXLCDM]+), Level (.*) \((.*)\), Cell$/, '仿生仙境 $1，等级 $2 ($3)，格子'], //主界面
     [/^ Level (.*) \((.*)\), Cell$/, '等级 $1 ($2)，格子'], //主界面
     [/^ Level (.*), Cell$/, '等级 $1，格子'], //主界面
@@ -5839,7 +5839,7 @@ var cnRegReplace = new Map([
     [/^(\s+)Extra Zones(\s+)$/, '$1额外区域$2'], //主界面
     [/^(\s+)Run Map(\s+)$/, '$1运行地图$2'], //主界面
     [/^(\s+)Recycle Map(\s+)$/, '$1回收地图$2'], //主界面
-    [/^(\s+)You can earn achievements by doing stuff. Each achievement will boost the amount of damage your Trimps can deal, and later achievements grant a larger bonus. You can learn more about an achievement by hovering your mouse over it.$/, '$1满足特定的条件可以获得成就。每个成就都可以增加您的脆皮造成的伤害，越往后的成就加成越高。您可以将鼠标停留在某个成就上来了解它的详细信息。'], //主界面
+    [/^(\s+)You can earn achievements by doing stuff. Each achievement will boost the amount of damage your Trimps can deal, and later achievements grant a larger bonus. You can learn more about an achievement by hovering your mouse over it.$/, '$1满足特定的条件可以获得成就。每个成就都可以使您的脆皮造成更多伤害，越往后的成就加成越高。您可以将鼠标停留在某个成就上来了解它的详细信息。'], //主界面
     [/^\| What's New(\s+)$/, '| 更新内容$1'], //主界面
     [/^(\s+)Save$/, '$1保存'], //主界面
     [/^(.*)\(PAUSED$/, '$1(已暂停'], //主界面
@@ -5863,7 +5863,7 @@ var cnRegReplace = new Map([
     [/^Train one of your Trimps in the ancient art of farming. Each Farmer harvests (.*) food per second.$/, '使用古老的耕作艺术训练一个脆皮。每个农民每秒收获$1食物。'], //工作
     [/^Show a Trimp how to cut one of those weird trees down. Each Lumberjack hauls back (.*) logs per second.$/, '向一个脆皮展示如何砍伐那些怪树。每个伐木工每秒拉回$1木头。'], //工作
     [/^Send your misbehaving Trimps to the mines for some therapeutic work. Each Miner can find and smelt (.*) bars of metal per second.$/, '把品行不端的脆皮丢到矿井里干点“放松”的活。每个矿工每秒收获$1金属。'], //工作
-    [/^It takes some patience, but you can teach these Trimps to do some research for you. Each Scientist records (.*) units of pure science each second.$/, '虽然可能费点事，但您可以让脆皮们替您做些研究。每个科学家每秒收获$1科学点。'], //工作
+    [/^It takes some patience, but you can teach these Trimps to do some research for you. Each Scientist records (.*) units of pure science each second.$/, '虽然需要费点心思教它们，但您可以让脆皮们替您做些研究。每个科学家每秒收获$1科学点。'], //工作
     [/^Each trainer will increase the base amount your soldiers can block by (.*)%.$/, '每个训练师可以使士兵的基础格挡数值增加$1%。'], //工作
     [/^Each trainer will increase the base amount your soldiers can block by (.*)%. \((.*)% increased by (.*)% thanks to (.*)$/, '每个训练师可以使士兵的基础格挡数值增加$1%。(基础数值为$2%，由于您拥有$4，效果增加了$3%'], //工作
     [/^Each explorer will find an average of (.*) fragments each second.$/, '每个探险家每秒发现$1碎片。'], //工作
@@ -5890,22 +5890,22 @@ var cnRegReplace = new Map([
     [/^(.*)The Golimp fell to pieces! You manage to grab (.*) bars of metal before it begins pulling itself together.$/, '$1脆皮魔像被打碎了！在它重新凝聚成形之前，您拿走了$2金属。'], //特定敌人
     [/^(.*)That Seirimp dropped (.*) metal! Neat-O.$/, '$1脆皮矿精掉落了$2金属！真棒。'], //特定敌人
     [/^(.*)That Slagimp fell over, and (.*) gems popped out! How about that\?!$/, '$1脆皮炉渣怪倒下了，$2宝石冒了出来！什么情况？！'], //特定敌人
-    [/^(.*)The Moltimp thanked you for the combat, and handed you (.*) bars of metal! Then he died.$/, '$1脆皮熔金怪感谢您与它作战，并交给您$2金属！然后它就凉了。'], //特定敌人
+    [/^(.*)The Moltimp thanked you for the combat, and handed you (.*) bars of metal! Then he died.$/, '$1脆皮熔金怪表示打得很尽兴，并交给您$2金属！然后它就凉了。'], //特定敌人
     [/^(.*)The Entimp is no more. You manage to salvage (.*) logs of wood from his trunk!$/, '$1脆皮树人再也不会动了。您从它的树干上获取了$2木头！'], //特定敌人
     [/^(.*)Time for some stew! You scored (.*) food from that $/, '$1该炖点什么吃了！您获得了$2食物，因为您烹饪了那只'], //特定敌人
     [/^(.*)You sift through the Gravelimp, and manage to find (.*) bars of metal! Good on you!$/, '$1您筛了一下碎石怪留下的东西，发现了$2金属！真不错！'], //特定敌人
-    [/^(.*)That Blimp dropped (.*) Food, Wood and Metal! That should be useful.$/, '$1脆皮飞艇掉落了$2食物，木头和金属！一定能用得上的。'], //特定敌人
+    [/^(.*)That Blimp dropped (.*) Food, Wood and Metal! That should be useful.$/, '$1脆皮飞艇掉落了$2食物，木头和金属！一定能派上用场的。'], //特定敌人
     [/^(.*)You were able to extract (.*) Helium Canisters from that $/, '$1您提取了$2氦，取自'], //特定敌人
     [/^(.*)You were able to extract (.*) Radon Vials from that $/, '$1您提取了$2氡，取自'], //特定敌人
-    [/^(.*)Cthulimp and the map it came from crumble into the darkness. You find yourself instantly teleported to the next Void map.$/, '$1脆皮克苏鲁及它藏身的地图遁入了黑暗。您被传送到了下一张虚空地图。'], //特定敌人
-    [/^(.*)Cthulimp and the map it came from crumble into the darkness. You find yourself instantly teleported to the next Void map with an extra (.*) Helium!$/, '$1脆皮克苏鲁及它藏身的地图遁入了黑暗。您被传送到了下一张虚空地图，并额外获取了$2氦！'], //特定敌人
-    [/^(.*)Cthulimp and the map it came from crumble into the darkness. You find yourself instantly teleported to the next Void map with an extra (.*) Radon!$/, '$1脆皮克苏鲁及它藏身的地图遁入了黑暗。您被传送到了下一张虚空地图，并额外获取了$2氡！'], //特定敌人
-    [/^(.*)Cthulimp and the map it came from crumble into the darkness. You find yourself instantly teleported to the world .$/, '$1脆皮克苏鲁及它藏身的地图遁入了黑暗。您被传送回世界。'], //特定敌人
-    [/^(.*)Cthulimp and the map it came from crumble into the darkness. You find yourself instantly teleported to the world  with an extra (.*) Helium!$/, '$1脆皮克苏鲁及它藏身的地图遁入了黑暗。您被传送回世界，并额外获取了$2氦！'], //特定敌人
-    [/^(.*)Cthulimp and the map it came from crumble into the darkness. You find yourself instantly teleported to the world  with an extra (.*) Radon!$/, '$1脆皮克苏鲁及它藏身的地图遁入了黑暗。您被传送回世界，并额外获取了$2氡！'], //特定敌人
-    [/^(.*)Cthulimp and the map it came from crumble into the darkness. You find yourself instantly teleported to your map chamber.$/, '$1脆皮克苏鲁及它藏身的地图遁入了黑暗。您被传送回地图界面。'], //特定敌人
-    [/^(.*)Cthulimp and the map it came from crumble into the darkness. You find yourself instantly teleported to your map chamber with an extra (.*) Helium!$/, '$1脆皮克苏鲁及它藏身的地图遁入了黑暗。您被传送回地图界面，并额外获取了$2氦！'], //特定敌人
-    [/^(.*)Cthulimp and the map it came from crumble into the darkness. You find yourself instantly teleported to your map chamber with an extra (.*) Radon!$/, '$1脆皮克苏鲁及它藏身的地图遁入了黑暗。您被传送回地图界面，并额外获取了$2氡！'], //特定敌人
+    [/^(.*)Cthulimp and the map it came from crumble into the darkness. You find yourself instantly teleported to the next Void map.$/, '$1脆皮克苏鲁与它藏身的地图一起遁入了黑暗。您被传送到了下一张虚空地图。'], //特定敌人
+    [/^(.*)Cthulimp and the map it came from crumble into the darkness. You find yourself instantly teleported to the next Void map with an extra (.*) Helium!$/, '$1脆皮克苏鲁与它藏身的地图一起遁入了黑暗。您被传送到了下一张虚空地图，并额外获取了$2氦！'], //特定敌人
+    [/^(.*)Cthulimp and the map it came from crumble into the darkness. You find yourself instantly teleported to the next Void map with an extra (.*) Radon!$/, '$1脆皮克苏鲁与它藏身的地图一起遁入了黑暗。您被传送到了下一张虚空地图，并额外获取了$2氡！'], //特定敌人
+    [/^(.*)Cthulimp and the map it came from crumble into the darkness. You find yourself instantly teleported to the world .$/, '$1脆皮克苏鲁与它藏身的地图一起遁入了黑暗。您被传送回世界。'], //特定敌人
+    [/^(.*)Cthulimp and the map it came from crumble into the darkness. You find yourself instantly teleported to the world  with an extra (.*) Helium!$/, '$1脆皮克苏鲁与它藏身的地图一起遁入了黑暗。您被传送回世界，并额外获取了$2氦！'], //特定敌人
+    [/^(.*)Cthulimp and the map it came from crumble into the darkness. You find yourself instantly teleported to the world  with an extra (.*) Radon!$/, '$1脆皮克苏鲁与它藏身的地图一起遁入了黑暗。您被传送回世界，并额外获取了$2氡！'], //特定敌人
+    [/^(.*)Cthulimp and the map it came from crumble into the darkness. You find yourself instantly teleported to your map chamber.$/, '$1脆皮克苏鲁与它藏身的地图一起遁入了黑暗。您被传送回地图界面。'], //特定敌人
+    [/^(.*)Cthulimp and the map it came from crumble into the darkness. You find yourself instantly teleported to your map chamber with an extra (.*) Helium!$/, '$1脆皮克苏鲁与它藏身的地图一起遁入了黑暗。您被传送回地图界面，并额外获取了$2氦！'], //特定敌人
+    [/^(.*)Cthulimp and the map it came from crumble into the darkness. You find yourself instantly teleported to your map chamber with an extra (.*) Radon!$/, '$1脆皮克苏鲁与它藏身的地图一起遁入了黑暗。您被传送回地图界面，并额外获取了$2氡！'], //特定敌人
     [/^(.*)Before you even realized you were in a new Void Map, Fluffy snuck to the end and quickly stole all the loot.$/, '$1在您刚发现进入了新的虚空地图时，绒绒已经悄悄地把所有东西都顺走了。'], //特定敌人
     [/^(.*)Before you even realized you were in a new Void Map, Fluffy snuck to the end and quickly stole all the loot. You gained another (.*) Helium!$/, '$1在您刚发现进入了新的虚空地图时，绒绒已经悄悄地把所有东西都顺走了。您额外获得了$2氦！'], //特定敌人
     [/^(.*)Before you even realize what's happening, Fluffy has entered and cleared the remaining (.*) Void Maps and quickly stole all the loot!$/, '$1在您还没搞清楚情况的时候，绒绒已经通过了剩下的$2张虚空地图，并迅速把所有东西都顺走了！'], //特定敌人
@@ -5914,20 +5914,20 @@ var cnRegReplace = new Map([
     [/^(.*)Before you even realize what's happening, Scruffy has entered and cleared the remaining (.*) Void Maps and quickly stole all the loot! After earning a bonus on each of +(.*)% Radon, you've earned an additional (.*) Radon!$/, '$1在您还没搞清楚情况的时候，污污已经通过了剩下的$2张虚空地图，并迅速把所有东西都顺走了！由于每张地图可以额外获得$3%氡，您最后额外获得了$4氡！'], //特定敌人
     [/^(.*)That Dragimp dropped (.*) gems!$/, '$1脆皮龙掉落了$2宝石！'], //特定敌人
     [/^(.*)Mitschimp dropped (.*) wood!$/, '$1脆皮巨猩猩掉落了$2木头！'], //特定敌人
-    [/^(.*)That Prismimp dropped (.*) gems, how sweet of it!$/, '$1脆皮棱镜怪掉落了$2宝石，多可爱！'], //特定敌人
-    [/^(.*)You feel bad about slaying an incredibly rare Rainbimp, but at least he dropped (.*) gems! Totally worth.$/, '$1杀掉稀有的脆皮彩虹兽让人感觉不太好，但它掉落了$2宝石！还是值得的。'], //特定敌人
+    [/^(.*)That Prismimp dropped (.*) gems, how sweet of it!$/, '$1脆皮棱镜怪掉落了$2宝石，太好啦！'], //特定敌人
+    [/^(.*)You feel bad about slaying an incredibly rare Rainbimp, but at least he dropped (.*) gems! Totally worth.$/, '$1杀掉稀有的脆皮彩虹兽让人有点难过，但它掉落了$2宝石！值了。'], //特定敌人
     [/^(.*)The Lightimp's light floats up and away, unbothered by the fact that you just killed its body. Since it doesn't want the body anymore, you break it down in to (.*) gems!$/, '$1脆皮光怪的光亮向上飘走了，看起来一点也没有被失去身体的事实打扰到。既然它自己也不在乎，您索性将它的身体打碎，获得了$2宝石！'], //特定敌人
     [/^(.*)What a surprise, the Meltimp is melting! You find a healthy stack of (.*) metal where it used to be!$/, '$1真意外，脆皮熔怪熔化了！您在它熔化的地方发现了$2金属！'], //特定敌人
     [/^(.*)That Sweltimp chucked (.*) bars of metal right at your head! You'll take it though, thanks guy!$/, '$1脆皮酷热者把$2金属扔向了您的头！您将这些带走了，谢了伙计！'], //特定敌人
     [/^(.*)Indianimp dropped (.*) metal!$/, '$1脆皮印第安人掉落了$2金属！'], //特定敌人
-    [/^(.*)Poseidimp explodes into a swirling tornado of fish and aquatic life. You catch some of it and bring back (.*) Food!$/, '$1脆皮海王爆炸后，形成了一股海洋生物的旋风。您抓住了其中的一些，获得了$2食物！'], //特定敌人
+    [/^(.*)Poseidimp explodes into a swirling tornado of fish and aquatic life. You catch some of it and bring back (.*) Food!$/, '$1脆皮海王爆炸后，形成了一股海洋生物的旋风。您抓住了其中的一些生物，获得了$2食物！'], //特定敌人
     [/^(.*)Robotrimp discombobulated. Loot inspection reveals: (.*) wood and (.*) food. Splendiferous.$/, '$1脆皮机器人，思维，混乱。战利品，检查，发现：$2木头，$3食物。极好。'], //特定敌人
-    [/^(.*)Mechimp disengaged. Reward encountered: (.*) bars of metal. Huzzah.$/, '$1脆皮机甲，脱离，战斗。奖励：$2金属。撒花。'], //特定敌人
+    [/^(.*)Mechimp disengaged. Reward encountered: (.*) bars of metal. Huzzah.$/, '$1脆皮机甲，战斗，不能。奖励：$2金属。撒花。'], //特定敌人
     [/^(.*)Destructimp shorted out. Salvage results: (.*) bars of metal. Acceptable.$/, '$1脆皮破灭者，已短路。修复，结果：$2金属。差强，人意。'], //特定敌人
     [/^(.*)Terminatimp Terminated. Findings: (.*) bars of metal. Hasta la Vista.$/, '$1脆皮终结者，已终结。发现：$2金属。后会，有期。'], //特定敌人
-    [/^(.*)Autoimp force quit. Memory dump provides (.*) bars of metal and no clues. It's a feature!$/, '$1脆皮汽车，强制，关闭。内存，转存，获得，$2金属。但没有，线索。这是，特性。'], //特定敌人
-    [/^(.*)The Artimp wordlessly sputters, whirrs, beeps, then drops (.*) perfect cubes of metal on the ground. Cubist art is your favorite!$/, '$1脆皮机器艺术家发出了噼啪、嗡嗡、嘟嘟的声音，最后在地上留下了一个完美的立方，里面装着$2金属。立方主义是您的最爱！'], //特定敌人
-    [/^(.*)The Neutrimp gasps, shimmers, squeaks, then poofs into a quickly dispersing purple cloud. You spend a few moments trying to make sense of what you've just seen, but look around and find (.*) wood and (.*) metal instead!$/, '$1脆皮中子怪气喘吁吁，微微闪光，嘎吱作响，然后噗的一声变成了一团迅速分散的紫色烟雾。您半天没搞明白到底发生了什么，最后您放弃了，而在旁边发现了$2木头和$3金属！'], //特定敌人
+    [/^(.*)Autoimp force quit. Memory dump provides (.*) bars of metal and no clues. It's a feature!$/, '$1脆皮汽车，强制，关闭。内存，获得，$2金属。无线索。这是，特性。'], //特定敌人
+    [/^(.*)The Artimp wordlessly sputters, whirrs, beeps, then drops (.*) perfect cubes of metal on the ground. Cubist art is your favorite!$/, '$1脆皮机器艺术家发出了一堆意味不明的声音，最后在地上留下了一个完美的立方，里面装着$2金属。立方主义是您的最爱！'], //特定敌人
+    [/^(.*)The Neutrimp gasps, shimmers, squeaks, then poofs into a quickly dispersing purple cloud. You spend a few moments trying to make sense of what you've just seen, but look around and find (.*) wood and (.*) metal instead!$/, '$1脆皮中子怪喘息闪光嘎吱作响，然后噗的一声变成了一团迅速分散的紫色烟雾。您半天没搞明白到底发生了什么，最后您放弃了，而在旁边发现了$2木头和$3金属！'], //特定敌人
     [/^(.*)The Fusimp explodes, leaving behind (.*) bars of metal and a nice dose of radiation.$/, '$1脆皮聚变怪爆炸了，留下了$2金属，和大量辐射。'], //特定敌人
     [/^(.*)Before you can blink, the Hydrogimp vaporizes. That's fine though, it left (.*) food for you!$/, '$1脆皮氢怪在您眨眼前就漏光了气。好在它还为您留下了$2食物！'], //特定敌人
     [/^(.*)The Carbimp begins to crackle and shrink. Within a few seconds, all that's left is (.*) wood.$/, '$1脆皮碳怪噼啪作响，迅速缩小。不一会儿，只剩下了$2木头。'], //特定敌人
@@ -5944,8 +5944,8 @@ var cnRegReplace = new Map([
     [/^Drops (.*)x Gems$/, '掉落$1倍的宝石'], //特定敌人
     [/^(.*)That Randimp gave you (.*) gems! Thanks $/, '$1脆皮百变怪交给您$2宝石！谢了'], //特定敌人
     [/^(.*)That Feyimp gave you (.*) gems! Thanks $/, '$1脆皮小妖交给您$2宝石！谢了'], //特定敌人
-    [/^(.*)You stole (.*) fragments from that Randimp! It really didn't look like she needed them though, don't feel bad.$/, '$1您从脆皮百变怪那顺走了$2碎片！反正她看起来也不需要，别有负罪感。'], //特定敌人
-    [/^(.*)You stole (.*) fragments from that Flutimp! It really didn't look like she needed them though, don't feel bad.$/, '$1您从脆皮飘兽那顺走了$2碎片！反正她看起来也不需要，别有负罪感。'], //特定敌人
+    [/^(.*)You stole (.*) fragments from that Randimp! It really didn't look like she needed them though, don't feel bad.$/, '$1您从脆皮百变怪那顺走了$2碎片！反正她看起来也用不上，别难过。'], //特定敌人
+    [/^(.*)You stole (.*) fragments from that Flutimp! It really didn't look like she needed them though, don't feel bad.$/, '$1您从脆皮飘兽那顺走了$2碎片！反正她看起来也用不上，别难过。'], //特定敌人
     [/^(.*)It's nice, warm, and roomy in that dead Randimp. You found (.*) Trimp inside, and it looks hella bored.$/, '$1死去的脆皮百变怪体内环境舒适，温暖，而且宽敞。您在里面发现了$2个脆皮，它看起来很无聊。'], //特定敌人
     [/^(.*)It's nice, warm, and roomy in that dead Randimp. You found (.*) Trimps inside, and they all seem content to stay living there!$/, '$1死去的脆皮百变怪体内环境舒适，温暖，而且宽敞。您在里面发现了$2个脆皮，它们看起来很乐意继续在里面生活下去！'], //特定敌人
     [/^(.*)It's nice, warm, and roomy in that dead Randimp.  There's enough room for (.*) Trimp to live inside, though it will be quite lonely.$/, '$1死去的脆皮百变怪体内环境舒适，温暖，而且宽敞。里面可以住下$2个脆皮，不过这样它会很孤单。'], //特定敌人
@@ -6035,11 +6035,11 @@ var cnRegReplace = new Map([
     [/^(.*)You search the Pumpkimp for loot, but find nothing. Someone wasn't in the holiday spirit!$/, '$1您翻翻了这只南瓜怪，啥也没找到。说好的节日，说好的糖果呢？！'], //特定敌人
     [/^(.*)That Pumpkimp rolled away before you could finish him off, yelling stuff about tricks.$/, '$1又一只在被干掉前就滚瓜的脆皮南瓜怪，还疯狂复读着捣蛋捣蛋捣蛋。'], //特定敌人
     [/^(.*)Thanks, you hate getting tricks instead of treats.$/, '$1不，谢了，您只想要糖果，不想要捣蛋。'], //特定敌人
-    [/^(.*)You might have hit that Pumpkimp a bit too hard, there's nothing left to give you candy.$/, '$1您的下手可能是太重了，怎么看那只南瓜怪都不像是还能给您发糖的亚子。'], //特定敌人
+    [/^(.*)You might have hit that Pumpkimp a bit too hard, there's nothing left to give you candy.$/, '$1您的下手可能是太重了，怎么看那只南瓜怪都不像是还能给您发糖的样子。'], //特定敌人
     [/^(.*)The Pumpkimp suddenly bursts, spewing huge amounts of candy into the air. Your Trimps scramble about to pick up all they can and gain Sugar Rush!$/, '$1南瓜怪突然炸了，撒了一地的糖。一阵争抢以后，脆皮们把糖捡得七七八八，并获得了甜蜜冲刺！'], //特定敌人
     [/^(.*)This Pumpkimp was so large that your Trimps could feast for weeks on all the candy inside. Oh, nope, looks like they'll be done in about 10 minutes. In the mean time, they should have a bit of extra energy!$/, '$1这么大一只南瓜怪，里面的糖应该够脆皮们吃几个星期了。哦，不，等等，可能只够它们吃十来分钟了。至少这一阵子它们会更有干劲的吧！'], //特定敌人
     [/^(.*)This Pumpkimp was totally stuffed with various types of sugary things. You give them all to your Trimps, which results in a huge boost of energy!$/, '$1这只脆皮南瓜怪里塞满了各种糖果。您把这些糖全部分给了脆皮们，大大提升了它们的干劲！'], //特定敌人
-    [/^(.*)Your Trimps have begun carrying pillowcases with them in hopes of a legendary Pumpkimp like the one you just found. Filled to the brim with sugary goodies, this Pumpkimp should sate your Trimps for a few minutes!$/, '$1在碰到那只传奇南瓜怪以后，脆皮们都开始带上枕套了。那只南瓜怪装满了糖果，足够脆皮们享受好几分钟了！'], //特定敌人
+    [/^(.*)Your Trimps have begun carrying pillowcases with them in hopes of a legendary Pumpkimp like the one you just found. Filled to the brim with sugary goodies, this Pumpkimp should sate your Trimps for a few minutes!$/, '$1自从碰到过那只南瓜怪以后，脆皮们都带上了枕套。它们希望再来一只装满了糖果的南瓜怪，这样就又能享受好几分钟了！'], //特定敌人
     [/^(.*)Oops, that Pumpkimp just wanted to give you some candy. You found (.*) food!$/, '$1哦，那只南瓜怪只是想给您点糖果。您发现了$2食物！'], //特定敌人
     [/^(.*)Oops, that Pumpkimp just wanted to give you some candy. You found (.*) wood!$/, '$1哦，那只南瓜怪只是想给您点糖果。您发现了$2木头！'], //特定敌人
     [/^(.*)Oops, that Pumpkimp just wanted to give you some candy. You found (.*) metal!$/, '$1哦，那只南瓜怪只是想给您点糖果。您发现了$2金属！'], //特定敌人
@@ -6100,7 +6100,7 @@ var cnRegReplace = new Map([
     [/^(.*)You're quite grateful to finally eat some protein! You eat a bunch of Turkimp and find a Trimp to carry the rest back for you.$/, '$1谢天谢地，终于能补充点蛋白质了！您吃掉了一堆脆皮火鸡，然后找了一个脆皮把剩下的带了回去。'], //特定敌人
     [/^(.*)Apparently your scientists are vegetarians. Hurray, more Turkimp for you!$/, '$1很显然科学家们不吃肉。太好了，分肉的又少了！'], //特定敌人
     [/^(.*)You hear a loud gobbling sound in the distance, it sounds angry. You disregard it because this Turkimp is delicious!$/, '$1远方传来了巨大的吞咽声，它听起来很生气。您完全不鸟它，因为这只脆皮火鸡太香了！'], //特定敌人
-    [/^(.*)Ah, Turkimp. Nature's version of a Chickimp with a weirder head. Sure is tasty! You eat your fill and save some for later.$/, '$1啊，脆皮火鸡，脆皮小鸡的鬼斧神工换头版本。当然也很好吃！您吃了个肚儿圆，然后把剩下的一并带走了。'], //特定敌人
+    [/^(.*)Ah, Turkimp. Nature's version of a Chickimp with a weirder head. Sure is tasty! You eat your fill and save some for later.$/, '$1啊，脆皮火鸡，大自然的杰作，脆皮小鸡的换头版本。当然好吃！您吃了个肚儿圆，然后把剩下的一并带走了。'], //特定敌人
     [/^(.*)Your fingers are cold and numb, but that won't stop them from opening up this Presimpt! Inside you find (.*) food!$/, '$1您的手指又冷又麻，但这也没法阻止您打开那个脆皮小礼！在里面您发现了$2食物！'], //特定敌人
     [/^(.*)Your fingers are cold and numb, but that won't stop them from opening up this Presimpt! Inside you find (.*) wood!$/, '$1您的手指又冷又麻，但这也没法阻止您打开那个脆皮小礼！在里面您发现了$2木头！'], //特定敌人
     [/^(.*)Your fingers are cold and numb, but that won't stop them from opening up this Presimpt! Inside you find (.*) metal!$/, '$1您的手指又冷又麻，但这也没法阻止您打开那个脆皮小礼！在里面您发现了$2金属！'], //特定敌人
@@ -6256,7 +6256,7 @@ var cnRegReplace = new Map([
     [/^(.*)You find a smouldering book that looks like it was pushed from the core of this planet. Inside are drawings of Trimps performing rituals with Gems and Magma. It's very hot to the touch, but you take it with you as you haven't had new reading material in a while.$/, '$1您发现了一本冒烟的书，看起来就像是刚从行星核心被扔出来一样。书里面画着用宝石和岩浆进行仪式的脆皮。它摸起来仍然很烫，但您考虑到很久没有新的东西看了，还是把它带走了。'], //世界解锁等
     [/^(.*)This book really doesn't help too much while you're dealing with the minerlessness of this dimension. Better let your scientists hold this one for you for a bit.$/, '$1这本书目前派不上什么用场，您还在忙着对付这个没有矿工的维度。还是让科学家们先帮您保管着吧。'], //世界解锁等
     [/^(.*)You found a book called Speedfarming! It looks delicious!$/, '$1您发现了一本书，叫做《耕作加速》！它看起来很好吃！'], //世界解锁等
-    [/^(.*)You found a book called Megafarming! It indicates that you should actually water your crops. Brilliant!$/, '$1您发现了一本书，叫做《超级耕作》！它指出您应该灌溉作物。太聪明了！'], //世界解锁等
+    [/^(.*)You found a book called Megafarming! It indicates that you should actually water your crops. Brilliant!$/, '$1您发现了一本书，叫做《超级耕作》！它指出您应该灌溉作物。真是明智之举！'], //世界解锁等
     [/^(.*)You found a book called Speedlumber! It looks long.$/, '$1您发现了一本书，叫做《砍伐加速》！它看起来很长。'], //世界解锁等
     [/^(.*)You found a book called Megalumber! The quote on the back reads 'How much wood could a Wood Trimp chop if a Wood Trimp could chop wood\?'$/, '$1您发现了一本书，叫做《超级砍伐》！后面的引语这么写着“若木脆皮可劈木，几何木可脆皮劈？”'], //世界解锁等
     [/^(.*)You found a book called Speedminer!$/, '$1您发现了一本书，叫做《采矿加速》！'], //世界解锁等
@@ -6264,8 +6264,8 @@ var cnRegReplace = new Map([
     [/^(.*)Your Scientists stare blankly at you for a moment, then slowly and quietly place the new book on the shelves.$/, '$1您的科学家们茫然地看了您一会儿，然后慢慢地，安静地把这本新书放到了书架上。'], //世界解锁等
     [/^(.*)You don't have any Scientists to not know how to handle this book, so everything's chill.$/, '$1您没有科学家，没有人知道怎么处理这本书，所以一切都僵住了。'], //世界解锁等
     [/^(.*)You found a book called Megaminer! The front is really shiny and has a Trimp on it. Creepy, it seems to follow your eyes.$/, '$1您发现了一本书，叫做《超级采矿》！它的封面闪闪发光，上面还有一个脆皮。等等，好可怕，这玩意似乎在跟着您的视线动。'], //世界解锁等
-    [/^(.*)Your scientists appreciate the fact that you've managed to find another useless book, but they make sure to let you know it's still useless.$/, '$1对于您又搞到一本没用的书这事，科学家们还是很欣赏的，但它们还是要让您知道，这本书没啥用。'], //世界解锁等
-    [/^(.*)Your Trimps report a strange bronze object on the floor, and you decide to come look at it. It looks freaky, so you ask one of your Trimps to pick it up first. He instantly starts itching his face and babbling off a bunch of science stuff, so you let another Trimp touch it and he does the same. This seems to make your Trimps smarter than Scientists, but may cause side effects.$/, '$1脆皮们在地上发现了一个奇怪的铜制物件，您决定去看看。它看起来很怪异，所以您让一个脆皮将它拿起来试试。它立刻开始挠自己的脸，并且开始胡言乱语一堆跟科学有关的，您让另一个脆皮触碰了那个物件，然后它跟第一位也一样了。看起来它能让脆皮变得比科学家还聪明，但是可能会引起副作用。'], //世界解锁等
+    [/^(.*)Your scientists appreciate the fact that you've managed to find another useless book, but they make sure to let you know it's still useless.$/, '$1科学家们挺欣赏您的，毕竟您又搞到了一本没用的书，但没用的东西就是没用。'], //世界解锁等
+    [/^(.*)Your Trimps report a strange bronze object on the floor, and you decide to come look at it. It looks freaky, so you ask one of your Trimps to pick it up first. He instantly starts itching his face and babbling off a bunch of science stuff, so you let another Trimp touch it and he does the same. This seems to make your Trimps smarter than Scientists, but may cause side effects.$/, '$1脆皮们在地上发现了一个奇怪的铜制物件，于是您决定去看看。它看起来很怪异，所以您让一个脆皮将它拿起来试试看。它立刻开始挠自己的脸，并且开始胡言乱语一堆跟科学有关的，您让另一个脆皮触碰了那个物件，然后它跟第一位也一样了。看起来它能让脆皮变得比科学家还聪明，但是可能会引起副作用。'], //世界解锁等
     [/^(.*)You found a crafting foreman! He will build buildings automatically for you!$/, '$1您发现了一个正在锻造的工头！它会为您自动建造建筑！'], //世界解锁等
     [/^(.*)You look down and see a green gem that seems to stare back. You pick it up and feel adrenaline surge through your body. Probably best to bring this back to the lab for some research.$/, '$1您往下看，看到一块绿色的宝石，看起来它是在回瞪着您。您将它拾了起来，立刻感到精神变得亢奋了。或许最好将它带回去做进一步的研究。'], //世界解锁等
     [/^(.*)You look down and see a blue gem that seems to stare back. You pick it up and are immediately overwhelmed by feelings of intense power. You figure this could be used to focus your Portal Generator in this Universe.$/, '$1您往下看，看到一块蓝色的宝石，看起来它是在回瞪着您。您将它拾了起来，立刻被强大的力量感淹没了。您觉得这可以用来集中这个宇宙的传送门发生器的能量。'], //世界解锁等
@@ -6275,7 +6275,7 @@ var cnRegReplace = new Map([
     [/^(.*)You found a book discussing tactics for better blocking!$/, '$1您发现了一本书，里面详细讨论了更好地进行格挡的手段！'], //世界解锁等
     [/^(.*)This egg looks crazy. Seriously, guys, come look at this crazy egg!$/, '$1这个蛋看起来很疯狂。真的，兄弟们，来看看这个疯狂的蛋！'], //世界解锁等
     [/^(.*)There is something strange about this map. It doesn't seem to reflect any light at all, just pure darkness.$/, '$1这张地图很不对劲。看来它无法反射任何的光亮，完全就是纯粹的黑暗。'], //世界解锁等
-    [/^(.*)You found an incredibly wet map. It seems to actually be generating water out of nothing, making storage very difficult without flooding the surrounding area. You're sure your Scientists can handle it though, they seem pretty smart.$/, '$1您发现了一张极度潮湿的地图。它看起来正在凭空往外渗水，想要不把这地方淹了还要把它保存下来会很困难的。但您相信科学家们能搞定的，它们那么睿智的。'], //世界解锁等
+    [/^(.*)You found an incredibly wet map. It seems to actually be generating water out of nothing, making storage very difficult without flooding the surrounding area. You're sure your Scientists can handle it though, they seem pretty smart.$/, '$1您发现了一张极度潮湿的地图。它看起来正在凭空往外渗水，想要不把这地方淹了还要把它保存下来会很困难的。但您相信科学家们能搞定的，毕竟它们那么睿智的。'], //世界解锁等
     [/^(.*)Having some Trimps Worship Scruffy might help him grow stronger quicker!$/, '$1如果让一些脆皮成为污污的崇信者，或许能让它更快地变强！'], //世界解锁等
     [/^(.*)You found your first map! Travel to your map chamber to check it out.$/, '$1您发现了第一张地图！进入地图界面来瞧瞧。'], //世界解锁等
     [/^(.*)You found (.*) map fragments!$/, '$1您发现了$2地图碎片！'], //世界解锁等
@@ -6290,8 +6290,8 @@ var cnRegReplace = new Map([
     [/^(.*)You also just unlocked Geneticistassist!$/, '$1您同时解锁了遗传学家助手！'], //地图解锁等
     [/^(.*)You also just unlocked DoubleBuild!$/, '$1您同时解锁了二重建造！'], //地图解锁等
     [/^(.*)You found an Heirloom!$/, '$1您发现了一个传家宝！'], //地图解锁等
-    [/^(.*)After barely escaping a fierce boulder, you check out the relic you found in there. It glows extremely bright for a few seconds before disappearing, and you look at your storages to see that your Food, Wood, and Metal have been doubled!$/, '$1在将将从一块狂暴巨石手下逃生后，您检查了一下在那里发现的遗物。它突然发出了无法直视的强光，过了一会儿，它消失了。之后，您检查了一下存储建筑，发现食物、木头和金属都翻倍了！'], //地图解锁等
-    [/^(.*)You heroically slay the mighty Poseidimp, and do a little ransacking in celebration. You come across a strange, brightly glowing chest that seems to be calling you to it. You go over and carefully open it up to see it filled to the brim with the exact amount of resources you currently already had. Your Food, Wood, and Metal have been doubled!$/, '$1您英勇地击杀了强大的脆皮海王，然后决定搜刮一番来庆祝。您发现了一个明亮发光的奇怪箱子，似乎正在召唤您。您走上前去，谨慎地打开了它，里面装着正好等于您目前拥有的资源。您的食物、木头和金属翻倍了！'], //地图解锁等
+    [/^(.*)After barely escaping a fierce boulder, you check out the relic you found in there. It glows extremely bright for a few seconds before disappearing, and you look at your storages to see that your Food, Wood, and Metal have been doubled!$/, '$1在将将从一块狂暴巨石下逃生后，您检查了一下在那里发现的遗物。它突然发出了无法直视的强光，过了一会儿，它消失了。之后，您检查了一下存储建筑，发现食物、木头和金属都翻倍了！'], //地图解锁等
+    [/^(.*)You heroically slay the mighty Poseidimp, and do a little ransacking in celebration. You come across a strange, brightly glowing chest that seems to be calling you to it. You go over and carefully open it up to see it filled to the brim with the exact amount of resources you currently already had. Your Food, Wood, and Metal have been doubled!$/, '$1脆皮海王被打倒了，您真是伟大的英雄！您决定搜刮一番来庆祝，然后发现了一个明亮发光的奇怪箱子，似乎正在召唤您。您走上前去，谨慎地打开了它，里面装着正好等于您目前拥有的资源。您的食物、木头和金属翻倍了！'], //地图解锁等
     [/^(.*)At the end of that very hot map, you find a tiny, dehydrated Smithy building. You bring it back to your town and drop it in a glass of water, and a full-sized Smithy instantly appears!$/, '$1在那极热地图的最后，您发现了一个微小而脱水的铁匠铺。您将它带回了城镇，把它放进了一杯水里，突然，一个正常尺寸的铁匠铺就这么出现了！'], //地图解锁等
     [/^(.*)You have slain the Warden and taken his keys. How weird would it be if they fit in that key hole on the portal\?$/, '$1您把典狱长给宰了，并拿走了他的钥匙。如果这钥匙能够用在传送门上的钥匙孔的话……那得有多奇怪？'], //地图解锁等
     [/^(.*)You've never been here before. Like, ever. This entire place felt cold and unfamiliar. Where are you\? Why have so many Trimps had to fall to get here\? You're suddenly angry, it's time to take a stand.$/, '$1您从未来过这里。从来都没有。这里很冷，很陌生。您在哪？凭什么要死了那么多脆皮才能到这里？您突然感觉非常愤怒，是时候站出来了。'], //地图解锁等
@@ -6306,7 +6306,7 @@ var cnRegReplace = new Map([
     [/^(.*)You were able to extract 45 Radon Vials from that Blimp! Now that you know how to do it, you'll be able to extract Radon from normal Blimps.$/, '$1您从飞艇上提取了45氡！从现在起您也可以从普通飞艇那边提取氡了。'], //地图解锁等
     [/^(.*)Oh goodness, another Prism to polish!$/, '$1哇！又一个可以抛光的棱镜！'], //地图解锁等
     [/^(.*)That thing dropped a book. Doesn't look like an ordinary book. Looks... blockier...$/, '$1那家伙掉落了一本书。看起来，不像寻常的书。看起来……更结实……'], //地图解锁等
-    [/^(.*)It's all shiny and stuff. You're pretty sure you've never seen a book this shiny.$/, '$1您很确信从未见过这么闪闪发亮的书。全是亮晶晶的东西。'], //地图解锁等
+    [/^(.*)It's all shiny and stuff. You're pretty sure you've never seen a book this shiny.$/, '$1您很确信从未见过这么闪闪发亮的书。一闪一闪亮晶晶。'], //地图解锁等
     [/^(.*)You found a book that will teach you how to upgrade your Shield!$/, '$1您发现了一本书，看起来阅读后可以学会升级盾牌！'], //地图解锁等
     [/^(.*)You found a book that will teach you how to upgrade your Dagger!$/, '$1您发现了一本书，看起来阅读后可以学会升级匕首！'], //地图解锁等
     [/^(.*)You found a book that will teach you how to upgrade your Boots!$/, '$1您发现了一本书，看起来阅读后可以学会升级靴子！'], //地图解锁等
@@ -6344,7 +6344,7 @@ var cnRegReplace = new Map([
     [/^(.*)You found The Prison! You have a bad feeling about going in...$/, '$1您发现了监狱地图！您感觉进去后会有什么不好的事发生……'], //地图解锁等
     [/^(.*)You just made The Prison!$/, '$1您制造了监狱地图！'], //地图解锁等
     [/^(.*)You just made Bionic Wonderland (.*)!$/, '$1您制造了仿生仙境 $2地图！'], //地图解锁等
-    [/^(.*)You found a map to an Imploding Star inside of a supercooled dimension. The temperature there is perfect!$/, '$1您发现了爆炸之星地图。那维度超冷的，看来地图里的温度会刚刚好！'], //地图解锁等
+    [/^(.*)You found a map to an Imploding Star inside of a supercooled dimension. The temperature there is perfect!$/, '$1您在一个维度中发现了爆炸之星地图。那维度超冷的，看来地图里的温度会刚刚好！'], //地图解锁等
     [/^(.*)You just made Imploding Star!$/, '$1您制造了爆炸之星地图！'], //地图解锁等
     [/^(.*)You found plans for a Mansion! Your Trimps will be pretty stoked$/, '$1您发现了豪宅的蓝图！脆皮们一定会很兴奋的'], //地图解锁等
     [/^(.*)You found plans for a hotel! \(A decent hotel, too$/, '$1您发现了宾馆的蓝图！(相当棒的宾馆'], //地图解锁等
@@ -6362,7 +6362,7 @@ var cnRegReplace = new Map([
     [/^(.*)You found (.*) gems! Terrific!$/, '$1您发现了$2宝石！真是妙极了！'], //地图解锁等
     [/^(.*)As expected, there was no Metal here.$/, '$1正如您所料，这里并没有金属。'], //地图解锁等
     [/^(.*)You just found (.*) bars of metal! Convenient!$/, '$1您发现了$2金属！太实用了！'], //地图解锁等
-    [/^(.*)That guy just left (.*) food on the ground! Sweet!$/, '$1那家伙在地上留下了$2食物！真是太好啦！'], //地图解锁等
+    [/^(.*)That guy just left (.*) food on the ground! Sweet!$/, '$1那家伙在地上留下了$2食物！如此甚好！'], //地图解锁等
     [/^(.*)You just found (.*) wood! That's pretty neat!$/, '$1您发现了$2木头！很好很强大！'], //地图解锁等
     [/^This book will teach your soldiers how to utilize the buddy system. Fighting will now require (.*)% more Trimps \(rounded up\), but attack and health will grow for each new Trimp.$/, '这本书可以教会士兵如何利用伙伴的力量。从现在起，战斗所需要的脆皮数量增加$1%(向上取整)，脆皮的攻击力和生命值也相应地提升。'], //其他升级等
     [/^You need enough room for (.*) max Trimps. You are short (.*) Trimp(s*).$/, '您需要$1的脆皮上限才能升级。您还缺少$2的脆皮上限。'], //其他升级等
@@ -6386,9 +6386,9 @@ var cnRegReplace = new Map([
     [/^(.*)Maybe there's something meaty and delicious here to Trap.$/, '$1也许您可以用陷阱抓到一些嘎嘣脆肉味的东西。'], //其他升级等
     [/^(.*)Ah wood, the building material of kings. The building material of everyone else too, but still.$/, '$1木头，建筑材料之王，王之建筑材料。当然也是其他人的建筑材料，但王也是啊。'], //其他升级等
     [/^(.*)You'll need some wood to build stuff...$/, '$1您需要木头才能建造其他东西……'], //其他升级等
-    [/^(.*)You almost forgot how to build a Barn, but now you remember. Proud of you!$/, '$1您都快忘了怎么建造谷仓了，总之您还是想起来了。为您自己感到骄傲！'], //其他升级等
+    [/^(.*)You almost forgot how to build a Barn, but now you remember. Proud of you!$/, '$1您都快忘了怎么建造谷仓了，总之您还是想起来了。您可以引以为傲了！'], //其他升级等
     [/^(.*)The food stores are getting pretty full, maybe you should start thinking about a Barn.$/, '$1食物的存储快满了，您可能该考虑谷仓了。'], //其他升级等
-    [/^(.*)Wet wood won't work! Better get a Shed going.$/, '$1湿木头是没法用的！最好赶紧建造一个窝棚。'], //其他升级等
+    [/^(.*)Wet wood won't work! Better get a Shed going.$/, '$1湿木头是用不了的，最好赶紧建造一个窝棚。'], //其他升级等
     [/^(.*)A nice Shed would allow you to keep more wood on hand.$/, '$1一个好窝棚可以存放更多木头。'], //其他升级等
     [/^(.*)What better place to store metal than a building that can smelt it\?$/, '$1还有什么地方比冶炼金属的地方能更好地存储它呢？'], //其他升级等
     [/^(.*)A nice Forge would allow you to store more metal.$/, '$1一个好锻造厂可以存储更多金属。'], //其他升级等
@@ -7151,7 +7151,7 @@ var cnRegReplace = new Map([
     [/^(.*)You have completed the Balance challenge! You have been rewarded with (.*) Helium, and you may repeat the challenge.$/, '$1您完成了平衡挑战！您获取了$2氦，现在您又可以重新挑战了。'], //平衡挑战完成消息
     [/^(.*)You can research science again!$/, '$1您又可以进行科学研究了！'], //科学家挑战放弃消息
     [/^(.*)You have completed the 'Meditate' challenge! The dimension has returned to normal, and you have unlocked a new perk!$/, '$1您完成了 冥想 挑战！这个维度恢复到了正常，而且您解锁了一个新的特权！'], //冥想挑战完成消息
-    [/^(.*)You have completed the Decay challenge! All stats have been returned to normal, and you can now create more powerful Gardens maps at will!$/, '$1您完成了 衰变 挑战！一切都恢复了正常，而且您可以随意制造更强大的花园地图了！'], //衰变挑战完成消息
+    [/^(.*)You have completed the Decay challenge! All stats have been returned to normal, and you can now create more powerful Gardens maps at will!$/, '$1您完成了 衰变 挑战！一切都恢复了正常，而且您可以制造更强大的花园地图了！'], //衰变挑战完成消息
     [/^(.*)You have completed the 'Trapper' challenge! Your Trimps now remember how to breed, and you have unlocked a new perk!$/, '$1您完成了 捕手 挑战！您的脆皮想起来如何繁殖了，而且您解锁了一个新的特权！'], //捕手挑战完成消息
     [/^(.*)You have completed the Electricity challenge! You have been rewarded with (.*) Helium, and you may repeat the challenge.$/, '$1您完成了电流挑战！您获取了$2氦，现在您又可以重新挑战了。'], //电流挑战完成消息
     [/^(.*)You have completed the 'Frugal' challenge! You can once again find equipment upgrades in maps, and Megabooks now increase gather rates by an extra 10%!$/, '$1您完成了 节俭 挑战！您又可以获得重铸升级了，而且超级升级的资源获取速度额外提升10%！'], //节俭挑战完成消息
@@ -7321,6 +7321,7 @@ var cnRegReplace = new Map([
     [/^Prismal X(.*)$/, '棱镜化 X$1'], //特权等
     [/^Hunger X(.*)$/, '饥饿 X$1'], //特权等
     [/^Frenzy X(.*)$/, '战狂 X$1'], //特权等
+    [/^Observation X(.*)$/, '洞察 X$1'], //特权等
     [/^Your Trimps learn to harvest special Herbs while collecting Food! Increases Trimp Attack by a number based on your total stored food. Grants \+30% Attack at (.*) Food, or \+300% at (.*). At your current total of (.*) Food,$/, '您的脆皮现在可以在采集食物时同时采集百草！根据食物存储量增加攻击力。在$1食物时增加30%攻击力，在$2食物时增加300%攻击力。您当前共有$3食物，'], //神农专精
     [/^you are gaining \+([\d+\.]+)% Trimp Attack$/, '您获得了 +$1% 攻击力'], //神农专精
     [/^you would gain \+([\d+\.]+)% Trimp Attack$/, '您可获得 +$1% 攻击力'], //神农专精
@@ -7579,7 +7580,7 @@ var cnRegReplace = new Map([
     [/^(.*)You ruined a(n*) $/, '$1您破坏了一个'], //击杀消息
     [/^(.*)You wrecked a(n*) $/, '$1您击毁了一个'], //击杀消息
     [/^(.*)You obliterated a(n*) $/, '$1您抹消了一个'], //击杀消息
-    [/^(.*)Z:2 Your Trimps killed a lot of Bad Guys back there. It seems like you're getting the hang of this. However, the world is large, and there are many more Zones to explore. Chop chop.$/, '$1区域：2 您的脆皮已经干掉了不少敌人。看起来您也逐渐熟悉起来了。不过，世界还很大，还有很多区域等着您来探索。所以，加快速度吧。'], //故事消息
+    [/^(.*)Z:2 Your Trimps killed a lot of Bad Guys back there. It seems like you're getting the hang of this. However, the world is large, and there are many more Zones to explore. Chop chop.$/, '$1区域：2 您的脆皮已经干掉了不少敌人。看起来您也逐渐熟悉这个世界了。不过，这个世界还很大，还有很多区域等着您来探索。所以，加快速度吧。'], //故事消息
     [/^(.*)Z:3 By your orders, your scientists have begun to try and figure out how large this planet is.$/, '$1区域：3 依照您的指示，科学家们已经开始测量这个行星的大小了。'], //故事消息
     [/^(.*)Z:3 This planet seems so cold and lonely without Science.$/, '$1区域：3 这个没有科学家的行星看起来既冰冷又孤寂。'], //故事消息
     [/^(.*)Z:4 You order your Trimps to search the area for the keys to your ship, but nobody finds anything. Bummer.$/, '$1区域：4 您指示脆皮们搜索这个区域，寻找您飞船的钥匙，但一无所获。啧。'], //故事消息
@@ -7597,21 +7598,21 @@ var cnRegReplace = new Map([
     [/^(.*)Z:16 Seriously\? Another Blimp so soon\?$/, '$1区域：16 真的吗？这么快又是一个脆皮飞艇？'], //故事消息
     [/^(.*)Z:17 You climb a large cliff and look out over the new Zone. Red dirt, scorched ground, and devastation. Is that a Dragimp flying around out there\?!$/, '$1区域：17 您爬上了一个巨大的悬崖顶部，眺望着新的区域。红泥，焦土，满目疮痍。等等，那飞来飞去的是……一只脆皮龙吗？！'], //故事消息
     [/^(.*)Z:18 There seems to be a strange force urging you to keep going. The atmosphere is becoming... angrier. Part of you wants to turn around and go back, but most of you wants to keep going.$/, '$1区域：18 似乎有一股神秘的力量在促使您继续前进。空气似乎变得……更愤怒了。您的脑海里似乎有一个声音在喊着您回头，但另一个更响亮更坚定的声音想要继续前行。'], //故事消息
-    [/^(.*)Z:19 You look behind and see your kingdom. You have gems, a colony, and territory. You wonder if enough Trimps have already fallen in battle. After contemplation, one word falls out of your mouth as you begin to move forward. 'Nah'$/, '$1区域：19 您回头看了看您的王国。您有了宝石，有了居住地，还有了大块领土。获得这些的过程中，大量的脆皮失去了它们的生命。您沉思了一下，是不是已经死得够多了，随后，您继续前进，只留下了三个字。“还不够”'], //故事消息
+    [/^(.*)Z:19 You look behind and see your kingdom. You have gems, a colony, and territory. You wonder if enough Trimps have already fallen in battle. After contemplation, one word falls out of your mouth as you begin to move forward. 'Nah'$/, '$1区域：19 您回头看了看您的王国。您有了宝石，有了居住地，还有了大块领土。获得这些的过程中，大量的脆皮失去了它们的生命。您沉思着，是不是已经死得够多了，随后，您继续前进，只留下了三个字。“还不够”'], //故事消息
     [/^(.*)Z:20 You can sense that you're close to your goal.$/, '$1区域：20 您感觉到接近目标了。'], //故事消息
     [/^(.*)Z:22 You hear a strange humming noise that seems to draw you towards it, though it also seems to come from no direction in particular. You can feel that it's being created by the Amalgamator, though you've never heard such a sound before. It's both unsettling and enchanting, and the Universe seems to hate it.$/, '$1区域：22 尽管找不到声音的源头，您还是被一阵奇怪的嗡嗡声吸引了过去。虽然没有听过类似的声音，但您可以感觉到这是合并者发出的。这声音既令人不安，又引人入胜，似乎连这个宇宙都痛恨它。'], //故事消息
     [/^(.*)Z:22 You hear a strange humming noise that seems to draw you towards it, though it also seems to come from no direction in particular. You can feel that it's being created by an Amalgamator, though you've never heard such a sound before. It's both unsettling and enchanting, and the Universe seems to hate it.$/, '$1区域：22 尽管找不到声音的源头，您还是被一阵奇怪的嗡嗡声吸引了过去。虽然没有听过类似的声音，但您可以感觉到这是一个合并者发出的。这声音既令人不安，又引人入胜，似乎连这个宇宙都痛恨它。'], //故事消息
     [/^(.*)Z:22 Strange, the sky seems to be getting darker. You ask one of your Trimps for the time, but he doesn't know what a clock is.$/, '$1区域：22 天空看起来更暗了，真奇怪啊。您想问一个脆皮现在几点了，但它连什么是时间都不知道。'], //故事消息
     [/^(.*)Z:25 You're a rebel. The universe pointed you into that portal, but you kept pushing forward. You feel... less like you've been here before.$/, '$1区域：25 您这是要反了啊。这个宇宙指引着您进入传送门，而您却还在前进。不过，您感觉到……您好像没怎么来过这里。'], //故事消息
     [/^(.*)Z:27 It seems like the further you press on, the less you know. You still feel an urge to use the portal, though the urge has begun to dwindle.$/, '$1区域：27 似乎前进得越远，您所知的就越少。您虽然还想使用传送门，但这个欲望已经开始消退了。'], //故事消息
-    [/^(.*)Z:29 Your Trimps came up with a pretty catchy battle song that got stuck in your head. None of them survived the next fight though, and you can't remember most of it. Life's tough.$/, '$1区域：29 您的脆皮们想出了一首琅琅上口的战歌，您感觉都要被洗脑了。遗憾的是它们在之后的战斗中全部阵亡了，而您再也想不起来歌的唱法了。人生已经如此的艰难，有些事情就不要拆穿。'], //故事消息
-    [/^(.*)Z:33 You climb over a large hill that was separating this Zone from the last. The sky is pitch black and lightning crackles in the distance. This is a site of heavy corruption.$/, '$1区域：33 您爬上了区域分界线上的一座高山。天空漆黑如墨，时不时有闪电划破天际。这地方严重腐化了。'], //故事消息
+    [/^(.*)Z:29 Your Trimps came up with a pretty catchy battle song that got stuck in your head. None of them survived the next fight though, and you can't remember most of it. Life's tough.$/, '$1区域：29 您的脆皮们想出了一首琅琅上口的战歌，您感觉都要被洗脑了。遗憾的是它们在之后的战斗中全部阵亡了，而您再也想不起来歌的唱法了。人生如此的艰难。'], //故事消息
+    [/^(.*)Z:33 You climb over a large hill that was separating this Zone from the last. The sky is pitch black and lightning crackles in the distance. This is a site of heavy corruption.$/, '$1区域：33 您爬上了区域分界线上的一座高山。天空漆黑如墨，时不时有闪电划破天际。这地方真是够糟糕的。'], //故事消息
     [/^(.*)Z:35 You start to wonder how long you've been doing the same thing over and over. There must be something you can do to start to break the cycle. Perhaps you could alter the portal...$/, '$1区域：35 您开始怀疑您已经重复多少次轮回了。一定有什么东西能够打破这个轮回。或许您可以改变一下传送门……'], //故事消息
     [/^(.*)Z:40 You can't help but notice that the Trimps seem to be the only creatures on this planet not immediately hostile towards outsiders. You ask a nearby Trimp soldier what he thinks you are, and he drools a bit.$/, '$1区域：40 您注意到了，这个行星上似乎只有脆皮对外来者会友好一些。您随手抓过旁边一个脆皮，并询问它是怎么看您的，然后它流了点口水。'], //故事消息
-    [/^(.*)Z:42 The world seems so barren out this far. You feel like you're finally starting to get ahead of the curve, but you know by now not to get comfortable.$/, '$1区域：42 就目前情况而言，这世界相当贫瘠。您感觉您终于开始超脱轮回了，但您知道现在还不是完全放松的时候。'], //故事消息
+    [/^(.*)Z:42 The world seems so barren out this far. You feel like you're finally starting to get ahead of the curve, but you know by now not to get comfortable.$/, '$1区域：42 这世界真的相当贫瘠。您感觉您终于开始超脱轮回了，但您也知道现在还不是完全放松的时候。'], //故事消息
     [/^(.*)Z:44 Each day and night seems to grow longer than the one before. Is time slowing down\? Argh! You fall to your knees with a splitting headache and a strong desire to use the portal. After a few minutes, it passes and you forget what happened. What are we talking about\?$/, '$1区域：44 每天似乎都在变得更长一些。是时间减慢了吗？啊！您突然感到头痛欲裂，倒了下去，并有一种使用传送门的强烈渴望。过了一会儿，疼痛平息了，您也忘记了发生了什么。不过，我们前面到底在聊什么来着？'], //故事消息
     [/^(.*)Z:46 All traces of hills and mountains have long since been trudged past. The world is flat and hostile. You wish your Trimps were better conversationalists.$/, '$1区域：46 通过崇山峻岭的足迹已经拉得很长了。这个世界的恶意可谓是毫不掩饰。您觉得脆皮们如果能健谈一些就好了。'], //故事消息
-    [/^(.*)Z:48 As your Trimps scavenge every last bit of helium from that Blimp, one of them begins freaking out. He runs around waving his little arms and making funny noises for a while, eats some dirt, then takes a little nap. You wonder if that's normal. Yeah... probably fine.$/, '$1区域：48 您的脆皮们回收完脆皮飞艇的氦以后，其中一个脆皮突然开始举止异常。它开始边摇手臂边到处乱跑，并发出了一些有趣的声音，然后吃了点土，睡着了。您开始思考这到底算不算异常。嗯……大概不算吧。'], //故事消息
+    [/^(.*)Z:48 As your Trimps scavenge every last bit of helium from that Blimp, one of them begins freaking out. He runs around waving his little arms and making funny noises for a while, eats some dirt, then takes a little nap. You wonder if that's normal. Yeah... probably fine.$/, '$1区域：48 您的脆皮们回收完脆皮飞艇的氦以后，其中一个脆皮突然开始举止异常。它开始边摇手臂边到处乱跑，并发出了一些有趣的声音，然后吃了点土，睡着了。您思考着这到底算不算异常。嗯……大概不算吧。'], //故事消息
     [/^(.*)Z:50 It's been a long time since you've found any blueprints in the maps. You start to wonder where those things even come from.$/, '$1区域：50 您很久没有在地图中找到蓝图了。这些到底是哪里来的呢……'], //故事消息
     [/^(.*)Z:51 Your scientists have detected an anomaly at the end of Zone 59. They recommend that you stop doing whatever it is that you're doing.$/, '$1区域：51 科学家们在区域59的末尾检测到了异常现象。它们建议您立刻停止。'], //故事消息
     [/^(.*)Z:53 As you get closer to the anomaly, you start to notice more and more strange behaviour from your Trimps. Holes in your memory are starting to become noticeable as multiple existences blend into one. Trippy.$/, '$1区域：53 随着您接近异常现象，您注意到脆皮的举止越来越古怪。您的记忆中缺失的部分越来越明显了，就好像好多世的记忆叠加到了一起一样。真是的。'], //故事消息
@@ -7620,10 +7621,10 @@ var cnRegReplace = new Map([
     [/^(.*)Z:58 A huge storm has formed and daylight has become a luxury you have mostly forgotten about. Your Trimps seem to want to go back home, but you're pretty sure you're supposed to keep going this way, so you do. You're very close to the anomaly.$/, '$1区域：58 阴雨连天，风暴来袭，阳光已经成了几乎忘却的奢侈品。脆皮们似乎一心只想着回家了，但您很肯定应该继续前进，所以您指挥着它们继续前进了。您越来越接近异常现象了。'], //故事消息
     [/^(.*)Z:59 There it is. The anomaly is at the end of the Zone. You can see it but you don't know what you're seeing. Where did that... thing... come from\?! This is highly Improbable.$/, '$1区域：59 那就是那个异常现象了，就在区域最后。您可以看到它，但您完全无法理解您看到了什么。那个玩意……到底是从哪来的？！这也太子虚乌有了。'], //故事消息
     [/^(.*)Z:60 The ground instantly cracks and large plumes of green gas escape from the planet's core to the atmosphere. The planet feels different. Everything feels different. This Universe has grown unstable, the planet has broken. What have you done\?$/, '$1区域：60 大地碎裂，大量绿色气体从行星的核心逸出到了空气中。这个行星不一样了。不，一切都不一样了。宇宙开始变得不稳定，行星破碎了。您都做了些什么？'], //故事消息
-    [/^(.*)Z:61 Other than all the dead Trimps, that wasn't so bad.$/, '$1区域：61 从现在来看，除了挂掉那么多脆皮以外，好像也没那么坏了。'], //故事消息
+    [/^(.*)Z:61 Other than all the dead Trimps, that wasn't so bad.$/, '$1区域：61 从现在来看，除了挂掉那么多脆皮以外，好像也没什么问题。'], //故事消息
     [/^(.*)Z:65 The Universe seems even more upset than you expected here, but your Amalgamator doesn't really seem to care. You walk towards it to get a better look, but find yourself further away than you were.$/, '$1区域：65 看起来，您到这以后，这个宇宙比您想象中还要更失望，但合并者看起来并不在意。您向它走去，想看清楚一些，却发现离它越来越远了。'], //故事消息
     [/^(.*)Z:65 The Universe seems even more upset than you expected here, but your Amalgamators don't really seem to care. You walk towards one to get a better look, but find yourself further away than you were.$/, '$1区域：65 看起来，您到这以后，这个宇宙比您想象中还要更失望，但合并者们看起来并不在意。您向其中一个合并者走去，想看清楚一些，却发现离它越来越远了。'], //故事消息
-    [/^(.*)Z:65 You feel more powerful than ever. The universe seems to be constantly adjusting itself to get rid of you, yet you rise against and persist. Something as tiny as you taking on an entire universe!$/, '$1区域：65 您感觉比之前都强大。这个宇宙一直在调整自己，想要把您干掉，但您同时也变得更强，抵抗住了变化。这简直是以一人之力独撼宇宙了！'], //故事消息
+    [/^(.*)Z:65 You feel more powerful than ever. The universe seems to be constantly adjusting itself to get rid of you, yet you rise against and persist. Something as tiny as you taking on an entire universe!$/, '$1区域：65 您感觉比之前都强大。这个宇宙一直在调整着，想要把您干掉，但您同时也变得更强，抵抗住了变化。这简直是以一人之力独撼宇宙了！'], //故事消息
     [/^(.*)Z:68 You figure some entertainment wouldn't be awful, and decide to teach your Trimps how to play soccer. A few hours and zero progress later, you really regret that decision.$/, '$1区域：68 您觉得找点乐子也不错，所以决定教脆皮们踢足球。一段时间过去，毫无进展，您后悔了。'], //故事消息
     [/^(.*)Z:70 The Improbabilities haven't seemed to slow down. You know you need to figure out a plan, but you don't know what to plan for.$/, '$1区域：70 乌有者们还是接二连三地出现。您觉得应该对此想个计划，却不知道计划的内容该是什么。'], //故事消息
     [/^(.*)Z:72 You slash through another Improbability with relative ease, but something isn't right. A sour smell hits your nose and in disgust, you whip around in search of the source. Oh, wait, it's just the Trimps.$/, '$1区域：72 您相当轻松地干掉了另一个乌有者，但是，好像有什么不对劲。一股酸臭味袭来，相当难闻，您四处张望寻找了一下来源。哦，是脆皮们身上的气味，那没事了。'], //故事消息
@@ -7699,14 +7700,14 @@ var cnRegReplace = new Map([
     [/^(.*)Z:246 Once again, a Bad Guy in this Zone has absorbed every trace of your Windy friends. But once again, Nature has replaced them with new, colder ones. Suddenly your Trimps' new spikes stop spinning and start spewing snow! You feel incredibly cold, but your Trimps seem perfectly comfortable. This cold will surely slow down your enemies!$/, '$1区域：246 这个区域中一个敌人把所有的风都吸收了。但这次，取而代之的是更酷的东西。您的脆皮们身上的尖刺不再旋转了，而是开始了吹雪！您感觉这似乎有点太冷酷了，但您的脆皮们似乎完全没受到影响。这样的严寒下，敌人的行动一定会变得更慢的！'], //故事消息
     [/^(.*)Z:248 While the Windy Zones were beautiful, the Ice Zones are nearly indescribable. Deep blues from the frozen ground contrast sharply with the fiery reds of the Magma rivers, and these two systems have equalized at a very comfortable ambient temperature. Your Trimps are too cold to touch though, your hand is still stuck to the one you high-fived at the start of the last zone.$/, '$1区域：248 风区域很美，而冰区域则不太好描述了。炽红的岩浆河与深蓝的冻土形成了鲜明对比，而这两者的共同存在却恰好使气温处在一个舒适的温度。当然这里说的温度不包括脆皮的体温，毕竟您的手还被粘在一个脆皮的手上。谁让您要在上个区域末尾玩击掌的。'], //故事消息
     [/^(.*)Z:251 Right on cue, another enemy has absorbed the Empowerment of Ice, and Nature has reacted by refilling the Zone with familiar green clouds. Poison is back! Your Trimps' spikes resume spewing toxic sludge, and finally the Trimp stuck to your hand warms up enough to fall off. No more high-fiving Trimps in the Ice Zones.$/, '$1区域：251 果然不出所料，又一个敌人在吸收冰赋能，而熟悉的毒云又出现了。毒又回来啦！脆皮身上的尖刺再次开始滴落毒液，您也终于跟那个脆皮分开了。下次再在冰区域玩击掌您就是脆皮狗。'], //故事消息
-    [/^(.*)Z:255 The Magma continues to sap your Trimps\' strength as you press through the Zones, but they seem to be adapting well in spirits. It seems like each generation likes the heat more and more.$/, '$1区域：255 随着脆皮们继续前进，岩浆对它们的影响越来越大，但从精神上来看，它们似乎已经很好地适应了。而且它们每一代看起来都更喜欢这热量了。'], //故事消息
+    [/^(.*)Z:255 The Magma continues to sap your Trimps\' strength as you press through the Zones, but they seem to be adapting well in spirits. It seems like each generation likes the heat more and more.$/, '$1区域：255 随着脆皮们继续前进，岩浆对它们的影响越来越大，但从精神上来看，它们似乎已经很好地适应了。而且看来它们一代比一代更喜欢这热量了。'], //故事消息
     [/^(.*)Z:256 You're detecting a pattern here! Poison has once again given way to Wind, and you have a feeling that this Wind will soon give way to Ice. The Bad Guys can absorb as much Nature as they want! Their Tokens will only help you to strengthen Nature, and Nature will always be back. With your new ally, you can totally handle the Magma.$/, '$1区域：256 您已经找到诀窍了！毒消失了，风又出现了，而且您觉得风迟早又会被冰取代的。那些敌人真的可以把赋能吸得干干净净的！它们的符记可以帮助您强化赋能，而自然赋能则是永存不灭的。有它的帮助，岩浆掀不起什么风浪。'], //故事消息
     [/^(.*)Z:261 You asked that Omnipotrimp nicely not to explode after you killed it, but it exploded anyways. Pretty rude.$/, '$1区域：261 您请求那个全能者不要玩自爆了，但它还是炸了。真是没礼貌的家伙。'], //故事消息
     [/^(.*)Z:264 Good job not high-fiving any Trimps so far this time. You are worried morale might fall if you spend too much time with such a difficult restriction, but you're pretty sure Poison is coming up soon.$/, '$1区域：264 很好，这次没有再击掌弄出什么事了。您也担心如果有这么严格的限制，会不会影响脆皮们的士气，但反正，毒又快来了。'], //故事消息
     [/^(.*)Z:267 You're determined to repair the planet, and now that Nature is on your side you feel it might actually be possible. Either way, you know you must be doing something right to have earned the loyalty of Trimps and Nature.$/, '$1区域：267 您决心修复这个行星，而有了自然的帮助，这或许不再只是个梦想了。大概这就是，自助者，天助之。'], //故事消息
     [/^(.*)Z:270 This planet is really freaking big. You feel like you've been walking around it for years and still haven't seen everything there is to offer. Shouldn't there be another spire around here or something\?$/, '$1区域：270 这个行星真的太大了。尽管您已经待了这么多年，仍未能穷尽这个行星的一切。这里是不是应该有另一个尖塔来着？'], //故事消息
     [/^(.*)Z:277 It's starting to smell purple again. You must be getting close to another spire.$/, '$1区域：277 有的时候您都觉得自己是言出法随，这不，又开始有紫色的气味了。您应该离另一个尖塔不远了。'], //故事消息
-    [/^(.*)Z:283 During a boring night while waiting to cross a particularly rough Magma river, you managed to teach your Trimps how to stack on each other to create some funny shapes. You almost feel bad for the first Snimp to come across (.*) Trimps stuck together in the shape of a humongous Mongooseimp.$/, '$1区域：283 又是一个无聊的夜晚，您正在等待穿越一条崎岖的岩浆河。为了打发时间，您教会了脆皮们如何玩叠罗汉。没过多久，脆皮们就折腾出了一个由$2个脆皮组成的巨大猫鼬，您心中默默地为第一只向它走去的脆皮蛇哀悼了起来。'], //故事消息
+    [/^(.*)Z:283 During a boring night while waiting to cross a particularly rough Magma river, you managed to teach your Trimps how to stack on each other to create some funny shapes. You almost feel bad for the first Snimp to come across (.*) Trimps stuck together in the shape of a humongous Mongooseimp.$/, '$1区域：283 又是一个无聊的夜晚，您正在等待穿越一条崎岖的岩浆河。为了打发时间，您教会了脆皮们如何玩叠罗汉。没过多久，脆皮们就折腾出了一个由$2个脆皮组成的巨型脆皮猫鼬，您心中默默地为第一只向它走去的脆皮蛇哀悼了起来。'], //故事消息
     [/^(.*)Z:285 You can finally see it, clear as day. No more than 15 Zones in the distance stands a giant spire, even more menacing than the first. A loud, echoing voice booms from the tower, matching the tone and cadence of Druopitee himself. It's a little far away to hear perfectly, but it sounds like he's asking you nicely to please leave him be.$/, '$1区域：285 终于，又再见面了，是尖塔，一清二楚。它在15个区域后矗立着，看起来比第一个尖塔还要险恶。从塔顶上传来了巨大的回音，听上去像是德罗披提的声音。虽然隔了太远，听不太清楚他具体说了什么，但是从语气来看，大概是想请您赶紧离开这里。'], //故事消息
     [/^(.*)Z:285 Something feels wrong, but you can't quite figure out what. You eventually find a pebble in your shoe and everything seems much better!$/, '$1区域：285 您总觉得心神不宁，但又说不出个所以然来。折腾了半天，您从鞋子里取出了一块鹅卵石，这样似乎就好多了！'], //故事消息
     [/^(.*)Z:286 You hear the voice again, and can tell there's definitely something weird about it - as if it was coming from a ghost or something. Though you suppose that makes sense, since you've already killed Druopitee.$/, '$1区域：286 您再次听到了那个声音，那个声音似乎有哪里不大对劲————那根本就不是活人的声音啊。不过考虑到您已经亲手将德罗披提干掉了，这似乎也没什么不对的样子。'], //故事消息
@@ -7717,7 +7718,7 @@ var cnRegReplace = new Map([
     [/^(.*)Z:295 You wonder if you could get your scientists to invent chewing gum...$/, '$1区域：295 您在想是不是能让科学家们尝试着研发一下口香糖……'], //故事消息
     [/^(.*)Z:298 The deranged spirit in the tower is now begging that you stay back. It obviously knows you destroyed the last tower and doesn't want you taking out another. Too bad, buddy. You're coming.$/, '$1区域：298 尖塔里那个疯子的残魂已经开始乞求您别再靠近了。很显然，他知道正是您摧毁了上一个尖塔，而且他不想步之前那一位的后尘。风水轮流转，现在才来求饶实在是晚了，老兄，真的晚了。现在，该轮到谁选择臣服，还是毁灭了？'], //故事消息
     [/^(.*)Z:298 A voice in the back of your mind tells you there should be something big soon, but you see nothing. Oh well.$/, '$1区域：298 脑海中总有一个声音告诉您，这里应该有一个什么庞然大物的。怎么样也好，反正您是什么也没看到。'], //故事消息
-    [/^(.*)Z:303 You're glad you have Fluffy around now. He seems to be getting along well with the other Trimps, and seems happy to have found others like him. He doesn't seem to be any smarter than a normal Trimp so you're sure you'll get some entertainment out of him.$/, '$1区域：303 您很高兴有绒绒陪着您。它看起来与其他脆皮相处得不错，跟同类在一起也让它很开心。它看起来并没有比普通的脆皮聪明多少，但有它的陪伴，在这边的生活应该能更多姿多彩一些。'], //故事消息
+    [/^(.*)Z:303 You're glad you have Fluffy around now. He seems to be getting along well with the other Trimps, and seems happy to have found others like him. He doesn't seem to be any smarter than a normal Trimp so you're sure you'll get some entertainment out of him.$/, '$1区域：303 您很高兴有绒绒陪着您。它看起来与其他脆皮相处得不错，而跟同类在一起也让它很开心。它看起来并没有比普通的脆皮聪明多少，但有它的陪伴，在这边的生活应该能更多姿多彩一些。'], //故事消息
     [/^(.*)Z:303 You wish you had a pet.$/, '$1区域：303 如果能有一只宠物该有多好啊。'], //故事消息
     [/^(.*)Z:315 These healthy spots of land seem to be increasing as the Spire pumps more and more into the air! Hopefully that's a good thing. You ask Fluffy what he thinks and he nods in approval.$/, '$1区域：315 随着尖塔把越来越多的健康变异气体排入大气，健康的区域看起来也越来越多了！希望这么做会带来好的结果。您询问了一下绒绒它的想法，而它只是点了点头。'], //故事消息
     [/^(.*)Z:315 Geeze, this Corruption is starting to look pretty nasty. Those Spires need to fall soon...$/, '$1区域：315 噫，腐化真的是越看越烦人了。但愿世界不再有那些尖塔……'], //故事消息
@@ -7740,7 +7741,7 @@ var cnRegReplace = new Map([
     [/^(.*)Z:430 The Trimps tried tying two Turkimps to this tall tree, then the Turkimps thrashed those three trillion Trimps, throwing the Trimps tumbling towards the tall tree. The Trimps truly tried. Those Turkimps though... they tough.$/, '$1区域：430 脆皮火鸡，脆皮火鸡，跑得快，跑得快，一只没有眼睛，一只没有腐化，真奇怪，真奇怪。'], //故事消息
     [/^(.*)Z:440 Wow, you've gotten pretty far. You would have never guessed there'd be this many Zones out there, but here you are.$/, '$1区域：440 不知不觉，您都走了这么远了。可能连您自己，都没有想到自己能来到这么多个区域之后吧。'], //故事消息
     [/^(.*)Z:450 It's just about time for another Spire, don't you think\?$/, '$1区域：450 下一个尖塔也该来了，不是么？'], //故事消息
-    [/^(.*)Z:460 This part of the world seems to be at a much higher elevation than any other part that you've been at. The air is strangely clear, and you can see more of the planet sprawled out around you than ever before. It feels good to see everything you're fighting for and feel like it's worth it.$/, '$1区域：460 世界的这一部分似乎比之前的所有部分都来得高。空气异常清新，这个历经劫难的行星越来越好转了。世间自有公道，付出终有回报。'], //故事消息
+    [/^(.*)Z:460 This part of the world seems to be at a much higher elevation than any other part that you've been at. The air is strangely clear, and you can see more of the planet sprawled out around you than ever before. It feels good to see everything you're fighting for and feel like it's worth it.$/, '$1区域：460 世界的这一部分似乎比之前的所有部分都来得高。空气异常清新，这个历经劫难的行星变得越来越好了。世间自有公道，付出终有回报。'], //故事消息
     [/^(.*)Z:470 This part of the world seems to be at a really low elevation, and lots of Corruption is building up in it. Gross.$/, '$1区域：470 世界的这一部分似乎海拔相当低，而这里充满了腐化。真够恶心的。看来，健康尚未成功，而您仍需努力。'], //故事消息
     [/^(.*)Z:485 Once again, you can taste the Spire, it must just be over that next hill now. Fluffy seems excited.$/, '$1区域：485 好吧，又闻到尖塔的那个味道了，再翻过那座山脉，应该就能够到达了。绒绒看上去相当兴奋。'], //故事消息
     [/^(.*)Z:485 Hey! Is that... oh, nope, just some dirt.$/, '$1区域：485 哈！那个是……哦，没事了，只是一些污迹而已。'], //故事消息
@@ -7751,10 +7752,10 @@ var cnRegReplace = new Map([
     [/^(.*)Z:702 The planet looks pretty charred. Fluffy looks proud of something but you're not sure what.$/, '$1区域：702 这个行星看起来一片焦黑。看起来绒绒正因为自己做了什么事而得意洋洋，但您并不知道发生了什么。'], //故事消息
     [/^(.*)Z:707 You feel like there is supposed to be something here that isn't. You wonder if you had something to do with that.$/, '$1区域：707 您感觉这里本来会有什么东西的，但现在已经消失了。不知道您是不是跟这个有什么关系。'], //故事消息
     [/^(.*)Z:2 "A journey of 1000 Zones begins with a single Zone." - Probably someone$/, '$1区域：2 “千区之行，始于足下。”————某个连是否存在都存疑的不知名人物'], //宇宙2故事消息
-    [/^(.*)Z:3 While this Universe seems very similar to the one you were just in, it feels quite a bit different. You can't quite figure out what exactly is different, but it totally is.$/, '$1区域：3 这个宇宙跟之前的有不少共同点，但也有很多区别之处。虽然您没法把区别一一列举出来，但您很肯定区别不会少。'], //宇宙2故事消息
+    [/^(.*)Z:3 While this Universe seems very similar to the one you were just in, it feels quite a bit different. You can't quite figure out what exactly is different, but it totally is.$/, '$1区域：3 这个宇宙跟之前的有不少共同点，但也有很多不同之处。虽然您没法把区别一一列举出来，但您很肯定那不会少。'], //宇宙2故事消息
     [/^(.*)Z:4 You feel like you've climbed through these Zones thousands of times, but you can only clearly remember one time that felt like ages ago in a different Universe. You feel weird.$/, '$1区域：4 您觉得这些区域您已经来过千百回了，但却只清晰记得之前那个宇宙的最后那一次。这简直是恍若隔世一般，真是奇怪的感觉。'], //宇宙2故事消息
     [/^(.*)Z:5 But have you been to this Universe before\? You're really not quite sure. Every day that passes here makes your memories feel like another lifetime ago.$/, '$1区域：5 说到底，您真的没来过这个宇宙吗？对此您也不太确定了。时光匆匆，岁月荏苒，所谓烂柯，不外如是。'], //宇宙2故事消息
-    [/^(.*)Z:6 You decide to tell the story of your travels to your Trimps, so that someone will remember if your memory continues to get worse. You tell them about the massive armies, the Spires, Druopitee, Nature, and everything else you can think of. The Trimps seem excited by the tale, but they can't talk.$/, '$1区域：6 您决定把您在上一个宇宙的故事讲给脆皮们听，如果将来您连这些都忘却了，或许还有谁能让您回想起来。您告诉了它们，您曾拥有庞大的军队，曾经历过那些尖塔，曾与德罗披提交战过，曾受到自然的恩泽，还有很多很多精彩的经历。脆皮们看起来也沉浸在了您的故事中，兴奋了起来，可惜的是，它们没法说话。'], //宇宙2故事消息
+    [/^(.*)Z:6 You decide to tell the story of your travels to your Trimps, so that someone will remember if your memory continues to get worse. You tell them about the massive armies, the Spires, Druopitee, Nature, and everything else you can think of. The Trimps seem excited by the tale, but they can't talk.$/, '$1区域：6 您决定把您在上一个宇宙的故事讲给脆皮们听，如果将来您连这些都忘却了，或许还有谁能让您回想起来。您告诉了它们，您曾拥有庞大的军队，曾经历过那些尖塔，曾与德罗披提决战过，曾受到自然的恩泽，还有很多很多精彩的经历。脆皮们看起来也沉浸在了您的故事中，兴奋了起来，可惜的是，它们没法说话。'], //宇宙2故事消息
     [/^(.*)Z:7 Scruffy runs up to inform you that you could run a regular map to find directions to something called "Big Wall". You remember a wall from before, but you don't remember finding it so soon. What else is going to be different\?$/, '$1区域：7 污污跑了过来，它告诉您，您可以运行任意一张地图，这样您就可以发现通往“巨墙”的方法了。您记得之前的宇宙中也有个什么墙的，但是那似乎并没有这么快出现啊。不知道还会有什么东西不一样的呢？'], //宇宙2故事消息
     [/^(.*)Z:8 At your request, your Scientists are running tests to try and identify further differences between your original Universe and this one. Unfortunately, they don't know anything about your old Universe and probably won't be able to spot any differences.$/, '$1区域：8 在您的再三要求下，科学家们开始分析两个宇宙之间的区别了。不过不好的消息是，它们并没有去过之前的那个宇宙，所以恐怕是找不到正确答案的。'], //宇宙2故事消息
     [/^(.*)Z:9 One thing you remember for sure about the last Universe is that you found a Portal device at the twentieth zone. However here, your Scientists have detected a massive portalesque energy reading on only the fifteenth Zone. Interesting.$/, '$1区域：9 您确切记得上一个宇宙中，有一个传送门装置是出现在第二十个区域的。不过据科学家们的说法，它们在第十五个区域就发现了高能反应。事情越来越有意思了。'], //宇宙2故事消息
@@ -7762,11 +7763,11 @@ var cnRegReplace = new Map([
     [/^(.*)Z:11 Apparently a few elements have different properties here than back in the last Universe. Either that or the Trimps currently bathing in mercury are going to have a rough future.$/, '$1区域：11 很显然，两个宇宙之间，有一些元素的性质完全不一样了。比如在水银中遨游的那些脆皮，如果放到之前的宇宙中，恐怕不会有太好的下场。'], //宇宙2故事消息
     [/^(.*)Z:12 You start to feel angry as you get closer to the fifteenth Zone. You're not sure if it's due to the energy your scientists detected, or the Trimps that keep throwing berries at your head. But one of them is definitely making you angry.$/, '$1区域：12 越靠近第十五个区域，您就越抓狂了。您不太清楚这到底是由于那个高能反应，还是因为那群脆皮疯狂往您的头上扔野果。总之您是要抓狂了。'], //宇宙2故事消息
     [/^(.*)Z:13 Scruffy informs you that there is one particular element regarded as king here, Radon. While highly volatile in your home Universe, it's a stable gas here with tremendous potential for power generation.$/, '$1区域：13 污污提醒您，这个宇宙中有一个元素是王者一样的存在，那就是，氡。在之前那个宇宙里它非常容易挥发，但在这里它却相当稳定，或许可以考虑利用它来发电。'], //宇宙2故事消息
-    [/^(.*)Z:14 You ask Scruffy for more information on Radon, and he sits you down to tell you a story. He informs you that you're not the first human to come to their planet, that someone had been here 500 years ago who caused great harm to the planet. He set up giant Spires all around the World that harvested Radon from the atmosphere and beamed the power to a different Universe. You have a feeling that you know which Universe received this power, and you're starting to have a good idea of why Fluffy picked this particular Universe to send you to.$/, '$1区域：14 您问污污，能不能给您再详细说说氡的事，它让您坐下来，然后讲述了一段故事。它提醒您，您不是首位造访这个行星的，500年前也有一个人到来了，但那位对这个行星造成了巨大的破坏。他在这个世界上设立了大量的巨型尖塔，从大气中吸取氡，并且把能量传送到另一个宇宙中。您觉得您已经知道是哪个宇宙接收到了这些能量，绒绒之所以把您送到这来的原因，您现在也有头绪了。'], //宇宙2故事消息
+    [/^(.*)Z:14 You ask Scruffy for more information on Radon, and he sits you down to tell you a story. He informs you that you're not the first human to come to their planet, that someone had been here 500 years ago who caused great harm to the planet. He set up giant Spires all around the World that harvested Radon from the atmosphere and beamed the power to a different Universe. You have a feeling that you know which Universe received this power, and you're starting to have a good idea of why Fluffy picked this particular Universe to send you to.$/, '$1区域：14 您问污污，能不能给您再详细说说氡的事，它让您坐下来，然后讲述了一段故事。它提醒您，您不是首位造访这个行星的，500年前也有一个人到来了，但那位对这个行星造成了巨大的破坏。他在这个世界上设立了巨型的尖塔，从大气中吸取氡，并且把能量传送到另一个宇宙中。您觉得您已经知道是哪个宇宙接收到了这些能量，绒绒之所以把您送到这来的原因，您现在也有头绪了。'], //宇宙2故事消息
     [/^(.*)Z:15 There is a device of great evil here. See if you can take it for yourself!$/, '$1区域：15 高能反应就是在这里了。能不能拿到那个装置就看您自己的了！'], //宇宙2故事消息
-    [/^(.*)Z:20 Holy cowimp, there's an Improbability at the end of this Zone! But the planet doesn't look broken, this is... improbable...$/, '$1区域：20 我勒个乖乖，这个区域最后是从哪冒出来的一个乌有者？这行星都没破碎呢，这也太……乌有了……'], //宇宙2故事消息
+    [/^(.*)Z:20 Holy cowimp, there's an Improbability at the end of this Zone! But the planet doesn't look broken, this is... improbable...$/, '$1区域：20 我滴乖乖，这个区域最后是从哪冒出来的一个乌有者？这行星都没破碎呢，这也太……乌有了……'], //宇宙2故事消息
     [/^(.*)Z:22 Your Scientists have confirmed that the Spires are indeed still active on this planet, but are incredibly far away in lands your Trimps are nowhere near powerful enough to survive in.$/, '$1区域：22 科学家已经确认了一点，这个行星上也有尖塔的存在，但离您目前所在地还太远了，而且您的脆皮也没有强到可以在那里生存下来。'], //宇宙2故事消息
-    [/^(.*)Z:24 Knowing that Druopitee is in your Universe, you ask Scruffy who is manning the Spires. He hangs his head in shame and lets you know that there are 5 Trimps, previously friends of Scruffy's, that were enticed by Druopitee's magic. He doesn't seem to want to talk much more about it.$/, '$1区域：24 考虑到德罗披提是在另一个宇宙，因此您找到污污询问到底是谁在控制着尖塔。它羞愧地垂下了脑袋，提醒您是5个脆皮，它们曾经是污污的朋友，却被德罗披提的魔法影响到了。说完这些以后，看起来它暂时不想再多谈了。'], //宇宙2故事消息
+    [/^(.*)Z:24 Knowing that Druopitee is in your Universe, you ask Scruffy who is manning the Spires. He hangs his head in shame and lets you know that there are 5 Trimps, previously friends of Scruffy's, that were enticed by Druopitee's magic. He doesn't seem to want to talk much more about it.$/, '$1区域：24 考虑到德罗披提是在另一个宇宙，因此您找到污污询问到底是谁在控制着尖塔。它羞愧地垂下了脑袋，提醒您是5个坏脆皮，它们曾经是污污的朋友，却被德罗披提的魔法影响到了。说完这些以后，看起来它暂时不想再多谈了。'], //宇宙2故事消息
     [/^(.*)Z:26 Your Trimps catch a bird and build a little home for it, but it flies away.$/, '$1区域：26 脆皮们抓住了一只小鸟，给它做了个窝，但小鸟还是飞走了。'], //宇宙2故事消息
     [/^(.*)Z:28 Your memories of the last Universe are fading and you have no idea how many times you've been here in this Universe. This could be your first or thousandth time here. Neat!$/, '$1区域：28 上一个宇宙的记忆开始逐渐模糊不清了，而您也记不起到底在这个宇宙待过多少次了。是第一次来这，还是成千上万次了？这可太棒了。'], //宇宙2故事消息
     [/^(.*)Z:30 You're not sure how much more beautiful this one is than the last one, but it's hard not to stop and take in all the scenery every once in a while. Sprawling hills and flowing rivers in every direction make it almost worth the frankly ridiculous amount of enemies hiding everywhere.$/, '$1区域：30 您不太确定这儿的风景是不是越来越美了，总之您是一直在驻足欣赏这周围的风景。巍巍群山，江河奔流，哪怕要以到处遍布的这些敌人为代价才能尽览这一切也值得啊。'], //宇宙2故事消息
@@ -7777,16 +7778,16 @@ var cnRegReplace = new Map([
     [/^(.*)Z:36 You finally catch Scruffy while he's eating and ask him about the tablet. He tells you it's not a big deal, but that him and his six friends were all given some "enhancements" by Druopitee 500 years ago. Together they helped carry out Druopitee's bidding, setting up seven different Spires, harvesting Radon, and beaming the Power away. Scruffy lets you know that Fluffy and himself eventually realized how much damage Druopitee was causing to their planet and rebelled against Druopitee and the other Five. This tablet was an order from Druopitee to apprehend them.$/, '$1区域：36 您终于在污污进食的时候找到了机会，您开始询问它那块牌子究竟是怎么回事。它告诉您，这并不是什么大不了的事，500年前，它和它的六个朋友获得了德罗披提的“强化”。它们一起帮着德罗披提实现他的计划，设立了七座不同的尖塔，获取氡，然后把能量传送走了。污污表示，绒绒和它最后明白了德罗披提到底给这个行星造成了什么样的破坏，它们从此与德罗披提和之前的同伴们一刀两断了。牌子上写着的是德罗披提要求捉拿它们的命令。'], //宇宙2故事消息
     [/^(.*)Z:37 You just realized... you thought you named Fluffy Fluffy. That sneaky telepathic Trimp!$/, '$1区域：37 您突然明白过来了……您以为是您给绒绒起的名字，其实是这个家伙用了什么心灵感应能力干扰了您的思维吧。这个藏头露尾的家伙！'], //宇宙2故事消息
     [/^(.*)Z:38 You haven't seen Scruffy around the town much since your last conversation. Telling stories about his old friends seems to be painful for him, though you'd expect him to have moved through the grief stages after 500 years.$/, '$1区域：38 自从上次交谈以后，您几乎没再见到污污。看来之前的那个话题对它来说还是太不堪回首了，500年的时光变迁，都没能让它释怀啊。'], //宇宙2故事消息
-    [/^(.*)Z:39 You ask Scruffy why he's so conversational and Fluffy is not. Scruffy shows you a whole trove of books that Druopitee had left behind, that Scruffy had been reading for the past 500 years. You figure Fluffy spent most of that 500 years stuck in a time loop.$/, '$1区域：39 您询问了污污，为何它能跟您对话，而绒绒却不能。污污展示了一大堆德罗披提留下的书籍，看来它这500年也不是闲着的。而绒绒呢，您想到，它在这500年却被困在了时间循环中。'], //宇宙2故事消息
+    [/^(.*)Z:39 You ask Scruffy why he's so conversational and Fluffy is not. Scruffy shows you a whole trove of books that Druopitee had left behind, that Scruffy had been reading for the past 500 years. You figure Fluffy spent most of that 500 years stuck in a time loop.$/, '$1区域：39 您询问了污污，为何它能跟您对话，而绒绒却不能。污污展示了一大堆德罗披提留下的书籍，看来它这500年也不是闲着的。而绒绒呢，您想着，它在这500年却被困在了时间循环中。'], //宇宙2故事消息
     [/^(.*)Z:40 A Trimp eats a rock.$/, '$1区域：40 一个脆皮吃掉了一块石头。'], //宇宙2故事消息
     [/^(.*)Z:42 You wonder how Fluffy ended up in your Universe if he started out here. You'll ask Scruffy about it when he quits being all sulky.$/, '$1区域：42 如果绒绒之前是在这个宇宙，那它是怎么到另一个宇宙去的？等污污心情好一些以后，您一定要找它问个明白。'], //宇宙2故事消息
     [/^(.*)Z:45 Today, you held the first annual Trimp Toss. It was a pretty nice day.$/, '$1区域：45 今天您第一次举行了脆皮年度庆典。这真是个好日子。'], //宇宙2故事消息
     [/^(.*)Z:50 This zone is really freaking hot.$/, '$1区域：50 这个区域真的好热啊。'], //宇宙2故事消息
     [/^(.*)Z:52 You catch Scruffy helping a group of small Trimps across a river. What a cool dude.$/, '$1区域：52 您发现污污在帮一队小脆皮过河。好家伙，真是好家伙。'], //宇宙2故事消息
     [/^(.*)Z:57 A few of your Trimps are getting whiny so you take them for a walk. Seemed to do the trick, they just needed to burn some energy and pee.$/, '$1区域：57 几个脆皮有点烦躁，所以您带着它们一起去散步了。看起来效果不错，它们需要的也就是燃烧多余的能量和及时如厕了。'], //宇宙2故事消息
-    [/^(.*)Z:60 Scruffy is finally in a good mood and seems quite a bit stronger than before, so you figure now is a good time to ask him about Fluffy. In exchange for his good mood, he agrees to tell you the rest of the story. According to him, Fluffy was stationed at the seventh Spire while Scruffy was at the sixth. Fluffy and Scruffy each destroyed their own Spires, but Fluffy was caught by Druopitee and took the fall for both of them. Druopitee left the six remaining enhanced Trimps to take care of the remaining five Spires, and took Fluffy with him. You ask what the names of the other five Trimps are and he tells you - names so horrible that just hearing them could drive anyone to the brink of insanity: Huffy, Stuffy, Buffy, Tuffy, and Puffy.$/, '$1区域：60 污污看起来终于缓过来了，看起来它甚至比之前更加强大了。您觉得时机已经成熟，于是您找到它询问绒绒的情况。它继续讲述了之前没说完的故事。根据它的说法，绒绒本来是在第七座尖塔，而污污是在第六座的。绒绒和污污毁掉了它们所在的尖塔，最后，绒绒被德罗披提抓住，承担了摧毁两座尖塔的后果。德罗披提离开之前，要求剩下的六个强化版脆皮照看尖塔，然后把绒绒带走了。您向污污询问道，那剩下的五个脆皮名字又是什么呢，然后污污回答您，那五个名字可怕到能让人瞬间失去理智————它们的名字是怒怒，闷闷，醉醉，泰泰和彭彭。'], //宇宙2故事消息
+    [/^(.*)Z:60 Scruffy is finally in a good mood and seems quite a bit stronger than before, so you figure now is a good time to ask him about Fluffy. In exchange for his good mood, he agrees to tell you the rest of the story. According to him, Fluffy was stationed at the seventh Spire while Scruffy was at the sixth. Fluffy and Scruffy each destroyed their own Spires, but Fluffy was caught by Druopitee and took the fall for both of them. Druopitee left the six remaining enhanced Trimps to take care of the remaining five Spires, and took Fluffy with him. You ask what the names of the other five Trimps are and he tells you - names so horrible that just hearing them could drive anyone to the brink of insanity: Huffy, Stuffy, Buffy, Tuffy, and Puffy.$/, '$1区域：60 污污看起来终于缓过来了，看起来它甚至比之前更加强大了。您觉得时机已经成熟，于是您找到它询问绒绒的情况。它把之前没说完的故事继续往下说了。根据它的说法，绒绒本来是在第七座尖塔，而它是在第六座的。绒绒和它毁掉了它们所在的尖塔，最后，绒绒被德罗披提抓住，承担了摧毁两座尖塔的后果。德罗披提离开之前，要求剩下的六个强化版脆皮照看尖塔，然后把绒绒带走了。您向污污询问道，那剩下的五个脆皮名字又是什么呢，然后污污回答您，那五个名字可怕到能让人瞬间失去理智————它们的名字是怒怒，闷闷，醉醉，泰泰和彭彭。'], //宇宙2故事消息
     [/^(.*)Z:61 Scruffy finally seems more inspired than sad. Looks like he wants to go take down some bad guys.$/, '$1区域：61 污污看起来真的走出来了，它看起来下定了决心，就像已经准备好干掉敌人了一样。'], //宇宙2故事消息
-    [/^(.*)Z:62 It seems like you've gotta take down the Five Evil Trimps. Scruffy reminds you that you're still about 140 Zones away from the first one though. You try to find something else to direct anger at, like that tree over there.$/, '$1区域：62 看起来您还需要对付五个坏脆皮。污污提醒您，您离最近的那个脆皮都还有140个区域之远。您只好找了旁边的树来泄愤了。'], //宇宙2故事消息
+    [/^(.*)Z:62 It seems like you've gotta take down the Five Evil Trimps. Scruffy reminds you that you're still about 140 Zones away from the first one though. You try to find something else to direct anger at, like that tree over there.$/, '$1区域：62 看起来您还需要对付五个坏脆皮。污污提醒您，您离最近的那个脆皮都还有140个区域之远。您只好找旁边的树来泄愤了。'], //宇宙2故事消息
     [/^(.*)Z:65 You wonder if Trimps came from this Universe, your original one, or somewhere else. Scruffy shrugs.$/, '$1区域：65 不知道脆皮是来自哪儿的，是这个宇宙，之前那个宇宙，还是其他哪里？污污对此也一无所知。'], //宇宙2故事消息
     [/^(.*)Z:67 The weather is finally starting to cool back down, you and your Trimps are quite relieved.$/, '$1区域：67 气温终于又凉下来了，您和脆皮们都松了口气。'], //宇宙2故事消息
     [/^(.*)Z:69 Giggity$/, '$1区域：69 咯咯咯'], //宇宙2故事消息
@@ -7794,10 +7795,10 @@ var cnRegReplace = new Map([
     [/^(.*)Z:70 Your tenacity is inspiring.$/, '$1区域：70 您的坚持足以鼓舞人心。'], //宇宙2故事消息
     [/^(.*)Z:72 You really don't like Druopitee. You've spent an unknown amount of lifetimes cleaning up his mess, and who knows how many different Universes he's corrupted.$/, '$1区域：72 您一点也不喜欢德罗披提。到了现在您还在替他擦屁股，天知道他还腐化了多少个宇宙。'], //宇宙2故事消息
     [/^(.*)Z:75 You miss Fluffy, you should go visit him soon.$/, '$1区域：75 您有点想绒绒了，之后找个时间去看看它吧。'], //宇宙2故事消息
-    [/^(.*)Z:79 You're a little bit closer to the first Spire. Coming for you, Huffy.$/, '$1区域：79 您离第一个尖塔越来越近了。等着我，怒怒。'], //宇宙2故事消息
-    [/^(.*)Z:82 You thought you saw Druopitee but it was just a tree. On closer inspection it doesn't even look anything close to him.$/, '$1区域：82 粗粗一看您似乎看到了德罗披提，但实际上那只是一颗树而已。靠近观察以后，那一点也不像他了。'], //宇宙2故事消息
+    [/^(.*)Z:79 You're a little bit closer to the first Spire. Coming for you, Huffy.$/, '$1区域：79 您离第一个尖塔越来越近了。怒怒，乖乖等着，我来了。'], //宇宙2故事消息
+    [/^(.*)Z:82 You thought you saw Druopitee but it was just a tree. On closer inspection it doesn't even look anything close to him.$/, '$1区域：82 恍惚之间您似乎看到了德罗披提，但实际上那只是一颗树而已。靠近观察以后，那一点也不像他了。'], //宇宙2故事消息
     [/^(.*)Z:85 This zone feels needy, like it wants your help with something.$/, '$1区域：85 这个区域看着像是需要您帮忙做什么似的。'], //宇宙2故事消息
-    [/^(.*)Z:90 As you near the halfway point to the first Spire, Scruffy sits you down for another story. Excited to hear more about Fluffy and Scruffy's history together, you listen intently. Scruffy just rambles about gems and how we could be rich selling jewelry then starts dancing. Seems like Scruffy's been fermenting berries again.$/, '$1区域：90 您离尖塔还有一半多的路途，而污污似乎又有什么想对您说的。您专心地听着它说话，想着是不是还有更多的故事可以听。而污污只是随便聊了些关于宝石和加工珠宝赚大钱之类的话题，然后就开始手舞足蹈了起来。这货只是有点醉了吧。真是醉了。'], //宇宙2故事消息
+    [/^(.*)Z:90 As you near the halfway point to the first Spire, Scruffy sits you down for another story. Excited to hear more about Fluffy and Scruffy's history together, you listen intently. Scruffy just rambles about gems and how we could be rich selling jewelry then starts dancing. Seems like Scruffy's been fermenting berries again.$/, '$1区域：90 您离尖塔还有一半多的路途，而污污似乎又有什么想对您说的。您专心地听着它说话，想着是不是还有更多的故事可以听。但污污只是随便聊了些关于宝石和加工珠宝赚大钱之类的话题，然后就开始手舞足蹈了起来。这货只是有点醉了吧。真是醉了。'], //宇宙2故事消息
     [/^(.*)Z:93 Scruffy created some sort of instrument out of a Snimp and some wood that he calls the Riflunger. It makes better music than you expected, but you wouldn't buy any albums.$/, '$1区域：93 污污用一只脆皮蛇和一些木头做成了某种乐器，然后将它取名为利弗朗格。它用来演奏音乐还真的不错，超出了您的预期，不过反正您是不会去买它的专辑的。'], //宇宙2故事消息
     [/^(.*)Z:95 Scruffy lets you know that Fluffy was the first modified Trimp created by Druopitee, and was always Druopitee's favorite. Druopitee was probably extra pissed when Fluffy was the one who rebelled and destroyed a couple Spires, that's probably why he was caged when you found him.$/, '$1区域：95 污污向您表示，绒绒是德罗披提制造的第一个强化脆皮，也是德罗披提最偏爱的一个。所以当绒绒毁掉尖塔时，德罗披提可以说是气得七窍生烟了。或许这就是第一次见面时，绒绒被关在笼子里的原因了。'], //宇宙2故事消息
     [/^(.*)Z:100 Halfway there. The lands ahead are bare and undeveloped, but you appear to be pressing on anyways.$/, '$1区域：100 路途已经到了一半。前方一片荒芜，但您无论如何都会继续前进。'], //宇宙2故事消息
@@ -7901,7 +7902,7 @@ var cnRegReplace = new Map([
     [/^(.*)The corruption quickly swirls into the air and dissipates.$/, '$1腐化的空气飘向天空，消散了。'], //其他消息等
     [/^You see (.*) canisters of Helium left on the ground and pick them up. Useful!$/, '您在地上发现了$1氦。一定会派上用场的！'], //其他消息等
     [/^(.*)The land looks even healthier now that the Bad Guy is dead!$/, '$1健康敌人死了，这里看起来甚至更健康了！'], //其他消息等
-    [/^You find (.*) canisters of Helium and figure it was worth it.$/, '您发现了$1氦，您觉得这很值得。'], //其他消息等
+    [/^You find (.*) canisters of Helium and figure it was worth it.$/, '您发现了$1氦，您觉得这很值。'], //其他消息等
     [/^(.*)Recycled (.*) maps for (.*) fragments.$/, '$1回收了$2张地图，获得$3碎片。'], //其他消息等
     [/^(.*)Recycled (.*) for (.*) fragments.$/, '$1回收了一张地图，获得$3碎片。'], //其他消息等
     [/^(.*) Map Credit(s*)$/, '$1地图代币'], //其他消息等
