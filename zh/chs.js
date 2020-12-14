@@ -1151,7 +1151,7 @@ var cnItems = {
     'Trimps from Generator': '维度发生器生产的脆皮数',
     'Burned Nurseries': '岩浆烧掉的托儿所数',
     'Tokens This Run': '自上次传送后获得的符记',
-    'Most Tokens': '符记最高数量',
+    'Most 符记': '符记最高数量',
     'Amalgamators Befriended': '合并者数量',
     'Fluffy Exp This Run': '自上次传送后绒绒经验',
     'Best Fluffy Exp': '最高绒绒经验',
