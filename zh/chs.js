@@ -5816,7 +5816,7 @@ var cnRegReplace = new Map([
     [/^You have been on this map for (.*) second(s*)$/, '您已经在此地图停留了$1秒'], //主界面
     [/^You have been on this map for (.*) min(s*), (.*) sec(s*)$/, '您已经在此地图停留了$1分钟，$3秒'], //主界面
     [/^You have been on this map for (.*)$/, '您已经在此地图停留了$1'], //主界面
-    [/^You have (.*) Void Map(s*) \((.*) stacked\).$/, '您有$1张虚空地图($3张已融合)。'], //主界面
+    [/^You have (.*) Void Map(s*) \((.*) stacked\).$/, '您有$1张虚空地图(融合后有$3张)。'], //主界面
     [/^You have (.*) Void Map(s*)$/, '您有$1张虚空地图'], //主界面
     [/^(\s+)Fight(\s+)$/, '$1战斗$2'], //主界面
     [/^(\d+)(.*) Trimp(s*)$/, '$1$2脆皮'], //主界面
@@ -8147,7 +8147,7 @@ var cnRegReplace = new Map([
     [/^Equip Farming to (.*) and (.*) Equality$/, '装备刷资源至$1及$2级平等'], //脚本3地图设置
     [/^Storm Farming to (.*)$/, '风暴刷资源至$1'], //脚本3地图设置
     [/^Void Maps: (\d*) remaining$/, '虚空地图：剩余$1'], //脚本3地图设置
-    [/^Void Maps: (\d*) \((\d*) stacked\) remaining$/, '虚空地图：剩余$1(融合了$2)'], //脚本3地图设置
+    [/^Void Maps: (\d*) \((\d*) stacked\) remaining$/, '虚空地图：剩余$1(融合后有$2)'], //脚本3地图设置
     [/^Farming: (.*)x$/, '刷资源：生命伤害比$1'], //脚本3地图设置
     [/^Want (.*)x(\s*)more damage$/, '需要更多伤害，倍数为$1'], //脚本3地图设置
     [/^(\s+)He$/, '氦'], //脚本3地图设置
@@ -8247,7 +8247,7 @@ var cnRegReplace = new Map([
     [/^Current Status: Farming for Spire (.*)h left$/, '当前状态：尖塔前刷资源，剩余$1小时'], //脚本3挂机设置
     [/^Current Status: Farming for Spire (.*)m:(.*)s left$/, '当前状态：尖塔前刷资源，剩余$1分$2秒'], //脚本3挂机设置
     [/^Current Status: Void Maps: (\d*) remaining$/, '当前状态：虚空地图：剩余$1'], //脚本3挂机设置
-    [/^Current Status: Void Maps: (\d*) \((\d*) stacked\) remaining$/, '当前状态：虚空地图：剩余$1(融合了$2)'], //脚本3挂机设置
+    [/^Current Status: Void Maps: (\d*) \((\d*) stacked\) remaining$/, '当前状态：虚空地图：剩余$1(融合后有$2)'], //脚本3挂机设置
     [/^Current Status: Farming: (.*)x$/, '当前状态：刷资源：生命伤害比$1'], //脚本3地图设置
     [/^Current Status: Want (.*)x(\s*)more damage$/, '当前状态：需要更多伤害，倍数为$1'], //脚本3地图设置
     [/^(.*)AutoPerks: Your existing fixed-perks reserve Helium$/, '$1自动特权：当前不修改特权总共花费氦数量'], //脚本3自动特权设置
