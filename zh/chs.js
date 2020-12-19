@@ -6750,6 +6750,8 @@ var cnRegReplace = new Map([
     [/^You are about to upgrade Crit Chance, additive for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级暴击率(效果叠加)。您确定要这么做吗？'], //传家宝
     [/^You are about to upgrade Void Map Drop Chance for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级虚空地图掉落概率。您确定要这么做吗？'], //传家宝
     [/^You are about to upgrade Plaguebringer for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级瘟疫使者效果。您确定要这么做吗？'], //传家宝
+    [/^You are about to upgrade Prismatic Shield for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级棱镜护盾效果。您确定要这么做吗？'], //传家宝
+    [/^You are about to upgrade Gamma Burst for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级伽马爆发效果。您确定要这么做吗？'], //传家宝
     [/^You are about to upgrade Fire Trap Damage 10 times for (.*) Spirestones. Are you sure\?$/, '您将花费$1尖塔石升级10次火焰陷阱伤害。您确定要这么做吗？'], //传家宝
     [/^You are about to upgrade Poison Trap Damage 10 times for (.*) Spirestones. Are you sure\?$/, '您将花费$1尖塔石升级10次剧毒陷阱伤害。您确定要这么做吗？'], //传家宝
     [/^You are about to upgrade Lightning Trap Damage 10 times for (.*) Spirestones. Are you sure\?$/, '您将花费$1尖塔石升级10次闪电陷阱伤害。您确定要这么做吗？'], //传家宝
@@ -6780,6 +6782,8 @@ var cnRegReplace = new Map([
     [/^You are about to upgrade Crit Chance, additive 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次暴击率(效果叠加)。您确定要这么做吗？'], //传家宝
     [/^You are about to upgrade Void Map Drop Chance 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次虚空地图掉落概率。您确定要这么做吗？'], //传家宝
     [/^You are about to upgrade Plaguebringer 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次瘟疫使者效果。您确定要这么做吗？'], //传家宝
+    [/^You are about to upgrade Prismatic Shield 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次棱镜护盾效果。您确定要这么做吗？'], //传家宝
+    [/^You are about to upgrade Gamma Burst 10 times for (.*) Nullifium. Are you sure\?$/, '您将花费$1虚空物质升级10次伽马爆发效果。您确定要这么做吗？'], //传家宝
     [/^You are about to add Fire Trap Damage for (.*) Spirestones.  Are you sure\?$/, '您将花费$1尖塔石新增火焰陷阱伤害修饰符。您确定要这么做吗？'], //传家宝
     [/^You are about to add Poison Trap Damage for (.*) Spirestones.  Are you sure\?$/, '您将花费$1尖塔石新增剧毒陷阱伤害修饰符。您确定要这么做吗？'], //传家宝
     [/^You are about to add Lightning Trap Damage for (.*) Spirestones.  Are you sure\?$/, '您将花费$1尖塔石新增闪电陷阱伤害修饰符。您确定要这么做吗？'], //传家宝
