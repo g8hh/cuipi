@@ -2244,6 +2244,7 @@ var cnItems = {
     'Hazardous Shield': '厄劫盾牌',
     'Hazardous Staff': '厄劫权杖',
     'Empty': '空',
+    '*Void Map Drop Chance on Hazardous and higher Heirlooms has a lower percentage than previous Heirloom tiers, but also causes 1 extra Void Map to drop every 10th zone you clear.': '*厄劫及以上稀有度的传家宝上，虚空地图掉落概率比之前稀有度的传家宝要低，但每通过10个区域，就可以额外掉落1张虚空地图。',
     'Can\'t replace mods other than \'Empty\' at this tier.': '此稀有度的传家宝无法替换修饰符，只能新增修饰符。',
     'Select a Mod': '选择一个修饰符',
     'Each upgrade adds': '每次升级增加',
