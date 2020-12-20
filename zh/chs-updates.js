@@ -10,8 +10,18 @@
 //1.汉化杂项
 var cnItems = {
     _OTHER_: [],
-    //未分类：
-    '': '',
+    //标题：
+    'Trimps Updates!': '脆皮更新日志！',
+
+    //更新大类：
+    'Content': '游戏内容',
+    'UI/QOL': '游戏界面/游戏体验',
+    'Bug Fixes': '错误修复',
+    'Balance': '平衡调整',
+    'Screen Reader': '屏幕阅读版',
+    'Screen Reader Version': '屏幕阅读版',
+    'Other': '其他',
+
     //原样
     '': '',
     '': '',
