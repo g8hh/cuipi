@@ -25,6 +25,7 @@ var cnItems = {
     'Screen Reader Version': '屏幕阅读版',
     'UI/QOL': '游戏界面/游戏体验',
     'UI/Quality Of Life': '游戏界面/游戏体验',
+    'UI/Quality of Life': '游戏界面/游戏体验',
 
     //原样
     '': '',
