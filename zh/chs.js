@@ -8030,6 +8030,7 @@ var cnRegReplace = new Map([
     [/^Portal (.*): Quest$/, '传送门$1：任务'], //脚本3图表
     [/^Portal (.*): Archaeology$/, '传送门$1：考古学'], //脚本3图表
     [/^Portal (.*): Mayhem$/, '传送门$1：暴乱'], //脚本3图表
+    [/^Portal (.*): $/, '传送门$1'], //脚本3图表
     [/^Daily P Raiding Z(.*)$/, '日常重铸袭劫区域$1'], //脚本3日常设置
     [/^Daily Max P Raid Z(.*)$/, '日常重铸袭劫最大区域$1'], //脚本3日常设置
     [/^Daily Farm Frags Z(.*)$/, '日常刷碎片区域$1'], //脚本3日常设置
