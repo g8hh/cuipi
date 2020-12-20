@@ -32,6 +32,14 @@ var cnItems = {
     //5.4.4
     'Added a new repeatable Challenge to U2 Z130, and a new Perk that can be unlocked from the new Challenge.': '增加一个宇宙2区域130解锁的可重复挑战，此挑战可以解锁一个新的特权。',
 
+    //5.4.3
+    'Note: A new U2 Challenge and Perk are in the works and currently being tested on our Discord server. However they need a few more days of testing/balance and I really wanted to switch to snow! Expect another patch in the next few days.': '注意：新的宇宙2挑战和特权已经制作完毕，在Discord上进行测试了。它还需要一定的时间来测试并完善，但我已经迫不及待想把雪换进来了！下个补丁之后一定来，不会鸽的。',
+    'Pumpkimps have gone in to hiding until next year': '脆皮南瓜怪躲起来了，明年再见',
+    'Snow and Presimpts have returned to the World for the rest of the year!': '雪和脆皮小礼又回到世界上了，直到年底为止它们都会存在！',
+    'Added 5 placeholder levels to Scruffy that only grant bonus damage.': '污污追加了5级上限，暂时只是用来占位置的，只提供伤害加成。',
+    'You can now pat your pets!': '可以给绒绒污污拍头了！',
+    'Centered the Equality Scaling popup over the left side of the screen rather than the entire screen, so that the battle pane is fully visible.': '平等缩放的提示框从屏幕中央移到了屏幕左边，这样就不会遮住战斗界面了。',
+
     //原样
     '': '',
     '': '',
