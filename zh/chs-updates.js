@@ -14,13 +14,17 @@ var cnItems = {
     'Trimps Updates!': '脆皮更新日志！',
 
     //更新大类：
-    'Content': '游戏内容',
-    'UI/QOL': '游戏界面/游戏体验',
+    'Balance': '平衡性调整',
+    'Bug Fix': '错误修复',
     'Bug Fixes': '错误修复',
-    'Balance': '平衡调整',
+    'Content': '游戏内容',
+    'Content/Balance': '游戏内容/平衡性调整',
+    'Other': '其他',
+    'QOL': '游戏体验',
     'Screen Reader': '屏幕阅读版',
     'Screen Reader Version': '屏幕阅读版',
-    'Other': '其他',
+    'UI/QOL': '游戏界面/游戏体验',
+    'UI/Quality Of Life': '游戏界面/游戏体验',
 
     //原样
     '': '',
