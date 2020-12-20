@@ -19,6 +19,7 @@ var cnItems = {
     'Bug Fixes': '错误修复',
     'Content': '游戏内容',
     'Content/Balance': '游戏内容/平衡性调整',
+    'Misc': '杂项',
     'Other': '其他',
     'QOL': '游戏体验',
     'Screen Reader': '屏幕阅读版',
@@ -26,6 +27,10 @@ var cnItems = {
     'UI/QOL': '游戏界面/游戏体验',
     'UI/Quality Of Life': '游戏界面/游戏体验',
     'UI/Quality of Life': '游戏界面/游戏体验',
+    'UI / Quality of Life Stuff': '游戏界面/游戏体验等',
+
+    //5.4.4
+    'Added a new repeatable Challenge to U2 Z130, and a new Perk that can be unlocked from the new Challenge.': '增加一个宇宙2区域130解锁的可重复挑战，此挑战可以解锁一个新的特权。',
 
     //原样
     '': '',
