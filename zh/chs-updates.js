@@ -43,6 +43,11 @@ var cnItems = {
     //5.4.2
     'Pumpkimps have made their return to Trimps for the next few weeks! Find a Pumpkimp Patch in Zones, or lone Pumpkimps in maps for a chance at some treats!': '脆皮南瓜怪们又回来啦！接下来几周内，世界上可能出现一个由脆皮南瓜怪组成的图案，地图中也有零星落单的脆皮南瓜怪出现，击败它们可以获得很多好东西！',
 
+    //5.4.1
+    'Fixed an issue that was causing U2 Improbability stats to inflate as if Corruption was present in U': '修复了宇宙2乌有者数值不正常的问题，此问题原因是腐化错误生效于宇宙',
+    'Fixed an issue that could cause Mayhem bosses to not gain any extra health or attack in certain situations': '修复了暴乱挑战的首领在某些情况下数值不上涨的问题',
+    'Fixed a spot on Golden Radon that said Helium': '修正一处金色氡仍然被称为金色氦的文本错误',
+
     //原样
     '': '',
     '': '',
