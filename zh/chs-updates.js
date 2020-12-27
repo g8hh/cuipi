@@ -40,6 +40,9 @@ var cnItems = {
     'You can now pat your pets!': '可以给绒绒污污拍头了！',
     'Centered the Equality Scaling popup over the left side of the screen rather than the entire screen, so that the battle pane is fully visible.': '平等缩放的提示框从屏幕中央移到了屏幕左边，这样就不会遮住战斗界面了。',
 
+    //5.4.2
+    'Pumpkimps have made their return to Trimps for the next few weeks! Find a Pumpkimp Patch in Zones, or lone Pumpkimps in maps for a chance at some treats!': '脆皮南瓜怪们又回来啦！接下来几周内，世界上可能出现一个由脆皮南瓜怪组成的图案，地图中也有零星落单的脆皮南瓜怪出现，击败它们可以获得很多好东西！',
+
     //原样
     '': '',
     '': '',
