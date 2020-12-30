@@ -1072,14 +1072,8 @@
 					<td id="portalTimer" class="timerNotPaused" onclick="toggleSetting('pauseGame')" onmouseover="tooltip('Pause the game', 'customText', event, game.options.menu['pauseGame'].description)" onmouseout="tooltip('hide')">
 						<span id="portalTime">&nbsp;</span>&nbsp;&nbsp;<span style='font-size: 0.85em; line-height: 0.85em;' class='icomoon icon-pause3'></span>&nbsp;
 					</td>
-					<td class="btn btn-default" id="autoCuipi" onclick="importAuto();" title="旧自动脆皮脚本1~如果想切换/停止脚本，请点击保存游戏，然后刷新游戏~">
-							脚本1
-					</td>
-					<td class="btn btn-default" id="autoCuipi2" onclick="importAuto2();" title="新自动脆皮脚本2~如果想切换/停止脚本，请点击保存游戏，然后刷新游戏~">
-							脚本2
-					</td>
-					<td class="btn btn-default" id="autoCuipi3" onclick="importAuto3();" title="新自动脆皮脚本3~如果想切换/停止脚本，请点击保存游戏，然后刷新游戏~">
-							脚本3
+					<td class="btn btn-default" id="autoCuipi1" onclick="importAuto1();" title="自动脆皮脚本~如果想切换/停止脚本，请点击保存游戏，然后刷新游戏~">
+							自动脚本
 					</td>
 				</tr>
 			</table>
@@ -1427,50 +1421,17 @@
 <!-- 客服 结束 -->
 <script>
 var nums1=0;
-var nums2=0;
-var nums3=0;
- var ins1=document.getElementById("autoCuipi");
-var ins2=document.getElementById("autoCuipi2");
-var ins3=document.getElementById("autoCuipi3");
-function importAuto(){
+var ins1=document.getElementById("autoCuipi1");
+
+}
+function importAuto1(){
     if(nums1==0){
-    document.body.appendChild(document.createElement('script')).src='https://likexia.gitee.io/autotrimps/autotrimps.js';
-        ins1.innerHTML="1已启用";
-        $("#autoCuipi2").remove();
-        $("#autoCuipi3").remove();
-        nums1=1;
-    }else{
-        console.log("旧自动脆皮脚本1已经启动了~如果想切换/停止脚本，请点击保存游戏，然后刷新游戏~")
-        return;
-    }
-        
-    
-}
-function importAuto2(){
-    if(nums2==0){
-    document.body.appendChild(document.createElement('script')).src='https://likexia.gitee.io/autotrimps2/AutoTrimps2.js';
-//        document.body.appendChild(document.createElement('script')).src='http://127.0.0.1:8020/GitHub/Games/autotrimps2/AutoTrimps2.js';
-        ins2.innerHTML="2已启用";
-        $("#autoCuipi").remove();
-        $("#autoCuipi3").remove();
-        nums2=1;
-    }else{
-        console.log("新自动脆皮脚本2已经启动了~如果想切换/停止脚本，请点击保存游戏，然后刷新游戏~")
-        return;
-    }
-        
-    
-}
-function importAuto3(){
-    if(nums3==0){
     document.body.appendChild(document.createElement('script')).src='https://likexia.gitee.io/autotrimps3/AutoTrimps2.js';
 //        document.body.appendChild(document.createElement('script')).src='http://127.0.0.1:8020/GitHub/Games/autotrimps2/AutoTrimps2.js';
-        ins3.innerHTML="3已启用";
-        $("#autoCuipi").remove();
-        $("#autoCuipi2").remove();
-        nums3=1;
+        ins3.innerHTML="已启用";
+        nums1=1;
     }else{
-        console.log("新自动脆皮脚本3已经启动了~如果想切换/停止脚本，请点击保存游戏，然后刷新游戏~")
+        console.log("自动脆皮脚本已经启动了~如果想切换/停止脚本，请点击保存游戏，然后刷新游戏~")
         return;
     }
         
