@@ -827,6 +827,8 @@ var cnItems = {
     'Druopitee and Pals': '德罗披提和随从们',
     'Echoes of Druopitee and Pals': '德罗披提和随从们的幻影',
     'Improbabilities': '乌有者们',
+    'Snowy Druopitee and Pals': '积雪德罗披提和随从们',
+    'Snowy Improbabilities': '积雪乌有者们',
     'Liquimps (': '液化者们 (',
     'Presimpts (': '脆皮小礼们 (',
     'Turkimps (': '脆皮火鸡们 (',
@@ -3721,7 +3723,7 @@ var cnItems = {
     'While attempting to save, the following error occured': '尝试保存时，发生了以下错误',
     'Error, not copied': '出错了，未进行复制',
     //杂项结束
-    //脚本3相关
+    //脚本相关
     'AutoTrimps': '自动脆皮',
     'AutoTrimps off': '自动脆皮 关闭',
     'Fixed things. Check your TF settings U2 people i added a toggle': '修复了一些东西。宇宙2的玩家可以注意到，我在定时刷图那边加了一个开关',
@@ -4196,13 +4198,10 @@ var cnItems = {
     'Advanced. Cap your trainers (This is an absolute number not a ratio). recommend: -': '进阶设置。限制训练师数量(不是比例)。建议值：-',
     'Ship Farming': '刷崇信者',
     'Turn Ship Farming off or on.': '是否开启刷崇信者所需要的资源。',
-    'SF: Zone': '刷崇信者：区域',
     'Farms for specified worshippers in SF: Amount at zone according to this settings value. Can use 59,61,62.': '在特定的区域，以刷崇信者：数量中设置的数量来刷崇信者所需要的资源。可以输入多个数值，格式类似59,61,62这样。',
     'SF: Cell': '刷崇信者：格子',
     'Ship Farm at this Cell. -1 to run them at the default value, which is 1.': '在此格子开始刷崇信者所需要的资源。设为-1则在默认值时开始刷崇信者，即格子1。',
-    'SF: Amount': '刷崇信者：数量',
     'How many Worshippers to farm at zone specified in SF. Can use 2,3,4. These values should match up to your SF zones. If using SF and SF: Amount examples (59 and 2) it will farm at z59 for 2 Worshippers.': '刷崇信者时在相应的区域刷到多少名崇信者所需要的资源。可以输入多个数值，格式类似2,3,4这样。请让此项的数值与刷崇信者：区域的数值能够一一对应。例如：将刷崇信者：区域设为59，刷崇信者：数量设为2的话，将在区域59刷到能够雇佣2名崇信者为止。',
-    'SF: Map Level': '刷崇信者：地图等级',
     'What map level to use for SF. Can use -1,1,2. -1 to use a level down from world (Map Reducer mastery gives loot equal to world one level down), 0 to use world, 1 etc to use +maps. Using 0 by itself will use global level for all maps.': '刷崇信者时使用的地图等级。可以输入多个数值，格式类似-1,1,2这样。设为-1则使用比当前区域低一级的地图(地图减压专精效果下可以从低一级的地图中获得相同的劫掠资源量)，设为0则与世界区域数相等，1及以上则使用额外区域。只设为0的话，则所有地图都使用与世界区域数相等的等级。',
     'SF: Frags': '刷崇信者：刷碎片',
     'Turn this on to farm fragments if you cannot afford the map you have selected for SF.': '开启此项后，如果碎片不足以制造刷崇信者所需要的地图，则会先刷碎片。',
@@ -4514,13 +4513,10 @@ var cnItems = {
     'S: Multiplier': '风暴：倍率',
     'Starting from the zone above S: Zone, this setting will multiply the H:D you have set in S: H:D. So if S: Zone was 100, S: H:D was 10, S: Multiplier was 1.2, at z101 your H:D target will be 12, then at z102 it will be 14.4 and so on. This way you can account for the zones getting stronger and you will not waste time farming for a really low H:D.': '从风暴：区域中设置的区域开始，将风暴：生命伤害比中设置的数量乘以相应的倍率。这意味着如果风暴：区域设置为100，风暴：生命伤害比设置为10，风暴：倍率设置为1.2，则在区域101时您的生命伤害比目标将变成12，区域102将变成14.4，依此类推。通过此项设置您可以考虑到区域变难的情况，同时也不需要在生命伤害比较低的时候浪费时间刷资源。',
     'Turn on Insanity settings. This also controls the entireity of IF. If you turn this off it will not Insanity Farm.': '切换是否启用失智设置。所有失智设置的总开关。如果关闭此项则失智的其他设置均失效。',
-    'Insanity Farming': '刷失智层数',
     'Farms for specified stacks in IF: Stacks at zone according to this settings value. Can use 108,109,110.': '在特定的区域，以刷失智层数：层数中设置的数量来刷失智层数。可以输入多个数值，格式类似108,109,110这样。',
     'IF: Cell': '刷失智层数：格子',
     'Insanity Farm at this Cell. -1 to run them at the default value, which is 1.': '在此格子开始刷失智层数。设为-1则在默认值时开始刷失智层数，即格子1。',
-    'IF: Stacks': '刷失智层数：层数',
     'How many stacks to farm at zone specified in IF. Can use 300,400,500. These values should match up to your IF zones. If using IF and IF: Stacks examples (110 and 500) it will farm at z110 for 500 stacks of insanity. If stacks specified are above maximum Insanity Stacks, it will farm for maximum.': '刷失智层数时在相应的区域刷到多少层。可以输入多个数值，格式类似300,400,500这样。请让此项的数值与刷失智层数：区域的数值能够一一对应。例如：将刷失智层数：区域设为110，刷失智层数：层数设为500的话，将在区域110刷到500层失智为止。如果层数超过了上限，则会刷到上限为止。',
-    'IF: Map Level': '刷失智层数：地图等级',
     'What map level to use. Can use -1,1,2. -1 to use a level down from world (This is how to remove insanity stacks), 0 to use world, 1 etc to use +maps. Using 0 by itself will use global level for all maps.': '刷失智层数时使用的地图等级。可以输入多个数值，格式类似-1,1,2这样。设为-1则使用比当前区域低一级的地图(从而减少失智层数)，设为0则与世界区域数相等，1及以上则使用额外区域。只设为0的话，则所有地图都使用与世界区域数相等的等级。',
     'IF: Frags': '刷失智层数：刷碎片',
     'Turn this on to farm fragments if you cannot afford the map you have selected for IF.': '开启此项后，如果碎片不足以制造刷失智层数所需要的地图，则会先刷碎片。',
@@ -5058,7 +5054,7 @@ var cnItems = {
     'Hit Delay Portal to WAIT 1 more zone.': '点击延迟传送按钮则在下个区域再度询问。',
     'NOTICE: Auto-Portaling in 5 seconds....': '注意：5秒内将使用自动传送门……',
     'Delay Portal': '延迟传送',
-    //脚本3相关结束
+    //脚本相关结束
 
     //原样
     '': '',
@@ -5275,7 +5271,7 @@ var cnPrefix = {
     "E7": "进7", //绒绒污污相关
     "E8": "进8", //绒绒污污相关
     "E9": "进9", //绒绒污污相关
-    "C3s": "挑战3", //脚本3挑战设置
+    "C3s": "挑战3", //脚本挑战设置
 }
 
 //需处理的后缀
@@ -5653,9 +5649,9 @@ var cnPostfix = {
     "Sweltimp group!": "脆皮酷热者集团！", //击杀消息末尾
     "Darknimp!": "脆皮暗罪者！", //击杀消息末尾
     "Darknimp group!": "脆皮暗罪者集团！", //击杀消息末尾
-    "C2s": "挑战2", //脚本3
-    " autoStance2": "", //脚本3阵型设置
-    ":  Value Input": "：输入值", //脚本3各设置界面
+    "C2s": "挑战2", //脚本
+    " autoStance2": "", //脚本阵型设置
+    ":  Value Input": "：输入值", //脚本各设置界面
 }
 
 //需排除的，正则匹配
@@ -7983,619 +7979,625 @@ var cnRegReplace = new Map([
     [/^(.*)Heavy use of the portal has created a chance for the Void to seep into your world. Be alert.$/, '$1多次使用传送门后，虚空开始渗入您的世界了。保持警惕。'], //其他消息等
     [/^(.*)Get a leg up with PANTS! Until your next trou... browser refresh, you can enable the useless but stylish PANTS ONLY AutoPrestige setting! Denim-ite!$/, '$1胖次最好了，什么头套胖次之类的更是……咳咳，直到下次刷新页面之前您都可以使用这个没什么卵用但是很绅士的自动重铸设置了！蓝！白！碗！'], //其他消息等
     [/^(.*)Please use a number greater than 0!$/, '$1请输入大于0的数字！'], //其他消息等
-    [/^(.*)AutoTrimps - Zek Fork Loaded!$/, '$1自动脆皮脚本 - Zek Fork 已成功载入！'], //脚本3载入消息
-    [/^(.*)Adding dark-graph.css file$/, '$1黑暗图表已开启'], //脚本3图表消息
-    [/^(.*)Removing dark-graph.css file$/, '$1黑暗图表已关闭'], //脚本3图表消息
-    [/^(.*)Theme change - AutoTrimps styles updating...$/, '$1游戏主题改变 - 自动脆皮脚本样式更新中……'], //脚本3图表消息
-    [/^(.*)Starting Zone$/, '$1进入区域'], //脚本3图表消息
-    [/^((?!SS).*)(?<!er) Second(s*)$/, '$1 秒'], //脚本3图表
-    [/^Portal (.*): Daily$/, '传送门$1：日常'], //脚本3图表
-    [/^Portal (.*): Discipline$/, '传送门$1：纪律'], //脚本3图表
-    [/^Portal (.*): Metal$/, '传送门$1：金属'], //脚本3图表
-    [/^Portal (.*): Size$/, '传送门$1：尺寸'], //脚本3图表
-    [/^Portal (.*): Balance$/, '传送门$1：平衡'], //脚本3图表
-    [/^Portal (.*): Scientist$/, '传送门$1：科学家'], //脚本3图表
-    [/^Portal (.*): Meditate$/, '传送门$1：冥想'], //脚本3图表
-    [/^Portal (.*): Decay$/, '传送门$1：衰变'], //脚本3图表
-    [/^Portal (.*): Trimp$/, '传送门$1：脆皮'], //脚本3图表
-    [/^Portal (.*): Trapper$/, '传送门$1：捕手'], //脚本3图表
-    [/^Portal (.*): Electricity$/, '传送门$1：电流'], //脚本3图表
-    [/^Portal (.*): Frugal$/, '传送门$1：节俭'], //脚本3图表
-    [/^Portal (.*): Life$/, '传送门$1：生命'], //脚本3图表
-    [/^Portal (.*): Mapocalypse$/, '传送门$1：天启地图'], //脚本3图表
-    [/^Portal (.*): Coordinate$/, '传送门$1：协同'], //脚本3图表
-    [/^Portal (.*): Crushed$/, '传送门$1：粉碎'], //脚本3图表
-    [/^Portal (.*): Slow$/, '传送门$1：迟缓'], //脚本3图表
-    [/^Portal (.*): Nom$/, '传送门$1：美味'], //脚本3图表
-    [/^Portal (.*): Mapology$/, '传送门$1：地图学'], //脚本3图表
-    [/^Portal (.*): Toxicity$/, '传送门$1：毒性'], //脚本3图表
-    [/^Portal (.*): Devastation$/, '传送门$1：破坏'], //脚本3图表
-    [/^Portal (.*): Watch$/, '传送门$1：守望'], //脚本3图表
-    [/^Portal (.*): Lead$/, '传送门$1：领导'], //脚本3图表
-    [/^Portal (.*): Corrupted$/, '传送门$1：腐化'], //脚本3图表
-    [/^Portal (.*): Domination$/, '传送门$1：统治'], //脚本3图表
-    [/^Portal (.*): Obliterated$/, '传送门$1：抹杀'], //脚本3图表
-    [/^Portal (.*): Eradicated$/, '传送门$1：灭绝'], //脚本3图表
-    [/^Portal (.*): Unlucky$/, '传送门$1：不幸'], //脚本3图表
-    [/^Portal (.*): Downsize$/, '传送门$1：精简'], //脚本3图表
-    [/^Portal (.*): Transmute$/, '传送门$1：变形'], //脚本3图表
-    [/^Portal (.*): Unbalance$/, '传送门$1：不平衡'], //脚本3图表
-    [/^Portal (.*): Bublé$/, '传送门$1：泡影'], //脚本3图表
-    [/^Portal (.*): Duel$/, '传送门$1：决斗'], //脚本3图表
-    [/^Portal (.*): Melt$/, '传送门$1：熔化'], //脚本3图表
-    [/^Portal (.*): Trappapalooza$/, '传送门$1：捕手道达人'], //脚本3图表
-    [/^Portal (.*): Quagmire$/, '传送门$1：泥淖'], //脚本3图表
-    [/^Portal (.*): Wither$/, '传送门$1：凋零'], //脚本3图表
-    [/^Portal (.*): Revenge$/, '传送门$1：复仇'], //脚本3图表
-    [/^Portal (.*): Quest$/, '传送门$1：任务'], //脚本3图表
-    [/^Portal (.*): Archaeology$/, '传送门$1：考古学'], //脚本3图表
-    [/^Portal (.*): Mayhem$/, '传送门$1：暴乱'], //脚本3图表
-    [/^Portal (.*):$/, '传送门$1'], //脚本3图表
-    [/^Daily P Raiding Z(.*)$/, '日常重铸袭劫区域$1'], //脚本3日常设置
-    [/^Daily Max P Raid Z(.*)$/, '日常重铸袭劫最大区域$1'], //脚本3日常设置
-    [/^Daily Farm Frags Z(.*)$/, '日常刷碎片区域$1'], //脚本3日常设置
-    [/^Dy Raid bef farm Z(.*)$/, '日常刷碎片前袭劫区域$1'], //脚本3日常设置
-    [/^Daily Z to BW Raid(.*)$/, '日常仿生袭劫区域$1'], //脚本3日常设置
-    [/^Daily Max BW to raid(.*)$/, '日常仿生袭劫最大区域$1'], //脚本3日常设置
-    [/^DHS: High Damage(.*)$/, '日常传家宝：高伤$1'], //脚本3日常设置
-    [/^DHS: Low Damage(.*)$/, '日常传家宝：低伤$1'], //脚本3日常设置
-    [/^(.*)Theme change - AutoTrimps styles updated.$/, '$1游戏主题改变 - 自动脆皮脚本样式已更新。'], //脚本3消息
-    [/^Trimple Z(.*)$/, '末日神殿区域$1'], //脚本3地图设置
-    [/^Time Farming((?! Bogs).*)$/, '定时刷图$1'], //脚本3地图设置
-    [/^TF: Time(.*)$/, '定时刷图：数值$1'], //脚本3地图设置
-    [/^TF: Map Level(.*)$/, '定时刷图：地图等级$1'], //脚本3地图设置
-    [/^Melting Point((?! \(Zone).*)$/, '熔点$1'], //脚本3地图设置
-    [/^BB: Zone(.*)$/, '黑色泥沼：区域$1'], //脚本3地图设置
-    [/^BB: Amount(.*)$/, '黑色泥沼：数量$1'], //脚本3地图设置
-    [/^P Raiding Z(.*)$/, '重铸袭劫区域$1'], //脚本3袭劫设置
-    [/^Max P Raid Zones(.*)$/, '重铸袭劫最大区域$1'], //脚本3袭劫设置
-    [/^Farm Fragments Z(.*)$/, '刷碎片区域$1'], //脚本3袭劫设置
-    [/^Raid before farm Z(.*)$/, '刷碎片前袭劫区域$1'], //脚本3袭劫设置
-    [/^Z to BW Raid(.*)$/, '仿生袭劫区域$1'], //脚本3袭劫设置
-    [/^Max BW to raid(.*)$/, '仿生袭劫最大区域$1'], //脚本3袭劫设置
-    [/^PR: Zone(.*)$/, '宇宙2重铸袭劫：区域$1'], //脚本3袭劫设置
-    [/^PR: Raid(.*)$/, '宇宙2重铸袭劫：地图$1'], //脚本3袭劫设置
-    [/^First String(.*)$/, '第一字符串$1'], //脚本3挑战设置
-    [/^Second String(.*)$/, '第二字符串$1'], //脚本3挑战设置
-    [/^Third String(.*)$/, '第三字符串$1'], //脚本3挑战设置
-    [/^Throttle Supply \(or Capacity\)(.*)$/, '控制供给的分配(或容量)$1'], //脚本3岩浆设置
-    [/^WS: High Damage(.*)$/, '风层数叠加：高伤$1'], //脚本3传家宝设置
-    [/^WS: Low Damage(.*)$/, '风层数叠加：低伤$1'], //脚本3传家宝设置
-    [/^HS: First(.*)$/, '传家宝切换：第一$1'], //脚本3传家宝设置
-    [/^HS: Second(.*)$/, '传家宝切换：第二$1'], //脚本3传家宝设置
-    [/^To Fight now would add: (.*) seconds to the breed timer.$/, '现在开始战斗将增加$1秒繁殖计时。'], //脚本3繁殖模块设置
-    [/^(.*)Building (.*) Warpstations$/, '$1建造$2个跃迁核心'], //脚本3建筑模块设置
-    [/^(.*)Building Barn$/, '$1建造谷仓'], //脚本3建筑模块设置
-    [/^(.*)Building Shed$/, '$1建造窝棚'], //脚本3建筑模块设置
-    [/^(.*)Building Forge$/, '$1建造锻造厂'], //脚本3建筑模块设置
-    [/^(.*)Building Hut$/, '$1建造小屋'], //脚本3建筑模块设置
-    [/^(.*)Building House$/, '$1建造宅院'], //脚本3建筑模块设置
-    [/^(.*)Building Mansion$/, '$1建造豪宅'], //脚本3建筑模块设置
-    [/^(.*)Building Hotel$/, '$1建造宾馆'], //脚本3建筑模块设置
-    [/^(.*)Building Resort$/, '$1建造度假村'], //脚本3建筑模块设置
-    [/^(.*)Building Gateway$/, '$1建造维度裂隙'], //脚本3建筑模块设置
-    [/^(.*)Building Wormhole$/, '$1建造虫洞'], //脚本3建筑模块设置
-    [/^(.*)Building Collector$/, '$1建造汲能设施'], //脚本3建筑模块设置
-    [/^(.*)Building Gym$/, '$1建造健身房'], //脚本3建筑模块设置
-    [/^(.*)Building Smithy$/, '$1建造铁匠铺'], //脚本3建筑模块设置
-    [/^(.*)Building Tribute$/, '$1建造贡品'], //脚本3建筑模块设置
-    [/^(.*)Building Nursery$/, '$1建造托儿所'], //脚本3建筑模块设置
-    [/^(.*)Building Microchip$/, '$1建造微型芯片'], //脚本3建筑模块设置
-    [/^(.*)Upgrading Dagadder - Prestige$/, '$1升级诗歌匕首-重铸次数'], //脚本3装备模块设置
-    [/^(.*)Upgrading Megamace - Prestige$/, '$1升级巨型狼牙棒-重铸次数'], //脚本3装备模块设置
-    [/^(.*)Upgrading Polierarm - Prestige$/, '$1升级画戟-重铸次数'], //脚本3装备模块设置
-    [/^(.*)Upgrading Axeidic - Prestige$/, '$1升级强酸战斧-重铸次数'], //脚本3装备模块设置
-    [/^(.*)Upgrading Greatersword - Prestige$/, '$1升级双手巨剑-重铸次数'], //脚本3装备模块设置
-    [/^(.*)Upgrading Bootboost - Prestige$/, '$1升级神行靴-重铸次数'], //脚本3装备模块设置
-    [/^(.*)Upgrading Hellishmet - Prestige$/, '$1升级地狱头盔-重铸次数'], //脚本3装备模块设置
-    [/^(.*)Upgrading Pantastic - Prestige$/, '$1升级护腿-重铸次数'], //脚本3装备模块设置
-    [/^(.*)Upgrading Smoldershoulder - Prestige$/, '$1升级闷火护肩-重铸次数'], //脚本3装备模块设置
-    [/^(.*)Upgrading Bestplate - Prestige$/, '$1升级精良胸铠-重铸次数'], //脚本3装备模块设置
-    [/^(.*)Upgrading Harmbalest - Prestige$/, '$1升级高强弩-重铸次数'], //脚本3装备模块设置
-    [/^(.*)Upgrading GambesOP - Prestige$/, '$1升级强棉甲-重铸次数'], //脚本3装备模块设置
-    [/^(.*)Upgrading Supershield - Prestige$/, '$1升级超级盾牌-重铸次数'], //脚本3装备模块设置
-    [/^(.*)Upgrading Gymystic #$/, '$1升级健身学-次数'], //脚本3装备模块设置
-    [/^(.*)Leveling equipment Boots$/, '$1升级装备：靴子'], //脚本3装备模块设置
-    [/^(.*)Leveling equipment Helmet$/, '$1升级装备：头盔'], //脚本3装备模块设置
-    [/^(.*)Leveling equipment Pants$/, '$1升级装备：裤子'], //脚本3装备模块设置
-    [/^(.*)Leveling equipment Shoulderguards$/, '$1升级装备：护肩'], //脚本3装备模块设置
-    [/^(.*)Leveling equipment Breastplate$/, '$1升级装备：胸铠'], //脚本3装备模块设置
-    [/^(.*)Leveling equipment Gambeson$/, '$1升级装备：棉甲'], //脚本3装备模块设置
-    [/^(.*)Leveling equipment Shield$/, '$1升级装备：盾牌'], //脚本3装备模块设置
-    [/^(.*)Leveling equipment Boots \(AlwaysLvl$/, '$1升级装备：靴子(常时等级'], //脚本3装备模块设置
-    [/^(.*)Leveling equipment Helmet \(AlwaysLvl$/, '$1升级装备：头盔(常时等级'], //脚本3装备模块设置
-    [/^(.*)Leveling equipment Pants \(AlwaysLvl$/, '$1升级装备：裤子(常时等级'], //脚本3装备模块设置
-    [/^(.*)Leveling equipment Shoulderguards \(AlwaysLvl$/, '$1升级装备：护肩(常时等级'], //脚本3装备模块设置
-    [/^(.*)Leveling equipment Breastplate \(AlwaysLvl$/, '$1升级装备：胸铠(常时等级'], //脚本3装备模块设置
-    [/^(.*)Leveling equipment Gambeson \(AlwaysLvl$/, '$1升级装备：棉甲(常时等级'], //脚本3装备模块设置
-    [/^(.*)Leveling equipment Shield \(AlwaysLvl$/, '$1升级装备：盾牌(常时等级'], //脚本3装备模块设置
-    [/^(.*)Leveling equipment Dagger$/, '$1升级装备：匕首'], //脚本3装备模块设置
-    [/^(.*)Leveling equipment Mace$/, '$1升级装备：狼牙棒'], //脚本3装备模块设置
-    [/^(.*)Leveling equipment Polearm$/, '$1升级装备：战戟'], //脚本3装备模块设置
-    [/^(.*)Leveling equipment Battleaxe$/, '$1升级装备：战斧'], //脚本3装备模块设置
-    [/^(.*)Leveling equipment Greatsword$/, '$1升级装备：巨剑'], //脚本3装备模块设置
-    [/^(.*)Leveling equipment Arbalest$/, '$1升级装备：强弩'], //脚本3装备模块设置
-    [/^(.*)Successfully loaded existing profile(.*)$/, '$1成功载入现有的设置文件$2'], //脚本3导入导出模块设置
-    [/^(.*)Successfully created new profile(.*)$/, '$1成功创建新的设置文件$2'], //脚本3导入导出模块设置
-    [/^(.*)Successfully deleted profile #(.*)$/, '$1成功删除设置文件编号$2'], //脚本3导入导出模块设置
-    [/^(.*)Successfully imported new AT settings...$/, '$1成功导入新的脚本设置……'], //脚本3导入导出模块设置
-    [/^Successfully Imported Autotrimps Settings File!(.*)$/, '成功导入脚本设置文件！$1'], //脚本3导入导出模块设置
-    [/^(.*)Successfully reset AT settings to Defaults...$/, '$1成功将脚本设置重置为默认设置……'], //脚本3导入导出模块设置
-    [/^(.*)Importing new AT settings file...$/, '$1正在导入新的脚本设置……'], //脚本3导入导出模块设置
-    [/^(.*)Firing (.*) Farmers$/, '$1解雇$2农民'], //脚本3工作设置
-    [/^(.*)Hiring (.*) Farmers$/, '$1雇佣$2农民'], //脚本3工作设置
-    [/^(.*)Firing (.*) Lumberjacks$/, '$1解雇$2伐木工'], //脚本3工作设置
-    [/^(.*)Hiring (.*) Lumberjacks$/, '$1雇佣$2伐木工'], //脚本3工作设置
-    [/^(.*)Firing (.*) Miners$/, '$1解雇$2矿工'], //脚本3工作设置
-    [/^(.*)Hiring (.*) Miners$/, '$1雇佣$2矿工'], //脚本3工作设置
-    [/^(.*)Firing (.*) Scientists$/, '$1解雇$2科学家'], //脚本3工作设置
-    [/^(.*)Hiring (.*) Scientists$/, '$1雇佣$2科学家'], //脚本3工作设置
-    [/^(.*)Firing (.*) Trainers$/, '$1解雇$2训练师'], //脚本3工作设置
-    [/^(.*)Hiring (.*) Trainers$/, '$1雇佣$2训练师'], //脚本3工作设置
-    [/^(.*)Firing (.*) Explorers$/, '$1解雇$2探险家'], //脚本3工作设置
-    [/^(.*)Hiring (.*) Explorers$/, '$1雇佣$2探险家'], //脚本3工作设置
-    [/^(.*)Firing (.*) Geneticists$/, '$1解雇$2遗传学家'], //脚本3工作设置
-    [/^(.*)Hiring (.*) Geneticists$/, '$1雇佣$2遗传学家'], //脚本3工作设置
-    [/^(.*)Firing (.*) Meteorologists$/, '$1解雇$2气象学家'], //脚本3工作设置
-    [/^(.*)Hiring (.*) Meteorologists$/, '$1雇佣$2气象学家'], //脚本3工作设置
-    [/^(.*)Bought (.*) Magmamancers. Total Owned(.*)$/, '$1雇佣$2岩浆巫师。岩浆巫师总数为$3'], //脚本3工作设置
-    [/^(.*)Auto Spending (.*) Magmite on: Efficiency #$/, '$1自动分配$2岩浆岩以升级：效率，次数'], //脚本3岩浆设置
-    [/^(.*)Auto Spending (.*) Magmite on: Capacity #$/, '$1自动分配$2岩浆岩以升级：容量，次数'], //脚本3岩浆设置
-    [/^(.*)Auto Spending (.*) Magmite on: Supply #$/, '$1自动分配$2岩浆岩以升级：供给，次数'], //脚本3岩浆设置
-    [/^(.*)Auto Spending (.*) Magmite on: Overclocker #$/, '$1自动分配$2岩浆岩以升级：超频，次数'], //脚本3岩浆设置
-    [/^(.*)Auto Spending (.*) Magmite on: Slowburn$/, '$1自动分配$2岩浆岩以升级：慢烧'], //脚本3岩浆设置
-    [/^(.*)Auto Spending (.*) Magmite on: Shielding$/, '$1自动分配$2岩浆岩以升级：防护'], //脚本3岩浆设置
-    [/^(.*)Auto Spending (.*) Magmite on: Storage$/, '$1自动分配$2岩浆岩以升级：存储'], //脚本3岩浆设置
-    [/^(.*)Auto Spending (.*) Magmite on: Hybridization$/, '$1自动分配$2岩浆岩以升级：混合'], //脚本3岩浆设置
-    [/^(.*)Auto Spending (.*) Magmite on: Supervision$/, '$1自动分配$2岩浆岩以升级：管理'], //脚本3岩浆设置
-    [/^(.*)Auto Spending (.*) Magmite on: Simulacrum$/, '$1自动分配$2岩浆岩以升级：复制'], //脚本3岩浆设置
-    [/^(.*)Auto Spending (.*) Magmite on: Overclocker$/, '$1自动分配$2岩浆岩以升级：超频'], //脚本3岩浆设置
-    [/^(.*)Leftover magmite$/, '$1剩余岩浆岩'], //脚本3岩浆设置
-    [/^Farming for Spire (.*)h left$/, '尖塔前刷资源，剩余$1小时'], //脚本3地图设置
-    [/^Farming for Spire (.*)m:(.*)s left$/, '尖塔前刷资源，剩余$1分$2秒'], //脚本3地图设置
-    [/^Equip Farming to (.*) and (.*) Equality$/, '装备刷资源至$1及$2级平等'], //脚本3地图设置
-    [/^Storm Farming to (.*)$/, '风暴刷资源至$1'], //脚本3地图设置
-    [/^Void Maps: (\d*) remaining$/, '虚空地图：剩余$1'], //脚本3地图设置
-    [/^Void Maps: (\d*) \((\d*) stacked\) remaining$/, '虚空地图：剩余$1(融合后有$2)'], //脚本3地图设置
-    [/^Farming: (.*)x$/, '刷资源：生命伤害比$1'], //脚本3地图设置
-    [/^Want (.*)x(\s*)more damage$/, '需要更多伤害，倍数为$1'], //脚本3地图设置
-    [/^(\s+)He$/, '氦'], //脚本3地图设置
-    [/^(.*)Set the map special modifier to: Fast Attacks. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：快速攻击。花费碎片总数的$2%。'], //脚本3地图设置
-    [/^(.*)Set the map special modifier to: Large Cache. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：大储藏箱。花费碎片总数的$2%。'], //脚本3地图设置
-    [/^(.*)Set the map special modifier to: Small Savory Cache. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：小美味储藏箱。花费碎片总数的$2%。'], //脚本3地图设置
-    [/^(.*)Set the map special modifier to: Small Wooden Cache. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：小木头储藏箱。花费碎片总数的$2%。'], //脚本3地图设置
-    [/^(.*)Set the map special modifier to: Small Metal Cache. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：小金属储藏箱。花费碎片总数的$2%。'], //脚本3地图设置
-    [/^(.*)Set the map special modifier to: Small Research Cache. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：小研究储藏箱。花费碎片总数的$2%。'], //脚本3地图设置
-    [/^(.*)Set the map special modifier to: Prestigious. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：重铸。花费碎片总数的$2%。'], //脚本3地图设置
-    [/^(.*)Set the map special modifier to: Huge Cache. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：巨大储藏箱。花费碎片总数的$2%。'], //脚本3地图设置
-    [/^(.*)Set the map special modifier to: Large Savory Cache. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：大美味储藏箱。花费碎片总数的$2%。'], //脚本3地图设置
-    [/^(.*)Set the map special modifier to: Large Wooden Cache. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：大木头储藏箱。花费碎片总数的$2%。'], //脚本3地图设置
-    [/^(.*)Set the map special modifier to: Large Metal Cache. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：大金属储藏箱。花费碎片总数的$2%。'], //脚本3地图设置
-    [/^(.*)Set the map special modifier to: Large Research Cache. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：大研究储藏箱。花费碎片总数的$2%。'], //脚本3地图设置
-    [/^(.*)Got perma-stuck on cell (\d*) during scryer stance. Are your scryer settings correct\? Entering map to farm to fix it.$/, '$1使用占卜者阵型时卡在格子$2了。占卜者阵型的设置是否正确？请进入地图刷资源来解决。'], //脚本3地图设置
-    [/^(.*)Can't afford the map we designed, #$/, '$1碎片不够，无法制造所需的地图，等级'], //脚本3地图设置
-    [/^(.*)...selected our highest map instead # (.*) Level$/, '$1……取而代之，我们选择地图$2，等级'], //脚本3地图设置
-    [/^(.*)Retrying, Buying a Map, level: #$/, '$1重新尝试，制造一张地图，等级：'], //脚本3地图设置
-    [/^(.*)Buying a Map, level: #$/, '$1制造一张地图，等级：'], //脚本3地图设置
-    [/^(.*)Too many maps, recycling now$/, '$1地图过多，开始回收'], //脚本3地图设置
-    [/^(.*)AutoMaps unable to recycle to buy map!$/, '$1脚本无法回收并制造地图！'], //脚本3地图设置
-    [/^(.*)Retrying map buy after recycling lowest level map$/, '$1回收最低级地图后重新尝试制造地图'], //脚本3地图设置
-    [/^(.*)Running selected (.*) Level: (.*) Name: The Black $/, '$1运行选择的$2，等级：$3，名称：黑色'], //脚本3地图设置
-    [/^(.*)Running selected (.*) Level: (.*) Name: Bionic Wonderland(.*)$/, '$1运行选择的$2，等级：$3，名称：仿生仙境$4'], //脚本3地图设置
-    [/^(.*)Running selected (.*) Level: (.*) Name: The Block$/, '$1运行选择的$2，等级：$3，名称：障碍区'], //脚本3地图设置
-    [/^(.*)Running selected (.*) Level: (.*) Name: The Wall$/, '$1运行选择的$2，等级：$3，名称：高墙'], //脚本3地图设置
-    [/^(.*)Running selected (.*) Level: (.*) Name: Big Wall$/, '$1运行选择的$2，等级：$3，名称：巨墙'], //脚本3地图设置
-    [/^(.*)Running selected (.*) Level: (.*) Name: The Prison$/, '$1运行选择的$2，等级：$3，名称：监狱'], //脚本3地图设置
-    [/^(.*)Running selected (.*) Level: (.*) Name: Imploding Star$/, '$1运行选择的$2，等级：$3，名称：爆炸之星'], //脚本3地图设置
-    [/^(.*)Running selected (.*) Level: (.*) Name: Prismatic Palace$/, '$1运行选择的$2，等级：$3，名称：棱镜宫殿'], //脚本3地图设置
-    [/^(.*)Running selected (.*) Level: (.*) Name: Melting Point$/, '$1运行选择的$2，等级：$3，名称：熔点'], //脚本3地图设置
-    [/^(.*)Running selected (.*) Level: (.*) Name: Trimple Of Doom$/, '$1运行选择的$2，等级：$3，名称：末日神殿'], //脚本3地图设置
-    [/^(.*)Running selected (.*) Level: (.*) Name: Tricky Paradise$/, '$1运行选择的$2，等级：$3，名称：整蛊天堂'], //脚本3地图设置
-    [/^(.*)Running selected (.*) Level: (.*) Name: Dimension of Anger$/, '$1运行选择的$2，等级：$3，名称：愤怒维度'], //脚本3地图设置
-    [/^(.*)Running selected (.*) Level: (.*) Name: Dimension of Rage$/, '$1运行选择的$2，等级：$3，名称：暴怒维度'], //脚本3地图设置
-    [/^(.*)Running selected (.*) Level: (.*) Name$/, '$1运行选择的$2，等级：$3，名称'], //脚本3地图设置
-    [/^(.*)Running selected (.*) Void:  Name$/, '$1运行选择的$2，虚空地图：名称'], //脚本3地图设置
-    [/^(\s+)Rn/, '氡'], //脚本3地图设置
-    [/^(.*)Check complete for frag map$/, '$1完成检查碎片地图'], //脚本3地图设置
-    [/^(.*)frag map bought$/, '$1碎片地图已制造'], //脚本3地图设置
-    [/^(.*)running frag map$/, '$1运行碎片地图'], //脚本3地图设置
-    [/^(.*)Check complete for 5th map$/, '$1完成检查第五地图'], //脚本3地图设置
-    [/^(.*)5th map bought$/, '$1第五地图已制造'], //脚本3地图设置
-    [/^(.*)Check complete for 4th map$/, '$1完成检查第四地图'], //脚本3地图设置
-    [/^(.*)4th map bought$/, '$1第四地图已制造'], //脚本3地图设置
-    [/^(.*)Check complete for 3rd map$/, '$1完成检查第三地图'], //脚本3地图设置
-    [/^(.*)3rd map bought$/, '$1第三地图已制造'], //脚本3地图设置
-    [/^(.*)Check complete for 2nd map$/, '$1完成检查第二地图'], //脚本3地图设置
-    [/^(.*)2nd map bought$/, '$1第二地图已制造'], //脚本3地图设置
-    [/^(.*)Check complete for 1st map$/, '$1完成检查第一地图'], //脚本3地图设置
-    [/^(.*)1st map bought$/, '$1第一地图已制造'], //脚本3地图设置
-    [/^(.*)Failed to Prestige Raid. Looks like you can't afford to or have no equips to get!$/, '$1重铸袭劫失败。您可能碎片不足无法制造地图，或者是已经没有可获取的装备了！'], //脚本3地图设置
-    [/^(.*)running map$/, '$1运行地图'], //脚本3地图设置
-    [/^(.*)Check complete for insanity frag map$/, '$1完成检查失智碎片地图'], //脚本3地图设置
-    [/^(.*)insanity frag map bought$/, '$1失智碎片地图已制造'], //脚本3地图设置
-    [/^(.*)running insanity frag map$/, '$1运行失智碎片地图'], //脚本3地图设置
-    [/^(.*)Check complete for ship frag map$/, '$1完成检查崇信者碎片地图'], //脚本3地图设置
-    [/^(.*)ship frag map bought$/, '$1崇信者碎片地图已制造'], //脚本3地图设置
-    [/^(.*)running ship frag map$/, '$1运行崇信者碎片地图'], //脚本3地图设置
-    [/^(.*)Upgraded Empowerment of Ice$/, '$1升级了冰赋能'], //脚本3自然设置
-    [/^(.*)Upgraded Empowerment of Poison$/, '$1升级了毒赋能'], //脚本3自然设置
-    [/^(.*)Upgraded Empowerment of Wind$/, '$1升级了风赋能'], //脚本3自然设置
-    [/^(.*)Upgraded Ice transfer rate$/, '$1升级了冰层数传递率'], //脚本3自然设置
-    [/^(.*)Upgraded Poison transfer rate$/, '$1升级了毒层数传递率'], //脚本3自然设置
-    [/^(.*)Upgraded Wind transfer rate$/, '$1升级了风层数传递率'], //脚本3自然设置
-    [/^(.*)Converted Ice tokens to Poison$/, '$1将冰符记转换为毒符记'], //脚本3自然设置
-    [/^(.*)Converted Ice tokens to Wind$/, '$1将冰符记转换为风符记'], //脚本3自然设置
-    [/^(.*)Converted Poison tokens to Ice$/, '$1将毒符记转换为冰符记'], //脚本3自然设置
-    [/^(.*)Converted Poison tokens to Wind$/, '$1将毒符记转换为风符记'], //脚本3自然设置
-    [/^(.*)Converted Wind tokens to Ice$/, '$1将风符记转换为冰符记'], //脚本3自然设置
-    [/^(.*)Converted Wind tokens to Poison$/, '$1将风符记转换为毒符记'], //脚本3自然设置
-    [/^(.*)Activated Robotrimp MagnetoShriek Ability @ z$/, '$1脆皮机器人电磁尖啸激活于区域'], //脚本3其他设置
-    [/^(.*)Beginning Prestige Raiding...$/, '$1开始重铸袭劫……'], //脚本3其他设置
-    [/^(.*)Map Loop$/, '$1地图循环'], //脚本3其他设置
-    [/^(.*)Failed to Prestige Raid. Looks like you can't afford to or you are too weak or you have limited yourself in a P\/I zone.$/, '$1重铸袭劫失败。您可能碎片不足无法制造地图，或者是太过于弱小，或者是设置了毒上限/冰上限并进入了相应的区域。'], //脚本3其他设置
-    [/^(.*)Prestige raiding successful!$/, '$1重铸袭劫已成功完成！'], //脚本3其他设置
-    [/^(.*)Turning AutoMaps back on$/, '$1重新启用自动地图'], //脚本3其他设置
-    [/^(.*)Beginning Praiding$/, '$1开始重铸硬核袭劫'], //脚本3其他设置
-    [/^(.*)Failed to prestige raid. Looks like you can't afford to.$/, '$1重铸袭劫失败。您可能碎片不足无法制造地图。'], //脚本3其他设置
-    [/^(.*)Buying perfect sliders fragment farming map$/, '$1制造完美滑块的刷碎片地图'], //脚本3其他设置
-    [/^(.*)Buying imperfect sliders fragment farming map$/, '$1制造非完美滑块的刷碎片地图'], //脚本3其他设置
-    [/^(.*)Can't afford fragment farming map yet$/, '$1碎片不足，无法制造刷碎片地图'], //脚本3其他设置
-    [/^(.*)Prestige raiding successful! - recycling Praid map$/, '$1重铸袭劫已成功完成！回收相应的袭劫地图'], //脚本3其他设置
-    [/^(.*)Beginning BW Raiding...$/, '$1开始仿生袭劫……'], //脚本3其他设置
-    [/^(.*)Failed to BW raid. Looks like you don't have a BW to raid...$/, '$1仿生袭劫失败。您还未获得仿生仙境地图……'], //脚本3其他设置
-    [/^(.*)...Successfully BW raided!$/, '$1……仿生袭劫已成功完成！'], //脚本3其他设置
-    [/^(.*)Beginning Daily BW Raiding...$/, '$1开始日常仿生袭劫……'], //脚本3其他设置
-    [/^(.*)Failed to Daily BW raid. Looks like you don't have a BW to raid...$/, '$1日常仿生袭劫失败。您还未获得仿生仙境地图……'], //脚本3其他设置
-    [/^(.*)...Successfully Daily BW raided!$/, '$1……日常仿生袭劫已成功完成！'], //脚本3其他设置
-    [/^(.*)World Zone matches a Praiding Zone!$/, '$1世界区域满足重铸袭劫区域条件！'], //脚本3其他设置
-    [/^(.*)Failed to prestige raid. Looks like you can't afford to..$/, '$1重铸袭劫失败。您可能碎片不足无法制造地图……'], //脚本3其他设置
-    [/^(.*)World Zone matches a Daily Praiding Zone!$/, '$1世界区域满足日常重铸袭劫区域条件！'], //脚本3其他设置
-    [/^(.*)Beginning Daily Prestige Raiding...$/, '$1开始日常重铸袭劫……'], //脚本3其他设置
-    [/^(.*)Failed to Daily Prestige Raid. Looks like you can't afford to..$/, '$1日常重铸袭劫失败。您可能碎片不足无法制造地图……'], //脚本3其他设置
-    [/^(.*)Daily Prestige Raiding successful! - recycling Praid map$/, '$1日常重铸袭劫已成功完成！回收相应的袭劫地图'], //脚本3其他设置
-    [/^Current Status: Farming for Spire (.*)h left$/, '当前状态：尖塔前刷资源，剩余$1小时'], //脚本3挂机设置
-    [/^Current Status: Farming for Spire (.*)m:(.*)s left$/, '当前状态：尖塔前刷资源，剩余$1分$2秒'], //脚本3挂机设置
-    [/^Current Status: Void Maps: (\d*) remaining$/, '当前状态：虚空地图：剩余$1'], //脚本3挂机设置
-    [/^Current Status: Void Maps: (\d*) \((\d*) stacked\) remaining$/, '当前状态：虚空地图：剩余$1(融合后有$2)'], //脚本3挂机设置
-    [/^Current Status: Farming: (.*)x$/, '当前状态：刷资源：生命伤害比$1'], //脚本3地图设置
-    [/^Current Status: Want (.*)x(\s*)more damage$/, '当前状态：需要更多伤害，倍数为$1'], //脚本3地图设置
-    [/^(.*)AutoPerks: Your existing fixed-perks reserve Helium$/, '$1自动特权：当前不修改特权总共花费氦数量'], //脚本3自动特权设置
-    [/^(.*)AutoPerks: Major Error: Make sure all ratios are set properly.$/, '$1自动特权：错误：请确保所有比例设置合理。'], //脚本3自动特权设置
-    [/^(.*)AutoPerks: Auto-Allocate Finished.$/, '$1自动特权：自动分配完毕。'], //脚本3自动特权设置
-    [/^(.*)Beginning AutoPerks1 calculate how to spend (.*) Helium... This could take a while...$/, '$1自动特权1开始计算如何分配$2氦……可能要花费一些时间……'], //脚本3自动特权设置
-    [/^(.*)AutoPerks: Major Error - Not enough helium to buy fixed perks.$/, '$1自动特权：错误：氦不足以购买不修改特权。'], //脚本3自动特权设置
-    [/^(.*)Perk ratios must be positive values.$/, '$1特权比例必须为正数。'], //脚本3自动特权设置
-    [/^(.*)All Perk Ratios were 0, or some other error.$/, '$1所有特权比例都为0，或者是有其他错误。'], //脚本3自动特权设置
-    [/^(.*)AutoPerks1: Pass One Complete. Loops ran$/, '$1自动特权1：第一阶段完成。循环次数'], //脚本3自动特权设置
-    [/^(.*)AutoPerks1: Dump Perk Looting level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权1：主加特权劫掠，主加后特权等级：$2，花费：$3氦。'], //脚本3自动特权设置
-    [/^(.*)AutoPerks1: Dump Perk Toughness level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权1：主加特权坚韧，主加后特权等级：$2，花费：$3氦。'], //脚本3自动特权设置
-    [/^(.*)AutoPerks1: Dump Perk Power level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权1：主加特权力量，主加后特权等级：$2，花费：$3氦。'], //脚本3自动特权设置
-    [/^(.*)AutoPerks1: Dump Perk Motivation level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权1：主加特权鼓舞，主加后特权等级：$2，花费：$3氦。'], //脚本3自动特权设置
-    [/^(.*)AutoPerks1: Dump Perk Pheromones level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权1：主加特权信息素，主加后特权等级：$2，花费：$3氦。'], //脚本3自动特权设置
-    [/^(.*)AutoPerks1: Dump Perk Artisanistry level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权1：主加特权手艺娴熟，主加后特权等级：$2，花费：$3氦。'], //脚本3自动特权设置
-    [/^(.*)AutoPerks1: Dump Perk Carpentry level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权1：主加特权木工，主加后特权等级：$2，花费：$3氦。'], //脚本3自动特权设置
-    [/^(.*)AutoPerks1: Dump Perk Resilience level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权1：主加特权弹性，主加后特权等级：$2，花费：$3氦。'], //脚本3自动特权设置
-    [/^(.*)AutoPerks1: Dump Perk Coordinated level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权1：主加特权协同，主加后特权等级：$2，花费：$3氦。'], //脚本3自动特权设置
-    [/^(.*)AutoPerks1: Dump Perk Resourceful level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权1：主加特权足智多谋，主加后特权等级：$2，花费：$3氦。'], //脚本3自动特权设置
-    [/^(.*)AutoPerks1: Dump Perk Overkill level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权1：主加特权超杀，主加后特权等级：$2，花费：$3氦。'], //脚本3自动特权设置
-    [/^(.*)AutoPerks1: Dump Perk Cunning level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权1：主加特权灵巧，主加后特权等级：$2，花费：$3氦。'], //脚本3自动特权设置
-    [/^(.*)AutoPerks1: Dump Perk Curious level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权1：主加特权好奇，主加后特权等级：$2，花费：$3氦。'], //脚本3自动特权设置
-    [/^(.*)AutoPerks1: Dump Perk Classy level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权1：主加特权上等，主加后特权等级：$2，花费：$3氦。'], //脚本3自动特权设置
-    [/^(.*)AutoPerks1: Dump Perk Toughness_II level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权1：主加特权坚韧 II，主加后特权等级：$2，花费：$3氦。'], //脚本3自动特权设置
-    [/^(.*)AutoPerks1: Dump Perk Power_II level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权1：主加特权力量 II，主加后特权等级：$2，花费：$3氦。'], //脚本3自动特权设置
-    [/^(.*)AutoPerks1: Dump Perk Motivation_II level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权1：主加特权鼓舞 II，主加后特权等级：$2，花费：$3氦。'], //脚本3自动特权设置
-    [/^(.*)AutoPerks1: Dump Perk Carpentry_II level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权1：主加特权木工 II，主加后特权等级：$2，花费：$3氦。'], //脚本3自动特权设置
-    [/^(.*)AutoPerks1: Dump Perk Looting_II level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权1：主加特权劫掠 II，主加后特权等级：$2，花费：$3氦。'], //脚本3自动特权设置
-    [/^(.*)AutoPerks1: Pass two complete. Round 2 cleanup spend of $/, '$1自动特权1：第二阶段完成。第二阶段花费'], //脚本3自动特权设置
-    [/^(.*)Beginning AutoPerks2 calculate how to spend (.*) Helium... This could take a while...$/, '$1自动特权2开始计算如何分配$2氦……可能要花费一些时间……'], //脚本3自动特权设置
-    [/^(.*)AutoPerks2: Pass One Complete. Loops ran$/, '$1自动特权2：第一阶段完成。循环次数'], //脚本3自动特权设置
-    [/^(.*)AutoPerks2: Dump Perk Looting level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权2：主加特权劫掠，主加后特权等级：$2，花费：$3氦。'], //脚本3自动特权设置
-    [/^(.*)AutoPerks2: Dump Perk Toughness level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权2：主加特权坚韧，主加后特权等级：$2，花费：$3氦。'], //脚本3自动特权设置
-    [/^(.*)AutoPerks2: Dump Perk Power level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权2：主加特权力量，主加后特权等级：$2，花费：$3氦。'], //脚本3自动特权设置
-    [/^(.*)AutoPerks2: Dump Perk Motivation level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权2：主加特权鼓舞，主加后特权等级：$2，花费：$3氦。'], //脚本3自动特权设置
-    [/^(.*)AutoPerks2: Dump Perk Pheromones level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权2：主加特权信息素，主加后特权等级：$2，花费：$3氦。'], //脚本3自动特权设置
-    [/^(.*)AutoPerks2: Dump Perk Artisanistry level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权2：主加特权手艺娴熟，主加后特权等级：$2，花费：$3氦。'], //脚本3自动特权设置
-    [/^(.*)AutoPerks2: Dump Perk Carpentry level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权2：主加特权木工，主加后特权等级：$2，花费：$3氦。'], //脚本3自动特权设置
-    [/^(.*)AutoPerks2: Dump Perk Resilience level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权2：主加特权弹性，主加后特权等级：$2，花费：$3氦。'], //脚本3自动特权设置
-    [/^(.*)AutoPerks2: Dump Perk Coordinated level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权2：主加特权协同，主加后特权等级：$2，花费：$3氦。'], //脚本3自动特权设置
-    [/^(.*)AutoPerks2: Dump Perk Resourceful level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权2：主加特权足智多谋，主加后特权等级：$2，花费：$3氦。'], //脚本3自动特权设置
-    [/^(.*)AutoPerks2: Dump Perk Overkill level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权2：主加特权超杀，主加后特权等级：$2，花费：$3氦。'], //脚本3自动特权设置
-    [/^(.*)AutoPerks2: Dump Perk Cunning level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权2：主加特权灵巧，主加后特权等级：$2，花费：$3氦。'], //脚本3自动特权设置
-    [/^(.*)AutoPerks2: Dump Perk Curious level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权2：主加特权好奇，主加后特权等级：$2，花费：$3氦。'], //脚本3自动特权设置
-    [/^(.*)AutoPerks2: Dump Perk Classy level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权2：主加特权上等，主加后特权等级：$2，花费：$3氦。'], //脚本3自动特权设置
-    [/^(.*)AutoPerks2: Dump Perk Toughness_II level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权2：主加特权坚韧 II，主加后特权等级：$2，花费：$3氦。'], //脚本3自动特权设置
-    [/^(.*)AutoPerks2: Dump Perk Power_II level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权2：主加特权力量 II，主加后特权等级：$2，花费：$3氦。'], //脚本3自动特权设置
-    [/^(.*)AutoPerks2: Dump Perk Motivation_II level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权2：主加特权鼓舞 II，主加后特权等级：$2，花费：$3氦。'], //脚本3自动特权设置
-    [/^(.*)AutoPerks2: Dump Perk Carpentry_II level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权2：主加特权木工 II，主加后特权等级：$2，花费：$3氦。'], //脚本3自动特权设置
-    [/^(.*)AutoPerks2: Dump Perk Looting_II level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权2：主加特权劫掠 II，主加后特权等级：$2，花费：$3氦。'], //脚本3自动特权设置
-    [/^(.*)AutoPerks2: Pass Two Complete. Cleanup Spent Any Leftover Helium: (.*) He.$/, '$1自动特权2：第二阶段完成。花费了剩余的$2氦。'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Buying: Siphonology$/, '$1自动特权-洗点后购买：虹吸学'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Buying: Anticipation$/, '$1自动特权-洗点后购买：预期'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Buying: Meditation$/, '$1自动特权-洗点后购买：冥想'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Buying: Relentlessness$/, '$1自动特权-洗点后购买：无情'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Buying: Range$/, '$1自动特权-洗点后购买：范围'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Buying: Agility$/, '$1自动特权-洗点后购买：敏捷'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Buying: Bait$/, '$1自动特权-洗点后购买：诱饵'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Buying: Trumps$/, '$1自动特权-洗点后购买：王牌'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Buying: Packrat$/, '$1自动特权-洗点后购买：囤积成瘾'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Buying: Looting$/, '$1自动特权-洗点后购买：劫掠'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Buying: Toughness$/, '$1自动特权-洗点后购买：坚韧'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Buying: Power$/, '$1自动特权-洗点后购买：力量'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Buying: Motivation$/, '$1自动特权-洗点后购买：鼓舞'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Buying: Pheromones$/, '$1自动特权-洗点后购买：信息素'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Buying: Artisanistry$/, '$1自动特权-洗点后购买：手艺娴熟'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Buying: Carpentry$/, '$1自动特权-洗点后购买：木工'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Buying: Resilience$/, '$1自动特权-洗点后购买：弹性'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Buying: Coordinated$/, '$1自动特权-洗点后购买：协同'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Buying: Resourceful$/, '$1自动特权-洗点后购买：足智多谋'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Buying: Overkill$/, '$1自动特权-洗点后购买：超杀'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Buying: Capable$/, '$1自动特权-洗点后购买：能力'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Buying: Cunning$/, '$1自动特权-洗点后购买：灵巧'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Buying: Curious$/, '$1自动特权-洗点后购买：好奇'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Buying: Classy$/, '$1自动特权-洗点后购买：上等'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Buying: Toughness_II$/, '$1自动特权-洗点后购买：坚韧 II'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Buying: Power_II$/, '$1自动特权-洗点后购买：力量 II'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Buying: Motivation_II$/, '$1自动特权-洗点后购买：鼓舞 II'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Buying: Carpentry_II$/, '$1自动特权-洗点后购买：木工 II'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Buying: Looting_II$/, '$1自动特权-洗点后购买：劫掠 II'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Siphonology$/, '$1自动特权-洗点错误，氦不足以购买特权：虹吸学'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Anticipation$/, '$1自动特权-洗点错误，氦不足以购买特权：预期'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Meditation$/, '$1自动特权-洗点错误，氦不足以购买特权：冥想'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Relentlessness$/, '$1自动特权-洗点错误，氦不足以购买特权：无情'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Range$/, '$1自动特权-洗点错误，氦不足以购买特权：范围'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Agility$/, '$1自动特权-洗点错误，氦不足以购买特权：敏捷'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Bait$/, '$1自动特权-洗点错误，氦不足以购买特权：诱饵'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Trumps$/, '$1自动特权-洗点错误，氦不足以购买特权：王牌'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Packrat$/, '$1自动特权-洗点错误，氦不足以购买特权：囤积成瘾'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Looting$/, '$1自动特权-洗点错误，氦不足以购买特权：劫掠'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Toughness$/, '$1自动特权-洗点错误，氦不足以购买特权：坚韧'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Power$/, '$1自动特权-洗点错误，氦不足以购买特权：力量'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Motivation$/, '$1自动特权-洗点错误，氦不足以购买特权：鼓舞'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Pheromones$/, '$1自动特权-洗点错误，氦不足以购买特权：信息素'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Artisanistry$/, '$1自动特权-洗点错误，氦不足以购买特权：手艺娴熟'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Carpentry$/, '$1自动特权-洗点错误，氦不足以购买特权：木工'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Resilience$/, '$1自动特权-洗点错误，氦不足以购买特权：弹性'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Coordinated$/, '$1自动特权-洗点错误，氦不足以购买特权：协同'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Resourceful$/, '$1自动特权-洗点错误，氦不足以购买特权：足智多谋'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Overkill$/, '$1自动特权-洗点错误，氦不足以购买特权：超杀'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Cunning$/, '$1自动特权-洗点错误，氦不足以购买特权：灵巧'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Curious$/, '$1自动特权-洗点错误，氦不足以购买特权：好奇'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Classy$/, '$1自动特权-洗点错误，氦不足以购买特权：上等'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Toughness_II$/, '$1自动特权-洗点错误，氦不足以购买特权：坚韧 II'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Power_II$/, '$1自动特权-洗点错误，氦不足以购买特权：力量 II'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Motivation_II$/, '$1自动特权-洗点错误，氦不足以购买特权：鼓舞 II'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Carpentry_II$/, '$1自动特权-洗点错误，氦不足以购买特权：木工 II'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Looting_II$/, '$1自动特权-洗点错误，氦不足以购买特权：劫掠 II'], //脚本3自动特权设置
-    [/^(.*)A Respec would be required and is not available. You used it already, try again next portal.$/, '$1需要洗点才可以进行自动分配特权，但您已经洗点过了，请在下次传送后再重试。'], //脚本3自动特权设置
-    [/^(.*)AutoPerks RESPEC Required for: Siphonology$/, '$1自动特权需要洗点特权：虹吸学'], //脚本3自动特权设置
-    [/^(.*)AutoPerks RESPEC Required for: Anticipation$/, '$1自动特权需要洗点特权：预期'], //脚本3自动特权设置
-    [/^(.*)AutoPerks RESPEC Required for: Meditation$/, '$1自动特权需要洗点特权：冥想'], //脚本3自动特权设置
-    [/^(.*)AutoPerks RESPEC Required for: Relentlessness$/, '$1自动特权需要洗点特权：无情'], //脚本3自动特权设置
-    [/^(.*)AutoPerks RESPEC Required for: Range$/, '$1自动特权需要洗点特权：范围'], //脚本3自动特权设置
-    [/^(.*)AutoPerks RESPEC Required for: Agility$/, '$1自动特权需要洗点特权：敏捷'], //脚本3自动特权设置
-    [/^(.*)AutoPerks RESPEC Required for: Bait$/, '$1自动特权需要洗点特权：诱饵'], //脚本3自动特权设置
-    [/^(.*)AutoPerks RESPEC Required for: Trumps$/, '$1自动特权需要洗点特权：王牌'], //脚本3自动特权设置
-    [/^(.*)AutoPerks RESPEC Required for: Packrat$/, '$1自动特权需要洗点特权：囤积成瘾'], //脚本3自动特权设置
-    [/^(.*)AutoPerks RESPEC Required for: Looting$/, '$1自动特权需要洗点特权：劫掠'], //脚本3自动特权设置
-    [/^(.*)AutoPerks RESPEC Required for: Toughness$/, '$1自动特权需要洗点特权：坚韧'], //脚本3自动特权设置
-    [/^(.*)AutoPerks RESPEC Required for: Power$/, '$1自动特权需要洗点特权：力量'], //脚本3自动特权设置
-    [/^(.*)AutoPerks RESPEC Required for: Motivation$/, '$1自动特权需要洗点特权：鼓舞'], //脚本3自动特权设置
-    [/^(.*)AutoPerks RESPEC Required for: Pheromones$/, '$1自动特权需要洗点特权：信息素'], //脚本3自动特权设置
-    [/^(.*)AutoPerks RESPEC Required for: Artisanistry$/, '$1自动特权需要洗点特权：手艺娴熟'], //脚本3自动特权设置
-    [/^(.*)AutoPerks RESPEC Required for: Carpentry$/, '$1自动特权需要洗点特权：木工'], //脚本3自动特权设置
-    [/^(.*)AutoPerks RESPEC Required for: Resilience$/, '$1自动特权需要洗点特权：弹性'], //脚本3自动特权设置
-    [/^(.*)AutoPerks RESPEC Required for: Coordinated$/, '$1自动特权需要洗点特权：协同'], //脚本3自动特权设置
-    [/^(.*)AutoPerks RESPEC Required for: Resourceful$/, '$1自动特权需要洗点特权：足智多谋'], //脚本3自动特权设置
-    [/^(.*)AutoPerks RESPEC Required for: Overkill$/, '$1自动特权需要洗点特权：超杀'], //脚本3自动特权设置
-    [/^(.*)AutoPerks RESPEC Required for: Cunning$/, '$1自动特权需要洗点特权：灵巧'], //脚本3自动特权设置
-    [/^(.*)AutoPerks RESPEC Required for: Curious$/, '$1自动特权需要洗点特权：好奇'], //脚本3自动特权设置
-    [/^(.*)AutoPerks RESPEC Required for: Classy$/, '$1自动特权需要洗点特权：上等'], //脚本3自动特权设置
-    [/^(.*)AutoPerks RESPEC Required for: Toughness_II$/, '$1自动特权需要洗点特权：坚韧 II'], //脚本3自动特权设置
-    [/^(.*)AutoPerks RESPEC Required for: Power_II$/, '$1自动特权需要洗点特权：力量 II'], //脚本3自动特权设置
-    [/^(.*)AutoPerks RESPEC Required for: Motivation_II$/, '$1自动特权需要洗点特权：鼓舞 II'], //脚本3自动特权设置
-    [/^(.*)AutoPerks RESPEC Required for: Carpentry_II$/, '$1自动特权需要洗点特权：木工 II'], //脚本3自动特权设置
-    [/^(.*)AutoPerks RESPEC Required for: Looting_II$/, '$1自动特权需要洗点特权：劫掠 II'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-NoRespec Adding: Siphonology$/, '$1自动特权-无洗点提升：虹吸学'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-NoRespec Adding: Anticipation$/, '$1自动特权-无洗点提升：预期'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-NoRespec Adding: Meditation$/, '$1自动特权-无洗点提升：冥想'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-NoRespec Adding: Relentlessness$/, '$1自动特权-无洗点提升：无情'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-NoRespec Adding: Range$/, '$1自动特权-无洗点提升：范围'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-NoRespec Adding: Agility$/, '$1自动特权-无洗点提升：敏捷'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-NoRespec Adding: Bait$/, '$1自动特权-无洗点提升：诱饵'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-NoRespec Adding: Trumps$/, '$1自动特权-无洗点提升：王牌'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-NoRespec Adding: Packrat$/, '$1自动特权-无洗点提升：囤积成瘾'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-NoRespec Adding: Looting$/, '$1自动特权-无洗点提升：劫掠'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-NoRespec Adding: Toughness$/, '$1自动特权-无洗点提升：坚韧'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-NoRespec Adding: Power$/, '$1自动特权-无洗点提升：力量'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-NoRespec Adding: Motivation$/, '$1自动特权-无洗点提升：鼓舞'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-NoRespec Adding: Pheromones$/, '$1自动特权-无洗点提升：信息素'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-NoRespec Adding: Artisanistry$/, '$1自动特权-无洗点提升：手艺娴熟'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-NoRespec Adding: Carpentry$/, '$1自动特权-无洗点提升：木工'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-NoRespec Adding: Resilience$/, '$1自动特权-无洗点提升：弹性'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-NoRespec Adding: Coordinated$/, '$1自动特权-无洗点提升：协同'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-NoRespec Adding: Resourceful$/, '$1自动特权-无洗点提升：足智多谋'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-NoRespec Adding: Overkill$/, '$1自动特权-无洗点提升：超杀'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-NoRespec Adding: Cunning$/, '$1自动特权-无洗点提升：灵巧'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-NoRespec Adding: Curious$/, '$1自动特权-无洗点提升：好奇'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-NoRespec Adding: Classy$/, '$1自动特权-无洗点提升：上等'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-NoRespec Adding: Toughness_II$/, '$1自动特权-无洗点提升：坚韧 II'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-NoRespec Adding: Power_II$/, '$1自动特权-无洗点提升：力量 II'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-NoRespec Adding: Motivation_II$/, '$1自动特权-无洗点提升：鼓舞 II'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-NoRespec Adding: Carpentry_II$/, '$1自动特权-无洗点提升：木工 II'], //脚本3自动特权设置
-    [/^(.*)AutoPerks-NoRespec Adding: Looting_II$/, '$1自动特权-无洗点提升：劫掠 II'], //脚本3自动特权设置
-    [/^(.*)AutoPerks - A Respec is required. Trying respec...$/, '$1自动特权-需要洗点。尝试洗点中……'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks: Your existing fixed-perks reserve Radon$/, '$1宇宙2自动特权：当前不修改特权总共花费氡数量'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks: Major Error: Make sure all ratios are set properly.$/, '$1宇宙2自动特权：错误：请确保所有比例设置合理。'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks: Auto-Allocate Finished.$/, '$1宇宙2自动特权：自动分配完毕。'], //脚本3自动特权设置
-    [/^(.*)Beginning RAutoPerks1 calculate how to spend (.*) Radon... This could take a while...$/, '$1宇宙2自动特权1开始计算如何分配$2氡……可能要花费一些时间……'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks: Major Error - Not enough radon to buy fixed perks.$/, '$1宇宙2自动特权：错误：氡不足以购买不修改特权。'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks1: Pass One Complete. Loops ran$/, '$1宇宙2自动特权1：第一阶段完成。循环次数'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks1: Dump Perk Looting level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权1：主加特权劫掠，主加后特权等级：$2，花费：$3氡。'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks1: Dump Perk Toughness level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权1：主加特权坚韧，主加后特权等级：$2，花费：$3氡。'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks1: Dump Perk Power level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权1：主加特权力量，主加后特权等级：$2，花费：$3氡。'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks1: Dump Perk Motivation level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权1：主加特权鼓舞，主加后特权等级：$2，花费：$3氡。'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks1: Dump Perk Pheromones level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权1：主加特权信息素，主加后特权等级：$2，花费：$3氡。'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks1: Dump Perk Artisanistry level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权1：主加特权手艺娴熟，主加后特权等级：$2，花费：$3氡。'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks1: Dump Perk Carpentry level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权1：主加特权木工，主加后特权等级：$2，花费：$3氡。'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks1: Dump Perk Prismal level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权1：主加特权棱镜化，主加后特权等级：$2，花费：$3氡。'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks1: Dump Perk Equality level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权1：主加特权平等，主加后特权等级：$2，花费：$3氡。'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks1: Dump Perk Criticality level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权1：主加特权暴击限界，主加后特权等级：$2，花费：$3氡。'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks1: Dump Perk Resilience level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权1：主加特权弹性，主加后特权等级：$2，花费：$3氡。'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks1: Dump Perk Tenacity level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权1：主加特权坚持，主加后特权等级：$2，花费：$3氡。'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks1: Pass two complete. Round 2 cleanup spend of $/, '$1宇宙2自动特权1：第二阶段完成。第二阶段花费'], //脚本3自动特权设置
-    [/^(.*)Beginning RAutoPerks2 calculate how to spend (.*) Radon... This could take a while...$/, '$1宇宙2自动特权2开始计算如何分配$2氡……可能要花费一些时间……'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks2: Pass One Complete. Loops ran$/, '$1宇宙2自动特权2：第一阶段完成。循环次数'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks2: Dump Perk Looting level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权2：主加特权劫掠，主加后特权等级：$2，花费：$3氡。'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks2: Dump Perk Toughness level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权2：主加特权坚韧，主加后特权等级：$2，花费：$3氡。'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks2: Dump Perk Power level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权2：主加特权力量，主加后特权等级：$2，花费：$3氡。'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks2: Dump Perk Motivation level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权2：主加特权鼓舞，主加后特权等级：$2，花费：$3氡。'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks2: Dump Perk Pheromones level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权2：主加特权信息素，主加后特权等级：$2，花费：$3氡。'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks2: Dump Perk Artisanistry level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权2：主加特权手艺娴熟，主加后特权等级：$2，花费：$3氡。'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks2: Dump Perk Carpentry level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权2：主加特权木工，主加后特权等级：$2，花费：$3氡。'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks2: Dump Perk Prismal level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权2：主加特权棱镜化，主加后特权等级：$2，花费：$3氡。'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks2: Dump Perk Equality level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权2：主加特权平等，主加后特权等级：$2，花费：$3氡。'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks2: Dump Perk Criticality level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权2：主加特权暴击限界，主加后特权等级：$2，花费：$3氡。'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks2: Dump Perk Resilience level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权2：主加特权弹性，主加后特权等级：$2，花费：$3氡。'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks2: Dump Perk Tenacity level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权2：主加特权坚持，主加后特权等级：$2，花费：$3氡。'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks2: Pass Two Complete. Cleanup Spent Any Leftover Radon: (.*) He.$/, '$1宇宙2自动特权2：第二阶段完成。花费了剩余的$2氡。'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-Respec Buying: Range$/, '$1宇宙2自动特权-洗点后购买：范围'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-Respec Buying: Agility$/, '$1宇宙2自动特权-洗点后购买：敏捷'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-Respec Buying: Bait$/, '$1宇宙2自动特权-洗点后购买：诱饵'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-Respec Buying: Trumps$/, '$1宇宙2自动特权-洗点后购买：王牌'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-Respec Buying: Packrat$/, '$1宇宙2自动特权-洗点后购买：囤积成瘾'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-Respec Buying: Overkill$/, '$1宇宙2自动特权-洗点后购买：超杀'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-Respec Buying: Looting$/, '$1宇宙2自动特权-洗点后购买：劫掠'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-Respec Buying: Toughness$/, '$1宇宙2自动特权-洗点后购买：坚韧'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-Respec Buying: Power$/, '$1宇宙2自动特权-洗点后购买：力量'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-Respec Buying: Motivation$/, '$1宇宙2自动特权-洗点后购买：鼓舞'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-Respec Buying: Pheromones$/, '$1宇宙2自动特权-洗点后购买：信息素'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-Respec Buying: Artisanistry$/, '$1宇宙2自动特权-洗点后购买：手艺娴熟'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-Respec Buying: Carpentry$/, '$1宇宙2自动特权-洗点后购买：木工'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-Respec Buying: Prismal$/, '$1宇宙2自动特权-洗点后购买：棱镜化'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-Respec Buying: Equality$/, '$1宇宙2自动特权-洗点后购买：平等'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-Respec Buying: Criticality$/, '$1宇宙2自动特权-洗点后购买：暴击限界'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-Respec Buying: Resilience$/, '$1宇宙2自动特权-洗点后购买：弹性'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-Respec Buying: Tenacity$/, '$1宇宙2自动特权-洗点后购买：坚持'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-Respec Buying: Greed$/, '$1宇宙2自动特权-洗点后购买：贪婪'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-Respec Error Couldn't Afford Asked Perk: Range$/, '$1宇宙2自动特权-洗点错误，氡不足以购买特权：范围'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-Respec Error Couldn't Afford Asked Perk: Agility$/, '$1宇宙2自动特权-洗点错误，氡不足以购买特权：敏捷'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-Respec Error Couldn't Afford Asked Perk: Bait$/, '$1宇宙2自动特权-洗点错误，氡不足以购买特权：诱饵'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-Respec Error Couldn't Afford Asked Perk: Trumps$/, '$1宇宙2自动特权-洗点错误，氡不足以购买特权：王牌'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-Respec Error Couldn't Afford Asked Perk: Packrat$/, '$1宇宙2自动特权-洗点错误，氡不足以购买特权：囤积成瘾'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-Respec Error Couldn't Afford Asked Perk: Overkill$/, '$1宇宙2自动特权-洗点错误，氡不足以购买特权：超杀'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-Respec Error Couldn't Afford Asked Perk: Looting$/, '$1宇宙2自动特权-洗点错误，氡不足以购买特权：劫掠'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-Respec Error Couldn't Afford Asked Perk: Toughness$/, '$1宇宙2自动特权-洗点错误，氡不足以购买特权：坚韧'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-Respec Error Couldn't Afford Asked Perk: Power$/, '$1宇宙2自动特权-洗点错误，氡不足以购买特权：力量'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-Respec Error Couldn't Afford Asked Perk: Motivation$/, '$1宇宙2自动特权-洗点错误，氡不足以购买特权：鼓舞'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-Respec Error Couldn't Afford Asked Perk: Pheromones$/, '$1宇宙2自动特权-洗点错误，氡不足以购买特权：信息素'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-Respec Error Couldn't Afford Asked Perk: Artisanistry$/, '$1宇宙2自动特权-洗点错误，氡不足以购买特权：手艺娴熟'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-Respec Error Couldn't Afford Asked Perk: Carpentry$/, '$1宇宙2自动特权-洗点错误，氡不足以购买特权：木工'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-Respec Error Couldn't Afford Asked Perk: Prismal$/, '$1宇宙2自动特权-洗点错误，氡不足以购买特权：棱镜化'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-Respec Error Couldn't Afford Asked Perk: Equality$/, '$1宇宙2自动特权-洗点错误，氡不足以购买特权：平等'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-Respec Error Couldn't Afford Asked Perk: Criticality$/, '$1宇宙2自动特权-洗点错误，氡不足以购买特权：暴击限界'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-Respec Error Couldn't Afford Asked Perk: Resilience$/, '$1宇宙2自动特权-洗点错误，氡不足以购买特权：弹性'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-Respec Error Couldn't Afford Asked Perk: Tenacity$/, '$1宇宙2自动特权-洗点错误，氡不足以购买特权：坚持'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-Respec Error Couldn't Afford Asked Perk: Greed$/, '$1宇宙2自动特权-洗点错误，氡不足以购买特权：贪婪'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks RESPEC Required for: Range$/, '$1宇宙2自动特权需要洗点特权：范围'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks RESPEC Required for: Agility$/, '$1宇宙2自动特权需要洗点特权：敏捷'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks RESPEC Required for: Bait$/, '$1宇宙2自动特权需要洗点特权：诱饵'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks RESPEC Required for: Trumps$/, '$1宇宙2自动特权需要洗点特权：王牌'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks RESPEC Required for: Packrat$/, '$1宇宙2自动特权需要洗点特权：囤积成瘾'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks RESPEC Required for: Overkill$/, '$1宇宙2自动特权需要洗点特权：超杀'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks RESPEC Required for: Looting$/, '$1宇宙2自动特权需要洗点特权：劫掠'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks RESPEC Required for: Toughness$/, '$1宇宙2自动特权需要洗点特权：坚韧'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks RESPEC Required for: Power$/, '$1宇宙2自动特权需要洗点特权：力量'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks RESPEC Required for: Motivation$/, '$1宇宙2自动特权需要洗点特权：鼓舞'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks RESPEC Required for: Pheromones$/, '$1宇宙2自动特权需要洗点特权：信息素'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks RESPEC Required for: Artisanistry$/, '$1宇宙2自动特权需要洗点特权：手艺娴熟'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks RESPEC Required for: Carpentry$/, '$1宇宙2自动特权需要洗点特权：木工'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks RESPEC Required for: Prismal$/, '$1宇宙2自动特权需要洗点特权：棱镜化'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks RESPEC Required for: Equality$/, '$1宇宙2自动特权需要洗点特权：平等'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks RESPEC Required for: Criticality$/, '$1宇宙2自动特权需要洗点特权：暴击限界'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks RESPEC Required for: Resilience$/, '$1宇宙2自动特权需要洗点特权：弹性'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks RESPEC Required for: Tenacity$/, '$1宇宙2自动特权需要洗点特权：坚持'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks RESPEC Required for: Greed$/, '$1宇宙2自动特权需要洗点特权：贪婪'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-NoRespec Adding: Range$/, '$1宇宙2自动特权-无洗点提升：范围'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-NoRespec Adding: Agility$/, '$1宇宙2自动特权-无洗点提升：敏捷'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-NoRespec Adding: Bait$/, '$1宇宙2自动特权-无洗点提升：诱饵'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-NoRespec Adding: Trumps$/, '$1宇宙2自动特权-无洗点提升：王牌'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-NoRespec Adding: Packrat$/, '$1宇宙2自动特权-无洗点提升：囤积成瘾'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-NoRespec Adding: Overkill$/, '$1宇宙2自动特权-无洗点提升：超杀'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-NoRespec Adding: Looting$/, '$1宇宙2自动特权-无洗点提升：劫掠'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-NoRespec Adding: Toughness$/, '$1宇宙2自动特权-无洗点提升：坚韧'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-NoRespec Adding: Power$/, '$1宇宙2自动特权-无洗点提升：力量'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-NoRespec Adding: Motivation$/, '$1宇宙2自动特权-无洗点提升：鼓舞'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-NoRespec Adding: Pheromones$/, '$1宇宙2自动特权-无洗点提升：信息素'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-NoRespec Adding: Artisanistry$/, '$1宇宙2自动特权-无洗点提升：手艺娴熟'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-NoRespec Adding: Carpentry$/, '$1宇宙2自动特权-无洗点提升：木工'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-NoRespec Adding: Prismal$/, '$1宇宙2自动特权-无洗点提升：棱镜化'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-NoRespec Adding: Equality$/, '$1宇宙2自动特权-无洗点提升：平等'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-NoRespec Adding: Criticality$/, '$1宇宙2自动特权-无洗点提升：暴击限界'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-NoRespec Adding: Resilience$/, '$1宇宙2自动特权-无洗点提升：弹性'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-NoRespec Adding: Tenacity$/, '$1宇宙2自动特权-无洗点提升：坚持'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks-NoRespec Adding: Greed$/, '$1宇宙2自动特权-无洗点提升：贪婪'], //脚本3自动特权设置
-    [/^(.*)RAutoPerks - A Respec is required. Trying respec...$/, '$1宇宙2自动特权-需要洗点。尝试洗点中……'], //脚本3自动特权设置
-    [/^(.*)My HeliumHr was: (.*) & the Best HeliumHr was: (.*) at zone$/, '$1当前氦每小时为$2，自上次传送后最高的氦每小时为$3，出现区域为'], //脚本3传送门设置
-    [/^(.*)C2 Runner: Running C2 Challenge Size$/, '$1挑战2自动运行：运行尺寸挑战'], //脚本3传送门设置
-    [/^(.*)C2 Runner: Running C2 Challenge Slow$/, '$1挑战2自动运行：运行迟缓挑战'], //脚本3传送门设置
-    [/^(.*)C2 Runner: Running C2 Challenge Watch$/, '$1挑战2自动运行：运行守望挑战'], //脚本3传送门设置
-    [/^(.*)C2 Runner: Running C2 Challenge Discipline$/, '$1挑战2自动运行：运行纪律挑战'], //脚本3传送门设置
-    [/^(.*)C2 Runner: Running C2 Challenge Balance$/, '$1挑战2自动运行：运行平衡挑战'], //脚本3传送门设置
-    [/^(.*)C2 Runner: Running C2 Challenge Meditate$/, '$1挑战2自动运行：运行冥想挑战'], //脚本3传送门设置
-    [/^(.*)C2 Runner: Running C2 Challenge Metal$/, '$1挑战2自动运行：运行金属挑战'], //脚本3传送门设置
-    [/^(.*)C2 Runner: Running C2 Challenge Lead$/, '$1挑战2自动运行：运行领导挑战'], //脚本3传送门设置
-    [/^(.*)C2 Runner: Running C2 Challenge Nom$/, '$1挑战2自动运行：运行美味挑战'], //脚本3传送门设置
-    [/^(.*)C2 Runner: Running C2 Challenge Electricity$/, '$1挑战2自动运行：运行电流挑战'], //脚本3传送门设置
-    [/^(.*)C2 Runner: Running C2 Challenge Toxicity$/, '$1挑战2自动运行：运行毒性挑战'], //脚本3传送门设置
-    [/^(.*)First Stage: Bought Max Looting II$/, '$1第一阶段：购买最大数量的劫掠 II特权'], //脚本3传送门设置
-    [/^(.*)C2 Runner: All C2s above Threshold!$/, '$1挑战2自动运行：所有挑战2均高于阈值！'], //脚本3传送门设置
-    [/^(.*)All available Dailies already completed.$/, '$1当前全部的日常挑战都完成了。'], //脚本3传送门设置
-    [/^(.*)Portaling into Daily for: (.*) now!$/, '$1传送并进行日常挑战：日期$2！'], //脚本3传送门设置
-    [/^(.*)Second Stage: Bought Max Looting II$/, '$1第二阶段：购买最大数量的劫掠 II特权'], //脚本3传送门设置
-    [/^(.*)Finished challenge2 because we are on zone$/, '$1该挑战2结束，因为我们到达了区域'], //脚本3传送门设置
-    [/^(.*)My RadonHr was: (.*) & the Best RadonHr was: (.*) at zone$/, '$1当前氡每小时为$2，自上次传送后最高的氡每小时为$3，出现区域为'], //脚本3传送门设置
-    [/^(.*)First Stage: Bought Max Greed$/, '$1第一阶段：购买最大数量的贪婪特权'], //脚本3传送门设置
-    [/^(.*)First Stage: Bought Max Looting$/, '$1第一阶段：购买最大数量的劫掠特权'], //脚本3传送门设置
-    [/^(.*)Second Stage: Bought Max Greed$/, '$1第二阶段：购买最大数量的贪婪特权'], //脚本3传送门设置
-    [/^(.*)Second Stage: Bought Max Looting$/, '$1第二阶段：购买最大数量的劫掠特权'], //脚本3传送门设置
-    [/^(.*)AutoStance B\/$/, '$1自动阵型 B/阵型'], //脚本3阵型设置
-    [/^(.*)Upgraded Miners$/, '$1购买升级：矿工'], //脚本3升级设置
-    [/^(.*)Upgraded Scientists$/, '$1购买升级：科学家'], //脚本3升级设置
-    [/^(.*)Upgraded Coordination$/, '$1购买升级：协作'], //脚本3升级设置
-    [/^(.*)Upgraded Speedminer$/, '$1购买升级：采矿加速'], //脚本3升级设置
-    [/^(.*)Upgraded Speedlumber$/, '$1购买升级：砍伐加速'], //脚本3升级设置
-    [/^(.*)Upgraded Speedfarming$/, '$1购买升级：耕作加速'], //脚本3升级设置
-    [/^(.*)Upgraded Speedscience$/, '$1购买升级：研究加速'], //脚本3升级设置
-    [/^(.*)Upgraded Speedexplorer$/, '$1购买升级：探险家加速'], //脚本3升级设置
-    [/^(.*)Upgraded Megaminer$/, '$1购买升级：超级采矿'], //脚本3升级设置
-    [/^(.*)Upgraded Megalumber$/, '$1购买升级：超级砍伐'], //脚本3升级设置
-    [/^(.*)Upgraded Megafarming$/, '$1购买升级：超级耕作'], //脚本3升级设置
-    [/^(.*)Upgraded Megascience$/, '$1购买升级：超级研究'], //脚本3升级设置
-    [/^(.*)Upgraded Efficiency$/, '$1购买升级：效率'], //脚本3升级设置
-    [/^(.*)Upgraded TrainTacular$/, '$1购买升级：格挡提升'], //脚本3升级设置
-    [/^(.*)Upgraded Trainers$/, '$1购买升级：训练师'], //脚本3升级设置
-    [/^(.*)Upgraded Explorers$/, '$1购买升级：探险家'], //脚本3升级设置
-    [/^(.*)Upgraded Blockmaster$/, '$1购买升级：格挡大师'], //脚本3升级设置
-    [/^(.*)Upgraded Battle$/, '$1购买升级：战斗'], //脚本3升级设置
-    [/^(.*)Upgraded Bloodlust$/, '$1购买升级：嗜血'], //脚本3升级设置
-    [/^(.*)Upgraded Bounty$/, '$1购买升级：赏金'], //脚本3升级设置
-    [/^(.*)Upgraded Egg$/, '$1购买升级：蛋'], //脚本3升级设置
-    [/^(.*)Upgraded Anger$/, '$1购买升级：愤怒'], //脚本3升级设置
-    [/^(.*)Upgraded Formations$/, '$1购买升级：阵型'], //脚本3升级设置
-    [/^(.*)Upgraded Dominance$/, '$1购买升级：支配阵型'], //脚本3升级设置
-    [/^(.*)Upgraded Barrier$/, '$1购买升级：屏障阵型'], //脚本3升级设置
-    [/^(.*)Upgraded UberHut$/, '$1购买升级：超级小屋'], //脚本3升级设置
-    [/^(.*)Upgraded UberHouse$/, '$1购买升级：超级宅院'], //脚本3升级设置
-    [/^(.*)Upgraded UberMansion$/, '$1购买升级：超级豪宅'], //脚本3升级设置
-    [/^(.*)Upgraded UberHotel$/, '$1购买升级：超级宾馆'], //脚本3升级设置
-    [/^(.*)Upgraded UberResort$/, '$1购买升级：超级度假村'], //脚本3升级设置
-    [/^(.*)Upgraded Trapstorm$/, '$1购买升级：自动陷阱'], //脚本3升级设置
-    [/^(.*)Upgraded Gigastation$/, '$1购买升级：千兆核心'], //脚本3升级设置
-    [/^(.*)Upgraded Shieldblock$/, '$1购买升级：盾牌格挡'], //脚本3升级设置
-    [/^(.*)Upgraded Potency$/, '$1购买升级：繁殖效率'], //脚本3升级设置
-    [/^(.*)Upgraded Magmamancers$/, '$1购买升级：岩浆巫师'], //脚本3升级设置
-    [/^(.*)Upgraded Rage$/, '$1购买升级：暴怒'], //脚本3升级设置
-    [/^(.*)Upgraded Prismatic$/, '$1购买升级：棱镜护盾'], //脚本3升级设置
-    [/^(.*)Upgraded Prismalicious$/, '$1购买升级：优质棱镜'], //脚本3升级设置
-    [/^(.*)Error: LocalStorage is full, or error. Attempt to delete some portals from your graph or restart browser.$/, '$1浏览器数据存储已满，或者出错。请删除一些图表中传送门的数据或重启浏览器。'], //脚本3公用设置
+    [/^(.*)AutoTrimps - Zek Fork Loaded!$/, '$1自动脆皮脚本 - Zek Fork 已成功载入！'], //脚本载入消息
+    [/^(.*)Adding dark-graph.css file$/, '$1黑暗图表已开启'], //脚本图表消息
+    [/^(.*)Removing dark-graph.css file$/, '$1黑暗图表已关闭'], //脚本图表消息
+    [/^(.*)Theme change - AutoTrimps styles updating...$/, '$1游戏主题改变 - 自动脆皮脚本样式更新中……'], //脚本图表消息
+    [/^(.*)Starting Zone$/, '$1进入区域'], //脚本图表消息
+    [/^((?!SS).*)(?<!er) Second(s*)$/, '$1 秒'], //脚本图表
+    [/^Portal (.*): Daily$/, '传送门$1：日常'], //脚本图表
+    [/^Portal (.*): Discipline$/, '传送门$1：纪律'], //脚本图表
+    [/^Portal (.*): Metal$/, '传送门$1：金属'], //脚本图表
+    [/^Portal (.*): Size$/, '传送门$1：尺寸'], //脚本图表
+    [/^Portal (.*): Balance$/, '传送门$1：平衡'], //脚本图表
+    [/^Portal (.*): Scientist$/, '传送门$1：科学家'], //脚本图表
+    [/^Portal (.*): Meditate$/, '传送门$1：冥想'], //脚本图表
+    [/^Portal (.*): Decay$/, '传送门$1：衰变'], //脚本图表
+    [/^Portal (.*): Trimp$/, '传送门$1：脆皮'], //脚本图表
+    [/^Portal (.*): Trapper$/, '传送门$1：捕手'], //脚本图表
+    [/^Portal (.*): Electricity$/, '传送门$1：电流'], //脚本图表
+    [/^Portal (.*): Frugal$/, '传送门$1：节俭'], //脚本图表
+    [/^Portal (.*): Life$/, '传送门$1：生命'], //脚本图表
+    [/^Portal (.*): Mapocalypse$/, '传送门$1：天启地图'], //脚本图表
+    [/^Portal (.*): Coordinate$/, '传送门$1：协同'], //脚本图表
+    [/^Portal (.*): Crushed$/, '传送门$1：粉碎'], //脚本图表
+    [/^Portal (.*): Slow$/, '传送门$1：迟缓'], //脚本图表
+    [/^Portal (.*): Nom$/, '传送门$1：美味'], //脚本图表
+    [/^Portal (.*): Mapology$/, '传送门$1：地图学'], //脚本图表
+    [/^Portal (.*): Toxicity$/, '传送门$1：毒性'], //脚本图表
+    [/^Portal (.*): Devastation$/, '传送门$1：破坏'], //脚本图表
+    [/^Portal (.*): Watch$/, '传送门$1：守望'], //脚本图表
+    [/^Portal (.*): Lead$/, '传送门$1：领导'], //脚本图表
+    [/^Portal (.*): Corrupted$/, '传送门$1：腐化'], //脚本图表
+    [/^Portal (.*): Domination$/, '传送门$1：统治'], //脚本图表
+    [/^Portal (.*): Obliterated$/, '传送门$1：抹杀'], //脚本图表
+    [/^Portal (.*): Eradicated$/, '传送门$1：灭绝'], //脚本图表
+    [/^Portal (.*): Unlucky$/, '传送门$1：不幸'], //脚本图表
+    [/^Portal (.*): Downsize$/, '传送门$1：精简'], //脚本图表
+    [/^Portal (.*): Transmute$/, '传送门$1：变形'], //脚本图表
+    [/^Portal (.*): Unbalance$/, '传送门$1：不平衡'], //脚本图表
+    [/^Portal (.*): Bublé$/, '传送门$1：泡影'], //脚本图表
+    [/^Portal (.*): Duel$/, '传送门$1：决斗'], //脚本图表
+    [/^Portal (.*): Melt$/, '传送门$1：熔化'], //脚本图表
+    [/^Portal (.*): Trappapalooza$/, '传送门$1：捕手道达人'], //脚本图表
+    [/^Portal (.*): Quagmire$/, '传送门$1：泥淖'], //脚本图表
+    [/^Portal (.*): Wither$/, '传送门$1：凋零'], //脚本图表
+    [/^Portal (.*): Revenge$/, '传送门$1：复仇'], //脚本图表
+    [/^Portal (.*): Quest$/, '传送门$1：任务'], //脚本图表
+    [/^Portal (.*): Archaeology$/, '传送门$1：考古学'], //脚本图表
+    [/^Portal (.*): Mayhem$/, '传送门$1：暴乱'], //脚本图表
+    [/^Portal (.*):$/, '传送门$1'], //脚本图表
+    [/^Daily P Raiding Z(.*)$/, '日常重铸袭劫区域$1'], //脚本日常设置
+    [/^Daily Max P Raid Z(.*)$/, '日常重铸袭劫最大区域$1'], //脚本日常设置
+    [/^Daily Farm Frags Z(.*)$/, '日常刷碎片区域$1'], //脚本日常设置
+    [/^Dy Raid bef farm Z(.*)$/, '日常刷碎片前袭劫区域$1'], //脚本日常设置
+    [/^Daily Z to BW Raid(.*)$/, '日常仿生袭劫区域$1'], //脚本日常设置
+    [/^Daily Max BW to raid(.*)$/, '日常仿生袭劫最大区域$1'], //脚本日常设置
+    [/^DHS: High Damage(.*)$/, '日常传家宝：高伤$1'], //脚本日常设置
+    [/^DHS: Low Damage(.*)$/, '日常传家宝：低伤$1'], //脚本日常设置
+    [/^(.*)Theme change - AutoTrimps styles updated.$/, '$1游戏主题改变 - 自动脆皮脚本样式已更新。'], //脚本消息
+    [/^Trimple Z(.*)$/, '末日神殿区域$1'], //脚本地图设置
+    [/^Time Farming((?! Bogs).*)$/, '定时刷图$1'], //脚本地图设置
+    [/^TF: Time(.*)$/, '定时刷图：数值$1'], //脚本地图设置
+    [/^TF: Map Level(.*)$/, '定时刷图：地图等级$1'], //脚本地图设置
+    [/^Melting Point((?! \(Zone).*)$/, '熔点$1'], //脚本地图设置
+    [/^BB: Zone(.*)$/, '黑色泥沼：区域$1'], //脚本地图设置
+    [/^BB: Amount(.*)$/, '黑色泥沼：数量$1'], //脚本地图设置
+    [/^P Raiding Z(.*)$/, '重铸袭劫区域$1'], //脚本袭劫设置
+    [/^Max P Raid Zones(.*)$/, '重铸袭劫最大区域$1'], //脚本袭劫设置
+    [/^Farm Fragments Z(.*)$/, '刷碎片区域$1'], //脚本袭劫设置
+    [/^Raid before farm Z(.*)$/, '刷碎片前袭劫区域$1'], //脚本袭劫设置
+    [/^Z to BW Raid(.*)$/, '仿生袭劫区域$1'], //脚本袭劫设置
+    [/^Max BW to raid(.*)$/, '仿生袭劫最大区域$1'], //脚本袭劫设置
+    [/^PR: Zone(.*)$/, '宇宙2重铸袭劫：区域$1'], //脚本袭劫设置
+    [/^PR: Raid(.*)$/, '宇宙2重铸袭劫：地图$1'], //脚本袭劫设置
+    [/^First String(.*)$/, '第一字符串$1'], //脚本挑战设置
+    [/^Second String(.*)$/, '第二字符串$1'], //脚本挑战设置
+    [/^Third String(.*)$/, '第三字符串$1'], //脚本挑战设置
+    [/^Insanity Farming(.*)$/, '刷失智层数$1'], //脚本挑战设置
+    [/^IF: Stacks(.*)$/, '刷失智层数：层数$1'], //脚本挑战设置
+    [/^IF: Map Level(.*)$/, '刷失智层数：地图等级$1'], //脚本挑战设置
+    [/^Throttle Supply \(or Capacity\)(.*)$/, '控制供给的分配(或容量)$1'], //脚本岩浆设置
+    [/^WS: High Damage(.*)$/, '风层数叠加：高伤$1'], //脚本传家宝设置
+    [/^WS: Low Damage(.*)$/, '风层数叠加：低伤$1'], //脚本传家宝设置
+    [/^HS: First(.*)$/, '传家宝切换：第一$1'], //脚本传家宝设置
+    [/^HS: Second(.*)$/, '传家宝切换：第二$1'], //脚本传家宝设置
+    [/^To Fight now would add: (.*) seconds to the breed timer.$/, '现在开始战斗将增加$1秒繁殖计时。'], //脚本繁殖模块设置
+    [/^(.*)Building (.*) Warpstations$/, '$1建造$2个跃迁核心'], //脚本建筑模块设置
+    [/^(.*)Building Barn$/, '$1建造谷仓'], //脚本建筑模块设置
+    [/^(.*)Building Shed$/, '$1建造窝棚'], //脚本建筑模块设置
+    [/^(.*)Building Forge$/, '$1建造锻造厂'], //脚本建筑模块设置
+    [/^(.*)Building Hut$/, '$1建造小屋'], //脚本建筑模块设置
+    [/^(.*)Building House$/, '$1建造宅院'], //脚本建筑模块设置
+    [/^(.*)Building Mansion$/, '$1建造豪宅'], //脚本建筑模块设置
+    [/^(.*)Building Hotel$/, '$1建造宾馆'], //脚本建筑模块设置
+    [/^(.*)Building Resort$/, '$1建造度假村'], //脚本建筑模块设置
+    [/^(.*)Building Gateway$/, '$1建造维度裂隙'], //脚本建筑模块设置
+    [/^(.*)Building Wormhole$/, '$1建造虫洞'], //脚本建筑模块设置
+    [/^(.*)Building Collector$/, '$1建造汲能设施'], //脚本建筑模块设置
+    [/^(.*)Building Gym$/, '$1建造健身房'], //脚本建筑模块设置
+    [/^(.*)Building Smithy$/, '$1建造铁匠铺'], //脚本建筑模块设置
+    [/^(.*)Building Tribute$/, '$1建造贡品'], //脚本建筑模块设置
+    [/^(.*)Building Nursery$/, '$1建造托儿所'], //脚本建筑模块设置
+    [/^(.*)Building Microchip$/, '$1建造微型芯片'], //脚本建筑模块设置
+    [/^(.*)Upgrading Dagadder - Prestige$/, '$1升级诗歌匕首-重铸次数'], //脚本装备模块设置
+    [/^(.*)Upgrading Megamace - Prestige$/, '$1升级巨型狼牙棒-重铸次数'], //脚本装备模块设置
+    [/^(.*)Upgrading Polierarm - Prestige$/, '$1升级画戟-重铸次数'], //脚本装备模块设置
+    [/^(.*)Upgrading Axeidic - Prestige$/, '$1升级强酸战斧-重铸次数'], //脚本装备模块设置
+    [/^(.*)Upgrading Greatersword - Prestige$/, '$1升级双手巨剑-重铸次数'], //脚本装备模块设置
+    [/^(.*)Upgrading Bootboost - Prestige$/, '$1升级神行靴-重铸次数'], //脚本装备模块设置
+    [/^(.*)Upgrading Hellishmet - Prestige$/, '$1升级地狱头盔-重铸次数'], //脚本装备模块设置
+    [/^(.*)Upgrading Pantastic - Prestige$/, '$1升级护腿-重铸次数'], //脚本装备模块设置
+    [/^(.*)Upgrading Smoldershoulder - Prestige$/, '$1升级闷火护肩-重铸次数'], //脚本装备模块设置
+    [/^(.*)Upgrading Bestplate - Prestige$/, '$1升级精良胸铠-重铸次数'], //脚本装备模块设置
+    [/^(.*)Upgrading Harmbalest - Prestige$/, '$1升级高强弩-重铸次数'], //脚本装备模块设置
+    [/^(.*)Upgrading GambesOP - Prestige$/, '$1升级强棉甲-重铸次数'], //脚本装备模块设置
+    [/^(.*)Upgrading Supershield - Prestige$/, '$1升级超级盾牌-重铸次数'], //脚本装备模块设置
+    [/^(.*)Upgrading Gymystic #$/, '$1升级健身学-次数'], //脚本装备模块设置
+    [/^(.*)Leveling equipment Boots$/, '$1升级装备：靴子'], //脚本装备模块设置
+    [/^(.*)Leveling equipment Helmet$/, '$1升级装备：头盔'], //脚本装备模块设置
+    [/^(.*)Leveling equipment Pants$/, '$1升级装备：裤子'], //脚本装备模块设置
+    [/^(.*)Leveling equipment Shoulderguards$/, '$1升级装备：护肩'], //脚本装备模块设置
+    [/^(.*)Leveling equipment Breastplate$/, '$1升级装备：胸铠'], //脚本装备模块设置
+    [/^(.*)Leveling equipment Gambeson$/, '$1升级装备：棉甲'], //脚本装备模块设置
+    [/^(.*)Leveling equipment Shield$/, '$1升级装备：盾牌'], //脚本装备模块设置
+    [/^(.*)Leveling equipment Boots \(AlwaysLvl$/, '$1升级装备：靴子(常时等级'], //脚本装备模块设置
+    [/^(.*)Leveling equipment Helmet \(AlwaysLvl$/, '$1升级装备：头盔(常时等级'], //脚本装备模块设置
+    [/^(.*)Leveling equipment Pants \(AlwaysLvl$/, '$1升级装备：裤子(常时等级'], //脚本装备模块设置
+    [/^(.*)Leveling equipment Shoulderguards \(AlwaysLvl$/, '$1升级装备：护肩(常时等级'], //脚本装备模块设置
+    [/^(.*)Leveling equipment Breastplate \(AlwaysLvl$/, '$1升级装备：胸铠(常时等级'], //脚本装备模块设置
+    [/^(.*)Leveling equipment Gambeson \(AlwaysLvl$/, '$1升级装备：棉甲(常时等级'], //脚本装备模块设置
+    [/^(.*)Leveling equipment Shield \(AlwaysLvl$/, '$1升级装备：盾牌(常时等级'], //脚本装备模块设置
+    [/^(.*)Leveling equipment Dagger$/, '$1升级装备：匕首'], //脚本装备模块设置
+    [/^(.*)Leveling equipment Mace$/, '$1升级装备：狼牙棒'], //脚本装备模块设置
+    [/^(.*)Leveling equipment Polearm$/, '$1升级装备：战戟'], //脚本装备模块设置
+    [/^(.*)Leveling equipment Battleaxe$/, '$1升级装备：战斧'], //脚本装备模块设置
+    [/^(.*)Leveling equipment Greatsword$/, '$1升级装备：巨剑'], //脚本装备模块设置
+    [/^(.*)Leveling equipment Arbalest$/, '$1升级装备：强弩'], //脚本装备模块设置
+    [/^(.*)Successfully loaded existing profile(.*)$/, '$1成功载入现有的设置文件$2'], //脚本导入导出模块设置
+    [/^(.*)Successfully created new profile(.*)$/, '$1成功创建新的设置文件$2'], //脚本导入导出模块设置
+    [/^(.*)Successfully deleted profile #(.*)$/, '$1成功删除设置文件编号$2'], //脚本导入导出模块设置
+    [/^(.*)Successfully imported new AT settings...$/, '$1成功导入新的脚本设置……'], //脚本导入导出模块设置
+    [/^Successfully Imported Autotrimps Settings File!(.*)$/, '成功导入脚本设置文件！$1'], //脚本导入导出模块设置
+    [/^(.*)Successfully reset AT settings to Defaults...$/, '$1成功将脚本设置重置为默认设置……'], //脚本导入导出模块设置
+    [/^(.*)Importing new AT settings file...$/, '$1正在导入新的脚本设置……'], //脚本导入导出模块设置
+    [/^SF: Zone(.*)$/, '刷崇信者：区域$1'], //脚本工作设置
+    [/^SF: Amount(.*)$/, '刷崇信者：数量$1'], //脚本工作设置
+    [/^SF: Map Level(.*)$/, '刷崇信者：地图等级$1'], //脚本工作设置
+    [/^(.*)Firing (.*) Farmers$/, '$1解雇$2农民'], //脚本工作设置
+    [/^(.*)Hiring (.*) Farmers$/, '$1雇佣$2农民'], //脚本工作设置
+    [/^(.*)Firing (.*) Lumberjacks$/, '$1解雇$2伐木工'], //脚本工作设置
+    [/^(.*)Hiring (.*) Lumberjacks$/, '$1雇佣$2伐木工'], //脚本工作设置
+    [/^(.*)Firing (.*) Miners$/, '$1解雇$2矿工'], //脚本工作设置
+    [/^(.*)Hiring (.*) Miners$/, '$1雇佣$2矿工'], //脚本工作设置
+    [/^(.*)Firing (.*) Scientists$/, '$1解雇$2科学家'], //脚本工作设置
+    [/^(.*)Hiring (.*) Scientists$/, '$1雇佣$2科学家'], //脚本工作设置
+    [/^(.*)Firing (.*) Trainers$/, '$1解雇$2训练师'], //脚本工作设置
+    [/^(.*)Hiring (.*) Trainers$/, '$1雇佣$2训练师'], //脚本工作设置
+    [/^(.*)Firing (.*) Explorers$/, '$1解雇$2探险家'], //脚本工作设置
+    [/^(.*)Hiring (.*) Explorers$/, '$1雇佣$2探险家'], //脚本工作设置
+    [/^(.*)Firing (.*) Geneticists$/, '$1解雇$2遗传学家'], //脚本工作设置
+    [/^(.*)Hiring (.*) Geneticists$/, '$1雇佣$2遗传学家'], //脚本工作设置
+    [/^(.*)Firing (.*) Meteorologists$/, '$1解雇$2气象学家'], //脚本工作设置
+    [/^(.*)Hiring (.*) Meteorologists$/, '$1雇佣$2气象学家'], //脚本工作设置
+    [/^(.*)Bought (.*) Magmamancers. Total Owned(.*)$/, '$1雇佣$2岩浆巫师。岩浆巫师总数为$3'], //脚本工作设置
+    [/^(.*)Auto Spending (.*) Magmite on: Efficiency #$/, '$1自动分配$2岩浆岩以升级：效率，次数'], //脚本岩浆设置
+    [/^(.*)Auto Spending (.*) Magmite on: Capacity #$/, '$1自动分配$2岩浆岩以升级：容量，次数'], //脚本岩浆设置
+    [/^(.*)Auto Spending (.*) Magmite on: Supply #$/, '$1自动分配$2岩浆岩以升级：供给，次数'], //脚本岩浆设置
+    [/^(.*)Auto Spending (.*) Magmite on: Overclocker #$/, '$1自动分配$2岩浆岩以升级：超频，次数'], //脚本岩浆设置
+    [/^(.*)Auto Spending (.*) Magmite on: Slowburn$/, '$1自动分配$2岩浆岩以升级：慢烧'], //脚本岩浆设置
+    [/^(.*)Auto Spending (.*) Magmite on: Shielding$/, '$1自动分配$2岩浆岩以升级：防护'], //脚本岩浆设置
+    [/^(.*)Auto Spending (.*) Magmite on: Storage$/, '$1自动分配$2岩浆岩以升级：存储'], //脚本岩浆设置
+    [/^(.*)Auto Spending (.*) Magmite on: Hybridization$/, '$1自动分配$2岩浆岩以升级：混合'], //脚本岩浆设置
+    [/^(.*)Auto Spending (.*) Magmite on: Supervision$/, '$1自动分配$2岩浆岩以升级：管理'], //脚本岩浆设置
+    [/^(.*)Auto Spending (.*) Magmite on: Simulacrum$/, '$1自动分配$2岩浆岩以升级：复制'], //脚本岩浆设置
+    [/^(.*)Auto Spending (.*) Magmite on: Overclocker$/, '$1自动分配$2岩浆岩以升级：超频'], //脚本岩浆设置
+    [/^(.*)Leftover magmite$/, '$1剩余岩浆岩'], //脚本岩浆设置
+    [/^Farming for Spire (.*)h left$/, '尖塔前刷资源，剩余$1小时'], //脚本地图设置
+    [/^Farming for Spire (.*)m:(.*)s left$/, '尖塔前刷资源，剩余$1分$2秒'], //脚本地图设置
+    [/^Equip Farming to (.*) and (.*) Equality$/, '装备刷资源至$1及$2级平等'], //脚本地图设置
+    [/^Storm Farming to (.*)$/, '风暴刷资源至$1'], //脚本地图设置
+    [/^Void Maps: (\d*) remaining$/, '虚空地图：剩余$1'], //脚本地图设置
+    [/^Void Maps: (\d*) \((\d*) stacked\) remaining$/, '虚空地图：剩余$1(融合后有$2)'], //脚本地图设置
+    [/^Farming: (.*)x$/, '刷资源：生命伤害比$1'], //脚本地图设置
+    [/^Want (.*)x(\s*)more damage$/, '需要更多伤害，倍数为$1'], //脚本地图设置
+    [/^(\s+)He$/, '氦'], //脚本地图设置
+    [/^(.*)Set the map special modifier to: Fast Attacks. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：快速攻击。花费碎片总数的$2%。'], //脚本地图设置
+    [/^(.*)Set the map special modifier to: Large Cache. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：大储藏箱。花费碎片总数的$2%。'], //脚本地图设置
+    [/^(.*)Set the map special modifier to: Small Savory Cache. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：小美味储藏箱。花费碎片总数的$2%。'], //脚本地图设置
+    [/^(.*)Set the map special modifier to: Small Wooden Cache. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：小木头储藏箱。花费碎片总数的$2%。'], //脚本地图设置
+    [/^(.*)Set the map special modifier to: Small Metal Cache. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：小金属储藏箱。花费碎片总数的$2%。'], //脚本地图设置
+    [/^(.*)Set the map special modifier to: Small Research Cache. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：小研究储藏箱。花费碎片总数的$2%。'], //脚本地图设置
+    [/^(.*)Set the map special modifier to: Prestigious. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：重铸。花费碎片总数的$2%。'], //脚本地图设置
+    [/^(.*)Set the map special modifier to: Huge Cache. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：巨大储藏箱。花费碎片总数的$2%。'], //脚本地图设置
+    [/^(.*)Set the map special modifier to: Large Savory Cache. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：大美味储藏箱。花费碎片总数的$2%。'], //脚本地图设置
+    [/^(.*)Set the map special modifier to: Large Wooden Cache. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：大木头储藏箱。花费碎片总数的$2%。'], //脚本地图设置
+    [/^(.*)Set the map special modifier to: Large Metal Cache. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：大金属储藏箱。花费碎片总数的$2%。'], //脚本地图设置
+    [/^(.*)Set the map special modifier to: Large Research Cache. Cost: (.*)% of your fragments.$/, '$1使用地图特殊修饰符：大研究储藏箱。花费碎片总数的$2%。'], //脚本地图设置
+    [/^(.*)Got perma-stuck on cell (\d*) during scryer stance. Are your scryer settings correct\? Entering map to farm to fix it.$/, '$1使用占卜者阵型时卡在格子$2了。占卜者阵型的设置是否正确？请进入地图刷资源来解决。'], //脚本地图设置
+    [/^(.*)Can't afford the map we designed, #$/, '$1碎片不够，无法制造所需的地图，等级'], //脚本地图设置
+    [/^(.*)...selected our highest map instead # (.*) Level$/, '$1……取而代之，我们选择地图$2，等级'], //脚本地图设置
+    [/^(.*)Retrying, Buying a Map, level: #$/, '$1重新尝试，制造一张地图，等级：'], //脚本地图设置
+    [/^(.*)Buying a Map, level: #$/, '$1制造一张地图，等级：'], //脚本地图设置
+    [/^(.*)Too many maps, recycling now$/, '$1地图过多，开始回收'], //脚本地图设置
+    [/^(.*)AutoMaps unable to recycle to buy map!$/, '$1脚本无法回收并制造地图！'], //脚本地图设置
+    [/^(.*)Retrying map buy after recycling lowest level map$/, '$1回收最低级地图后重新尝试制造地图'], //脚本地图设置
+    [/^(.*)Running selected (.*) Level: (.*) Name: The Black $/, '$1运行选择的$2，等级：$3，名称：黑色'], //脚本地图设置
+    [/^(.*)Running selected (.*) Level: (.*) Name: Bionic Wonderland(.*)$/, '$1运行选择的$2，等级：$3，名称：仿生仙境$4'], //脚本地图设置
+    [/^(.*)Running selected (.*) Level: (.*) Name: The Block$/, '$1运行选择的$2，等级：$3，名称：障碍区'], //脚本地图设置
+    [/^(.*)Running selected (.*) Level: (.*) Name: The Wall$/, '$1运行选择的$2，等级：$3，名称：高墙'], //脚本地图设置
+    [/^(.*)Running selected (.*) Level: (.*) Name: Big Wall$/, '$1运行选择的$2，等级：$3，名称：巨墙'], //脚本地图设置
+    [/^(.*)Running selected (.*) Level: (.*) Name: The Prison$/, '$1运行选择的$2，等级：$3，名称：监狱'], //脚本地图设置
+    [/^(.*)Running selected (.*) Level: (.*) Name: Imploding Star$/, '$1运行选择的$2，等级：$3，名称：爆炸之星'], //脚本地图设置
+    [/^(.*)Running selected (.*) Level: (.*) Name: Prismatic Palace$/, '$1运行选择的$2，等级：$3，名称：棱镜宫殿'], //脚本地图设置
+    [/^(.*)Running selected (.*) Level: (.*) Name: Melting Point$/, '$1运行选择的$2，等级：$3，名称：熔点'], //脚本地图设置
+    [/^(.*)Running selected (.*) Level: (.*) Name: Trimple Of Doom$/, '$1运行选择的$2，等级：$3，名称：末日神殿'], //脚本地图设置
+    [/^(.*)Running selected (.*) Level: (.*) Name: Tricky Paradise$/, '$1运行选择的$2，等级：$3，名称：整蛊天堂'], //脚本地图设置
+    [/^(.*)Running selected (.*) Level: (.*) Name: Dimension of Anger$/, '$1运行选择的$2，等级：$3，名称：愤怒维度'], //脚本地图设置
+    [/^(.*)Running selected (.*) Level: (.*) Name: Dimension of Rage$/, '$1运行选择的$2，等级：$3，名称：暴怒维度'], //脚本地图设置
+    [/^(.*)Running selected (.*) Level: (.*) Name$/, '$1运行选择的$2，等级：$3，名称'], //脚本地图设置
+    [/^(.*)Running selected (.*) Void:  Name$/, '$1运行选择的$2，虚空地图：名称'], //脚本地图设置
+    [/^(\s+)Rn/, '氡'], //脚本地图设置
+    [/^(.*)Check complete for frag map$/, '$1完成检查碎片地图'], //脚本地图设置
+    [/^(.*)frag map bought$/, '$1碎片地图已制造'], //脚本地图设置
+    [/^(.*)running frag map$/, '$1运行碎片地图'], //脚本地图设置
+    [/^(.*)Check complete for 5th map$/, '$1完成检查第五地图'], //脚本地图设置
+    [/^(.*)5th map bought$/, '$1第五地图已制造'], //脚本地图设置
+    [/^(.*)Check complete for 4th map$/, '$1完成检查第四地图'], //脚本地图设置
+    [/^(.*)4th map bought$/, '$1第四地图已制造'], //脚本地图设置
+    [/^(.*)Check complete for 3rd map$/, '$1完成检查第三地图'], //脚本地图设置
+    [/^(.*)3rd map bought$/, '$1第三地图已制造'], //脚本地图设置
+    [/^(.*)Check complete for 2nd map$/, '$1完成检查第二地图'], //脚本地图设置
+    [/^(.*)2nd map bought$/, '$1第二地图已制造'], //脚本地图设置
+    [/^(.*)Check complete for 1st map$/, '$1完成检查第一地图'], //脚本地图设置
+    [/^(.*)1st map bought$/, '$1第一地图已制造'], //脚本地图设置
+    [/^(.*)Failed to Prestige Raid. Looks like you can't afford to or have no equips to get!$/, '$1重铸袭劫失败。您可能碎片不足无法制造地图，或者是已经没有可获取的装备了！'], //脚本地图设置
+    [/^(.*)running map$/, '$1运行地图'], //脚本地图设置
+    [/^(.*)Check complete for insanity frag map$/, '$1完成检查失智碎片地图'], //脚本地图设置
+    [/^(.*)insanity frag map bought$/, '$1失智碎片地图已制造'], //脚本地图设置
+    [/^(.*)running insanity frag map$/, '$1运行失智碎片地图'], //脚本地图设置
+    [/^(.*)Check complete for ship frag map$/, '$1完成检查崇信者碎片地图'], //脚本地图设置
+    [/^(.*)ship frag map bought$/, '$1崇信者碎片地图已制造'], //脚本地图设置
+    [/^(.*)running ship frag map$/, '$1运行崇信者碎片地图'], //脚本地图设置
+    [/^(.*)Upgraded Empowerment of Ice$/, '$1升级了冰赋能'], //脚本自然设置
+    [/^(.*)Upgraded Empowerment of Poison$/, '$1升级了毒赋能'], //脚本自然设置
+    [/^(.*)Upgraded Empowerment of Wind$/, '$1升级了风赋能'], //脚本自然设置
+    [/^(.*)Upgraded Ice transfer rate$/, '$1升级了冰层数传递率'], //脚本自然设置
+    [/^(.*)Upgraded Poison transfer rate$/, '$1升级了毒层数传递率'], //脚本自然设置
+    [/^(.*)Upgraded Wind transfer rate$/, '$1升级了风层数传递率'], //脚本自然设置
+    [/^(.*)Converted Ice tokens to Poison$/, '$1将冰符记转换为毒符记'], //脚本自然设置
+    [/^(.*)Converted Ice tokens to Wind$/, '$1将冰符记转换为风符记'], //脚本自然设置
+    [/^(.*)Converted Poison tokens to Ice$/, '$1将毒符记转换为冰符记'], //脚本自然设置
+    [/^(.*)Converted Poison tokens to Wind$/, '$1将毒符记转换为风符记'], //脚本自然设置
+    [/^(.*)Converted Wind tokens to Ice$/, '$1将风符记转换为冰符记'], //脚本自然设置
+    [/^(.*)Converted Wind tokens to Poison$/, '$1将风符记转换为毒符记'], //脚本自然设置
+    [/^(.*)Activated Robotrimp MagnetoShriek Ability @ z$/, '$1脆皮机器人电磁尖啸激活于区域'], //脚本其他设置
+    [/^(.*)Beginning Prestige Raiding...$/, '$1开始重铸袭劫……'], //脚本其他设置
+    [/^(.*)Map Loop$/, '$1地图循环'], //脚本其他设置
+    [/^(.*)Failed to Prestige Raid. Looks like you can't afford to or you are too weak or you have limited yourself in a P\/I zone.$/, '$1重铸袭劫失败。您可能碎片不足无法制造地图，或者是太过于弱小，或者是设置了毒上限/冰上限并进入了相应的区域。'], //脚本其他设置
+    [/^(.*)Prestige raiding successful!$/, '$1重铸袭劫已成功完成！'], //脚本其他设置
+    [/^(.*)Turning AutoMaps back on$/, '$1重新启用自动地图'], //脚本其他设置
+    [/^(.*)Beginning Praiding$/, '$1开始重铸硬核袭劫'], //脚本其他设置
+    [/^(.*)Failed to prestige raid. Looks like you can't afford to.$/, '$1重铸袭劫失败。您可能碎片不足无法制造地图。'], //脚本其他设置
+    [/^(.*)Buying perfect sliders fragment farming map$/, '$1制造完美滑块的刷碎片地图'], //脚本其他设置
+    [/^(.*)Buying imperfect sliders fragment farming map$/, '$1制造非完美滑块的刷碎片地图'], //脚本其他设置
+    [/^(.*)Can't afford fragment farming map yet$/, '$1碎片不足，无法制造刷碎片地图'], //脚本其他设置
+    [/^(.*)Prestige raiding successful! - recycling Praid map$/, '$1重铸袭劫已成功完成！回收相应的袭劫地图'], //脚本其他设置
+    [/^(.*)Beginning BW Raiding...$/, '$1开始仿生袭劫……'], //脚本其他设置
+    [/^(.*)Failed to BW raid. Looks like you don't have a BW to raid...$/, '$1仿生袭劫失败。您还未获得仿生仙境地图……'], //脚本其他设置
+    [/^(.*)...Successfully BW raided!$/, '$1……仿生袭劫已成功完成！'], //脚本其他设置
+    [/^(.*)Beginning Daily BW Raiding...$/, '$1开始日常仿生袭劫……'], //脚本其他设置
+    [/^(.*)Failed to Daily BW raid. Looks like you don't have a BW to raid...$/, '$1日常仿生袭劫失败。您还未获得仿生仙境地图……'], //脚本其他设置
+    [/^(.*)...Successfully Daily BW raided!$/, '$1……日常仿生袭劫已成功完成！'], //脚本其他设置
+    [/^(.*)World Zone matches a Praiding Zone!$/, '$1世界区域满足重铸袭劫区域条件！'], //脚本其他设置
+    [/^(.*)Failed to prestige raid. Looks like you can't afford to..$/, '$1重铸袭劫失败。您可能碎片不足无法制造地图……'], //脚本其他设置
+    [/^(.*)World Zone matches a Daily Praiding Zone!$/, '$1世界区域满足日常重铸袭劫区域条件！'], //脚本其他设置
+    [/^(.*)Beginning Daily Prestige Raiding...$/, '$1开始日常重铸袭劫……'], //脚本其他设置
+    [/^(.*)Failed to Daily Prestige Raid. Looks like you can't afford to..$/, '$1日常重铸袭劫失败。您可能碎片不足无法制造地图……'], //脚本其他设置
+    [/^(.*)Daily Prestige Raiding successful! - recycling Praid map$/, '$1日常重铸袭劫已成功完成！回收相应的袭劫地图'], //脚本其他设置
+    [/^Current Status: Farming for Spire (.*)h left$/, '当前状态：尖塔前刷资源，剩余$1小时'], //脚本挂机设置
+    [/^Current Status: Farming for Spire (.*)m:(.*)s left$/, '当前状态：尖塔前刷资源，剩余$1分$2秒'], //脚本挂机设置
+    [/^Current Status: Void Maps: (\d*) remaining$/, '当前状态：虚空地图：剩余$1'], //脚本挂机设置
+    [/^Current Status: Void Maps: (\d*) \((\d*) stacked\) remaining$/, '当前状态：虚空地图：剩余$1(融合后有$2)'], //脚本挂机设置
+    [/^Current Status: Farming: (.*)x$/, '当前状态：刷资源：生命伤害比$1'], //脚本地图设置
+    [/^Current Status: Want (.*)x(\s*)more damage$/, '当前状态：需要更多伤害，倍数为$1'], //脚本地图设置
+    [/^(.*)AutoPerks: Your existing fixed-perks reserve Helium$/, '$1自动特权：当前不修改特权总共花费氦数量'], //脚本自动特权设置
+    [/^(.*)AutoPerks: Major Error: Make sure all ratios are set properly.$/, '$1自动特权：错误：请确保所有比例设置合理。'], //脚本自动特权设置
+    [/^(.*)AutoPerks: Auto-Allocate Finished.$/, '$1自动特权：自动分配完毕。'], //脚本自动特权设置
+    [/^(.*)Beginning AutoPerks1 calculate how to spend (.*) Helium... This could take a while...$/, '$1自动特权1开始计算如何分配$2氦……可能要花费一些时间……'], //脚本自动特权设置
+    [/^(.*)AutoPerks: Major Error - Not enough helium to buy fixed perks.$/, '$1自动特权：错误：氦不足以购买不修改特权。'], //脚本自动特权设置
+    [/^(.*)Perk ratios must be positive values.$/, '$1特权比例必须为正数。'], //脚本自动特权设置
+    [/^(.*)All Perk Ratios were 0, or some other error.$/, '$1所有特权比例都为0，或者是有其他错误。'], //脚本自动特权设置
+    [/^(.*)AutoPerks1: Pass One Complete. Loops ran$/, '$1自动特权1：第一阶段完成。循环次数'], //脚本自动特权设置
+    [/^(.*)AutoPerks1: Dump Perk Looting level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权1：主加特权劫掠，主加后特权等级：$2，花费：$3氦。'], //脚本自动特权设置
+    [/^(.*)AutoPerks1: Dump Perk Toughness level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权1：主加特权坚韧，主加后特权等级：$2，花费：$3氦。'], //脚本自动特权设置
+    [/^(.*)AutoPerks1: Dump Perk Power level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权1：主加特权力量，主加后特权等级：$2，花费：$3氦。'], //脚本自动特权设置
+    [/^(.*)AutoPerks1: Dump Perk Motivation level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权1：主加特权鼓舞，主加后特权等级：$2，花费：$3氦。'], //脚本自动特权设置
+    [/^(.*)AutoPerks1: Dump Perk Pheromones level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权1：主加特权信息素，主加后特权等级：$2，花费：$3氦。'], //脚本自动特权设置
+    [/^(.*)AutoPerks1: Dump Perk Artisanistry level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权1：主加特权手艺娴熟，主加后特权等级：$2，花费：$3氦。'], //脚本自动特权设置
+    [/^(.*)AutoPerks1: Dump Perk Carpentry level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权1：主加特权木工，主加后特权等级：$2，花费：$3氦。'], //脚本自动特权设置
+    [/^(.*)AutoPerks1: Dump Perk Resilience level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权1：主加特权弹性，主加后特权等级：$2，花费：$3氦。'], //脚本自动特权设置
+    [/^(.*)AutoPerks1: Dump Perk Coordinated level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权1：主加特权协同，主加后特权等级：$2，花费：$3氦。'], //脚本自动特权设置
+    [/^(.*)AutoPerks1: Dump Perk Resourceful level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权1：主加特权足智多谋，主加后特权等级：$2，花费：$3氦。'], //脚本自动特权设置
+    [/^(.*)AutoPerks1: Dump Perk Overkill level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权1：主加特权超杀，主加后特权等级：$2，花费：$3氦。'], //脚本自动特权设置
+    [/^(.*)AutoPerks1: Dump Perk Cunning level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权1：主加特权灵巧，主加后特权等级：$2，花费：$3氦。'], //脚本自动特权设置
+    [/^(.*)AutoPerks1: Dump Perk Curious level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权1：主加特权好奇，主加后特权等级：$2，花费：$3氦。'], //脚本自动特权设置
+    [/^(.*)AutoPerks1: Dump Perk Classy level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权1：主加特权上等，主加后特权等级：$2，花费：$3氦。'], //脚本自动特权设置
+    [/^(.*)AutoPerks1: Dump Perk Toughness_II level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权1：主加特权坚韧 II，主加后特权等级：$2，花费：$3氦。'], //脚本自动特权设置
+    [/^(.*)AutoPerks1: Dump Perk Power_II level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权1：主加特权力量 II，主加后特权等级：$2，花费：$3氦。'], //脚本自动特权设置
+    [/^(.*)AutoPerks1: Dump Perk Motivation_II level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权1：主加特权鼓舞 II，主加后特权等级：$2，花费：$3氦。'], //脚本自动特权设置
+    [/^(.*)AutoPerks1: Dump Perk Carpentry_II level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权1：主加特权木工 II，主加后特权等级：$2，花费：$3氦。'], //脚本自动特权设置
+    [/^(.*)AutoPerks1: Dump Perk Looting_II level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权1：主加特权劫掠 II，主加后特权等级：$2，花费：$3氦。'], //脚本自动特权设置
+    [/^(.*)AutoPerks1: Pass two complete. Round 2 cleanup spend of $/, '$1自动特权1：第二阶段完成。第二阶段花费'], //脚本自动特权设置
+    [/^(.*)Beginning AutoPerks2 calculate how to spend (.*) Helium... This could take a while...$/, '$1自动特权2开始计算如何分配$2氦……可能要花费一些时间……'], //脚本自动特权设置
+    [/^(.*)AutoPerks2: Pass One Complete. Loops ran$/, '$1自动特权2：第一阶段完成。循环次数'], //脚本自动特权设置
+    [/^(.*)AutoPerks2: Dump Perk Looting level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权2：主加特权劫掠，主加后特权等级：$2，花费：$3氦。'], //脚本自动特权设置
+    [/^(.*)AutoPerks2: Dump Perk Toughness level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权2：主加特权坚韧，主加后特权等级：$2，花费：$3氦。'], //脚本自动特权设置
+    [/^(.*)AutoPerks2: Dump Perk Power level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权2：主加特权力量，主加后特权等级：$2，花费：$3氦。'], //脚本自动特权设置
+    [/^(.*)AutoPerks2: Dump Perk Motivation level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权2：主加特权鼓舞，主加后特权等级：$2，花费：$3氦。'], //脚本自动特权设置
+    [/^(.*)AutoPerks2: Dump Perk Pheromones level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权2：主加特权信息素，主加后特权等级：$2，花费：$3氦。'], //脚本自动特权设置
+    [/^(.*)AutoPerks2: Dump Perk Artisanistry level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权2：主加特权手艺娴熟，主加后特权等级：$2，花费：$3氦。'], //脚本自动特权设置
+    [/^(.*)AutoPerks2: Dump Perk Carpentry level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权2：主加特权木工，主加后特权等级：$2，花费：$3氦。'], //脚本自动特权设置
+    [/^(.*)AutoPerks2: Dump Perk Resilience level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权2：主加特权弹性，主加后特权等级：$2，花费：$3氦。'], //脚本自动特权设置
+    [/^(.*)AutoPerks2: Dump Perk Coordinated level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权2：主加特权协同，主加后特权等级：$2，花费：$3氦。'], //脚本自动特权设置
+    [/^(.*)AutoPerks2: Dump Perk Resourceful level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权2：主加特权足智多谋，主加后特权等级：$2，花费：$3氦。'], //脚本自动特权设置
+    [/^(.*)AutoPerks2: Dump Perk Overkill level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权2：主加特权超杀，主加后特权等级：$2，花费：$3氦。'], //脚本自动特权设置
+    [/^(.*)AutoPerks2: Dump Perk Cunning level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权2：主加特权灵巧，主加后特权等级：$2，花费：$3氦。'], //脚本自动特权设置
+    [/^(.*)AutoPerks2: Dump Perk Curious level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权2：主加特权好奇，主加后特权等级：$2，花费：$3氦。'], //脚本自动特权设置
+    [/^(.*)AutoPerks2: Dump Perk Classy level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权2：主加特权上等，主加后特权等级：$2，花费：$3氦。'], //脚本自动特权设置
+    [/^(.*)AutoPerks2: Dump Perk Toughness_II level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权2：主加特权坚韧 II，主加后特权等级：$2，花费：$3氦。'], //脚本自动特权设置
+    [/^(.*)AutoPerks2: Dump Perk Power_II level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权2：主加特权力量 II，主加后特权等级：$2，花费：$3氦。'], //脚本自动特权设置
+    [/^(.*)AutoPerks2: Dump Perk Motivation_II level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权2：主加特权鼓舞 II，主加后特权等级：$2，花费：$3氦。'], //脚本自动特权设置
+    [/^(.*)AutoPerks2: Dump Perk Carpentry_II level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权2：主加特权木工 II，主加后特权等级：$2，花费：$3氦。'], //脚本自动特权设置
+    [/^(.*)AutoPerks2: Dump Perk Looting_II level post-dump: (.*) Helium Dumped: (.*) He.$/, '$1自动特权2：主加特权劫掠 II，主加后特权等级：$2，花费：$3氦。'], //脚本自动特权设置
+    [/^(.*)AutoPerks2: Pass Two Complete. Cleanup Spent Any Leftover Helium: (.*) He.$/, '$1自动特权2：第二阶段完成。花费了剩余的$2氦。'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Buying: Siphonology$/, '$1自动特权-洗点后购买：虹吸学'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Buying: Anticipation$/, '$1自动特权-洗点后购买：预期'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Buying: Meditation$/, '$1自动特权-洗点后购买：冥想'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Buying: Relentlessness$/, '$1自动特权-洗点后购买：无情'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Buying: Range$/, '$1自动特权-洗点后购买：范围'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Buying: Agility$/, '$1自动特权-洗点后购买：敏捷'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Buying: Bait$/, '$1自动特权-洗点后购买：诱饵'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Buying: Trumps$/, '$1自动特权-洗点后购买：王牌'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Buying: Packrat$/, '$1自动特权-洗点后购买：囤积成瘾'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Buying: Looting$/, '$1自动特权-洗点后购买：劫掠'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Buying: Toughness$/, '$1自动特权-洗点后购买：坚韧'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Buying: Power$/, '$1自动特权-洗点后购买：力量'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Buying: Motivation$/, '$1自动特权-洗点后购买：鼓舞'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Buying: Pheromones$/, '$1自动特权-洗点后购买：信息素'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Buying: Artisanistry$/, '$1自动特权-洗点后购买：手艺娴熟'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Buying: Carpentry$/, '$1自动特权-洗点后购买：木工'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Buying: Resilience$/, '$1自动特权-洗点后购买：弹性'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Buying: Coordinated$/, '$1自动特权-洗点后购买：协同'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Buying: Resourceful$/, '$1自动特权-洗点后购买：足智多谋'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Buying: Overkill$/, '$1自动特权-洗点后购买：超杀'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Buying: Capable$/, '$1自动特权-洗点后购买：能力'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Buying: Cunning$/, '$1自动特权-洗点后购买：灵巧'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Buying: Curious$/, '$1自动特权-洗点后购买：好奇'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Buying: Classy$/, '$1自动特权-洗点后购买：上等'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Buying: Toughness_II$/, '$1自动特权-洗点后购买：坚韧 II'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Buying: Power_II$/, '$1自动特权-洗点后购买：力量 II'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Buying: Motivation_II$/, '$1自动特权-洗点后购买：鼓舞 II'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Buying: Carpentry_II$/, '$1自动特权-洗点后购买：木工 II'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Buying: Looting_II$/, '$1自动特权-洗点后购买：劫掠 II'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Siphonology$/, '$1自动特权-洗点错误，氦不足以购买特权：虹吸学'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Anticipation$/, '$1自动特权-洗点错误，氦不足以购买特权：预期'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Meditation$/, '$1自动特权-洗点错误，氦不足以购买特权：冥想'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Relentlessness$/, '$1自动特权-洗点错误，氦不足以购买特权：无情'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Range$/, '$1自动特权-洗点错误，氦不足以购买特权：范围'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Agility$/, '$1自动特权-洗点错误，氦不足以购买特权：敏捷'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Bait$/, '$1自动特权-洗点错误，氦不足以购买特权：诱饵'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Trumps$/, '$1自动特权-洗点错误，氦不足以购买特权：王牌'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Packrat$/, '$1自动特权-洗点错误，氦不足以购买特权：囤积成瘾'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Looting$/, '$1自动特权-洗点错误，氦不足以购买特权：劫掠'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Toughness$/, '$1自动特权-洗点错误，氦不足以购买特权：坚韧'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Power$/, '$1自动特权-洗点错误，氦不足以购买特权：力量'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Motivation$/, '$1自动特权-洗点错误，氦不足以购买特权：鼓舞'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Pheromones$/, '$1自动特权-洗点错误，氦不足以购买特权：信息素'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Artisanistry$/, '$1自动特权-洗点错误，氦不足以购买特权：手艺娴熟'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Carpentry$/, '$1自动特权-洗点错误，氦不足以购买特权：木工'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Resilience$/, '$1自动特权-洗点错误，氦不足以购买特权：弹性'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Coordinated$/, '$1自动特权-洗点错误，氦不足以购买特权：协同'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Resourceful$/, '$1自动特权-洗点错误，氦不足以购买特权：足智多谋'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Overkill$/, '$1自动特权-洗点错误，氦不足以购买特权：超杀'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Cunning$/, '$1自动特权-洗点错误，氦不足以购买特权：灵巧'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Curious$/, '$1自动特权-洗点错误，氦不足以购买特权：好奇'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Classy$/, '$1自动特权-洗点错误，氦不足以购买特权：上等'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Toughness_II$/, '$1自动特权-洗点错误，氦不足以购买特权：坚韧 II'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Power_II$/, '$1自动特权-洗点错误，氦不足以购买特权：力量 II'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Motivation_II$/, '$1自动特权-洗点错误，氦不足以购买特权：鼓舞 II'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Carpentry_II$/, '$1自动特权-洗点错误，氦不足以购买特权：木工 II'], //脚本自动特权设置
+    [/^(.*)AutoPerks-Respec Error Couldn't Afford Asked Perk: Looting_II$/, '$1自动特权-洗点错误，氦不足以购买特权：劫掠 II'], //脚本自动特权设置
+    [/^(.*)A Respec would be required and is not available. You used it already, try again next portal.$/, '$1需要洗点才可以进行自动分配特权，但您已经洗点过了，请在下次传送后再重试。'], //脚本自动特权设置
+    [/^(.*)AutoPerks RESPEC Required for: Siphonology$/, '$1自动特权需要洗点特权：虹吸学'], //脚本自动特权设置
+    [/^(.*)AutoPerks RESPEC Required for: Anticipation$/, '$1自动特权需要洗点特权：预期'], //脚本自动特权设置
+    [/^(.*)AutoPerks RESPEC Required for: Meditation$/, '$1自动特权需要洗点特权：冥想'], //脚本自动特权设置
+    [/^(.*)AutoPerks RESPEC Required for: Relentlessness$/, '$1自动特权需要洗点特权：无情'], //脚本自动特权设置
+    [/^(.*)AutoPerks RESPEC Required for: Range$/, '$1自动特权需要洗点特权：范围'], //脚本自动特权设置
+    [/^(.*)AutoPerks RESPEC Required for: Agility$/, '$1自动特权需要洗点特权：敏捷'], //脚本自动特权设置
+    [/^(.*)AutoPerks RESPEC Required for: Bait$/, '$1自动特权需要洗点特权：诱饵'], //脚本自动特权设置
+    [/^(.*)AutoPerks RESPEC Required for: Trumps$/, '$1自动特权需要洗点特权：王牌'], //脚本自动特权设置
+    [/^(.*)AutoPerks RESPEC Required for: Packrat$/, '$1自动特权需要洗点特权：囤积成瘾'], //脚本自动特权设置
+    [/^(.*)AutoPerks RESPEC Required for: Looting$/, '$1自动特权需要洗点特权：劫掠'], //脚本自动特权设置
+    [/^(.*)AutoPerks RESPEC Required for: Toughness$/, '$1自动特权需要洗点特权：坚韧'], //脚本自动特权设置
+    [/^(.*)AutoPerks RESPEC Required for: Power$/, '$1自动特权需要洗点特权：力量'], //脚本自动特权设置
+    [/^(.*)AutoPerks RESPEC Required for: Motivation$/, '$1自动特权需要洗点特权：鼓舞'], //脚本自动特权设置
+    [/^(.*)AutoPerks RESPEC Required for: Pheromones$/, '$1自动特权需要洗点特权：信息素'], //脚本自动特权设置
+    [/^(.*)AutoPerks RESPEC Required for: Artisanistry$/, '$1自动特权需要洗点特权：手艺娴熟'], //脚本自动特权设置
+    [/^(.*)AutoPerks RESPEC Required for: Carpentry$/, '$1自动特权需要洗点特权：木工'], //脚本自动特权设置
+    [/^(.*)AutoPerks RESPEC Required for: Resilience$/, '$1自动特权需要洗点特权：弹性'], //脚本自动特权设置
+    [/^(.*)AutoPerks RESPEC Required for: Coordinated$/, '$1自动特权需要洗点特权：协同'], //脚本自动特权设置
+    [/^(.*)AutoPerks RESPEC Required for: Resourceful$/, '$1自动特权需要洗点特权：足智多谋'], //脚本自动特权设置
+    [/^(.*)AutoPerks RESPEC Required for: Overkill$/, '$1自动特权需要洗点特权：超杀'], //脚本自动特权设置
+    [/^(.*)AutoPerks RESPEC Required for: Cunning$/, '$1自动特权需要洗点特权：灵巧'], //脚本自动特权设置
+    [/^(.*)AutoPerks RESPEC Required for: Curious$/, '$1自动特权需要洗点特权：好奇'], //脚本自动特权设置
+    [/^(.*)AutoPerks RESPEC Required for: Classy$/, '$1自动特权需要洗点特权：上等'], //脚本自动特权设置
+    [/^(.*)AutoPerks RESPEC Required for: Toughness_II$/, '$1自动特权需要洗点特权：坚韧 II'], //脚本自动特权设置
+    [/^(.*)AutoPerks RESPEC Required for: Power_II$/, '$1自动特权需要洗点特权：力量 II'], //脚本自动特权设置
+    [/^(.*)AutoPerks RESPEC Required for: Motivation_II$/, '$1自动特权需要洗点特权：鼓舞 II'], //脚本自动特权设置
+    [/^(.*)AutoPerks RESPEC Required for: Carpentry_II$/, '$1自动特权需要洗点特权：木工 II'], //脚本自动特权设置
+    [/^(.*)AutoPerks RESPEC Required for: Looting_II$/, '$1自动特权需要洗点特权：劫掠 II'], //脚本自动特权设置
+    [/^(.*)AutoPerks-NoRespec Adding: Siphonology$/, '$1自动特权-无洗点提升：虹吸学'], //脚本自动特权设置
+    [/^(.*)AutoPerks-NoRespec Adding: Anticipation$/, '$1自动特权-无洗点提升：预期'], //脚本自动特权设置
+    [/^(.*)AutoPerks-NoRespec Adding: Meditation$/, '$1自动特权-无洗点提升：冥想'], //脚本自动特权设置
+    [/^(.*)AutoPerks-NoRespec Adding: Relentlessness$/, '$1自动特权-无洗点提升：无情'], //脚本自动特权设置
+    [/^(.*)AutoPerks-NoRespec Adding: Range$/, '$1自动特权-无洗点提升：范围'], //脚本自动特权设置
+    [/^(.*)AutoPerks-NoRespec Adding: Agility$/, '$1自动特权-无洗点提升：敏捷'], //脚本自动特权设置
+    [/^(.*)AutoPerks-NoRespec Adding: Bait$/, '$1自动特权-无洗点提升：诱饵'], //脚本自动特权设置
+    [/^(.*)AutoPerks-NoRespec Adding: Trumps$/, '$1自动特权-无洗点提升：王牌'], //脚本自动特权设置
+    [/^(.*)AutoPerks-NoRespec Adding: Packrat$/, '$1自动特权-无洗点提升：囤积成瘾'], //脚本自动特权设置
+    [/^(.*)AutoPerks-NoRespec Adding: Looting$/, '$1自动特权-无洗点提升：劫掠'], //脚本自动特权设置
+    [/^(.*)AutoPerks-NoRespec Adding: Toughness$/, '$1自动特权-无洗点提升：坚韧'], //脚本自动特权设置
+    [/^(.*)AutoPerks-NoRespec Adding: Power$/, '$1自动特权-无洗点提升：力量'], //脚本自动特权设置
+    [/^(.*)AutoPerks-NoRespec Adding: Motivation$/, '$1自动特权-无洗点提升：鼓舞'], //脚本自动特权设置
+    [/^(.*)AutoPerks-NoRespec Adding: Pheromones$/, '$1自动特权-无洗点提升：信息素'], //脚本自动特权设置
+    [/^(.*)AutoPerks-NoRespec Adding: Artisanistry$/, '$1自动特权-无洗点提升：手艺娴熟'], //脚本自动特权设置
+    [/^(.*)AutoPerks-NoRespec Adding: Carpentry$/, '$1自动特权-无洗点提升：木工'], //脚本自动特权设置
+    [/^(.*)AutoPerks-NoRespec Adding: Resilience$/, '$1自动特权-无洗点提升：弹性'], //脚本自动特权设置
+    [/^(.*)AutoPerks-NoRespec Adding: Coordinated$/, '$1自动特权-无洗点提升：协同'], //脚本自动特权设置
+    [/^(.*)AutoPerks-NoRespec Adding: Resourceful$/, '$1自动特权-无洗点提升：足智多谋'], //脚本自动特权设置
+    [/^(.*)AutoPerks-NoRespec Adding: Overkill$/, '$1自动特权-无洗点提升：超杀'], //脚本自动特权设置
+    [/^(.*)AutoPerks-NoRespec Adding: Cunning$/, '$1自动特权-无洗点提升：灵巧'], //脚本自动特权设置
+    [/^(.*)AutoPerks-NoRespec Adding: Curious$/, '$1自动特权-无洗点提升：好奇'], //脚本自动特权设置
+    [/^(.*)AutoPerks-NoRespec Adding: Classy$/, '$1自动特权-无洗点提升：上等'], //脚本自动特权设置
+    [/^(.*)AutoPerks-NoRespec Adding: Toughness_II$/, '$1自动特权-无洗点提升：坚韧 II'], //脚本自动特权设置
+    [/^(.*)AutoPerks-NoRespec Adding: Power_II$/, '$1自动特权-无洗点提升：力量 II'], //脚本自动特权设置
+    [/^(.*)AutoPerks-NoRespec Adding: Motivation_II$/, '$1自动特权-无洗点提升：鼓舞 II'], //脚本自动特权设置
+    [/^(.*)AutoPerks-NoRespec Adding: Carpentry_II$/, '$1自动特权-无洗点提升：木工 II'], //脚本自动特权设置
+    [/^(.*)AutoPerks-NoRespec Adding: Looting_II$/, '$1自动特权-无洗点提升：劫掠 II'], //脚本自动特权设置
+    [/^(.*)AutoPerks - A Respec is required. Trying respec...$/, '$1自动特权-需要洗点。尝试洗点中……'], //脚本自动特权设置
+    [/^(.*)RAutoPerks: Your existing fixed-perks reserve Radon$/, '$1宇宙2自动特权：当前不修改特权总共花费氡数量'], //脚本自动特权设置
+    [/^(.*)RAutoPerks: Major Error: Make sure all ratios are set properly.$/, '$1宇宙2自动特权：错误：请确保所有比例设置合理。'], //脚本自动特权设置
+    [/^(.*)RAutoPerks: Auto-Allocate Finished.$/, '$1宇宙2自动特权：自动分配完毕。'], //脚本自动特权设置
+    [/^(.*)Beginning RAutoPerks1 calculate how to spend (.*) Radon... This could take a while...$/, '$1宇宙2自动特权1开始计算如何分配$2氡……可能要花费一些时间……'], //脚本自动特权设置
+    [/^(.*)RAutoPerks: Major Error - Not enough radon to buy fixed perks.$/, '$1宇宙2自动特权：错误：氡不足以购买不修改特权。'], //脚本自动特权设置
+    [/^(.*)RAutoPerks1: Pass One Complete. Loops ran$/, '$1宇宙2自动特权1：第一阶段完成。循环次数'], //脚本自动特权设置
+    [/^(.*)RAutoPerks1: Dump Perk Looting level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权1：主加特权劫掠，主加后特权等级：$2，花费：$3氡。'], //脚本自动特权设置
+    [/^(.*)RAutoPerks1: Dump Perk Toughness level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权1：主加特权坚韧，主加后特权等级：$2，花费：$3氡。'], //脚本自动特权设置
+    [/^(.*)RAutoPerks1: Dump Perk Power level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权1：主加特权力量，主加后特权等级：$2，花费：$3氡。'], //脚本自动特权设置
+    [/^(.*)RAutoPerks1: Dump Perk Motivation level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权1：主加特权鼓舞，主加后特权等级：$2，花费：$3氡。'], //脚本自动特权设置
+    [/^(.*)RAutoPerks1: Dump Perk Pheromones level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权1：主加特权信息素，主加后特权等级：$2，花费：$3氡。'], //脚本自动特权设置
+    [/^(.*)RAutoPerks1: Dump Perk Artisanistry level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权1：主加特权手艺娴熟，主加后特权等级：$2，花费：$3氡。'], //脚本自动特权设置
+    [/^(.*)RAutoPerks1: Dump Perk Carpentry level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权1：主加特权木工，主加后特权等级：$2，花费：$3氡。'], //脚本自动特权设置
+    [/^(.*)RAutoPerks1: Dump Perk Prismal level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权1：主加特权棱镜化，主加后特权等级：$2，花费：$3氡。'], //脚本自动特权设置
+    [/^(.*)RAutoPerks1: Dump Perk Equality level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权1：主加特权平等，主加后特权等级：$2，花费：$3氡。'], //脚本自动特权设置
+    [/^(.*)RAutoPerks1: Dump Perk Criticality level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权1：主加特权暴击限界，主加后特权等级：$2，花费：$3氡。'], //脚本自动特权设置
+    [/^(.*)RAutoPerks1: Dump Perk Resilience level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权1：主加特权弹性，主加后特权等级：$2，花费：$3氡。'], //脚本自动特权设置
+    [/^(.*)RAutoPerks1: Dump Perk Tenacity level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权1：主加特权坚持，主加后特权等级：$2，花费：$3氡。'], //脚本自动特权设置
+    [/^(.*)RAutoPerks1: Pass two complete. Round 2 cleanup spend of $/, '$1宇宙2自动特权1：第二阶段完成。第二阶段花费'], //脚本自动特权设置
+    [/^(.*)Beginning RAutoPerks2 calculate how to spend (.*) Radon... This could take a while...$/, '$1宇宙2自动特权2开始计算如何分配$2氡……可能要花费一些时间……'], //脚本自动特权设置
+    [/^(.*)RAutoPerks2: Pass One Complete. Loops ran$/, '$1宇宙2自动特权2：第一阶段完成。循环次数'], //脚本自动特权设置
+    [/^(.*)RAutoPerks2: Dump Perk Looting level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权2：主加特权劫掠，主加后特权等级：$2，花费：$3氡。'], //脚本自动特权设置
+    [/^(.*)RAutoPerks2: Dump Perk Toughness level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权2：主加特权坚韧，主加后特权等级：$2，花费：$3氡。'], //脚本自动特权设置
+    [/^(.*)RAutoPerks2: Dump Perk Power level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权2：主加特权力量，主加后特权等级：$2，花费：$3氡。'], //脚本自动特权设置
+    [/^(.*)RAutoPerks2: Dump Perk Motivation level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权2：主加特权鼓舞，主加后特权等级：$2，花费：$3氡。'], //脚本自动特权设置
+    [/^(.*)RAutoPerks2: Dump Perk Pheromones level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权2：主加特权信息素，主加后特权等级：$2，花费：$3氡。'], //脚本自动特权设置
+    [/^(.*)RAutoPerks2: Dump Perk Artisanistry level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权2：主加特权手艺娴熟，主加后特权等级：$2，花费：$3氡。'], //脚本自动特权设置
+    [/^(.*)RAutoPerks2: Dump Perk Carpentry level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权2：主加特权木工，主加后特权等级：$2，花费：$3氡。'], //脚本自动特权设置
+    [/^(.*)RAutoPerks2: Dump Perk Prismal level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权2：主加特权棱镜化，主加后特权等级：$2，花费：$3氡。'], //脚本自动特权设置
+    [/^(.*)RAutoPerks2: Dump Perk Equality level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权2：主加特权平等，主加后特权等级：$2，花费：$3氡。'], //脚本自动特权设置
+    [/^(.*)RAutoPerks2: Dump Perk Criticality level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权2：主加特权暴击限界，主加后特权等级：$2，花费：$3氡。'], //脚本自动特权设置
+    [/^(.*)RAutoPerks2: Dump Perk Resilience level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权2：主加特权弹性，主加后特权等级：$2，花费：$3氡。'], //脚本自动特权设置
+    [/^(.*)RAutoPerks2: Dump Perk Tenacity level post-dump: (.*) Radon Dumped: (.*) Rn.$/, '$1宇宙2自动特权2：主加特权坚持，主加后特权等级：$2，花费：$3氡。'], //脚本自动特权设置
+    [/^(.*)RAutoPerks2: Pass Two Complete. Cleanup Spent Any Leftover Radon: (.*) He.$/, '$1宇宙2自动特权2：第二阶段完成。花费了剩余的$2氡。'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-Respec Buying: Range$/, '$1宇宙2自动特权-洗点后购买：范围'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-Respec Buying: Agility$/, '$1宇宙2自动特权-洗点后购买：敏捷'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-Respec Buying: Bait$/, '$1宇宙2自动特权-洗点后购买：诱饵'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-Respec Buying: Trumps$/, '$1宇宙2自动特权-洗点后购买：王牌'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-Respec Buying: Packrat$/, '$1宇宙2自动特权-洗点后购买：囤积成瘾'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-Respec Buying: Overkill$/, '$1宇宙2自动特权-洗点后购买：超杀'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-Respec Buying: Looting$/, '$1宇宙2自动特权-洗点后购买：劫掠'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-Respec Buying: Toughness$/, '$1宇宙2自动特权-洗点后购买：坚韧'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-Respec Buying: Power$/, '$1宇宙2自动特权-洗点后购买：力量'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-Respec Buying: Motivation$/, '$1宇宙2自动特权-洗点后购买：鼓舞'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-Respec Buying: Pheromones$/, '$1宇宙2自动特权-洗点后购买：信息素'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-Respec Buying: Artisanistry$/, '$1宇宙2自动特权-洗点后购买：手艺娴熟'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-Respec Buying: Carpentry$/, '$1宇宙2自动特权-洗点后购买：木工'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-Respec Buying: Prismal$/, '$1宇宙2自动特权-洗点后购买：棱镜化'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-Respec Buying: Equality$/, '$1宇宙2自动特权-洗点后购买：平等'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-Respec Buying: Criticality$/, '$1宇宙2自动特权-洗点后购买：暴击限界'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-Respec Buying: Resilience$/, '$1宇宙2自动特权-洗点后购买：弹性'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-Respec Buying: Tenacity$/, '$1宇宙2自动特权-洗点后购买：坚持'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-Respec Buying: Greed$/, '$1宇宙2自动特权-洗点后购买：贪婪'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-Respec Error Couldn't Afford Asked Perk: Range$/, '$1宇宙2自动特权-洗点错误，氡不足以购买特权：范围'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-Respec Error Couldn't Afford Asked Perk: Agility$/, '$1宇宙2自动特权-洗点错误，氡不足以购买特权：敏捷'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-Respec Error Couldn't Afford Asked Perk: Bait$/, '$1宇宙2自动特权-洗点错误，氡不足以购买特权：诱饵'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-Respec Error Couldn't Afford Asked Perk: Trumps$/, '$1宇宙2自动特权-洗点错误，氡不足以购买特权：王牌'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-Respec Error Couldn't Afford Asked Perk: Packrat$/, '$1宇宙2自动特权-洗点错误，氡不足以购买特权：囤积成瘾'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-Respec Error Couldn't Afford Asked Perk: Overkill$/, '$1宇宙2自动特权-洗点错误，氡不足以购买特权：超杀'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-Respec Error Couldn't Afford Asked Perk: Looting$/, '$1宇宙2自动特权-洗点错误，氡不足以购买特权：劫掠'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-Respec Error Couldn't Afford Asked Perk: Toughness$/, '$1宇宙2自动特权-洗点错误，氡不足以购买特权：坚韧'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-Respec Error Couldn't Afford Asked Perk: Power$/, '$1宇宙2自动特权-洗点错误，氡不足以购买特权：力量'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-Respec Error Couldn't Afford Asked Perk: Motivation$/, '$1宇宙2自动特权-洗点错误，氡不足以购买特权：鼓舞'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-Respec Error Couldn't Afford Asked Perk: Pheromones$/, '$1宇宙2自动特权-洗点错误，氡不足以购买特权：信息素'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-Respec Error Couldn't Afford Asked Perk: Artisanistry$/, '$1宇宙2自动特权-洗点错误，氡不足以购买特权：手艺娴熟'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-Respec Error Couldn't Afford Asked Perk: Carpentry$/, '$1宇宙2自动特权-洗点错误，氡不足以购买特权：木工'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-Respec Error Couldn't Afford Asked Perk: Prismal$/, '$1宇宙2自动特权-洗点错误，氡不足以购买特权：棱镜化'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-Respec Error Couldn't Afford Asked Perk: Equality$/, '$1宇宙2自动特权-洗点错误，氡不足以购买特权：平等'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-Respec Error Couldn't Afford Asked Perk: Criticality$/, '$1宇宙2自动特权-洗点错误，氡不足以购买特权：暴击限界'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-Respec Error Couldn't Afford Asked Perk: Resilience$/, '$1宇宙2自动特权-洗点错误，氡不足以购买特权：弹性'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-Respec Error Couldn't Afford Asked Perk: Tenacity$/, '$1宇宙2自动特权-洗点错误，氡不足以购买特权：坚持'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-Respec Error Couldn't Afford Asked Perk: Greed$/, '$1宇宙2自动特权-洗点错误，氡不足以购买特权：贪婪'], //脚本自动特权设置
+    [/^(.*)RAutoPerks RESPEC Required for: Range$/, '$1宇宙2自动特权需要洗点特权：范围'], //脚本自动特权设置
+    [/^(.*)RAutoPerks RESPEC Required for: Agility$/, '$1宇宙2自动特权需要洗点特权：敏捷'], //脚本自动特权设置
+    [/^(.*)RAutoPerks RESPEC Required for: Bait$/, '$1宇宙2自动特权需要洗点特权：诱饵'], //脚本自动特权设置
+    [/^(.*)RAutoPerks RESPEC Required for: Trumps$/, '$1宇宙2自动特权需要洗点特权：王牌'], //脚本自动特权设置
+    [/^(.*)RAutoPerks RESPEC Required for: Packrat$/, '$1宇宙2自动特权需要洗点特权：囤积成瘾'], //脚本自动特权设置
+    [/^(.*)RAutoPerks RESPEC Required for: Overkill$/, '$1宇宙2自动特权需要洗点特权：超杀'], //脚本自动特权设置
+    [/^(.*)RAutoPerks RESPEC Required for: Looting$/, '$1宇宙2自动特权需要洗点特权：劫掠'], //脚本自动特权设置
+    [/^(.*)RAutoPerks RESPEC Required for: Toughness$/, '$1宇宙2自动特权需要洗点特权：坚韧'], //脚本自动特权设置
+    [/^(.*)RAutoPerks RESPEC Required for: Power$/, '$1宇宙2自动特权需要洗点特权：力量'], //脚本自动特权设置
+    [/^(.*)RAutoPerks RESPEC Required for: Motivation$/, '$1宇宙2自动特权需要洗点特权：鼓舞'], //脚本自动特权设置
+    [/^(.*)RAutoPerks RESPEC Required for: Pheromones$/, '$1宇宙2自动特权需要洗点特权：信息素'], //脚本自动特权设置
+    [/^(.*)RAutoPerks RESPEC Required for: Artisanistry$/, '$1宇宙2自动特权需要洗点特权：手艺娴熟'], //脚本自动特权设置
+    [/^(.*)RAutoPerks RESPEC Required for: Carpentry$/, '$1宇宙2自动特权需要洗点特权：木工'], //脚本自动特权设置
+    [/^(.*)RAutoPerks RESPEC Required for: Prismal$/, '$1宇宙2自动特权需要洗点特权：棱镜化'], //脚本自动特权设置
+    [/^(.*)RAutoPerks RESPEC Required for: Equality$/, '$1宇宙2自动特权需要洗点特权：平等'], //脚本自动特权设置
+    [/^(.*)RAutoPerks RESPEC Required for: Criticality$/, '$1宇宙2自动特权需要洗点特权：暴击限界'], //脚本自动特权设置
+    [/^(.*)RAutoPerks RESPEC Required for: Resilience$/, '$1宇宙2自动特权需要洗点特权：弹性'], //脚本自动特权设置
+    [/^(.*)RAutoPerks RESPEC Required for: Tenacity$/, '$1宇宙2自动特权需要洗点特权：坚持'], //脚本自动特权设置
+    [/^(.*)RAutoPerks RESPEC Required for: Greed$/, '$1宇宙2自动特权需要洗点特权：贪婪'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-NoRespec Adding: Range$/, '$1宇宙2自动特权-无洗点提升：范围'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-NoRespec Adding: Agility$/, '$1宇宙2自动特权-无洗点提升：敏捷'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-NoRespec Adding: Bait$/, '$1宇宙2自动特权-无洗点提升：诱饵'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-NoRespec Adding: Trumps$/, '$1宇宙2自动特权-无洗点提升：王牌'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-NoRespec Adding: Packrat$/, '$1宇宙2自动特权-无洗点提升：囤积成瘾'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-NoRespec Adding: Overkill$/, '$1宇宙2自动特权-无洗点提升：超杀'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-NoRespec Adding: Looting$/, '$1宇宙2自动特权-无洗点提升：劫掠'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-NoRespec Adding: Toughness$/, '$1宇宙2自动特权-无洗点提升：坚韧'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-NoRespec Adding: Power$/, '$1宇宙2自动特权-无洗点提升：力量'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-NoRespec Adding: Motivation$/, '$1宇宙2自动特权-无洗点提升：鼓舞'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-NoRespec Adding: Pheromones$/, '$1宇宙2自动特权-无洗点提升：信息素'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-NoRespec Adding: Artisanistry$/, '$1宇宙2自动特权-无洗点提升：手艺娴熟'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-NoRespec Adding: Carpentry$/, '$1宇宙2自动特权-无洗点提升：木工'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-NoRespec Adding: Prismal$/, '$1宇宙2自动特权-无洗点提升：棱镜化'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-NoRespec Adding: Equality$/, '$1宇宙2自动特权-无洗点提升：平等'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-NoRespec Adding: Criticality$/, '$1宇宙2自动特权-无洗点提升：暴击限界'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-NoRespec Adding: Resilience$/, '$1宇宙2自动特权-无洗点提升：弹性'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-NoRespec Adding: Tenacity$/, '$1宇宙2自动特权-无洗点提升：坚持'], //脚本自动特权设置
+    [/^(.*)RAutoPerks-NoRespec Adding: Greed$/, '$1宇宙2自动特权-无洗点提升：贪婪'], //脚本自动特权设置
+    [/^(.*)RAutoPerks - A Respec is required. Trying respec...$/, '$1宇宙2自动特权-需要洗点。尝试洗点中……'], //脚本自动特权设置
+    [/^(.*)My HeliumHr was: (.*) & the Best HeliumHr was: (.*) at zone$/, '$1当前氦每小时为$2，自上次传送后最高的氦每小时为$3，出现区域为'], //脚本传送门设置
+    [/^(.*)C2 Runner: Running C2 Challenge Size$/, '$1挑战2自动运行：运行尺寸挑战'], //脚本传送门设置
+    [/^(.*)C2 Runner: Running C2 Challenge Slow$/, '$1挑战2自动运行：运行迟缓挑战'], //脚本传送门设置
+    [/^(.*)C2 Runner: Running C2 Challenge Watch$/, '$1挑战2自动运行：运行守望挑战'], //脚本传送门设置
+    [/^(.*)C2 Runner: Running C2 Challenge Discipline$/, '$1挑战2自动运行：运行纪律挑战'], //脚本传送门设置
+    [/^(.*)C2 Runner: Running C2 Challenge Balance$/, '$1挑战2自动运行：运行平衡挑战'], //脚本传送门设置
+    [/^(.*)C2 Runner: Running C2 Challenge Meditate$/, '$1挑战2自动运行：运行冥想挑战'], //脚本传送门设置
+    [/^(.*)C2 Runner: Running C2 Challenge Metal$/, '$1挑战2自动运行：运行金属挑战'], //脚本传送门设置
+    [/^(.*)C2 Runner: Running C2 Challenge Lead$/, '$1挑战2自动运行：运行领导挑战'], //脚本传送门设置
+    [/^(.*)C2 Runner: Running C2 Challenge Nom$/, '$1挑战2自动运行：运行美味挑战'], //脚本传送门设置
+    [/^(.*)C2 Runner: Running C2 Challenge Electricity$/, '$1挑战2自动运行：运行电流挑战'], //脚本传送门设置
+    [/^(.*)C2 Runner: Running C2 Challenge Toxicity$/, '$1挑战2自动运行：运行毒性挑战'], //脚本传送门设置
+    [/^(.*)First Stage: Bought Max Looting II$/, '$1第一阶段：购买最大数量的劫掠 II特权'], //脚本传送门设置
+    [/^(.*)C2 Runner: All C2s above Threshold!$/, '$1挑战2自动运行：所有挑战2均高于阈值！'], //脚本传送门设置
+    [/^(.*)All available Dailies already completed.$/, '$1当前全部的日常挑战都完成了。'], //脚本传送门设置
+    [/^(.*)Portaling into Daily for: (.*) now!$/, '$1传送并进行日常挑战：日期$2！'], //脚本传送门设置
+    [/^(.*)Second Stage: Bought Max Looting II$/, '$1第二阶段：购买最大数量的劫掠 II特权'], //脚本传送门设置
+    [/^(.*)Finished challenge2 because we are on zone$/, '$1该挑战2结束，因为我们到达了区域'], //脚本传送门设置
+    [/^(.*)My RadonHr was: (.*) & the Best RadonHr was: (.*) at zone$/, '$1当前氡每小时为$2，自上次传送后最高的氡每小时为$3，出现区域为'], //脚本传送门设置
+    [/^(.*)First Stage: Bought Max Greed$/, '$1第一阶段：购买最大数量的贪婪特权'], //脚本传送门设置
+    [/^(.*)First Stage: Bought Max Looting$/, '$1第一阶段：购买最大数量的劫掠特权'], //脚本传送门设置
+    [/^(.*)Second Stage: Bought Max Greed$/, '$1第二阶段：购买最大数量的贪婪特权'], //脚本传送门设置
+    [/^(.*)Second Stage: Bought Max Looting$/, '$1第二阶段：购买最大数量的劫掠特权'], //脚本传送门设置
+    [/^(.*)AutoStance B\/$/, '$1自动阵型 B/阵型'], //脚本阵型设置
+    [/^(.*)Upgraded Miners$/, '$1购买升级：矿工'], //脚本升级设置
+    [/^(.*)Upgraded Scientists$/, '$1购买升级：科学家'], //脚本升级设置
+    [/^(.*)Upgraded Coordination$/, '$1购买升级：协作'], //脚本升级设置
+    [/^(.*)Upgraded Speedminer$/, '$1购买升级：采矿加速'], //脚本升级设置
+    [/^(.*)Upgraded Speedlumber$/, '$1购买升级：砍伐加速'], //脚本升级设置
+    [/^(.*)Upgraded Speedfarming$/, '$1购买升级：耕作加速'], //脚本升级设置
+    [/^(.*)Upgraded Speedscience$/, '$1购买升级：研究加速'], //脚本升级设置
+    [/^(.*)Upgraded Speedexplorer$/, '$1购买升级：探险家加速'], //脚本升级设置
+    [/^(.*)Upgraded Megaminer$/, '$1购买升级：超级采矿'], //脚本升级设置
+    [/^(.*)Upgraded Megalumber$/, '$1购买升级：超级砍伐'], //脚本升级设置
+    [/^(.*)Upgraded Megafarming$/, '$1购买升级：超级耕作'], //脚本升级设置
+    [/^(.*)Upgraded Megascience$/, '$1购买升级：超级研究'], //脚本升级设置
+    [/^(.*)Upgraded Efficiency$/, '$1购买升级：效率'], //脚本升级设置
+    [/^(.*)Upgraded TrainTacular$/, '$1购买升级：格挡提升'], //脚本升级设置
+    [/^(.*)Upgraded Trainers$/, '$1购买升级：训练师'], //脚本升级设置
+    [/^(.*)Upgraded Explorers$/, '$1购买升级：探险家'], //脚本升级设置
+    [/^(.*)Upgraded Blockmaster$/, '$1购买升级：格挡大师'], //脚本升级设置
+    [/^(.*)Upgraded Battle$/, '$1购买升级：战斗'], //脚本升级设置
+    [/^(.*)Upgraded Bloodlust$/, '$1购买升级：嗜血'], //脚本升级设置
+    [/^(.*)Upgraded Bounty$/, '$1购买升级：赏金'], //脚本升级设置
+    [/^(.*)Upgraded Egg$/, '$1购买升级：蛋'], //脚本升级设置
+    [/^(.*)Upgraded Anger$/, '$1购买升级：愤怒'], //脚本升级设置
+    [/^(.*)Upgraded Formations$/, '$1购买升级：阵型'], //脚本升级设置
+    [/^(.*)Upgraded Dominance$/, '$1购买升级：支配阵型'], //脚本升级设置
+    [/^(.*)Upgraded Barrier$/, '$1购买升级：屏障阵型'], //脚本升级设置
+    [/^(.*)Upgraded UberHut$/, '$1购买升级：超级小屋'], //脚本升级设置
+    [/^(.*)Upgraded UberHouse$/, '$1购买升级：超级宅院'], //脚本升级设置
+    [/^(.*)Upgraded UberMansion$/, '$1购买升级：超级豪宅'], //脚本升级设置
+    [/^(.*)Upgraded UberHotel$/, '$1购买升级：超级宾馆'], //脚本升级设置
+    [/^(.*)Upgraded UberResort$/, '$1购买升级：超级度假村'], //脚本升级设置
+    [/^(.*)Upgraded Trapstorm$/, '$1购买升级：自动陷阱'], //脚本升级设置
+    [/^(.*)Upgraded Gigastation$/, '$1购买升级：千兆核心'], //脚本升级设置
+    [/^(.*)Upgraded Shieldblock$/, '$1购买升级：盾牌格挡'], //脚本升级设置
+    [/^(.*)Upgraded Potency$/, '$1购买升级：繁殖效率'], //脚本升级设置
+    [/^(.*)Upgraded Magmamancers$/, '$1购买升级：岩浆巫师'], //脚本升级设置
+    [/^(.*)Upgraded Rage$/, '$1购买升级：暴怒'], //脚本升级设置
+    [/^(.*)Upgraded Prismatic$/, '$1购买升级：棱镜护盾'], //脚本升级设置
+    [/^(.*)Upgraded Prismalicious$/, '$1购买升级：优质棱镜'], //脚本升级设置
+    [/^(.*)Error: LocalStorage is full, or error. Attempt to delete some portals from your graph or restart browser.$/, '$1浏览器数据存储已满，或者出错。请删除一些图表中传送门的数据或重启浏览器。'], //脚本公用设置
 ]);
