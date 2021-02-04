@@ -48,12 +48,6 @@ var cnItems = {
     'Heirloom (Staff': '传家宝(权杖',
     'Sharing Food': '分享食物',
     'Average Loot': '劫掠平均值',
-    'Food Per Second': '每秒食物获取量',
-    'Wood Per Second': '每秒木头获取量',
-    'Metal Per Second': '每秒金属获取量',
-    'Science Per Second': '每秒科学点获取量',
-    'Gems Per Second': '每秒宝石获取量',
-    'Fragments Per Second': '每秒碎片获取量',
     'Breeding': '繁殖中',
     'Nurseries': '托儿所',
     'Broken Planet': '行星破碎',
@@ -62,11 +56,9 @@ var cnItems = {
     'Toxic (Daily': '毒性(日常挑战',
     'Toxic Air': '毒气',
     'Heirloom (Shield': '传家宝(盾牌',
-    'Trimps Per Second': '每秒脆皮获取量',
     'Item Attack': '攻击明细',
     'Item Block': '格挡明细',
     'Item Health': '生命值明细',
-    'Item Prismatic Shield': '棱镜护盾明细',
     'Attack': '攻击力',
     'Block': '格挡',
     'Health': '生命值',
@@ -102,7 +94,6 @@ var cnItems = {
     'Hardness (Wither': '硬化(凋零挑战',
     'Golden Battle': '金色战斗',
     'Void Power': '虚空力量',
-    'Strength in Health': '健康之力',
     'Rewards': '奖励',
     'Chilled Enemy': '冰冻敌人',
     'Void Siphon (Fluffy E': '虚空吸收(绒绒进化次数',
@@ -128,10 +119,6 @@ var cnItems = {
     'Omnipotrimp Bonus': '全能者加成',
     'Improbability Bonus': '乌有者加成',
     'Corruption Bonus': '腐化加成',
-    'Golden Helium': '金色氦',
-    'Golden Radon': '金色氡',
-    'Fluffy Helium': '绒绒氦',
-    'Scruffy Radon': '污污氡',
     'Completed Quest!': '任务完成奖励！',
     'Extra Map Zones': '额外地图区域',
     'Low Map Level': '低地图等级',
@@ -194,8 +181,6 @@ var cnItems = {
     '- Exotic': '- 奇异',
     '- Log the rewards granted by Exotic Imports.': '- 显示奇异外皮奖励的消息。',
     'Exotic': '奇异',
-    '- Helium': '- 氦',
-    '- Radon': '- 氡',
     '- Log Helium rewards.': '- 显示氦相关奖励的消息。',
     '- Log Radon rewards.': '- 显示氡相关奖励的消息。',
     '- Repeated': '- 重复',
@@ -280,7 +265,6 @@ var cnItems = {
     'Nothing': '无',
     'Hide Help': '隐藏帮助',
     'Firing': '解雇模式',
-    'Fire Trimps': '解雇脆皮',
     'Activate firing mode, turning the job buttons red, and forcing them to fire trimps rather than hire them. The newly unemployed Trimps will start breeding instead of working, but you will not receive a refund on resources.': '开启解雇模式，此按钮将变为红色，此时点击任何工作都将解雇脆皮而非雇佣脆皮。被解雇的脆皮将开始繁殖，您不会获得任何资源返还。',
     'Disable firing mode': '关闭解雇模式',
     'Fire  a  Farmer. Refunds no resources, but frees up some workspace for your Trimps.': '解雇一个农民。不返还任何资源，只是会挪出工作区。',
@@ -295,11 +279,9 @@ var cnItems = {
     'Fire  a  Worshipper. Refunds no resources, but frees up some workspace for your Trimps.': '解雇一个崇信者。不返还任何资源，只是会挪出工作区。',
     'AutoGold': '自动金色升级',
     'AutoGold Off': '关闭自动金色升级',
-    'AutoGold Helium': '金色升级氦',
     'AutoGold Battle': '金色升级战斗',
     'AutoGold Voidlium': '金色升级虚空氦',
     'AutoGold Voidtle': '金色升级虚空战斗',
-    'AutoGold Radon': '金色升级氡',
     'AutoGold Voidon': '金色升级虚空氡',
     'Thanks to your brilliant Scientists, you can designate Golden Upgrades to be purchased automatically! Toggle between': '多亏您睿智的科学家们，您可以自动购买金色升级了！在以下选项中切换',
     'when you\'re not feeling particularly trusting.': '如果您不太相信这个功能的话，可以选择此项。',
@@ -959,7 +941,6 @@ var cnItems = {
     'Anger': '愤怒',
     'Rage': '暴怒',
     'Prismatic Palace': '棱镜宫殿',
-    'Melting Point': '熔点',
     'Coordination': '协作',
     'Blockmaster': '格挡大师',
     'Egg': '蛋',
@@ -1274,7 +1255,6 @@ var cnItems = {
     'Fancy': '梦想成真',
     'The Skyline': '天际线',
     'Dimensional Drift': '维度漂移',
-    'Too Cool For Helium': '氦太酷了',
     'Space From Stars': '星星空间',
     'To Infinity and Beyond': '飞向宇宙，浩瀚无垠',
     'Mass Generation': '质量发生',
@@ -1326,7 +1306,6 @@ var cnItems = {
     'Radonlicious': '优质氡',
     'Radon Quixote': '氡吉诃德',
     'Radon Racer': '氡之车手',
-    'Raging Radon': '氡之暴怒',
     'Radon Wrangler': '氡之牧者',
     'All Said and Radone': '氡埃落定',
     'Radominating': '氡之支配',
@@ -1926,7 +1905,6 @@ var cnItems = {
     'Note that this setting only blocks large popups once your Highest Zone Reached is 20 Zones past the location of the popup': '注意：此设置只在最高通过区域高于提示所在区域20层以上时禁止弹出大窗口',
     'Default Generator': '默认发生器',
     'Gain Fuel': '得燃料',
-    'Gain Mi': '得岩浆岩',
     'Hybrid': '混合型',
     'Choose what mode the Dimensional Generator should start each run on.': '切换每轮游戏维度发生器的初始运行模式。',
     'will continue with whatever setting you were using at the end of your last run.': '将继续使用您上次传送前游戏的设置。',
@@ -2097,7 +2075,6 @@ var cnItems = {
     'The Prison (': '监狱(',
     'Imploding Star (': '爆炸之星(',
     'Prismatic Palace (': '棱镜宫殿(',
-    'Melting Point (': '熔点(',
     'Trimple Of Doom (': '末日神殿(',
     'Atlantrimp (': '亚特兰蒂皮(',
     'Tricky Paradise (': '整蛊天堂(',
@@ -2496,7 +2473,6 @@ var cnItems = {
     'You have unlocked a new perk, and your Trimps have regained their Discipline.': '您解锁了一个新的特权，并且您的脆皮们又重新变得有纪律了。',
     'You have the Discipline challenge active. Tweak the portal to bring you back to a universe where Trimps are less disciplined, in order to teach you how to be a better Trimp trainer. Your Trimps\' minimum damage will be drastically lower, but their high end damage will be considerably higher. Completing The Dimension Of Anger will cause Trimp damage to return to normal.': '您目前正在进行纪律挑战。调节传送门，将您带到一个脆皮不那么有纪律的宇宙。在那里可以学习如何成为一个更好的脆皮训练师。您的脆皮最低伤害将大大降低，但最高伤害也会大大增加。通过愤怒维度地图后，脆皮的伤害将恢复正常。',
     'You have the Discipline challenge active. "Tweak the portal to bring you back to a universe where Trimps are less disciplined, in order to teach you how to be a better Trimp trainer. Your Trimps\' minimum damage will be drastically lower, but their high end damage will be considerably higher."': '您目前正在进行纪律挑战。调节传送门，将您带到一个脆皮不那么有纪律的宇宙。在那里可以学习如何成为一个更好的脆皮训练师。您的脆皮最低伤害将大大降低，但最高伤害也会大大增加。通过愤怒维度地图后，脆皮的伤害将恢复正常。',
-    'You will unlock this challenge once you have 30 total Helium': '欲解锁此挑战，您需要一共获得30氦',
     'Tweak the portal to bring you to an alternate reality, where the concept of Miners does not exist, to force yourself to become frugal with equipment crafting strategies. If you complete The Dimension Of Anger without disabling the challenge, miners will re-unlock.': '调节传送门，将您带到一个不存在矿工这个概念的异世界中。在那里可以学习在锻造装备时如何更勤俭节约。如果您在没有放弃挑战的情况下通过了愤怒维度地图，那么矿工将重新解锁。',
     'Tweak the portal to bring you to alternate reality, where the concept of Miners does not exist, to force yourself to become frugal with equipment crafting strategies.': '调节传送门，将您带到一个不存在矿工这个概念的异世界中。在那里可以学习在锻造装备时如何更勤俭节约。',
     'Metal Challenge!': '金属挑战！',
@@ -2591,7 +2567,6 @@ var cnItems = {
     'You have the Life challenge active. Explore a dimension that is normally populated by the Undead, but is currently plagued by a quickly moving virus that can bring things back to life. All enemies in this dimension have 500% extra attack and 1000% extra health. Attacking a normal undead enemy gives your Trimps 1 stack of Unliving, which increases Trimp attack and health by 10% (additive) per stack. Trimps can have a maximum of 150 stacks of Unliving, and attacking a Living enemy will remove 5 stacks of Unliving. Completing': '您目前正在进行生命挑战。探索一个亡灵盘据的维度，最近此维度一种能够令亡灵复生的病毒正快速传播中。此维度中的所有敌人生命值增加1000%，攻击力增加500%。攻击一个普通的亡灵敌人可以使您的脆皮获得一层“亡灵化”，每层可以使脆皮的攻击力和生命值增加10%(相互叠加)。亡灵化最高为150层。攻击一个非亡灵的敌人将失去5层“亡灵化”。通过 ',
     'Mapocalypse': '天启地图',
     'Experience a slightly distorted version of the \'Electricity\' dimension, to help understand the relationship between maps and the world. Everything will work exactly the same as Electricity, but all maps will have an extra 300% difficulty. Clearing': '体验一个轻微扭曲的“电流”维度。在那里可以更好理解地图与世界之间的关系。除了所有地图难度增加300%以外，大部分规则与电流挑战相同。通过 ',
-    'will cause the world to return to normal. You': '后世界将恢复原样。您同时 ',
     'will': '可以',
     'receive the Helium reward from Electricity.': '获得电流挑战中的氦奖励。',
     'You have the Mapocalypse challenge active. Experience a slightly distorted version of the \'Electricity\' dimension, to help understand the relationship between maps and the world. Everything will work exactly the same as Electricity, but all maps will have an extra 300% difficulty. Clearing': '您目前正在进行天启地图挑战。体验一个轻微扭曲的“电流”维度。在那里可以更好理解地图与世界之间的关系。除了所有地图难度增加300%以外，大部分规则与电流挑战相同。通过 ',
@@ -2704,7 +2679,6 @@ var cnItems = {
     '), and any team above 50 points gains 3x damage."': ')，而决斗点数大于50的一方造成3倍伤害。',
     'Melt': '熔化',
     'Tweak the portal to bring you to an alternate reality, where there\'s plenty of risk and Radon. You will gain 10x loot (excluding Radon), 10x gathering, and 5x Trimp attack, but a stack of Melt will accumulate every second. Each stack of Melt reduces loot, gathering, and Trimp attack by 1% of the current amount. These stacks reset each time a Zone is cleared and cap at 500. Clearing': '调节传送门，将您带到一个充满危机，也充满氡的异世界中。您的战利品获取量变为10倍(氡除外)，资源获取速度变为10倍，且脆皮的攻击力变为5倍，但每秒都会增加一层“熔化”。每层熔化将战利品获取量、资源获取速度和脆皮攻击力减少当前数量的1%。当通过每个区域时层数重置，层数最高为500。通过 ',
-    'Melting Point (Zone': '熔点 (区域',
     'or': ' 或者',
     'will complete this Challenge - granting an additional 400% of all Radon collected through Z50. This Challenge is repeatable!': '后可以完成此挑战并额外获得氡，数值等于本次挑战到区域50为止氡获取量的400%。此挑战可重复完成！',
     'You have the Melt challenge active. Tweak the portal to bring you to an alternate reality, where there\'s plenty of risk and Radon. You will gain 10x loot (excluding Radon), 10x gathering, and 5x Trimp attack, but a stack of Melt will accumulate every second. Each stack of Melt reduces loot, gathering, and Trimp attack by 1% of the current amount. These stacks reset each time a Zone is cleared and cap at 500. Clearing': '您目前正在进行熔化挑战。调节传送门，将您带到一个充满危机，也充满氡的异世界中。您的战利品获取量变为10倍(氡除外)，资源获取速度变为10倍，且脆皮的攻击力变为5倍，但每秒都会增加一层“熔化”。每层熔化将战利品获取量、资源获取速度和脆皮攻击力减少当前数量的1%。当通过每个区域时层数重置，层数最高为500。通过 ',
@@ -2989,7 +2963,6 @@ var cnItems = {
     'Receive 1 free Void Map after using your Portal for each 100 Zones cleared last run. Radon from Void Maps is also increased by 0.25% for each Zone cleared last run.': '上次传送前每通过100个区域，传送后就多获得一张虚空地图。上次传送前每通过1个区域，虚空地图中获得的氡就增加0.25%。',
     'You reached': '您上次传送前最高到达了区域 ',
     'Your value for "Last Portal Zone" only changes if you Portal after Z99 or collect an Heirloom, meaning it won\'t be reset by early restarts.': '上次传送前通过的区域只在上次传送前到达区域99或获得一个传家宝后才会开始计算，早早使用传送门不会对这个数值造成影响。',
-    'Strength in Health I': '健康之力 I',
     'Your Trimps gain 15% additive damage per Healthy cell in your current Zone.': '当前区域中每有一个健康的格子，您的脆皮就获得15%额外伤害，伤害叠加。',
     'Diplomacy II': '斡旋 II',
     'Add 5 levels to the Upgrade and Stack Transfer of all 3 Empowerments of Nature, without increasing the costs.': '将全部3种自然赋能的赋能等级和层数传递率等级提高5级，且不增加成本。',
@@ -3018,7 +2991,6 @@ var cnItems = {
     'Grants 3 spectacular bonuses to your Void Maps!': '虚空地图获得以下三个强大的加成！',
     '1. The Fluffy bonus for stacked Void Maps calculates with compounding gains, rather than additive. Each Void Map in the stack increases the Helium gain from the stack by x1.5 rather than +50%.': '1. 绒绒的融合虚空地图加成从叠加变为叠乘。融合每张虚空地图的氦加成从增加50%变为乘以1.5倍。',
     '3. Your Trimps gain 5x damage inside Void Maps': '3. 您的脆皮在虚空地图中获得5倍攻击力。',
-    'Strength in Health II': '健康之力 II',
     'Adds 1 extra Healthy cell for every Spire completed this run. Healthy cells will also drop an additional 20% of the Zone\'s value in Helium, bringing the total up to 65%. Spire I will count for 1 Healthy cell once Healthy cells begin to appear in the World, but does not cause them to start spawning earlier.': '自上次传送后每通过1个尖塔，就额外生成1个健康格子。健康格子额外掉落本区域氦数量的20%，将该掉落量总和提升到65%。尖塔 I可以额外生成1个健康格子，但只在健康格子开始出现以后生效(不会使健康格子提前出现)。',
     'On your current run, you have cleared no Spires, so this Mastery is granting 0 extra Healthy cells. On your current Zone, you\'re finding 0 Healthy cells.': '自上次传送后您还没有通过尖塔，此专精可获得0个额外健康格子。当前区域中有0个健康格子。',
     'Still Magmamancing': '尖塔岩浆巫术',
@@ -3084,7 +3056,6 @@ var cnItems = {
     'Runestones': '符石',
     'Rs': '符',
     'Runestones (Rs) are earned by killing Bad Guys in your Spire, and the amount of Runestones gained is directly proportional to the Max Health of the slain Bad Guy.': '符石(缩写为符)可以通过在您的尖塔里击杀敌人获得，获得的符石数量与敌人的生命值成正比。',
-    'Runestones per Second': '每秒符石',
     'Rs/S': '符/秒',
     'Enemies': '敌人',
     'The amount of enemies currently allowed in your Spire.': '目前尖塔中的敌人情况。',
@@ -3145,7 +3116,6 @@ var cnItems = {
     'Floating Combat Text': '浮动的战况文本',
     'Make Static': '固定文本',
     'Trap Damage': '陷阱伤害',
-    'Poison Tick': '剧毒伤害',
     'Visual Settings': '视觉设置',
     'Trap Icons': '陷阱图标',
     'Enemy Icons': '敌人图标',
@@ -3277,7 +3247,6 @@ var cnItems = {
     'At Zone': '在区域',
     'Don\'t Change At Zone': '不改变模式',
     'Set to Gain Fuel': '设为得燃料',
-    'Set to Gain Mi': '设为得岩浆岩',
     'Set to Hybrid': '设为混合型',
     'Upgrade (': '升级 (',
     'Upgrade Generator': '升级维度发生器',
@@ -3336,7 +3305,6 @@ var cnItems = {
     'bringing you to': '将总传递率变为 ',
     'Locked': '未解锁',
     'Upgrade Empowerment of Poison to Level 50 to unlock.': '将毒赋能升级到50级后解锁。',
-    'Poison active': '已启用毒之启迪',
     'Enlightened Poison': '毒之启迪',
     'Activate Enlightened Poison': '启用毒之启迪',
     'Sacrifice your Tokens and return them back to Nature, enlightening your Trimps on how to be one with Poison!': '献祭符记，让它们回归自然，以此启迪脆皮们如何与毒融为一体！',
@@ -3571,7 +3539,6 @@ var cnItems = {
     'You\'ve helped the Trimps establish a legendary population and economy, and have brought down the man responsible for the chaos in this world. You could leave now and the Universe will forever be better because you existed. Trimps will erect statues of you as long as their civilization survives. But you know there are still other spires out there, pumping Corruption into the planet. Maybe the statues would be bigger if you stayed and helped out?': '在您的帮助下，脆皮们人口兴旺，经济繁荣，并且已经击败了让这个世界陷入混乱的罪魁祸首。哪怕现在离开，因为您来过，这个宇宙也会变得更好。只要脆皮的文明还存在，它们就会为您竖起一座雕像。但是您也知道，在世界上还有着其他的尖塔，将腐化注入这个行星。如果您留下来帮忙，或许那个雕像还能更大一些？',
     'Healthy mutation bad...': '健康变异，很是不好……',
     'Slows delirium': '狂暴之速，因此减少',
-    'Well that doesn\'t really sound like a bad thing. You found 200 Nullifium!': '嗯，听起来不坏。您发现了200虚空物质！',
     'Gained 1 Trimp!': '您获得了1个脆皮！',
     'There\'s also some little containers floating a tiny bit off the ground, so you go check em out. Gah! They\'re all empty!': '有一些小容器在离地不远的地方漂浮着，所以您去看了看。擦！里面啥也没有！',
     'There is a piece of me in every last Spire': '每个尖塔中都有一部分我',
@@ -3583,12 +3550,10 @@ var cnItems = {
     'I bet you even think it could be your salvation': '我赌你觉得它可成为救赎之依',
     'Improving this world must be quite the temptation': '拯救世界的确令人痴迷',
     'But your journey will surely end in frustration': '但你的旅途必将终于失意',
-    'Well, you definitely want to get your hands on some of that Healthy mutation now. You found a Z400 Heirloom!': '很好，从此刻起您要认真考虑怎么引起健康变异了。您发现了一个相当于区域400掉落的传家宝！',
     'Even if you were able, which you surely are not': '你觉得你很行，其实你并不',
     'A Healthier world would not hasten your trot': '就算世界更健康也不会加速你的脚步',
     'For there\'s strength in Health and you would be distraught': '因为健康中的力量只会使你躁怒',
     'At the difficult challenge you yourself had wrought': '前方的艰险皆是你自己所筑',
-    'It sounds like he\'s trying to tell you that the Healthy mutation would make your enemies even stronger. Still seems like releasing it would be the right thing to do, though. You search around for some more resources but find nothing. Lame.': '看起来，他想告诉您健康变异只会使敌人变得更强。不管怎么说，散播它应该还是没错的。您在附近找了找，什么有用的资源都没找到。真是弱爆了。',
     'a brand new Spire Core': '一个崭新的尖塔核心',
     'brand new Spire Core': '崭新的尖塔核心',
     '! For your first time killing this Echo in any timeline, you have permanently added another 5% to your Liquification bonus, increased your Dark Essence gains by 4x, and earned': '！由于这是您在所有世界线中第一次击杀此幻影，您永久增加了5%液化加成，黑暗精华获取量变为4倍，并获得了',
@@ -3599,43 +3564,35 @@ var cnItems = {
     'WHAT': '什',
     'WHO': '谁',
     'How...': '怎……',
-    'That didn\'t seem very coherent. It seems like destroying his Echo in the last Spire has made some sort of impact. You found 600 Nullifium!': '这话听起来不怎么有条理。看起来上个尖塔中摧毁的幻影造成了某些影响。您发现了600虚空物质！',
     'I see that you\'re attempting some planetary healing': '我知道你正在尝试将行星治好',
     'Leaving me steaming in an unappealing feeling': '这让我不适让我倍受煎熬',
     'Your freewheeling and stealing has just reached the ceiling': '你的肆意盗窃行为已达最高',
     'Now commence kneeling or be sent off reeling': '要不臣服要不就被我打爆',
-    'At least he\'s gained enough consciousness back to continue with the threats. You know that now is not the time to back down. You found a Z400 Heirloom!': '至少他又清醒起来，能够继续威胁您了。您知道，现在只能寸步不让了。您发现了一个相当于区域400掉落的传家宝！',
     'It\'s obvious that you want the Corruption to slow': '很明显你想阻止腐化蔓延',
     'So I\'ll point out something you might not yet know': '因此我要指出你还不知的一点',
     'My Spires are infinite, there is no plateau': '我的尖塔无穷无尽数量无限',
     'You are doomed and you\'ve been so since long long ago': '你必然失败这早有预言',
-    'His Spires might be infinite, but it\'s not possible for his consciousness to be. You decide you\'ll worry about the rest of the spires once you\'ve beaten Druopitee into nothingness. You found 10 of each type of Nature Token!': '他的尖塔可能是无穷无尽的，但他的意识绝对不可能是的。您决定先彻底抹杀了德罗披提再来考虑剩下的尖塔怎么办。您发现了数量各为10的三种自然符记！',
     'Still you climb on, won\'t your strength ever waver?': '还在这爬塔？你只会变弱',
     'You\'re determined to be this planet\'s true savior?': '拯救行星？只是飞蛾扑火',
     'Stop to reconsider, we could be something greater': '停下想想吧，我们可以有更好结果',
     'Or continue your path as a time traveling slaver': '要不就像个奴隶主，继续时空穿梭',
-    'Slaver?! Your Trimps all know that they\'re free to leave whenever they want. He\'s just trying to get under your skin! You search around for some more resources but find nothing. Lame.': '奴隶主？！您的脆皮们都知道想要走的话随时都可以走。他不过是想惹毛您！您在附近找了找，什么有用的资源都没找到。真是弱爆了。',
     'Please just go around, there\'s nothing to see': '转身离开吧，这里没什么可看',
     'Why is my demise something you must guarantee?': '我的死亡，为何就是你的期盼',
     'I beg you once more, please hear my plea': '再次恳求你，想想我们的羁绊',
     'We could rule for all time, just you and me': '时间永恒，我们可以统治各半',
-    'No thanks, Druopitee. It\'s kinda nice to see him scared though! You found a Z500 Heirloom!': '别逗了，德罗披提。看他慌成这样真是太爽了！您发现了一个相当于区域500掉落的传家宝！',
     'Well here is something I wouldn\'t normally say': '以下的话我平时从来不讲',
     'Since it seems like you won\'t be going away': '但因为你也不像会退让',
     'Each of my Echoes you slay makes my mind decay': '死去的幻影让我的意识衰亡',
     'I may not be able to communicate after today': '从此以后我恐怕将交谈遗忘',
-    'Yes, that was becoming pretty obvious. His mind must really be decaying fast if he thought this admission would be anything other than motivating. You found 15 of each type of Nature Token!': '是啊，这太明显了。他的意识一定是在快速衰亡，他竟然觉得这样的话不是在鼓励。您发现了数量各为15的三种自然符记！',
     'Why don\'t you care that you\'re making things harder?': '为何你不在意把事情弄得更难？',
     'To repair the planet you\'d give enemies armor?': '为了修复行星你要把敌人变得强悍？',
     'When I brought you here, I thought you\'d be smarter': '我带你来时以为你会聪明能干',
     'But it seems like there\'s no room left to barter': '现在看来已经没什么好谈',
-    'No, there\'s not. You\'re almost there. You search around for some more resources but find nothing. Lame.': '谈？是没什么好谈了。您都快到塔顶了。您在附近找了找，什么有用的资源都没找到。真是弱爆了。',
     'perk!': '特权！',
     'You are weak. I\'ll be on the top floor.': '你太弱了。等你来送死，我在塔顶上。',
     'Your death warrant\'s signed, soon you\'ll be no more.': '死期将至，你命不久矣。',
     'I gave you everything you have, it was no easy chore.': '我给了你一切，这不是简单的儿戏。',
     'Your Trimps are MINE, prepare for war!': '你的脆皮归我，你无法与我匹敌！',
-    'Even in death this guy\'s a dick. You search around for some more resources but find nothing. Lame.': '这家伙都死了还不消停。您在附近找了找，什么有用的资源都没找到。真是弱爆了。',
     //故事-尖塔结束
     //杂项
     'Error': '出错啦',
@@ -3829,7 +3786,6 @@ var cnItems = {
     'Scruffy XP (Lifetime Total': '污污经验 (总量',
     'Scruffy XP/Hour (Cumulative': '污污经验/小时 (总量',
     'Scruffy XP/Hour': '污污经验/小时',
-    'Overkilled Cells': '超杀格子数',
     'Toggle Automapping': '切换自动地图开关',
     'Toggle automapping on and off.': '切换自动地图是打开还是关闭。',
     'Auto Maps': '自动地图',
@@ -3952,7 +3908,6 @@ var cnItems = {
     'IMPORTANT SETTING. When using the Rn/Hr Autoportal, it will portal if your Rn/Hr drops by this amount of % lower than your best for current run, default is 0% (ie: set to 5 to portal at 95% of your best). Now with stuck protection - Allows portaling midzone if we exceed set buffer amount by 5x. (ie a normal 2% buffer setting would now portal mid-zone you fall below 10% buffer).': '重要选项。当使用氡每小时选项时，通过一个区域后，氡/小时低于本轮最高值相应百分比后，才会自动使用传送门，默认值为0%(例：设置为5后，将在氡/小时低于最高值的95%后才自动使用传送门)。另外，此项还有防卡进度的功能 - 当氡/小时低于本轮最高值5倍相应百分比时，无论当前在区域内何处，自动使用传送门。(例：缓冲值设置为2%后，将在氡/小时低于最高值的90%时，无论当前在区域内何处，自动使用传送门)。',
     'Pause AutoTrimps': '暂停自动脆皮脚本',
     'Pause AutoTrimps Script (not including the graphs module': '暂停自动脆皮脚本 (不包括图表部分',
-    'Helium / Radon': '氦 / 氡',
     'Switch between Helium (U1) and Radon (U2) settings.': '切换氦相关(宇宙1)和氡相关(宇宙2)的设置。',
     'Buy Heliumy ': '氦奇购买 ',
     'Buy Heliumy %': '氦奇购买 %',
@@ -4171,7 +4126,6 @@ var cnItems = {
     'Start SS at this number of Smithys. I.e 9, will buy anything regardless of Smithy before having 9 Smithys. After 9 has been reached will start to save up for them.': '从铁匠铺达到此数值后，开始节约铁匠铺。例如设为9，则在拥有9个铁匠铺之前一切照常运行，拥有9个铁匠铺后，开始限制相应资源的使用。',
     'SS: Percent': '节约铁匠铺：百分比',
     'If you have SS enabled this value will allow items below this value to be purchased. I.e if this is set to 1, it will only buy items if that item is 1% of Smithys cost or lower.': '只允许购买成本低于此百分比的东西。例如设为1，则只会购买成本低于铁匠铺成本1%的东西。',
-    'SS: Seconds': '节约铁匠铺：秒数',
     'How many seconds SS starts activating at. I.e 120, if your Smithy is 120 seconds away from being purchased SS will kick in.': '激活节约铁匠铺的秒数。例如设为120，则当铁匠铺还有120秒完成时，激活节约铁匠铺。',
     'Hide Jobs': '隐藏工作',
     'Hides obsolete settings when you have obtained the AutoJobs Mastery. It should be far better to use than AT, Especially on c2 Challenges like Watch.': '获得自动工作后，此选项将会出现，您可以使用此项来隐藏过时的工作设置。考虑到C2的守望挑战，可以说自动工作比脚本更好用。',
@@ -4203,7 +4157,6 @@ var cnItems = {
     'Ship Farm at this Cell. -1 to run them at the default value, which is 1.': '在此格子开始刷崇信者所需要的资源。设为-1则在默认值时开始刷崇信者，即格子1。',
     'How many Worshippers to farm at zone specified in SF. Can use 2,3,4. These values should match up to your SF zones. If using SF and SF: Amount examples (59 and 2) it will farm at z59 for 2 Worshippers.': '刷崇信者时在相应的区域刷到多少名崇信者所需要的资源。可以输入多个数值，格式类似2,3,4这样。请让此项的数值与刷崇信者：区域的数值能够一一对应。例如：将刷崇信者：区域设为59，刷崇信者：数量设为2的话，将在区域59刷到能够雇佣2名崇信者为止。',
     'What map level to use for SF. Can use -1,1,2. -1 to use a level down from world (Map Reducer mastery gives loot equal to world one level down), 0 to use world, 1 etc to use +maps. Using 0 by itself will use global level for all maps.': '刷崇信者时使用的地图等级。可以输入多个数值，格式类似-1,1,2这样。设为-1则使用比当前区域低一级的地图(地图减压专精效果下可以从低一级的地图中获得相同的劫掠资源量)，设为0则与世界区域数相等，1及以上则使用额外区域。只设为0的话，则所有地图都使用与世界区域数相等的等级。',
-    'SF: Frags': '刷崇信者：刷碎片',
     'Turn this on to farm fragments if you cannot afford the map you have selected for SF.': '开启此项后，如果碎片不足以制造刷崇信者所需要的地图，则会先刷碎片。',
     'Armor: Buy Neither': '护甲：关闭',
     'Armor: Buy Both': '护甲：全部',
@@ -4518,7 +4471,6 @@ var cnItems = {
     'Insanity Farm at this Cell. -1 to run them at the default value, which is 1.': '在此格子开始刷失智层数。设为-1则在默认值时开始刷失智层数，即格子1。',
     'How many stacks to farm at zone specified in IF. Can use 300,400,500. These values should match up to your IF zones. If using IF and IF: Stacks examples (110 and 500) it will farm at z110 for 500 stacks of insanity. If stacks specified are above maximum Insanity Stacks, it will farm for maximum.': '刷失智层数时在相应的区域刷到多少层。可以输入多个数值，格式类似300,400,500这样。请让此项的数值与刷失智层数：区域的数值能够一一对应。例如：将刷失智层数：区域设为110，刷失智层数：层数设为500的话，将在区域110刷到500层失智为止。如果层数超过了上限，则会刷到上限为止。',
     'What map level to use. Can use -1,1,2. -1 to use a level down from world (This is how to remove insanity stacks), 0 to use world, 1 etc to use +maps. Using 0 by itself will use global level for all maps.': '刷失智层数时使用的地图等级。可以输入多个数值，格式类似-1,1,2这样。设为-1则使用比当前区域低一级的地图(从而减少失智层数)，设为0则与世界区域数相等，1及以上则使用额外区域。只设为0的话，则所有地图都使用与世界区域数相等的等级。',
-    'IF: Frags': '刷失智层数：刷碎片',
     'Turn this on to farm fragments if you cannot afford the map you have selected for IF.': '开启此项后，如果碎片不足以制造刷失智层数所需要的地图，则会先刷碎片。',
     'Turn on Exterminate settings. This also controls the entireity of Exterminate. If you turn this off it will not calculate Exterminate.': '切换是否启用灭虫设置。所有灭虫设置的总开关。如果关闭此项则灭虫的其他设置均失效。',
     'E: Calc': '灭虫：计算',
@@ -4569,7 +4521,6 @@ var cnItems = {
     'Use RoboTrimps ability starting at this level, and every 5 levels thereafter. (set to 0 to disable. default 60.) 60 is a good choice for mostly everybody.': '脆皮机器人从相应层数开始激活，并且之后每5层激活一次。(设为0则关闭此选项。默认值为60。)60适用于大多数情况。',
     'Fight Always': '常时战斗',
     'U1: -1 to disable. Sends trimps to fight if they\'re not fighting, regardless of BAF. Has 2 uses. Set to 0 to always send out trimps. Or set a number higher than 0 to enable the H:D function. If the H:D ratio is below this number it will send them out. I.e, this is set to 1, it will send out trimps regardless with the H:D ratio is below 1.': '宇宙1：设为-1则关闭此选项。当脆皮没有在战斗时，自动让它们开始战斗，无视改良自动战斗的设置。此项有两种用法。设为0则常时进行战斗。设为大于0的数值则激活生命伤害比功能，当生命伤害比低于此数值时进行战斗。例如，将此项设为1，则将在生命伤害比低于1时进行战斗。',
-    'Poison Calc': '毒赋能计算',
     'Experimental.': '实验性功能。',
     'Adds poison to the battlecalc. May improve your poison zone speed.': '将毒赋能效果加入计算。可能会使毒区域的通过时间更短。',
     'Ice Calc': '冰赋能计算',
@@ -4831,7 +4782,6 @@ var cnItems = {
     'Buys Battle goldens instead of helium after this many helium goldens have been purchased and onwards. This option only appears when selecting helium.': '在购买相应次数的金色氦升级以后，改为购买战斗升级。只在自动金色升级选择氦时出现。',
     'Daily Helium Battle': '日常氦战斗切换次数',
     'Buys Battle goldens instead of helium after this many helium goldens have been purchased and onwards in Dailies. This option only appears when selecting helium.': '日常挑战中，在购买相应次数的金色氦升级以后，改为购买战斗升级。只在日常自动金色升级选择氦时出现。',
-    'Battle Helium': '战斗氦切换次数',
     'Buys helium goldens instead of Battle after this many Battle goldens have been purchased and onwards. This option only appears when selecting battle.': '在购买相应次数的金色战斗升级以后，改为购买氦升级。只在自动金色升级选择战斗时出现。',
     'Daily Battle Helium': '日常战斗氦切换次数',
     'Buys helium goldens instead of Battle after this many battle goldens have been purchased and onwards in Dailies. This option only appears when selecting battle.': '日常挑战中，在购买相应次数的金色战斗升级以后，改为购买氦升级。只在日常自动金色升级选择战斗时出现。',
@@ -4844,7 +4794,6 @@ var cnItems = {
     'Buys Battle goldens instead of Radon after this many Radon goldens have been purchased and onwards. This option only appears when selecting radon.': '在购买相应次数的金色氡升级以后，改为购买战斗升级。只在自动金色升级选择氡时出现。',
     'Daily Radon Battle': '日常氡战斗切换次数',
     'Buys Battle goldens instead of Radon after this many Radon goldens have been purchased and onwards in Dailies. This option only appears when selecting radon.': '日常挑战中，在购买相应次数的金色氡升级以后，改为购买战斗升级。只在日常自动金色升级选择氡时出现。',
-    'Battle Radon': '战斗氡切换次数',
     'Buys Radon goldens instead of Battle after this many Battle goldens have been purchased and onwards. This option only appears when selecting battle.': '在购买相应次数的金色战斗升级以后，改为购买氡升级。只在自动金色升级选择战斗时出现。',
     'Daily Battle Radon': '日常战斗氡切换次数',
     'Buys Radon goldens instead of Battle after this many battle goldens have been purchased and onwards in Dailies. This option only appears when selecting battle.': '日常挑战中，在购买相应次数的金色战斗升级以后，改为购买氡升级。只在日常自动金色升级选择战斗时出现。',
@@ -4992,7 +4941,6 @@ var cnItems = {
     'Mayhem Attack': '暴乱攻击',
     'Mayhem Health': '暴乱生命值',
     'Questing': '运行任务',
-    'Time Farming Bogs': '定时刷图黑色泥沼',
     'Bogs': '泥沼',
     'Rn/hr': '氡/小时',
     'TRIMPS - AFK': '脆皮 - 挂机中',
@@ -5002,8 +4950,6 @@ var cnItems = {
     'I\'m Back': '我回来了',
     'Current Zone': '当前区域',
     'Current': '当前',
-    'Current Helium': '当前氦',
-    'Current Radon': '当前氡',
     'Current Status': '当前状态',
     'Current Status: Off': '当前状态：关闭',
     'Current Status: Out of Map Credits': '当前状态：地图代币耗尽',
@@ -5684,9 +5630,14 @@ var cnRegReplace = new Map([
     [/^(.*)% Min$/, '$1% 最小'], //主界面
     [/^(.*)% Max$/, '$1% 最大'], //主界面
     [/^Your Prismatic Shield is equal to (.*)% of your Trimps' maximum Health. All enemy damage hits your Prismatic Shield before Health, and Prismatic Shield always regenerates to full after an enemy is killed.$/, '棱镜护盾的数值等于脆皮最大生命值的$1%。所有的敌人必须将棱镜护盾击穿后方可攻击到脆皮，击杀敌人后棱镜护盾将恢复至上限。'], //主界面
-    [/^(?!You're in)(?!Progress)(?!Row Finished)(.*) \((.*) min(s*)$/, '$1 ($2分钟'], //主界面
+    [/^You're in the wrong Universe! Best run is (.*) min(s*)$/, '您进入了错误的宇宙！最快为$1分钟'], //成就等，前置
+    [/^Progress: Best run is (.*) min(s*)$/, '进度：最快为$1分钟'], //成就等，前置
+    [/^Progress: Too slow! Best run is (.*) min(s*)$/, '进度：因太慢失败了！最快为$1分钟'], //成就等，前置
+    [/^Row Finished! \(Best run is (.*) min(s*)$/, '此类成就全部完成！(最快为$1分钟'], //成就等，前置
+    [/^(.*) \((.*) min(s*)$/, '$1 ($2分钟'], //主界面
     [/^(.*)% \((.*)% Total$/, '$1% \(共$2%'], //主界面
-    [/^(.*)(?<!Overkilled) Cells$/, '$1个格子'], //主界面
+    [/^Overkilled Cells$/, '超杀格子数'], //脚本相关，前置
+    [/^(.*) Cells$/, '$1个格子'], //主界面
     [/^(.*) extra$/, '额外$1张'], //主界面
     [/^(.+) Min(s*) (.+) Sec(s*)$/, '$1分$3秒'], //主界面
     [/^(.+) Hour(s*) (.+) Min(s*)$/, '$1小时$3分'], //主界面
@@ -5802,7 +5753,13 @@ var cnRegReplace = new Map([
     [/^(\s+)Poison(\s+)$/, '$1毒$2'], //主界面
     [/^(\s+)Wind(\s+)$/, '$1风$2'], //主界面
     [/^(\s+)Ice(\s+)$/, '$1冰$2'], //主界面
-    [/^Trade(?! (.*) Tokens)(.*)$/, '交易$1'], //主界面
+    [/^Trade (.*) Tokens of Poison and get back (.*) Tokens of Wind.$/, '将$1毒符记转换为$2风符记。'], //自然赋能，前置
+    [/^Trade (.*) Tokens of Poison and get back (.*) Tokens of Ice.$/, '将$1毒符记转换为$2冰符记。'], //自然赋能，前置
+    [/^Trade (.*) Tokens of Wind and get back (.*) Tokens of Poison.$/, '将$1风符记转换为$2毒符记。'], //自然赋能，前置
+    [/^Trade (.*) Tokens of Wind and get back (.*) Tokens of Ice.$/, '将$1风符记转换为$2冰符记。'], //自然赋能，前置
+    [/^Trade (.*) Tokens of Ice and get back (.*) Tokens of Poison.$/, '将$1冰符记转换为$2毒符记。'], //自然赋能，前置
+    [/^Trade (.*) Tokens of Ice and get back (.*) Tokens of Wind.$/, '将$1冰符记转换为$2风符记。'], //自然赋能，前置
+    [/^Trade(.*)$/, '交易$1'], //主界面
     [/^Spire([\sIVXLCDM]*)$/, '尖塔$1'], //主界面
     [/^(\d+)% Map Bonus$/, '$1%地图奖励'], //主界面
     [/^Zone (.*), Cell$/, '区域 $1，格子'], //主界面
@@ -6387,7 +6344,6 @@ var cnRegReplace = new Map([
     [/^(.*)Ah wood, the building material of kings. The building material of everyone else too, but still.$/, '$1木头，建筑材料之王，王之建筑材料。当然也是其他人的建筑材料，但王也是啊。'], //其他升级等
     [/^(.*)You'll need some wood to build stuff...$/, '$1您需要木头才能建造其他东西……'], //其他升级等
     [/^(.*)You almost forgot how to build a Barn, but now you remember. Proud of you!$/, '$1您都快忘了怎么建造谷仓了，总之您还是想起来了。您可以引以为傲了！'], //其他升级等
-    [/^(.*)The food stores are getting pretty full, maybe you should start thinking about a Barn.$/, '$1食物的存储快满了，您可能该考虑谷仓了。'], //其他升级等
     [/^(.*)Wet wood won't work! Better get a Shed going.$/, '$1湿木头是用不了的，最好赶紧建造一个窝棚。'], //其他升级等
     [/^(.*)A nice Shed would allow you to keep more wood on hand.$/, '$1一个好窝棚可以存放更多木头。'], //其他升级等
     [/^(.*)What better place to store metal than a building that can smelt it\?$/, '$1还有什么地方比冶炼金属的地方能更好地存储它呢？'], //其他升级等
@@ -6429,10 +6385,6 @@ var cnRegReplace = new Map([
     [/^Progress: Your Shield has already hit (.*)% this run.$/, '进度：护盾曾经低至$1%，因此无法完成了。'], //成就等
     [/^Clear The Block in less than (.*) hour(s*) from start of run$/, '使用传送门后，在$1小时内通过障碍区'], //成就等
     [/^Clear The Block in less than (.*) hour(s*) (.*) minute(s*) (.*) second(s*) from start of run$/, '使用传送门后，在$1小时$3分钟$5秒内通过障碍区'], //成就等
-    [/^You're in the wrong Universe! Best run is (.*) min(s*)$/, '您进入了错误的宇宙！最快为$1分钟'], //成就等
-    [/^Progress: Best run is (.*) min(s*)$/, '进度：最快为$1分钟'], //成就等
-    [/^Progress: Too slow! Best run is (.*) min(s*)$/, '进度：因太慢失败了！最快为$1分钟'], //成就等
-    [/^Row Finished! \(Best run is (.*) min(s*)$/, '此类成就全部完成！(最快为$1分钟'], //成就等
     [/^You're in the wrong Universe! Best run is (.*) hour(s*)$/, '您进入了错误的宇宙！最快为$1小时'], //成就等
     [/^Progress: Best run is (.*) hour(s*)$/, '进度：最快为$1小时'], //成就等
     [/^Progress: Too slow! Best run is (.*) hour(s*)$/, '进度：因太慢失败了！最快为$1小时'], //成就等
@@ -6546,7 +6498,9 @@ var cnRegReplace = new Map([
     [/^(\d+) map(s*)$/, '$1张地图'], //离线等
     [/^You have (.+) Fragments.$/, '您有$1碎片。'], //离线等
     [/^Z (.+) map$/, '地图等级$1'], //离线等
-    [/^(?!SF)(?!IF)(.+) Frags$/, '花费$1碎片'], //离线等
+    [/^SF: Frags$/, '刷崇信者：刷碎片'], //脚本相关，前置
+    [/^IF: Frags$/, '刷失智层数：刷碎片'], //脚本相关，前置
+    [/^(.+) Frags$/, '花费$1碎片'], //离线等
     [/^(.+) items$/, '有$1个物品'], //离线等
     [/^Welcome back! You were offline for (\d+) second(s*).$/, '欢迎回来！您离线了$1秒。'], //离线等
     [/^Welcome back! You were offline for (\d+) minute(s*) and (\d+) second(s*).$/, '欢迎回来！您离线了$1分钟$3秒。'], //离线等
@@ -6593,7 +6547,8 @@ var cnRegReplace = new Map([
     [/^(.+) Barn(s*), and (.+) Shed(s*).$/, '$1个谷仓和$3个窝棚。'], //离线等
     [/^(.+) Barn(s*), and (.+) Forge(s*).$/, '$1个谷仓和$3个锻造厂。'], //离线等
     [/^(.+) Shed(s*), and (.+) Forge(s*).$/, '$1个窝棚和$3个锻造厂。'], //离线等
-    [/^(.+)(?<!about a) Barn(s*).$/, '$1个谷仓。'], //离线等
+    [/^(.*)The food stores are getting pretty full, maybe you should start thinking about a Barn.$/, '$1食物的存储快满了，您可能该考虑谷仓了。'], //其他升级等，前置
+    [/^(.+) Barn(s*).$/, '$1个谷仓。'], //离线等
     [/^(.+) Shed(s*).$/, '$1个窝棚。'], //离线等
     [/^(.+) Forge(s*).$/, '$1个锻造厂。'], //离线等
     [/^(\s+)Bone Trader(\s+)$/, '$1骨法商人$2'], //骨头等
@@ -6611,8 +6566,26 @@ var cnRegReplace = new Map([
     [/^(.*) Helium, (.*)x each Token$/, '$1氦，各$2自然符记'], //骨头等
     [/^(.*) Helium, (.*) Fluffy Exp$/, '$1氦，$2绒绒经验'], //骨头等
     [/^(.*) Radon, (.*) Scruffy Exp$/, '$1氡，$2污污经验'], //骨头等
-    [/^(.*)(?<!Fluffy)(?<!Golden)(?<!-)(?<!and (.*)\%)(?<!Current)(?<!30 total)(?<!Battle)(?<!Cool For)(?<!AutoGold) Helium$/, '$1氦'], //骨头等
-    [/^(.*)(?<!Scruffy)(?<!Golden)(?<!-)(?<!Current)(?<!Helium \/)(?<!Battle)(?<!Raging)(?<!AutoGold) Radon$/, '$1氡'], //骨头等
+    [/^Fluffy Helium$/, '绒绒氦'], //主界面，前置
+    [/^Golden Helium$/, '金色氦'], //主界面，前置
+    [/^- Helium$/, '- 氦'], //主界面，前置
+    [/^AutoGold Helium$/, '金色升级氦'], //主界面，前置
+    [/^You will gain (.*)% attack and health, and (.*)% Helium$/, '您将获得$1%攻击力和生命值，及$2%的氦获取量'], //挑战界面，前置
+    [/^s. You will gain (.*)% attack and health, and (.*)% Helium$/, '。您将获得$1%攻击力和生命值，及$2%的氦获取量'], //挑战界面，前置
+    [/^You will unlock this challenge once you have 30 total Helium$/, '欲解锁此挑战，您需要一共获得30氦'], //挑战，前置
+    [/^Too Cool For Helium$/, '氦太酷了'], //成就，前置
+    [/^Current Helium$/, '当前氦'], //脚本等，前置
+    [/^Battle Helium$/, '战斗氦切换次数'], //脚本等，前置
+    [/^(.*) Helium$/, '$1氦'], //骨头等
+    [/^Scruffy Radon$/, '污污氡'], //主界面，前置
+    [/^Golden Radon$/, '金色氡'], //主界面，前置
+    [/^- Radon$/, '- 氡'], //主界面，前置
+    [/^AutoGold Radon$/, '金色升级氡'], //主界面，前置
+    [/^Raging Radon$/, '氡之暴怒'], //成就，前置
+    [/^Helium \/ Radon$/, '氦 / 氡'], //脚本等，前置
+    [/^Current Radon$/, '当前氡'], //脚本等，前置
+    [/^Battle Radon$/, '战斗氡切换次数'], //脚本等，前置
+    [/^(.*) Radon$/, '$1氡'], //骨头等
     [/^(\d+\%) Map Loot$/, '$1 地图资源获取'], //骨头等
     [/^(\d+\%) Trimp Damage$/, '$1 脆皮伤害'], //骨头等
     [/^(\s+)Buy Heirloom \(30 bones\)(\s+)$/, '$1购买传家宝(30骨头)$2'], //骨头等
@@ -6705,7 +6678,8 @@ var cnRegReplace = new Map([
     [/^([0-9a-zA-Z\.\%\s]*)Void Map Drop Chance\*$/, '$1虚空地图掉落概率*'], //传家宝
     [/^([0-9a-zA-Z\.\%\s]*)Plaguebringer$/, '$1瘟疫使者效果'], //传家宝
     [/^(.*)% of all non-lethal damage and nature stacks you afflict on your current enemy are copied onto the next enemy. Plaguebringer damage cannot bring an enemy below 5% health, but nature stacks will continue to accumulate.$/, '将对当前敌人造成的所有非致命伤害及累积的三种自然层数的$1%对下一个敌人生效。瘟疫使者的伤害效果无法将敌人的生命值降到5%以下，但自然层数无限制。'], //传家宝
-    [/^(?!Item)([0-9a-zA-Z\.\%\s]*)Prismatic Shield$/, '$1棱镜护盾'], //传家宝
+    [/^Item Prismatic Shield$/, '棱镜护盾明细'], //主界面，前置
+    [/^([0-9a-zA-Z\.\%\s]*)Prismatic Shield$/, '$1棱镜护盾'], //传家宝
     [/^([0-9a-zA-Z\.\%\s]*)Gamma Burst$/, '$1伽马爆发'], //传家宝
     [/^Each attack by your Trimps adds 1 stack of Charging. When Charging reaches 5 stacks, your Trimps will release a burst of energy, dealing (.*)% of their attack damage. Stacks reset after releasing a Burst or when your Trimps die.$/, '脆皮每次攻击时增加1层“蓄能”。当蓄能层数到达5层时，脆皮将释放积蓄的能量，对敌人造成$1%攻击力的伤害。当能量释放或者脆皮死亡后，层数重置。'], //传家宝
     [/^Add \((.+) Nu$/, '新增($1虚空物质'], //传家宝
@@ -7063,9 +7037,7 @@ var cnRegReplace = new Map([
     [/^bonus, and adding (.*)% to your total Challenge$/, '加成，且增加$1%至总挑战'], //挑战界面
     [/^Zones above Z(.*) are worth 5x more Challenge$/, '区域$1以上的区域可以提供5倍的挑战'], //挑战界面
     [/^(.*)Your challenge has been abandoned.$/, '$1您放弃了挑战。'], //挑战界面
-    [/^You will gain (.*)% attack and health, and (.*)% Helium$/, '您将获得$1%攻击力和生命值，及$2%的氦获取量'], //挑战界面
     [/^You will gain (.*)% to your bonus$/, '您将获得$1%的加成'], //挑战界面
-    [/^s. You will gain (.*)% attack and health, and (.*)% Helium$/, '。您将获得$1%攻击力和生命值，及$2%的氦获取量'], //挑战界面
     [/^for every (.*) Zone(s*) reached.$/, '于每到达$1个区域。'], //挑战界面
     [/^s. You will gain (.*)% attack and health, and (.*)% Helium for every (.*) Zone(s*) reached.$/, '。您将获得$1%攻击力和生命值，及$2%的氦获取量于每到达$3个区域。'], //挑战界面
     [/^Every (.*) Zone(s*) reached,$/, '且每到达$1个区域，'], //挑战界面
@@ -7162,7 +7134,7 @@ var cnRegReplace = new Map([
     [/^(.*)You have completed the Life challenge! You have been rewarded with (.*) Helium, and you may repeat the challenge.$/, '$1您完成了生命挑战！您获取了$2氦，现在您又可以重新挑战了。'], //生命挑战完成消息
     [/^(.*)You have completed the Mapocalypse challenge! You have unlocked the 'Siphonology' Perk, and have been rewarded with (.*) Helium.$/, '$1您完成了天启地图挑战！您解锁了 虹吸学 特权，并且获取了$2氦。'], //天启地图挑战完成消息
     [/^(.*)You have completed the 'Coordinate' challenge! The Bad Guys on this world no longer fight together, and have regained their speed. You have unlocked the 'Coordinated' perk!$/, '$1您完成了 协同 挑战！世界上的敌人不再协同作战了，并且又可以获得快速效果了。您解锁了 协同 特权！'], //协同挑战完成消息
-    [/^Bionic Wonderland((?!level)[\s\(ZIVXLCDM]*)$/, '仿生仙境$1'], //粉碎挑战等
+    [/^Bionic Wonderland([\s\(ZIVXLCDM]*)$/, '仿生仙境$1'], //粉碎挑战等
     [/^(.*)You have completed the Crushed challenge! You have been rewarded with (.*) Helium.$/, '$1您完成了粉碎挑战！您获取了$2氦。'], //粉碎挑战完成消息
     [/^(.*)You have completed the Slow challenge! You have found the patterns for the Gambeson and the Arbalest!$/, '$1您完成了迟缓挑战！您学会了制造棉甲和强弩！'], //迟缓挑战完成消息
     [/^(.*)You have completed the Nom challenge! You have been rewarded with (.*) Helium, and you may repeat the challenge.$/, '$1您完成了美味挑战！您获取了$2氦，现在您又可以重新挑战了。'], //美味挑战完成消息
@@ -7464,10 +7436,17 @@ var cnRegReplace = new Map([
     [/^Lightning Trap([\sIVXLCDM]*)$/, '闪电陷阱$1'], //尖塔等
     [/^Condenser Tower([\sIVXLCDM]*)$/, '冷凝塔$1'], //尖塔等
     [/^Knowledge Tower([\sIVXLCDM]*)$/, '知识塔$1'], //尖塔等
-    [/^Fire(?! Trimps)([\sIVXLCDM]*)$/, '火焰$1'], //尖塔等
+    [/^Fire Trimps$/, '解雇脆皮'], //主界面，前置
+    [/^Fire([\sIVXLCDM]*)$/, '火焰$1'], //尖塔等
     [/^Frost([\sIVXLCDM]*)$/, '冰霜$1'], //尖塔等
-    [/^Strength(?! in Health)([\sIVXLCDM]*)$/, '力量$1'], //尖塔等
-    [/^Poison(?! Tick)(?! active)(?! Calc)([\sIVXLCDM]*)$/, '剧毒$1'], //尖塔等
+    [/^Strength in Health$/, '健康之力'], //主界面，前置
+    [/^Strength in Health I$/, '健康之力 I'], //专精，前置
+    [/^Strength in Health II$/, '健康之力 II'], //专精，前置
+    [/^Strength([\sIVXLCDM]*)$/, '力量$1'], //尖塔等
+    [/^Poison Tick$/, '剧毒伤害'], //尖塔，前置
+    [/^Poison active$/, '已启用毒之启迪'], //自然，前置
+    [/^Poison Calc$/, '毒赋能计算'], //脚本等，前置
+    [/^Poison([\sIVXLCDM]*)$/, '剧毒$1'], //尖塔等
     [/^Lightning([\sIVXLCDM]*)$/, '闪电$1'], //尖塔等
     [/^Condenser([\sIVXLCDM]*)$/, '冷凝$1'], //尖塔等
     [/^Knowledge([\sIVXLCDM]*)$/, '知识$1'], //尖塔等
@@ -7485,7 +7464,9 @@ var cnRegReplace = new Map([
     [/^When stepped on, increases the target's Toxicity by  (.*)%. In addition, each Condenser Tower increases all Radon found by (.*)% \(additive with other Condenser Towers\).$/, '当敌人进入时，毒性增加$1%。另外，每个冷凝塔还会使氡获取量增加$2%(效果与其他冷凝塔叠加)。'], //尖塔等
     [/^When stepped on by a Chilled enemy, Chilled becomes Frozen, slowing the target to 33% speed for 5 moves. In addition, each Knowledge Tower increases Fluffy's Experience gain by (.*)% \(additive with other Knowledge Towers\). Note that Knowledge Towers are coated with antifreeze, preventing chill effects from working until the enemy steps off of this Tower.$/, '当被冰冻的敌人进入时，冰冻效果变为冻结效果，使敌人在5格内移动速度减为33%。另外，每个知识塔还可以使绒绒经验值获取量增加$1%(效果与其他知识塔叠加)。请注意，知识塔本身涂有防冻剂，所以被冰冻的敌人直到离开前不触发冰冻效果。'], //尖塔等
     [/^When stepped on by a Chilled enemy, Chilled becomes Frozen, slowing the target to 33% speed for 5 moves. In addition, each Knowledge Tower increases Scruffy's Experience gain by (.*)% \(additive with other Knowledge Towers\). Note that Knowledge Towers are coated with antifreeze, preventing chill effects from working until the enemy steps off of this Tower.$/, '当被冰冻的敌人进入时，冰冻效果变为冻结效果，使敌人在5格内移动速度减为33%。另外，每个知识塔还可以使污污经验值获取量增加$1%(效果与其他知识塔叠加)。请注意，知识塔本身涂有防冻剂，所以被冰冻的敌人直到离开前不触发冰冻效果。'], //尖塔等
-    [/^(.*)(?<!Gain) Mi$/, '$1岩浆岩'], //维度发生器等
+    [/^Gain Mi$/, '得岩浆岩'], //游戏设置，前置
+    [/^Set to Gain Mi$/, '设为得岩浆岩'], //维度发生器，前置
+    [/^(.*) Mi$/, '$1岩浆岩'], //维度发生器等
     [/^(.*) is not a valid number$/, '$1不是有效的数字'], //维度发生器等
     [/^Your Generator currently grants (.*) Max Trimps per tick at (.*) fuel \(the amount of fuel needed to tick\). Purchase this to increase the Generator's efficiency by 10% \(additive$/, '您的维度发生器目前每次消耗$2燃料(每次消耗的燃料数量)，并可以获得$1脆皮上限。升级此项可以维度发生器的工作效率增加10%(叠加'], //维度发生器等
     [/^Your Generator can currently store (.*) fuel. Purchase this to increase the fuel capacity by (.*). The more fuel you have in storage, the more housing you'll create per tick!$/, '您的维度发生器目前可以存储$1燃料，升级后可以多存储$2。存储的燃料越多，每次产生的住房也就越多！'], //维度发生器等
@@ -7500,12 +7481,6 @@ var cnRegReplace = new Map([
     [/^This Empowerment will end on Z(.*), at which point you'll be able to fight a Gusty enemy to earn (.*) Token(s*) of Wind.$/, '此赋能将在区域$1结束，该区域您将与一个阵风敌人战斗，战胜后可获得$2风符记。'], //自然赋能
     [/^This Empowerment will end on Z(.*), at which point you'll be able to fight a Frozen enemy to earn (.*) Token(s*) of Ice.$/, '此赋能将在区域$1结束，该区域您将与一个冻结敌人战斗，战胜后可获得$2冰符记。'], //自然赋能
     [/^This Empowerment will end on Z(.*).$/, '此赋能将在区域$1结束。'], //自然赋能
-    [/^Trade (.*) Tokens of Poison and get back (.*) Tokens of Wind.$/, '将$1毒符记转换为$2风符记。'], //自然赋能
-    [/^Trade (.*) Tokens of Poison and get back (.*) Tokens of Ice.$/, '将$1毒符记转换为$2冰符记。'], //自然赋能
-    [/^Trade (.*) Tokens of Wind and get back (.*) Tokens of Poison.$/, '将$1风符记转换为$2毒符记。'], //自然赋能
-    [/^Trade (.*) Tokens of Wind and get back (.*) Tokens of Ice.$/, '将$1风符记转换为$2冰符记。'], //自然赋能
-    [/^Trade (.*) Tokens of Ice and get back (.*) Tokens of Poison.$/, '将$1冰符记转换为$2毒符记。'], //自然赋能
-    [/^Trade (.*) Tokens of Ice and get back (.*) Tokens of Wind.$/, '将$1冰符记转换为$2风符记。'], //自然赋能
     [/^. Maximum of (.*) levels.$/, '。最高$1级。'], //自然赋能
     [/^(.*) Tokens of Poison$/, '$1毒符记'], //自然赋能
     [/^(.*) Tokens of Wind$/, '$1风符记'], //自然赋能
@@ -7847,12 +7822,23 @@ var cnRegReplace = new Map([
     [/^Even in death this guy's a dick. You figure you'll help yourself to another container filled with (.*) Helium!$/, '这家伙都死了还不消停。您装走了另一个容器中的$1氦！'], //故事-尖塔消息
     [/^(.*)As yet another Echo of Druopitee fades into nothingness, you feel something urging you to check underneath a loose stone in the corner of the room. After lifting it up, you find a small notebook with the words "Global Domination" written on it. The text all seems to be in Druopitee's handwriting, which you instantly recognize from the books you've found around the planet. The first few pages all discuss Druopitee's success with various creatures here, followed by multiple pages documenting failures at attempts to control the Trimps. The very last page with any writing in it indicates that Druopitee intended to create leaders they'd be more likely to follow, by creating clones of himself mixed with varying amounts of Trimp DNA. Is this where Fluffy came from\?!  You find a large stockpile of$/, '$1又一个德罗披提的幻影被抹杀了，您感觉好像有什么驱使着您检查房间角落一块松动的石头下面。把石头搬开以后，您发现了一本写着《主宰世界》的小笔记本。您立刻认出了里面是德罗披提的字迹，跟行星上找到的那些书一致。前面几页写着关于成功制造了许多生物的事，接着又写了控制脆皮失败的事。最后几页的只言片语中，可以看出德罗披提想要制造一个它们更可能跟随的领袖，因此他将自己的DNA与脆皮的混合后，制造出了一些复制体。难道绒绒就是这么来的吗？！您发现了 '], //故事-尖塔消息
     [/^(.*)As yet another Echo of Druopitee fades into nothingness, you feel something urging you to check underneath a loose stone in the corner of the room. After lifting it up, you find a small notebook with the words "Global Domination" written on it. The text all seems to be in Druopitee's handwriting, which you instantly recognize from the books you've found around the planet. The first few pages all discuss Druopitee's success with various creatures here, followed by multiple pages documenting failures at attempts to control the Trimps. The very last page with any writing in it indicates that Druopitee intended to create leaders they'd be more likely to follow, by creating clones of himself mixed with varying amounts of Trimp DNA. Is this where Fluffy came from\?!  You find a$/, '$1又一个德罗披提的幻影被抹杀了，您感觉好像有什么驱使着您检查房间角落一块松动的石头下面。把石头搬开以后，您发现了一本写着《主宰世界》的小笔记本。您立刻认出了里面是德罗披提的字迹，跟行星上找到的那些书一致。前面几页写着关于成功制造了许多生物的事，接着又写了控制脆皮失败的事。最后几页的只言片语中，可以看出德罗披提想要制造一个它们更可能跟随的领袖，因此他将自己的DNA与脆皮的混合后，制造出了一些复制体。难道绒绒就是这么来的吗？！您发现了一个'], //故事-尖塔消息
-    [/^(.*)(?<!(! |\. ))You found (.*) Nullifium!$/, '$1您发现了$3虚空物质！'], //故事-尖塔消息
-    [/^(.*)(?<!\. )You help yourself to a container filled with (.*) Helium!$/, '$1您装走了一个容器中的$2氦！'], //故事-尖塔消息
-    [/^(.*)(?<!(\.|! |\. ))You found a Z(.*) Heirloom!$/, '$1您发现了一个相当于区域$3掉落的传家宝！'], //故事-尖塔消息
-    [/^(.*)(?<!\. )You found (.*) of each type of Nature Token!$/, '$1您发现了数量各为$2的三种自然符记！'], //故事-尖塔消息
-    [/^(.*)(?<!(! |\. ))You figure you'll help yourself to another container filled with (.*) Helium!$/, '$1您装走了另一个容器中的$3氦！'], //故事-尖塔消息
-    [/^(.*)(?<!(! |\. ))You search around for some more resources but find nothing. Lame.$/, '$1您在附近找了找，什么有用的资源都没找到。真是弱爆了。'], //故事-尖塔消息
+    [/^Well that doesn't really sound like a bad thing. You found 200 Nullifium!$/, '嗯，听起来不坏。您发现了200虚空物质！'], //故事-尖塔消息，前置
+    [/^That didn't seem very coherent. It seems like destroying his Echo in the last Spire has made some sort of impact. You found 600 Nullifium!$/, '这话听起来不怎么有条理。看起来上个尖塔中摧毁的幻影造成了某些影响。您发现了600虚空物质！'], //故事-尖塔消息，前置
+    [/^(.*)You found (.*) Nullifium!$/, '$1您发现了$3虚空物质！'], //故事-尖塔消息
+    [/^(.*)You help yourself to a container filled with (.*) Helium!$/, '$1您装走了一个容器中的$2氦！'], //故事-尖塔消息
+    [/^Well, you definitely want to get your hands on some of that Healthy mutation now. You found a Z400 Heirloom!$/, '很好，从此刻起您要认真考虑怎么引起健康变异了。您发现了一个相当于区域400掉落的传家宝！'], //故事-尖塔消息，前置
+    [/^At least he's gained enough consciousness back to continue with the threats. You know that now is not the time to back down. You found a Z400 Heirloom!$/, '至少他又清醒起来，能够继续威胁您了。您知道，现在只能寸步不让了。您发现了一个相当于区域400掉落的传家宝！'], //故事-尖塔消息，前置
+    [/^No thanks, Druopitee. It's kinda nice to see him scared though! You found a Z500 Heirloom!$/, '别逗了，德罗披提。看他慌成这样真是太爽了！您发现了一个相当于区域500掉落的传家宝！'], //故事-尖塔消息，前置
+    [/^(.*)You found a Z(.*) Heirloom!$/, '$1您发现了一个相当于区域$3掉落的传家宝！'], //故事-尖塔消息
+    [/^His Spires might be infinite, but it's not possible for his consciousness to be. You decide you'll worry about the rest of the spires once you've beaten Druopitee into nothingness. You found 10 of each type of Nature Token!$/, '他的尖塔可能是无穷无尽的，但他的意识绝对不可能是的。您决定先彻底抹杀了德罗披提再来考虑剩下的尖塔怎么办。您发现了数量各为10的三种自然符记！'], //故事-尖塔消息，前置
+    [/^Yes, that was becoming pretty obvious. His mind must really be decaying fast if he thought this admission would be anything other than motivating. You found 15 of each type of Nature Token!$/, '是啊，这太明显了。他的意识一定是在快速衰亡，他竟然觉得这样的话不是在鼓励。您发现了数量各为15的三种自然符记！'], //故事-尖塔消息，前置
+    [/^(.*)You found (.*) of each type of Nature Token!$/, '$1您发现了数量各为$2的三种自然符记！'], //故事-尖塔消息
+    [/^(.*)You figure you'll help yourself to another container filled with (.*) Helium!$/, '$1您装走了另一个容器中的$3氦！'], //故事-尖塔消息
+    [/^It sounds like he's trying to tell you that the Healthy mutation would make your enemies even stronger. Still seems like releasing it would be the right thing to do, though. You search around for some more resources but find nothing. Lame.$/, '看起来，他想告诉您健康变异只会使敌人变得更强。不管怎么说，散播它应该还是没错的。您在附近找了找，什么有用的资源都没找到。真是弱爆了。'], //故事-尖塔消息，前置
+    [/^Slaver\?! Your Trimps all know that they're free to leave whenever they want. He's just trying to get under your skin! You search around for some more resources but find nothing. Lame.$/, '奴隶主？！您的脆皮们都知道想要走的话随时都可以走。他不过是想惹毛您！您在附近找了找，什么有用的资源都没找到。真是弱爆了。'], //故事-尖塔消息，前置
+    [/^No, there's not. You're almost there. You search around for some more resources but find nothing. Lame.$/, '谈？是没什么好谈了。您都快到塔顶了。您在附近找了找，什么有用的资源都没找到。真是弱爆了。'], //故事-尖塔消息，前置
+    [/^Even in death this guy's a dick. You search around for some more resources but find nothing. Lame.$/, '这家伙都死了还不消停。您在附近找了找，什么有用的资源都没找到。真是弱爆了。'], //故事-尖塔消息，前置
+    [/^(.*)You search around for some more resources but find nothing. Lame.$/, '$1您在附近找了找，什么有用的资源都没找到。真是弱爆了。'], //故事-尖塔消息
     [/^(.*)You find a large stockpile of$/, '$1您发现了 '], //故事-尖塔消息
     [/^(.*)You find a$/, '$1您发现了一个'], //故事-尖塔消息
     [/^At the top of this Spire, you found a gigantic, pitch-black cache with (.*) Dark Essence inside, just enough to complete your entire collection!$/, '在尖塔顶部，您发现了一个巨大的黑箱子，里面装着$1黑暗精华，正好足够您升级所有的专精！'], //故事-尖塔消息
@@ -7870,7 +7856,8 @@ var cnRegReplace = new Map([
     [/^Lv:(\s)$/, '等级：'], //其他消息等
     [/^(.*) stack(s*) of Equality are active, reducing the Attack of Trimps and Bad Guys by (.*)%.$/, '已激活$1层平等，同时将您的脆皮和敌人的攻击力减少$3%。'], //其他消息等
     [/^Max \((.*)$/, '最大($1'], //其他消息等
-    [/^(.*)(?<!normal. )You$/, '$1您'], //其他消息等
+    [/^will cause the world to return to normal. You$/, '后世界将恢复原样。您同时 '], //挑战，前置
+    [/^(.*)You$/, '$1您'], //其他消息等
     [/^(.*)You open the Large Cache at the end of the map to find (.*) food!$/, '$1您打开了地图最后的大储藏箱，获得了$2食物！'], //其他消息等
     [/^(.*)You open the Large Cache at the end of the map to find (.*) wood!$/, '$1您打开了地图最后的大储藏箱，获得了$2木头！'], //其他消息等
     [/^(.*)You open the Large Cache at the end of the map to find (.*) metal!$/, '$1您打开了地图最后的大储藏箱，获得了$2金属！'], //其他消息等
@@ -7984,7 +7971,16 @@ var cnRegReplace = new Map([
     [/^(.*)Removing dark-graph.css file$/, '$1黑暗图表已关闭'], //脚本图表消息
     [/^(.*)Theme change - AutoTrimps styles updating...$/, '$1游戏主题改变 - 自动脆皮脚本样式更新中……'], //脚本图表消息
     [/^(.*)Starting Zone$/, '$1进入区域'], //脚本图表消息
-    [/^((?!SS).*)(?<!er) Second(s*)$/, '$1 秒'], //脚本图表
+    [/^Food Per Second$/, '每秒食物获取量'], //主界面，前置
+    [/^Wood Per Second$/, '每秒木头获取量'], //主界面，前置
+    [/^Metal Per Second$/, '每秒金属获取量'], //主界面，前置
+    [/^Science Per Second$/, '每秒科学点获取量'], //主界面，前置
+    [/^Gems Per Second$/, '每秒宝石获取量'], //主界面，前置
+    [/^Fragments Per Second$/, '每秒碎片获取量'], //主界面，前置
+    [/^Trimps Per Second$/, '每秒脆皮获取量'], //主界面，前置
+    [/^Runestones per Second$/, '每秒符石'], //尖塔，前置
+    [/^SS: Seconds$/, '节约铁匠铺：秒数'], //脚本等，前置
+    [/^(.*) Second(s*)$/, '$1 秒'], //脚本图表
     [/^Portal (.*): Daily$/, '传送门$1：日常'], //脚本图表
     [/^Portal (.*): Discipline$/, '传送门$1：纪律'], //脚本图表
     [/^Portal (.*): Metal$/, '传送门$1：金属'], //脚本图表
@@ -8037,10 +8033,13 @@ var cnRegReplace = new Map([
     [/^DHS: Low Damage(.*)$/, '日常传家宝：低伤$1'], //脚本日常设置
     [/^(.*)Theme change - AutoTrimps styles updated.$/, '$1游戏主题改变 - 自动脆皮脚本样式已更新。'], //脚本消息
     [/^Trimple Z(.*)$/, '末日神殿区域$1'], //脚本地图设置
-    [/^Time Farming((?! Bogs).*)$/, '定时刷图$1'], //脚本地图设置
+    [/^Time Farming Bogs$/, '定时刷图黑色泥沼'], //脚本等，前置
+    [/^Time Farming(.*)$/, '定时刷图$1'], //脚本地图设置
     [/^TF: Time(.*)$/, '定时刷图：数值$1'], //脚本地图设置
     [/^TF: Map Level(.*)$/, '定时刷图：地图等级$1'], //脚本地图设置
-    [/^Melting Point((?! \(Zone).*)$/, '熔点$1'], //脚本地图设置
+    [/^Melting Point \($/, '熔点('], //离线，前置
+    [/^Melting Point \(Zone$/, '熔点 (区域'], //挑战，前置    
+    [/^Melting Point(.*)$/, '熔点$1'], //脚本地图设置
     [/^BB: Zone(.*)$/, '黑色泥沼：区域$1'], //脚本地图设置
     [/^BB: Amount(.*)$/, '黑色泥沼：数量$1'], //脚本地图设置
     [/^P Raiding Z(.*)$/, '重铸袭劫区域$1'], //脚本袭劫设置
