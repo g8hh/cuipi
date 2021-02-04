@@ -7824,21 +7824,21 @@ var cnRegReplace = new Map([
     [/^(.*)As yet another Echo of Druopitee fades into nothingness, you feel something urging you to check underneath a loose stone in the corner of the room. After lifting it up, you find a small notebook with the words "Global Domination" written on it. The text all seems to be in Druopitee's handwriting, which you instantly recognize from the books you've found around the planet. The first few pages all discuss Druopitee's success with various creatures here, followed by multiple pages documenting failures at attempts to control the Trimps. The very last page with any writing in it indicates that Druopitee intended to create leaders they'd be more likely to follow, by creating clones of himself mixed with varying amounts of Trimp DNA. Is this where Fluffy came from\?!  You find a$/, '$1又一个德罗披提的幻影被抹杀了，您感觉好像有什么驱使着您检查房间角落一块松动的石头下面。把石头搬开以后，您发现了一本写着《主宰世界》的小笔记本。您立刻认出了里面是德罗披提的字迹，跟行星上找到的那些书一致。前面几页写着关于成功制造了许多生物的事，接着又写了控制脆皮失败的事。最后几页的只言片语中，可以看出德罗披提想要制造一个它们更可能跟随的领袖，因此他将自己的DNA与脆皮的混合后，制造出了一些复制体。难道绒绒就是这么来的吗？！您发现了一个'], //故事-尖塔消息
     [/^Well that doesn't really sound like a bad thing. You found 200 Nullifium!$/, '嗯，听起来不坏。您发现了200虚空物质！'], //故事-尖塔消息，前置
     [/^That didn't seem very coherent. It seems like destroying his Echo in the last Spire has made some sort of impact. You found 600 Nullifium!$/, '这话听起来不怎么有条理。看起来上个尖塔中摧毁的幻影造成了某些影响。您发现了600虚空物质！'], //故事-尖塔消息，前置
-    [/^(.*)You found (.*) Nullifium!$/, '$1您发现了$3虚空物质！'], //故事-尖塔消息
-    [/^(.*)You help yourself to a container filled with (.*) Helium!$/, '$1您装走了一个容器中的$2氦！'], //故事-尖塔消息
+    [/^([/s/d:]*)You found (.*) Nullifium!$/, '$1您发现了$2虚空物质！'], //故事-尖塔消息
+    [/^([/s/d:]*)You help yourself to a container filled with (.*) Helium!$/, '$1您装走了一个容器中的$2氦！'], //故事-尖塔消息
     [/^Well, you definitely want to get your hands on some of that Healthy mutation now. You found a Z400 Heirloom!$/, '很好，从此刻起您要认真考虑怎么引起健康变异了。您发现了一个相当于区域400掉落的传家宝！'], //故事-尖塔消息，前置
     [/^At least he's gained enough consciousness back to continue with the threats. You know that now is not the time to back down. You found a Z400 Heirloom!$/, '至少他又清醒起来，能够继续威胁您了。您知道，现在只能寸步不让了。您发现了一个相当于区域400掉落的传家宝！'], //故事-尖塔消息，前置
     [/^No thanks, Druopitee. It's kinda nice to see him scared though! You found a Z500 Heirloom!$/, '别逗了，德罗披提。看他慌成这样真是太爽了！您发现了一个相当于区域500掉落的传家宝！'], //故事-尖塔消息，前置
-    [/^(.*)You found a Z(.*) Heirloom!$/, '$1您发现了一个相当于区域$3掉落的传家宝！'], //故事-尖塔消息
+    [/^([/s/d:]*)You found a Z(.*) Heirloom!$/, '$1您发现了一个相当于区域$2掉落的传家宝！'], //故事-尖塔消息
     [/^His Spires might be infinite, but it's not possible for his consciousness to be. You decide you'll worry about the rest of the spires once you've beaten Druopitee into nothingness. You found 10 of each type of Nature Token!$/, '他的尖塔可能是无穷无尽的，但他的意识绝对不可能是的。您决定先彻底抹杀了德罗披提再来考虑剩下的尖塔怎么办。您发现了数量各为10的三种自然符记！'], //故事-尖塔消息，前置
     [/^Yes, that was becoming pretty obvious. His mind must really be decaying fast if he thought this admission would be anything other than motivating. You found 15 of each type of Nature Token!$/, '是啊，这太明显了。他的意识一定是在快速衰亡，他竟然觉得这样的话不是在鼓励。您发现了数量各为15的三种自然符记！'], //故事-尖塔消息，前置
-    [/^(.*)You found (.*) of each type of Nature Token!$/, '$1您发现了数量各为$2的三种自然符记！'], //故事-尖塔消息
-    [/^(.*)You figure you'll help yourself to another container filled with (.*) Helium!$/, '$1您装走了另一个容器中的$3氦！'], //故事-尖塔消息
+    [/^([/s/d:]*)You found (.*) of each type of Nature Token!$/, '$1您发现了数量各为$2的三种自然符记！'], //故事-尖塔消息
+    [/^([/s/d:]*)You figure you'll help yourself to another container filled with (.*) Helium!$/, '$1您装走了另一个容器中的$2氦！'], //故事-尖塔消息
     [/^It sounds like he's trying to tell you that the Healthy mutation would make your enemies even stronger. Still seems like releasing it would be the right thing to do, though. You search around for some more resources but find nothing. Lame.$/, '看起来，他想告诉您健康变异只会使敌人变得更强。不管怎么说，散播它应该还是没错的。您在附近找了找，什么有用的资源都没找到。真是弱爆了。'], //故事-尖塔消息，前置
     [/^Slaver\?! Your Trimps all know that they're free to leave whenever they want. He's just trying to get under your skin! You search around for some more resources but find nothing. Lame.$/, '奴隶主？！您的脆皮们都知道想要走的话随时都可以走。他不过是想惹毛您！您在附近找了找，什么有用的资源都没找到。真是弱爆了。'], //故事-尖塔消息，前置
     [/^No, there's not. You're almost there. You search around for some more resources but find nothing. Lame.$/, '谈？是没什么好谈了。您都快到塔顶了。您在附近找了找，什么有用的资源都没找到。真是弱爆了。'], //故事-尖塔消息，前置
     [/^Even in death this guy's a dick. You search around for some more resources but find nothing. Lame.$/, '这家伙都死了还不消停。您在附近找了找，什么有用的资源都没找到。真是弱爆了。'], //故事-尖塔消息，前置
-    [/^(.*)You search around for some more resources but find nothing. Lame.$/, '$1您在附近找了找，什么有用的资源都没找到。真是弱爆了。'], //故事-尖塔消息
+    [/^([/s/d:]*)You search around for some more resources but find nothing. Lame.$/, '$1您在附近找了找，什么有用的资源都没找到。真是弱爆了。'], //故事-尖塔消息
     [/^(.*)You find a large stockpile of$/, '$1您发现了 '], //故事-尖塔消息
     [/^(.*)You find a$/, '$1您发现了一个'], //故事-尖塔消息
     [/^At the top of this Spire, you found a gigantic, pitch-black cache with (.*) Dark Essence inside, just enough to complete your entire collection!$/, '在尖塔顶部，您发现了一个巨大的黑箱子，里面装着$1黑暗精华，正好足够您升级所有的专精！'], //故事-尖塔消息
