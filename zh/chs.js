@@ -6487,7 +6487,7 @@ var cnRegReplace = new Map([
     [/^Repeat (.+) Times?$/, '重复$1次'], //设置等
     [/^Your save on PlayFab has earned (.*) total Helium, defeated Zone (.*), and cleared (.*) total Zones. The save on your computer only has (.*) total Helium, has defeated Zone (.*), and cleared (.*) total Zones.$/, 'PlayFab上的存档一共获得了$1氦，最高通过了区域$2，总共通过了$3个区域。您的电脑上的存档只获得了$4氦，最高通过了区域$5，总共通过了$6个区域。'], //设置等
     [/^(.*)Unable to back up your save to PlayFab! Double check your internet connection, and don't forget to back up your save manually.$/, '$1无法将存档备份到PlayFab！请再次检查您的互联网连接是否正常，而且请不要忘了手动备份存档。'], //设置等
-    [/^(.*)Game saved and backed up to PlayFab! Next automatic online save in 30 minutes.$/, '$1游戏已保存并备份至PlayFab！30分钟后会再次自动备份。'], //设置等
+    [/^(.*)Game saved and backed up to PlayFab! Next automatic online save in 2 hours.$/, '$1游戏已保存并备份至PlayFab！2小时后会再次自动备份。'], //设置等
     [/^(.*)Reconnected to PlayFab!$/, '$1重新登录上了PlayFab！'], //设置等
     [/^(.*) cannot be used twice. Please choose unique numbers!$/, '$1无法使用两次。请确保数字各不相同！'], //设置等
     [/^(.*) seconds would be really difficult to target. Could you pick a slightly more... numerical number\?$/, '$1秒有点难以实现。您能选择一个更加……像数字一点的值吗？'], //设置等

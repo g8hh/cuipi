@@ -224,7 +224,7 @@ function save(exportThis, fromManual) {
 
 	if (game.options.menu.usePlayFab.enabled == 1 && playFabId){
 		var timeSinceSave = performance.now() - lastOnlineSave;
-		if ((timeSinceSave < 1800000 && !fromManual) || timeSinceSave < 60000){
+		if ((timeSinceSave < 7200000 && !fromManual) || timeSinceSave < 60000){
 			return;
 		}
 		saveToPlayFab(saveString);
@@ -8207,6 +8207,7 @@ var visualMutations = {
 	},
 	TrimpmasSnow: {
 		active: function() {
+			return false;
 			return (game.options.menu.showSnow.enabled);
 		},
 		pattern: function(currentArray, mutationArray) {
@@ -17229,7 +17230,7 @@ function playFabSaveCheck(){
 		return;
 	}
 	var requestData = {
-		Keys: ["totalHeliumEarned", "highestLevelCleared", "totalZones"],
+		Keys: ["saveString"],
 		PlayFabId: playFabId
 	}
 	try {
@@ -17239,15 +17240,24 @@ function playFabSaveCheck(){
 }
 
 function playFabSaveCheckCallback(data, error){
-	if (error){
+	if (error || !data){
 		console.log("error checking existing PlayFab data");
 		console.log(error);
 		return;
 	}
 	if (data){
-		var playFabHelium = (data.data.Data.totalHeliumEarned) ? parseFloat(data.data.Data.totalHeliumEarned.Value) : 0;
-		var playFabHighestZone = (data.data.Data.highestLevelCleared) ? parseFloat(data.data.Data.highestLevelCleared.Value) : 0;
-		var playFabTotalZones = (data.data.Data.totalZones) ? parseFloat(data.data.Data.totalZones.Value) : 0;
+		var playFabSave;
+		try{
+			playFabSave = JSON.parse(LZString.decompressFromBase64(data.data.Data.saveString.Value));
+		}
+		catch(e){
+			console.log(e);
+			return;
+		}
+		if (!playFabSave || !playFabSave.global) return;
+		var playFabHelium = (playFabSave.global.totalHeliumEarned) ? playFabSave.global.totalHeliumEarned : 0;
+		var playFabTotalZones = (playFabSave.stats.zonesCleared.value) ? (playFabSave.stats.zonesCleared.value + playFabSave.stats.zonesCleared.valueTotal) : 0;
+		var playFabHighestZone = (playFabSave.global.highestLevelCleared) ? playFabSave.global.highestLevelCleared : 0;
 		if (playFabHelium > parseFloat(game.global.totalHeliumEarned) || playFabHighestZone > parseFloat(game.global.highestLevelCleared) || (playFabTotalZones > (game.stats.zonesCleared.value + game.stats.zonesCleared.valueTotal))){
 			tooltip("PlayFab Conflict", null, "update", playFabHelium, playFabHighestZone, playFabTotalZones);
 			return;
@@ -17272,11 +17282,7 @@ function saveToPlayFab(saveString){
 	var requestData = {
 		TitleId: "9186",
 		Data: {
-			saveString: saveString,
-			totalHeliumEarned: game.global.totalHeliumEarned,
-			highestLevelCleared: game.global.highestLevelCleared,
-			totalZones: (game.stats.zonesCleared.value + game.stats.zonesCleared.valueTotal)
-		}
+			saveString: saveString		}
 	}
 	try{
 		PlayFab.ClientApi.UpdateUserData(requestData, saveToPlayFabCallback);
@@ -17301,7 +17307,7 @@ function saveToPlayFabCallback(data, error){
 	if (data){
 		swapClass("iconState", "iconStateGood", document.getElementById('playFabIndicator'));
 		lastOnlineSave = performance.now();
-		message("Game saved and backed up to PlayFab! Next automatic online save in 30 minutes.", "Notices", null, "save");
+		message("Game saved and backed up to PlayFab! Next automatic online save in 2 hours.", "Notices", null, "save");
 		return true;
 	}
 }
