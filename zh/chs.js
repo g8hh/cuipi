@@ -229,6 +229,8 @@ var cnItems = {
     'Mastery': '专精',
     'Click to view your masteries.': '点击可以查看您的专精。',
     'Nature': '自然',
+    'Alchemy': '炼金术',
+    'SA': '尖塔袭击',
     'Custom': '自定义',
     'Type a number below to purchase a specific amount. You can also use shorthand such as 2e5 and 200k to select that large number, or fractions such as 1/2 and 50% to select that fraction of your available workspaces.': '在下方输入数字，以设定每次点击购买的数量。您还可以使用例如2e5或200k之类的缩写来输入大数字。',
     'Max of 1,000 for most perks': '对于绝大多数特权来说数字最大为1000',
@@ -297,6 +299,10 @@ var cnItems = {
     'Voidtle': '虚空战斗',
     '- Where your Scientists will again attempt to buy as many Golden Voids as possible (to reach 72%), but will instead switch to Golden Battle afterwards.': '- 将购买最大数量的金色升级虚空(直到达到72%加成)，然后切换为金色升级战斗。',
     'Please allow 4 seconds for Trimp retraining after clicking this button before any Golden Upgrades are automatically purchased, and don\'t forget to frequently thank your scientists! Seriously, they get moody.': '请在切换了金色升级选项后等待4秒，之后金色升级选项才会生效。另外，不要忘了感谢科学家们！真的，不然它们情绪会很低落的。',
+    'Below you\'ll need to enter a string for the Automator to parse. Your string should be separated by commas, and will indicate priority for Golden Upgrade purchases.': '最下方的输入框中，您可以输入一串字符，让自动金色升级进行分析。您输入的字符需要用英文逗号来分隔，并且将决定金色升级的顺序。',
+    'An example of a viable string would be \'8v,10b,10r,10b\'.': '可行的字符串可举例如下：“8v,10b,10r,10b”。',
+    'Use \'r\' for Golden Radon (interchangeable with \'h\' for Golden Helium), \'b\' for Golden Battle, and \'v\' for Golden Void.': 'r代表金色升级氡(写成h也可以生效，h代表金色升级氦，两者通用)，b代表金色升级战斗，v代表金色升级虚空。',
+    'As previously stated, each rule (separated by commas) in this string dictates the priority of that particular upgrade. With the given example string, the Automator will first buy 8 Golden Voids, then 10 Golden Battle, then 10 Golden Radon, then 10 Golden Battle. Requests to buy Golden Void will be skipped above 72%.': '如上所述，字符串中每一条规则(由逗号分隔开来的)决定了特定升级的顺序。如果输入上面举例的字符串，那么自动考古将会先购买8次金色升级虚空，然后购买10次金色升级战斗，然后再购买10次金色升级氡，最后再购买10次金色升级战斗。如果设置超过72%的金色升级虚空，超出的部分将被忽略。注意：请正确输入字符串(只使用上述四个字母，字母前后正确使用数字和逗号，并且数字不可超过999，规则不可超过25条)，否则上方会有红字报错。',
     'AutoPrestige': '自动重铸装备',
     'AutoPrestige Off': '关闭自动重铸',
     'AutoPrestige All': '全部自动重铸',
@@ -374,7 +380,7 @@ var cnItems = {
     'MagnetoShriek is NOT active and will not fire.': '电磁尖啸未激活，将不会发射。',
     'Crushing Blows': '粉碎之击',
     'Your current health is higher than your block, making you vulnerable to critical strikes from your enemies. Better fix that...': '您目前的生命值高于格挡，敌人的攻击可能造成暴击。最好做点什么……',
-    'Void Attack': '虚空突袭',
+    'Void Attack': '虚空突击',
     'This Bad Guy attacks twice - once before you, and once again after you.': '此敌人每次攻击两下-在您攻击前和攻击后各攻击一下。',
     'Void Gas': '虚空毒气',
     'This map is reducing the repopulation speed of your Trimps by 80%.': '此地图减少脆皮80%的繁殖速度。',
@@ -481,6 +487,7 @@ var cnItems = {
     'Biome': '生物群落',
     'If you\'re looking to farm something specific, you can select the biome here. Anything other than random will increase the cost of the map.': '如果您想要刷什么特定的资源，您可以在这里选择生物群落。除随机以外的其他选项都将增加地图的碎片花费。',
     'Random': '随机',
+    'Farmlands': '农场',
     'Special Modifier': '特殊修饰符',
     'Select a special modifier to add to your map from the drop-down below! You can only add one of these to each map. The following bonuses are currently available': '请从下拉菜单中选择要使用的特殊修饰符！每张地图只能使用一个特殊修饰符。目前可以使用以下的特殊修饰符',
     'Fast Attacks (FA': '快速攻击 (FA',
@@ -1154,6 +1161,8 @@ var cnItems = {
     'Highest Zone': '最高区域',
     'Highest Zone U': '最高区域于宇宙',
     'Trap/Tower Kills': '陷阱/塔击杀数',
+    'SA Dust Earned': '尖塔袭击获取的粉末',
+    'SA Enemies Killed': '尖塔袭击击杀的敌人数量',
     //游戏统计相关结束
     //游戏成就相关
     'Zone Progress': '区域进度',
@@ -1212,6 +1221,11 @@ var cnItems = {
     'Steamroller': '势不可挡',
     'Universal Destroyer': '博识毁灭者',
     'Eater of Zones': '区域食客',
+    'Bringer of Progress': '进展使者',
+    'Major Zonage': '主要区域',
+    'Master of Alchemy': '炼金术大师',
+    'Ballistic': '弹道术',
+    'Neverending Journey': '无尽旅途',
     'Trimp Damage': '脆皮伤害值',
     'Lead Trimps': '领导脆皮',
     'Silver Trimps': '脆银脆皮',
@@ -1309,6 +1323,7 @@ var cnItems = {
     'Radon Wrangler': '氡之牧者',
     'All Said and Radone': '氡埃落定',
     'Radominating': '氡之支配',
+    'Rads to Riches': '氡之富足',
     'Helium Per Hour': '氦每小时',
     'Row Finished! (Currently at': '此类成就全部完成！(目前为',
     'Coldlector': '汲冷者',
@@ -1390,6 +1405,7 @@ var cnItems = {
     'Worldly': '世界之子',
     'Pusher': '型推进者',
     'Defragmented': '碎片消除',
+    'Stubborn': '顽固不化',
     'Shielded': '护盾相关',
     'Progress: Already earned!': '进度：已经获得！',
     'Progress: Still Earnable! Lowest is': '进度：仍然可获得！最低为 ',
@@ -1403,6 +1419,7 @@ var cnItems = {
     'Cosmic Comfort': '宇宙慰藉',
     'Colossal Comfort': '巨大慰藉',
     'Ceaseless Comfort': '无休慰藉',
+    'Complete Comfort': '完全慰藉',
     'Speed: The Block': '最速: 障碍区',
     'You\'re in the wrong Universe! Best run is': '您进入了错误的宇宙！最快为',
     'Progress: Best run is': '进度：最快为',
@@ -1641,6 +1658,10 @@ var cnItems = {
     'Coastapalooza': '捕手道滑行达人',
     'Complete Trappapalooza without Trapping on or above Z': '在到达特定区域后未使用过陷阱的前提下，完成捕手道达人挑战。该区域为区域',
     'Witherproof': '防止凋零',
+    'Huffstle': '怒怒之城',
+    'Kill 100 L5+ SA Enemies without dying': '在没有战败过的前提下，击杀100名等级5及以上的尖塔袭击敌人',
+    'Just Smack It': '事在人为',
+    'Kill a L20+ SA Enemy without Shock, Bleed or Poison': '不使用震荡，流血或者剧毒的前提下，击杀1名等级20及以上的尖塔袭击敌人',
     'Close Call': '有惊无险',
     'Complete Revenge with exactly 19 stacks': '在正好拥有19层复仇的前提下，完成复仇挑战',
     'Level Up': '等级提升',
@@ -1654,7 +1675,15 @@ var cnItems = {
     'You\'re Doing it Wrong': '力挽狂澜',
     'Finish Berserk after reaching 20 Weakened Stacks before Z': '在到达特定区域前，至少拥有20层虚弱，然后完成狂战挑战。该区域为区域',
     'The Tortoise and the Bugs': '龟与虫',
-    'Finish Exterminate with at least 1000 Swarm Stacks': '在虫群成长壮大层数至少有1000层的前提下，完成灭虫挑战',
+    'Reach 100 Swarm Stacks by Z120 then complete Exterminate': '在区域120至少拥有100层虫群成长壮大层数，然后完成灭虫挑战',
+    'Nurtured AF': '茁壮成长',
+    'Reach L19 Cruffys by Z70 then complete Nurture': '在区域70朽朽达到19级，然后完成培养挑战',
+    'Heavy Trinker': '符饰好重',
+    'Collect 7500 Runetrinkets': '拥有7500个小符饰',
+    'Peace': '和平终至',
+    'Complete all 25 Mayhems': '完成所有25次暴乱挑战',
+    'Mad Scientist': '疯狂科学家',
+    'Complete a Z155 Void Map with 10 Gas Brews and 0 Void Pots': '在使用10次气态啤酒且不使用虚空药剂的前提下，通过一张155级的虚空地图',
     'You have completed every Achievement!': '您完成了所有的成就！',
     //游戏成就相关结束
     //游戏设置相关
@@ -1965,6 +1994,8 @@ var cnItems = {
     'Hiding Achieves': '隐藏完成的成就',
     'Showing all Achieves': '显示所有成就',
     'Show or hide completed achievements.': '切换显示还是隐藏已完成的成就。',
+    'View the Spire': '查看尖塔',
+    'Your Spire is Sealed, but you can look at it here if you want to.': '尖塔暂时关闭了，但您可以在这里查看它。',
     'Don\'t Save on Pause': '暂停时不进行保存',
     'Save on Pause': '暂停时进行保存',
     'Save when pausing the game. Note that regardless of this setting, the game will not be saved on pause if AutoSave is disabled.': '切换是否可以在暂停时保存。请注意，如果自动保存被关闭了，那么无论此项的设置是什么，都不会在暂停时保存。',
@@ -2065,6 +2096,7 @@ var cnItems = {
     'Depths (': '深渊(',
     'Cavern (': '山洞(',
     'Gardens (': '花园(',
+    'Farms (': '农场(',
     'Nightmare (': '梦魇(',
     'Void (': '虚空(',
     'Descent (': '落穴(',
@@ -2665,7 +2697,7 @@ var cnItems = {
     'You have the Unbalance challenge active. "Travel to a fun chaotic dimension! All enemies have 50% more attack, enemies in world have 100% more health, and enemies in maps have 200% more health. Starting at Zone 6, every time an enemy in the world is slain you will gain a stack of \'Unbalance\'. Every time an enemy in a map is slain, you will lose a stack of Unbalance. Each stack of Unbalance reduces your attack by 1%, but increases your Trimps\' gathering speed by 1%."': '您目前正在进行不平衡挑战。前往一个有趣的混沌维度！所有敌人的攻击力增加50%，世界上敌人的生命值增加100%，并且地图中敌人的生命值增加200%。从区域6开始，每在世界上击杀一名敌人，您获得一层“不平衡”。而每在地图中击杀一名敌人，您失去一层“不平衡”。每层不平衡减少1%攻击力，但增加脆皮1%资源获取速度。不平衡最高叠加到500层。',
     'Bublé': '泡影',
     'Tweak the portal to bring you to an alternate reality where Trimps really really don\'t like taking damage. Your Trimps start in this reality with an extra 250% Prismatic Shield, but as soon as they take any damage to health at all, they will refuse to fight again and the challenge will end. Clearing': '调节传送门，将您带到一个脆皮真的真的不喜欢受伤的异世界。脆皮初始拥有250%的额外棱镜护盾，但只要它们的生命值减少了，它们就将拒绝继续战斗，挑战也将以失败告终。在未失败过的前提下通过 ',
-    'without failing will complete this Challenge - granting an additional 300% of all Radon earned up to that point. Failing this Challenge will grant an additional 100% of all Radon earned up to the spot where you failed.': '后可以完成此挑战并额外获得氡，数值等于本次挑战完成前氡获取量的300%。挑战失败的话，可额外获得氡，数值等于本次挑战失败前氡获取量的100%。',
+    'without failing will complete this Challenge - granting an additional 500% of all Radon earned up to that point. Failing this Challenge will grant an additional 200% of all Radon earned up to the spot where you failed.': '后可以完成此挑战并额外获得氡，数值等于本次挑战完成前氡获取量的500%。挑战失败的话，可额外获得氡，数值等于本次挑战失败前氡获取量的200%。',
     'You have the Bublé challenge active. Tweak the portal to bring you to an alternate reality where Trimps really really don\'t like taking damage. Your Trimps start in this reality with an extra 250% Prismatic Shield, but as soon as they take any damage to health at all, they will refuse to fight again and the challenge will end. Clearing': '您目前正在进行泡影挑战。调节传送门，将您带到一个脆皮真的真的不喜欢受伤的异世界。脆皮初始拥有250%的额外棱镜护盾，但只要它们的生命值减少了，它们就将拒绝继续战斗，挑战也将以失败告终。在未失败过的前提下通过 ',
     'Duel': '决斗',
     'It\'s your Trimps vs the Bad Guys! Both teams start with 50 points, and both teams\' Crit Chance is locked to the amount of points the OTHER team has. Getting a Critical Strike steals 1 point from the other team, winning a battle steals 2 points, and winning a battle in one hit steals 5 points. Any team below 20 points gains 10x health, any team below 10 points always attacks first, and any team above 50 points gains 3x damage. Clearing': '这是脆皮与敌人之间的对决！双方分别以50点决斗点数开始，双方的暴击率最高为对面的决斗点数。受到暴击的一方从另一方获得1点决斗点数，赢得战斗的一方从另一方获得2点决斗点数，一击赢得战斗的一方从另一方获得5点决斗点数。决斗点数小于20的一方获得10倍生命值，决斗点数小于10的一方永远抢先攻击，而决斗点数大于50的一方造成3倍伤害。通过 ',
@@ -2737,7 +2769,7 @@ var cnItems = {
     'You have the Quest challenge active. Travel to an alternate reality where Trimps really love questing. Enemies in this reality gain 10% extra health each zone starting at Z6 (compounding). However, you\'ll also get a random Quest each Zone starting at 6. Completing this quest will grant a 2x Radon multiplier for the rest of the Zone (does not stack), and will increase your Trimps\' attack by 10% for the rest of the Challenge (compounding). Check messages or the Zone info tooltip for quest progress. Clearing': '您目前正在进行任务挑战。前往一个脆皮喜欢任务的异世界。此异世界中敌人从区域6开始，每层增加10%生命值(相互叠乘)。但同样从区域6开始，您每个区域也会获得一个随机任务。完成一个任务后，在此区域剩下的格子内氡获取量变为2倍(不叠加)，且脆皮攻击力在挑战期间增加10%(相互叠乘)。任务进度可以在消息框或区域信息提示框处查看。通过 ',
     'Archaeology': '考古学',
     'Travel to a dimension with lots of buried Relics. When starting this challenge, you\'ll be granted access to 5 special new upgrades called Relics that grant a compounding increase to your Attack, Breed Speed, Radon, Resource Gain (Food, Wood, Metal, Science and Gems), and one that decreases Enemy Attack. These upgrades all cost science and increase in cost whenever any of them are purchased. However, your Attack, Breed Speed, Radon, Resource Gain, and Enemy Health Relics all decrease by 1 Relic level every Zone and can go negative. All Radon drops have a base increase of +200% in this dimension. Completing': '前往一个埋藏了大量遗物的维度。开始此挑战后，您可以获得5个特殊的遗物升级。遗物升级分别可以提升脆皮攻击力、繁殖速度、氡获取量、非氡资源获取量(食物、木头、金属、科学点和宝石)，另外还有一个减少敌人攻击力的遗物升级。这些升级消耗科学点，且在购买了其中任何一个升级以后，所有的升级花费都会增加。不过，您的攻击力、繁殖速度、氡获取量、非氡资源获取量、敌人攻击力遗物每通过1个区域就降低1级，而且等级可以为负数。此维度中氡基础获取量增加200%。在此挑战激活的前提下通过区域 ',
-    'with this Challenge active will grant an additional +500% of all Radon earned. After the first time you complete this Challenge, you\'ll gain the ability to create maps with Small and Large Research Caches!': '后，可额外获得氡，数值等于本次挑战完成前氡获取量的500%。并且首次完成此挑战以后，您就可以制造前缀为小研究储藏箱和大研究储藏箱的地图了。',
+    'with this Challenge active will grant an additional +500% of all Radon earned. After the first time you complete this Challenge, you\'ll gain the ability to create maps with Small and Large Research Caches! After the second time you complete this Challenge, you\'ll unlock powerful customization for AutoGold.': '后，可额外获得氡，数值等于本次挑战完成前氡获取量的500%。并且首次完成此挑战以后，您就可以制造前缀为小研究储藏箱和大研究储藏箱的地图了。另外，在第二次完成此挑战以后，您还可以解锁进一步自定义自动金色升级的能力。',
     'The Archaeology Automator is any Archaeologist\'s best friend (once they figure out how to use it)! Below you\'ll need to enter a string for the Automator to parse. Your string should be separated by commas, and will indicate priority for Relic purchases.': '自动考古是考古学家们最好的朋友(只要他们明白了使用方法)！最下方的输入框中，您可以输入一串字符，让自动考古进行分析。您输入的字符需要用英文逗号来分隔，并且将决定遗物升级的顺序。',
     'An example of a viable string would be \'-10a,5s,5r,10s,10r,5a\'.': '可行的字符串可举例如下：“-10a,5s,5r,10s,10r,5a”。',
     'Use \'a\' for trimp Attack, \'e\' for Enemy attack, \'r\' for Radon, \'s\' for reSource, and \'b\' for Breed speed.': 'a代表脆皮攻击力，e代表敌人攻击力，r代表氡获得量，s代表非氡资源获取量，b代表繁殖速度。',
@@ -2752,10 +2784,12 @@ var cnItems = {
     'Breed Relic': '繁殖速度遗物',
     'You have the Archaeology challenge active. Travel to a dimension with lots of buried Relics. When starting this challenge, you\'ll be granted access to 5 special new upgrades called Relics that grant a compounding increase to your Attack, Breed Speed, Radon, Resource Gain (Food, Wood, Metal, Science and Gems), and one that decreases Enemy Attack. These upgrades all cost science and increase in cost whenever any of them are purchased. However, your Attack, Breed Speed, Radon, Resource Gain, and Enemy Health Relics all decrease by 1 Relic level every Zone and can go negative. All Radon drops have a base increase of +200% in this dimension. Completing': '您目前正在进行考古学挑战。前往一个埋藏了大量遗物的维度。开始此挑战后，您可以获得5个特殊的遗物升级。遗物升级分别可以提升脆皮攻击力、繁殖速度、氡获取量、非氡资源获取量(食物、木头、金属、科学点和宝石)，另外还有一个减少敌人攻击力的遗物升级。这些升级消耗科学点，且在购买了其中任何一个升级以后，所有的升级花费都会增加。不过，您的攻击力、繁殖速度、氡获取量、非氡资源获取量、敌人攻击力遗物每通过1个区域就降低1级，而且等级可以为负数。此维度中氡基础获取量增加200%。在此挑战激活的前提下通过区域 ',
     'Mayhem': '暴乱',
-    'with this Challenge active will grant your Trimps a permanent, stacking, additive': '后，宇宙2中的氡，及宇宙1和宇宙2中的脆皮攻击力和生命值永久增加 ',
+    'with this Challenge active will grant your Trimps a permanent, stacking, additive': '后，宇宙1中的氦获取量，宇宙2中的氡获取量，及宇宙1和宇宙2中的脆皮攻击力和生命值永久增加 ',
     'Your Trimps are Poisoned! They take': '脆皮中毒了！每次攻击后受到 ',
     'damage after each attack. Poison bypasses Prismatic Shield!': '点伤害。毒伤害可以穿透棱镜护盾！',
     'Storm': '风暴',
+    'with this Challenge active will return the Dimension to normal.': '后，世界将恢复正常。',
+    'with this Challenge active will return the Dimension to normal and reward you with a brand new building to help with the weather!': '后，世界将恢复正常，同时您还可以解锁控制天气的新建筑！',
     'Same as storm but longer. You remember Storm, right?': '此挑战与普通的风暴挑战规则相同，只是持续区域更长了。您知道规则的，对吧？',
     'You have the Storm challenge active. "Same as storm but longer. You remember Storm, right?"': '您目前正在进行风暴挑战。此挑战与普通的风暴挑战规则相同，只是持续区域更长了。您知道规则的，对吧？',
     'Static': '静电',
@@ -2767,9 +2801,9 @@ var cnItems = {
     'YOU ARE GOING CRAZY.': '您去失理了智。',
     'Berserk': '狂战',
     'Travel to a dimension filled with lots of mild annoyances, sure to drive your Trimps berserk. All enemies in this dimension have 50% more attack and health. Every time your Trimps attack they have a 5% chance to become Frenzied, causing all kills to heal for 1% of max health, and also stack +50% attack and -2% max health, up to 25 times. If a frenzied group dies or is abandoned, your Trimps gain a permanent Weakened stack, reducing health by 4.99% per stack when outside of frenzy. If weakened stacks reach 20, Trimps can no longer become frenzied. Due to this dimension\'s annoying nature, the Angelic Mastery does not work. Completing Z115 will unlock a new perk!': '前往一个充满了会让脆皮们抓狂的细碎琐事的维度。此维度中的所有敌人攻击力和生命值增加50%。每次您的脆皮们攻击时都有5%的概率进入战狂状态，此状态下，每次击杀一名敌人，可以恢复最大生命值1%的生命值，并且每层战狂增加50%攻击力，减少2%生命值上限，层数最高为25。如果一队触发战狂的脆皮阵亡或者是被放弃了，那么您的脆皮将获得一层虚弱层数，虚弱效果将一直持续，在没有战狂效果时，每层减少4.99%的生命值。如果虚弱层数到达了20层，那么将无法进入战狂状态。由于此维度令人抓狂的特性，天之赐福专精无法生效。通过区域115后可以完成此挑战！',
-    'Same as Berserk but you earn no perk. If you have the perk, that perk won\'t work.': '与普通的狂战挑战规则相同，但是您不会获得特权。另外，如果您已经拥有了战狂特权，那么它也不会生效。',
+    'Travel to a dimension filled with lots of mild annoyances, sure to drive your Trimps berserk. All enemies in this dimension have 50% more attack and health. Every time your Trimps attack they have a 5% chance to become Frenzied, causing all kills to heal for 1% of max health, and also stack +50% attack and -2% max health, up to 25 times. If a frenzied group dies or is abandoned, your Trimps gain a permanent Weakened stack, reducing health by 4.99% per stack when outside of frenzy. If weakened stacks reach 20, Trimps can no longer become frenzied. Due to this dimension\'s annoying nature, the Angelic Mastery and Frenzy Perk do not work.': '前往一个充满了会让脆皮们抓狂的细碎琐事的维度。此维度中的所有敌人攻击力和生命值增加50%。每次您的脆皮们攻击时都有5%的概率进入战狂状态，此状态下，每次击杀一名敌人，可以恢复最大生命值1%的生命值，并且每层战狂增加50%攻击力，减少2%生命值上限，层数最高为25。如果一队触发战狂的脆皮阵亡或者是被放弃了，那么您的脆皮将获得一层虚弱层数，虚弱效果将一直持续，在没有战狂效果时，每层减少4.99%的生命值。如果虚弱层数到达了20层，那么将无法进入战狂状态。由于此维度令人抓狂的特性，天之赐福专精和战狂特权无法生效。',
     'You have the Berserk challenge active. Travel to a dimension filled with lots of mild annoyances, sure to drive your Trimps berserk. All enemies in this dimension have 50% more attack and health. Every time your Trimps attack they have a 5% chance to become Frenzied, causing all kills to heal for 1% of max health, and also stack +50% attack and -2% max health, up to 25 times. If a frenzied group dies or is abandoned, your Trimps gain a permanent Weakened stack, reducing health by 4.99% per stack when outside of frenzy. If weakened stacks reach 20, Trimps can no longer become frenzied. Due to this dimension\'s annoying nature, the Angelic Mastery does not work. Completing Z115 will unlock a new perk!': '您目前正在进行狂战挑战。前往一个充满了会让脆皮们抓狂的细碎琐事的维度。此维度中的所有敌人攻击力和生命值增加50%。每次您的脆皮们攻击时都有5%的概率进入战狂状态，此状态下，每次击杀一名敌人，可以恢复最大生命值1%的生命值，并且每层战狂增加50%攻击力，减少2%生命值上限，层数最高为25。如果一队触发战狂的脆皮阵亡或者是被放弃了，那么您的脆皮将获得一层虚弱层数，虚弱效果将一直持续，在没有战狂效果时，每层减少4.99%的生命值。如果虚弱层数到达了20层，那么将无法进入战狂状态。由于此维度令人抓狂的特性，天之赐福专精无法生效。通过区域115后可以完成此挑战！',
-    'You have the Berserk challenge active. "Same as Berserk but you earn no perk. If you have the perk, that perk won\'t work."': '您目前正在进行狂战挑战。与普通的狂战挑战规则相同，但是您不会获得特权。另外，如果您已经拥有了战狂特权，那么它也不会生效。',
+    'You have the Berserk challenge active. "Travel to a dimension filled with lots of mild annoyances, sure to drive your Trimps berserk. All enemies in this dimension have 50% more attack and health. Every time your Trimps attack they have a 5% chance to become Frenzied, causing all kills to heal for 1% of max health, and also stack +50% attack and -2% max health, up to 25 times. If a frenzied group dies or is abandoned, your Trimps gain a permanent Weakened stack, reducing health by 4.99% per stack when outside of frenzy. If weakened stacks reach 20, Trimps can no longer become frenzied. Due to this dimension\'s annoying nature, the Angelic Mastery and Frenzy Perk do not work."': '您目前正在进行狂战挑战。前往一个充满了会让脆皮们抓狂的细碎琐事的维度。此维度中的所有敌人攻击力和生命值增加50%。每次您的脆皮们攻击时都有5%的概率进入战狂状态，此状态下，每次击杀一名敌人，可以恢复最大生命值1%的生命值，并且每层战狂增加50%攻击力，减少2%生命值上限，层数最高为25。如果一队触发战狂的脆皮阵亡或者是被放弃了，那么您的脆皮将获得一层虚弱层数，虚弱效果将一直持续，在没有战狂效果时，每层减少4.99%的生命值。如果虚弱层数到达了20层，那么将无法进入战狂状态。由于此维度令人抓狂的特性，天之赐福专精和战狂特权无法生效。',
     'Weakened': '虚弱',
     'Your Trimps are currently chillin, but they have a 5% chance per attack to enter a frenzy!': '您的脆皮目前挺冷静，但它们有5%的概率进入战狂状态！',
     'Your Trimps currently are not weakened! Keep it up, save your Frenzied Trimps!': '您的脆皮们目前还没有虚弱过！保持这个势头，保护好您触发战狂的脆皮们！',
@@ -2786,6 +2820,7 @@ var cnItems = {
     'Complete this Challenge with Cruffys at Level 10 or higher to earn a new Perk!': '在朽朽达到10级的前提下完成此挑战将获得一个新的特权！',
     'You have the Nurture challenge active. Travel to a dimension filled with gigantic monsters. All enemies have 2x attack, World enemies have 2x health and map enemies have 10x health. Luckily, Scruffy has a brother in this dimension who will help you out if you level him up! You\'ll gain access to the special Laboratory building while on this challenge, which will give bonus Exp to Scruffy\'s brother, Cruffys. Check the Scruffy and Laboratory tooltips while on this Challenge for more info. Clearing': '您目前正在进行培养挑战。前往一个充满了巨型怪物的维度。所有敌人获得2倍攻击力，世界上的敌人生命值变为2倍，地图中的敌人生命值变为10倍。但幸运的是，污污在此维度中有一个兄弟，如果善加培养，它就能帮到大忙了！此挑战中您可以建造特殊的实验室建筑，可为污污的兄弟，朽朽提供额外的经验值。在此挑战中查看污污或实验室的提示框可以获取更详细的信息。在此挑战激活的前提下通过 ',
     'You will unlock this challenge once you  reach Zone 130.': '欲解锁此挑战，您需要到达区域130。',
+    '': '', //TODO:Pandemonium及Alchemy挑战部分，还有Object中的后半部分，以及updates.js里面所有更新的部分
     //挑战相关结束
     //特权相关
     'Apply your skills at salvaging things from the Spire to increase all loot gained by 0.25% per level. The price for this perk increases additively, and each level will cost exactly 10000 more than the previous level.': '将您搜刮尖塔的本事用在劫掠上，每级提升0.25%劫掠效果。此特权的价格线性增加，每级都比上一级贵10000。',
@@ -2865,6 +2900,7 @@ var cnItems = {
     'Crystallize some Radon, creating an interdimensional Prism that you can carry back through Portals. Each level adds 1% to your Trimps\' Prismatic Shield and makes your Trimps feel 5% more comfortable in battle. Once you have 20 or more points of Prismal, you will automatically collect Prismalicious from the Prismatic Palace after completing Z20.': '将一些氡晶化，制造一个超次元的棱镜，这样就可以带着它通过传送门了。每级增加1%的棱镜护盾，并且可以使脆皮在战斗中舒适度增加5%（译者注：后半句无实际效果）。当棱镜化特权等级到达20级以上后，您就可以在通过区域20后自动获得棱镜宫殿的优质棱镜升级。',
     'Hunger': '饥饿',
     'If Soldiers get hungry, the enemies are free food! Use your extra Overkill damage to process World enemies into healthy free-range meat! Each level of Hunger will allow your Trimps to turn 3% of their Overkill damage into some permanent damage.': '饿急眼的士兵们什么都做得出来！利用溢出的伤害，它们可以把世界上的敌人变成绿色健康的有机食品！每级可以将3%的溢出伤害转换为永久的伤害加成。',
+    'Championism': '乐于助人',
     'Frenzy': '战狂',
     'Each level grants your Trimps a 0.1% chance on attack to enter a Frenzy for 5 seconds per perk level, granting +50% attack (additive) per perk level. If your Trimps die while Frenzied, half of the remaining time on Frenzy is removed. Frenzy time can be refreshed once half of its total time has elapsed, but only if the group of Trimps that earned the buff has not died yet.': '使脆皮们每级增加0.1%的概率进入战狂状态，且每级使战狂持续时间增加5秒，攻击力多增加50%(相互叠加)。如果脆皮们在战狂状态下阵亡，那么剩余的战狂状态持续时间将减少一半。当战狂状态持续时间过半时，可以通过再次进入战狂状态来刷新它的持续时间，但前提是，最初触发战狂的那队脆皮们不可阵亡。',
     'Frenzied': '战狂',
@@ -3065,6 +3101,9 @@ var cnItems = {
     'Spirestones (Ss) can only be earned by recycling Spire Cores found from Spires in the World, and can be used to add Floors to your Spire or upgrade other Cores.': '尖塔石只能通过回收尖塔核心获得，可以用于增加您的尖塔层数，或者是升级尖塔核心。',
     'Current Spirestones': '当前的尖塔石数量',
     'Spirestones Required for Next Floor': ' 下一层尖塔需要的尖塔石数量',
+    'Unseal Spire': '开启尖塔',
+    'The Spire is Sealed, but you are still earning bonuses from having 11 of each Tower.': '尖塔已经关闭了，但您仍然可以获得拥有每种塔11个的加成。',
+    'You can unseal the Spire if you want to, but will lose your 11th towers.': '如果有需要，您仍然可以开启尖塔，但也将失去第11个的加成。',
     'Threat': '威胁度',
     'Threat rises as you kill Bad Guys in your Spire, and falls as they escape. Threat is an average of kills/escapes over some time and may not always rise immediately after a kill or fall immediately after an escape, but will always stay near what your Spire can handle.': '当您在您的尖塔中击杀敌人时威胁度增加，当敌人逃脱时威胁度减少。威胁度由击杀数与逃脱数的比值决定，需要一定时间后才会稳定下来，在击杀一个敌人或一个敌人逃脱后并不会立刻变化，但最终会稳定在您的尖塔布局决定的数值上。',
     'More Threat means Healthier Bad Guys, which means more Runestones. Threat is also required for adding additional Floors to your Spire, increasing by 100 Threat required per Floor.': '威胁度越高，您的尖塔中敌人的生命值就越高，符石也就越多。增加尖塔层数时也需要一定的威胁度，每层的威胁度需求高100。',
@@ -3093,6 +3132,10 @@ var cnItems = {
     'Sell a Trap/Tower': '出售一个陷阱/塔',
     'Sell Trap/Tower': '出售陷阱/塔',
     'Sell a Trap or Tower! You\'ll get back 100% of what you spent on the last Trap or Tower of that type.': '出售一个陷阱或一个塔！您将获得全额返还。',
+    'Max Level': '达到上限',
+    'Seal Spire': '关闭尖塔',
+    'You now have 10 of each Tower and have successfully reinforced every floor of this Spire. Your Trimps would be incredibly proud of you if they could process such strong emotions, for this was no small feat! Your Scientists can now construct one more of each Tower for free, but doing so will seal the Spire. If you choose to Seal the Spire, you\'ll earn World bonuses as if you had 11 of each Tower, but enemies will no longer spawn in the Spire.': '您的每种塔都达到了10个，每层也都强化过了。如果脆皮们能再聪明一点的话，它们早已经对您崇拜到五体投地了！科学家们现在可以免费再建造每种塔各一个，但这需要将尖塔进行关闭。关闭尖塔后，您仍然可以获得相应的加成，但尖塔中将不再出现敌人。',
+    'NOTE: Sealing the Spire will remove the tab used to access this window, but a Setting will be added under Other should you want to unseal it for any reason.': '注意：关闭尖塔后，您将无法直接从主界面上直接进入此界面，但设置的其他选项卡下将新增一个选项，您可以在那里重新开启尖塔。',
     'Reach Z': '到达区域',
     'Hotkey 0 or \'': '快捷键：0或\'',
     'Trap Layout': '陷阱布局',
@@ -3162,9 +3205,13 @@ var cnItems = {
     '. If there is a Poison Trap directly before a Frost Trap, that Poison Trap becomes 4x as effective."': '。如果冰霜陷阱前一格有一个剧毒陷阱，则剧毒陷阱的效果变为4倍。',
     'and each time an enemy can\'t move because it is slowed, that enemy becomes worth 2% more Runestones. This effect stacks additively.': '每当一名敌人因被减速而无法移动，它掉落的符石就增加2%。此效果相互叠加。',
     'and each time an enemy can\'t move because it is slowed, that enemy becomes worth 2% more Runestones. This effect stacks additively."': '每当一名敌人因被减速而无法移动，它掉落的符石就增加2%。此效果相互叠加。',
+    'and each time an enemy can\'t move because it is slowed, that enemy becomes worth +2% more Runestones. This effect stacks additively.': '每当一名敌人因被减速而无法移动，它掉落的符石就再增加2%。此效果相互叠加。',
+    'and each time an enemy can\'t move because it is slowed, that enemy becomes worth +2% more Runestones. This effect stacks additively."': '每当一名敌人因被减速而无法移动，它掉落的符石就再增加2%。此效果相互叠加。',
     'Enemies chilled by Frost Traps take 25% extra damage from Fire Traps.': '被冰霜陷阱冰冻的敌人受到火焰陷阱的伤害额外增加25%。',
     'Any Poison Traps placed directly before a Frost Trap become 4x as effective.': '放置在冰霜陷阱前一格的剧毒陷阱效果变为4倍。',
     'Each time an enemy can\'t move because it\'s slowed (from Chilled or Frozen), it becomes worth 2% more Runestones. This effect stacks additively.': '每当一名敌人因被减速(冰冻或冻结)而无法移动，它掉落的符石就增加2%。此效果相互叠加。',
+    'Each time an enemy can\'t move because it\'s slowed (from Chilled or Frozen), it becomes worth 4% more Runestones. This effect stacks additively.': '每当一名敌人因被减速(冰冻或冻结)而无法移动，它掉落的符石就增加4%。此效果相互叠加。',
+    'Each time an enemy can\'t move because it\'s slowed (from Chilled or Frozen), it becomes worth 6% more Runestones. This effect stacks additively.': '每当一名敌人因被减速(冰冻或冻结)而无法移动，它掉落的符石就增加6%。此效果相互叠加。',
     'the amount of Toxicity added when an enemy steps on any Poison Trap.': '当敌人进入剧毒陷阱时增加的毒性数量。',
     'the amount of Toxicity added when an enemy steps on any Poison Trap."': '当敌人进入剧毒陷阱时增加的毒性数量。',
     'If there is a Poison Trap either directly before or after another Poison Trap, both Traps gain 3x damage. If a Poison Trap has Poison Traps on both sides of itself, it gains 9x damage instead.': '如果一个剧毒陷阱前一格或后一格有另一个剧毒陷阱的话，两个陷阱都增加3倍伤害。如果一个剧毒陷阱前后一格都有另外的剧毒陷阱，那么它的伤害增加9倍。',
@@ -3173,6 +3220,8 @@ var cnItems = {
     'the amount of Toxicity added when an enemy steps on any Poison Trap. In addition, if the enemy has 75% or less health remaining, the final amount of Toxicity added is multiplied by 5."': '当敌人进入剧毒陷阱时增加的毒性数量。另外，如果进入陷阱时敌人生命值不高于75%，那么最终增加的毒性数量再乘以5。',
     'the amount of Toxicity added when an enemy steps on any Poison Trap. In addition, if an enemy leaks, gain 10% of its total Toxicity as Runestones.': '当敌人进入剧毒陷阱时增加的毒性数量。另外，敌人被击杀时还可以额外获得总毒性数量10%的符石。',
     'the amount of Toxicity added when an enemy steps on any Poison Trap. In addition, if an enemy leaks, gain 10% of its total Toxicity as Runestones."': '当敌人进入剧毒陷阱时增加的毒性数量。另外，敌人被击杀时还可以额外获得总毒性数量10%的符石。',
+    'Triple': '三倍化',
+    'Quadruple': '四倍化',
     'If a Poison Trap is placed directly next to another Poison Trap, both Traps gain 3x damage. If a Poison Trap has other Poison Traps on both sides of itself, it gains 9x damage instead.': '如果一个剧毒陷阱的前一格或后一格有另一个剧毒陷阱的话，两个陷阱都增加3倍伤害。如果一个剧毒陷阱前后一格都有另外的剧毒陷阱，那么它的伤害增加9倍。',
     'If an enemy leaks, gain 10% of its total Toxicity as Runestones.': '敌人被击杀时可以额外获得总毒性数量10%的符石。',
     'Lightning Trap gains': '闪电陷阱增加 ',
@@ -3417,6 +3466,7 @@ var cnItems = {
     'dailyHeliumModifier': '日常氦倍率',
     'dailyRadonModifier': '日常氡倍率',
     'Labs': '实验室',
+    'Battlescruff': '污污战斗',
     'You are about to abort Fluffy\'s Evolution. This will return you to level 10 on your last Evolution, but you will permanently lose all Experience earned towards the current Evolution. Are you sure you want to abort?': '您将取消绒绒的进化。取消后，绒绒将回到上一次进化的等级10，但您将失去本次进化获得的所有经验值，您确定要这么做吗？',
     'You are about to abort Scruffy\'s Evolution. This will return you to level 10 on your last Evolution, but you will permanently lose all Experience earned towards the current Evolution. Are you sure you want to abort?': '您将取消污污的进化。取消后，污污将回到上一次进化的等级10，但您将失去本次进化获得的所有经验值，您确定要这么做吗？',
     'Abort Evolution': '取消进化',
@@ -3449,7 +3499,7 @@ var cnItems = {
     'Increases the chance of finding Exotic Imports, bringing the average from 3 per zone to 3.5.': '增加奇异脆皮的出现率，从每区域平均3个提升为3.5个。',
     'When a group of Trimps would die, they have a 20% chance to be restored to full health instead. Cannot trigger if Trimps were killed in one hit.': '脆皮将死于攻击时，有20%的概率原地满血复活。但如果脆皮被秒杀了，则无法触发。',
     'Pet Exp, Plaguebringer, Void Map Drop Chance and Crit Chance mods on Heirlooms no longer suffer a penalty in Universe 2.': '传家宝上的污污经验值，瘟疫使者效果，虚空地图掉落概率和暴击率不再受到宇宙2的数值惩罚。',
-    'Gives your Prismatic Shield an additional layer, effectively doubling all Prismatic Shield bonuses.': '将棱镜护盾额外增加一层，使护盾数量翻倍。',
+    'Gives your Prismatic Shield an additional layer.': '将棱镜护盾额外增加一层。',
     'Start each zone with 15% of last zone\'s Tenacity time already applied.': '进入每个区域时，使上个区域花费时间的15%计入本区域坚持特权的时间。',
     'Reduces the compounding cost increase of all Smithy materials by 20% (from x50 per Smithy purchased to x40).': '使铁匠铺花费的材料增加速度减少20%(从每个铁匠铺成本乘以50变为乘以40)。',
     'Allows you to spend an additional 10% of your total earned Nullifium on all of your Heirlooms.': '每个传家宝的可使用虚空物质上限再额外增加10%。',
@@ -5131,6 +5181,7 @@ var cnPrefix = {
     "Depths,": "深渊，", //地图名称
     "Cavern,": "山洞，", //地图名称
     "Gardens,": "花园，", //地图名称
+    "Farms,": "农场，", //地图名称
     "Nightmare,": "梦魇，", //地图名称
     "Void,": "虚空，", //地图名称
     "Descent,": "落穴，", //地图名称
@@ -5271,6 +5322,7 @@ var cnPostfix = {
     "Depths": "深渊", //地图名称
     "Cavern": "山洞", //地图名称
     "Gardens": "花园", //地图名称
+    "Farms": "农场", //地图名称
     "Nightmare": "梦魇", //地图名称
     "Void": "虚空", //地图名称
     "Descent": "落穴", //地图名称
@@ -5378,6 +5430,7 @@ var cnPostfix = {
     "Depths!": "深渊！", //地图名称
     "Cavern!": "山洞！", //地图名称
     "Gardens!": "花园！", //地图名称
+    "Farms!": "农场！", //地图名称
     " just made Whispering ": "制造了私语", //地图名称
     " just made Sandy ": "制造了沙之", //地图名称
     " just made Little ": "制造了小", //地图名称
@@ -5927,7 +5980,7 @@ var cnRegReplace = new Map([
     [/^(.*)That Jestimp gave you (.*) gems!$/, '$1从脆皮弄臣那获得$2宝石！'], //特定敌人
     [/^(.*)That Randimp made your Trimps super strong!$/, '$1脆皮百变怪使脆皮们变得更强！'], //特定敌人
     [/^(.*)That Titimp made your Trimps super strong!$/, '$1脆皮泰坦使脆皮们变得更强！'], //特定敌人
-    [/^(.*)That Titimp made your Trimps super strong!\(Titimp wishes to remind you that his name is pronounced "Tie Timp"$/, '$1脆皮泰坦使脆皮们变得更强！(脆皮泰坦提醒您，它的名字不是“太躺”，跟“躺赢”也没有关系'], //特定敌人
+    [/^(.*)That Titimp made your Trimps super strong! \(Titimp wishes to remind you that his name is pronounced "Tie Timp"$/, '$1脆皮泰坦使脆皮们变得更强！(脆皮泰坦提醒您，它的名字不是“太躺”，跟“躺赢”也没有关系'], //特定敌人
     [/^(.*)That Randimp dropped (.*) food, (.*) wood, (.*) metal, and (.*) science!$/, '$1脆皮百变怪掉落了$2食物，$3木头，$4金属，和$5科学点！'], //特定敌人
     [/^(.*)That Randimp dropped (.*) food, (.*) wood, (.*) metal, (.*) science, and (.*) gems!$/, '$1脆皮百变怪掉落了$2食物，$3木头，$4金属，$5科学点，和$6宝石！'], //特定敌人
     [/^(.*)That Chronoimp dropped (.*) food, (.*) wood, (.*) metal, and (.*) science!$/, '$1脆皮时者掉落了$2食物，$3木头，$4金属，和$5科学点！'], //特定敌人
@@ -6250,6 +6303,7 @@ var cnRegReplace = new Map([
     [/^(.*)After barely escaping a fierce boulder, you check out the relic you found in there. It glows extremely bright for a few seconds before disappearing, and you look at your storages to see that your Food, Wood, and Metal have been doubled!$/, '$1在将将从一块狂暴巨石下逃生后，您检查了一下在那里发现的遗物。它突然发出了无法直视的强光，过了一会儿，它消失了。之后，您检查了一下存储建筑，发现食物、木头和金属都翻倍了！'], //地图解锁等
     [/^(.*)You heroically slay the mighty Poseidimp, and do a little ransacking in celebration. You come across a strange, brightly glowing chest that seems to be calling you to it. You go over and carefully open it up to see it filled to the brim with the exact amount of resources you currently already had. Your Food, Wood, and Metal have been doubled!$/, '$1脆皮海王被打倒了，您真是伟大的英雄！您决定搜刮一番来庆祝，然后发现了一个明亮发光的奇怪箱子，似乎正在召唤您。您走上前去，谨慎地打开了它，里面装着正好等于您目前拥有的资源。您的食物、木头和金属翻倍了！'], //地图解锁等
     [/^(.*)At the end of that very hot map, you find a tiny, dehydrated Smithy building. You bring it back to your town and drop it in a glass of water, and a full-sized Smithy instantly appears!$/, '$1在那极热地图的最后，您发现了一个微小而脱水的铁匠铺。您将它带回了城镇，把它放进了一杯水里，突然，一个正常尺寸的铁匠铺就这么出现了！'], //地图解锁等
+    [/^(.*)At the end of that very hot map, you find two tiny, dehydrated Smithy buildings. You bring them back to your town and drop them in a glass of water, and two full-sized Smithys instantly appear!$/, '$1在那极热地图的最后，您发现了两个微小而脱水的铁匠铺。您将它们带回了城镇，把它们放进了一杯水里，突然，两个正常尺寸的铁匠铺就这么出现了！'], //地图解锁等
     [/^(.*)You have slain the Warden and taken his keys. How weird would it be if they fit in that key hole on the portal\?$/, '$1您把典狱长给宰了，并拿走了他的钥匙。如果这钥匙能够用在传送门上的钥匙孔的话……那得有多奇怪？'], //地图解锁等
     [/^(.*)You've never been here before. Like, ever. This entire place felt cold and unfamiliar. Where are you\? Why have so many Trimps had to fall to get here\? You're suddenly angry, it's time to take a stand.$/, '$1您从未来过这里。从来都没有。这里很冷，很陌生。您在哪？凭什么要死了那么多脆皮才能到这里？您突然感觉非常愤怒，是时候站出来了。'], //地图解锁等
     [/^(.*)You have permanantly unlocked a new Perk, Relentlessness, which will remain unlocked through portals.$/, '$1您永久解锁了无情特权，通过传送门后仍然保留。'], //地图解锁等
@@ -7121,7 +7175,7 @@ var cnRegReplace = new Map([
     [/^This Bad Guy is Empowered and has (.*)% more health and attack.$/, '此敌人获得了赋能，增加了$1%生命值和攻击力。'], //日常挑战消息
     [/^Trimps gain a stack of Pressure every (.*) seconds. Each stack of pressure reduces Trimp health by 1%. Max of (.*) stacks, stacks reset after clearing a Zone.$/, '[压力]脆皮们每$1秒获得一层压力。每层压力将脆皮生命值减少1%。层数最高为$2，在通过一个区域后重置。'], //日常挑战消息
     [/^Your Trimps are under a lot of pressure. Maximum health is reduced by (.*)%.$/, '您的脆皮受到了巨大的压力。生命值上限减少$1%。'], //日常挑战消息
-    [/^Enemies have a(n*) (.*)% chance to reflect an attack, dealing (.*)% of damage taken back to your Trimps.$/, '敌人有$2%概率反弹一次攻击，将此次攻击造成伤害的$3%反弹给您的脆皮。'], //日常挑战消息
+    [/^Enemies have a(n*) (.*)% chance to reflect an attack, dealing (.*)% of damage taken back to your Trimps. \(will not reflect damage done above the Enemy's max health\).$/, '敌人有$2%概率反弹一次攻击，将此次攻击造成伤害的$3%反弹给您的脆皮。(反弹的伤害不会超过此敌人的生命值上限)。'], //日常挑战消息
     [/^Equipment is (.*)% cheaper.$/, '装备花费减少$1%。'], //日常挑战消息
     [/^You have the (.*) Daily challenge active.$/, '您正在进行$1的日常挑战。'], //日常挑战消息
     [/^(.*)You have completed the Balance challenge! You have been rewarded with (.*) Helium, and you may repeat the challenge.$/, '$1您完成了平衡挑战！您获取了$2氦，现在您又可以重新挑战了。'], //平衡挑战完成消息
@@ -7216,17 +7270,19 @@ var cnRegReplace = new Map([
     [/^Increases all Resource Gain \(Food, Wood, Metal, Science, and Gems\) by (.*)%. You currently have (.*)% to Resource Gain.$/, '增加$1%非氡资源获取量(食物、木头、金属、科学点和宝石)。您目前使非氡资源获取量变化：$2%。'], //考古学挑战等
     [/^Increases all Breed Speed by (.*)%. You currently have (.*)% to Breed Speed.$/, '增加$1%繁殖速度。您目前使繁殖速度变化：$2%。'], //考古学挑战等
     [/^You have discovered (\d+) of these Relics and (\d+) total Relics. Each Relic has a max of 50 positive levels at a time. Cost increases based on total purchased Relics.$/, '您一共发现了$1个此类型的遗物，总共发现了$2个遗物。每个遗物最大为50级，且花费随着遗物发现总数而上升。'], //考古学挑战等
-    [/^(.*)You have completed the Archaeology challenge! You have gained an extra (.*) Radon, and your world has been returned to normal.$/, '$1您完成了考古学挑战！您额外获取了$2氡，世界恢复了正常。'], //考古学挑战完成消息
+    [/^(.*)You have completed the Archaeology Challenge! You have gained an extra (.*) Radon, and your world has been returned to normal.$/, '$1您完成了考古学挑战！您额外获取了$2氡，世界恢复了正常。'], //考古学挑战完成消息
+    [/^(.*)Now that you've mastered the skill of Archaeology, you've gained the ability to use a more powerful Custom Golden Upgrade automator! See the AutoGold tooltip or Ctrl Click AutoGold for more info.$/, '$1您已精通考古技艺，因此您可以进一步自定义自动金色升级了！查看自动金色升级的相关提示以获取更详细的信息。'], //考古学挑战完成消息
+    [/^(.*)You've gained the ability to create Small and Large Research Caches in Maps!$/, '$1您现在可以在地图中使用研究储藏箱修饰符了！'], //考古学挑战完成消息
     [/^NOTICE: You have already completed Mayhem (\d+) times, and will no longer gain a bonus for future runs.$/, '注意：您已经完成了$1次暴乱挑战，无法再获得加成了。'], //暴乱挑战等
     [/^Travel to a very hectic dimension. The final Cell of each Zone is a Poisonous boss enemy, and all Map enemies are also Poisonous. Poisonous Enemies stack 20% of their damage on your Trimps as poison, which is taken as damage after each attack until your Trimps die. Each Zone starts with (.*) stacks of Mayhem, and each stack increases the damage and health of the final Cell Boss Enemy for that Zone by 10%. Completing a map reduces the Mayhem stacks for that Zone by 1 and an additional 1 for each level of the Map above the Zone's level \(For example, a level 15 map will remove 3 stacks per completion when at Z13\). Completing$/, '前往一个非常狂热的维度。每个区域最后一格的首领敌人是带毒的，地图中的所有敌人同样带毒。带毒的敌人每次攻击后，将它们攻击力的20%累积为毒伤害，脆皮每次攻击后，都会受到相应的毒伤害，直到脆皮死亡后毒伤害清零。您进入每个区域时获得$1层“暴乱”，每层暴乱提升区域最后一格首领10%的攻击力和生命值。完成地图可以减少1层暴乱，且该地图每高于当前区域1级，就可以额外减少1层暴乱(例如：在区域13完成一张15级的地图以后，可以减少3层暴乱)。在此挑战激活的前提下通过区域 '], //暴乱挑战等
-    [/^bonus to Radon in U2 and to Trimp Attack and Health in Universes 1 and 2. Each time Mayhem is completed, the reward for next time increases by an additional 10% and Enemies gain 3x damage and health for all future runs of Mayhem. The amount of Mayhem stacks that each Zone starts with is always equal to 1000 minus 5 for each highest Zone cleared above Z100 in this Universe \(You have cleared Z(.*) and start each Zone with (.*) stacks$/, '(相互叠加)。且每完成一次暴乱挑战，下次挑战的奖励就增加20%，但后续暴乱挑战中，敌人也会增加3倍攻击力和生命值。每个区域获得的暴乱层数基础值为1000，此宇宙中最高通过区域每超过区域100以上1个区域，则暴乱层数减去5层(您已经通过了区域$1，暴乱层数为$2'], //暴乱挑战等
-    [/^You have completed Mayhem (\d+) \/ (\d+) time(s*). Your Trimps have \+(.*)% Attack, Health, and Radon, and your next run of Mayhem will spawn Bad Guys with (.*)x Attack and Health.$/, '您共完成了$1次暴乱挑战。挑战总奖励为增加$4%脆皮攻击力、生命值、氡获取量，下轮的敌人攻击力和生命值将增加$5倍。'], //暴乱挑战等
+    [/^bonus to Radon or Helium, and Trimp Attack and Health in Universes 1 and 2. Each time Mayhem is completed, the reward for next time increases by an additional 10% and Enemies gain 3x damage and health for all future runs of Mayhem. The amount of Mayhem stacks that each Zone starts with is always equal to 1000 minus 5 for each highest Zone cleared above Z100 in this Universe \(You have cleared Z(.*) and start each Zone with (.*) stacks$/, '(相互叠加)。且每完成一次暴乱挑战，下次挑战的奖励就增加20%，但后续暴乱挑战中，敌人也会增加3倍攻击力和生命值。每个区域获得的暴乱层数基础值为1000，此宇宙中最高通过区域每超过区域100以上1个区域，则暴乱层数减去5层(您已经通过了区域$1，暴乱层数为$2'], //暴乱挑战等
+    [/^You have completed Mayhem (\d+) \/ (\d+) maximum time(s*). Your Trimps have \+(.*)% Attack, Health, and Helium or Radon, and your next run of Mayhem will spawn Bad Guys with (.*)x Attack and Health.$/, '您共完成了$1次暴乱挑战，挑战可完成次数上限为$2。挑战总奖励为增加$4%脆皮攻击力、生命值、氦或氡获取量，下轮的敌人攻击力和生命值将增加$5倍。'], //暴乱挑战等
     [/^You have the Mayhem challenge active. Travel to a very hectic dimension. The final Cell of each Zone is a Poisonous boss enemy, and all Map enemies are also Poisonous. Poisonous Enemies stack 20% of their damage on your Trimps as poison, which is taken as damage after each attack until your Trimps die. Each Zone starts with (.*) stacks of Mayhem, and each stack increases the damage and health of the final Cell Boss Enemy for that Zone by 10%. Completing a map reduces the Mayhem stacks for that Zone by 1 and an additional 1 for each level of the Map above the Zone's level \(For example, a level 15 map will remove 3 stacks per completion when at Z13\). Completing$/, '您目前正在进行暴乱挑战。前往一个非常狂热的维度。每个区域最后一格的首领敌人是带毒的，地图中的所有敌人同样带毒。带毒的敌人每次攻击后，将它们攻击力的20%累积为毒伤害，脆皮每次攻击后，都会受到相应的毒伤害，直到脆皮死亡后毒伤害清零。您进入每个区域时获得$1层“暴乱”，每层暴乱提升区域最后一格首领10%的攻击力和生命值。完成地图可以减少1层暴乱，且该地图每高于当前区域1级，就可以额外减少1层暴乱(例如：在区域13完成一张15级的地图以后，可以减少3层暴乱)。在此挑战激活的前提下通过区域 '], //暴乱挑战等
     [/^The Final Enemy of this Zone has (\d+) stacks of Mayhem, granting \+(.*)% Damage and Health. Complete Maps to lower these stacks.$/, '此区域最后一格的敌人目前有$1层暴乱，增加$2%攻击力和生命值。通过地图来减少层数。'], //暴乱挑战等
-    [/^(.*)You have completed the Mayhem Challenge! Your Trimps have gained \+(.*)% Radon in Universe 2 and Damage and Health in Universe 1 and 2, and future runs of this Challenge will be 3x more difficult. You have now completed Mayhem (\d+) time(s*). Your new total Mayhem bonus is \+$/, '$1您完成了暴乱挑战！宇宙2中的氡，及宇宙1和宇宙2中的脆皮攻击力和生命值增加了$2%，后续挑战的难度将变为现在的3倍。您共完成了$3次暴乱挑战。暴乱挑战总奖励为 '], //暴乱挑战完成消息
+    [/^(.*)You have completed the Mayhem Challenge! Your Trimps have gained \+(.*)% Helium or Radon and Trimp Attack and Health in Universe 1 and 2, and future runs of this Challenge will be 3x more difficult. You have now completed Mayhem (\d+) time(s*). Your new total Mayhem bonus is \+$/, '$1您完成了暴乱挑战！宇宙1中的氦获取量，宇宙2中的氡获取量，及宇宙1和宇宙2中的脆皮攻击力和生命值增加了$2%，后续挑战的难度将变为现在的3倍。您共完成了$3次暴乱挑战。暴乱挑战总奖励为 '], //暴乱挑战完成消息
     [/^(.*)You completed Mayhem again, just for fun!$/, '$1您再度完成了暴乱挑战，虽然这并没有什么用，只是自娱自乐而已！'], //暴乱挑战完成消息
-    [/^Travel to a dimension that storms year-round. Trimps gain Storm stacks after every attack, damaging them for (.*)% of their max hp per stack. Enemies gain Cloudy stacks after every attack. Every (.*) Cloudy particles causes a Stormcloud on that enemy, causing them to gain max hp and damage, and take extra damage from gamma bursts. Cloudy stacks stick around after bad guys die, and each new group of bad guys start with a Cloudy stack for each Stormcloud on the previous enemy. Cloudy stacks cannot accrue and Stormclouds have no effect in maps, but Trimps in maps have -0.05% attack per Cloudy stack on the enemy. Defeating an enemy in a map will remove 1 Cloudy stack. Completing Z105 with this Challenge active will reward you with a brand new building to help with the weather!$/, '前往一个常年风暴天气的维度。每次攻击后，脆皮获得静电层数，每层对您的脆皮造成$1%最大生命值的伤害。敌人每次攻击后，获得云层数。每$2层云使敌人获得1层风暴云，风暴云层数使敌人增加生命值和伤害，但同时也受到额外的伽马爆发伤害。云层数在敌人死亡后仍然保留，且上一名敌人每有1层风暴云，当前敌人就获得1层云。在地图中，云层数不会增加，风暴云也没有效果，但每层云使脆皮减少0.05%攻击力。在地图中击杀一名敌人后将减少1层云。在此挑战激活的前提下通过区域105后，将解锁控制天气的新建筑！'], //风暴挑战等
-    [/^You have the Storm challenge active. Travel to a dimension that storms year-round. Trimps gain Storm stacks after every attack, damaging them for (.*)% of their max hp per stack. Enemies gain Cloudy stacks after every attack. Every (.*) Cloudy particles causes a Stormcloud on that enemy, causing them to gain max hp and damage, and take extra damage from gamma bursts. Cloudy stacks stick around after bad guys die, and each new group of bad guys start with a Cloudy stack for each Stormcloud on the previous enemy. Cloudy stacks cannot accrue and Stormclouds have no effect in maps, but Trimps in maps have -0.05% attack per Cloudy stack on the enemy. Defeating an enemy in a map will remove 1 Cloudy stack. Completing Z105 with this Challenge active will reward you with a brand new building to help with the weather!$/, '您目前正在进行风暴挑战。前往一个常年风暴天气的维度。每次攻击后，脆皮获得静电层数，每层对您的脆皮造成$1%最大生命值的伤害。敌人每次攻击后，获得云层数。每$2层云使敌人获得1层风暴云，风暴云层数使敌人增加生命值和伤害，但同时也受到额外的伽马爆发伤害。云层数在敌人死亡后仍然保留，且上一名敌人每有1层风暴云，当前敌人就获得1层云。在地图中，云层数不会增加，风暴云也没有效果，但每层云使脆皮减少0.05%攻击力。在地图中击杀一名敌人后将减少1层云。在此挑战激活的前提下通过区域105后，将解锁控制天气的新建筑！'], //风暴挑战等
+    [/^Travel to a dimension that storms year-round. Trimps gain Storm stacks after every attack, damaging them for (.*)% of their max hp per stack. Enemies gain Cloudy stacks after every attack. Every (.*) Cloudy particles causes a Stormcloud on that enemy, causing them to gain max hp and damage, and take extra damage from gamma bursts. Cloudy stacks stick around after bad guys die, and each new group of bad guys start with a Cloudy stack for each Stormcloud on the previous enemy. Cloudy stacks cannot accrue and Stormclouds have no effect in maps, but Trimps in maps have -0.05% attack per Cloudy stack on the enemy. Defeating an enemy in a map will remove 1 Cloudy stack. Completing$/, '前往一个常年风暴天气的维度。每次攻击后，脆皮获得静电层数，每层对您的脆皮造成$1%最大生命值的伤害。敌人每次攻击后，获得云层数。每$2层云使敌人获得1层风暴云，风暴云层数使敌人增加生命值和伤害，但同时也受到额外的伽马爆发伤害。云层数在敌人死亡后仍然保留，且上一名敌人每有1层风暴云，当前敌人就获得1层云。在地图中，云层数不会增加，风暴云也没有效果，但每层云使脆皮减少0.05%攻击力。在地图中击杀一名敌人后将减少1层云。在此挑战激活的前提下通过区域'], //风暴挑战等
+    [/^You have the Storm challenge active. Travel to a dimension that storms year-round. Trimps gain Storm stacks after every attack, damaging them for (.*)% of their max hp per stack. Enemies gain Cloudy stacks after every attack. Every (.*) Cloudy particles causes a Stormcloud on that enemy, causing them to gain max hp and damage, and take extra damage from gamma bursts. Cloudy stacks stick around after bad guys die, and each new group of bad guys start with a Cloudy stack for each Stormcloud on the previous enemy. Cloudy stacks cannot accrue and Stormclouds have no effect in maps, but Trimps in maps have -0.05% attack per Cloudy stack on the enemy. Defeating an enemy in a map will remove 1 Cloudy stack. Completing$/, '您目前正在进行风暴挑战。前往一个常年风暴天气的维度。每次攻击后，脆皮获得静电层数，每层对您的脆皮造成$1%最大生命值的伤害。敌人每次攻击后，获得云层数。每$2层云使敌人获得1层风暴云，风暴云层数使敌人增加生命值和伤害，但同时也受到额外的伽马爆发伤害。云层数在敌人死亡后仍然保留，且上一名敌人每有1层风暴云，当前敌人就获得1层云。在地图中，云层数不会增加，风暴云也没有效果，但每层云使脆皮减少0.05%攻击力。在地图中击杀一名敌人后将减少1层云。在此挑战激活的前提下通过区域'], //风暴挑战等
     [/^Your Trimps are taking (.*)% of their max health as damage after each attack.$/, '您的脆皮每次攻击后受到$1%最大生命值的伤害。'], //风暴挑战等
     [/^This enemy is amassing clouds! For every (.*) Cloudy stacks, this enemy will gain 1 Stormcloud.$/, '此敌人正在积聚云朵！每有$1层云，敌人就获得1层风暴云。'], //风暴挑战等
     [/^This enemy is engulfed by the Storm! It has (.*)% extra health, (.*)% extra attack, and takes (.*)% extra damage from Gamma Bursts.$/, '此敌人被风暴云吞没了！它额外增加了$1%生命值，$2%攻击力，但额外受到伽马爆发$3%的伤害。'], //风暴挑战等
@@ -7251,11 +7307,13 @@ var cnRegReplace = new Map([
     [/^Toughness(\s+)II$/, '坚韧 II'], //特权等
     [/^Reduce the Zone that Fluffy can start earning Experience at by 3. With (\d+) level(s*) in Classy, Fluffy will start earning Experience at Z(\d+).$/, '绒绒提前3个区域开始获得经验值。上等特权提升$1级后，绒绒将从区域$3开始获得经验值。'], //特权等
     [/^Use your experiences in understanding the attention span of Trimps to increase the damage dealt by all soldiers based on how long it took to get an army together. Increases damage by 2% per level per second up to (\d+) seconds.$/, '脆皮的注意力持续时间您已了如指掌，所以您可以利用它增加脆皮的攻击力。军队每需要1秒进行繁殖，每级预期特权就可以使脆皮增加2%攻击力。预期特权的效果上限为$1秒。'], //特权等
+    [/^Huffy has learned much from Assaulting his Spire, now store some of that knowledge in your Portal! Gain (.+)% attack and health plus another (.+)% per Spire Assault level cleared, compounding per perk level.$/, '怒怒从被袭击中学到了更多东西，把它学到的一些知识存到传送门里吧！每级可以增加$1%的攻击力和生命值，且每通过一级尖塔袭击，还可以使此加成再增加$2%，每级特权之间叠乘。'], //特权等
+    [/^You are currently gaining (.+) attack and health. Your next Spire Assault level will increase this bonus to (.+), or your next perk level will increase this bonus to (.+).$/, '目前攻击力和生命值增加了$1，下一级尖塔袭击后可以使此加成变为$2，下一级特权将使此加成变为$3。'], //特权等
     [/^Your Trimps are frenzied for (.*) second(s*)! They are dealing (.*)% more damage.$/, '您的脆皮们的战狂状态持续时间还有$1秒！它们可以额外造成$3%伤害。'], //特权等
     [/^The Trimps that earned this Frenzy buff are still alive, and they will be able to refresh its duration starting in (.*) second(s*).$/, '最初触发战狂的脆皮们仍然还幸存着，再过$1秒，它们就可以刷新战狂状态持续时间了。'], //特权等
     [/^Grants your Trimps the ability to locate small Runetrinkets around the World. For each level of this perk, your Trimps will gain a chance per Zone cleared above Z100 to find a Runetrinket. Each Runetrinket increases your Trimps' attack, health, and gathered primary resources by 1% \(additive\) per perk level. You can store a maximum of (.+) Runetrinkets per perk level, reducing levels in this perk will deactivate any trinkets above cap but not lose them. Runetrinkets persist through Portal and never reset. The chance to find a Runetrinket increases by about 50% per level of this Perk, and scales as the Zone number increases \(up to Z200\). You'll also find 1 guaranteed Runetrinket every 25 Zones above Z100 for every 2 levels of this perk.$/, '使您的脆皮们可以在世界上找到小符饰。此特权每级都能增加脆皮找到小符饰的概率，此概率还与本次传送后到达的区域数量有关，但只计算超过区域100的部分。每有1级特权，每个小符饰都可以使您的脆皮的攻击力，生命值和食物、木头、金属获取量增加1%(效果叠加)。每级特权可以使小符饰上限增加$1，如果对此特权进行洗点，超出上限的小符饰将暂时失效，但重新加点后将重新生效。小符饰传送后仍然存在，数量不会重置。每级特权可以使找到小符饰的概率增加约50%，并且随着区域数量的增加而增加(上限为区域200)。另外，每有2级特权，每在区域100以上通过25个区域，就可以稳定获得1个小符饰。'], //特权等
     [/^You have (.+) Runetrinket(s*).$/, '您拥有$1个小符饰！'], //特权等
-    [/^You have (.+) Runetrinket(s*). You are currently gaining (.+) attack, health, and gathered primary resources.$/, '您拥有$1个小符饰。目前小符饰使您脆皮的攻击力，生命值和食物、木头、金属获取量增加$3。'], //特权等
+    [/^You have (.+) Runetrinket(s*). You are currently gaining (.+) attack, health, and gathered resources.$/, '您拥有$1个小符饰。目前小符饰使您脆皮的攻击力，生命值和食物、木头、金属获取量增加$3。'], //特权等
     [/^(.*)You found (.+) Runetrinket(s*)!$/, '$1您找到了$2个小符饰！'], //特权等
     [/^(.*) Helium Canister(s*)$/, '$1氦'], //特权等
     [/^(.*) Radon Vial(s*)$/, '$1氡'], //特权等
@@ -7296,6 +7354,7 @@ var cnRegReplace = new Map([
     [/^Looting X(.*)$/, '劫掠 X$1'], //特权等
     [/^Prismal X(.*)$/, '棱镜化 X$1'], //特权等
     [/^Hunger X(.*)$/, '饥饿 X$1'], //特权等
+    [/^Championism X(.*)$/, '乐于助人 X$1'], //特权等
     [/^Frenzy X(.*)$/, '战狂 X$1'], //特权等
     [/^Observation X(.*)$/, '洞察 X$1'], //特权等
     [/^Your Trimps learn to harvest special Herbs while collecting Food! Increases Trimp Attack by a number based on your total stored food. Grants \+30% Attack at (.*) Food, or \+300% at (.*). At your current total of (.*) Food,$/, '您的脆皮现在可以在采集食物时同时采集百草！根据食物存储量增加攻击力。在$1食物时增加30%攻击力，在$2食物时增加300%攻击力。您当前共有$3食物，'], //神农专精
@@ -7524,6 +7583,7 @@ var cnRegReplace = new Map([
     [/^The bonus from your Knowledge Towers. You have (.*) Knowledge Tower(s*), granting a bonus of (.*)% each, bringing this modifier to (.*).$/, '知识塔的加成。您有$1个知识塔，每个可提供$3%的加成，总加成为$4。'], //绒绒污污相关
     [/^From Enlightened Ice. Equal to \(1 \+ \(0.0025 \* Ice Levels\)\), currently (.*). Does not apply to Best Fluffy Exp.$/, '冰之启迪的加成。加成为(1+0.0025*冰赋能等级)，目前为$1。不影响最高绒绒经验。'], //绒绒污污相关
     [/^From Nurture. Increases Exp gain by 10% \(compounding\) per constructed Laboratory. Currently granting (.*)x.$/, '培养的加成。每个实验室增加10%(效果叠乘)的经验值获取量。目前可获取$1倍。'], //绒绒污污相关
+    [/^From the Battlescruff AutoBattle reward. Increases Scruffy XP gained by 2% per level cleared, currently granting (.*)x.$/, '污污战斗的自动战斗加成。每级使经验值获取量增加2%。目前加成为$1。'], //绒绒污污相关
     [/^damage to (.*)x and$/, '伤害变为$1倍，且'], //绒绒污污相关
     [/^damage to (.*)x.$/, '伤害变为$1倍。'], //绒绒污污相关
     [/^Allows an additional 4 Void Maps with the same name to stick together, bringing the max stack size to (.*). Each map in the stack that Fluffy clears grants an additional 50% Helium to all other maps in the stack, giving a bonus of up to \+(.*)% to each of the (.*) Fluffy maps from a (.*) stack.$/, '使虚空地图的融合张数上限增加4，达到$1张。每融合一张地图，所有绒绒完成的该名字的地图奖励都增加50%。如果融合地图张数达到最高的$4张，那么绒绒完成的$3张虚空地图每张可以额外获得$2%氦。'], //绒绒污污相关
@@ -7956,6 +8016,7 @@ var cnRegReplace = new Map([
     [/^Found (.*) Token(s*) of Poison!$/, '发现了$1毒符记！'], //其他消息等
     [/^Found (.*) Token(s*) of Wind!$/, '发现了$1风符记！'], //其他消息等
     [/^Found (.*) Token(s*) of Ice!$/, '发现了$1冰符记！'], //其他消息等
+    [/^(.*)The Magma has solidified into impenetrable Obsidian; your Trimps have no hope of progressing here right now.$/, '$1岩浆凝固成了无法穿越的黑曜石，您的脆皮目前是无法通过的。'], //其他消息等
     [/^(.*)The Magma has solidified into impenetrable Obsidian; your Trimps have no hope of progressing here right now. Fluffy has an idea for remelting the world, but it will take a tremendous amount of energy from a place Fluffy isn't yet powerful enough to send you. Fluffy asks you to help him reach the$/, '$1岩浆凝固成了无法穿越的黑曜石，您的脆皮目前是无法通过的。绒绒想到了一个法子，但是需要极其大量的能量，而绒绒目前还没法送您到可以获取那样能量的地方。所以绒绒请您将它升级到'], //其他消息等
     [/^(.*)The Magma has solidified into impenetrable Obsidian; your Trimps have no hope of progressing here right now. However, all is not lost! Every 50 Zones of progress you make in the Radon Universe will allow you to harness enough energy for Fluffy to slow down the hardening of your World for an extra 10 Zones in this Universe.$/, '$1岩浆凝固成了无法穿越的黑曜石，您的脆皮目前是无法通过的。不过，这并不代表着您就束手无策了！每在氡之宇宙中通过50个区域，您就可以获取到足够的能量，使绒绒可以延缓当前宇宙10个区域变成黑曜石。'], //其他消息等
     [/^(.*)The Magma has solidified into impenetrable Obsidian; your Trimps have no hope of progressing here right now. However, all is not lost! Every 10 Zones of progress you make in the Radon Universe will allow you to harness enough energy for Fluffy to slow down the hardening of your World for an extra 10 Zones in this Universe.$/, '$1岩浆凝固成了无法穿越的黑曜石，您的脆皮目前是无法通过的。不过，这并不代表着您就束手无策了！每在氡之宇宙中通过10个区域，您就可以获取到足够的能量，使绒绒可以延缓当前宇宙10个区域变成黑曜石。'], //其他消息等
@@ -7965,6 +8026,12 @@ var cnRegReplace = new Map([
     [/^(.*)Sorry$/, '$1很抱歉'], //其他消息等
     [/^(.*)Heavy use of the portal has created a chance for the Void to seep into your world. Be alert.$/, '$1多次使用传送门后，虚空开始渗入您的世界了。保持警惕。'], //其他消息等
     [/^(.*)Get a leg up with PANTS! Until your next trou... browser refresh, you can enable the useless but stylish PANTS ONLY AutoPrestige setting! Denim-ite!$/, '$1胖次最好了，什么头套胖次之类的更是……咳咳，直到下次刷新页面之前您都可以使用这个没什么卵用但是很绅士的自动重铸设置了！蓝！白！碗！'], //其他消息等
+    [/^(.*)Loaded Eggy event!$/, '$1复活节活动开始啦！'], //其他消息等
+    [/^(.*)Loaded Pumpkimp event!$/, '$1万圣节活动开始啦！'], //其他消息等
+    [/^(.*)Loaded Snowy event!$/, '$1圣诞节活动开始啦！'], //其他消息等
+    [/^(.*)Eggy event has come to an end!$/, '$1复活节活动结束了！'], //其他消息等
+    [/^(.*)Pumpkimp event has come to an end!$/, '$1万圣节活动结束了！'], //其他消息等
+    [/^(.*)Snowy event has come to an end!$/, '$1圣诞节活动结束了！'], //其他消息等
     [/^(.*)Please use a number greater than 0!$/, '$1请输入大于0的数字！'], //其他消息等
     [/^(.*)AutoTrimps - Zek Fork Loaded!$/, '$1自动脆皮脚本 - Zek Fork 已成功载入！'], //脚本载入消息
     [/^(.*)Adding dark-graph.css file$/, '$1黑暗图表已开启'], //脚本图表消息
