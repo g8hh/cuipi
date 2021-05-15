@@ -298,6 +298,9 @@ var cnItems = {
     '- Will entrust your Scientists with purchasing as many Golden Voids as possible (to reach 72%) before switching to Golden Radon, or...': '- 将购买最大数量的金色升级虚空(直到达到72%加成)，然后切换为金色升级氡，又或者……',
     'Voidtle': '虚空战斗',
     '- Where your Scientists will again attempt to buy as many Golden Voids as possible (to reach 72%), but will instead switch to Golden Battle afterwards.': '- 将购买最大数量的金色升级虚空(直到达到72%加成)，然后切换为金色升级战斗。',
+    'Custom AutoGold': '自定义自动金色升级',
+    '- For the advanced Trimp commander/archaeologist who wants even more control.': '- 提供给脆皮高玩和资深考古学家的高级工具。',
+    'Ctrl Click to customize your string': '按下Ctrl键再点击可以自定义您的字符串',
     'Please allow 4 seconds for Trimp retraining after clicking this button before any Golden Upgrades are automatically purchased, and don\'t forget to frequently thank your scientists! Seriously, they get moody.': '请在切换了金色升级选项后等待4秒，之后金色升级选项才会生效。另外，不要忘了感谢科学家们！真的，不然它们情绪会很低落的。',
     'Below you\'ll need to enter a string for the Automator to parse. Your string should be separated by commas, and will indicate priority for Golden Upgrade purchases.': '最下方的输入框中，您可以输入一串字符，让自动金色升级进行分析。您输入的字符需要用英文逗号来分隔，并且将决定金色升级的顺序。',
     'An example of a viable string would be \'8v,10b,10r,10b\'.': '可行的字符串可举例如下：“8v,10b,10r,10b”。',
@@ -486,6 +489,12 @@ var cnItems = {
     'This slider allows you to fine tune the map Difficulty modifier. Moving this slider from left to right will guarantee an easier map, but increase the cost.': '此滑块可以用于微调地图难度。将滑块从左往右移动，将使地图难度更容易降低，但同时也增加碎片花费。',
     'Biome': '生物群落',
     'If you\'re looking to farm something specific, you can select the biome here. Anything other than random will increase the cost of the map.': '如果您想要刷什么特定的资源，您可以在这里选择生物群落。除随机以外的其他选项都将增加地图的碎片花费。',
+    '- Contains a lot of Metal': '- 含有许多金属',
+    '- A great place to find some Wood': '- 可以发现不少木头',
+    '- Just filled with food to catch': '- 食物可谓是唾手可得',
+    '- Ancient Gem mines': '- 远古的宝石矿',
+    '- 25% extra loot and a random assortment of resources': '- 劫掠加成额外增加25%，富含各种资源',
+    '- 100% extra loot in Universe 2, 50% extra Herbs. Mimics Mountains on Z6, Forest on Z7, Sea on Z8, Depths at Z9, Gardens at Z10. Continues on rotating every World Zone.': '- 在宇宙2中劫掠加成额外增加100%，额外获得50%的药草。按照以下方式来决定资源类型：区域6为山脉，区域7为森林，区域8为大海，区域9为深渊，区域10为花园，之后继续轮转下去。',
     'Random': '随机',
     'Farmlands': '农场',
     'Special Modifier': '特殊修饰符',
@@ -1869,8 +1878,9 @@ var cnItems = {
     'Configure with hotkey Z': '可以使用快捷键：Z来快速设置',
     'Set Map At Zone': '自动进图设置，预设区域必须为10以上，1000以下，且重复区域和预设区域、格子不可冲突，否则下方会有红字报错',
     'Active?': '激活？',
-    'Exit On': '进图',
-    'Exit At': '进图',
+    'Start': '起点',
+    'End': '终点',
+    'Exit at': '退出',
     'Run Map?': '进图？',
     'Use': '使用',
     'Map': '地图',
@@ -1881,9 +1891,7 @@ var cnItems = {
     'Run Bionic': '运行仿生',
     'Run ': '运行',
     'Don\'t Change': '不作变更',
-    'Repeat 25 Times': '重复25次',
-    'Repeat 50 Times': '重复50次',
-    'Repeat 100 Times': '重复100次',
+    'X Times': 'X的值',
     'Just This Zone': '仅此区域',
     'Run Every Zone': '每个区域都运行',
     'Run Every Other Zone': '其他区域都运行',
@@ -2337,6 +2345,7 @@ var cnItems = {
     'no Radon can drop, and no bonus Radon will be earned during or after the run': '挑战过程中不会掉落氡，且无论选择什么挑战，氡获取量也不会获得任何加成',
     'Note that your Headstart mastery will be disabled during Challenge': '请注意先声夺人专精在挑战',
     'runs.': '中无效。',
+    'Note that Challenge': '请注意挑战',
     '. Void Maps will still drop heirlooms, and all other currency can still be earned.': '。虚空地图仍然会掉落传家宝，其他东西也可以正常获得。',
     'stacks multiplicatively with Challenge': '的加成将乘以挑战',
     'creating one big, beautiful Challenge': '最终获得一个巨大而美妙的挑战',
@@ -7084,6 +7093,7 @@ var cnRegReplace = new Map([
     [/^granting (.*)% extra attack and health, and (.*)% extra Radon.$/, '使您获得$1%攻击力和生命值，及$2%的氡获取量。'], //挑战界面
     [/^You are currently gaining (.*)% extra attack and health, and are gaining (.*)% extra Helium thanks to your Challenge$/, '您获得了$1%攻击力和生命值，及$2%的氦获取量，因为您有挑战'], //挑战界面
     [/^You are currently gaining (.*)% extra attack and health, and are gaining (.*)% extra Radon thanks to your Challenge$/, '您获得了$1%攻击力和生命值，及$2%的氡获取量，因为您有挑战'], //挑战界面
+    [/^Bonus is capped at (.*)%.$/, '加成的上限为$1%。'], //挑战界面
     [/^is Z(.*) \(Capped to (.*) by Obsidian\), earning you (.*)% Challenge$/, '为区域$1(被黑曜石限制为区域$2)，使您获得$3%的挑战'], //挑战界面
     [/^is Z(.*) \(Capped to (.*) by Obsidian\), earning you (.*)% extra attack and health, and (.*)% more Helium from all sources.$/, '为区域$1(被黑曜石限制为区域$2)，使您获得$3%的额外攻击力和生命值，以及$4%的额外氦获取量。'], //挑战界面
     [/^is Z(.*), earning you (.*)% Challenge$/, '为区域$1，使您获得$2%的挑战'], //挑战界面
