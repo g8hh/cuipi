@@ -3474,11 +3474,11 @@ var cnItems = {
     'Increases all non-radon resources by 5% (compounding).': '使非氡资源获取量增加5%(效果叠乘)。',
     'Increases Crit Damage by 25%.': '使暴击伤害增加25%。',
     'Craft': '精制',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
+    'AutoCraft up to': '自动精制至此上限',
+    'Drop Rates': '掉率',
+    'Map Level': '地图等级',
+    'Drop Amt': '掉落数量',
+    'Save and Close': '保存并退出',
     //炼金术相关结束
 
     //绒绒污污相关
@@ -7641,11 +7641,12 @@ var cnRegReplace = new Map([
     [/^(.*) Berries$/, '$1 浆果'], //炼金术
     [/^(.*) owned, \+(.*)% Herbs found$/, '拥有$1，药草获取量增加$2%'], //炼金术
     [/^(.*) owned, \+(.*)% res, \+(.*)% RT chance$/, '拥有$1，资源获取量增加$2%，小符饰概率增加$3%'], //炼金术
-    [/^(.*) owned, (.*)% nullified void stats$/, '拥有$1，虚空地图敌人状态中和$2%'], //炼金术
+    [/^(.*) owned, (.*)% nullified void stats$/, '拥有$1，虚空地图敌人属性中和$2%'], //炼金术
     [/^(.*) owned, \+(.*)% Stats$/, '拥有$1，属性增加$2%'], //炼金术
     [/^(.*) owned, \+(.*)% housing$/, '拥有$1，住房容纳的脆皮数量增加$2%'], //炼金术
     [/^(.*) owned, \+(.*)% resources$/, '拥有$1，资源获取量增加$2%'], //炼金术
     [/^(.*) owned, \+(.*)% Crit Damage$/, '拥有$1，暴击伤害增加$2%'], //炼金术
+    [/^Enemies in this dimension are enchanted, gaining \+(.*)% enemy stats in World, \+(.*)% in Maps, and \+(.*)% in Void Maps. All Radon drops are increased by (.*)%.$/, '此维度中的敌人被强化了，世界上的属性增加了$1%，地图中的属性增加了$2%，虚空地图中的属性增加了$3%。氡获取量增加了$4%。'], //炼金术
     [/^(.*) \/ (.*) Exp$/, '$1/$2经验值'], //绒绒污污相关
     [/^(.*)% damage$/, '$1%伤害'], //绒绒污污相关
     [/^Cruffys cannot gain Experience after the Nurture Challenge ends, but will stick around for (.+) more Zones.$/, '朽朽在培养挑战结束后无法再获得经验值了，但还会在$1个区域内继续存在。'], //绒绒污污相关
