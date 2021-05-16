@@ -1174,7 +1174,7 @@ var cnItems = {
     'Highest Zone': '最高区域',
     'Highest Zone U': '最高区域于宇宙',
     'Trap/Tower Kills': '陷阱/塔击杀数',
-    'SA Dust Earned': '尖塔突击获取的粉末',
+    'SA Dust Earned': '尖塔突击获取的魔尘',
     'SA Enemies Killed': '尖塔突击击杀的敌人数量',
     //游戏统计相关结束
     //游戏成就相关
@@ -2799,7 +2799,7 @@ var cnItems = {
     'Breed Relic': '繁殖速度遗物',
     'You have the Archaeology challenge active. Travel to a dimension with lots of buried Relics. When starting this challenge, you\'ll be granted access to 5 special new upgrades called Relics that grant a compounding increase to your Attack, Breed Speed, Radon, Resource Gain (Food, Wood, Metal, Science and Gems), and one that decreases Enemy Attack. These upgrades all cost science and increase in cost whenever any of them are purchased. However, your Attack, Breed Speed, Radon, Resource Gain, and Enemy Health Relics all decrease by 1 Relic level every Zone and can go negative. All Radon drops have a base increase of +200% in this dimension. Completing': '您目前正在进行考古学挑战。前往一个埋藏了大量遗物的维度。开始此挑战后，您可以获得5个特殊的遗物升级。遗物升级分别可以提升脆皮攻击力、繁殖速度、氡获取量、非氡资源获取量(食物、木头、金属、科学点和宝石)，另外还有一个减少敌人攻击力的遗物升级。这些升级消耗科学点，且在购买了其中任何一个升级以后，所有的升级花费都会增加。不过，您的攻击力、繁殖速度、氡获取量、非氡资源获取量、敌人攻击力遗物每通过1个区域就降低1级，而且等级可以为负数。此维度中氡基础获取量增加200%。在此挑战激活的前提下通过区域 ',
     'Mayhem': '暴乱',
-    'with this Challenge active will grant your Trimps a permanent, stacking, additive': '后，宇宙1中的氦获取量，宇宙2中的氡获取量，及宇宙1和宇宙2中的脆皮攻击力和生命值永久增加 ',
+    'with this Challenge active will grant your Trimps a permanent, stacking, additive': '后，可以使以下内容永久增加：',
     'Your Trimps are Poisoned! They take': '脆皮中毒了！每次攻击后受到 ',
     'damage after each attack. Poison bypasses Prismatic Shield!': '点伤害。毒伤害可以穿透棱镜护盾！',
     'Storm': '风暴',
@@ -2835,7 +2835,24 @@ var cnItems = {
     'Complete this Challenge with Cruffys at Level 10 or higher to earn a new Perk!': '在朽朽达到10级的前提下完成此挑战将获得一个新的特权！',
     'You have the Nurture challenge active. Travel to a dimension filled with gigantic monsters. All enemies have 2x attack, World enemies have 2x health and map enemies have 10x health. Luckily, Scruffy has a brother in this dimension who will help you out if you level him up! You\'ll gain access to the special Laboratory building while on this challenge, which will give bonus Exp to Scruffy\'s brother, Cruffys. Check the Scruffy and Laboratory tooltips while on this Challenge for more info. Clearing': '您目前正在进行培养挑战。前往一个充满了巨型怪物的维度。所有敌人获得2倍攻击力，世界上的敌人生命值变为2倍，地图中的敌人生命值变为10倍。但幸运的是，污污在此维度中有一个兄弟，如果善加培养，它就能帮到大忙了！此挑战中您可以建造特殊的实验室建筑，可为污污的兄弟，朽朽提供额外的经验值。在此挑战中查看污污或实验室的提示框可以获取更详细的信息。在此挑战激活的前提下通过 ',
     'You will unlock this challenge once you  reach Zone 130.': '欲解锁此挑战，您需要到达区域130。',
-    '': '', //TODO:Pandemonium及Alchemy挑战部分，还有Object中的后半部分，以及updates.js里面所有更新的部分
+    'Pandemonium': '群魔乱舞', //TODO:Pandemonium及Alchemy挑战部分，还有Object中的后半部分
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
     //挑战相关结束
     //特权相关
     'Apply your skills at salvaging things from the Spire to increase all loot gained by 0.25% per level. The price for this perk increases additively, and each level will cost exactly 10000 more than the previous level.': '将您搜刮尖塔的本事用在劫掠上，每级提升0.25%劫掠效果。此特权的价格线性增加，每级都比上一级贵10000。',
@@ -7293,7 +7310,7 @@ var cnRegReplace = new Map([
     [/^(.*)You've gained the ability to create Small and Large Research Caches in Maps!$/, '$1您现在可以在地图中使用研究储藏箱修饰符了！'], //考古学挑战完成消息
     [/^NOTICE: You have already completed Mayhem (\d+) times, and will no longer gain a bonus for future runs.$/, '注意：您已经完成了$1次暴乱挑战，无法再获得加成了。'], //暴乱挑战等
     [/^Travel to a very hectic dimension. The final Cell of each Zone is a Poisonous boss enemy, and all Map enemies are also Poisonous. Poisonous Enemies stack 20% of their damage on your Trimps as poison, which is taken as damage after each attack until your Trimps die. Each Zone starts with (.*) stacks of Mayhem, and each stack increases the damage and health of the final Cell Boss Enemy for that Zone by 10%. Completing a map reduces the Mayhem stacks for that Zone by 1 and an additional 1 for each level of the Map above the Zone's level \(For example, a level 15 map will remove 3 stacks per completion when at Z13\). Completing$/, '前往一个非常狂热的维度。每个区域最后一格的首领敌人是带毒的，地图中的所有敌人同样带毒。带毒的敌人每次攻击后，将它们攻击力的20%累积为毒伤害，脆皮每次攻击后，都会受到相应的毒伤害，直到脆皮死亡后毒伤害清零。您进入每个区域时获得$1层“暴乱”，每层暴乱提升区域最后一格首领10%的攻击力和生命值。完成地图可以减少1层暴乱，且该地图每高于当前区域1级，就可以额外减少1层暴乱(例如：在区域13完成一张15级的地图以后，可以减少3层暴乱)。在此挑战激活的前提下通过区域 '], //暴乱挑战等
-    [/^bonus to Radon or Helium, and Trimp Attack and Health in Universes 1 and 2. Each time Mayhem is completed, the reward for next time increases by an additional 10% and Enemies gain 3x damage and health for all future runs of Mayhem. The amount of Mayhem stacks that each Zone starts with is always equal to 1000 minus 5 for each highest Zone cleared above Z100 in this Universe \(You have cleared Z(.*) and start each Zone with (.*) stacks$/, '(相互叠加)。且每完成一次暴乱挑战，下次挑战的奖励就增加20%，但后续暴乱挑战中，敌人也会增加3倍攻击力和生命值。每个区域获得的暴乱层数基础值为1000，此宇宙中最高通过区域每超过区域100以上1个区域，则暴乱层数减去5层(您已经通过了区域$1，暴乱层数为$2'], //暴乱挑战等
+    [/^bonus to Radon or Helium, and Trimp Attack and Health in Universes 1 and 2. Each time Mayhem is completed, the reward for next time increases by an additional 10% and Enemies gain 3x damage and health for all future runs of Mayhem. The amount of Mayhem stacks that each Zone starts with is always equal to 1000 minus 5 for each highest Zone cleared above Z100 in this Universe \(You have cleared Z(.*) and start each Zone with (.*) stacks$/, '宇宙1中的氦获取量，宇宙2中的氡获取量，及宇宙1和宇宙2中的脆皮攻击力和生命值(相互叠加)。且每完成一次暴乱挑战，下次挑战的奖励就增加20%，但后续暴乱挑战中，敌人也会增加3倍攻击力和生命值。每个区域获得的暴乱层数基础值为1000，此宇宙中最高通过区域每超过区域100以上1个区域，则暴乱层数减去5层(您已经通过了区域$1，暴乱层数为$2'], //暴乱挑战等
     [/^You have completed Mayhem (\d+) \/ (\d+) maximum time(s*). Your Trimps have \+(.*)% Attack, Health, and Helium or Radon, and your next run of Mayhem will spawn Bad Guys with (.*)x Attack and Health.$/, '您共完成了$1次暴乱挑战，挑战可完成次数上限为$2。挑战总奖励为增加$4%脆皮攻击力、生命值、氦或氡获取量，下轮的敌人攻击力和生命值将增加$5倍。'], //暴乱挑战等
     [/^You have the Mayhem challenge active. Travel to a very hectic dimension. The final Cell of each Zone is a Poisonous boss enemy, and all Map enemies are also Poisonous. Poisonous Enemies stack 20% of their damage on your Trimps as poison, which is taken as damage after each attack until your Trimps die. Each Zone starts with (.*) stacks of Mayhem, and each stack increases the damage and health of the final Cell Boss Enemy for that Zone by 10%. Completing a map reduces the Mayhem stacks for that Zone by 1 and an additional 1 for each level of the Map above the Zone's level \(For example, a level 15 map will remove 3 stacks per completion when at Z13\). Completing$/, '您目前正在进行暴乱挑战。前往一个非常狂热的维度。每个区域最后一格的首领敌人是带毒的，地图中的所有敌人同样带毒。带毒的敌人每次攻击后，将它们攻击力的20%累积为毒伤害，脆皮每次攻击后，都会受到相应的毒伤害，直到脆皮死亡后毒伤害清零。您进入每个区域时获得$1层“暴乱”，每层暴乱提升区域最后一格首领10%的攻击力和生命值。完成地图可以减少1层暴乱，且该地图每高于当前区域1级，就可以额外减少1层暴乱(例如：在区域13完成一张15级的地图以后，可以减少3层暴乱)。在此挑战激活的前提下通过区域 '], //暴乱挑战等
     [/^The Final Enemy of this Zone has (\d+) stacks of Mayhem, granting \+(.*)% Damage and Health. Complete Maps to lower these stacks.$/, '此区域最后一格的敌人目前有$1层暴乱，增加$2%攻击力和生命值。通过地图来减少层数。'], //暴乱挑战等
@@ -7317,6 +7334,7 @@ var cnRegReplace = new Map([
     [/^(.*)You have completed the Exterminate Challenge! You have unlocked the Hub, a revolutionary new way to store your extra Trimps!$/, '$1您完成了灭虫挑战！您解锁了中心枢纽，一种容纳脆皮的新建筑！'], //灭虫挑战完成消息
     [/^(.*)You have completed the Nurture challenge! You have gained an extra (.+) Radon, and your world has been returned to normal.$/, '$1您完成了培养挑战！您额外获取了$2氡，世界恢复了正常。'], //培养挑战完成消息
     [/^(.*)You have also unlocked the Observation Perk!$/, '$1您同时还解锁了洞察特权！'], //培养挑战完成消息
+    [/^NOTICE: You have already completed Pandemonium (.*) times, and will no longer gain a bonus for future runs.$/, '注意：您已经完成了$1次群魔乱舞挑战，无法再获得加成了。'], //群魔乱舞挑战等
     [/^Maximum of (.*) levels.$/, '最高$1级。'], //特权等
     [/^Looting(\s+)II$/, '劫掠 II'], //特权等
     [/^Carpentry(\s+)II$/, '木工 II'], //特权等
@@ -7325,7 +7343,7 @@ var cnRegReplace = new Map([
     [/^Toughness(\s+)II$/, '坚韧 II'], //特权等
     [/^Reduce the Zone that Fluffy can start earning Experience at by 3. With (\d+) level(s*) in Classy, Fluffy will start earning Experience at Z(\d+).$/, '绒绒提前3个区域开始获得经验值。上等特权提升$1级后，绒绒将从区域$3开始获得经验值。'], //特权等
     [/^Use your experiences in understanding the attention span of Trimps to increase the damage dealt by all soldiers based on how long it took to get an army together. Increases damage by 2% per level per second up to (\d+) seconds.$/, '脆皮的注意力持续时间您已了如指掌，所以您可以利用它增加脆皮的攻击力。军队每需要1秒进行繁殖，每级预期特权就可以使脆皮增加2%攻击力。预期特权的效果上限为$1秒。'], //特权等
-    [/^Huffy has learned much from Assaulting his Spire, now store some of that knowledge in your Portal! Gain (.+)% attack and health plus another (.+)% per Spire Assault level cleared, compounding per perk level.$/, '怒怒从被突击中学到了更多东西，把它学到的一些知识存到传送门里吧！每级可以增加$1%的攻击力和生命值，且每通过一级尖塔突击，还可以使此加成再增加$2%，每级特权之间叠乘。'], //特权等
+    [/^Huffy has learned much from Assaulting his Spire, now store some of that knowledge in your Portal! Gain (.+)% attack and health plus another (.+)% per Spire Assault level cleared, compounding per perk level.$/, '怒怒从尖塔突击中学到了更多东西，把它学到的一些知识存到传送门里吧！每级可以增加$1%的攻击力和生命值，且每通过一级尖塔突击，还可以使此加成再增加$2%，每级特权之间叠乘。'], //特权等
     [/^You are currently gaining (.+) attack and health. Your next Spire Assault level will increase this bonus to (.+), or your next perk level will increase this bonus to (.+).$/, '目前攻击力和生命值增加了$1，下一级尖塔突击后可以使此加成变为$2，下一级特权将使此加成变为$3。'], //特权等
     [/^Your Trimps are frenzied for (.*) second(s*)! They are dealing (.*)% more damage.$/, '您的脆皮们的战狂状态持续时间还有$1秒！它们可以额外造成$3%伤害。'], //特权等
     [/^The Trimps that earned this Frenzy buff are still alive, and they will be able to refresh its duration starting in (.*) second(s*).$/, '最初触发战狂的脆皮们仍然还幸存着，再过$1秒，它们就可以刷新战狂状态持续时间了。'], //特权等
@@ -7486,6 +7504,7 @@ var cnRegReplace = new Map([
     [/^Golden Void ([IVXLCDM]+)$/, '金色虚空 $1'], //金色升级等
     [/^Golden Battle \(Tier ([IVXLCDM]+)$/, '金色战斗($1阶'], //金色升级等
     [/^Golden Helium \(Tier ([IVXLCDM]+)$/, '金色氦($1阶'], //金色升级等
+    [/^Golden Radon \(Tier ([IVXLCDM]+)$/, '金色氡($1阶'], //金色升级等
     [/^Golden Void \(Tier ([IVXLCDM]+)$/, '金色虚空($1阶'], //金色升级等
     [/^Increase Helium gain by (.*)%.$/, '使氦的获取量增加$1%。'], //金色升级等
     [/^Increase Radon gain by (.*)%.$/, '使氡的获取量增加$1%。'], //金色升级等
@@ -7844,7 +7863,7 @@ var cnRegReplace = new Map([
     [/^(.*)Z:57 A few of your Trimps are getting whiny so you take them for a walk. Seemed to do the trick, they just needed to burn some energy and pee.$/, '$1区域：57 几个脆皮有点烦躁，所以您带着它们一起去散步了。看起来效果不错，它们需要的也就是燃烧多余的能量和及时如厕了。'], //宇宙2故事消息
     [/^(.*)Z:60 Scruffy is finally in a good mood and seems quite a bit stronger than before, so you figure now is a good time to ask him about Fluffy. In exchange for his good mood, he agrees to tell you the rest of the story. According to him, Fluffy was stationed at the seventh Spire while Scruffy was at the sixth. Fluffy and Scruffy each destroyed their own Spires, but Fluffy was caught by Druopitee and took the fall for both of them. Druopitee left the six remaining enhanced Trimps to take care of the remaining five Spires, and took Fluffy with him. You ask what the names of the other five Trimps are and he tells you: Huffy, Stuffy, Buffy, Tuffy, and Puffy.$/, '$1区域：60 污污看起来终于缓过来了，看起来它甚至比之前更加强大了。您觉得时机已经成熟，于是您找到它询问绒绒的情况。它把之前没说完的故事继续往下说了。根据它的说法，绒绒本来是在第七座尖塔，而它是在第六座的。绒绒和它毁掉了它们所在的尖塔，最后，绒绒被德罗披提抓住，承担了摧毁两座尖塔的后果。德罗披提离开之前，要求剩下的六个强化版脆皮照看尖塔，然后把绒绒带走了。您向污污询问道，那剩下的五个脆皮名字又是什么呢，然后污污回答您，它们的名字是怒怒，闷闷，醉醉，泰泰和彭彭。'], //宇宙2故事消息
     [/^(.*)Z:61 Scruffy finally seems more inspired than sad. Looks like he wants to go take down some bad guys.$/, '$1区域：61 污污看起来真的走出来了，它看起来下定了决心，就像已经准备好干掉敌人了一样。'], //宇宙2故事消息
-    [/^(.*)Z:62 It seems like you've gotta find Scruffy's 5 missing brothers. Scruffy reminds you that they were evil the last time he saw them and to be prepared, but that some may have changed sides since.$/, '$1区域：62 看起来您需要找到污污的那五位兄弟。污污提醒您，最后一次看到它们的时候，它们还是在干坏事，最好有相应的心理准备，但当然，也有可能其中有几位也弃暗投明了。'], //宇宙2故事消息
+    [/^(.*)Z:62 It seems like you've gotta find Scruffy's 5 missing brothers. Scruffy reminds you that they were evil the last time he saw them and to be prepared, but that some may have changed sides since.$/, '$1区域：62 看起来您需要找到污污的那五位兄弟。污污提醒您，最后一次看到它们的时候，它们还是在干坏事，最好有相应的心理准备，但当然，可能其中几位也弃暗投明了。'], //宇宙2故事消息
     [/^(.*)Z:65 You wonder if Trimps came from this Universe, your original one, or somewhere else. Scruffy shrugs.$/, '$1区域：65 不知道脆皮是来自哪儿的，是这个宇宙，之前那个宇宙，还是其他哪里？污污对此也一无所知。'], //宇宙2故事消息
     [/^(.*)Z:67 The weather is finally starting to cool back down, you and your Trimps are quite relieved.$/, '$1区域：67 气温终于又凉下来了，您和脆皮们都松了口气。'], //宇宙2故事消息
     [/^(.*)Z:69 Giggity$/, '$1区域：69 咯咯咯'], //宇宙2故事消息
