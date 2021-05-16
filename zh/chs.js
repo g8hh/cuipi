@@ -29,7 +29,7 @@ var cnItems = {
     'Min': '最小',
     'Farmers': '农民',
     'Lumberjacks': '伐木工',
-    'Gatherer (Scruffy': '采集者(污污)',
+    'Gatherer (Scruffy': '采集者(污污',
     'Huge (Size': '巨大(尺寸挑战',
     'Solitary (Downsize': '孤僻(精简挑战',
     'Tweaky (Toxicity': '扭曲(毒性挑战',
@@ -78,6 +78,8 @@ var cnItems = {
     'Geneticists': '遗传学家',
     'Formation': '阵型',
     'Mayhem Completions': '暴乱挑战完成次数',
+    'Pandemonium Completions': '群魔乱舞挑战完成次数',
+    'Spire Assault Stats': '尖塔突击状态',
     'Unliving (Life': '亡灵化(生命挑战',
     'Rallying Cry (Duel': '集结号(决斗挑战',
     'Winning (Duel': '胜者(决斗挑战',
@@ -138,6 +140,7 @@ var cnItems = {
     'Condenser Towers': '冷凝塔',
     'Heliumy': '氦奇',
     'Radonculous': '氡丰',
+    'Spire Assault Radon': '尖塔突击氡',
     'Domination (Boss Only': '统治(只对Boss生效',
     'Corruption Value': '腐化价值',
     'Per Cell': '每格子',
@@ -230,7 +233,7 @@ var cnItems = {
     'Click to view your masteries.': '点击可以查看您的专精。',
     'Nature': '自然',
     'Alchemy': '炼金术',
-    'SA': '尖塔袭击',
+    'SA': '尖塔突击',
     'Custom': '自定义',
     'Type a number below to purchase a specific amount. You can also use shorthand such as 2e5 and 200k to select that large number, or fractions such as 1/2 and 50% to select that fraction of your available workspaces.': '在下方输入数字，以设定每次点击购买的数量。您还可以使用例如2e5或200k之类的缩写来输入大数字。',
     'Max of 1,000 for most perks': '对于绝大多数特权来说数字最大为1000',
@@ -299,6 +302,7 @@ var cnItems = {
     'Voidtle': '虚空战斗',
     '- Where your Scientists will again attempt to buy as many Golden Voids as possible (to reach 72%), but will instead switch to Golden Battle afterwards.': '- 将购买最大数量的金色升级虚空(直到达到72%加成)，然后切换为金色升级战斗。',
     'Custom AutoGold': '自定义自动金色升级',
+    'Custom AutoGolden': '自定义自动金色升级',
     '- For the advanced Trimp commander/archaeologist who wants even more control.': '- 提供给脆皮高玩和资深考古学家的高级工具。',
     'Ctrl Click to customize your string': '按下Ctrl键再点击可以自定义您的字符串',
     'Please allow 4 seconds for Trimp retraining after clicking this button before any Golden Upgrades are automatically purchased, and don\'t forget to frequently thank your scientists! Seriously, they get moody.': '请在切换了金色升级选项后等待4秒，之后金色升级选项才会生效。另外，不要忘了感谢科学家们！真的，不然它们情绪会很低落的。',
@@ -1170,8 +1174,8 @@ var cnItems = {
     'Highest Zone': '最高区域',
     'Highest Zone U': '最高区域于宇宙',
     'Trap/Tower Kills': '陷阱/塔击杀数',
-    'SA Dust Earned': '尖塔袭击获取的粉末',
-    'SA Enemies Killed': '尖塔袭击击杀的敌人数量',
+    'SA Dust Earned': '尖塔突击获取的粉末',
+    'SA Enemies Killed': '尖塔突击击杀的敌人数量',
     //游戏统计相关结束
     //游戏成就相关
     'Zone Progress': '区域进度',
@@ -1668,9 +1672,9 @@ var cnItems = {
     'Complete Trappapalooza without Trapping on or above Z': '在到达特定区域后未使用过陷阱的前提下，完成捕手道达人挑战。该区域为区域',
     'Witherproof': '防止凋零',
     'Huffstle': '怒怒之城',
-    'Kill 100 L5+ SA Enemies without dying': '在没有战败过的前提下，击杀100名等级5及以上的尖塔袭击敌人',
+    'Kill 100 L5+ SA Enemies without dying': '在没有战败过的前提下，击杀100名等级5及以上的尖塔突击敌人',
     'Just Smack It': '事在人为',
-    'Kill a L20+ SA Enemy without Shock, Bleed or Poison': '不使用震荡，流血或者剧毒的前提下，击杀1名等级20及以上的尖塔袭击敌人',
+    'Kill a L20+ SA Enemy without Shock, Bleed or Poison': '不使用震荡，流血或者剧毒的前提下，击杀1名等级20及以上的尖塔突击敌人',
     'Close Call': '有惊无险',
     'Complete Revenge with exactly 19 stacks': '在正好拥有19层复仇的前提下，完成复仇挑战',
     'Level Up': '等级提升',
@@ -1880,7 +1884,7 @@ var cnItems = {
     'Active?': '激活？',
     'Start': '起点',
     'End': '终点',
-    'Exit at': '退出',
+    'Exit At': '退出',
     'Run Map?': '进图？',
     'Use': '使用',
     'Map': '地图',
@@ -2397,10 +2401,12 @@ var cnItems = {
     'Ctrl Click this button to customize your Equality settings.': '按下Ctrl键再点击可以自定义平等缩放设置。',
     'Hotkey: E': '(快捷键：E',
     'Scale Equality Scaling': '平等缩放设置',
-    'Change this Slider to change the maximum amount of attacks Trimps need to make in order to not trigger Equality Scaling. Setting this slider to 0 will increase scaling whenever a group of Trimps is one-shot, 1 will increase if Trimps attack one or fewer times, 5 will only increase if they attack 5 or fewer times, etc. If Reversing is allowed, Equality stacks will also decrease whenever Trimps kill an enemy in more attacks than your current slider setting.': '修改滑块的数值影响脆皮在阵亡前攻击了多少次才不会触发平等缩放。滑块设置为0时，当一队脆皮被秒杀时增加平等生效等级。设置为1时，当一队脆皮只攻击了1次或者更少次就阵亡时增加平等生效等级。设置为5时，当一队脆皮只攻击了5次或者更少次就阵亡时增加平等生效等级。依此类推。如果开启了平等消除，那么在脆皮攻击超过滑块相应次数击杀敌人后，减少平等生效等级。',
+    'Change this Slider to change the maximum amount of attacks Trimps need to make in order to not trigger Equality Scaling. Setting this slider to 0 will increase scaling whenever a group of Trimps is one-shot, 1 will increase if Trimps attack one or fewer times, 5 will only increase if they attack 5 or fewer times, etc.': '修改滑块的数值影响脆皮在阵亡前攻击了多少次才不会触发平等缩放。滑块设置为0时，当一队脆皮被秒杀时增加平等生效等级。设置为1时，当一队脆皮只攻击了1次或者更少次就阵亡时增加平等生效等级。设置为5时，当一队脆皮只攻击了5次或者更少次就阵亡时增加平等生效等级。依此类推。',
     'Your current setting is': '当前的平等滑块设置为 ',
+    'If Reversing is allowed, Equality stacks will also decrease after the set amount of attacks against the same bad guy.': '如果开启了平等消除，那么在脆皮攻击超过平等消除滑块相应次数击杀敌人后，减少平等生效等级。',
+    'Your current reversing setting is': '当前的平等消除滑块设置为 ',
     'Allow Reversing': '开启平等消除',
-    'You can also manually set how many stacks of Equality should be used if Scaling is disabled changing the slider below. This allows you to customize exactly how many stacks of Equality to use without having to respec your Perks.': '如果关闭平等缩放，您还可以直接在下方设置平等生效等级。这样您就不必洗点特权也可以设置平等生效等级了。',
+    'You can also manually set how many stacks of Equality should be used if Scaling is disabled by changing the slider below. This allows you to customize exactly how many stacks of Equality to use without having to respec your Perks.': '如果关闭平等缩放，您还可以直接在下方设置平等生效等级。这样您就不必洗点特权也可以设置平等生效等级了。',
     'Your Equality stacks when Scaling is disabled will be': '关闭平等缩放时，平等生效等级为 ',
     'You can only respec once per run. Clicking cancel will not consume this use.': '每次传送后您可以洗点一次。点击取消则不会消耗次数。',
     'Respec Perks': '特权洗点',
@@ -6385,6 +6391,7 @@ var cnRegReplace = new Map([
     [/^(.*)That guy just left (.*) food on the ground! Sweet!$/, '$1那家伙在地上留下了$2食物！如此甚好！'], //地图解锁等
     [/^(.*)You just found (.*) wood! That's pretty neat!$/, '$1您发现了$2木头！很好很强大！'], //地图解锁等
     [/^This book will teach your soldiers how to utilize the buddy system. Fighting will now require (.*)% more Trimps \(rounded up\), but attack and health will grow for each new Trimp.$/, '这本书可以教会士兵如何利用伙伴的力量。从现在起，战斗所需要的脆皮数量增加$1%(向上取整)，脆皮的攻击力和生命值也相应地提升。'], //其他升级等
+    [/^You need (.*) unemployeed Trimps available. You are short (.*) Trimp(s*).$/, '您需要$1未工作的脆皮才能升级。您还缺少$2的脆皮。'], //其他升级等
     [/^You need enough room for (.*) max Trimps. You are short (.*) Trimp(s*).$/, '您需要$1的脆皮上限才能升级。您还缺少$2的脆皮上限。'], //其他升级等
     [/^(.*)You just made a map to the Dimension of Anger! Should be fun!$/, '$1您制造了愤怒维度地图！应该会很有趣的！'], //其他升级等
     [/^(.*)You just made a map to the Dimension of Rage! Sounds like a great time!$/, '$1您制造了暴怒维度地图！听起来不错哦！'], //其他升级等
@@ -6427,7 +6434,8 @@ var cnRegReplace = new Map([
     [/^(.*), Z$/, '$1，区域'], //统计等
     [/^You will find one Golden Upgrade every (.*) Zones. Frequency increases at (.*)% bonus damage.$/, '您每$1个区域可以获得一个金色升级。升级出现的频率在到达$2%伤害后将开始增加。'], //成就等
     [/^You will find one Golden Upgrade every (.*) Zones. Start with 1 extra Golden Upgrade after each Portal for every 500% earned between 2000% and (.*)%. Currently gaining (.*) extra Golden Upgrade(s*).$/, '您每$1个区域可以获得一个金色升级，且伤害加成在2000%与$2%之间的部分，每有500%伤害加成，传送后就额外获得1个金色升级。目前可以获得$3个金色升级。'], //成就等
-    [/^You will find one Golden Upgrade every (.*) Zones. Start with 1 extra Golden Upgrade after each Portal for every 2000% earned above (.*)%. Currently gaining (.*) extra Golden Upgrade(s*).$/, '您每$1个区域可以获得一个金色升级，且伤害加成在$2%以上的部分，每有2000%伤害加成，传送后就额外获得1个金色升级。目前可以获得$3个金色升级。'], //成就等
+    [/^You will find one Golden Upgrade every (.*) Zones. Start with 1 extra Golden Upgrade after each Portal for every 2000% earned between (.*) and (.*)%. Currently gaining (.*) extra Golden Upgrade(s*).$/, '您每$1个区域可以获得一个金色升级，且伤害加成在$2%与$3%之间的部分，每有2000%伤害加成，传送后就额外获得1个金色升级。目前可以获得$4个金色升级。'], //成就等
+    [/^You will find one Golden Upgrade every (.*) Zones. Start with 1 extra Golden Upgrade after each Portal for every (.*)% earned above (.*)%. Currently gaining (.*) extra Golden Upgrade(s*).$/, '您每$1个区域可以获得一个金色升级，且伤害加成在$3%以上的部分，每有$2%伤害加成，传送后就额外获得1个金色升级。目前可以获得$4个金色升级。'], //成就等
     [/^Progress: (.*) \/$/, '进度：$1 /'], //成就等
     [/^Complete Zone (\d+) in Universe$/, '通过区域 $1 于宇宙'], //成就等
     [/^Reach (.*) displayed damage$/, '面板伤害值达到$1'], //成就等
@@ -7317,8 +7325,8 @@ var cnRegReplace = new Map([
     [/^Toughness(\s+)II$/, '坚韧 II'], //特权等
     [/^Reduce the Zone that Fluffy can start earning Experience at by 3. With (\d+) level(s*) in Classy, Fluffy will start earning Experience at Z(\d+).$/, '绒绒提前3个区域开始获得经验值。上等特权提升$1级后，绒绒将从区域$3开始获得经验值。'], //特权等
     [/^Use your experiences in understanding the attention span of Trimps to increase the damage dealt by all soldiers based on how long it took to get an army together. Increases damage by 2% per level per second up to (\d+) seconds.$/, '脆皮的注意力持续时间您已了如指掌，所以您可以利用它增加脆皮的攻击力。军队每需要1秒进行繁殖，每级预期特权就可以使脆皮增加2%攻击力。预期特权的效果上限为$1秒。'], //特权等
-    [/^Huffy has learned much from Assaulting his Spire, now store some of that knowledge in your Portal! Gain (.+)% attack and health plus another (.+)% per Spire Assault level cleared, compounding per perk level.$/, '怒怒从被袭击中学到了更多东西，把它学到的一些知识存到传送门里吧！每级可以增加$1%的攻击力和生命值，且每通过一级尖塔袭击，还可以使此加成再增加$2%，每级特权之间叠乘。'], //特权等
-    [/^You are currently gaining (.+) attack and health. Your next Spire Assault level will increase this bonus to (.+), or your next perk level will increase this bonus to (.+).$/, '目前攻击力和生命值增加了$1，下一级尖塔袭击后可以使此加成变为$2，下一级特权将使此加成变为$3。'], //特权等
+    [/^Huffy has learned much from Assaulting his Spire, now store some of that knowledge in your Portal! Gain (.+)% attack and health plus another (.+)% per Spire Assault level cleared, compounding per perk level.$/, '怒怒从被突击中学到了更多东西，把它学到的一些知识存到传送门里吧！每级可以增加$1%的攻击力和生命值，且每通过一级尖塔突击，还可以使此加成再增加$2%，每级特权之间叠乘。'], //特权等
+    [/^You are currently gaining (.+) attack and health. Your next Spire Assault level will increase this bonus to (.+), or your next perk level will increase this bonus to (.+).$/, '目前攻击力和生命值增加了$1，下一级尖塔突击后可以使此加成变为$2，下一级特权将使此加成变为$3。'], //特权等
     [/^Your Trimps are frenzied for (.*) second(s*)! They are dealing (.*)% more damage.$/, '您的脆皮们的战狂状态持续时间还有$1秒！它们可以额外造成$3%伤害。'], //特权等
     [/^The Trimps that earned this Frenzy buff are still alive, and they will be able to refresh its duration starting in (.*) second(s*).$/, '最初触发战狂的脆皮们仍然还幸存着，再过$1秒，它们就可以刷新战狂状态持续时间了。'], //特权等
     [/^Grants your Trimps the ability to locate small Runetrinkets around the World. For each level of this perk, your Trimps will gain a chance per Zone cleared above Z100 to find a Runetrinket. Each Runetrinket increases your Trimps' attack, health, and gathered primary resources by 1% \(additive\) per perk level. You can store a maximum of (.+) Runetrinkets per perk level, reducing levels in this perk will deactivate any trinkets above cap but not lose them. Runetrinkets persist through Portal and never reset. The chance to find a Runetrinket increases by about 50% per level of this Perk, and scales as the Zone number increases \(up to Z200\). You'll also find 1 guaranteed Runetrinket every 25 Zones above Z100 for every 2 levels of this perk.$/, '使您的脆皮们可以在世界上找到小符饰。此特权每级都能增加脆皮找到小符饰的概率，此概率还与本次传送后到达的区域数量有关，但只计算超过区域100的部分。每有1级特权，每个小符饰都可以使您的脆皮的攻击力，生命值和食物、木头、金属获取量增加1%(效果叠加)。每级特权可以使小符饰上限增加$1，如果对此特权进行洗点，超出上限的小符饰将暂时失效，但重新加点后将重新生效。小符饰传送后仍然存在，数量不会重置。每级特权可以使找到小符饰的概率增加约50%，并且随着区域数量的增加而增加(上限为区域200)。另外，每有2级特权，每在区域100以上通过25个区域，就可以稳定获得1个小符饰。'], //特权等
@@ -7819,7 +7827,7 @@ var cnRegReplace = new Map([
     [/^(.*)Z:24 Knowing that Druopitee is in your Universe, you ask Scruffy who is manning the Spires. He hangs his head in shame and lets you know that there are 5 Trimps, previously friends of Scruffy's, that were enticed by Druopitee's magic. He doesn't seem to want to talk much more about it.$/, '$1区域：24 考虑到德罗披提是在另一个宇宙，因此您找到污污询问到底是谁在控制着尖塔。它羞愧地垂下了脑袋，提醒您是5个坏脆皮，它们曾经是污污的朋友，却被德罗披提的魔法影响到了。说完这些以后，看起来它暂时不想再多谈了。'], //宇宙2故事消息
     [/^(.*)Z:26 Your Trimps catch a bird and build a little home for it, but it flies away.$/, '$1区域：26 脆皮们抓住了一只小鸟，给它做了个窝，但小鸟还是飞走了。'], //宇宙2故事消息
     [/^(.*)Z:28 Your memories of the last Universe are fading and you have no idea how many times you've been here in this Universe. This could be your first or thousandth time here. Neat!$/, '$1区域：28 上一个宇宙的记忆开始逐渐模糊不清了，而您也记不起到底在这个宇宙待过多少次了。是第一次来这，还是成千上万次了？这可太棒了。'], //宇宙2故事消息
-    [/^(.*)Z:30 You're not sure how much more beautiful this one is than the last one, but it's hard not to stop and take in all the scenery every once in a while. Sprawling hills and flowing rivers in every direction make it almost worth the frankly ridiculous amount of enemies hiding everywhere.$/, '$1区域：30 您不太确定这儿的风景是不是越来越美了，总之您是一直在驻足欣赏这周围的风景。巍巍群山，江河奔流，哪怕要以到处遍布的这些敌人为代价才能尽览这一切也值得啊。'], //宇宙2故事消息
+    [/^(.*)Z:30 You're not sure how much more beautiful this Universe is than the last one, but it's hard not to stop and take in all the scenery every once in a while. Sprawling hills and flowing rivers in every direction make it almost worth the frankly ridiculous amount of enemies hiding everywhere.$/, '$1区域：30 您不太确定这个宇宙的风景是不是越来越美了，总之您是一直在驻足欣赏这周围的风景。巍巍群山，江河奔流，哪怕要以到处遍布的这些敌人为代价才能尽览这一切也值得啊。'], //宇宙2故事消息
     [/^(.*)Z:31 You deserve hazard pay or something.$/, '$1区域：31 您应该享有厄劫津贴啥的。'], //宇宙2故事消息
     [/^(.*)Z:32 One of your regular Trimps seems to have picked up the ability to speak a few words from Scruffy. They're too dirty to repeat though.$/, '$1区域：32 您的一个脆皮似乎习得了复读技能，然后它就开始复读污污的一些话。说实话，实在是太污了。'], //宇宙2故事消息
     [/^(.*)Z:34 As you reach the top of another in this seemingly infinite sea of hills, you notice a tiny tablet. It's written in some language you've never seen, so you figure you'll hold on to it and see if Scruffy can translate.$/, '$1区域：34 您到达了这崇山峻岭之间一座山峰的峰顶，然后发现了一块小小的牌子。上面的字迹似乎是用另一种语言书写的，您决定让污污来看看。'], //宇宙2故事消息
@@ -7834,23 +7842,46 @@ var cnRegReplace = new Map([
     [/^(.*)Z:50 This zone is really freaking hot.$/, '$1区域：50 这个区域真的好热啊。'], //宇宙2故事消息
     [/^(.*)Z:52 You catch Scruffy helping a group of small Trimps across a river. What a cool dude.$/, '$1区域：52 您发现污污在帮一队小脆皮过河。好家伙，真是好家伙。'], //宇宙2故事消息
     [/^(.*)Z:57 A few of your Trimps are getting whiny so you take them for a walk. Seemed to do the trick, they just needed to burn some energy and pee.$/, '$1区域：57 几个脆皮有点烦躁，所以您带着它们一起去散步了。看起来效果不错，它们需要的也就是燃烧多余的能量和及时如厕了。'], //宇宙2故事消息
-    [/^(.*)Z:60 Scruffy is finally in a good mood and seems quite a bit stronger than before, so you figure now is a good time to ask him about Fluffy. In exchange for his good mood, he agrees to tell you the rest of the story. According to him, Fluffy was stationed at the seventh Spire while Scruffy was at the sixth. Fluffy and Scruffy each destroyed their own Spires, but Fluffy was caught by Druopitee and took the fall for both of them. Druopitee left the six remaining enhanced Trimps to take care of the remaining five Spires, and took Fluffy with him. You ask what the names of the other five Trimps are and he tells you - names so horrible that just hearing them could drive anyone to the brink of insanity: Huffy, Stuffy, Buffy, Tuffy, and Puffy.$/, '$1区域：60 污污看起来终于缓过来了，看起来它甚至比之前更加强大了。您觉得时机已经成熟，于是您找到它询问绒绒的情况。它把之前没说完的故事继续往下说了。根据它的说法，绒绒本来是在第七座尖塔，而它是在第六座的。绒绒和它毁掉了它们所在的尖塔，最后，绒绒被德罗披提抓住，承担了摧毁两座尖塔的后果。德罗披提离开之前，要求剩下的六个强化版脆皮照看尖塔，然后把绒绒带走了。您向污污询问道，那剩下的五个脆皮名字又是什么呢，然后污污回答您，那五个名字可怕到能让人瞬间失去理智————它们的名字是怒怒，闷闷，醉醉，泰泰和彭彭。'], //宇宙2故事消息
+    [/^(.*)Z:60 Scruffy is finally in a good mood and seems quite a bit stronger than before, so you figure now is a good time to ask him about Fluffy. In exchange for his good mood, he agrees to tell you the rest of the story. According to him, Fluffy was stationed at the seventh Spire while Scruffy was at the sixth. Fluffy and Scruffy each destroyed their own Spires, but Fluffy was caught by Druopitee and took the fall for both of them. Druopitee left the six remaining enhanced Trimps to take care of the remaining five Spires, and took Fluffy with him. You ask what the names of the other five Trimps are and he tells you: Huffy, Stuffy, Buffy, Tuffy, and Puffy.$/, '$1区域：60 污污看起来终于缓过来了，看起来它甚至比之前更加强大了。您觉得时机已经成熟，于是您找到它询问绒绒的情况。它把之前没说完的故事继续往下说了。根据它的说法，绒绒本来是在第七座尖塔，而它是在第六座的。绒绒和它毁掉了它们所在的尖塔，最后，绒绒被德罗披提抓住，承担了摧毁两座尖塔的后果。德罗披提离开之前，要求剩下的六个强化版脆皮照看尖塔，然后把绒绒带走了。您向污污询问道，那剩下的五个脆皮名字又是什么呢，然后污污回答您，它们的名字是怒怒，闷闷，醉醉，泰泰和彭彭。'], //宇宙2故事消息
     [/^(.*)Z:61 Scruffy finally seems more inspired than sad. Looks like he wants to go take down some bad guys.$/, '$1区域：61 污污看起来真的走出来了，它看起来下定了决心，就像已经准备好干掉敌人了一样。'], //宇宙2故事消息
-    [/^(.*)Z:62 It seems like you've gotta take down the Five Evil Trimps. Scruffy reminds you that you're still about 140 Zones away from the first one though. You try to find something else to direct anger at, like that tree over there.$/, '$1区域：62 看起来您还需要对付五个坏脆皮。污污提醒您，您离最近的那个脆皮都还有140个区域之远。您只好找旁边的树来泄愤了。'], //宇宙2故事消息
+    [/^(.*)Z:62 It seems like you've gotta find Scruffy's 5 missing brothers. Scruffy reminds you that they were evil the last time he saw them and to be prepared, but that some may have changed sides since.$/, '$1区域：62 看起来您需要找到污污的那五位兄弟。污污提醒您，最后一次看到它们的时候，它们还是在干坏事，最好有相应的心理准备，但当然，也有可能其中有几位也弃暗投明了。'], //宇宙2故事消息
     [/^(.*)Z:65 You wonder if Trimps came from this Universe, your original one, or somewhere else. Scruffy shrugs.$/, '$1区域：65 不知道脆皮是来自哪儿的，是这个宇宙，之前那个宇宙，还是其他哪里？污污对此也一无所知。'], //宇宙2故事消息
     [/^(.*)Z:67 The weather is finally starting to cool back down, you and your Trimps are quite relieved.$/, '$1区域：67 气温终于又凉下来了，您和脆皮们都松了口气。'], //宇宙2故事消息
     [/^(.*)Z:69 Giggity$/, '$1区域：69 咯咯咯'], //宇宙2故事消息
     [/^(.*)Z:69 The Trimps are still enjoying the nice weather, and have even found a couple of sweet lakes to swim in!$/, '$1区域：69 脆皮们很享受这宜人的天气，它们甚至找到了几个可以尽情戏水的湖泊！'], //宇宙2故事消息
     [/^(.*)Z:70 Your tenacity is inspiring.$/, '$1区域：70 您的坚持足以鼓舞人心。'], //宇宙2故事消息
+    [/^(.*)Z:71 You reach the top of a hill and can see the next 5 Zones stretched out in a valley ahead of you. Towards the end, you see the largest spire you've ever seen. In fact, you can't even see the top of it! It seems to stretch upward infinitely. You look to Scruffy who tells you that one belongs to Huffy. You really hope Huffy isn't evil...$/, '$1区域：71 您走上了一座山峰的峰顶，看到了前方山谷中的5个区域。在山谷的最远处，您看到了迄今为止最大的一座尖塔。事实上，您甚至都看不到塔尖在哪！看起来它似乎是无穷向上延伸的。污污告诉您，里面住着的是怒怒。您真诚希望怒怒不是坏蛋……'], //宇宙2故事消息
     [/^(.*)Z:72 You really don't like Druopitee. You've spent an unknown amount of lifetimes cleaning up his mess, and who knows how many different Universes he's corrupted.$/, '$1区域：72 您一点也不喜欢德罗披提。到了现在您还在替他擦屁股，天知道他还腐化了多少个宇宙。'], //宇宙2故事消息
-    [/^(.*)Z:75 You miss Fluffy, you should go visit him soon.$/, '$1区域：75 您有点想绒绒了，之后找个时间去看看它吧。'], //宇宙2故事消息
+    [/^(.*)Z:73 Scruffy tells you that if any of his brothers have come around to the good side since he saw them last, Huffy was the one to do it. Huffy was also the most experienced in hand to hand combat, so you really hope you're not going to have to fight against him.$/, '$1区域：73 污污表示如果有哪个脆皮最有可能弃暗投明的话，那就是怒怒了。怒怒在肉搏中是一把好手，您希望不会需要跟它交手。'], //宇宙2故事消息
+    [/^(.*)Z:74 You're very close to the Spire. You feel like you should be able to smell the Corruption pumping out of it by now but you can't! You take that as a good sign.$/, '$1区域：74 您非常接近尖塔了。您觉得通常这个时候早就应该闻到腐化的气味了，但并没有它的踪迹。看起来事情是向好的方面发展了。'], //宇宙2故事消息
+    [/^(.*)Z:75 As you approach the infinitely tall Spire, a Trimp rushes out and embraces Scruffy. Scruffy introduces you to Huffy, who seems to have also realized that Druopitee is kind of a prick. Huffy lets you know that he managed to destroy the Corruption device at the top, but that it was now crawling with horrible shadowy enemies. Huffy lets you know that he is shielded from the Portal inside the Spire, but that even when you Portal and forget him, he can use your subconscious to help direct him in cleansing the Spire and finding artifacts to make your Trimps stronger.$/, '$1区域：75 您走到尖塔跟前，一只脆皮冲了出来，紧紧地抱住了污污。污污向怒怒介绍了您，看起来怒怒也明白过来，德罗披提就是个无耻的混蛋。怒怒表示它已经成功摧毁了塔顶的腐化装置，但尖塔里现在都是一群可怕的神秘敌人。怒怒表示它在尖塔内可以隔绝传送的影响，甚至您在传送后忘记它的情况下，它也可以利用您的潜意识来帮忙引导它清理尖塔，并且发掘其中的古物，来强化您的脆皮。'], //宇宙2故事消息
+    [/^(.*)Z:77 Huffy is cool and all but you miss Fluffy, you should go visit him soon.$/, '$1区域：77 怒怒酷毙了，但您有点想绒绒了，之后找个时间去看看它吧。'], //宇宙2故事消息
     [/^(.*)Z:79 You're a little bit closer to the first Spire. Coming for you, Huffy.$/, '$1区域：79 您离第一个尖塔越来越近了。怒怒，乖乖等着，我来了。'], //宇宙2故事消息
-    [/^(.*)Z:82 You thought you saw Druopitee but it was just a tree. On closer inspection it doesn't even look anything close to him.$/, '$1区域：82 恍惚之间您似乎看到了德罗披提，但实际上那只是一颗树而已。靠近观察以后，那一点也不像他了。'], //宇宙2故事消息
+    [/^(.*)Z:82 You thought you saw Druopitee but it was just a tree. On closer inspection it doesn't even look anything like him at all.$/, '$1区域：82 恍惚之间您似乎看到了德罗披提，但实际上那只是一颗树而已。靠近观察以后，那一点也不像他了。'], //宇宙2故事消息
     [/^(.*)Z:85 This zone feels needy, like it wants your help with something.$/, '$1区域：85 这个区域看着像是需要您帮忙做什么似的。'], //宇宙2故事消息
-    [/^(.*)Z:90 As you near the halfway point to the first Spire, Scruffy sits you down for another story. Excited to hear more about Fluffy and Scruffy's history together, you listen intently. Scruffy just rambles about gems and how we could be rich selling jewelry then starts dancing. Seems like Scruffy's been fermenting berries again.$/, '$1区域：90 您离尖塔还有一半多的路途，而污污似乎又有什么想对您说的。您专心地听着它说话，想着是不是还有更多的故事可以听。但污污只是随便聊了些关于宝石和加工珠宝赚大钱之类的话题，然后就开始手舞足蹈了起来。这货只是有点醉了吧。真是醉了。'], //宇宙2故事消息
+    [/^(.*)Z:90 As you clear another Zone, Scruffy sits you down for another story. Excited to hear more about Fluffy and Scruffy's history together, you listen intently. Scruffy just rambles about gems and how we could be rich selling jewelry then starts dancing. Seems like Scruffy's been fermenting berries again.$/, '$1区域：90 您又通过了一个区域，而污污似乎又有什么想对您说的。您专心地听着它说话，想着是不是还有更多的故事可以听。但污污只是随便聊了些关于宝石和加工珠宝赚大钱之类的话题，然后就开始手舞足蹈了起来。这货只是有点醉了吧。真是醉了。'], //宇宙2故事消息
     [/^(.*)Z:93 Scruffy created some sort of instrument out of a Snimp and some wood that he calls the Riflunger. It makes better music than you expected, but you wouldn't buy any albums.$/, '$1区域：93 污污用一只脆皮蛇和一些木头做成了某种乐器，然后将它取名为利弗朗格。它用来演奏音乐还真的不错，超出了您的预期，不过反正您是不会去买它的专辑的。'], //宇宙2故事消息
     [/^(.*)Z:95 Scruffy lets you know that Fluffy was the first modified Trimp created by Druopitee, and was always Druopitee's favorite. Druopitee was probably extra pissed when Fluffy was the one who rebelled and destroyed a couple Spires, that's probably why he was caged when you found him.$/, '$1区域：95 污污向您表示，绒绒是德罗披提制造的第一个强化脆皮，也是德罗披提最偏爱的一个。所以当绒绒毁掉尖塔时，德罗披提可以说是气得七窍生烟了。或许这就是第一次见面时，绒绒被关在笼子里的原因了。'], //宇宙2故事消息
-    [/^(.*)Z:100 Halfway there. The lands ahead are bare and undeveloped, but you appear to be pressing on anyways.$/, '$1区域：100 路途已经到了一半。前方一片荒芜，但您无论如何都会继续前进。'], //宇宙2故事消息
+    [/^(.*)Z:100 There is an extremely chaotic energy flowing around this Zone.$/, '$1区域：100 这个区域的能量流动极为紊乱。'], //宇宙2故事消息
+    [/^(.*)Z:101 3 or 4 zones ahead of you, you see the biggest storm you've ever seen in your lives. You'd love to find some way to go around it, but it doesn't seem possible.$/, '$1区域：101 您在3个还是4个区域后看到了迄今为止最大的风暴。您想找找看有没有办法绕过去，但看来是不可能的。'], //宇宙2故事消息
+    [/^(.*)Z:105 The storm is raging! Your Trimps are flying eachother as kites.$/, '$1区域：105 暴风雨正在肆虐！您的脆皮像风筝一样，飞得很高。'], //宇宙2故事消息
+    [/^(.*)Z:107 You hope Huffy is doing alright back there at the Spire, those Enemies looked pretty scary.$/, '$1区域：107 希望怒怒在尖塔那边没什么问题，那些敌人看起来是真的吓人。'], //宇宙2故事消息
+    [/^(.*)Z:110 You feel a sudden urge to repeat something multiple times expecting different results and wonder what that's all about.$/, '$1区域：110 您突然有一种强烈的欲望，想要把什么重复个成千上万次，然后看看会不会有什么不同的结果。这到底是怎么回事？'], //宇宙2故事消息
+    [/^(.*)Z:112 Scruffy tells you how glad he is that Huffy had come around, but that he's not as hopeful about Stuffy. Stuffy was stubborn and took any opportunity to prove his loyalty to Druopitee. Guess you'll have to find him and see.$/, '$1区域：112 污污很高兴怒怒选择了现在的道路，但对于闷闷它不是很乐观。闷闷相当顽固不化，对德罗披提也是忠心耿耿。看起来，只能眼见为实了。'], //宇宙2故事消息
+    [/^(.*)Z:115 You're having even more trouble than usual trying to control your Trimps here. You and Scruffy debate the pros and cons of asking your Scientists to come up with a mild tranquilizer to put in their food, but you're too busy herding them to come to any conclusion.$/, '$1区域：115 在这附近控制脆皮的难度更大了。您和污污争辩了一会儿，关于要不要让科学家们研发一种能放在食物中的镇静剂，但最后以追不上它们而告终。'], //宇宙2故事消息
+    [/^(.*)Z:118 Cruffys tells you about the time he put a bucket of water above one of Druopitee's doors as a prank and got banished from the dimension for it.$/, '$1区域：118 朽朽表示它曾经将一桶水放在了德罗披提的房门上，之后它就因为这个恶作剧而被驱逐到了这个维度。'], //宇宙2故事消息
+    [/^(.*)Z:118 Scruffy lets you know that they had another brother named Cruffys who was banished from this dimension before he even had a chance to be assigned a Spire.$/, '$1区域：118 污污表示其实它们还有一个叫做朽朽的兄弟，但在分配尖塔之前它就被驱逐出了这个维度。'], //宇宙2故事消息
+    [/^(.*)Z:120 This Zone is filled with bugs and is NOT a great spot to have a picnic.$/, '$1区域：120 这个区域到处都是虫子，很显然，在这里野餐不是什么好主意。'], //宇宙2故事消息
+    [/^(.*)Z:124 The next Zone is connected to this one by a large downward sloping hill. All (.+) of your Trimps all tuck themselves into a ball and roll down it, what a sight!$/, '$1区域：124 下个区域与这个区域之间由一个大斜坡连接。您所有的$2个脆皮组成了一个大球，向下滚了下去。何等壮观！'], //宇宙2故事消息
+    [/^(.*)Z:130 Scruffy plays his Riflunger while Cruffys sings, and you really wish you had some earplugs or something.$/, '$1区域：130 污污弹着利弗朗格，朽朽在唱歌，而您只觉得它们吵闹。'], //宇宙2故事消息
+    [/^(.*)Z:130 You wonder if you'll ever get the chance to meet Cruffys. Maybe your Portal can bring you to his dimension some day.$/, '$1区域：130 您在想有没有什么办法能跟朽朽见个面。或许使用传送门可以到达它所在的维度。'], //宇宙2故事消息
+    [/^(.*)Z:133 Some new Trimp reinforcements have brought a Z1 Turtlimp up with them in a box. The Trimps take turns feeding it and they're doing a good job taking care of it!$/, '$1区域：133 一些新来的脆皮用盒子从区域1带了一只脆皮龟过来。脆皮们轮流喂养它，照顾得无微不至。'], //宇宙2故事消息
+    [/^(.*)Z:134 One of the Trimps on feeding duty was a bit confused and seems to have eaten the Turtlimp.$/, '$1区域：134 一位负责喂食的脆皮有点迷迷糊糊，把那只脆皮龟吃掉了。'], //宇宙2故事消息
+    [/^(.*)Z:140 Huffy pops a quick message into your head to let you know he's doing fine in the Spire!$/, '$1区域：140 怒怒往您的脑子里直接发了一条快讯，它表示它在尖塔中一切顺利。'], //宇宙2故事消息
+    [/^(.*)Z:140 Huffy pops a message into your head stating that as much as he likes constantly losing, he would appreciate a little help!$/, '$1区域：140 怒怒往您的脑子里发了一条消息，它表示它一直在输，需要您的帮助。'], //宇宙2故事消息
+    [/^(.*)Z:150 As you near a gigantic lake, you notice that this part of the World is becoming filled with wild varieties of plants you've never seen before. You've already taught your Trimps not to eat strange plants, but it looks like it's time for a reminder.$/, '$1区域：150 您靠近了一个巨大的湖泊，附近充满了从未见过的野生植物。您教过脆皮们不要吃什么奇怪的植物，但看来还得再提醒它们一次。'], //宇宙2故事消息
+    [/^(.*)Z:155 The plant biodiversity around this Zone is incredible, it feels like this Zone is its own isolated ecosystem. The ground around here must be extremely arable.$/, '$1区域：155 这个区域附近的植物着实多样。感觉这个区域已经自成一片小天地了。何等肥沃的土地啊。'], //宇宙2故事消息
+    [/^(.*)Z:160 The lands ahead are barren and undeveloped, but you press on because Huffy really wants some new items.$/, '$1区域：160 前方一片荒芜，但您还是继续前进了，因为怒怒想要弄点什么新鲜玩意来。'], //宇宙2故事消息
     [/^(.*)The voice booms again, and sounds as if it is coming from the walls themselves.$/, '$1声音再次响了起来，听上去像是从墙壁中来的。'], //故事-尖塔消息
     [/^Dammit Druopitee. This is all going to end up being his fault, isn't it\? You help yourself to a container filled with (.*) Helium, and figure he'll owe you a lot more than that once you hear some more.$/, '该死的德罗披提，原来都是你在搞的鬼，不是吗？您装走了一个容器中的$1氦，您觉得这么听下去，他欠您的只会越来越多。'], //故事-尖塔消息
     [/^Yeah you don't really feel too much like bowing and probably won't be doing that. You did however find (.*) more Helium just sitting around, which you feel no qualms about taking.$/, '您不怎么喜欢臣服，也不会那么做的。您在附近找到了$1氦，毫不犹豫地将它带走了。'], //故事-尖塔消息
