@@ -3482,6 +3482,7 @@ var cnItems = {
     //炼金术相关结束
 
     //尖塔突击相关
+    'Spire Assault Unlocked!': '解锁了尖塔突击！',
     '”As you approach the infinitely tall Spire, a Trimp rushes out and embraces Scruffy. Scruffy introduces you to Huffy, who seems to have also realized that Druopitee is kind of a prick. Huffy lets you know that he managed to destroy the Corruption device at the top, but that it was now crawling with horrible shadowy enemies. Huffy lets you know that he is shielded from the Portal inside the Spire, but that even when you Portal and forget him, he can use your subconscious to help direct him in cleansing the Spire and finding artifacts to make your Trimps stronger.“': '您走到尖塔跟前，一只脆皮冲了出来，紧紧地抱住了污污。污污向怒怒介绍了您，看起来怒怒也明白过来，德罗披提就是个无耻的混蛋。怒怒表示它已经成功摧毁了塔顶的腐化装置，但尖塔里现在都是一群可怕的神秘敌人。怒怒表示它在尖塔内可以隔绝传送的影响，甚至您在传送后忘记它的情况下，它也可以利用您的潜意识来帮忙引导它清理尖塔，并且发掘其中的古物，来强化您的脆皮。',
     'You\'ve finally made it to Huffy and the first Spire in this Universe. Huffy needs your help removing all of the Enemies! Check out the new tab titled \'SA\' to get started.': '您终于到达了怒怒所在地，也就是这个宇宙中的第一个尖塔所在地。怒怒需要您的帮助来清扫尖塔中的敌人！一个名字叫做尖塔突击的新面板已经出现了。',
     'A tip for once you\'re in': '进入前的提示',
