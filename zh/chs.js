@@ -3483,14 +3483,14 @@ var cnItems = {
 
     //尖塔突击相关
     'Spire Assault Unlocked!': '解锁了尖塔突击！',
-    '"As you approach the infinitely tall Spire, a Trimp rushes out and embraces Scruffy. Scruffy introduces you to Huffy, who seems to have also realized that Druopitee is kind of a prick. Huffy lets you know that he managed to destroy the Corruption device at the top, but that it was now crawling with horrible shadowy enemies. Huffy lets you know that he is shielded from the Portal inside the Spire, but that even when you Portal and forget him, he can use your subconscious to help direct him in cleansing the Spire and finding artifacts to make your Trimps stronger."': '您走到尖塔跟前，一只脆皮冲了出来，紧紧地抱住了污污。污污向怒怒介绍了您，看起来怒怒也明白过来，德罗披提就是个无耻的混蛋。怒怒表示它已经成功摧毁了塔顶的腐化装置，但尖塔里现在都是一群可怕的神秘敌人。怒怒表示它在尖塔内可以隔绝传送的影响，甚至您在传送后忘记它的情况下，它也可以利用您的潜意识来帮忙引导它清理尖塔，并且发掘其中的古物，来强化您的脆皮。',
+    '"As you approach the infinitely tall Spire, a Trimp rushes out and embraces Scruffy. Scruffy introduces you to Huffy, who seems to have also realized that Druopitee is kind of a prick. Huffy lets you know that he managed to destroy the Corruption device at the top, but that it was now crawling with horrible shadowy enemies. Huffy lets you know that he is shielded from the Portal inside the Spire, but that even when you Portal and forget him, he can use your subconscious to help direct him in cleansing the Spire and finding artifacts to make your Trimps stronger."': '您走到尖塔跟前，一只脆皮冲了出来，紧紧地抱住了污污。污污向怒怒介绍了您，看起来怒怒也明白过来，德罗披提就是个无耻的混蛋。怒怒表示它已经成功摧毁了塔顶的腐化装置，但尖塔里现在都是一群可怕的神秘敌人。怒怒表示它在尖塔内可以隔绝传送的影响，甚至您在传送后忘记它的情况下，它也可以利用您的潜意识来帮忙引导它清理尖塔，并且发掘其中的古物来强化您的脆皮。',
     'You\'ve finally made it to Huffy and the first Spire in this Universe. Huffy needs your help removing all of the Enemies! Check out the new tab titled \'SA\' to get started.': '您终于到达了怒怒所在地，也就是这个宇宙中的第一个尖塔所在地。怒怒需要您的帮助来清扫尖塔中的敌人！一个名字叫做尖塔突击的新面板已经出现了。',
     'A tip for once you\'re in': '进入前的提示',
     'Huffy has figured out how to put on Pants and a Sword but is struggling beyond that. Click two other items to equip them ASAP!': '怒怒弄明白了怎么穿上裤子，和怎么拿上剑，但它也就只能做到这样了。先点击其他两件装备将它们装备上吧！',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
+    'Leave Items on Preset Load': '读取预设时不隐藏未使用的物品',
+    'Hide Unused Items on Preset Load': '读取预设时隐藏未使用的物品',
+    'Practice Off - 10x Speed, no Dust or Progress': '练习模式已关闭——10倍速度，但无魔尘，也无法增加级别',
+    'Practice On - 10x Speed, no Dust or Progress': '练习模式已开启——10倍速度，但无魔尘，也无法增加级别',
     '': '',
     '': '',
     '': '',
@@ -7961,7 +7961,7 @@ var cnRegReplace = new Map([
     [/^(.*)Z:72 You really don't like Druopitee. You've spent an unknown amount of lifetimes cleaning up his mess, and who knows how many different Universes he's corrupted.$/, '$1区域：72 您一点也不喜欢德罗披提。到了现在您还在替他擦屁股，天知道他还腐化了多少个宇宙。'], //宇宙2故事消息
     [/^(.*)Z:73 Scruffy tells you that if any of his brothers have come around to the good side since he saw them last, Huffy was the one to do it. Huffy was also the most experienced in hand to hand combat, so you really hope you're not going to have to fight against him.$/, '$1区域：73 污污表示如果有哪个脆皮最有可能弃暗投明的话，那就是怒怒了。怒怒在肉搏中是一把好手，您希望不会需要跟它交手。'], //宇宙2故事消息
     [/^(.*)Z:74 You're very close to the Spire. You feel like you should be able to smell the Corruption pumping out of it by now but you can't! You take that as a good sign.$/, '$1区域：74 您非常接近尖塔了。您觉得通常这个时候早就应该闻到腐化的气味了，但并没有它的踪迹。看起来事情是向好的方面发展了。'], //宇宙2故事消息
-    [/^(.*)Z:75 As you approach the infinitely tall Spire, a Trimp rushes out and embraces Scruffy. Scruffy introduces you to Huffy, who seems to have also realized that Druopitee is kind of a prick. Huffy lets you know that he managed to destroy the Corruption device at the top, but that it was now crawling with horrible shadowy enemies. Huffy lets you know that he is shielded from the Portal inside the Spire, but that even when you Portal and forget him, he can use your subconscious to help direct him in cleansing the Spire and finding artifacts to make your Trimps stronger.$/, '$1区域：75 您走到尖塔跟前，一只脆皮冲了出来，紧紧地抱住了污污。污污向怒怒介绍了您，看起来怒怒也明白过来，德罗披提就是个无耻的混蛋。怒怒表示它已经成功摧毁了塔顶的腐化装置，但尖塔里现在都是一群可怕的神秘敌人。怒怒表示它在尖塔内可以隔绝传送的影响，甚至您在传送后忘记它的情况下，它也可以利用您的潜意识来帮忙引导它清理尖塔，并且发掘其中的古物，来强化您的脆皮。'], //宇宙2故事消息
+    [/^(.*)Z:75 As you approach the infinitely tall Spire, a Trimp rushes out and embraces Scruffy. Scruffy introduces you to Huffy, who seems to have also realized that Druopitee is kind of a prick. Huffy lets you know that he managed to destroy the Corruption device at the top, but that it was now crawling with horrible shadowy enemies. Huffy lets you know that he is shielded from the Portal inside the Spire, but that even when you Portal and forget him, he can use your subconscious to help direct him in cleansing the Spire and finding artifacts to make your Trimps stronger.$/, '$1区域：75 您走到尖塔跟前，一只脆皮冲了出来，紧紧地抱住了污污。污污向怒怒介绍了您，看起来怒怒也明白过来，德罗披提就是个无耻的混蛋。怒怒表示它已经成功摧毁了塔顶的腐化装置，但尖塔里现在都是一群可怕的神秘敌人。怒怒表示它在尖塔内可以隔绝传送的影响，甚至您在传送后忘记它的情况下，它也可以利用您的潜意识来帮忙引导它清理尖塔，并且发掘其中的古物来强化您的脆皮。'], //宇宙2故事消息
     [/^(.*)Z:77 Huffy is cool and all but you miss Fluffy, you should go visit him soon.$/, '$1区域：77 怒怒酷毙了，但您有点想绒绒了，之后找个时间去看看它吧。'], //宇宙2故事消息
     [/^(.*)Z:79 You're a little bit closer to the first Spire. Coming for you, Huffy.$/, '$1区域：79 您离第一个尖塔越来越近了。怒怒，乖乖等着，我来了。'], //宇宙2故事消息
     [/^(.*)Z:82 You thought you saw Druopitee but it was just a tree. On closer inspection it doesn't even look anything like him at all.$/, '$1区域：82 恍惚之间您似乎看到了德罗披提，但实际上那只是一颗树而已。靠近观察以后，那一点也不像他了。'], //宇宙2故事消息
