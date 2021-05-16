@@ -7695,7 +7695,7 @@ var cnRegReplace = new Map([
     [/^Bloodstained Gloves Lv(.*)$/, '染血手套 等级$1'], //尖塔突击
     [/^Unlucky Coin Lv(.*)$/, '不幸之币 等级$1'], //尖塔突击
     [/^Eelimp in a Bottle Lv(.*)$/, '瓶装脆皮鳗 等级$1'], //尖塔突击
-    [/^Big Cleaver Lv(.*)$/, '大型切割者 等级$1'], //尖塔突击
+    [/^Cleaver Lv(.*)$/, '切割者 等级$1'], //尖塔突击
     [/^The Globulator Lv(.*)$/, '世界地图 等级$1'], //尖塔突击
     [/^Metal Suit Lv(.*)$/, '金属外衣 等级$1'], //尖塔突击
     [/^Nozzled Goggles Lv(.*)$/, '护目镜 等级$1'], //尖塔突击
@@ -7704,9 +7704,9 @@ var cnRegReplace = new Map([
     [/^Very Large Slime Lv(.*)$/, '巨型史莱姆 等级$1'], //尖塔突击
     [/^Grounded Crown Lv(.*)$/, '理性之冠 等级$1'], //尖塔突击
     [/^Fearsome Piercer Lv(.*)$/, '恐惧之锥 等级$1'], //尖塔突击
-    [/^Blessed Protector Lv(.*)$/, '祝福庇佑 等级$1'], //尖塔突击
+    [/^Protector Lv(.*)$/, '庇佑 等级$1'], //尖塔突击
     [/^Bad Medkit Lv(.*)$/, '恶之医疗箱 等级$1'], //尖塔突击
-    [/^Putrid Pouch Lv(.*)$/, '腐烂之袋 等级$1'], //尖塔突击
+    [/^Pouch Lv(.*)$/, '之袋 等级$1'], //尖塔突击
     [/^Raincoat Lv(.*)$/, '雨衣 等级$1'], //尖塔突击
     [/^Labcoat Lv(.*)$/, '实验服 等级$1'], //尖塔突击
     [/^Aegis Lv(.*)$/, '宙斯盾 等级$1'], //尖塔突击
