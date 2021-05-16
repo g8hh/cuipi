@@ -232,7 +232,6 @@ var cnItems = {
     'Mastery': '专精',
     'Click to view your masteries.': '点击可以查看您的专精。',
     'Nature': '自然',
-    'Alchemy': '炼金术',
     'SA': '尖塔突击',
     'Custom': '自定义',
     'Type a number below to purchase a specific amount. You can also use shorthand such as 2e5 and 200k to select that large number, or fractions such as 1/2 and 50% to select that fraction of your available workspaces.': '在下方输入数字，以设定每次点击购买的数量。您还可以使用例如2e5或200k之类的缩写来输入大数字。',
@@ -2845,18 +2844,13 @@ var cnItems = {
     'You have the Pandemonium challenge active.': '您目前正在进行群魔乱舞挑战。',
     'Order': '秩序',
     'There is no Order. Your Trimps are in full blown panic and one of them seems to have stolen your shoe.': '这已经毫无秩序可言了。脆皮们乱成了一片，其中一只氦偷走了您的鞋子。',
-    '': '', //TODO:Alchemy挑战部分，还有Object中的后半部分
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
+    'Alchemy': '炼金术',
+    'Travel to a dimension where maps are filled with useful herbs. Collect different herbs from different types of maps, and use Alchemy to create powerful potions to strengthen your Trimps. Clearing': '前往一个地图中充满了药草的维度。您可以在地图中收集不同的药草，然后利用炼金术将它们制成强大的药剂来强化脆皮们。在此挑战激活的前提下通过区域 ',
+    'with this Challenge active will grant an additional 400% of all Radon earned up until that point, and will return the world to normal. You can repeat this challenge!': '后可以完成此挑战并额外获得氡，数值等于本次挑战完成前氡获取量的400%，然后世界将回归正常。此挑战可重复完成！',
+    'You have the Alchemy challenge active. Travel to a dimension where maps are filled with useful herbs. Collect different herbs from different types of maps, and use Alchemy to create powerful potions to strengthen your Trimps. Clearing': '您目前正在进行炼金术挑战。前往一个地图中充满了药草的维度。您可以在地图中收集不同的药草，然后利用炼金术将它们制成强大的药剂来强化脆皮们。在此挑战激活的前提下通过区域 ',
+    'Complete this Challenge once to unlock the ability to create a brand new type of map that should greatly aid your Alchemy.': '首次完成此挑战后还可以解锁一种新的地图，它对炼金术的帮助很大。',
+    'You will unlock this challenge once you  reach Zone 155.': '欲解锁此挑战，您需要到达区域155。',
+    '': '', //TODO:Object中的后半部分
     //挑战相关结束
     //特权相关
     'Apply your skills at salvaging things from the Spire to increase all loot gained by 0.25% per level. The price for this perk increases additively, and each level will cost exactly 10000 more than the previous level.': '将您搜刮尖塔的本事用在劫掠上，每级提升0.25%劫掠效果。此特权的价格线性增加，每级都比上一级贵10000。',
@@ -7310,7 +7304,7 @@ var cnRegReplace = new Map([
     [/^Increases all Breed Speed by (.*)%. You currently have (.*)% to Breed Speed.$/, '增加$1%繁殖速度。您目前使繁殖速度变化：$2%。'], //考古学挑战等
     [/^You have discovered (\d+) of these Relics and (\d+) total Relics. Each Relic has a max of 50 positive levels at a time. Cost increases based on total purchased Relics.$/, '您一共发现了$1个此类型的遗物，总共发现了$2个遗物。每个遗物最大为50级，且花费随着遗物发现总数而上升。'], //考古学挑战等
     [/^(.*)You have completed the Archaeology Challenge! You have gained an extra (.*) Radon, and your world has been returned to normal.$/, '$1您完成了考古学挑战！您额外获取了$2氡，世界恢复了正常。'], //考古学挑战完成消息
-    [/^(.*)Now that you've mastered the skill of Archaeology, you've gained the ability to use a more powerful Custom Golden Upgrade automator! See the AutoGold tooltip or Ctrl Click AutoGold for more info.$/, '$1您已精通考古技艺，因此您可以进一步自定义自动金色升级了！查看自动金色升级的相关提示以获取更详细的信息。'], //考古学挑战完成消息
+    [/^(.*)Now that you've mastered the skill of Archaeology, you've gained the ability to use a more powerful Custom Golden Upgrade automator! See the AutoGold tooltip or Ctrl Click AutoGold for more info.$/, '$1您已精通考古技艺，因此您可以进一步自定义自动金色升级了！查看自动金色升级的提示框，或者是按下Ctrl再点击以获取更详细的信息。'], //考古学挑战完成消息
     [/^(.*)You've gained the ability to create Small and Large Research Caches in Maps!$/, '$1您现在可以在地图中使用研究储藏箱修饰符了！'], //考古学挑战完成消息
     [/^NOTICE: You have already completed Mayhem (\d+) times, and will no longer gain a bonus for future runs.$/, '注意：您已经完成了$1次暴乱挑战，无法再获得加成了。'], //暴乱挑战等
     [/^Travel to a very hectic dimension. The final Cell of each Zone is a Poisonous boss enemy, and all Map enemies are also Poisonous. Poisonous Enemies stack 20% of their damage on your Trimps as poison, which is taken as damage after each attack until your Trimps die. Each Zone starts with (.*) stacks of Mayhem, and each stack increases the damage and health of the final Cell Boss Enemy for that Zone by 10%. Completing a map reduces the Mayhem stacks for that Zone by 1 and an additional 1 for each level of the Map above the Zone's level \(For example, a level 15 map will remove 3 stacks per completion when at Z13\). Completing$/, '前往一个非常狂热的维度。每个区域最后一格的首领敌人是带毒的，地图中的所有敌人同样带毒。带毒的敌人每次攻击后，将它们攻击力的20%累积为毒伤害，脆皮每次攻击后，都会受到相应的毒伤害，直到脆皮死亡后毒伤害清零。您进入每个区域时获得$1层“暴乱”，每层暴乱提升区域最后一格首领10%的攻击力和生命值。完成地图可以减少1层暴乱，且该地图每高于当前区域1级，就可以额外减少1层暴乱(例如：在区域13完成一张15级的地图以后，可以减少3层暴乱)。在此挑战激活的前提下通过区域 '], //暴乱挑战等
@@ -7348,6 +7342,8 @@ var cnRegReplace = new Map([
     [/^10% of these stacks will convert into Pandemonium stacks when this Zone is completed. Increases the orderliness of your Trimps by (.*)%.$/, '通过此区域后，10%的秩序层数将被转换为群魔乱舞层数。脆皮的秩序度增加$1%(译者注：无实际效果)。'], //群魔乱舞挑战等
     [/^(.*)You have completed the Pandemonium Challenge! Your Trimps have gained \+(.*)% Radon or Helium, Damage, Health and Gathered Resources in Universe 1 and 2, and future runs of this Challenge will be 5x more difficult. You have now completed Pandemonium (.*) times?. Your new total Pandemonium bonus is \+$/, '$1您完成了群魔乱舞挑战！宇宙1和宇宙2中的氦或氡获取量，脆皮攻击力，脆皮生命值和资源获取量增加了$2%，后续挑战的难度将变为现在的5倍。您共完成了$3次群魔乱舞挑战。群魔乱舞挑战总奖励为'], //群魔乱舞挑战完成消息
     [/^(.*)You completed Pandemonium again, just for fun!$/, '$1您再度完成了群魔乱舞挑战，虽然这并没有什么用，只是自娱自乐而已！'], //群魔乱舞挑战完成消息
+    [/^(.*)You have completed the Alchemy challenge! You have gained an extra (.+) Radon, and your world has been returned to normal.$/, '$1您完成了炼金术挑战！您额外获取了$2氡，世界恢复了正常。'], //炼金术挑战完成消息
+    [/^(.*)You have unlocked the ability to create Farmlands Maps! Farmlands Maps have \+100% Loot in Universe 2 and rotate between the other map types based on the zone at which they're run. See the Map Creation biome selection tooltip for more info!$/, '$1您还解锁了制造农场地图的能力！农场地图在宇宙2中劫掠加成额外增加100%，资源类型根据当前区域会不停变化。查看地图界面的生物群落提示框以获取更详细的信息！'], //炼金术挑战完成消息
     [/^Maximum of (.*) levels.$/, '最高$1级。'], //特权等
     [/^Looting(\s+)II$/, '劫掠 II'], //特权等
     [/^Carpentry(\s+)II$/, '木工 II'], //特权等
@@ -7852,7 +7848,7 @@ var cnRegReplace = new Map([
     [/^(.*)Z:11 Apparently a few elements have different properties here than back in the last Universe. Either that or the Trimps currently bathing in mercury are going to have a rough future.$/, '$1区域：11 很显然，两个宇宙之间，有一些元素的性质完全不一样了。比如在水银中遨游的那些脆皮，如果放到之前的宇宙中，恐怕不会有太好的下场。'], //宇宙2故事消息
     [/^(.*)Z:12 You start to feel angry as you get closer to the fifteenth Zone. You're not sure if it's due to the energy your scientists detected, or the Trimps that keep throwing berries at your head. But one of them is definitely making you angry.$/, '$1区域：12 越靠近第十五个区域，您就越抓狂了。您不太清楚这到底是由于那个高能反应，还是因为那群脆皮疯狂往您的头上扔野果。总之您是要抓狂了。'], //宇宙2故事消息
     [/^(.*)Z:13 Scruffy informs you that there is one particular element regarded as king here, Radon. While highly volatile in your home Universe, it's a stable gas here with tremendous potential for power generation.$/, '$1区域：13 污污提醒您，这个宇宙中有一个元素是王者一样的存在，那就是，氡。在之前那个宇宙里它非常容易挥发，但在这里它却相当稳定，或许可以考虑利用它来发电。'], //宇宙2故事消息
-    [/^(.*)Z:14 You ask Scruffy for more information on Radon, and he sits you down to tell you a story. He informs you that you're not the first human to come to their planet, that someone had been here 500 years ago who caused great harm to the planet. He set up giant Spires all around the World that harvested Radon from the atmosphere and beamed the power to a different Universe. You have a feeling that you know which Universe received this power, and you're starting to have a good idea of why Fluffy picked this particular Universe to send you to.$/, '$1区域：14 您问污污，能不能给您再详细说说氡的事，它让您坐下来，然后讲述了一段故事。它提醒您，您不是首位造访这个行星的，500年前也有一个人到来了，但那位对这个行星造成了巨大的破坏。他在这个世界上设立了巨型的尖塔，从大气中吸取氡，并且把能量传送到另一个宇宙中。您觉得您已经知道是哪个宇宙接收到了这些能量，绒绒之所以把您送到这来的原因，您现在也有头绪了。'], //宇宙2故事消息
+    [/^(.*)Z:14 You ask Scruffy for more information on Radon, and he sits you down to tell you a story. He informs you that you're not the first human to come to their planet, that someone had been here 500 years ago who caused great harm to the planet. He set up giant Spires all around the World that harvested Radon from the atmosphere and beamed the power to a different Universe. You have a feeling that you know which Universe received this power, and you're starting to have a good idea of why Fluffy picked this particular Universe to send you to.$/, '$1区域：14 您问污污，能不能给您再详细说说氡的事，它让您坐下来，然后讲述了一段故事。它提醒您，您不是首位造访这个行星的，500年前也有一个人到来了，但那位对这个行星造成了巨大的破坏。他在这个世界上设立了巨型的尖塔，从大气中吸取氡，并且把能量传送到另一个宇宙中。您觉得您已经知道是哪个宇宙接收到了这些能量，绒绒之前把您送到这来的原因，您现在也有头绪了。'], //宇宙2故事消息
     [/^(.*)Z:15 There is a device of great evil here. See if you can take it for yourself!$/, '$1区域：15 高能反应就是在这里了。能不能拿到那个装置就看您自己的了！'], //宇宙2故事消息
     [/^(.*)Z:20 Holy cowimp, there's an Improbability at the end of this Zone! But the planet doesn't look broken, this is... improbable...$/, '$1区域：20 我滴乖乖，这个区域最后是从哪冒出来的一个乌有者？这行星都没破碎呢，这也太……乌有了……'], //宇宙2故事消息
     [/^(.*)Z:22 Your Scientists have confirmed that the Spires are indeed still active on this planet, but are incredibly far away in lands your Trimps are nowhere near powerful enough to survive in.$/, '$1区域：22 科学家已经确认了一点，这个行星上也有尖塔的存在，但离您目前所在地还太远了，而且您的脆皮也没有强到可以在那里生存下来。'], //宇宙2故事消息
