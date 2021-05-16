@@ -3489,8 +3489,8 @@ var cnItems = {
     'Huffy has figured out how to put on Pants and a Sword but is struggling beyond that. Click two other items to equip them ASAP!': '怒怒弄明白了怎么穿上裤子，和怎么拿上剑，但它也就只能做到这样了。先点击其他两件装备将它们装备上吧！',
     'Leave Items on Preset Load': '读取预设时不隐藏未使用的物品',
     'Hide Unused Items on Preset Load': '读取预设时隐藏未使用的物品',
-    'Practice Off - 10x Speed, no Dust or Progress': '练习模式已关闭——10倍速度，但无魔尘，也无法增加级别',
-    'Practice On - 10x Speed, no Dust or Progress': '练习模式已开启——10倍速度，但无魔尘，也无法增加级别',
+    'Practice Off - 10x Speed, no Dust or Progress': '练习模式已关闭——10倍速度，但无魔尘掉落，也无法增加等级',
+    'Practice On - 10x Speed, no Dust or Progress': '练习模式已开启——10倍速度，但无魔尘掉落，也无法增加等级',
     '': '',
     '': '',
     '': '',
@@ -7672,6 +7672,13 @@ var cnRegReplace = new Map([
     [/^(.*) owned, \+(.*)% resources$/, '拥有$1，资源获取量增加$2%'], //炼金术
     [/^(.*) owned, \+(.*)% Crit Damage$/, '拥有$1，暴击伤害增加$2%'], //炼金术
     [/^Enemies in this dimension are enchanted, gaining \+(.*)% enemy stats in World, \+(.*)% in Maps, and \+(.*)% in Void Maps. All Radon drops are increased by (.*)%.$/, '此维度中的敌人被强化了，世界上的属性增加了$1%，地图中的属性增加了$2%，虚空地图中的属性增加了$3%。氡获取量增加了$4%。'], //炼金术
+    [/^Menacing Mask Lv(.*)$/, '恐吓面具 等级$1'], //尖塔突击
+    [/^Sword Lv(.*)$/, '剑 等级$1'], //尖塔突击
+    [/^Armor Lv(.*)$/, '护甲 等级$1'], //尖塔突击
+    [/^Rusty Dagger Lv(.*)$/, '锈色利刃 等级$1'], //尖塔突击
+    [/^Fists of Goo Lv(.*)$/, '粘液拳头 等级$1'], //尖塔突击
+    [/^Battery Stick Lv(.*)$/, '电池棍 等级$1'], //尖塔突击
+    [/^Pants Lv(.*)$/, '裤子 等级$1'], //尖塔突击
     [/^(.*) \/ (.*) Exp$/, '$1/$2经验值'], //绒绒污污相关
     [/^(.*)% damage$/, '$1%伤害'], //绒绒污污相关
     [/^Cruffys cannot gain Experience after the Nurture Challenge ends, but will stick around for (.+) more Zones.$/, '朽朽在培养挑战结束后无法再获得经验值了，但还会在$1个区域内继续存在。'], //绒绒污污相关
