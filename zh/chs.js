@@ -3447,20 +3447,33 @@ var cnItems = {
     //自然赋能相关结束
 
     //炼金术相关
+    'Herbs': '药草',
     'Potatoes': '土豆',
     'Mushrooms': '蘑菇',
     'Seaweed': '海藻',
     'Firebloom': '火焰花',
     'Berries': '浆果',
+    'Crafts': '药剂',
     'Herby Brew': '药草啤酒',
     'Gaseous Brew': '气态啤酒',
-    'Potion of Finding': '探宝药剂',
+    'Potion of Finding': '魔药·探宝',
     'Potion of the ': '魔药·',
-    'Potion of Strength': '力量药剂',
+    'Potion of Strength': '魔药·力量',
     'Elixir of Crafting': '灵药·锻造',
     'Elixir of Finding': '灵药·探宝',
     'Elixir of Accuracy': '灵药·精准',
-    '': '',
+    'Increases all Herbs found by 100% (compounding).': '使所有药草的获取量翻倍(效果叠乘)。',
+    'Increases Enemy Attack/Health by 75% (compounding': '但也使敌人的攻击力和生命值增加75%(效果叠乘',
+    'Increases all Radon gained by 10% (compounding).': '使氡的获取量增加10%(效果叠乘)。',
+    'Increases Enemy Attack/Health by 30% (compounding': '但也使敌人的攻击力和生命值增加30%(效果叠乘',
+    'Increases all non-radon resources earned by 25% additively. Reduces chance to not find a Runetrinket by 1% (compounding).': '使非氡资源获取量增加25%(效果叠加)。且可以使找不到小符饰的概率减少1%(效果叠乘)。',
+    'Increases the cost of all other Potions by 50% (compounding': '但也使其他药剂的成本增加50%(效果叠乘',
+    'Nullifies 5% (compounding) of increased enemy stats from Potions while in Void Maps.': '中和5%(效果叠乘)虚空地图中因为药剂而提升的敌人属性。',
+    'Increases Trimp Attack/Health by 15% additively.': '使脆皮的攻击力和生命值增加15%(效果叠加)。',
+    'Increases all housing by 5% (compounding).': '使所有住房容纳的脆皮数量增加5%(效果叠乘)。',
+    'Increases all non-radon resources by 5% (compounding).': '使非氡资源获取量增加5%(效果叠乘)。',
+    'Increases Crit Damage by 25%.': '使暴击伤害增加25%。',
+    'Craft': '精制',
     '': '',
     '': '',
     '': '',
@@ -6690,6 +6703,7 @@ var cnRegReplace = new Map([
     [/^- Radon$/, '- 氡'], //主界面，前置
     [/^AutoGold Radon$/, '金色升级氡'], //主界面，前置
     [/^Raging Radon$/, '氡之暴怒'], //成就，前置
+    [/^(.*) owned, \+(.*)% Radon$/, '拥有$1，氡获取量增加$2%'], //炼金术，前置
     [/^Helium \/ Radon$/, '氦 / 氡'], //脚本等，前置
     [/^Current Radon$/, '当前氡'], //脚本等，前置
     [/^Battle Radon$/, '战斗氡切换次数'], //脚本等，前置
@@ -7615,6 +7629,23 @@ var cnRegReplace = new Map([
     [/^(.*)You found (.+) Token(s*) of Poison!$/, '$1您发现了$2毒符记！'], //自然赋能
     [/^(.*)You found (.+) Token(s*) of Wind!$/, '$1您发现了$2风符记！'], //自然赋能
     [/^(.*)You found (.+) Token(s*) of Ice!$/, '$1您发现了$2冰符记！'], //自然赋能
+    [/^(.*)You found (.+) Potatoes!$/, '$1您发现了$2土豆！'], //炼金术
+    [/^(.*)You found (.+) Mushrooms!$/, '$1您发现了$2蘑菇！'], //炼金术
+    [/^(.*)You found (.+) Seaweed!$/, '$1您发现了$2海藻！'], //炼金术
+    [/^(.*)You found (.+) Firebloom!$/, '$1您发现了$2火焰花！'], //炼金术
+    [/^(.*)You found (.+) Berries!$/, '$1您发现了$2浆果！'], //炼金术
+    [/^(.*) Potatoes$/, '$1 土豆'], //炼金术
+    [/^(.*) Mushrooms$/, '$1 蘑菇'], //炼金术
+    [/^(.*) Seaweed$/, '$1 海藻'], //炼金术
+    [/^(.*) Firebloom$/, '$1 火焰花'], //炼金术
+    [/^(.*) Berries$/, '$1 浆果'], //炼金术
+    [/^(.*) owned, \+(.*)% Herbs found$/, '拥有$1，药草获取量增加$2%'], //炼金术
+    [/^(.*) owned, \+(.*)% res, \+(.*)% RT chance$/, '拥有$1，资源获取量增加$2%，小符饰概率增加$3%'], //炼金术
+    [/^(.*) owned, (.*)% nullified void stats$/, '拥有$1，虚空地图敌人状态中和$2%'], //炼金术
+    [/^(.*) owned, \+(.*)% Stats$/, '拥有$1，属性增加$2%'], //炼金术
+    [/^(.*) owned, \+(.*)% housing$/, '拥有$1，住房容纳的脆皮数量增加$2%'], //炼金术
+    [/^(.*) owned, \+(.*)% resources$/, '拥有$1，资源获取量增加$2%'], //炼金术
+    [/^(.*) owned, \+(.*)% Crit Damage$/, '拥有$1，暴击伤害增加$2%'], //炼金术
     [/^(.*) \/ (.*) Exp$/, '$1/$2经验值'], //绒绒污污相关
     [/^(.*)% damage$/, '$1%伤害'], //绒绒污污相关
     [/^Cruffys cannot gain Experience after the Nurture Challenge ends, but will stick around for (.+) more Zones.$/, '朽朽在培养挑战结束后无法再获得经验值了，但还会在$1个区域内继续存在。'], //绒绒污污相关
