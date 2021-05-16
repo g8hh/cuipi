@@ -7679,6 +7679,40 @@ var cnRegReplace = new Map([
     [/^Fists of Goo Lv(.*)$/, '粘液拳头 等级$1'], //尖塔突击
     [/^Battery Stick Lv(.*)$/, '电池棍 等级$1'], //尖塔突击
     [/^Pants Lv(.*)$/, '裤子 等级$1'], //尖塔突击
+    [/^Chemistry Set Lv(.*)$/, '化学装置 等级$1'], //尖塔突击
+    [/^Comfy Boots Set Lv(.*)$/, '舒适之靴 等级$1'], //尖塔突击
+    [/^Lifegiving Gem Lv(.*)$/, '生命宝石 等级$1'], //尖塔突击
+    [/^Mood Bracelet Lv(.*)$/, '情绪手镯 等级$1'], //尖塔突击
+    [/^Hungering Mold Lv(.*)$/, '饥饿霉菌 等级$1'], //尖塔突击
+    [/^Recycler Lv(.*)$/, '回收机 等级$1'], //尖塔突击
+    [/^Shining Armor Lv(.*)$/, '闪耀护甲 等级$1'], //尖塔突击
+    [/^Shock and Awl Lv(.*)$/, '震慑套装 等级$1'], //尖塔突击
+    [/^Tame Snimp Lv(.*)$/, '驯服的脆皮蛇 等级$1'], //尖塔突击
+    [/^Lich Wraps Lv(.*)$/, '巫妖披肩 等级$1'], //尖塔突击
+    [/^Wired Wristguards Lv(.*)$/, '通电护腕 等级$1'], //尖塔突击
+    [/^Sword and Board Lv(.*)$/, '剑刃守护 等级$1'], //尖塔突击
+    [/^Bilious Boots Lv(.*)$/, '邪恶之靴 等级$1'], //尖塔突击
+    [/^Bloodstained Gloves Lv(.*)$/, '染血手套 等级$1'], //尖塔突击
+    [/^Unlucky Coin Lv(.*)$/, '不幸之币 等级$1'], //尖塔突击
+    [/^Eelimp in a Bottle Lv(.*)$/, '瓶装脆皮鳗 等级$1'], //尖塔突击
+    [/^Big Cleaver Lv(.*)$/, '大型切割者 等级$1'], //尖塔突击
+    [/^The Globulator Lv(.*)$/, '世界地图 等级$1'], //尖塔突击
+    [/^Metal Suit Lv(.*)$/, '金属外衣 等级$1'], //尖塔突击
+    [/^Nozzled Goggles Lv(.*)$/, '护目镜 等级$1'], //尖塔突击
+    [/^Sundering Scythe Lv(.*)$/, '撕裂之镰 等级$1'], //尖塔突击
+    [/^Plague Bringer Lv(.*)$/, '瘟疫使者 等级$1'], //尖塔突击
+    [/^Very Large Slime Lv(.*)$/, '巨型史莱姆 等级$1'], //尖塔突击
+    [/^Grounded Crown Lv(.*)$/, '理性之冠 等级$1'], //尖塔突击
+    [/^Fearsome Piercer Lv(.*)$/, '恐惧之锥 等级$1'], //尖塔突击
+    [/^Blessed Protector Lv(.*)$/, '祝福庇佑 等级$1'], //尖塔突击
+    [/^Bad Medkit Lv(.*)$/, '恶之医疗箱 等级$1'], //尖塔突击
+    [/^Putrid Pouch Lv(.*)$/, '腐烂之袋 等级$1'], //尖塔突击
+    [/^Raincoat Lv(.*)$/, '雨衣 等级$1'], //尖塔突击
+    [/^Labcoat Lv(.*)$/, '实验服 等级$1'], //尖塔突击
+    [/^Aegis Lv(.*)$/, '宙斯盾 等级$1'], //尖塔突击
+    [/^Sacrificial Shank Lv(.*)$/, '牺牲之腿 等级$1'], //尖塔突击
+    [/^Monkimp Paw Lv(.*)$/, '脆皮猴之爪 等级$1'], //尖塔突击
+    [/^Spiked Gloves Lv(.*)$/, '尖刺手套 等级$1'], //尖塔突击
     [/^(.*) \/ (.*) Exp$/, '$1/$2经验值'], //绒绒污污相关
     [/^(.*)% damage$/, '$1%伤害'], //绒绒污污相关
     [/^Cruffys cannot gain Experience after the Nurture Challenge ends, but will stick around for (.+) more Zones.$/, '朽朽在培养挑战结束后无法再获得经验值了，但还会在$1个区域内继续存在。'], //绒绒污污相关
