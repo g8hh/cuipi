@@ -1695,7 +1695,7 @@ var cnItems = {
     'Peace': '和平终至',
     'Complete all 25 Mayhems': '完成所有25次暴乱挑战',
     'Mad Scientist': '疯狂科学家',
-    'Complete a Z155 Void Map with 10 Gas Brews and 0 Void Pots': '在使用10次气态啤酒且不使用虚空药剂的前提下，通过一张155级的虚空地图',
+    'Complete a Z155 Void Map with 10 Gas Brews and 0 Void Pots': '在使用10次气态啤酒且不使用魔药·虚空的前提下，通过一张155级的虚空地图',
     'You have completed every Achievement!': '您完成了所有的成就！',
     //游戏成就相关结束
     //游戏设置相关
@@ -2850,7 +2850,6 @@ var cnItems = {
     'You have the Alchemy challenge active. Travel to a dimension where maps are filled with useful herbs. Collect different herbs from different types of maps, and use Alchemy to create powerful potions to strengthen your Trimps. Clearing': '您目前正在进行炼金术挑战。前往一个地图中充满了药草的维度。您可以在地图中收集不同的药草，然后利用炼金术将它们制成强大的药剂来强化脆皮们。在此挑战激活的前提下通过区域 ',
     'Complete this Challenge once to unlock the ability to create a brand new type of map that should greatly aid your Alchemy.': '首次完成此挑战后还可以解锁一种新的地图，它对炼金术的帮助很大。',
     'You will unlock this challenge once you  reach Zone 155.': '欲解锁此挑战，您需要到达区域155。',
-    '': '', //TODO:Object中的后半部分
     //挑战相关结束
     //特权相关
     'Apply your skills at salvaging things from the Spire to increase all loot gained by 0.25% per level. The price for this perk increases additively, and each level will cost exactly 10000 more than the previous level.': '将您搜刮尖塔的本事用在劫掠上，每级提升0.25%劫掠效果。此特权的价格线性增加，每级都比上一级贵10000。',
@@ -3446,6 +3445,29 @@ var cnItems = {
     'Convert Ice to Poison': '将冰符记转换为毒符记',
     'Convert Ice to Wind': '将冰符记转换为风符记',
     //自然赋能相关结束
+
+    //炼金术相关
+    'Potatoes': '土豆',
+    'Mushrooms': '蘑菇',
+    'Seaweed': '海藻',
+    'Firebloom': '火焰花',
+    'Berries': '浆果',
+    'Herby Brew': '药草啤酒',
+    'Gaseous Brew': '气态啤酒',
+    'Potion of Finding': '探宝药剂',
+    'Potion of the ': '魔药·',
+    'Potion of Strength': '力量药剂',
+    'Elixir of Crafting': '灵药·锻造',
+    'Elixir of Finding': '灵药·探宝',
+    'Elixir of Accuracy': '灵药·精准',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    '': '',
+    //炼金术相关结束
+
     //绒绒污污相关
     'IT\'S CRUFFYS': '这边是朽朽哟',
     'Show Scruffy Info': '显示污污的信息',
