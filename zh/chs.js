@@ -1696,7 +1696,7 @@ var cnItems = {
     'Peace': '和平终至',
     'Complete all 25 Mayhems': '完成所有25次暴乱挑战',
     'Mad Scientist': '疯狂科学家',
-    'Complete a Z155 Void Map with 10 Gas Brews and 0 Void Pots': '在使用10次气态陈酿且不使用魔药·虚空的前提下，通过一张155级的虚空地图',
+    'Complete a Z155 Void Map with 10 Gas Brews and 0 Void Pots': '在使用10次气态特饮且不使用魔药·虚空的前提下，通过一张155级的虚空地图',
     'You have completed every Achievement!': '您完成了所有的成就！',
     //游戏成就相关结束
     //游戏设置相关
@@ -3455,8 +3455,8 @@ var cnItems = {
     'Firebloom': '火焰花',
     'Berries': '浆果',
     'Crafts': '药剂',
-    'Herby Brew': '药草陈酿',
-    'Gaseous Brew': '气态陈酿',
+    'Herby Brew': '药草特饮',
+    'Gaseous Brew': '气态特饮',
     'Potion of Finding': '魔药·探宝',
     'Potion of the ': '魔药·',
     'Potion of Strength': '魔药·力量',
