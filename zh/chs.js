@@ -3492,7 +3492,7 @@ var cnItems = {
     'Practice Off - 10x Speed, no Dust or Progress': '练习模式已关闭——10倍速度，但无魔尘掉落，也无法增加等级',
     'Practice On - 10x Speed, no Dust or Progress': '练习模式已开启——10倍速度，但无魔尘掉落，也无法增加等级',
     'Chemistry Set': '化学装置',
-    'Comfy Boots Set': '舒适之靴',
+    'Comfy Boots': '舒适之靴',
     'Lifegiving Gem': '生命宝石',
     'Mood Bracelet': '情绪手镯',
     'Hungering Mold': '饥饿霉菌',
@@ -3525,7 +3525,7 @@ var cnItems = {
     'Sacrificial Shank': '牺牲之腿',
     'Monkimp Paw': '脆皮猴之爪',
     'Spiked Gloves': '尖刺手套',
-    '': '',
+    '-2% Huffy Attack Time, +2% Enemy Attack Time (compounding) per level': '每级减少怒怒2%攻击时间，增加敌人2%攻击时间(相互叠乘)',
     '': '',
     '': '',
     '': '',
@@ -7713,7 +7713,7 @@ var cnRegReplace = new Map([
     [/^Battery Stick Lv(.*)$/, '电池棍 等级$1'], //尖塔突击
     [/^Pants Lv(.*)$/, '裤子 等级$1'], //尖塔突击
     [/^Chemistry Set Lv(.*)$/, '化学装置 等级$1'], //尖塔突击
-    [/^Comfy Boots Set Lv(.*)$/, '舒适之靴 等级$1'], //尖塔突击
+    [/^Comfy Boots Lv(.*)$/, '舒适之靴 等级$1'], //尖塔突击
     [/^Lifegiving Gem Lv(.*)$/, '生命宝石 等级$1'], //尖塔突击
     [/^Mood Bracelet Lv(.*)$/, '情绪手镯 等级$1'], //尖塔突击
     [/^Hungering Mold Lv(.*)$/, '饥饿霉菌 等级$1'], //尖塔突击
@@ -7746,6 +7746,7 @@ var cnRegReplace = new Map([
     [/^Sacrificial Shank Lv(.*)$/, '牺牲之腿 等级$1'], //尖塔突击
     [/^Monkimp Paw Lv(.*)$/, '脆皮猴之爪 等级$1'], //尖塔突击
     [/^Spiked Gloves Lv(.*)$/, '尖刺手套 等级$1'], //尖塔突击
+    [/^-(.*)% Huffy Attack Time, \+(.*)% Enemy Attack Time.$/, '减少怒怒$1攻击时间，增加敌人$2攻击时间。'], //尖塔突击
     [/^(.*) \/ (.*) Exp$/, '$1/$2经验值'], //绒绒污污相关
     [/^(.*)% damage$/, '$1%伤害'], //绒绒污污相关
     [/^Cruffys cannot gain Experience after the Nurture Challenge ends, but will stick around for (.+) more Zones.$/, '朽朽在培养挑战结束后无法再获得经验值了，但还会在$1个区域内继续存在。'], //绒绒污污相关
