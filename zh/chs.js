@@ -3467,7 +3467,7 @@ var cnItems = {
     'Increases all Radon gained by 10% (compounding).': '使氡的获取量增加10%(效果叠乘)。',
     'Increases Enemy Attack/Health by 30% (compounding': '但也使敌人的攻击力和生命值增加30%(效果叠乘',
     'Increases all non-radon resources earned by 25% additively. Reduces chance to not find a Runetrinket by 1% (compounding).': '使非氡资源获取量增加25%(效果叠加)。且可以使找不到小符饰的概率减少1%(效果叠乘)。',
-    'Increases the cost of all other Potions by 50% (compounding': '但也使其他药剂的成本增加50%(效果叠乘',
+    'Increases the cost of all other Potions by 50% (compounding': '但也使其他魔药的成本增加50%(效果叠乘',
     'Nullifies 5% (compounding) of increased enemy stats from Potions while in Void Maps.': '中和5%(效果叠乘)虚空地图中因为药剂而提升的敌人属性。',
     'Increases Trimp Attack/Health by 15% additively.': '使脆皮的攻击力和生命值增加15%(效果叠加)。',
     'Increases all housing by 5% (compounding).': '使所有住房容纳的脆皮数量增加5%(效果叠乘)。',
