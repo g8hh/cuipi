@@ -3525,19 +3525,47 @@ var cnItems = {
     'Sacrificial Shank': '牺牲之腿',
     'Monkimp Paw': '脆皮猴之爪',
     'Spiked Gloves': '尖刺手套',
-    '2% Huffy Attack Time, +2% Enemy Attack Time (compounding) per level': '怒怒2%攻击时间，+敌人2%攻击时间(相互叠乘)[每级]',
+    '2% Huffy Attack Time, +2% Enemy Attack Time (compounding) per level': '2%怒怒攻击时间，+2%敌人攻击时间(相互叠乘)[每级]',
     '1 attack damage per level': '1攻击力[每级]',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
-    '': '',
+    '20 base health per level': '20基础生命值[每级]',
+    '10 Attack and +20% Bleed Damage per 5 levels. +5% Bleed Damage and +3% Bleed Chance per level': '10攻击力，+20%流血伤害[每5级]。+5%流血伤害，+3%流血概率[每级]',
+    '1 poison damage per level': '1剧毒伤害[每级]',
+    '10% Shock Damage per level': '10%震荡伤害[每级]',
+    '1 Defense per level': '1防御力[每级]',
+    '1 Max Poison Stack per 4 levels. +1 Defense, +4% standard Poison Chance per level': '1剧毒层数上限[每4级]。+1防御力，+4%基础剧毒概率[每级]',
+    '2 Defense, +5% Resist per level': '2防御力，+5%抗性[每级]',
+    '10% Dust Gained per level': '10%魔尘获取量[每级]',
+    '3% Attack Time (compounding), +4 Defense per level': '3%攻击时间(相互叠乘)，+4防御力[每级]',
+    '0.5 Heal on Poison Tick, +1% Poison Tick Speed per level': '0.5治疗量于每次剧毒触发，+1%剧毒触发速度[每级]',
+    '5% Lifesteal per level': '5%吸血[每级]',
+    '6 defense, +100 health per level': '6防御力，+100生命值[每级]',
+    '4 Attack, +10% Shock Chance, +10% Shock Damage per level': '+4攻击力，+10%震荡概率，+10%震荡伤害[每级]',
+    '10% Poison Chance, +2 Poison Damage per level': '10%剧毒概率，+2剧毒伤害[每级]',
+    '6 Attack, +6% Lifesteal, -3% damage taken (compounding, never reaching 75%) per level': '6攻击力，+6%吸血，-3%受到的伤害(相互叠乘，最终会逼近75%)[每级]',
+    '3 Defense, +15% Shock Chance, +15% Shock Damage, +2% Enemy Attack Time per level': '3防御力，+15%震荡概率，+15%震荡伤害，+2%敌人攻击时间[每级]',
+    '5 Attack, +50 Health, +4 Defense, +10% Resists per level': '5攻击力，+50生命值，+4防御力，+10%抗性[每级]',
+    '3 Poison Damage, +50 Health, +10% Resists per level': '3剧毒伤害，+50生命值，+10%抗性[每级]',
+    '5% Bleed Chance, +2 Attack, +5% bar filled on Bleed per level': '5%流血概率，+2攻击力，+5%攻速条填充量[每级]',
+    '4 Attack, +10% Lifesteal per level': '4攻击力，+10%吸血[每级]',
+    '5% Shock Chance, +5% Shock Damage, -5% Attack Time, +5% Shock Resist, +1 Attack per Shock per level': '5%震荡概率，+5%震荡伤害，-5%攻击时间，+5%震荡抗性，每次震荡额外+1攻击力[每级]',
+    '2 Attack, +25% Bleed Damage, +100 Health per level': '2攻击力，+25%流血伤害，+100生命值[每级]',
+    '5 Defense, +500 Health, +10 Poison Damage per level': '5防御力，+500生命值，+10剧毒伤害[每级]',
+    '30 Defense, +1000 Health, +20% Bleed Resist, +5 Attack per level': '30防御力，+1000生命值，+20%流血抗性，+5攻击力[每级]',
+    '20% PermaShock Damage, +500 Health, 20% Poison Resist per level': '20%永续震荡伤害，+500生命值，20%剧毒抗性[每级]',
+    '5% Attack Time, +5 Attack, +250 Health, +5% Lifesteal per level': '5%攻击时间，+5攻击力，+250生命值，+5%吸血[每级]',
+    '2% Poison Tick Rate, +0.05 Poison Damage per Enemy Resist, +5 Heal on Poison Tick per level': '2%剧毒触发速度，敌人抗性额外+0.05剧毒伤害，+5治疗量于每次剧毒触发[每级]',
+    '15% Poison Chance, +20 Poison Damage, +50 Defense, +500 Health, +2 Max Stacks per level': '15%剧毒概率，+20剧毒伤害，+50防御力，+500生命值，+2层数上限[每级]',
+    '50 Attack, +50% Shock Damage, +50 Defense, +1000 Health per level': '50攻击力，+50%震荡伤害，+50防御力，+1000生命值[每级]',
+    '75 Attack, +10% Lifesteal, +75% Bleed Damage, +50% Bleed Chance per level': '75攻击力，+10%吸血，+75%流血伤害，+50%流血概率[每级]',
+    '1000 Health, +100 Defense, +25% Lifesteal per level': '1000生命值，+100防御力，+25%吸血[每级]',
+    '1s Minimum Bleed Time, +4% Bleed Chance, +2.5% Lifesteal per level': '1秒流血持续时间，+4%流血概率，+2.5%吸血[每级]',
+    '1s Poison Duration, +6% Poison Chance, +3 Defense per level': '1秒剧毒持续时间，+6%剧毒概率，+3防御力[每级]',
+    '2 defense, +20 health, +2.5% Lifesteal, +10% Bleed Damage per level': '2防御力，+20生命值，+2.5%吸血，+10%流血伤害[每级]',
+    '25 Health, -1% Attack Time, +1 Poison Damage per level': '25生命值，-1%攻击时间，+1剧毒伤害[每级]',
+    '4 Defense, +10% Shock Chance, +10% Shock Damage, +10% Lifesteal per level': '4防御力，+10%震荡概率，+10%震荡伤害，+10%吸血[每级]',
+    '1% Attack Time, +1% Resists, +1% Lifesteal per 10% status chance lost per level': '1%攻击时间，+1%抗性，从失去异常状态概率中获得的吸血效果+1%[每级]',
+    '100 Attack per level': '100攻击力[每级]',
+    '5% attack damage per level': '5%攻击力[每级]',
     //尖塔突击相关结束
 
     //绒绒污污相关
@@ -7746,7 +7774,7 @@ var cnRegReplace = new Map([
     [/^Sacrificial Shank Lv(.*)$/, '牺牲之腿 等级$1'], //尖塔突击
     [/^Monkimp Paw Lv(.*)$/, '脆皮猴之爪 等级$1'], //尖塔突击
     [/^Spiked Gloves Lv(.*)$/, '尖刺手套 等级$1'], //尖塔突击
-    [/^(.*)% Huffy Attack Time, \+(.*)% Enemy Attack Time.$/, '怒怒$1%攻击时间，+敌人$2%攻击时间。'], //尖塔突击
+    [/^(.*)% Huffy Attack Time, \+(.*)% Enemy Attack Time.$/, '$1%怒怒攻击时间，+$2%敌人攻击时间。'], //尖塔突击
     [/^(.*) attack damage.$/, '$1攻击力。'], //尖塔突击
     [/^(.*) \/ (.*) Exp$/, '$1/$2经验值'], //绒绒污污相关
     [/^(.*)% damage$/, '$1%伤害'], //绒绒污污相关
