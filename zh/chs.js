@@ -3526,7 +3526,7 @@ var cnItems = {
     'Monkimp Paw': '脆皮猴之爪',
     'Spiked Gloves': '尖刺手套',
     '2% Huffy Attack Time, +2% Enemy Attack Time (compounding) per level': '怒怒2%攻击时间，+敌人2%攻击时间(相互叠乘)[每级]',
-    '': '',
+    '1 attack damage per level': '1攻击力[每级]',
     '': '',
     '': '',
     '': '',
@@ -7747,6 +7747,7 @@ var cnRegReplace = new Map([
     [/^Monkimp Paw Lv(.*)$/, '脆皮猴之爪 等级$1'], //尖塔突击
     [/^Spiked Gloves Lv(.*)$/, '尖刺手套 等级$1'], //尖塔突击
     [/^(.*)% Huffy Attack Time, \+(.*)% Enemy Attack Time.$/, '怒怒$1%攻击时间，+敌人$2%攻击时间。'], //尖塔突击
+    [/^(.*) attack damage.$/, '$1攻击力。'], //尖塔突击
     [/^(.*) \/ (.*) Exp$/, '$1/$2经验值'], //绒绒污污相关
     [/^(.*)% damage$/, '$1%伤害'], //绒绒污污相关
     [/^Cruffys cannot gain Experience after the Nurture Challenge ends, but will stick around for (.+) more Zones.$/, '朽朽在培养挑战结束后无法再获得经验值了，但还会在$1个区域内继续存在。'], //绒绒污污相关
