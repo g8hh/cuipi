@@ -7801,6 +7801,9 @@ var cnRegReplace = new Map([
     [/^(.*)% Shock Chance, \+(.*)% Shock Damage, \+(.*)% Shock Resist. -(.*)% Attack Time if the Enemy is Shocked. When you Shock an Enemy, they lose all progress towards their attack. \+(.*) Attack for each time you've Shocked this Enemy \(up to 10 times\).$/, '$1%震荡概率，+$2%震荡伤害，+$3%震荡抗性。-$4%攻击时间，前提是敌人受到震荡效果影响。当敌人受到震荡效果影响时，清空它们的攻速条。每次对一名敌人造成震荡效果时+$5攻击力(上限为增加10次)。'], //尖塔突击
     [/^Can create a Bleed on the Enemy for 10 seconds. \+100% Bleed Chance if the Enemy is at full Health, otherwise \+25%. \+(.*) Attack if the Enemy is Bleeding. \+(.*)% Bleed Damage, \+(.*) Health.$/, '可以对敌人造成流血效果，持续10秒。+100%流血概率，前提是敌人生命值全满，否则+25%流血概率。+$1攻击力，前提是敌人受到流血效果影响。+$2%流血伤害，+$3生命值。'], //尖塔突击
     [/^(.*) Defense and \+(.*) Max Health if the Enemy is Poisoned. On adding a new Poison Stack to an Enemy that hasn't had poisons expire, heal for half of this item's Max Health. If the Enemy is at Max Poison Stacks, non-Lifesteal healing effects on you are doubled. \+(.*) Poison Damage.$/, '$1防御力，+$2生命值，前提是敌人受到剧毒效果影响。每次使敌人剧毒层数增加且剧毒未失效过的时候，恢复生命值，数值为此物品增加生命值的一半。如果敌人剧毒层数到达上限，则非吸血的生命值恢复效果翻倍。+$3剧毒伤害。'], //尖塔突击
+    [/^(.*) Defense, \+(.*) Health, \+(.*)% Bleed Resist. If Huffy has an item that can create a Bleed, gain \+(.*) Attack.$/, '$1防御力，+$2生命值，+$3%流血抗性。如果怒怒装备有其他可以造成吸血效果的物品，则+$4攻击力。'], //尖塔突击
+    [/^The Enemy is always Shocked, taking at least (.*)% more damage. \+(.*) Health, \+(.*)% Poison Resist, \+3 Maximum Poison Stacks.$/, '敌人受到永续震荡效果影响，至少额外受到$1%伤害。+$2生命值，+$3%剧毒抗性，+3剧毒层数上限。'], //尖塔突击
+    [/^(.*)% Attack Time, \+(.*) Attack, \+(.*) Health, \+(.*)% Lifesteal. Your Shocks last a maximum of 10 seconds, and your Bleeds can be reapplied when below 5 seconds.$/, '$1%攻击时间，+$2攻击力，+$3生命值，+$4%吸血。震荡效果至多持续10秒，当吸血效果低于5秒时，造成吸血效果可以刷新它的持续时间。'], //尖塔突击
 
 
 
