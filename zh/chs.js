@@ -3548,7 +3548,7 @@ var cnItems = {
     '3 Poison Damage, +50 Health, +10% Resists per level': '3剧毒伤害，+50生命值，+10%抗性[每级]',
     '5% Bleed Chance, +2 Attack, +5% bar filled on Bleed per level': '5%流血概率，+2攻击力，+5%攻速条填充量[每级]',
     '4 Attack, +10% Lifesteal per level': '4攻击力，+10%吸血[每级]',
-    '5% Shock Chance, +5% Shock Damage, -5% Attack Time, +5% Shock Resist, +1 Attack per Shock per level': '5%震荡概率，+5%震荡伤害，-5%攻击时间，+5%震荡抗性，每次震荡额外+1攻击力[每级]',
+    '5% Shock Chance, +5% Shock Damage, -5% Attack Time, +5% Shock Resist, +1 Attack per Shock per level': '5%震荡概率，+5%震荡伤害，-5%攻击时间，+5%震荡抗性，每次造成震荡效果时额外+1攻击力[每级]',
     '2 Attack, +25% Bleed Damage, +100 Health per level': '2攻击力，+25%流血伤害，+100生命值[每级]',
     '5 Defense, +500 Health, +10 Poison Damage per level': '5防御力，+500生命值，+10剧毒伤害[每级]',
     '30 Defense, +1000 Health, +20% Bleed Resist, +5 Attack per level': '30防御力，+1000生命值，+20%流血抗性，+5攻击力[每级]',
@@ -7798,7 +7798,9 @@ var cnRegReplace = new Map([
     [/^(.*) Poison Damage, \+1 Max Poison Stack, \+(.*) Health, \+(.*)% to all Resistances.$/, '$1剧毒伤害，+1剧毒层数上限，+$2生命值，+$3%全抗性。'], //尖塔突击
     [/^(.*)% to Bleed Chance, \+(.*) Attack, -25% Enemy Attack Time, -25% Enemy Attack Damage. Fills up (.*)% of your Attack Speed bar whenever you cause or receive a Bleed.$/, '$1%流血概率，+$2攻击力，-25%敌人攻击时间，-25%敌人攻击力。每次受到或者造成流血效果影响时，使攻速条直接填充$3%。'], //尖塔突击
     [/^(.*) Attack. \+(.*)% Lifesteal if the Enemy is not Poisoned or Bleeding.$/, '$1攻击力，+$2%吸血，前提是敌人未受到剧毒或流血效果影响。'], //尖塔突击
-    [/^(.*)% Shock Chance, \+(.*)% Shock Damage, \+(.*)% Shock Resist. -(.*)% Attack Time if the Enemy is Shocked. When you Shock an Enemy, they lose all progress towards their attack. \+(.*) Attack for each time you've Shocked this Enemy \(up to 10 times\).$/, '$1%震荡概率，+$2%震荡伤害，+$3%震荡抗性。-$4%攻击时间，前提是敌人受到震荡效果影响。当敌人受到震荡效果影响时，清空它们的攻速条。每次对一名敌人造成震荡效果时+$5攻击力(上限为增加10次)。'], //尖塔突击，前置
+    [/^(.*)% Shock Chance, \+(.*)% Shock Damage, \+(.*)% Shock Resist. -(.*)% Attack Time if the Enemy is Shocked. When you Shock an Enemy, they lose all progress towards their attack. \+(.*) Attack for each time you've Shocked this Enemy \(up to 10 times\).$/, '$1%震荡概率，+$2%震荡伤害，+$3%震荡抗性。-$4%攻击时间，前提是敌人受到震荡效果影响。当敌人受到震荡效果影响时，清空它们的攻速条。每次对一名敌人造成震荡效果时+$5攻击力(上限为增加10次)。'], //尖塔突击
+    [/^Can create a Bleed on the Enemy for 10 seconds. \+100% Bleed Chance if the Enemy is at full Health, otherwise \+25%. \+(.*) Attack if the Enemy is Bleeding. \+(.*)% Bleed Damage, \+(.*) Health.$/, '可以对敌人造成流血效果，持续10秒。+100%流血概率，前提是敌人生命值全满，否则+25%流血概率。+$1攻击力，前提是敌人受到流血效果影响。+$2%流血伤害，+$3生命值。'], //尖塔突击
+    [/^(.*) Defense and \+(.*) Max Health if the Enemy is Poisoned. On adding a new Poison Stack to an Enemy that hasn't had poisons expire, heal for half of this item's Max Health. If the Enemy is at Max Poison Stacks, non-Lifesteal healing effects on you are doubled. \+(.*) Poison Damage.$/, '$1防御力，+$2生命值，前提是敌人受到剧毒效果影响。每次使敌人剧毒层数增加且剧毒未失效过的时候，恢复生命值，数值为此物品增加生命值的一半。如果敌人剧毒层数到达上限，则非吸血的生命值恢复效果翻倍。+$3剧毒伤害。'], //尖塔突击
 
 
 
