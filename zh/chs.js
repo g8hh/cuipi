@@ -7778,9 +7778,12 @@ var cnRegReplace = new Map([
     [/^(.*)% Huffy Attack Time, \+(.*)% Enemy Attack Time.$/, '$1%怒怒攻击时间，+$2%敌人攻击时间。'], //尖塔突击
     [/^(.*) attack damage.$/, '$1攻击力。'], //尖塔突击
     [/^(.*) base health.$/, '$1基础生命值。'], //尖塔突击
-    [/^Can create a Bleed on the Enemy for 10 seconds. \+(.*)% Bleed Damage, \+(.*) Attack. \+(.*)% Bleed Chance, doubled if the Enemy is Shocked or Poisoned.$/, '可以对敌人造成流血效果，持续10秒。流血伤害+$1%，攻击力+$2。流血概率+$3%，如果敌人处于震荡或剧毒状态，则增加的数值翻倍。'], //尖塔突击
-    [/^Can create a Bleed on the Enemy for 10 seconds. \+(.*)% Bleed Damage. \+(.*)% Bleed Chance, doubled if the Enemy is Shocked or Poisoned.$/, '可以对敌人造成流血效果，持续10秒。流血伤害+$1%。流血概率+$2%，如果敌人处于震荡或剧毒状态，则增加的数值翻倍。'], //尖塔突击
-    [/^Can create a Poison on the Enemy for 10 seconds. \+(.*) Poison Damage. \+25% Poison Chance, doubled if the enemy is bleeding or shocked.$/, '可以对敌人造成剧毒效果，持续10秒。剧毒伤害+$1。剧毒概率+25%，如果敌人处于流血或震荡状态，则增加的数值翻倍。'], //尖塔突击
+    [/^Can create a Bleed on the Enemy for 10 seconds. \+(.*)% Bleed Damage, \+(.*) Attack. \+(.*)% Bleed Chance, doubled if the Enemy is Shocked or Poisoned.$/, '可以对敌人造成流血效果，持续10秒。+$1%流血伤害，+$2攻击力。+$3%流血概率，如果敌人处于震荡或剧毒状态，则增加的数值翻倍。'], //尖塔突击
+    [/^Can create a Bleed on the Enemy for 10 seconds. \+(.*)% Bleed Damage. \+(.*)% Bleed Chance, doubled if the Enemy is Shocked or Poisoned.$/, '可以对敌人造成流血效果，持续10秒。+$1%流血伤害。+$2%流血概率，如果敌人处于震荡或剧毒状态，则增加的数值翻倍。'], //尖塔突击
+    [/^Can create a Poison on the Enemy for 10 seconds. \+(.*) Poison Damage. \+25% Poison Chance, doubled if the enemy is bleeding or shocked.$/, '可以对敌人造成剧毒效果，持续10秒。+$1剧毒伤害。+25%剧毒概率，如果敌人处于流血或震荡状态，则增加的数值翻倍。'], //尖塔突击
+    [/^Can create a Shock on the Enemy for 10 seconds. \+(.*)% Shock Damage. \+35% Shock Chance, doubled if the enemy is bleeding or poisoned.$/, '可以对敌人造成震荡效果，持续10秒。+$1%震荡伤害。+35%震荡概率，如果敌人处于流血或剧毒状态，则增加的数值翻倍。'], //尖塔突击
+    [/^(.*) Defense.$/, '$1防御力。'], //尖塔突击
+    [/^50% Poison Chance if the Enemy is not already Poisoned. \+(.*) Defense if the Enemy is Poisoned. \+(.*)% Poison Chance. Poisons you inflict can stack (.*) more times?.$/, '50%剧毒概率，前提是敌人未受到剧毒效果影响，否则+$1防御力。+$2%剧毒概率。+$3剧毒层数上限。'], //尖塔突击
     [/^(.*) \/ (.*) Exp$/, '$1/$2经验值'], //绒绒污污相关
     [/^(.*)% damage$/, '$1%伤害'], //绒绒污污相关
     [/^Cruffys cannot gain Experience after the Nurture Challenge ends, but will stick around for (.+) more Zones.$/, '朽朽在培养挑战结束后无法再获得经验值了，但还会在$1个区域内继续存在。'], //绒绒污污相关
