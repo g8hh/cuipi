@@ -7778,8 +7778,8 @@ var cnRegReplace = new Map([
     [/^(.*)% Huffy Attack Time, \+(.*)% Enemy Attack Time.$/, '$1%怒怒攻击时间，+$2%敌人攻击时间。'], //尖塔突击
     [/^(.*) attack damage.$/, '$1攻击力。'], //尖塔突击
     [/^(.*) base health.$/, '$1基础生命值。'], //尖塔突击
-    [/^Can create a Bleed on the Enemy for 10 seconds. \+(.*)% Bleed Damage. \+(.*)% Bleed Chance, doubled if the Enemy is Shocked or Poisoned.$/, '可以对敌人造成流血效果，持续10秒。流血伤害+$1%。流血概率+$2%，如果敌人处于震荡或剧毒状态，则增加的数值翻倍。'], //尖塔突击
     [/^Can create a Bleed on the Enemy for 10 seconds. \+(.*)% Bleed Damage, \+(.*) Attack. \+(.*)% Bleed Chance, doubled if the Enemy is Shocked or Poisoned.$/, '可以对敌人造成流血效果，持续10秒。流血伤害+$1%，攻击力+$2。流血概率+$3%，如果敌人处于震荡或剧毒状态，则增加的数值翻倍。'], //尖塔突击
+    [/^Can create a Bleed on the Enemy for 10 seconds. \+(.*)% Bleed Damage. \+(.*)% Bleed Chance, doubled if the Enemy is Shocked or Poisoned.$/, '可以对敌人造成流血效果，持续10秒。流血伤害+$1%。流血概率+$2%，如果敌人处于震荡或剧毒状态，则增加的数值翻倍。'], //尖塔突击
     [/^Can create a Poison on the Enemy for 10 seconds. \+(.*) Poison Damage. \+25% Poison Chance, doubled if the enemy is bleeding or shocked.$/, '可以对敌人造成剧毒效果，持续10秒。剧毒伤害+$1。剧毒概率+25%，如果敌人处于流血或震荡状态，则增加的数值翻倍。'], //尖塔突击
     [/^(.*) \/ (.*) Exp$/, '$1/$2经验值'], //绒绒污污相关
     [/^(.*)% damage$/, '$1%伤害'], //绒绒污污相关
