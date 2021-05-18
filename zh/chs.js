@@ -7798,6 +7798,12 @@ var cnRegReplace = new Map([
     [/^(.*) Poison Damage, \+1 Max Poison Stack, \+(.*) Health, \+(.*)% to all Resistances.$/, '$1剧毒伤害，+1剧毒层数上限，+$2生命值，+$3%全抗性。'], //尖塔突击
     [/^(.*)% to Bleed Chance, \+(.*) Attack, -25% Enemy Attack Time, -25% Enemy Attack Damage. Fills up (.*)% of your Attack Speed bar whenever you cause or receive a Bleed.$/, '$1%流血概率，+$2攻击力，-25%敌人攻击时间，-25%敌人攻击力。每次受到或者造成流血效果影响时，使攻速条直接填充$3%。'], //尖塔突击
     [/^(.*) Attack. \+(.*)% Lifesteal if the Enemy is not Poisoned or Bleeding.$/, '$1攻击力，+$2%吸血，前提是敌人未受到剧毒或流血效果影响。'], //尖塔突击
+    [/^(.*)% Shock Chance, \+(.*)% Shock Damage, \+(.*)% Shock Resist. -(.*)% Attack Time if the Enemy is Shocked. When you Shock an Enemy, they lose all progress towards their attack. \+(.*) Attack for each time you've Shocked this Enemy \(up to 10 times\).$/, '$1%震荡概率，+$2%震荡伤害，+$3%震荡抗性。-$4%攻击时间，前提是敌人受到震荡效果影响。当敌人受到震荡效果影响时，清空它们的攻速条。每次对一名敌人造成震荡效果时+$5攻击力(上限为增加10次)。'], //尖塔突击，前置
+
+
+
+
+
     [/^(.*) \/ (.*) Exp$/, '$1/$2经验值'], //绒绒污污相关
     [/^(.*)% damage$/, '$1%伤害'], //绒绒污污相关
     [/^Cruffys cannot gain Experience after the Nurture Challenge ends, but will stick around for (.+) more Zones.$/, '朽朽在培养挑战结束后无法再获得经验值了，但还会在$1个区域内继续存在。'], //绒绒污污相关
