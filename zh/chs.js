@@ -7795,8 +7795,9 @@ var cnRegReplace = new Map([
     [/^Can create a Poison on the Enemy for 10 seconds. \+(.*)% Poison Chance, \+(.*) Poison Damage. Enemy Attack is reduced by 15% while the Enemy is Poisoned.$/, '可以对敌人造成剧毒效果，持续10秒。+$1%剧毒概率，+$2剧毒伤害。-15%敌人攻击力，前提是敌人受到剧毒效果影响。'], //尖塔突击
     [/^When Poisoned, Bleeding, or Shocked, gain \+(.*) Attack, -15% Attack Time, \+(.*)% Lifesteal, and take (.*)% less damage from all sources.$/, '当怒怒受到流血、剧毒或震荡效果影响时，+$1攻击力，-15%攻击时间，+$2%吸血，-$3%受到的伤害。'], //尖塔突击
     [/^(.*) Defense, \+(.*)% Shock Chance, \+(.*)% Shock Damage, \+50% to all Resistances. If the Enemy is Shocked, increase its Attack Time by (.*)%.$/, '$1防御力，+$2%震荡概率，+$3%震荡伤害，+50%全抗性。+$4%敌人攻击时间，前提是敌人受到震荡效果影响。'], //尖塔突击
+    [/^(.*) Poison Damage, \+1 Max Poison Stack, \+(.*) Health, \+(.*)% to all Resistances.$/, '$1剧毒伤害，+1剧毒层数上限，+$2生命值，+$3%全抗性。'], //尖塔突击
     [/^(.*)% to Bleed Chance, \+(.*) Attack, -25% Enemy Attack Time, -25% Enemy Attack Damage. Fills up (.*)% of your Attack Speed bar whenever you cause or receive a Bleed.$/, '$1%流血概率，+$2攻击力，-25%敌人攻击时间，-25%敌人攻击力。每次受到或者造成流血效果影响时，使攻速条直接填充$3%。'], //尖塔突击
-    [/^(.*) Attack. \+(.*)% Lifesteal if the Enemy is not Poisoned or Bleeding.$/, '$1攻击力，+$2%吸血，前提是敌人未受到剧毒或流血效果影响。'], //尖塔突击，前置
+    [/^(.*) Attack. \+(.*)% Lifesteal if the Enemy is not Poisoned or Bleeding.$/, '$1攻击力，+$2%吸血，前提是敌人未受到剧毒或流血效果影响。'], //尖塔突击
     [/^(.*) \/ (.*) Exp$/, '$1/$2经验值'], //绒绒污污相关
     [/^(.*)% damage$/, '$1%伤害'], //绒绒污污相关
     [/^Cruffys cannot gain Experience after the Nurture Challenge ends, but will stick around for (.+) more Zones.$/, '朽朽在培养挑战结束后无法再获得经验值了，但还会在$1个区域内继续存在。'], //绒绒污污相关
