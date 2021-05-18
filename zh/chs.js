@@ -7791,6 +7791,9 @@ var cnRegReplace = new Map([
     [/^(.*)% Lifesteal. Huffy's Lifesteal heals twice as much off of Bleed damage.$/, '$1%吸血。怒怒吸血恢复的生命值翻倍，但不能超过流血伤害。'], //尖塔突击
     [/^(.*) Defense. \+(.*) Health.$/, '$1防御力。+$2生命值。'], //尖塔突击
     [/^Can create a Shock on an enemy for 20 seconds. \+(.*) Attack, \+(.*)% Shock Chance, \+(.*)% Shock Damage. -25% Attack Time if the Enemy is not Shocked, \+25% Lifesteal if the Enemy is Shocked.$/, '可以对敌人造成震荡效果，持续20秒。+$1攻击力，+$2%震荡概率，+$3%震荡伤害。-25%攻击时间，前提是敌人未受到震荡效果影响，否则+25%吸血。'], //尖塔突击
+    [/^Can create a Poison on the Enemy for 10 seconds. \+(.*)% Poison Chance, \+(.*) Poison Damage. Enemy Attack is reduced by 15% while the Enemy is Poisoned.$/, '可以对敌人造成剧毒效果，持续10秒。+$1%剧毒概率，+$2剧毒伤害。-15%敌人攻击力，前提是敌人受到剧毒效果影响。'], //尖塔突击
+    [/^When Poisoned, Bleeding, or Shocked, gain \+(.*) Attack, -15% Attack Time, \+(.*)% Lifesteal, and take (.*)% less damage from all sources.$/, '当怒怒受到流血、剧毒或震荡效果影响时，+$1攻击力，-15%攻击时间，+$2%吸血，-$3%受到的伤害。'], //尖塔突击
+    [/^(.*) Defense, \+(.*)% Shock Chance, \+(.*)% Shock Damage, \+50% to all Resistances. If the Enemy is Shocked, increase its Attack Time by (.*)%.$/, '$1防御力，+$2%震荡概率，+$3%震荡伤害，+50%全抗性。+$4%敌人攻击时间，前提是敌人受到震荡效果影响。'], //尖塔突击
     [/^(.*) \/ (.*) Exp$/, '$1/$2经验值'], //绒绒污污相关
     [/^(.*)% damage$/, '$1%伤害'], //绒绒污污相关
     [/^Cruffys cannot gain Experience after the Nurture Challenge ends, but will stick around for (.+) more Zones.$/, '朽朽在培养挑战结束后无法再获得经验值了，但还会在$1个区域内继续存在。'], //绒绒污污相关
