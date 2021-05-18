@@ -7784,6 +7784,10 @@ var cnRegReplace = new Map([
     [/^Can create a Shock on the Enemy for 10 seconds. \+(.*)% Shock Damage. \+35% Shock Chance, doubled if the enemy is bleeding or poisoned.$/, '可以对敌人造成震荡效果，持续10秒。+$1%震荡伤害。+35%震荡概率，如果敌人处于流血或剧毒状态，则增加的数值翻倍。'], //尖塔突击
     [/^(.*) Defense.$/, '$1防御力。'], //尖塔突击
     [/^50% Poison Chance if the Enemy is not already Poisoned. \+(.*) Defense if the Enemy is Poisoned. \+(.*)% Poison Chance. Poisons you inflict can stack (.*) more times?.$/, '50%剧毒概率，前提是敌人未受到剧毒效果影响，否则+$1防御力。+$2%剧毒概率。+$3剧毒层数上限。'], //尖塔突击
+    [/^(.*) Defense. \+(.*)% to all Resistances.$/, '$1防御力。+$2%全抗性'], //尖塔突击
+    [/^Increases Dust gained from Enemies by (.*)% PLUS your Lifesteal amount when the Enemy dies.$/, '使敌人掉落的魔尘数量增加$1%，增加的数值还会再加上吸血概率的数值。'], //尖塔突击
+    [/^(.*)% Attack Time and \+(.*) Defense if the Enemy is not Bleeding.$/, '$1%攻击时间，+$2防御力，前提是敌人未受到流血效果影响。'], //尖塔突击
+    [/^Heal for (.*) per stack of Poison whenever one of your Poisons deals damage. Your Poisons tick (.*)% faster.$/, '当剧毒造成伤害时，每有一层剧毒，就恢复$1生命值。+$2%剧毒触发速度'], //尖塔突击
     [/^(.*) \/ (.*) Exp$/, '$1/$2经验值'], //绒绒污污相关
     [/^(.*)% damage$/, '$1%伤害'], //绒绒污污相关
     [/^Cruffys cannot gain Experience after the Nurture Challenge ends, but will stick around for (.+) more Zones.$/, '朽朽在培养挑战结束后无法再获得经验值了，但还会在$1个区域内继续存在。'], //绒绒污污相关
