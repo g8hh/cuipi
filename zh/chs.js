@@ -7788,9 +7788,9 @@ var cnRegReplace = new Map([
     [/^Increases Dust gained from Enemies by (.*)% PLUS your Lifesteal amount when the Enemy dies.$/, '使敌人掉落的魔尘数量增加$1%，增加的数值还会再加上吸血概率的数值。'], //尖塔突击
     [/^(.*)% Attack Time and \+(.*) Defense if the Enemy is not Bleeding.$/, '$1%攻击时间，+$2防御力，前提是敌人未受到流血效果影响。'], //尖塔突击
     [/^Heal for (.*) per stack of Poison whenever one of your Poisons deals damage. Your Poisons tick (.*)% faster.$/, '当剧毒造成伤害时，每有一层剧毒，就恢复$1生命值。+$2%剧毒触发速度。'], //尖塔突击
-    [/^(.*)% Lifesteal. Huffy's Lifesteal heals twice as much off of Bleed damage.$/, '$1吸血。怒怒吸血恢复的生命值翻倍，但不能超过流血伤害。'], //尖塔突击
+    [/^(.*)% Lifesteal. Huffy's Lifesteal heals twice as much off of Bleed damage.$/, '$1%吸血。怒怒吸血恢复的生命值翻倍，但不能超过流血伤害。'], //尖塔突击
     [/^(.*) Defense. \+(.*) Health.$/, '$1防御力。+$2生命值。'], //尖塔突击
-    [/^Can create a Shock on an enemy for 20 seconds. \+(.*) Attack, \+(.*)% Shock Chance, \+(.*)% Shock Damage. -25% Attack Time if the Enemy is not Shocked, +25% Lifesteal if the Enemy is Shocked.$/, '可以对敌人造成震荡效果，持续20秒。+$1攻击力，+$2%震荡概率，+$3%震荡伤害。-25%攻击时间，前提是敌人未受到震荡效果影响，否则+25%吸血。'], //尖塔突击
+    [/^Can create a Shock on an enemy for 20 seconds. \+(.*) Attack, \+(.*)% Shock Chance, \+(.*)% Shock Damage. -25% Attack Time if the Enemy is not Shocked, \+25% Lifesteal if the Enemy is Shocked.$/, '可以对敌人造成震荡效果，持续20秒。+$1攻击力，+$2%震荡概率，+$3%震荡伤害。-25%攻击时间，前提是敌人未受到震荡效果影响，否则+25%吸血。'], //尖塔突击
     [/^(.*) \/ (.*) Exp$/, '$1/$2经验值'], //绒绒污污相关
     [/^(.*)% damage$/, '$1%伤害'], //绒绒污污相关
     [/^Cruffys cannot gain Experience after the Nurture Challenge ends, but will stick around for (.+) more Zones.$/, '朽朽在培养挑战结束后无法再获得经验值了，但还会在$1个区域内继续存在。'], //绒绒污污相关
