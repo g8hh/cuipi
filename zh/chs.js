@@ -1672,7 +1672,7 @@ var cnItems = {
     'Complete Trappapalooza without Trapping on or above Z': '在到达特定区域后未使用过陷阱的前提下，完成捕手道达人挑战。该区域为区域',
     'Witherproof': '防止凋零',
     'Huffstle': '怒怒之城',
-    'Kill 100 L5+ SA Enemies without dying': '在没有战败过的前提下，击杀100名等级5及以上的尖塔突击敌人',
+    'Reach a session score of 100-0 at L5+ in SA': '在没有战败过的前提下，击杀100名等级5及以上的尖塔突击敌人',
     'Just Smack It': '事在人为',
     'Kill a L20+ SA Enemy without Shock, Bleed or Poison': '不使用震荡，流血或者剧毒的前提下，击杀1名等级20及以上的尖塔突击敌人',
     'Close Call': '有惊无险',
