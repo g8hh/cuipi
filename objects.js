@@ -2522,6 +2522,7 @@ var autoBattle = {
         if (this.dust < cost) return;
         bonus.level++;
         this.dust -= cost;
+        this.saveLastAction('bonus', null, cost);
         this.popup(true, false, true);
     },
     buyOneTimer: function(what){
@@ -2531,6 +2532,7 @@ var autoBattle = {
         bonus.owned = true;
         if (bonus.onPurchase) bonus.onPurchase();
         this.dust -= cost;
+        this.saveLastAction('bonus', null, cost);
         this.popup(true, false, true);
     },
     hoverItem: function(item, upgrade){
@@ -2555,7 +2557,7 @@ var autoBattle = {
     },
     upgrade: function(item){
         var itemObj = this.items[item];
-        if (!itemObj) return;
+        if (!itemObj) return; 
         var cost = this.upgradeCost(item);
         if (this.dust < cost) return;
         this.saveLastAction("upgrade", item);
@@ -2573,7 +2575,19 @@ var autoBattle = {
         }
         if (!somethinGood) this.lastActions = [];
     },
-    saveLastAction: function(type, what){
+    saveLastAction: function(type, what, cost){
+        if (type == "bonus" || type == "contract"){
+            for (var x = 0; x < this.lastActions.length; x++){
+                this.lastActions[x][2] -= cost;
+            }
+            return;
+        }
+        if (type == "cancelContract"){
+            for (var x = 0; x < this.lastActions.length; x++){
+                this.lastActions[x][2] += cost;
+            }
+            return;
+        }
         var lastLastAction = (this.lastActions.length) ? this.lastActions[this.lastActions.length - 1] : [];
         if (lastLastAction && lastLastAction[0] == 'upgrade' && type == 'upgrade' && lastLastAction[1] == what) lastLastAction[5]++;
         else this.lastActions.push([type, what, this.dust, this.maxEnemyLevel, this.enemiesKilled, 1]);
@@ -2674,6 +2688,7 @@ var autoBattle = {
         var price = this.contractPrice(this.activeContract);
         this.activeContract = "";
         this.dust += price;
+        this.saveLastAction('cancelContract', null, price);
         this.popup(false,false,true);
     },
     acceptContract: function(item){
@@ -2681,6 +2696,7 @@ var autoBattle = {
         var price = this.contractPrice(item);
         if (this.dust < price) return;
         this.dust -= price;
+        this.saveLastAction('contract', null, price);
         this.activeContract = item;
         this.popup(false, false, true);
     },
@@ -2700,16 +2716,19 @@ var autoBattle = {
     help: function(){
         var text = "<ul>";
         text += "<li><b>Click on an item name to equip it. You can have 4 items equipped at the start</b>, but you can purchase 'Extra Limbs' under the Bonus button if you want some more!</li>";
-        text += "<li>You can unlock new items for Huffy to use through the 'Contracts' tab. Once you have enough Dust to start a Contract, you'll need to complete a Void Map at or above the specified Zone in U2 to complete it and unlock the item.</li>"
+        text += "<li>Huffy can progress to the next level of the Spire after killing the amount of Enemies listed next to your total Dust at the top of the SA window (\"Kill X\"). Huffy must be fighting at your highest reached level in order to progress this counter, otherwise it will say \"Farming\".</li>";
+        text += "<li>Equipping or Unequipping an item will reset your \"Session Score\" at the top of the SA window.</li>";
+        text += "<li>You can unlock new items for Huffy to use through the 'Contracts' tab. Once you have enough Dust to start a Contract, you'll need to complete a Void Map at or above the specified Zone in U2 to complete it and unlock the item.</li>";
         text += "<li>Defense is a flat damage reduction. Damage taken is equal to (Enemy Attack * Shock Modifier) - Defense.</li>";
         text += "<li>Lifesteal works on Bleed damage but not Poison damage. Lifesteal is based on final damage after Shock and Defense.</li>";
         text += "<li>Shock boosts Poison and Bleed damage as well as normal attack damage.</li>";
-        text += "<li>Shocks and Bleeds cannot be applied while the Enemy already has that status effect. Poison can.</li>"
+        text += "<li>Shocks and Bleeds cannot be applied while the Enemy already has that status effect. Poison can.</li>";
         text += "<li>Resistance against an effect works by subtracting your current resist from the Enemy's chance to cause that effect. If the Enemy has a 50% Poison Chance and you have 25% Poison Resist, the Enemy will have an effective 25% Poison Chance.</li>";      
         text += "<li>Enemy Affixes per level are based on a seed, but everyone has the same seed and sees the same affixes each level. Feel free to discuss strategy with others!</li>";
-        text += "<li>Enemies gain +1 Affix every 5 Levels until 20, then gain +1 Affix every 10 Levels</li>"
-        text += "<li>Huffy's minimum Attack Time is 0.5 seconds. Any reductions to Attack Time below 0.5 seconds will be converted to Slow Aura, making the Enemy attack up to 50% slower.</li>"
+        text += "<li>Enemies gain +1 Affix every 5 Levels until 20, then gain +1 Affix every 10 Levels</li>";
+        text += "<li>Huffy's minimum Attack Time is 0.5 seconds. Any reductions to Attack Time below 0.5 seconds will be converted to Slow Aura, making the Enemy attack up to 50% slower.</li>";
         text += "<li>The Dust reward formula is (1 + ((EnemyLevel - 1) * 5)) * (1.19^(EnemyLevel - 1))</li>";
+        text += "<li>The Spire Assault window can be opened with hotkey \"i\"</li>";
         text += "</ul>";
         tooltip('confirm', null, 'update', text, 'autoBattle.popup()', "Spire Assault Help/FAQ", 'Back to Spire Assault', true);
         var elem = document.getElementById('tooltipDiv');
@@ -2756,8 +2775,8 @@ var autoBattle = {
             document.getElementById('autoBattleEnemyHealthMax').innerHTML = prettify(this.enemy.maxHealth);
         }
         else{
-            text += '<div class="autoBattleBarHolder"><div style="width: ' + hpPct + '%" class="progress-bar percentColorBlue" id="autoBattleTrimpHealthBar" role="progressbar"><span class="bdHover pointer noselect innerFightBar"><span id="autoBattleTrimpHealth">' + prettify(this.trimp.health) + '</span>/<span id="autoBattleTrimpHealthMax">' + prettify(this.trimp.maxHealth) + '</span></span></div></div>';
-            text += '<div class="autoBattleBarHolder"><div style="width: ' + EhpPct + '%" class="progress-bar rightBar percentColorBlue" id="autoBattleEnemyHealthBar" role="progressbar"><span class="bdHover pointer noselect innerFightBar"><span id="autoBattleEnemyHealth">' + prettify(this.enemy.health) + '</span>/<span id="autoBattleEnemyHealthMax">' + prettify(this.enemy.maxHealth) + '</span></span></div></div>';
+            text += '<div class="autoBattleBarHolder"><div style="width: ' + hpPct + '%" class="progress-bar percentColorBlue" id="autoBattleTrimpHealthBar" role="progressbar"><span class="noselect innerFightBar"><span id="autoBattleTrimpHealth">' + prettify(this.trimp.health) + '</span>/<span id="autoBattleTrimpHealthMax">' + prettify(this.trimp.maxHealth) + '</span></span></div></div>';
+            text += '<div class="autoBattleBarHolder"><div style="width: ' + EhpPct + '%" class="progress-bar rightBar percentColorBlue" id="autoBattleEnemyHealthBar" role="progressbar"><span class="noselect innerFightBar"><span id="autoBattleEnemyHealth">' + prettify(this.enemy.health) + '</span>/<span id="autoBattleEnemyHealthMax">' + prettify(this.enemy.maxHealth) + '</span></span></div></div>';
             text += '<div class="autoBattleBarHolder"><div style="width: ' + atkPct + '%" class="progress-bar percentColorYellow" id="autoBattleTrimpAttackBar" role="progressbar"><span class="innerFightBar">&nbsp;</span></div></div>';
             text += '<div class="autoBattleBarHolder"><div style="width: ' + EatkPct + '%" class="progress-bar rightBar percentColorYellow" id="autoBattleEnemyAttackBar" role="progressbar"><span class="innerFightBar">&nbsp;</span></div></div>';
         }
@@ -2869,8 +2888,8 @@ var autoBattle = {
         var itemsText = "Items (" + this.countEquippedItems() + "/" + this.getMaxItems() + " Equipped)"; 
         text += "<div id='autoBattleMenuButtons'><span id='abItemsBtn' onclick='autoBattle.swapPopup(\"items\")' class='btn btn-lg autoItemUpgrade darkBorder'>" + itemsText + "</span><span onclick='autoBattle.swapPopup(\"bonuses\")' class='btn btn-lg colorNavy'>Bonuses</span><span onclick='autoBattle.swapPopup(\"contracts\")' class='btn btn-lg colorVoidy darkBorder'>Contracts</span><span onclick='autoBattle.swapPopup(\"hidden\")' class='btn btn-lg autoColorOrange darkBorder'>Hidden Items</span><span class='btn btn-lg autoItemHide darkBorder' onclick='autoBattle.toggleHideMode()'>Hide Items</span><span onclick='autoBattle.swapPopup(\"other\")' class='btn btn-lg autoColorGrey active darkBorder'>Misc</span></div>";
         var notesElem = document.getElementById('autoBattleNotes');
+        if (!notesElem || !itemsOnly) text +=  "<div id='autoBattleNotes'" + ((this.popupMode == "items" || this.popupMode == "hidden") ? "" : " style='display: none'") + ">" + this.notes + "</div>";
         if (this.popupMode == "items" || this.popupMode == "hidden") {
-            if (!notesElem || !itemsOnly) text +=  "<div id='autoBattleNotes'>" + this.notes + "</div>";
             if (notesElem) notesElem.style.display = 'block';
         }
         else if (notesElem && itemsOnly) notesElem.style.display = 'none';
@@ -2985,8 +3004,7 @@ var autoBattle = {
             var action = this.lastActions[this.lastActions.length - 1];
             if (action){
                 var itemName = action[1].split("_").join(' ');
-                if (action[0] == "contract") text += "Return " + itemName + " to the Void";
-                else if (action[0] == "upgrade") text += "Downgrade " + itemName + " by " + action[5] + " level" + needAnS(action[5]);
+                text += "Downgrade " + itemName + " by " + action[5] + " level" + needAnS(action[5]);
                 text += ", and <b>SET YOUR DUST TO " + prettify(action[2]) + "</b> (The amount you had the moment before you spent it).";
                 if (this.maxEnemyLevel > action[3]) text += " Your progress will be set back to level " + action[3] + ".";
                 else if (this.enemiesKilled > action[4]) text += " Your kill counter will be reduced by " + prettify(this.enemiesKilled - action[4]) + ".";
