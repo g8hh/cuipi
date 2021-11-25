@@ -932,7 +932,7 @@ var toReturn = {
 			darkTheme: {
 				extraTags: "general",
 				enabled: 1,
-				description: "Toggle between the default Trimps theme, a custom dark theme made by u/Grabarz19, a gradient theme by u/k1d_5h31d0n, and the default theme with a black background.",
+				description: "Toggle between the default Trimps theme, a custom dark theme made by u/Grabarz19, a gradient theme by u/5h3i1ah, and the default theme with a black background.",
 				titles: ["Black Background", "Default Theme", "Dark Theme", "Gradient Theme"],
 				//styleName index should always be equal to title index minus 2, and should match the css file name
 				styleNames: ["dark", "gradient"],
@@ -4250,7 +4250,7 @@ var toReturn = {
 			},
 			purchases: 0,
 			filter: function(){
-				return (getHighestLevelCleared(true) >= 90);
+				return (getHighestLevelCleared(true) >= 89);
 			},
 			automatorTooltip: function(){
 				var text = "<div id='ArchaeologyAutomatorError' style='color: red'></div>";
@@ -4514,7 +4514,7 @@ var toReturn = {
 					message("You have completed the Mayhem Challenge! Your Trimps have gained +" + prettify((newAmt - oldAmt) * 100) + "% Helium or Radon and Trimp Attack and Health in Universe 1 and 2, and future runs of this Challenge will be 3x more difficult. You have now completed Mayhem " + game.global.mayhemCompletions + " time" + needAnS(game.global.mayhemCompletions) + ". Your new total Mayhem bonus is +" + prettify((newAmt - 1) * 100) + "%", "Notices");
 				}
 				else message("You completed Mayhem again, just for fun!", "Notices");
-				if (this.mayhemCompletions >= 25) giveSingleAchieve("Peace");
+				if (game.global.mayhemCompletions >= 25) giveSingleAchieve("Peace");
 				game.global.challengeActive = "";
 				game.challenges.Mayhem.abandon();
 			},
@@ -7238,7 +7238,9 @@ var toReturn = {
 		},
 		Pumpkimp: {
 			location: "Maps",
-			locked: 1,
+			get locked(){
+				return (holidayObj.checkActive("Pumpkimp") ? 0 : 1);
+			},
 			attack: 0.9,
 			health: 1.5,
 			fast: false,
