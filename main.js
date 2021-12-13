@@ -2192,22 +2192,31 @@ function manageEqualityStacks(){
 	if (game.portal.Equality.radLocked) return;
 	if (game.portal.Equality.scalingCount < 0) game.portal.Equality.scalingCount = 0;
 	if (game.portal.Equality.scalingCount > game.portal.Equality.radLevel) game.portal.Equality.scalingCount = game.portal.Equality.radLevel;
+	var tabElem = document.getElementById('equalityTab');
+	var tabTextElem = document.getElementById('equalityA');
+	var activeStacks = game.portal.Equality.getActiveLevels();
+	var text = activeStacks + " stack" + needAnS(activeStacks) + " of Equality are active, multiplying the Attack of Trimps ";
+	var enemyMult = game.portal.Equality.getMult(false);
+	if (game.heirlooms.Shield.inequality.currentBonus > 0){
+		var trimpMult = game.portal.Equality.getMult(true);
+		
+		text += " by " + prettifyTiny(trimpMult) + " and Enemies by " + prettifyTiny(enemyMult);
+	}
+	else {
+		text += " and Enemies by " + prettifyTiny(enemyMult);
+	}
+
 	if (game.global.universe == 2 && !game.portal.Equality.radLocked && game.portal.Equality.scalingActive){
-		var stacks = game.portal.Equality.getActiveLevels();
-		var text = stacks + " stack" + needAnS(stacks) + " of Equality are active, multiplying the Attack of Trimps ";
-		var enemyMult = game.portal.Equality.getMult(false);
-		if (game.heirlooms.Shield.inequality.currentBonus > 0){
-			var trimpMult = game.portal.Equality.getMult(true);
-			
-			text += " by " + prettifyTiny(trimpMult) + " and Enemies by " + prettifyTiny(enemyMult);
-		}
-		else {
-			text += " and Enemies by " + prettifyTiny(enemyMult);
-		}
-		manageStacks('Equality Scaling', stacks, true, 'equalityStacks', 'icomoon icon-arrow-bold-down', text + ".", false);
+		swapClass('equalityTabScaling', 'equalityTabScalingOn', tabElem);
+		tabTextElem.innerHTML = "Equality (Scaling On)";
+		text += ". Scaling is on.";
+		manageStacks('Equality Scaling', activeStacks, true, 'equalityStacks', 'icomoon icon-arrow-bold-down', text, false);
 	}
 	else{
-		manageStacks(null, null, true, 'equalityStacks', null, null, true);
+		text += ". Scaling is off.";
+		swapClass('equalityTabScaling', 'equalityTabScalingOff', tabElem);
+		tabTextElem.innerHTML = "Equality (Scaling Off)";
+		manageStacks('Equality Scaling', activeStacks, true, 'equalityStacks', 'icomoon icon-arrow-bold-down', text, false);
 	}
 }
 
@@ -2234,6 +2243,7 @@ function scaleEqualityScale(slider, whatDo){
 		game.portal.Equality.disabledStackCount = val;
 		if (val == -1) val = "Max (" + game.portal.Equality.radLevel + ")";
 		textElem = document.getElementById('equalityDisabledStackCount');
+		manageEqualityStacks();
 	}
 	if (textElem) textElem.innerHTML = val;
 }
@@ -2796,7 +2806,7 @@ function trustworthyTrimps(noTip, forceTime){
 }
 
 function respecPerks(fromPortal){
-	if (game.global.challengeActive == "Hypothermia"){
+	if (game.global.challengeActive == "Hypothermia" && game.global.viewingUpgrades){
 		document.getElementById('portalStory').innerHTML = "<span style='color: red'>You cannot change your perks while on the Hypothermia Challenge!</span>";
 		return;
 	}
@@ -2994,7 +3004,7 @@ function getPerkBuyCount(perkName){
 }
 
 function buyPortalUpgrade(what){
-	if (game.global.challengeActive == "Hypothermia"){
+	if (game.global.challengeActive == "Hypothermia" && game.global.viewingUpgrades){
 		document.getElementById('portalStory').innerHTML = "<span style='color: red'>You cannot change your perks while on the Hypothermia Challenge!</span>";
 		return;
 	}
@@ -7039,6 +7049,7 @@ function createHeirloom(zone, fromBones, spireCore, forceBest){
 	var rarityNames = game.heirlooms.rarityNames;
 	//Determine Type
 	var seed = (fromBones) ? game.global.heirloomBoneSeed : game.global.heirloomSeed;
+	if (forceBest) seed = game.global.bestHeirloomSeed;
 	var type;
 	var rarity;
 	if (spireCore){
@@ -7102,6 +7113,7 @@ function createHeirloom(zone, fromBones, spireCore, forceBest){
 	if (heirloomsShown) displayExtraHeirlooms();
 	if (spireCore) game.global.coreSeed = seed;
 	else if (fromBones) game.global.heirloomBoneSeed = seed;
+	else if (forceBest) game.global.bestHeirloomSeed = seed;
 	else game.global.heirloomSeed = seed;
 }
 
@@ -7249,7 +7261,7 @@ function buildMapGrid(mapId) {
 		if (thisFast && !game.badGuys[cell.name].fast) forceNextFast = true;
 		else forceNextFast = false;
 		if (thisFast && game.badGuys[cell.name].fast) forced++;
-		if (game.badGuys.Presimpt.locked == 0 && game.options.menu.showSnow && game.options.menu.showSnow.enabled){
+		if (map.location == "Frozen" || (game.badGuys.Presimpt.locked == 0 && game.options.menu.showSnow && game.options.menu.showSnow.enabled)){
 			if (map.location == "Void") cell.vm = "CorruptSnow";
 			else cell.vm = "TrimpmasSnow"
 		}
@@ -14025,6 +14037,8 @@ function fight(makeUp) {
 				else if (currentMapObj.location == "Frozen"){
 					document.getElementById("mapsHere").removeChild(document.getElementById(currentMapObj.id));
 					game.global.mapsOwnedArray.splice(getMapIndex(currentMapObj.id), 1);
+					game.global.lookingAtMap = "";
+					mapsSwitch(true);
 				}
 				return;
 			}
