@@ -1823,7 +1823,7 @@ var cnItems = {
     'Default Theme': '默认主题',
     'Theme': '主题',
     'Gradient Theme': '渐变主题',
-    'Toggle between the default Trimps theme, a custom dark theme made by u/Grabarz19, a gradient theme by u/k1d_5h31d0n, and the default theme with a black background.': '在以下主题之间切换：默认脆皮主题，u/Grabarz19创作的黑暗主题，u/k1d_5h31d0n创作的渐变主题，以及黑色背景的默认主题。',
+    'Toggle between the default Trimps theme, a custom dark theme made by u/Grabarz19, a gradient theme by u/5h3i1ah, and the default theme with a black background.': '在以下主题之间切换：默认脆皮主题，u/Grabarz19创作的黑暗主题，u/5h3i1ah创作的渐变主题，以及黑色背景的默认主题。',
     'Not Fading': '关闭渐隐效果',
     'Fading': '开启渐隐效果',
     'Toggle on or off the fade in effect on elements.': '切换是否开启游戏元素的渐隐效果。',
@@ -2863,7 +2863,7 @@ var cnItems = {
     'Cunning': '灵巧',
     'Fluffy demands more helium! Each level of Cunning will increase the final amount of Experience Fluffy gains from each Zone by 25% (additive).': '绒绒想要更多的氦！每级灵巧将绒绒每个区域获得的经验值增加25%(相互叠加)。',
     'Curious': '好奇',
-    'Fluffy is coming along, but he\'s coming along slowly. Each point of Curious will speed up Fluffy\'s progression by adding 60 Exp to the base amount he gains per Zone clear.': '绒绒在进步, 但还不够快。每级好奇可以将通过区域的基础经验奖励增加60。',
+    'Fluffy is coming along, but he\'s coming along slowly. Each point of Curious will speed up Fluffy\'s progression by adding 80 Exp to the base amount he gains per Zone clear.': '绒绒在进步, 但还不够快。每级好奇可以将通过区域的基础经验奖励增加80。',
     'Classy': '上等',
     'Overkill': '超杀',
     'You have overcome the otherworldly objective of obtaining Overkill, outstanding! Each level of this perk will allow 0.5% of your overkill damage to harm the next enemy. If this damage kills the next enemy, you will lose no time moving through that cell.': '这不是痴人说梦，您真的获得了超杀升级，太出色了！每级可以将0.5%的溢出伤害用来攻击下个敌人。如果下个敌人被此伤害击杀，那么您就可以直接通过该格子了。',
@@ -7331,7 +7331,7 @@ var cnRegReplace = new Map([
     [/^This Bad Guy is Empowered and has (.*)% more health and attack.$/, '此敌人获得了赋能，增加了$1%生命值和攻击力。'], //日常挑战消息
     [/^Trimps gain a stack of Pressure every (.*) seconds. Each stack of pressure reduces Trimp health by 1%. Max of (.*) stacks, stacks reset after clearing a Zone.$/, '[压力]脆皮们每$1秒获得一层压力。每层压力将脆皮生命值减少1%。层数最高为$2，在通过一个区域后重置。'], //日常挑战消息
     [/^Your Trimps are under a lot of pressure. Maximum health is reduced by (.*)%.$/, '您的脆皮受到了巨大的压力。生命值上限减少$1%。'], //日常挑战消息
-    [/^Enemies have a(n*) (.*)% chance to reflect an attack, dealing (.*)% of damage taken back to your Trimps. \(will not reflect damage done above the Enemy's max health\).$/, '敌人有$2%概率反弹一次攻击，将此次攻击造成伤害的$3%反弹给您的脆皮。(反弹的伤害不会超过此敌人的生命值上限)。'], //日常挑战消息
+    [/^Enemies have a(n*) (.*)% chance to reflect an attack, dealing (.*)% of damage taken back to your Trimps \(will not reflect damage done above the Enemy's max health\).$/, '敌人有$2%概率反弹一次攻击，将此次攻击造成伤害的$3%反弹给您的脆皮。(反弹的伤害不会超过此敌人的生命值上限)。'], //日常挑战消息
     [/^Equipment is (.*)% cheaper.$/, '装备花费减少$1%。'], //日常挑战消息
     [/^You have the (.*) Daily challenge active.$/, '您正在进行$1的日常挑战。'], //日常挑战消息
     [/^(.*)You have completed the Balance challenge! You have been rewarded with (.*) Helium, and you may repeat the challenge.$/, '$1您完成了平衡挑战！您获取了$2氦，现在您又可以重新挑战了。'], //平衡挑战完成消息

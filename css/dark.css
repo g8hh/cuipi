@@ -1133,3 +1133,21 @@ color:#8F8F00
 .alchemyCraftCost{
 	background-color: rgba(82, 82, 82, 0.5);
 }
+
+.autoRingSelect{
+	color: #C8C8C8;
+}
+
+.equalityTabScalingOff a{
+	background-color: #35341c !important;
+}
+.equalityTabScalingOff a:hover{
+	background-color: #222113 !important;
+}
+
+.equalityTabScalingOn a{
+	background-color: #1a1d3a !important;
+}
+.equalityTabScalingOn a:hover{
+	background-color: #0a0b18 !important;
+}
