@@ -8456,7 +8456,7 @@ var toReturn = {
 				createHeirloom(null, false, false, true);
 				var rarity = getHeirloomRarity(game.global.world, game.global.heirloomSeed, false, true);
 				rarity = game.heirlooms.rarityNames[rarity];
-				message("You have completed the Frozen Castle! The map has melted, but you managed to find a <i></i>" + rarity + "<i></i> Heirloom!", "Notices");			
+				message("您通过了冻结城堡！那张地图融化了，但您找到了一个<i></i>" + rarity + "<i></i>传家宝！", "Notices");			
 				if (game.global.challengeActive == "Hypothermia") game.challenges.Hypothermia.onComplete();
 			}
 		},
