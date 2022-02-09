@@ -2710,7 +2710,7 @@ var cnItems = {
     'You have completed the Exterminate Challenge! You have unlocked the Hub, a revolutionary new way to store your extra Trimps!': '您完成了灭虫挑战！您解锁了一种容纳脆皮的新建筑——中心枢纽！',
     'Nurture': '培养',
     'Travel to a dimension filled with gigantic monsters. All enemies have 2x attack, World enemies have 2x health and map enemies have 10x health. Luckily, Scruffy has a brother in this dimension who will help you out if you level him up! You\'ll gain access to the special Laboratory building while on this challenge, which will give bonus Exp to Scruffy\'s brother, Cruffys. Check the Scruffy and Laboratory tooltips while on this Challenge for more info. Clearing ': '前往一个充满了巨型怪物的维度。所有敌人获得2倍攻击力，世界上的敌人生命值变为2倍，地图中的敌人生命值变为10倍。但幸运的是，污污在该维度中有一个兄弟，善加培养，它就可以帮上大忙！该挑战中您可以建造特殊的实验室建筑，可为污污的兄弟朽朽提供额外的经验值。您可以在该挑战中查看污污或实验室的提示框以获取更详细的信息。在该挑战激活的前提下通过',
-    ' with this Challenge active will grant an additional 400% of all Radon earned up until that point, and will (mostly) return the world to normal. ': '后，可额外获得氡，数值等于本次挑战完成前氡获取量的400%，然后世界将(基本上)恢复正常。',
+    ' with this Challenge active will grant an additional 400% of all Radon earned up until that point, and will (mostly) return the world to normal.': '后，可额外获得氡，数值等于本次挑战完成前氡获取量的400%，然后世界将(基本上)恢复正常。',
     'Complete this Challenge with Cruffys at Level 10 or higher to earn a new Perk!': '在朽朽达到10级的前提下完成该挑战将获得一个新的特权！',
     'You have also unlocked the Observation Perk!': '您同时还解锁了“洞察”特权！',
     'Pandemonium': '群魔乱舞',
