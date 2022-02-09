@@ -5065,7 +5065,7 @@ var toReturn = {
 		},
 		Nurture: {
 			get description(){
-				return "Travel to a dimension filled with gigantic monsters. All enemies have 2x attack, World enemies have 2x health and map enemies have 10x health. Luckily, Scruffy has a brother in this dimension who will help you out if you level him up! You'll gain access to the special Laboratory building while on this challenge, which will give bonus Exp to Scruffy's brother, Cruffys. Check the Scruffy and Laboratory tooltips while on this Challenge for more info. Clearing <b>区域135</b> with this Challenge active will grant an additional 400% of all Radon earned up until that point, and will (mostly) return the world to normal." + ((game.portal.Observation.radLocked) ? " <b>Complete this Challenge with Cruffys at Level 10 or higher to earn a new Perk!</b>" : "");
+				return "Travel to a dimension filled with gigantic monsters. All enemies have 2x attack, World enemies have 2x health and map enemies have 10x health. Luckily, Scruffy has a brother in this dimension who will help you out if you level him up! You'll gain access to the special Laboratory building while on this challenge, which will give bonus Exp to Scruffy's brother, Cruffys. Check the Scruffy and Laboratory tooltips while on this Challenge for more info. Clearing <b>区域135</b> with this Challenge active will grant an additional 400% of all Radon earned up until that point, and will (mostly) return the world to normal." + ((game.portal.Observation.radLocked) ? "<b>Complete this Challenge with Cruffys at Level 10 or higher to earn a new Perk!</b>" : "");
 			},
 			completed: false,
 			blockU1: true,
