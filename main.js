@@ -14000,7 +14000,7 @@ function fight(makeUp) {
 			}
 			var mapBonusReached = (game.global.mapBonus == 10);
 			var allItemsEarned = (addSpecials(true, true, mapObj) == 0);
-			if (mapObj.name.search("Bionic Wonderland") > -1 && allItemsEarned && game.options.menu.climbBw.enabled == 1 && game.global.repeatMap){
+			if (mapObj.name.search("仿生仙境") > -1 && allItemsEarned && game.options.menu.climbBw.enabled == 1 && game.global.repeatMap){
 				var maz = checkMapAtZoneWorld();
 				if (maz && maz.preset == 3 && maz.bwWorld <= mapObj.level){
 					var bwWorld = maz.bwWorld;
@@ -14676,12 +14676,12 @@ function getNextVoidId(){
 function getNextBwId(){
 	var currLevel = 124;
 	var map = getCurrentMapObject();
-	if (map && map.name.search("Bionic Wonderland") > -1){
+	if (map && map.name.search("仿生仙境") > -1){
 		currLevel = map.level;
 	}
 	for (var x = (game.global.mapsOwnedArray.length - 1); x >= 0; x--){
 		var map = game.global.mapsOwnedArray[x];
-		if (map.level > currLevel && map.name.search("Bionic Wonderland") > -1) return map.id;
+		if (map.level > currLevel && map.name.search("仿生仙境") > -1) return map.id;
 	}
 	return false;
 }
