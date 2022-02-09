@@ -893,7 +893,7 @@ var toReturn = {
 					var arr = ["Repeat Forever", "重复10次", "Repeat for Items", "Repeat for Any"];
 					if (this.enabled == 0 && game.global.mapCounterGoal > game.global.mapRunCounter){
 						var count = (game.global.mapCounterGoal - game.global.mapRunCounter);
-						arr[0] = "Repeat " + count + " Time" + needAnS(count);
+						arr[0] = "重复" + count + "次";
 					}
 					return arr;
 				},
