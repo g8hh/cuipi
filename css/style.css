@@ -1383,8 +1383,8 @@ body {
 
 .fightBtn{
 	width: 100%;
-	font-size: 1.1vw !important;
-	padding: 0.15vw 0.3vw;
+	font-size: 0.9vw !important;
+	padding: 0.05vw 0.3vw;
 	display: block;
 }
 
@@ -1489,7 +1489,7 @@ body {
 }
 
 #battleSideTitle {
-    font-size: 1.1vw;
+    font-size: 0.9vw;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.3);
 	padding-top: 5%;
