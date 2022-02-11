@@ -1858,7 +1858,7 @@ function getSquaredDescriptionInRun(hideDesc){
 		description = challenge.squaredDescription + " " + getSpecialSquaredRewards(challenge);
 	}
 	description += "<b>您目前在区域" + game.global.world;
-	var portalText = (game.global.viewingUpgrades) ? "放弃挑战" : "使用传送门";
+	var portalText = (game.global.viewingUpgrades) ? "放弃挑战" : "进行传送";
 	var dif = getIndividualSquaredReward(game.global.challengeActive, game.global.world) - getIndividualSquaredReward(game.global.challengeActive);
 	var highest = game.c2[game.global.challengeActive];
 	var rewards = countChallengeSquaredReward(false, false, true);
