@@ -52,7 +52,7 @@
 	<div id="offlineWrapper">
 		<div id="offlineInnerWrapper">
 			<div id="offlineTitle">
-				补偿时间中……
+				<i></i>补偿时间中……<i></i>
 			</div>
 			<div id="offlineProgressWrapper" class='progress'>
 				<span id='offlineProgressText'>Starting...</span>
@@ -101,21 +101,21 @@
 				</div>
 				<div class="col-xs-8">
 					<div id="boneTitleContainer">
-						骨法商人
+						<i></i>骨法商人<i></i>
 					</div>
 					<div id="boneOwnedContainer">
 						您拥有<span id="bonesOwned">0</span>
 					</div>
 					<div id="mainBoneHowTo">
-						您可以在世界上击杀脆皮骷髅或脆皮超级骷髅来获得骨头。
+						<i></i>您可以在世界上击杀脆皮骷髅或脆皮超级骷髅来获得骨头。<i></i>
 					</div>
 					<div id="boneFlavorRow">
-						用骨头与骨法商人换点...“骨”利
+						<i></i>用骨头与骨法商人换点...“骨”利<i></i>
 					</div>
 				</div>
 				<div class="col-xs-2">
 					<div class="boneBtn dangerColor pointer noselect" onclick="hideBones()">
-						关闭
+						<i></i>关闭<i></i>
 					</div>
 				</div>
 			</div>
@@ -126,10 +126,10 @@
 					<div class="boneBuyDesc">Instantly earn the next 12 or 36 hours worth of resources! If you don't have enough storage, storage will be purchased (and the cost deducted) automatically.</div>
 					<div id="boostSelectContainer">
 						<div id="boost0" class="thingSmall pointer noselect boneBtnStateTeal" onclick="selectBoost(0)">
-							12小时
+							<i></i>12小时<i></i>
 						</div>
 						<div id="boost1" class="thingSmall pointer noselect boneBtnStateOff" onclick="selectBoost(1)">
-							36小时
+							<i></i>36小时<i></i>
 						</div>
 					</div>
 					<div id="boostPreviewContainer">
@@ -156,16 +156,16 @@
 							</tbody>
 						</table>
 						<div id="minusRes" style="display: none">
-							One of your storage structures will be more expensive than the amount you can receive from this boost. Spend some resources first to get the most benefit!
+							<i></i>One of your storage structures will be more expensive than the amount you can receive from this boost. Spend some resources first to get the most benefit!<i></i>
 						</div>
 					</div>
 					</div>
 					<div id="purchaseContainerBoost">
 						<div class="boneBtn boneBtnStateOn pointer noselect buyBoostBtn" id="boostPurchaseBtn0" onclick="tooltip('Confirm Purchase', null, 'update', 'You are about to purchase 12 hours of instant production for 20 bones. Is this what you wanted to do?', 'purchaseBoost(0)', 20)">
-							购买12小时(20骨头)
+							<i></i>购买12小时(20骨头)<i></i>
 						</div>
 						<div class="boneBtn boneBtnStateOn pointer noselect buyBoostBtn" id="boostPurchaseBtn1" onclick="tooltip('Confirm Purchase', null, 'update', 'You are about to purchase 36 hours of instant production for 40 bones. Is this what you wanted to do?', 'purchaseBoost(1)', 40)">
-							购买36小时(40骨头)
+							<i></i>购买36小时(40骨头)<i></i>
 						</div>
 					</div>
 				</div>
@@ -192,7 +192,7 @@
 						<div class="boostSpacer">
 						<div id="buyHeliumArea">
 							<div class="boneBtn boneBtnStateOn pointer noselect" id="heliumPurchaseBtn" onclick="tooltip('Confirm Purchase', null, 'update', 'You are about to purchase one Instant Portal for 100 bones. Your new helium will appear in the View Perks menu at the bottom of the screen. Is this what you wanted to do?', 'purchaseMisc(\'helium\')', 100)"> 
-								购买骨头传送门(100骨头)
+								<i></i>购买骨头传送门(100骨头)<i></i>
 							</div>
 							<div class="miscDesc">
 								<b><span id="heliumGainedMisc"></span></b><br/>
@@ -204,11 +204,11 @@
 						</div>
 						<div id="buyHeirloomArea">
 							<div class="boneBtn boneBtnStateOn pointer noselect" id="heirloomPurchaseBtn" onclick="tooltip('Confirm Purchase', null, 'update', 'You are about to purchase one Heirloom for 30 bones. This will be created at a random rarity, and will be just like completing a Void Map at your highest ever Zone reached. Are you sure?', 'purchaseMisc(\'heirloom\')', 30)"> 
-								购买传家宝(30骨头)
+								<i></i>购买传家宝(30骨头)<i></i>
 							</div>
 							<div class="miscDesc">
 								<div id="heirloomRarityMisc"></div>
-								传家宝稀有度基于最高通过区域而定，具体概率如上所示
+								<i></i>传家宝稀有度基于最高通过区域而定，具体概率如上所示<i></i>
 							</div>							
 						</div>
 					</div>
@@ -346,7 +346,7 @@
 						</div>
 						<div class="col-xs-3" style="padding-left: 0">
 							<div id="fluffyBox" style="display: none" onmouseover="tooltip('Fluffy', null, event)" onmouseout="tooltip('hide')" onclick="tooltip('Fluffy', null, 'update')">
-								<span class="fluffyIcon glyphicon glyphicon-user"></span>&nbsp;Lv<span id='fluffyLevel'></span><br/><div class="progress" id="fluffyExpContainer"><span class="progress-bar noTransition" id="fluffyExp">&nbsp;</span></div>
+								<span class="fluffyIcon glyphicon glyphicon-user"></span><span id='fluffyLevel'></span>级<br/><div class="progress" id="fluffyExpContainer"><span class="progress-bar noTransition" id="fluffyExp">&nbsp;</span></div>
 							</div>
 						</div>
 					</div>
@@ -365,7 +365,7 @@
 						已雇佣<span id="trimpsEmployed">0</span>/<span id="maxEmployed">0</span>
 					</div>
 					<div id="trapArea">
-						<div id="trimpsCollectBtn" class="workBtn workColorOff pointer noSelect" onclick="setGather('trimps')">Check&nbsp;Traps&nbsp;(<span id="trimpTrapText">1</span>)</div>
+						<div id="trimpsCollectBtn" class="workBtn workColorOff pointer noSelect" onclick="setGather('trimps')">检查陷阱(<span id="trimpTrapText">1</span>)</div>
 						<div id="trimpsCollecting" class="collecting" style="display: none">Trapping (<span id="trimpTrapText2">1</span>)</div>
 						<div class="progress" id="trappingProgress">
 							<div class="progress-bar" id="trappingBar" role="progressbar"></div>
@@ -575,7 +575,7 @@
 									<div class='col-xs-3 lowPad'><div id='talentsAffordable'></div></div>
 									<div class='col-xs-6 lowPad'>
 										<div id="talentsTitle">
-											<span id='essenceOwned'>0</span>黑暗精华
+											<span id='essenceOwned'>0</span>黑暗精华<i></i>
 										</div>
 									</div>
 									<div class='col-xs-3 lowPad'>
@@ -591,7 +591,7 @@
 										<div class='natureTop'>
 											<div class='natureTitle'>
 												<span id='infoSpanPoison' class='infoSpanNature' onmouseover="natureTooltip(event, 'description', 'Poison')" onmouseout="tooltip('hide')"><span class='icomoon icon-info2'></span></span>
-												毒赋能									
+												<i></i>毒赋能<i></i>
 											</div>
 											符记：<span id="tokenCountPoison">0</span>
 										</div>
@@ -628,7 +628,7 @@
 										<div class='natureTop'>
 											<div class='natureTitle'>
 												<span id='infoSpanWind' class='infoSpanNature' onmouseover="natureTooltip(event, 'description', 'Wind')" onmouseout="tooltip('hide')"><span class='icomoon icon-info2'></span></span>
-													风赋能
+												<i></i>风赋能<i></i>
 											</div>
 											符记：<span id="tokenCountWind">0</span>
 										</div>
@@ -665,7 +665,7 @@
 										<div class='natureTop'>
 											<div class='natureTitle'>
 												<span id='infoSpanIce' class='infoSpanNature' onmouseover="natureTooltip(event, 'description', 'Ice')" onmouseout="tooltip('hide')"></span>
-												冰赋能
+												<i></i>冰赋能<i></i>
 											</div>
 											符记：<span id="tokenCountIce">0</span>
 										</div>
@@ -807,12 +807,12 @@
 							</div>
 							<div class="battleSideBtnContainer">
 								<span class="btn btn-primary fightBtn" id="fightBtn" onmouseover="tooltip('Fight',null,event)" onmouseout="tooltip('hide')" onclick="fightManual()">
-									战斗
+									<i></i>战斗<i></i>
 								</span>
 							</div>
 							<div class="battleSideBtnContainer">
 								<span class="btn btn-danger fightBtn" id="pauseFight" onmouseover="tooltip('AutoFight',null,event)" onmouseout="tooltip('hide')" onclick="pauseFight()" style="display: none">
-									AutoFight Off
+									<i></i>AutoFight Off<i></i>
 								</span>
 							</div>
 							<div class="battleSideBtnContainer">
@@ -823,17 +823,17 @@
 							</div>
 							<div class="battleSideBtnContainer">
 								<span class="btn voidMessage fightBtn" id="voidMapsBtn" onclick="toggleVoidMaps()" style="display: none">
-									Void Maps
+									<i></i>Void Maps<i></i>
 								</span>
 							</div>
 							<div class="battleSideBtnContainer">
 								<span class="btn btn-info fightBtn" id="portalBtn" onmouseover="tooltip('Portal', null, event)" onmouseout="tooltip('hide')" onclick="portalClicked()" style="display: none">
-									传送门
+									<i></i>传送门<i></i>
 								</span>
 							</div>
 							<div class="battleSideBtnContainer">
 								<span class="btn btn-danger fightBtn" id="repeatBtn" onmouseover="tooltip('Repeat Map', null, event)" onmouseout="tooltip('hide')" onclick = "repeatClicked()" style="display: none">
-									Repeat Off
+									<i></i>Repeat Off<i></i>
 								</span>
 							</div>
 							<div class="battleSideBtnContainer" style="display: none" id="heirloomBtnContainer">
@@ -846,12 +846,12 @@
 							</div>							
 							<div class="battleSideBtnContainer" style="display: none" id="finishDailyBtnContainer">
 								<span class="btn btn-success fightBtn" id="finishDailyBtn" onclick="tooltip('Finish Daily', null, 'update')">
-									完成日常
+									<i></i>完成日常<i></i>
 								</span>
 							</div>
 							<div class="battleSideBtnContainer" style="display: none" id="exitSpireBtnContainer">
 								<span class="btn btn-danger fightBtn" id="exitSpireBtn" onclick="tooltip('Exit Spire', null, 'update')">
-									退出尖塔
+									<i></i>退出尖塔<i></i>
 								</span>
 							</div>
 
@@ -878,13 +878,13 @@
 									<span id="mapCostFragmentCost"></span><span id="mapCostFragmentText"> Fragments</span>
 								</div>
 								<div id="mapCreateBtn" onclick='buyMap()' class="workBtn primaryColor pointer noselect col-xs-4">
-									制造
+									<i></i>制造<i></i>
 								</div>
 							</div>
 							<div id="advMapsRow" class="row">
 								<div id="advLootContainer" class="col-xs-3 mapConfigContainer lowPad">
 									<div class="advMapsTitle" onmouseover="tooltip('Loot', 'advMaps', event)" onmouseout="tooltip('hide')">
-										战利品
+										<i></i>战利品<i></i>
 									</div>
 									<br/>
 									<input value="0" id="lootAdvMapsRange" class="mapSelector mapInput" type="range" min="0" max="9" oninput="updateMapNumbers()" onchange="updateMapNumbers()">
@@ -892,7 +892,7 @@
 								</div>
 								<div id="advSizeContainer" class="col-xs-3 mapConfigContainer lowPad">
 									<div class="advMapsTitle" onmouseover="tooltip('Size', 'advMaps', event)" onmouseout="tooltip('hide')">
-										尺寸
+										<i></i>尺寸<i></i>
 									</div>
 									<br/>
 									<input value="0" id="sizeAdvMapsRange" class="mapSelector mapInput" type="range" min="0" max="9" oninput="updateMapNumbers()" onchange="updateMapNumbers()">
@@ -900,7 +900,7 @@
 								</div>
 								<div id="advDifficultyContainer" class="col-xs-3 mapConfigContainer lowPad">
 									<div class="advMapsTitle" onmouseover="tooltip('Difficulty', 'advMaps', event)" onmouseout="tooltip('hide')">
-										难度
+										<i></i>难度<i></i>
 									</div>
 									<br/>
 									<input value="0" id="difficultyAdvMapsRange" class="mapSelector mapInput" type="range" min="0" max="9" oninput="updateMapNumbers()" onchange="updateMapNumbers()">
@@ -908,7 +908,7 @@
 								</div>
 								<div id="advBiomeContainer" class="col-xs-3 mapConfigContainer lowPad" onmouseover="tooltip('Biome', 'advMaps', event)" onmouseout="tooltip('hide')">
 									<div class="advMapsTitle">
-										生物群落
+										<i></i>生物群落<i></i>
 									</div>
 									<br/>
 									<select id="biomeAdvMapsSelect" class="advSelect" onchange="updateMapCost()">
@@ -924,7 +924,7 @@
 								<div class="col-xs-2 mapConfigContainer lowPad"></div>
 								<div class="col-xs-3 mapConfigContainer lowPad">
 									<div class="advMapsTitle" onmouseover="tooltip('Special Modifier', 'advMaps', event)" onmouseout="tooltip('hide')">
-										特殊词缀
+										<i></i>特殊词缀<i></i>
 									</div>
 									<br/>
 									<select id="advSpecialSelect" class="advSelect" onchange="updateMapCost()">
@@ -933,13 +933,13 @@
 								<div class="col-xs-2 mapConfigContainer lowPad">
 									<div id="advPerfectLocked" style="border: 1px solid white">
 										<div class="advMapsTitle" id='advPerfectLockedText'>
-											Unlock at Z110
+											<i></i>Unlock at Z110<i></i>
 										</div>
 										<span class="icomoon icon-lock3"></span>
 									</div>
 									<div id="advPerfectUnlocked" style="display: none">
 										<div class="advMapsTitle" onmouseover="tooltip('Perfect Sliders', 'advMaps', event)" onmouseout="tooltip('hide')">
-											完美滑块
+											<i></i>完美滑块<i></i>
 										</div>
 										<br/>
 										<span id="advPerfectCheckbox" class="icomoon icon-checkbox-unchecked niceCheckbox" data-checked="false" onclick="swapNiceCheckbox(this); updateMapNumbers()"></span>
@@ -948,13 +948,13 @@
 								<div class="col-xs-3 mapConfigContainer lowPad">
 									<div id="advExtraLevelLocked" style="border: 1px solid white">
 										<div class="advMapsTitle" id='advExtraLockedText'>
-											Unlock at Z210
+											<i></i>Unlock at Z210<i></i>
 										</div>
 										<span class="icomoon icon-lock3"></span>
 									</div>
 									<div id="advExtraLevelUnlocked" style="display: none">
 										<div class="advMapsTitle" onmouseover="tooltip('Extra Zones', 'advMaps', event)" onmouseout="tooltip('hide')">
-											额外区域
+											<i></i>额外区域<i></i>
 										</div>
 										<br/>
 										<select id="advExtraLevelSelect" class="advSelect" onchange="updateMapCost()"></select>
@@ -984,10 +984,10 @@
 								</div>
 								<div id="selectMapBtns">
 									<span id="selectMapBtn" class="workBtn pointer noselect infoColor selectMapBtn" style="visibility: hidden" onclick="runMap()">
-										Run Map
+										<i></i>Run Map<i></i>
 									</span>
 									<span id="recycleMapBtn" class="workBtn pointer noselect dangerColor selectMapBtn" style="visibility: hidden" onclick="recycleMap()">
-										Recycle Map
+										<i></i>Recycle Map<i></i>
 									</span>
 								</div>
 								</div>
@@ -1072,13 +1072,13 @@
 						
 					</td>
 					<td class="btn btn-new" onclick="window.open('updates.html', '_blank')">
-							V<span id="versionNumber"></span> | 更新内容
+							V<span id="versionNumber"></span> | 更新内容<i></i>
 					</td>
 					<td id="portalTimer" class="timerNotPaused" onclick="toggleSetting('pauseGame')" onmouseover="tooltip('Pause the game', 'customText', event, game.options.menu['pauseGame'].description)" onmouseout="tooltip('hide')">
 						<span id="portalTime">&nbsp;</span>&nbsp;&nbsp;<span style='font-size: 0.85em; line-height: 0.85em;' class='icomoon icon-pause3'></span>&nbsp;
 					</td>
 					<td class="btn btn-default" id="autoCuipi1" onclick="importAuto1();" title="自动脆皮脚本~如果想切换/停止脚本，请点击保存游戏，然后刷新游戏~">
-							自动脚本
+						<i></i>自动脚本<i></i>
 					</td>
 				</tr>
 			</table>
@@ -1272,10 +1272,10 @@
 			<div class="col-xs-3">
 			</div>
 			<div class="col-xs-3 btn btn-info statToggleBtn" id='totalSelectBtn' onclick='toggleStats("total")'>
-				总计
+				<i></i>总计<i></i>
 			</div>
 			<div class="col-xs-3 btn btn-success statToggleBtn" id="currentSelectBtn" onclick="toggleStats('current')">
-				本周目
+				<i></i>本周目<i></i>
 			</div>
 		</div>
 		<br/>
@@ -1376,7 +1376,7 @@
 	</div>
 	<div id="heirloomsPopup" style="display: none">
 		<div id="heirloomsPopupBtns">
-			您发现了一个传家宝！
+			<i></i>您发现了一个传家宝！<i></i>
 
 			<span class="heirloomPopupBtn icomoon icon-close" onclick="closeHeirPopup()"></span>
 			<span class="heirloomPopupBtn icomoon icon-archive" onclick="toggleHeirlooms(); closeHeirPopup();"></span>

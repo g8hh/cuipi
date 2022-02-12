@@ -1924,7 +1924,7 @@ var toReturn = {
 		},
 		liquification: {
 			get description () {
-				if (game.global.universe == 2) return "该专精在宇宙2中失效";
+				if (game.global.universe == 2) return "该专精在宇宙2中失效。";
 				var text = (this.purchased) ? "This mastery is increasing " : "This mastery would increase ";
 				var totalSpires = game.global.spiresCompleted;
 				var fluffyCount = Fluffy.isRewardActive("liquid");
@@ -2036,7 +2036,7 @@ var toReturn = {
 		},
 		liquification2: {
 			get description () {
-				if (game.global.universe == 2) return "该专精在宇宙2中失效";
+				if (game.global.universe == 2) return "该专精在宇宙2中失效。";
 				var text = (this.purchased) ? "This mastery is increasing " : "This mastery would increase ";
 				var totalSpires = game.global.spiresCompleted;
 				if (game.talents.liquification.purchased) totalSpires++;
