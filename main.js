@@ -2209,7 +2209,7 @@ function manageEqualityStacks(){
 	if (game.global.universe == 2 && !game.portal.Equality.radLocked && game.portal.Equality.scalingActive){
 		swapClass('equalityTabScaling', 'equalityTabScalingOn', tabElem);
 		tabTextElem.innerHTML = "Equality (Scaling On)";
-		text += "。平等缩放已开启。";
+		text += "。平等缩放已启用。";
 		manageStacks('Equality Scaling', activeStacks, true, 'equalityStacks', 'icomoon icon-arrow-bold-down', text, false);
 	}
 	else{
