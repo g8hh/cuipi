@@ -4564,12 +4564,12 @@ var cnItems = {
     'C2 Table': '挑战²和挑战³列表',
     'Display your C2s and C3s in a convenient table which is colour coded. ': '将挑战²和挑战³的情况显示在一个列表中。',
     'Green': '绿色',
-    ' = Not worth updating.': ' = 无须更新层数。',
+    ' = Not worth updating. ': ' = 无须更新层数。',
     'Yellow': '黄色',
-    ' = Consider updating.': ' = 需要考虑更新层数。',
-    ' = Updating this C2/C3 is worth doing.': ' = 需要更新层数。',
+    ' = Consider updating. ': ' = 需要考虑更新层数。',
+    ' = Updating this C2/C3 is worth doing. ': ' = 需要更新层数。',
     'Blue': '蓝色',
-    ' = You have not yet done/unlocked this C2/C3 challenge.': ' = 挑战未完成过/未解锁。',
+    ' = You have not yet done/unlocked this C2/C3 challenge. ': ' = 挑战未完成过/未解锁。',
     'c2table': '挑战²和挑战³列表',
     'Name': '名称',
     '%HZE': '区域比',
@@ -5201,6 +5201,10 @@ var cnItems = {
     //#endregion 脚本
     //#region 多余文本防止脚本抓取
     ' - ': ' - ',
+    ' - 1)) × (1 + (': ' - 1)) × (1 + (',
+    ' × ': ' × ',
+    ' × 0.25)': ' × 0.25)',
+    ' × 80)) × (1.015^(': ' × 80)) × (1.015^(',
     ' (-': ' (-',
     ' (FA': ' (FA',
     ' (HC': ' (HC',
@@ -5221,6 +5225,7 @@ var cnItems = {
     '! ': '! ',
     ') ': ') ',
     '/': '/',
+    '•': '•',
     '• ': '• ',
     '0/sec': '0/秒',
     '1 Level map': '1 Level map',
@@ -5319,10 +5324,12 @@ var cnExcludeWhole = [
     /^\s([IVXLCDM]+)$/, //不抓取罗马数字
     /^(.*)[\u4E00-\u9FFF]+(.*)$/, //不抓取中文
     /^[e\.\s\d]+\(\+?$/, //不抓取内容
+    /^[\.\d]+%$/, //不抓取内容
     /^\d+[\.\/]$/, //不抓取内容
     /^\d+%\s$/, //不抓取内容
     /^\d\.[e\d]+$/, //不抓取内容
     /^\d{2}\/\d{2}\/\d{4} v[\d\.]+$/, //不抓取脚本内容
+    /^[e\.\d]+%\s\/$/, //不抓取内容
     /^\s\d+$/, //不抓取内容
     /^\s?\d{2}:\d{2}$/, //不抓取内容
     /^x\d+\)\s$/, //不抓取内容
