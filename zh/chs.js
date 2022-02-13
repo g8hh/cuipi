@@ -5231,6 +5231,7 @@ var cnItems = {
     '1 Level map': '1 Level map',
     '2 Level map': '2 Level map',
     '3 Level map': '3 Level map',
+    '50 + (': '50 + (',
     'Automatically gain helium equal to the amount you earned on your best run': 'Automatically gain helium equal to the amount you earned on your best run',
     'Bone Trader': 'Bone Trader',
     'Cell ': 'Cell ',
