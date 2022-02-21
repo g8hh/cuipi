@@ -1944,7 +1944,7 @@ var playerSpireTraps = {
         },
         noDirectDamage: true,
         get description(){
-            return "当敌人进入时，增加" + prettify(calcHeirloomBonus("Core", "condenserEffect", 25)) + "%毒性。另外，每个冷凝塔还可以使" + heliumOrRadon() + "获取量增加" + prettify(this.getWorldBonus(true)) + "%(效果与其他冷凝塔相互叠加)。<br/><br/>力量塔目前使" + heliumOrRadon() + "获取量增加<b>" + prettify(this.getWorldBonus()) + "%</b>。<br/><br/>(快捷键：6)";
+            return "当敌人进入时，增加" + prettify(calcHeirloomBonus("Core", "condenserEffect", 25)) + "%毒性。另外，每个冷凝塔还可以使" + heliumOrRadon() + "获取量增加" + prettify(this.getWorldBonus(true)) + "%(效果与其他冷凝塔相互叠加)。<br/><br/>冷凝塔目前使" + heliumOrRadon() + "获取量增加<b>" + prettify(this.getWorldBonus()) + "%</b>。<br/><br/>(快捷键：6)";
         },
         extraEffect: function(enemy, cell){
             var effect = (enemy && enemy.shockTurns && enemy.shockTurns > 0) ? playerSpireTraps.Lightning.shockedEffect() : 1;
