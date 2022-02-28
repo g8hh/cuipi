@@ -7060,9 +7060,43 @@ function setHeirRareText(forBones){
 	var canLower = (Fluffy.isRewardActive("stickler")) ? 500 : 0;
 	for (var x = 0; x < rarities.length; x++){
 		var rarity = rarities[x];
+		var rarityNames = game.heirlooms.rarityNames[x];
+		if (rarityNames == "Common"){
+			rarityNames = "普通";
+		}
+		else if (rarityNames == "Uncommon"){
+			rarityNames = "罕见";
+		}
+		else if (rarityNames == "Rare"){
+			rarityNames = "稀有";
+		}
+		else if (rarityNames == "Epic"){
+			rarityNames = "史诗";
+		}
+		else if (rarityNames == "Legendary"){
+			rarityNames = "传奇";
+		}
+		else if (rarityNames == "Ethereal"){
+			rarityNames = "空灵";
+		}
+		else if (rarityNames == "Magmatic"){
+			rarityNames = "岩浆";
+		}
+		else if (rarityNames == "Plagued"){
+			rarityNames = "天灾";
+		}
+		else if (rarityNames == "Radiating"){
+			rarityNames = "辐射";
+		}
+		else if (rarityNames == "Hazardous"){
+			rarityNames = "厄劫";
+		}
+		else if (rarityNames == "Enigmatic"){
+			rarityNames = "神秘";
+		}   
 		if (rarity == -1) continue;
-		if (!forBones) html += "<div class='rarityBdBox heirloomRare" + x + "'>" + game.heirlooms.rarityNames[x] + "<br/>" + (rarity / 100) + "%</div>";
-		else html += "<div class='rarityBdBox heirloomRare" + x + " forBones' title='" + game.heirlooms.rarityNames[x] + "'>" + (rarity / 100) + "%</div>";
+		if (!forBones) html += "<div class='rarityBdBox heirloomRare" + x + "'>" + rarityNames + "<br/>" + (rarity / 100) + "%</div>";
+		else html += "<div class='rarityBdBox heirloomRare" + x + " forBones' title='" + rarityNames + "'>" + (rarity / 100) + "%</div>";
 	}
 	if (forBones) document.getElementById("heirloomRarityMisc").innerHTML = html;
 	else	document.getElementById("heirRare").innerHTML = html;
