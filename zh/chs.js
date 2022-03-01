@@ -210,6 +210,7 @@ var cnItems = {
     ' - Exp': ' - 经验值',
     'Exp': '经验值',
     ' - Log Exp gained by pets.': ' - 显示绒绒污污等获得经验值的消息。',
+    ' - Runetrinket': ' - 小符饰',
     ' - Alchemy': ' - 炼金术',
     ' - Repeated': ' - 重复',
     'Repeated': '重复',
