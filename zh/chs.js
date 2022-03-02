@@ -4177,7 +4177,7 @@ var cnItems = {
     'AutoBuildings': '自动建筑',
     'Buys buildings in an efficient way. Also enables Vanilla AutoStorage if its off. ': '更有效管理购买建筑。如果关闭了游戏自带的自动存储，则将启用它。',
     'It is about 10 labs per level at level 10 plus. ': '等级10以后，每级大概需要多造10个实验室。',
-    'Run the Melting Point Map to gain one extra Smithy when at or above this value. ': '当前区域不低于该数值后，将进入熔点地图获取额外的铁匠铺。',
+    'Run the Melting Point Map to gain one extra Smithy when at or above this value. ': '当前铁匠铺数量不低于该数值后，将进入熔点地图获取额外的铁匠铺。',
     'Smithy Savings': '节约铁匠铺',
     'ABSOLUTELY WILL NOT WORK IN TESTING!': '实验性功能！',
     'Uses Smithy Saving logic when this is turned on. Make sure every SS setting is set above 0 or it wont work. This feature will stop using resources on items needed for Smithy when you have reached the targets you have selected.': '启用该选项后启用节约铁匠铺逻辑。请确保节约铁匠铺每个相关设置的值都大于0，否则该选项将无效。当您达到了选择的目标时，会阻止使用铁匠铺需要的资源来购买其他东西。(后续选项名称中简写为“节铁”)',
