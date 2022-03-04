@@ -2101,7 +2101,7 @@ var cnItems = {
     'Exit After L': '退出等级',
     'Just This Zone': '仅该区域',
     'Run Every Zone': '每个区域都运行',
-    'Run Every Other Zone': '其他区域都运行',
+    'Run Every Other Zone': '每2个区域运行',
     'Run Every 3 Zones': '每3个区域运行',
     'Run Every 5 Zones': '每5个区域运行',
     'Run Every 10 Zones': '每10个区域运行',
