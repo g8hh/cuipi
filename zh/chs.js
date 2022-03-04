@@ -1299,7 +1299,7 @@ var cnItems = {
     'Maps Cleared': '地图通过数',
     'Zones Cleared': '区域通过数',
     'Wormholed Helium': '虫洞上消耗的氦',
-    'Golden Upgrades': '黄金升级数',
+    'Golden Upgrades': '金色升级数',
     'He/Hour this Run': '本周目氦/小时',
     'Rn/Hour this Run': '本周目氡/小时',
     'Best He/Hour this Run': '本周目最高的氦/小时',
