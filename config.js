@@ -888,9 +888,9 @@ var toReturn = {
 			},
 			repeatUntil: {
 				enabled: 0,
-				description: "<p><b>Repeat Forever</b> will cause the map to continually repeat if Repeat Maps is enabled.</p><p><b>重复10次</b> will repeat unless you have 10 Map Bonus stacks.</p><p><b>Repeat for Items</b> will repeat unless there are no more special items left for that level of map.</p><p><b>Repeat for Any</b> will repeat unless there are no special items available AND you can not earn more Map Bonus stacks.</p><p><b>This setting only matters if Repeat is on. Toggling Repeat off will still leave the map when it is finished no matter what.</b></p>",
+				description: "<p><b>Repeat Forever</b> will cause the map to continually repeat if Repeat Maps is enabled.</p><p><b>重复至10层</b> will repeat unless you have 10 Map Bonus stacks.</p><p><b>Repeat for Items</b> will repeat unless there are no more special items left for that level of map.</p><p><b>Repeat for Any</b> will repeat unless there are no special items available AND you can not earn more Map Bonus stacks.</p><p><b>This setting only matters if Repeat is on. Toggling Repeat off will still leave the map when it is finished no matter what.</b></p>",
 				get titles(){
-					var arr = ["Repeat Forever", "重复10次", "Repeat for Items", "Repeat for Any"];
+					var arr = ["Repeat Forever", "重复至10层", "Repeat for Items", "Repeat for Any"];
 					if (this.enabled == 0 && game.global.mapCounterGoal > game.global.mapRunCounter){
 						var count = (game.global.mapCounterGoal - game.global.mapRunCounter);
 						arr[0] = "重复" + count + "次";
