@@ -398,7 +398,7 @@ var autoBattle = {
         counter: 0
     },
     presets: {
-        names: ["Preset 1", "Preset 2", "Preset 3"],
+        names: ["预设1", "预设2", "预设3"],
         p1: [],
         p2: [],
         p3: []
@@ -624,7 +624,7 @@ var autoBattle = {
             }
             this.settings[setting].enabled = data.settings[setting];
         }
-        if (!this.presets.names) this.presets.names = ["Preset 1", "Preset 2", "Preset 3"];
+        if (!this.presets.names) this.presets.names = ["预设1", "预设2", "预设3"];
         game.stats.saHighestLevel.valueTotal = this.maxEnemyLevel;
         this.resetCombat(true);
     },
@@ -766,9 +766,9 @@ var autoBattle = {
             hidden: false,
             level: 1,
             description: function(){
-                return "-" + prettify((1 - this.trimpAttackSpeed()) * 100) + "% Huffy Attack Time, +" + prettify((1 - this.enemyAttackSpeed()) * -100) + "% Enemy Attack Time.";
+                return "使怒怒的攻击间隔-" + prettify((1 - this.trimpAttackSpeed()) * 100) + "%，敌人的攻击间隔+" + prettify((1 - this.enemyAttackSpeed()) * -100) + "%。";
             },
-            upgrade: "-2% Huffy Attack Time, +2% Enemy Attack Time (compounding)",
+            upgrade: "每级使怒怒的攻击间隔-2%，敌人的攻击间隔+2%(相互叠乘)",
             trimpAttackSpeed: function(){
                 return Math.pow(0.98, this.level);
             },
@@ -787,9 +787,9 @@ var autoBattle = {
             hidden: false,
             level: 1,
             description: function(){
-                return "+" + this.effect() + " attack damage.";
+                return "使怒怒的攻击力+" + this.effect() + "。";
             },
-            upgrade: "+1 attack damage",
+            upgrade: "每级使怒怒的攻击力+1",
             effect: function(){
                 return this.level;
             },
@@ -804,9 +804,9 @@ var autoBattle = {
             hidden: false,
             level: 1,
             description: function(){
-                return "+" + prettify(this.effect()) + " base health.";
+                return "使怒怒的基础生命值+" + prettify(this.effect()) + "。";
             },
-            upgrade: "+20 base health",
+            upgrade: "每级使怒怒的基础生命值+20",
             effect: function(){
                 return 20 * this.level;
             },
@@ -821,9 +821,9 @@ var autoBattle = {
             hidden: false,
             level: 1,
             description: function(){
-                return "Can create a Bleed on the Enemy for 10 seconds. +" + prettify(this.bleedMod() * 100) + "% Bleed Damage" + ((this.level >= 5) ? ", +" + prettify(this.attack()) + " Attack" : "") + ". +" + prettify(this.bleedChance()) + "% Bleed Chance, doubled if the Enemy is Shocked or Poisoned.";
+                return "可以使敌人流血，持续10秒。使怒怒的流血伤害+" + prettify(this.bleedMod() * 100) + "%" + ((this.level >= 5) ? "，攻击力+" + prettify(this.attack()) : "") + "。使怒怒触发流血的概率+" + prettify(this.bleedChance()) + "%，如果敌人震荡或中毒了，则使概率翻倍。";
             },
-            upgrade: "+10 Attack and +20% Bleed Damage per 5 levels. +5% Bleed Damage and +3% Bleed Chance",
+            upgrade: "每5级使怒怒的攻击力+10，流血伤害+20%。每级使怒怒的流血伤害+5%，触发流血的概率+3%",
             attack: function(){
                 return Math.floor(this.level / 5) * 10;
             },
@@ -850,9 +850,9 @@ var autoBattle = {
             hidden: false,
             level: 1,
             description: function(){
-                return "Can create a Poison on the Enemy for 10 seconds. +" + prettify(this.effect()) + " Poison Damage. +25% Poison Chance, doubled if the enemy is bleeding or shocked."
+                return "可以使敌人中毒，持续10秒。使怒怒的中毒伤害+" + prettify(this.effect()) + "。使怒怒触发中毒的概率+25%，如果敌人流血或震荡了，则使概率翻倍。"
             },
-            upgrade: "+1 poison damage",
+            upgrade: "每级使怒怒的中毒伤害+1",
             effect: function(){
                 return this.level;
             },
@@ -870,9 +870,9 @@ var autoBattle = {
             hidden: false,
             level: 1,
             description: function(){
-                return "Can create a Shock on the Enemy for 10 seconds. +" + prettify(this.shockMod() * 100) + "% Shock Damage. +35% Shock Chance, doubled if the enemy is bleeding or poisoned.";
+                return "可以使敌人震荡，持续10秒。使怒怒的震荡伤害+" + prettify(this.shockMod() * 100) + "%。使怒怒触发震荡的概率+35%，如果敌人流血或中毒了，则使概率翻倍。";
             },
-            upgrade: "+10% Shock Damage",
+            upgrade: "每级使怒怒的震荡伤害+10%",
             shockMod: function(){
                 return 0.15 + (0.1 * this.level);
             },
@@ -890,9 +890,9 @@ var autoBattle = {
             hidden: false,
             level: 1,
             description: function(){
-                return "+" + prettify(this.effect()) + " Defense."
+                return "使怒怒的防御力+" + prettify(this.effect()) + "。"
             },
-            upgrade: "+1 Defense",
+            upgrade: "每级使怒怒的防御力+1",
             effect: function(){
                 return this.level;
             },
@@ -912,9 +912,9 @@ var autoBattle = {
             zone: 81,
             description: function(){
                 var stacks = this.poisonStack();
-                return "+50% Poison Chance if the Enemy is not already Poisoned. +" + this.defenseEffect() + " Defense if the Enemy is Poisoned. +" + prettify(this.poisonChance()) + "% Poison Chance. Poisons you inflict can stack " + stacks + " more time" + needAnS(stacks) + ".";
+                return "如果敌人未中毒，则使怒怒触发中毒的概率+50%。如果敌人中毒了，则使怒怒的防御力+" + this.defenseEffect() + "。使怒怒触发中毒的概率+" + prettify(this.poisonChance()) + "%。怒怒触发的中毒可以多叠加" + stacks + "层。";
             },
-            upgrade: "+1 Max Poison Stack per 4 levels. +1 Defense, +4% standard Poison Chance",
+            upgrade: "每4级使中毒层数的上限+1。每级使怒怒的防御力+1，怒怒触发中毒的基础概率+4%",
             defenseEffect: function(){
                 return this.level;
             },
@@ -942,9 +942,9 @@ var autoBattle = {
             level: 1,
             zone: 87,
             description: function(){
-                return "+" + prettify(this.defense()) + " Defense. +" + prettify(this.resistance()) + "% to all Resistances.";
+                return "使怒怒的防御力+" + prettify(this.defense()) + "。所有抗性+" + prettify(this.resistance()) + "%。";
             },
-            upgrade: "+2 Defense, +5% Resist",
+            upgrade: "每级使怒怒的防御力+2，所有抗性+5%",
             defense: function(){
                 return 2 + (this.level * 2);
             },
@@ -968,9 +968,9 @@ var autoBattle = {
             level: 1,
             zone: 93,
             description: function(){
-                return "Increases Dust gained from Enemies by " + prettify(this.effect() * 100) + "% PLUS your Lifesteal amount when the Enemy dies."
+                return "使敌人多掉落" + prettify(this.effect() * 100) + "%魔尘，该数值还会*加*上*敌人死亡时怒怒的吸血数值。"
             },
-            upgrade: "+10% Dust Gained",
+            upgrade: "每级使敌人多掉落10%魔尘",
             effect: function(){
                 return 0.2 + (0.1 * this.level);
             },
@@ -987,9 +987,9 @@ var autoBattle = {
             level: 1,
             zone: 95,
             description: function(){
-                return "-" + prettify((1 - this.effect()) * 100) + "% Attack Time and +" + prettify(this.defense()) + " Defense if the Enemy is not Bleeding."
+                return "如果敌人未流血，则使怒怒的攻击间隔-" + prettify((1 - this.effect()) * 100) + "%，防御力+" + prettify(this.defense()) + "。"
             },
-            upgrade: "-3% Attack Time (compounding), +4 Defense",
+            upgrade: "每级使怒怒的攻击间隔-3%(相互叠乘)，防御力+4",
             effect: function(){
                 return 0.8765 * Math.pow(0.97, this.level);
             },
@@ -1012,9 +1012,9 @@ var autoBattle = {
             level: 1,
             zone: 98,
             description: function(){
-                return "Heal for " + prettify(this.healAmt()) + " per stack of Poison whenever one of your Poisons deals damage. Your Poisons tick " + prettify((1 - this.tickMult()) * 100) + "% faster.";
+                return "当怒怒触发中毒造成伤害时，每层中毒使怒怒的生命值恢复" + prettify(this.healAmt()) + "。怒怒的中毒触发速度增加" + prettify((1 - this.tickMult()) * 100) + "%。";
             },
-            upgrade: "+0.5 Heal on Poison Tick, +1% Poison Tick Speed",
+            upgrade: "每级使怒怒的生命值恢复量+0.5，中毒触发速度+1%",
             healAmt: function(){
                 return 0.5 + (0.5 * this.level);
             },
@@ -1035,9 +1035,9 @@ var autoBattle = {
             level: 1,
             zone: 100,
             description: function(){
-                return "+" + prettify(this.effect() * 100) + "% Lifesteal. Huffy's Lifesteal heals twice as much off of Bleed damage.";
+                return "使怒怒的吸血+" + prettify(this.effect() * 100) + "%。怒怒因敌人流血而吸血恢复的生命值翻倍。";
             },
-            upgrade: "+5% Lifesteal",
+            upgrade: "每级使怒怒的吸血+5%",
             effect: function(){
                 return 0.2 + (0.05 * this.level);
             },
@@ -1054,9 +1054,9 @@ var autoBattle = {
             level: 1,
             zone: 103,
             description: function(){
-                return "+" + prettify(this.defense()) + " Defense. +" + prettify(this.health()) + " Health.";
+                return "使怒怒的防御力+" + prettify(this.defense()) + "。使怒怒的生命值+" + prettify(this.health()) + "。";
             },
-            upgrade: "+6 defense, +100 health",
+            upgrade: "每级使怒怒的防御力+6，生命值+100",
             defense: function(){
                 return 14 + (6 * this.level);
             },
@@ -1077,9 +1077,9 @@ var autoBattle = {
             level: 1,
             zone: 105,
             description: function(){
-                return "Can create a Shock on an enemy for 20 seconds. +" + prettify(this.attack()) + " Attack, +" + prettify(this.shockChance()) + "% Shock Chance, +" + prettify(this.shockMod() * 100) + "% Shock Damage. -25% Attack Time if the Enemy is not Shocked, +25% Lifesteal if the Enemy is Shocked.";
+                return "可以使敌人震荡，持续20秒。使怒怒的攻击力+" + prettify(this.attack()) + "，触发震荡的概率+" + prettify(this.shockChance()) + "%，震荡伤害+" + prettify(this.shockMod() * 100) + "%。如果敌人未震荡，则使怒怒的攻击间隔-25%，如果敌人震荡了，则使怒怒的吸血+25%。";
             },
-            upgrade: "+4 Attack, +10% Shock Chance, +10% Shock Damage",
+            upgrade: "每级使怒怒的攻击力+4，触发震荡的概率+10%，震荡伤害+10%",
             attack: function(){
                 return 6 + (4 * this.level);
             },
@@ -1108,9 +1108,9 @@ var autoBattle = {
             level: 1,
             zone: 110,
             description: function(){
-                return "Can create a Poison on the Enemy for 10 seconds. +" + prettify(this.poisonChance()) + "% Poison Chance, +" + prettify(this.poisonMod()) + " Poison Damage. Enemy Attack is reduced by 15% while the Enemy is Poisoned.";
+                return "可以使敌人中毒，持续10秒。使怒怒触发中毒的概率+" + prettify(this.poisonChance()) + "%，中毒伤害+" + prettify(this.poisonMod()) + "。如果敌人中毒了，则使它的攻击力减少15%。";
             },
-            upgrade: "+10% Poison Chance, +2 Poison Damage",
+            upgrade: "每级使怒怒触发中毒的概率+10%，中毒伤害+2",
             poisonChance: function(){
                 return 30 + (10 * this.level);
             },
@@ -1133,9 +1133,9 @@ var autoBattle = {
             level: 1,
             zone: 113,
             description: function(){
-                return "When Poisoned, Bleeding, or Shocked, gain +" + prettify(this.attack()) + " Attack, -15% Attack Time, +" + prettify(this.lifesteal() * 100) + "% Lifesteal, and take " + prettify((1 - this.damageTakenMult()) * 100) + "% less damage from all sources.";
+                return "如果怒怒中毒、流血或震荡了，则使它的攻击力+" + prettify(this.attack()) + "，攻击间隔-15%，吸血+" + prettify(this.lifesteal() * 100) + "%，受到的伤害减少" + prettify((1 - this.damageTakenMult()) * 100) + "%。";
             },
-            upgrade: "+6 Attack, +6% Lifesteal, -3% damage taken (compounding, never reaching 75%)",
+            upgrade: "每级使怒怒的攻击力+6，吸血+6%，受到的伤害-3%(相互叠乘，最终会逼近75%)",
             damageTakenMult: function(){
                 return (((0.825 * Math.pow(0.93, (this.level - 1))) / 1.5) + 0.25);
             },
@@ -1164,9 +1164,9 @@ var autoBattle = {
             level: 1,
             zone: 115,
             description: function(){
-                return "+" + prettify(this.defense()) + " Defense, +" + prettify(this.shockChance()) + "% Shock Chance, +" + prettify(this.shockMod() * 100) + "% Shock Damage, +50% to all Resistances. If the Enemy is Shocked, increase its Attack Time by " + prettify((this.enemySpeed() - 1) * 100) + "%.";
+                return "使怒怒的防御力+" + prettify(this.defense()) + "，触发震荡的概率+" + prettify(this.shockChance()) + "%，震荡伤害+" + prettify(this.shockMod() * 100) + "%，所有抗性+50%。如果敌人震荡了，则使它的攻击间隔增加" + prettify((this.enemySpeed() - 1) * 100) + "%。";
             },
-            upgrade: "+3 Defense, +15% Shock Chance, +15% Shock Damage, +2% Enemy Attack Time",
+            upgrade: "每级使怒怒的防御力+3，触发震荡的概率+15%，震荡伤害+15%，敌人的攻击间隔+2%",
             defense: function(){
                 return 7 + (3 * this.level);
             },
@@ -1201,9 +1201,9 @@ var autoBattle = {
             level: 1,
             zone: 120,
             description: function(){
-                return "+" + prettify(this.attack()) + " Attack, +" + prettify(this.defense()) + " Defense, +" + prettify(this.health()) + " Health, +" + prettify(this.resists()) + "% to all Resistances.";
+                return "使怒怒的攻击力+" + prettify(this.attack()) + "，防御力+" + prettify(this.defense()) + "，生命值+" + prettify(this.health()) + "，所有抗性+" + prettify(this.resists()) + "%。";
             },
-            upgrade: "+5 Attack, +50 Health, +4 Defense, +10% Resists",
+            upgrade: "每级使怒怒的攻击力+5，防御力+4，生命值+50，所有抗性+10%",
             attack: function(){
                 return 10 + (5 * this.level);
             },
@@ -1235,9 +1235,9 @@ var autoBattle = {
             level: 1,
             zone: 122,
             description: function(){
-                return "+" + prettify(this.poisonMod()) + " Poison Damage, +1 Max Poison Stack, +" + prettify(this.health()) + " Health, +" + prettify(this.resists()) + "% to all Resistances.";
+                return "使怒怒的中毒伤害+" + prettify(this.poisonMod()) + "，中毒可以多叠加1层，生命值+" + prettify(this.health()) + "，所有抗性+" + prettify(this.resists()) + "%。";
             },
-            upgrade: "+3 Poison Damage, +50 Health, +10% Resists",
+            upgrade: "每级使怒怒的中毒伤害+3，生命值+50，所有抗性+10%",
             poisonMod: function(){
                 return 7 + (3 * this.level);
             },
@@ -1266,9 +1266,9 @@ var autoBattle = {
             level: 1,
             zone: 123,
             description: function(){
-                return "+" + prettify(this.bleedChance()) + "% to Bleed Chance, +" + prettify(this.attack()) + " Attack, -25% Enemy Attack Time, -25% Enemy Attack Damage. Fills up " + prettify(this.barFill() * 100) + "% of your Attack Speed bar whenever you cause or receive a Bleed.";
+                return "使怒怒触发流血的概率+" + prettify(this.bleedChance()) + "%，攻击力+" + prettify(this.attack()) + "。使敌人的攻击间隔-25%，攻击力-25%。每次怒怒或敌人触发流血时，使怒怒的攻击进度条填充" + prettify(this.barFill() * 100) + "%。";
             },
-            upgrade: "+5% Bleed Chance, +2 Attack, +5% bar filled on Bleed",
+            upgrade: "每级使怒怒触发流血的概率+5%，攻击力+2，攻击进度条多填充5%",
             attack: function(){
                 return 6 + (this.level * 2)
             },
@@ -1296,9 +1296,9 @@ var autoBattle = {
             level: 1,
             zone: 125,
             description: function(){
-                return "+" + prettify(this.attack()) + " Attack. +" + prettify(this.lifesteal() * 100) + "% Lifesteal if the Enemy is not Poisoned or Bleeding.";
+                return "使怒怒的攻击力+" + prettify(this.attack()) + "。如果敌人未中毒和流血，则使怒怒的吸血+" + prettify(this.lifesteal() * 100) + "%。";
             },
-            upgrade: "+4 Attack, +10% Lifesteal",
+            upgrade: "每级使怒怒的攻击力+4，吸血+10%",
             attack: function(){
                 return 11 + (this.level * 4);
             },
@@ -1321,9 +1321,9 @@ var autoBattle = {
             level: 1,
             zone: 130,
             description: function(){
-                return "+" + prettify(this.shockChance()) + "% Shock Chance, +" + prettify(this.shockMod() * 100) + "% Shock Damage, +" + prettify(this.shockResist()) + "% Shock Resist. -" + prettify((1 - this.attackSpeed()) * 100) + "% Attack Time if the Enemy is Shocked. When you Shock an Enemy, they lose all progress towards their attack. +" + prettify(this.attack()) + " Attack for each time you've Shocked this Enemy (up to 10 times).";
+                return "使怒怒触发震荡的概率+" + prettify(this.shockChance()) + "%，震荡伤害+" + prettify(this.shockMod() * 100) + "%，震荡抗性+" + prettify(this.shockResist()) + "%。如果敌人震荡了，则使怒怒的攻击间隔-" + prettify((1 - this.attackSpeed()) * 100) + "%。每次怒怒触发震荡时，使敌人的攻击进度条归零。每当怒怒对同一个敌人触发震荡时，使怒怒的攻击力+" + prettify(this.attack()) + "(最高为10次)。";
             },
-            upgrade: "+5% Shock Chance, +5% Shock Damage, -5% Attack Time, +5% Shock Resist, +1 Attack per Shock",
+            upgrade: "每级使怒怒触发震荡的概率+5%，震荡伤害+5%，震荡抗性+5%，攻击间隔-5%，攻击力多+1",
             attackSpeed: function(){
                 return 0.9 * Math.pow(0.95, this.level);
             },
@@ -1356,9 +1356,9 @@ var autoBattle = {
             level: 1,
             zone: 133,
             description: function(){
-                return "Can create a Bleed on the Enemy for 10 seconds. +100% Bleed Chance if the Enemy is at full Health, otherwise +25%. +" + prettify(this.attack()) + " Attack if the Enemy is Bleeding. +" + prettify(this.bleedMod() * 100) + "% Bleed Damage, +" + prettify(this.health()) + " Health.";
+                return "可以使敌人流血，持续10秒。如果敌人的生命值全满，则使怒怒触发流血的概率+100%，否则使怒怒触发流血的概率+25%。如果敌人流血了，则使怒怒的攻击力+" + prettify(this.attack()) + "。使怒怒的流血伤害+" + prettify(this.bleedMod() * 100) + "%，生命值+" + prettify(this.health()) + "。";
             },
-            upgrade: "+2 Attack, +25% Bleed Damage, +100 Health",
+            upgrade: "每级使怒怒的攻击力+2，流血伤害+25%，生命值+100",
             attack: function(){
                 return 30 + (this.level * 2);
             },
@@ -1386,9 +1386,9 @@ var autoBattle = {
             level: 1,
             zone: 135,
             description: function(){
-                return "+" + prettify(this.defense()) + " Defense and +" + prettify(this.health()) + " Max Health if the Enemy is Poisoned. On adding a new Poison Stack to an Enemy that hasn't had poisons expire, heal for half of this item's Max Health. If the Enemy is at Max Poison Stacks, non-Lifesteal healing effects on you are doubled. +" + prettify(this.poisonMod()) + " Poison Damage."
+                return "如果敌人中毒了，则使怒怒的防御力+" + prettify(this.defense()) + "，生命值+" + prettify(this.health()) + "。如果该敌人从未有中毒失效过，则怒怒触发中毒时，使您恢复该物品一半生命值数值的生命值。如果该敌人的中毒层数达到上限，则使非吸血的生命值恢复手段恢复的怒怒生命值翻倍。使怒怒的中毒伤害+" + prettify(this.poisonMod()) + "。"
             },
-            upgrade: "+5 Defense, +500 Health, +10 Poison Damage",
+            upgrade: "每级使怒怒的防御力+5，生命值+500，中毒伤害+10",
             defense: function(){
                 return 25 + (5 * this.level);
             },
@@ -1421,9 +1421,9 @@ var autoBattle = {
             level: 1,
             zone: 138,
             description: function(){
-                return "+" + prettify(this.defense()) + " Defense, +" + prettify(this.health()) + " Health, +" + prettify(this.resist()) + "% Bleed Resist. If Huffy has an item that can create a Bleed, gain +" + prettify(this.attack()) + " Attack."
+                return "使怒怒的防御力+" + prettify(this.defense()) + "，生命值+" + prettify(this.health()) + "，流血抗性+" + prettify(this.resist()) + "%。如果怒怒装备了可以使敌人流血的物品，则使怒怒的攻击力+" + prettify(this.attack()) + "。"
             },
-            upgrade: "+30 Defense, +1000 Health, +20% Bleed Resist, +5 Attack",
+            upgrade: "每级使怒怒的防御力+30，生命值+1000，流血抗性+20%，攻击力+5",
             attack: function(){
                 return 10 + (5 * this.level);
             },
@@ -1437,7 +1437,7 @@ var autoBattle = {
                 return 30 + (20 * this.level);
             },
             doStuff: function(){
-                if (autoBattle.items.Rusty_Dagger.equipped || autoBattle.items.Big_Cleaver.equipped) autoBattle.trimp.attack += this.attack();
+                if (autoBattle.items.Rusty_Dagger.equipped || autoBattle.items.Big_Cleaver.equipped || autoBattle.items.Bag_of_Nails.equipped) autoBattle.trimp.attack += this.attack();
                 autoBattle.trimp.maxHealth += this.health();
                 autoBattle.trimp.defense += this.defense();
                 autoBattle.trimp.bleedResist += this.resist();
@@ -1452,9 +1452,9 @@ var autoBattle = {
             level: 1,
             zone: 140,
             description: function(){
-                return "The Enemy is always Shocked, taking at least " + prettify(this.shockMod() * 100) + "% more damage. +" + prettify(this.health()) + " Health, +" + prettify(this.resist()) +  "% Poison Resist, +3 Maximum Poison Stacks.";
+                return "使敌人常时震荡，至少多受到" + prettify(this.shockMod() * 100) + "%伤害。使怒怒的生命值+" + prettify(this.health()) + "，中毒抗性+" + prettify(this.resist()) +  "%，中毒可以多叠加3层。";
             },
-            upgrade: "+20% PermaShock Damage, +500 Health, 20% Poison Resist",
+            upgrade: "每级使被常时震荡的敌人受到的伤害+20%。每级使怒怒的生命值+500，中毒抗性+20%",
             shockMod: function(){
                 return (0.2 * this.level);
             },
@@ -1484,9 +1484,9 @@ var autoBattle = {
             level: 1,
             zone: 143,
             description: function(){
-                return "-" + prettify((1 - this.attackTime()) * 100) + "% Attack Time, +" + prettify(this.attack()) + " Attack, +" + prettify(this.health()) + " Health, +" + prettify(this.lifesteal() * 100) + "% Lifesteal. Your Shocks last a maximum of 10 seconds, and your Bleeds can be reapplied when below 5 seconds.";
+                return "使怒怒的攻击间隔-" + prettify((1 - this.attackTime()) * 100) + "%，攻击力+" + prettify(this.attack()) + "，生命值+" + prettify(this.health()) + "，吸血+" + prettify(this.lifesteal() * 100) + "%。使怒怒触发的震荡最多持续10秒，触发的流血在持续时间低于5秒时可以重新触发。";
             },
-            upgrade: "-5% Attack Time, +5 Attack, +250 Health, +5% Lifesteal",
+            upgrade: "每级使怒怒的攻击间隔-5%，攻击力+5，生命值+250，吸血+5%",
             attackTime: function(){
                 return 0.842 * Math.pow(0.95, this.level);
             },
@@ -1516,9 +1516,9 @@ var autoBattle = {
             level: 1,
             zone: 148,
             description: function(){
-                return "Your Poisons tick +" + prettify((1 - this.tickMult()) * 100) + "% faster. +" + prettify(this.eachPoison()) + " Poison Damage for every percentage point of Bleed or Shock resist on the Enemy. Heal for " + prettify(this.healAmt()) + " per stack of Poison when your Poisons deal damage." 
+                return "使怒怒的中毒触发速度+" + prettify((1 - this.tickMult()) * 100) + "%。敌人每有1%的流血或震荡抗性，就使怒怒的中毒伤害+" + prettify(this.eachPoison()) + "。当怒怒触发中毒造成伤害时，每层中毒使怒怒的生命值恢复" + prettify(this.healAmt()) + "。" 
             },
-            upgrade: "+2% Poison Tick Rate, +0.05 Poison Damage per Enemy Resist, +5 Heal on Poison Tick",
+            upgrade: "每级使怒怒的中毒触发速度+2%，中毒伤害+0.05，每层中毒生命值多恢复5",
             tickMult: function(){
                 return 0.816 * Math.pow(0.98, this.level);
             },
@@ -1547,9 +1547,9 @@ var autoBattle = {
             level: 1,
             zone: 150,
             description: function(){
-                return "Can create a Poison for 20 seconds. +" + prettify(this.poisonChance()) + "% Poison Chance, +" + prettify(this.poisonMod()) + " Poison Damage, +" + prettify(this.defense()) + " Defense, +" + prettify(this.health()) + " Health. Every third hit against an Enemy with Max Poison Stacks adds another Max Stack (up to +" + prettify(this.maxStacks()) + " Max Stacks)."; 
+                return "可以使敌人中毒，持续20秒。使怒怒触发中毒的概率+" + prettify(this.poisonChance()) + "%，中毒伤害+" + prettify(this.poisonMod()) + "，防御力+" + prettify(this.defense()) + "，生命值+" + prettify(this.health()) + "。每当怒怒对同一个中毒层数达到上限的敌人进行3次攻击，将使中毒层数的上限再+1层(层数上限最多+" + prettify(this.maxStacks()) + "层)。"; 
             },
-            upgrade: "+15% Poison Chance, +20 Poison Damage, +50 Defense, +500 Health, +2 Max Stacks",
+            upgrade: "每级使怒怒触发中毒的概率+15%，中毒伤害+20，防御力+50，生命值+500，中毒层数的上限+2层",
             poisonChance: function(){
                 return 35 + (15 * this.level);
             },
@@ -1584,9 +1584,9 @@ var autoBattle = {
             level: 1,
             zone: 160,
             description: function(){
-                return "+" + prettify(this.attack()) + " Attack, +" + prettify(this.shockMod() * 100) + "% Shock Damage, +" + prettify(this.defense()) + " Defense, +" + prettify(this.health()) + " Health. If the Enemy is Poisoned or Bleeding, Huffy loses 20% of his Max Health per second.";
+                return "使怒怒的攻击力+" + prettify(this.attack()) + "，震荡伤害+" + prettify(this.shockMod() * 100) + "%，防御力+" + prettify(this.defense()) + "，生命值+" + prettify(this.health()) + "。如果敌人中毒或流血了，则怒怒每秒失去上限20%的生命值。";
             },
-            upgrade: "+50 Attack, +50% Shock Damage, +50 Defense, +1000 Health",
+            upgrade: "每级使怒怒的攻击力+50，震荡伤害+50%，防御力+50，生命值+1000",
             attack: function(){
                 return 50 + (50 * this.level);
             },
@@ -1623,9 +1623,9 @@ var autoBattle = {
             level: 1,
             zone: 165,
             description: function(){
-                return "+" + prettify(this.attack()) + " Attack, +" + prettify(this.lifesteal() * 100) + "% Lifesteal, +" + prettify(this.bleedMod() * 100) + "% Bleed Damage, +" + prettify(this.bleedChance()) + "% Bleed Chance. If you have an item that can cause a Bleed, the Enemy starts combat with 25% less Max Health."
+                return "使怒怒的攻击力+" + prettify(this.attack()) + "，吸血+" + prettify(this.lifesteal() * 100) + "%，流血伤害+" + prettify(this.bleedMod() * 100) + "%，触发流血的概率+" + prettify(this.bleedChance()) + "%。如果怒怒装备了可以使敌人流血的物品，则使敌人在进入战斗前生命值上限减少25%。"
             },
-            upgrade: "+75 Attack, +10% Lifesteal, +75% Bleed Damage, +50% Bleed Chance",
+            upgrade: "每级使怒怒的攻击力+75，吸血+10%，流血伤害+75%，触发流血的概率+50%",
             attack: function(){
                 return 125 + (75 * this.level);
             },
@@ -1663,9 +1663,9 @@ var autoBattle = {
             startPrice: 2.7e9,
             priceMod: 10,
             description: function(){
-                return "Can create a Bleed on the Enemy for 10 seconds. Enemies are unaffected by your Slow Aura, but deal 25% less damage while Bleeding. +" + prettify(this.attack()) + " Attack, +" + prettify(this.bleedMod() * 100) + "% Bleed Damage, +" + prettify(this.health()) + " Health."
+                return "可以使敌人流血，持续10秒。使怒怒的减速气场无效。当敌人流血时，使它们的攻击力减少25%。使怒怒的攻击力+" + prettify(this.attack()) + "，流血伤害+" + prettify(this.bleedMod() * 100) + "%，生命值+" + prettify(this.health()) + "。"
             },
-            upgrade: "+100 Attack, +75% Bleed Damage, +500 Health",
+            upgrade: "每级怒怒的攻击力+100，流血伤害+75%，生命值+500",
             attack: function(){
                 return 150 + (this.level * 100);
             },
@@ -1694,9 +1694,9 @@ var autoBattle = {
             level: 1,
             zone: 170,
             description: function(){
-                return "+" + prettify(this.health()) + " Health, +" + prettify(this.defense()) + " Defense, +" + prettify(this.lifesteal() * 100) + "% Lifesteal. Huffy gains 0.5% increased Attack for each % of his missing Health. When Huffy is below 50% Health, take 30% less damage from all sources. " 
+                return "使怒怒的生命值+" + prettify(this.health()) + "，防御力+" + prettify(this.defense()) + "，吸血+" + prettify(this.lifesteal() * 100) + "%。怒怒每失去1%生命值，就使它的攻击力增加0.5%。当怒怒的生命值低于50%时，使它受到的伤害减少30%。" 
             },
-            upgrade: "+1000 Health, +100 Defense, +25% Lifesteal",
+            upgrade: "每级使怒怒的生命值+1000，防御力+100，吸血+25%",
             health: function(){
                 return 1000 + (1000 * this.level);
             },
@@ -1728,14 +1728,14 @@ var autoBattle = {
         The_Doomspring:{
             description: function(){
                 var stack = prettify((1 - this.attackTime()) * 100);
-                return "+" + prettify(this.health()) + " Health, -" + stack + "% Attack Time. For every 15000 damage taken this battle, -" + stack + "% more Attack Time. Stacks up to " + this.stacks() + " times.";
+                return "使怒怒的生命值+" + prettify(this.health()) + "，攻击间隔-" + stack + "%。每当怒怒在与同一个敌人战斗中受到15000伤害，就使怒怒的攻击间隔-" + stack + "%。最高可以减少" + this.stacks() + "次。";
             },
             owned: false,
             equipped: false,
             hidden: false,
             level: 1,
             zone: 180,
-            upgrade: "-5% Attack Time, +1500 Health, +1 stacks",
+            upgrade: "每级使怒怒的生命值+1500，攻击间隔-5%，最高可以减少的次数多1次",
             attackTime: function(){
                 return 0.842 * Math.pow(0.95, this.level);
             },
@@ -1763,9 +1763,9 @@ var autoBattle = {
             level: 1,
             zone: 185,
             description: function(){
-                return "+" + prettify(this.attack()) + " Attack, +" + this.poisonStack() + " Max Poison Stacks. If the enemy is Poisoned, +" + prettify(this.bleedMod() * 100) + "% Bleed Damage. If the enemy is Bleeding, +" + prettify(this.poisonMod()) + " Poison Damage.";
+                return "使怒怒的攻击力+" + prettify(this.attack()) + "，中毒层数的上限+" + this.poisonStack() + "。如果敌人中毒了，则使怒怒的流血伤害+" + prettify(this.bleedMod() * 100) + "%。如果敌人流血了，则使怒怒的中毒伤害+" + prettify(this.poisonMod()) + "。";
             },
-            upgrade: "+250 Attack, +5 Max Poison Stacks, +200% Bleed Damage, +250 Poison Damage",
+            upgrade: "每级使怒怒的攻击力+250，中毒层数的上限+5，流血伤害+200%，中毒伤害+250",
             attack: function(){
                 return 250 + (250 * this.level);
             },
@@ -1796,9 +1796,9 @@ var autoBattle = {
             level: 1,
             zone: 195,
             description: function(){
-                return "+" + prettify(this.attack()) + " Attack, +" + prettify(this.health()) + " Health, +" + prettify(this.defense()) + " Defense, -" + prettify((1 - this.attackTime()) * 100) + "% Attack Time.";
+                return "使怒怒的攻击力+" + prettify(this.attack()) + "，生命值+" + prettify(this.health()) + "，防御力+" + prettify(this.defense()) + "，攻击间隔-" + prettify((1 - this.attackTime()) * 100) + "%。";
             },
-            upgrade: "+750 Attack, +2000 Health, +200 Defense, -5% Attack Time",
+            upgrade: "每级使怒怒的攻击力+750，生命值+2000，防御力+200，攻击间隔-5%",
             attack: function(){
                 return 1250 + (750 * this.level);
             },
@@ -1829,9 +1829,9 @@ var autoBattle = {
             level: 1,
             zone: 205,
             description: function(){
-                return "+" + prettify(this.health()) + " Health, +" + prettify(this.poisonMod()) + " Poison Damage, +" + prettify(this.poisonStack()) + " Max Poison Stacks. If the Enemy is Poisoned, all damage Huffy takes is stored in the Golem, and Huffy takes 10% of the Golem's stored damage every second.";
+                return "使怒怒的生命值+" + prettify(this.health()) + "，中毒伤害+" + prettify(this.poisonMod()) + "，中毒层数的上限+" + prettify(this.poisonStack()) + "。如果敌人中毒了，则将怒怒受到的伤害存至魔像中，使怒怒每秒受到伤害，该伤害的数值为魔像存储总伤害的10%。";
             },
-            upgrade: "+1000 Health, +400 Poison Damage, +5 Max Poison Stacks",
+            upgrade: "每级使怒怒的生命值+1000，中毒伤害+400，中毒层数的上限+5",
             health: function(){
                 return 2000 + (1000 * this.level);
             },
@@ -1868,9 +1868,9 @@ var autoBattle = {
             level: 1,
             zone: 210,
             description: function(){
-                return "+" + prettify(this.attack()) + " Attack, +" + prettify(this.bleedMod() * 100) + "% Bleed Damage, +" + prettify(this.shockMod() * 100) + "% Shock Damage, +" + prettify(this.poisonMod()) + " Poison Damage, +1 Poison Stack Rate, and Poisons tick 10% faster.";
+                return "使怒怒的攻击力+" + prettify(this.attack()) + "，流血伤害+" + prettify(this.bleedMod() * 100) + "%，震荡伤害+" + prettify(this.shockMod() * 100) + "%，中毒伤害+" + prettify(this.poisonMod()) + "，中毒层数叠加数+1，中毒触发速度增加10%。";
             },
-            upgrade: "+2500 Attack, +300% Bleed Damage, +300% Shock Damage, +1000 Poison Damage",
+            upgrade: "每级使怒怒的攻击力+2500，流血伤害+300%，震荡伤害+300%，中毒伤害+1000",
             attack: function(){
                 return 2500 + (2500 * this.level);
             },
@@ -1903,9 +1903,9 @@ var autoBattle = {
             level: 1,
             zone: 84,
             description: function(){
-                return "Causes Bleeds you generate from other items to last at least " + this.bleedTime() + " seconds. +" + prettify(this.bleedChance()) + "% Bleed Chance. +" + prettify(this.lifesteal() * 100) + "% Lifesteal if the enemy is Bleeding.";
+                return "其他物品触发流血时，流血至少持续" + this.bleedTime() + "秒。使怒怒触发流血的概率+" + prettify(this.bleedChance()) + "%。如果敌人流血了，则使怒怒的吸血+" + prettify(this.lifesteal() * 100) + "%。";
             },
-            upgrade: "+1s Minimum Bleed Time, +4% Bleed Chance, +2.5% Lifesteal",
+            upgrade: "每级使敌人的流血持续时间+1秒，怒怒触发流血的概率+4%，怒怒的吸血+2.5%",
             bleedTime: function(){
                 return 11 + (1 * this.level);
             },
@@ -1929,9 +1929,9 @@ var autoBattle = {
             level: 1,
             zone: 78,
             description: function(){
-                return "-10% Attack Time and +" + prettify(this.defense()) + " Defense if the Enemy is Poisoned. Causes Poisons you generate from other items to last at least " + prettify(this.poisonTime() / 1000) + " seconds. +" + prettify(this.poisonChance()) + "% Poison Chance.";
+                return "如果敌人中毒了，则使怒怒的攻击间隔-10%，防御力+" + prettify(this.defense()) + "。其他物品触发中毒时，中毒至少持续" + prettify(this.poisonTime() / 1000) + "秒。使怒怒触发中毒的概率+" + prettify(this.poisonChance()) + "%。";
             },
-            upgrade: "+1s Poison Duration, +6% Poison Chance, +3 Defense",
+            upgrade: "每级使敌人的中毒持续时间+1秒，怒怒触发中毒的概率+6%，怒怒的防御力+3",
             poisonTime: function(){
                 return 19000 + (this.level * 1000);
             },
@@ -1960,9 +1960,9 @@ var autoBattle = {
             level: 1,
             zone: 75,
             description: function(){
-                return "If you have a chance to cause Bleeding, gain +" + prettify(this.defense()) + " Defense, +" + prettify(this.health()) + " Health, +" + prettify(this.lifesteal() * 100) + "% Lifesteal, and +" + prettify(this.bleedDamage() * 100) + "% Bleed Damage.";
+                return "如果怒怒有概率触发流血，则使怒怒的防御力+" + prettify(this.defense()) + "，生命值+" + prettify(this.health()) + "，吸血+" + prettify(this.lifesteal() * 100) + "%，流血伤害+" + prettify(this.bleedDamage() * 100) + "%。";
             },
-            upgrade: "+2 defense, +20 health, +2.5% Lifesteal, +10% Bleed Damage",
+            upgrade: "每级使怒怒的防御力+2，生命值+20，吸血+2.5%，流血伤害+10%",
             defense: function(){
                 return 4 + (this.level * 2);
             },
@@ -1995,9 +1995,9 @@ var autoBattle = {
             level: 1,
             zone: 90,
             description: function(){
-                return "If you have a chance to cause Poison, gain +" + prettify(this.health()) + " Health, -" + prettify((1 - this.attackTime()) * 100) + "% Attack Time, and +" + prettify(this.poisonMod()) + " Poison Damage.";
+                return "如果怒怒有概率触发中毒，则使怒怒的生命值+" + prettify(this.health()) + "，攻击间隔-" + prettify((1 - this.attackTime()) * 100) + "%，中毒伤害+" + prettify(this.poisonMod()) + "。";
             },
-            upgrade: "+25 Health, -1% Attack Time, +1 Poison Damage",
+            upgrade: "每级使怒怒的生命值+25，攻击间隔-1%，中毒伤害+1",
             health: function(){
                 return 25 + (25 * this.level);
             },
@@ -2026,9 +2026,9 @@ var autoBattle = {
             level: 1,
             zone: 118,
             description: function(){
-                return "+" + this.defenseEffect() + " Defense. If Huffy's Health % is higher than Enemy Health %, gain +" + prettify(this.shockChance()) + "% Shock Chance, +" + prettify(this.shockMod() * 100) + "% Shock Damage, 15s Shock Time. Otherwise, this item's Defense is doubled and gain +" + prettify(this.lifestealEffect() * 100) + "% Lifesteal.";
+                return "使怒怒的防御力+" + this.defenseEffect() + "。如果怒怒的生命值与生命值上限的比例高于敌人，则使怒怒触发震荡的概率+" + prettify(this.shockChance()) + "%，怒怒的震荡伤害+" + prettify(this.shockMod() * 100) + "%，震荡至少持续15秒。否则使该物品的防御力翻倍，怒怒的吸血+" + prettify(this.lifestealEffect() * 100) + "%。";
             },
-            upgrade: "+4 Defense, +10% Shock Chance, +10% Shock Damage, +10% Lifesteal",
+            upgrade: "每级使怒怒的防御力+4，触发震荡的概率+10%，震荡伤害+10%，吸血+10%",
             defenseEffect: function(){
                 return 6 + (4 * this.level);
             },
@@ -2066,9 +2066,9 @@ var autoBattle = {
             zone: 145,
             enemyReduced: 0,
             description: function(){
-                return "Multiply Huffy's and the Enemy's highest status effect chance (before resists) by 0.75. -" + prettify((1 - this.attackTime()) * 100) + "% Attack Time, +" + prettify(this.resist()) + " to all Resists, and +" + prettify(this.lifesteal() * 100) + "% Lifesteal per 10% Huffy or Enemy status chance lost.";
+                return "使怒怒和敌人(在计算抗性之前)触发概率最高的异常状态，其触发概率变为原来的0.75倍。每因此使怒怒或敌人减少10%的触发概率，就使怒怒的攻击间隔-" + prettify((1 - this.attackTime()) * 100) + "%，所有抗性+" + prettify(this.resist()) + "%，吸血+" + prettify(this.lifesteal() * 100) + "%。";
             },
-            upgrade: "-1% Attack Time, +1% Resists, +1% Lifesteal per 10% status chance lost",
+            upgrade: "每因该物品使怒怒或敌人减少10%的触发概率，每级就使怒怒的攻击间隔-1%，所有抗性+1%，吸血+1%",
             attackTime: function(){
                 return Math.pow(0.99, this.level);
             },
@@ -2132,9 +2132,9 @@ var autoBattle = {
             level: 1,
             zone: 200,
             description: function(){
-                return "+" + prettify(this.health()) + " Health, +" + prettify(this.defense()) + " Defense, +" + prettify(this.lifesteal() * 100) + "% Lifesteal, +" + prettify(this.bleedMod() * 100) + "% Bleed Damage, +" + prettify(this.shockMod() * 100) + "% Shock Damage. Multiplies Huffy's Max Health by his Lifesteal value, then multiplies his Lifesteal by 0.5."
+                return "使怒怒的生命值+" + prettify(this.health()) + "，防御力+" + prettify(this.defense()) + "，吸血+" + prettify(this.lifesteal() * 100) + "%，流血伤害+" + prettify(this.bleedMod() * 100) + "%，震荡伤害+" + prettify(this.shockMod() * 100) + "%。使怒怒的生命值上限变为它吸血数值的倍数，然后使它的吸血减半。"
             },
-            upgrade: "+1000 Health, +300 Defense, +100% Lifesteal, +200% Bleed Damage, +200% Shock Damage",
+            upgrade: "每级使怒怒的生命值+1000，防御力+300，吸血+100%，流血伤害+200%，震荡伤害+200%",
             health: function(){
                 return 2000 + (1000 * this.level);
             },
@@ -2172,9 +2172,9 @@ var autoBattle = {
             level: 1,
             zone: 155,
             description: function(){
-                return "+" + prettify(this.attack()) + " Attack, removes a fourth of your total Lifesteal."
+                return "使怒怒的攻击力+" + prettify(this.attack()) + "，使怒怒的吸血减少25%。"
             },
-            upgrade: "+100 Attack",
+            upgrade: "每级使怒怒的攻击力+100",
             attack: function(){
                 return (100 * this.level);
             },
@@ -2193,9 +2193,9 @@ var autoBattle = {
             level: 1,
             zone: 108,
             description: function(){
-                return "+" + this.formatEffect() + "% Attack damage.";
+                return "使怒怒的攻击力+" + this.formatEffect() + "%。";
             },
-            upgrade: "+5% attack damage",
+            upgrade: "每级使怒怒的攻击力+5%",
             formatEffect: function(){
                 return prettify(this.effect() * 100);
             },
@@ -2216,7 +2216,7 @@ var autoBattle = {
             zone: 190,
             longText: true,
             description: function(){
-                return "Summon a Doppelganger which grants you 50% damage reduction, 2x Attack, and +1 Poison Stack Rate while it is alive. Your Doppelganger will explode after taking damage equal to your Max Health or if it would kill the Enemy, redealing all damage dealt so far this fight, and shredding 50% Enemy Defense.";
+                return "召唤一个分身，在分身存在期间，使怒怒受到的伤害减少50%，攻击力翻倍，且中毒层数叠加数+1。分身会在受到等于生命值上限的伤害或可以击杀敌人时爆炸，对敌人造成伤害，该伤害的数值为本次战斗怒怒造成的伤害，并使敌人的防御力减少50%。";
             },
             onDeath: function(){
                 var damageDealt = autoBattle.enemy.dmgTaken;
@@ -2247,7 +2247,7 @@ var autoBattle = {
         },
         Radon: {
             description: function(){
-                return "Increase all Radon earned by +10% per level.<br/>"
+                return "Increase all Radon earned by +10% per level.<br/><br/>"
             },
             getMult: function(){
                 return 1 + (this.level * 0.1);
@@ -2269,7 +2269,7 @@ var autoBattle = {
         },
         Scaffolding: {
             description: function(){
-                return "Each level adds +100% Housing and increases the bonus of all other Scaffolds by 10%."
+                return "Each level adds +100% Housing and increases the bonus of all other Scaffolds by 10%.<br/>"
             },
             getMult: function(){
                 return 1 + (this.level * Math.pow(1.1, this.level - 1))
@@ -2311,7 +2311,7 @@ var autoBattle = {
         },
         Artisan: {
             get description(){
-                return "All U2 Equipment costs 1% less for each SA level cleared. (Currently " + prettify((1 - this.getMult()) * 100) + "% cheaper)";
+                return "每通过1级尖塔突击，就使宇宙2中的装备花费减少1%。(目前加成为便宜" + prettify((1 - this.getMult()) * 100) + "%)";
             },
             owned: false,
             getMult: function(){
@@ -2333,12 +2333,12 @@ var autoBattle = {
             }
         },
         Dusty_Tome: {
-            description: "+5% Dust found on all levels per Spire Assault level cleared.",
+            description: "每通过1级尖塔突击，就使魔尘的获取量增加5%。",
             owned: false,
             requiredItems: 32
         },
         Whirlwind_of_Arms: {
-            description: "+1000 Health, +25 Attack, +10 Poison Damage.",
+            description: "使怒怒的生命值增加1000，攻击力增加25，中毒伤害增加10。",
             owned: false,
             requiredItems: 34
         },
@@ -2861,11 +2861,11 @@ var autoBattle = {
         this.enemy.baseHealth *= healthMult;
         this.enemy.baseAttack *= attackMult;
         for (var x = 0; x < selectedEffects.length; x++){
-            this.profile += selectedEffects[x];
-            if (selectedEffectsCount[x] > 1) this.profile += " x" + selectedEffectsCount[x] + "";
-            this.profile += ", ";
+            this.profile += "<i></i>" + selectedEffects[x];
+            if (selectedEffectsCount[x] > 1) this.profile += "<i></i>x" + selectedEffectsCount[x] + "";
+            this.profile += "<i></i>，";
         }
-        this.profile = this.profile.substring(0, this.profile.length - 2)
+        this.profile = this.profile.substring(0, this.profile.length - 1)
     },
     trimpDied: function(){
         this.sessionTrimpsKilled++;
@@ -2988,7 +2988,7 @@ var autoBattle = {
         if (!itemObj.equipped){
             var count = this.countEquippedItems();
             if (count >= this.getMaxItems()) {
-                this.notes = "<span class='red'>You can only equip " + this.getMaxItems() + " items at a time.</span>";
+                this.notes = "<span class='red'>您目前只能装备" + this.getMaxItems() + "个物品。</span>";
                 return;
             }
         }
@@ -3051,7 +3051,7 @@ var autoBattle = {
         var itemObj = this.items[item];
         if (!itemObj) return;
         if (upgrade){
-            this.notes = itemObj.upgrade + " per level";
+            this.notes = itemObj.upgrade;
         }
         else{
             this.notes = itemObj.description();
@@ -3213,7 +3213,7 @@ var autoBattle = {
         if (zone < item.zone) return;
         //completed contract
         item.owned = true;
-        message("You have fulfilled your Contract, and Huffy has gained access to " + this.cleanName(this.activeContract) + "!", "Notices");
+        message("您完成了合约，怒怒获得了<i></i>" + this.cleanName(this.activeContract) + "<i></i>！", "Notices");
         this.activeContract = "";
         this.popup(false,false,true);
     },
@@ -3242,7 +3242,7 @@ var autoBattle = {
         this.popup(false, false, true);
     },
     renamePresetTooltip: function(which){
-        var text = "Rename Preset " + which + "<br/><input style='width: 75%; margin-left: 12.5%' id='abPresetNameInput' value='" + this.presets.names[which - 1] + "'/>"
+        var text = "重命名预设" + which + "<br/><input style='width: 75%; margin-left: 12.5%' id='abPresetNameInput' value='" + this.presets.names[which - 1] + "'/>"
         return text;
     },
     cleanName: function(name){
@@ -3271,7 +3271,7 @@ var autoBattle = {
         text += "<li>Enemy Affixes per level are based on a seed, but everyone has the same seed and sees the same affixes each level. Feel free to discuss strategy with others!</li>";
         text += "<li>Enemies gain +1 Affix every 5 Levels until 20, then gain +1 Affix every 10 Levels</li>";
         text += "<li>Huffy's minimum Attack Time is 0.5 seconds. Any reductions to Attack Time below 0.5 seconds will be converted to Slow Aura, making the Enemy attack up to 50% slower.</li>";
-        text += "<li>The Dust reward formula is (1 + ((EnemyLevel - 1) * 5)) * (1.19^(EnemyLevel - 1))</li>";
+        text += "<li>魔尘获取量的公式为 (1 + ((敌人等级 - 1) × 5)) × (1.19^(敌人等级 - 1))</li>";
         text += "<li>The Spire Assault window can be opened with hotkey \"i\"</li>";
         text += "</ul>";
         tooltip('confirm', null, 'update', text, 'autoBattle.popup()', "Spire Assault Help/FAQ", 'Back to Spire Assault', true);
@@ -3343,11 +3343,11 @@ var autoBattle = {
         return Math.ceil(15 * Math.pow(2, this.rings.level));
     },
     getRingUi: function(){
-        var text = "<div class='ringContainer' style='text-align: center;'><span style='font-size: 1.2em'>The Ring - Level " + this.rings.level + "</span><br/>";
-        text += "+ " + prettify(this.getRingStatusDamage()) + "% Bleed/Shock Damage<br/>";
-        text += "+ " + prettify(this.getRingPoisonDamage()) + " Poison Damage<br/>";
+        var text = "<div class='ringContainer' style='text-align: center;'><span style='font-size: 1.2em'>灵戒 - 等级" + this.rings.level + "</span><br/>";
+        text += "使流血伤害和震荡伤害+" + prettify(this.getRingStatusDamage()) + "%<br/>";
+        text += "使中毒伤害+" + prettify(this.getRingPoisonDamage()) + "<br/>";
         var chance = this.getRingStatusChance();
-        if (chance > 0) text += "+ " + prettify(this.getRingStatusChance()) + "% Status Chance<br/>";
+        if (chance > 0) text += "使怒怒触发异常状态的概率+" + prettify(this.getRingStatusChance()) + "%<br/>";
         for (var x = 0; x < this.rings.mods.length; x++){
             var mod = this.ringStats[this.rings.mods[x]];
             var amt = this.getRingStatAmt(mod);
@@ -3372,7 +3372,7 @@ var autoBattle = {
             if (this.rings.level < 15) text += "Unlock another slot at Level 15!"
             
         }
-        text += "</div><div class='ringContainer' style='text-align: center; padding-top: 2em;'><span class='btn btn-lg autoItemUpgrade' onclick='autoBattle.levelRing()' style='width: 90%'>Level Up! (" + prettify(this.getRingLevelCost()) + " Shards)</span><br/>";
+        text += "</div><div class='ringContainer' style='text-align: center; padding-top: 2em;'><span class='btn btn-lg autoItemUpgrade' onclick='autoBattle.levelRing()' style='width: 90%'>升级灵戒！(花费" + prettify(this.getRingLevelCost()) + "晶块)</span><br/>";
         text += "Every level increases stats of all mods on The Ring.<br/>Every 10 levels, gains a bigger boost in power!<br/>"
         if (this.rings.level < 10) text += "Gains status chance starting at Level 10.<br/>" 
         text += "</div>";
@@ -3381,7 +3381,7 @@ var autoBattle = {
     ringStats: {
             attack: {
                 formatEffect: function(amt){
-                    return "+ " + prettify(amt) + " Attack";
+                    return "使怒怒的攻击力+" + prettify(amt);
                 },
                 name: "Attack",
                 doStuff: function(amt){
@@ -3392,7 +3392,7 @@ var autoBattle = {
             },
             health: {
                 formatEffect: function(amt){
-                    return "+ " + prettify(amt) + " Health";
+                    return "使怒怒的生命值+" + prettify(amt);
                 },
                 name: "Health",
                 doStuff: function(amt){
@@ -3403,7 +3403,7 @@ var autoBattle = {
             },
             defense: {
                 formatEffect: function(amt){
-                    return "+ " + prettify(amt) + " Defense";
+                    return "使怒怒的防御力+" + prettify(amt);
                 },
                 name: "Defense",
                 doStuff: function(amt){
@@ -3414,7 +3414,7 @@ var autoBattle = {
             },
             lifesteal: {
                 formatEffect: function(amt){
-                    return "+ " + prettify(amt) + "% Lifesteal";
+                    return "使怒怒的吸血+" + prettify(amt) + "%";
                 },
                 name: "Lifesteal",
                 doStuff: function(amt){
@@ -3426,7 +3426,7 @@ var autoBattle = {
             },
             dustMult: {
                 formatEffect: function(amt){
-                    return "+ " + prettify(amt) + "% Dust Mult";
+                    return "使魔尘获取倍率+" + prettify(amt) + "%";
                 },
                 name: "Dust Mult",
                 doStuff: function(amt){
@@ -3498,21 +3498,21 @@ var autoBattle = {
         var dustPs = this.getDustPs();
         var shardText = "";
         if (this.maxEnemyLevel > 50){
-            shardText = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + prettify(this.shards) + " Shards";
+            shardText = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + prettify(this.shards) + "晶块";
             if (this.enemyLevel > 50){
-                shardText += " (";
+                shardText += "(";
                 var shardsPs = dustPs / 1e9;
-                if (shardsPs >= 0.01 || shardsPs == 0) shardText += prettify(shardsPs) + " per sec)";
+                if (shardsPs >= 0.01 || shardsPs == 0) shardText += "每秒" + prettify(shardsPs) + ")";
                 else {
                     shardsPs = 1 / shardsPs;
-                    shardText += "1 per " + prettify(shardsPs) + " sec)";
+                    shardText += prettify(shardsPs) + "秒可获得1晶块)";
                 }
             }
         }
-        var topText = prettify(this.dust) + " Dust (" + prettify(dustPs) + " per sec)" + shardText + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + ((this.settings.practice.enabled == 1) ? "<b style='color: #921707'>Practicing</b>" : ((this.enemyLevel == this.maxEnemyLevel) ? "Kill " + (this.nextLevelCount() - this.enemiesKilled) : "Farming")) + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Enemies Killed: " + this.sessionEnemiesKilled + "&nbsp;" + pctWon + "&nbsp;&nbsp;&nbsp;Fights Lost: " + this.sessionTrimpsKilled + "<br/>Enemy Level " + this.enemy.level + ((this.profile) ? " (" + this.profile + ")" : "") + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+        var topText = prettify(this.dust) + "魔尘(每秒" + prettify(dustPs) + ")" + shardText + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + ((this.settings.practice.enabled == 1) ? "<b style='color: #921707'>Practicing</b>" : ((this.enemyLevel == this.maxEnemyLevel) ? "需击杀" + (this.nextLevelCount() - this.enemiesKilled) : "刷怪中")) + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;敌人击杀数：" + this.sessionEnemiesKilled + "&nbsp;" + pctWon + "&nbsp;&nbsp;&nbsp;战斗失利数：" + this.sessionTrimpsKilled + "<br/>敌人等级" + this.enemy.level + ((this.profile) ? "(" + this.profile + ")" : "") + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
         var buttons = "";
 
-        if (!(updateOnly && statsOnly)) buttons = "<div id='abLevelButtons'><span id='abDecreaseLevel' onclick='autoBattle.levelDown()' class='btn-md btn auto'>- Decrease Enemy Level -</span><span onclick='autoBattle.toggleAutoLevel()' id='abAutoLevel' class='btn btn-md auto'>Set AutoLevel On</span><span onclick='autoBattle.levelUp()' id='abIncreaseLevel' class='btn btn-md auto'>+ Increase Enemy Level +</span><span id='abHelpBtn' onclick='autoBattle.help()' class='icomoon icon-question-circle'></span><span id='abCloseBtn' onclick='cancelTooltip()' class='icomoon icon-close'></span></div>";
+        if (!(updateOnly && statsOnly)) buttons = "<div id='abLevelButtons'><span id='abDecreaseLevel' onclick='autoBattle.levelDown()' class='btn-md btn auto'>-降低敌人等级-</span><span onclick='autoBattle.toggleAutoLevel()' id='abAutoLevel' class='btn btn-md auto'>Set AutoLevel On</span><span onclick='autoBattle.levelUp()' id='abIncreaseLevel' class='btn btn-md auto'>+提高敌人等级+</span><span id='abHelpBtn' onclick='autoBattle.help()' class='icomoon icon-question-circle'></span><span id='abCloseBtn' onclick='cancelTooltip()' class='icomoon icon-close'></span></div>";
         text = "<div class='noselect'><div id='autoDust'>" + topText + "</div>" + buttons + "<div class='autoBattleTopName'>Huffy</div><div class='autoBattleTopName'>Enemy</div>";
         if (updateOnly || itemsOnly) document.getElementById('autoDust').innerHTML = topText;
         var trimpAttackTime = (this.trimp.attackSpeed);
@@ -3548,48 +3548,48 @@ var autoBattle = {
             attackTime /= 1000;
             var baseAttack = this.getAttack(fighterObj);
             var attackText = prettify(baseAttack) + " (" + prettify(baseAttack * 0.8) + " - " + prettify(baseAttack * 1.2) + ")";
-            var dustBdText = (fighterName == "trimp") ? "<b>Dust Mult: </b>" + prettify(this.getDustMult() * 100) + "%" : "<b>Dust Value:</b> " + prettify(this.getDustReward());
+            var dustBdText = (fighterName == "trimp") ? "<b>Dust Mult: </b>" + prettify(this.getDustMult() * 100) + "%" : "<b>Dust Value:</b>" + prettify(this.getDustReward());
             var lifestealFinal = Math.max(fighterObj.lifesteal - opponentObj.lifestealResist, 0) * 100;
             var lifestealDisplay;
             if (lifestealFinal <= 0 && fighterObj.lifesteal > 0) lifestealDisplay = prettify(lifestealFinal) + "% (" + prettify((fighterObj.lifesteal - opponentObj.lifestealResist) * 100) + "%)";
             else lifestealDisplay = prettify(lifestealFinal) + "%";
 
-            statsText += "<div class='autoStats'><div class='autoStatsBreakup'><b>Attack:</b> " + attackText + "<br/><b>Attack Time:</b> " + prettify(attackTime) + "<br/><b>Defense:</b> " + prettify(fighterObj.defense) + "<br/><b>Lifesteal:</b> " + lifestealDisplay;
+            statsText += "<div class='autoStats'><div class='autoStatsBreakup'><b>Attack:</b>" + attackText + "<br/><b>Attack Time:</b>" + prettify(attackTime) + "<br/><b>Defense:</b>" + prettify(fighterObj.defense) + "<br/><b>Lifesteal:</b>" + lifestealDisplay;
             statsText += "</div>";
-            statsText += "<div class='autoStatsBreakup'>" + dustBdText + "<br/><b>Poison Resist:</b> " + prettify(fighterObj.poisonResist) + "%<br/><b>Bleed Resist:</b> " + prettify(fighterObj.bleedResist) + "%<br/><b>Shock Resist:</b> " + prettify(fighterObj.shockResist) + "%";
+            statsText += "<div class='autoStatsBreakup'>" + dustBdText + "<br/><b>Poison Resist:</b>    " + prettify(fighterObj.poisonResist) + "%<br/><b>Bleed Resist:</b>" + prettify(fighterObj.bleedResist) + "%<br/><b>Shock Resist:</b>" + prettify(fighterObj.shockResist) + "%";
             statsText += "</div>";
             statsText += "<div class='autoStatsBreakup'>";
-            if (fighterObj.isTrimp) statsText += "<b>Time:</b> " + formatSecondsAsClock(this.battleTime / 1000, 2) + "<br/>";
+            if (fighterObj.isTrimp) statsText += "<b>Time:</b>" + formatSecondsAsClock(this.battleTime / 1000, 2) + "<br/>";
             else {
                 var enrageFreq = this.enemy.enrageFreq;
                 var baseMult = this.enemy.enrageMult;
                 baseMult = (baseMult - 1) * 100;
                 var currentMult = this.getEnrageMult();
-                if (currentMult > 1) statsText += "<b>Enraged!</b> +" + prettify((currentMult - 1) * 100) + "% Attack. " + prettify(baseMult) + "% more every " + enrageFreq + " seconds.";
-                else statsText += "<b>Enrages</b> every " + enrageFreq + " seconds, increasing Attack by " + prettify(baseMult) + "%.";
+                if (currentMult > 1) statsText += "<b>Enraged!</b>- 攻击力增加了" + prettify((currentMult - 1) * 100) + "%。每" + enrageFreq + "秒再增加" + prettify(baseMult) + "%。";
+                else statsText += "<b>Enrages</b> - 每" + enrageFreq + "秒，使攻击力增加" + prettify(baseMult) + "%。";
             }
             statsText += "<br/>";
             if (fighterObj.slowAura > 1)
-            statsText += "<b>Slowing Aura:</b> " + prettify((fighterObj.slowAura - 1) * 100) + "%";
+            statsText += "<b>Slowing Aura:</b>" + prettify((fighterObj.slowAura - 1) * 100) + "%";
             statsText += "<br/>";
             if (fighterObj.lifestealResist)
-            statsText += "<b>Lifesteal Resist:</b> " + prettify(fighterObj.lifestealResist * 100) + "%";
+            statsText += "<b>Lifesteal Resist:</b>" + prettify(fighterObj.lifestealResist * 100) + "%";
             statsText += "</div>";
-            statsText += "<br/><b>Poisoned:</b> ";
+            statsText += "<br/><b>Poisoned:</b>";
             if (fighterObj.poison.time > 0){
-                var timeText = (opponentObj.poisonTick != 1000) ? " every " + prettify(opponentObj.poisonTick / 1000) + " sec" : "every second";
-                statsText += prettify(fighterObj.poison.mod * fighterObj.poison.stacks) + " damage " + timeText + " for " + (fighterObj.poison.time / 1000).toFixed(1) + " sec. (" + fighterObj.poison.stacks + "/" + opponentObj.poisonStack + ")";
+                var timeText = (opponentObj.poisonTick != 1000) ? "每" + prettify(opponentObj.poisonTick / 1000) + "秒" : "每秒";
+                statsText += timeText + "受到" + prettify(fighterObj.poison.mod * fighterObj.poison.stacks) + "伤害，持续" + (fighterObj.poison.time / 1000).toFixed(1) + "秒。(" + fighterObj.poison.stacks + "/" + opponentObj.poisonStack + ")";
             }
             else statsText += "None";
-            statsText += "<br/><b>Bleed:</b> ";
+            statsText += "<br/><b>Bleed:</b>";
             if (fighterObj.bleed.time > 0){
-                statsText += "Taking " + prettify(fighterObj.bleed.mod * 100) + "% attack damage after each attack for " + (fighterObj.bleed.time / 1000).toFixed(1) + " sec.";
+                statsText += "在" + (fighterObj.bleed.time / 1000).toFixed(1) + "秒内每次攻击后受到对方攻击力" + prettify(fighterObj.bleed.mod * 100) + "%的伤害。";
             }
             else statsText += "None";
-            statsText += "<br/><b>Shock:</b> ";
+            statsText += "<br/><b>Shock:</b>";
             if (fighterObj.shock.time > 0){
                 var shockTime = (fighterObj.shock.time == 9999999) ? "<span class='icomoon icon-infinity'></span>" : (fighterObj.shock.time / 1000).toFixed(1);
-                statsText += "Taking " + prettify(fighterObj.shock.mod * 100) + "% more damage for " + shockTime + " sec.";
+                statsText += "在" + shockTime + "秒内受到的伤害增加" + prettify(fighterObj.shock.mod * 100) + "%。";
             }
             else statsText += "None";
             
@@ -3601,7 +3601,7 @@ var autoBattle = {
             var ringPoison = this.getRingPoisonDamage();
             var ringBleedShock = this.getRingStatusDamage();
             if (fighterObj.poisonChance > 0 && fighterObj.poisonTime > 0 && fighterObj.poisonMod > 0){
-                statsText += prettify(fighterObj.poisonChance - opponentObj.poisonResist) + "% chance to poison for " + prettify(fighterObj.poisonTime / 1000) + " sec, dealing " + prettify(fighterObj.poisonMod) + " damage per second, stacking up to " + fighterObj.poisonStack + " times.";
+                statsText += "有" + prettify(fighterObj.poisonChance - opponentObj.poisonResist) + "%概率触发中毒，持续" + prettify(fighterObj.poisonTime / 1000) + "秒，使对方每秒受到" + prettify(fighterObj.poisonMod) + "伤害，中毒层数的上限为" + fighterObj.poisonStack + "层。";
             }
             else if ((fighterObj.poisonChance > 0 && (!ringStatusChance || ringStatusChance < fighterObj.poisonChance)) || fighterObj.poisonTime > 0 || (fighterObj.poisonMod > freePmod && (!ringPoison || ringPoison + freePmod < fighterObj.poisonMod))){
                 statsText += "<span class='abError'>"
@@ -3612,7 +3612,7 @@ var autoBattle = {
             }
             statsText += "<br/>";
             if (fighterObj.bleedChance > 0 && fighterObj.bleedTime > 0 && fighterObj.bleedMod > 0){
-                statsText += prettify(fighterObj.bleedChance - opponentObj.bleedResist) + "% chance to bleed enemies for " + prettify(fighterObj.bleedTime / 1000) + " sec, dealing attack damage plus " + prettify(fighterObj.bleedMod * 100) + "% after each enemy attack.";
+                statsText += "有" + prettify(fighterObj.bleedChance - opponentObj.bleedResist) + "%概率触发流血，持续" + prettify(fighterObj.bleedTime / 1000) + "秒，使对方在每次攻击后受到我方攻击力加上我方攻击力" + prettify(fighterObj.bleedMod * 100) + "%的伤害。";
             }
             else if ((fighterObj.bleedChance > 0 && (!ringStatusChance || ringStatusChance < fighterObj.bleedChance)) || fighterObj.bleedTime > 0 || (fighterObj.bleedMod > 0 && (!ringBleedShock || ringBleedShock / 100 < fighterObj.bleedMod))){
                 statsText += "<span class='abError'>"
@@ -3624,7 +3624,7 @@ var autoBattle = {
             statsText += "<br/>";
             
             if (fighterObj.shockChance > 0 && fighterObj.shockTime > 0 && fighterObj.shockMod > 0){
-                statsText += prettify(fighterObj.shockChance - opponentObj.shockResist) + "% chance to shock for " + prettify(fighterObj.shockTime / 1000) + " sec, causing enemies to take " + prettify(fighterObj.shockMod * 100) + "% more damage from all sources.";
+                statsText += "有" + prettify(fighterObj.shockChance - opponentObj.shockResist) + "%概率触发震荡，持续" + prettify(fighterObj.shockTime / 1000) + "秒，使对方受到的伤害增加" + prettify(fighterObj.shockMod * 100) + "%。";
             }
             else if ((fighterObj.shockChance > 0 && (!ringStatusChance || ringStatusChance < fighterObj.shockChance)) || fighterObj.shockTime > 0 || (fighterObj.shockMod > 0 && (!ringBleedShock || ringBleedShock / 100 < fighterObj.shockMod))){
                 statsText += "<span class='abError'>"
@@ -3636,27 +3636,27 @@ var autoBattle = {
             statsText += "<br/>";
             if (fighterName == "trimp"){
                 if (this.items.Doppelganger_Signet.equipped){
-                    statsText += "Doppelganger ";
-                    if (this.trimp.doppDown) statsText += " Dead!";
-                    else statsText += "Health: " + prettify(this.trimp.maxHealth - this.trimp.dmgTaken);
+                    statsText += "分身";
+                    if (this.trimp.doppDown) statsText += "已爆炸！";
+                    else statsText += "生命值：" + prettify(this.trimp.maxHealth - this.trimp.dmgTaken);
                     statsText += "&nbsp;&nbsp;&nbsp;&nbsp;"
                 }
                 if (this.items.Goo_Golem.equipped && this.items.Goo_Golem.active()){
-                    statsText += "Goo Golem: " + prettify(this.trimp.gooStored) + " Stored";
+                    statsText += "粘液魔像：已存储" + prettify(this.trimp.gooStored) + "伤害";
                 }
             }
             else if (this.enemyLevel > 50){
                 if (fighterObj.explodeFreq != -1){
                     var explodeIn = ((fighterObj.explodeFreq - fighterObj.lastExplode) / 1000).toFixed(1);
-                    statsText += "<b>Special:</b> Explodes for " + prettify(fighterObj.explodeDamage * 100) + "% attack damage in " + explodeIn + " sec";
+                    statsText += "<b>Special:</b>在" + explodeIn + "秒后爆炸，造成攻击力" + prettify(fighterObj.explodeDamage * 100) + "%的伤害";
                 }
                 else if (fighterObj.berserkMod != -1){
                     var mult = this.getBerserkMult();
-                    statsText += "<b>Special:</b> Gains x" + fighterObj.berserkMod + " damage after every " + fighterObj.berserkEvery + " attacks. Currently x" + prettify(mult) + ".";
+                    statsText += "<b>Special:</b>每" + fighterObj.berserkEvery + "次攻击后使攻击力变为" + fighterObj.berserkMod + "倍。目前使攻击力变为" + prettify(mult) + "倍。";
                 }
                 else if (fighterObj.ethChance > 0){
-                    statsText += "<b>Special:</b> " + fighterObj.ethChance + "% chance per attack to turn ethereal, healing from all damage taken. ";
-                    if (fighterObj.isEthereal) statsText += "**ETHEREAL**"
+                    statsText += "<b>Special:</b>每次攻击有" + fighterObj.ethChance + "%概率变为空灵，使受到的伤害转为恢复生命值。";
+                    if (fighterObj.isEthereal) statsText += "**空灵**"
                 }
                 statsText += "<br/>";
             }
@@ -3673,7 +3673,7 @@ var autoBattle = {
             }
         }
         text += "<div id='autoBattleStatsText'>" + statsText + "</div>";
-        var itemsText = "Items (" + this.countEquippedItems() + "/" + this.getMaxItems() + " Equipped)"; 
+        var itemsText = "物品(已装备" + this.countEquippedItems() + "/" + this.getMaxItems() + ")"; 
         text += "<div id='autoBattleMenuButtons'><span id='abItemsBtn' onclick='autoBattle.swapPopup(\"items\")' class='btn btn-lg autoItemUpgrade darkBorder'>" + itemsText + "</span><span onclick='autoBattle.swapPopup(\"bonuses\")' class='btn btn-lg colorNavy'>Bonuses</span><span onclick='autoBattle.swapPopup(\"contracts\")' class='btn btn-lg colorVoidy darkBorder'>Contracts</span><span onclick='autoBattle.swapPopup(\"hidden\")' class='btn btn-lg autoColorOrange darkBorder'>Hidden Items</span><span class='btn btn-lg autoItemHide darkBorder' onclick='autoBattle.toggleHideMode()'>Hide Items</span>";
         text += "<span id='autoBattleRingBtn' onclick='autoBattle.swapPopup(\"rings\")' style='display: " + ((this.oneTimers.The_Ring.owned) ? 'inline-block' : 'none') + "' class='btn btn-lg autoColorTeal active darkBorder'>The Ring</span>";
         text += "<span onclick='autoBattle.swapPopup(\"other\")' class='btn btn-lg autoColorGrey active darkBorder'>Misc</span></div>";
@@ -3710,8 +3710,8 @@ var autoBattle = {
                 }
                 
                 var equipClass = (itemObj.equipped) ? "Equipped" : "NotEquipped"; 
-                var upgradeCost = prettify(this.upgradeCost(item)) + " " + this.getCurrencyName(item);
-                line1 += "<div class='autoItem autoItem" + equipClass + "' onclick='autoBattle.equip(\"" + item + "\")' onmouseover='autoBattle.hoverItem(\"" + item + "\")'>" + this.cleanName(item) + ((itemObj.noUpgrade) ? "" : " Lv " + itemObj.level) + "</div>";
+                var upgradeCost = "<i></i>" + prettify(this.upgradeCost(item)) + "<i></i>" + this.getCurrencyName(item);
+                line1 += "<div class='autoItem autoItem" + equipClass + "' onclick='autoBattle.equip(\"" + item + "\")' onmouseover='autoBattle.hoverItem(\"" + item + "\")'>" + this.cleanName(item) + ((itemObj.noUpgrade) ? "" : "<i></i> 等级" + itemObj.level) + "</div>";
                 if (this.popupMode == "items"){
                     if (this.hideMode)
                         line2 += "<div class='autoItem autoItemHide' onclick='autoBattle.hide(\"" + item + "\")'>Hide</div>";
@@ -3737,8 +3737,8 @@ var autoBattle = {
                 if (bonusObj.useShards && this.maxEnemyLevel < 51) continue;
                 var cost = this.getBonusCost(bonus);
                 var costText = ((!bonusObj.useShards && cost <= this.dust) || (bonusObj.useShards && cost <= this.shards)) ? "green" : "red";
-                costText = "<span id='" + bonus + "BonusPrice' class='" + costText + "'>" + prettify(cost) + " " + ((bonusObj.useShards) ? "Shards" : "Dust") + "</span>";
-                text += "<div id='" + bonus + "BonusBox' onclick='autoBattle.buyBonus(\"" + bonus + "\")' class='autoBonusBox'>" + this.cleanName(bonus) + "<br/>Level: " + bonusObj.level + " - " + costText + "<br/>" + bonusObj.description() + "<br/>Unlimited Purchases</div>";
+                costText = "<span id='" + bonus + "BonusPrice' class='" + costText + "'>" + prettify(cost) + "<i></i>" + ((bonusObj.useShards) ? "Shards" : "Dust") + "</span>";
+                text += "<div id='" + bonus + "BonusBox' onclick='autoBattle.buyBonus(\"" + bonus + "\")' class='autoBonusBox'>" + this.cleanName(bonus) + "<br/>等级：" + bonusObj.level + " - " + costText + "<br/>" + bonusObj.description() + "<br/>Unlimited Purchases</div>";
             }
             var oneCount = 0;
             var ownedItems = this.countOwnedItems();
@@ -3751,10 +3751,10 @@ var autoBattle = {
                 var cost = this.oneTimerPrice(oneTime);
                 var costText = ((!oneObj.useShards && cost <= this.dust) || (oneObj.useShards && cost <= this.shards)) ? "green" : "red";
 
-                costText = "<span id='" + oneTime + "BonusPrice' class='" + costText + "'>" + prettify(cost) + " " + ((oneObj.useShards) ? "Shards" : "Dust") + "</span>";
+                costText = "<span id='" + oneTime + "BonusPrice' class='" + costText + "'>" + prettify(cost) + "<i></i>" + ((oneObj.useShards) ? "Shards" : "Dust") + "</span>";
                 if (ownedItems < oneObj.requiredItems){
                     var need = (oneObj.requiredItems - ownedItems);
-                    text += "<div class='autoBonusBox autoOneTimerNotOwned' style='padding-top: 2%'><br/>Complete " + need + " more Contract" + needAnS(need) + " to reveal this bonus!</div>";
+                    text += "<div class='autoBonusBox autoOneTimerNotOwned' style='padding-top: 2%'><br/>再完成" + need + "个合约就能解锁这项加成了！</div>";
                 }
                 else text += "<div onclick='autoBattle.buyOneTimer(\"" + oneTime + "\")' class='autoBonusBox autoOneTimerNotOwned'>" + this.cleanName(oneTime) + "<br/>" + costText + "<br/>" + oneObj.description + "</div>";
             }
@@ -3773,13 +3773,13 @@ var autoBattle = {
                 var itemObj = this.items[item];
                 var accepted = (this.activeContract == item) ? " accepted" : "";
                 var description;
-                if (accepted) description = "You have paid the Dust and accepted this Contract.<br/>Huffy will gain access to this item as soon as you<br/><b style='font-size:1.3em'>Complete a U2 Z" + itemObj.zone + "+ Void Map</b>";
+                if (accepted) description = "You have paid the Dust and accepted this Contract.<br/>Huffy will gain access to this item as soon as you<br/><b style='font-size:1.3em'>在宇宙2中通过一张区域" + itemObj.zone + "及以上区域的虚空地图</b>";
                 else description = itemObj.description();
                 var extraClass = "";
                 if (itemObj.longText) extraClass = " descriptionSm";
                 text += "<div class='contractBox" + accepted + "'><div class='contractTitle'>" + this.cleanName(item) + "</div><div class='contractDescription" + extraClass + "'>" + description + "</div>";
                 if (accepted) text += "<span onclick='autoBattle.abandonContract()' class='btn btn-lg autoItemHide'>Abandon and Refund</span>";
-                else if (!this.activeContract) text += "<span onclick='autoBattle.acceptContract(\"" + item + "\")' class='btn btn-lg colorVoidy'>Accept (" + prettify(this.contractPrice(item)) + " " + this.getCurrencyName(item) + ", Complete a Z" + itemObj.zone + " Void Map)</span>";
+                else if (!this.activeContract) text += "<span onclick='autoBattle.acceptContract(\"" + item + "\")' class='btn btn-lg colorVoidy'>接受(" + prettify(this.contractPrice(item)) + "<i></i>" + this.getCurrencyName(item) + "<i></i>，通过一张区域" + itemObj.zone + "及以上区域的虚空地图)</span>";
                 else text += "<span class='btn btn-lg autoColorGrey'>Other Contract in Progress</span>";
                 text += "</div>";
             }
@@ -3789,7 +3789,7 @@ var autoBattle = {
             }
         }
         else if (this.popupMode == "other"){
-            text += "<div class='abOptions'>Settings:&nbsp;";
+            text += "<div class='abOptions'>设置：&nbsp;";
             for (var setting in this.settings){
                 var thisSetting = this.settings[setting];
                 if (typeof thisSetting.hideUnless !== 'undefined' && !thisSetting.hideUnless()) continue;
@@ -3804,17 +3804,17 @@ var autoBattle = {
                 else text += "<b>Are you sure?!</b><br/><span class='btn autoItemUpgrade btn-md' onclick='autoBattle.restoreLastAction()'>Yes, Undo</span><span class='btn autoItemHide btn-md' onclick='autoBattle.confirmUndoClicked()'>No, Cancel</span>";
                 text += "<br/>";
                 if (action[0] == "ring"){
-                    text += "Downgrade your ring by " + action[5] + " level" + needAnS(action[5]);
+                    text += "使您的戒指降低" + action[5] + "级";
                 }
                 else {
                     var itemName = this.cleanName(action[1]);
-                    text += "Downgrade " + itemName + " by " + action[5] + " level" + needAnS(action[5]);
+                    text += "使<i></i>" + itemName + "<i></i>减少" + action[5] + "级";
                 }
-                text += ", and <b>SET YOUR DUST TO " + prettify(action[2]);
-                if (this.maxEnemyLevel >= 51) text += " AND SHARDS TO " + prettify(action[6]);
-                text += "</b> (The amount you had the moment before the upgrade).";
-                if (this.maxEnemyLevel > action[3]) text += " Your progress will be set back to level " + action[3] + ".";
-                else if (this.enemiesKilled > action[4]) text += " Your kill counter will be reduced by " + prettify(this.enemiesKilled - action[4]) + ".";
+                text += "，并使<b>魔尘变回" + prettify(action[2]);
+                if (this.maxEnemyLevel >= 51) text += "，晶块变回" + prettify(action[6]);
+                text += "</b>(也就是升级前您拥有的数量)。";
+                if (this.maxEnemyLevel > action[3]) text += "您将回到敌人等级" + action[3] + "。";
+                else if (this.enemiesKilled > action[4]) text += "击杀计数将减少" + prettify(this.enemiesKilled - action[4]) + "。";
                 text += "<br/>";
             }
             else text += "Undoing your last 3 actions would still leave you with less currency than you have now."
@@ -3832,18 +3832,18 @@ var autoBattle = {
                 if (!preset.length) text += "Nothing Yet";
                 for (var y = 0; y < preset.length; y++){
                     if (Array.isArray(preset[y])){
-                        if (preset[y][0] == "level" && this.settings.loadLevel.enabled) text += ". Level " + preset[y][1];
+                        if (preset[y][0] == "level" && this.settings.loadLevel.enabled) text += "<i></i>。等级" + preset[y][1];
                         if (preset[y][0] == "ring" && this.settings.loadRing.enabled){
-                            text += ". Ring: ";
+                            text += "。灵戒：<i></i>";
                             for (var z = 1; z < preset[y].length; z++){
-                                if (z != 1) text += ", ";
+                                if (z != 1) text += "<i></i>，<i></i>";
                                 text += autoBattle.ringStats[preset[y][z]].name
                             }
                         }
                         continue;
                     }
                     if (!this.items[preset[y]] || !this.items[preset[y]].owned) continue;
-                    if (y != 0) text += ", ";
+                    if (y != 0) text += "<i></i>，<i></i>";
                     text += this.cleanName(preset[y]);
                 }
                 text += "</div>";

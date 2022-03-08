@@ -593,7 +593,9 @@ var toReturn = {
 				return "When this Empowerment is active, each successful attack by your Trimps stacks a debuff on the enemy, causing winds to swell and knock extra resources into your reach. Each stack increases Helium gained from the World by <b>" + this.formatModifier(this.getModifier(0, true)) + "%</b> and increases all other basic resources gained from all sources by <b>" + this.formatModifier(this.getModifier()) + "%</b> until that enemy dies (maximum of " + this.stackMax() + " stacks). This bonus does not apply to Fragments, and the helium bonus does not apply to maps.";
 			},
 			upgradeDescription: function () {
-				return "Increases the amount of extra Helium you find in the World by <b>" + this.formatModifier(this.baseModifier) + "%</b> and non-Helium basic resources from all sources by <b>" + this.formatModifier(this.baseModifier * 10) + "%</b> per stack when the Empowerment of Wind is active. Your current bonus is <b>" + this.formatModifier(this.getModifier(0, true)) + "%</b> Helium, and next level will bring your bonus to <b>" + this.formatModifier(this.getModifier(1, true)) + "%</b> extra helium. Non-Helium resource gain is always " + ((Fluffy.isRewardActive('naturesWrath')) ? "double" : "10x") + " that of Helium, and the Helium bonus does not apply in maps.";
+				var heMod = this.baseModifier;
+				if (Fluffy.isRewardActive("naturesWrath")) heMod *= 5;
+				return "Increases the amount of extra Helium you find in the World by <b>" + this.formatModifier(heMod) + "%</b> and non-Helium basic resources from all sources by <b>" + this.formatModifier(this.baseModifier * 10) + "%</b> per stack when the Empowerment of Wind is active. Your current bonus is <b>" + this.formatModifier(this.getModifier(0, true)) + "%</b> Helium, and next level will bring your bonus to <b>" + this.formatModifier(this.getModifier(1, true)) + "%</b> extra helium. Non-Helium resource gain is always " + ((Fluffy.isRewardActive('naturesWrath')) ? "double" : "10x") + " that of Helium, and the Helium bonus does not apply in maps.";
 			},
 			baseModifier: 0.001,
 			getModifier: function (change, forHelium) {
@@ -687,14 +689,14 @@ var toReturn = {
 			tokens: 0,
 			nextUberCost: 0,
 			get enlightenDesc(){
-				return "your Trimps gain +2 maximum Overkill cells " + ((game.global.spiresCompleted >= 2) ? " and +0.25% increased Fluffy Exp per Ice level <b>(currently " + prettify(game.empowerments.Ice.getLevel() * 0.25) + "%)</b>" : "") + " for your entire run. In Ice Zones, Ice stacks accumulate twice as fast, and if an enemy is hit by your Trimps while it has 20 or more stacks of Ice and is below 50% health, it will instantly shatter! The shards of Ice from the shattered enemy destroy everything in their path, triggering your maximum Overkill regardless of your damage";
+				return "your Trimps gain +2 maximum Overkill cells " + ((game.global.spiresCompleted >= 2) ? " and +0.25% increased Fluffy Exp per Ice level <b>(currently" + prettify(game.empowerments.Ice.getLevel() * 0.25) + "%)</b>" : "") + " for your entire run. In Ice Zones, Ice stacks accumulate twice as fast, and if an enemy is hit by your Trimps while it has 20 or more stacks of Ice and is below 50% health, it will instantly shatter! The shards of Ice from the shattered enemy destroy everything in their path, triggering your maximum Overkill regardless of your damage";
 			}
 		}
 	},
 	singleRunBonuses: {
 		goldMaps: {
-			name: "Golden Maps",
-			text: "+100% Map Loot",
+			name: "金色地图",
+			text: "地图战利品获取量 +100%",
 			cost: 20,
 			confirmation: "You are about to purchase Golden Maps for 20 bones. All of your current and future maps will gain +100% loot added to their normal loot roll <b>until your next Portal</b>. Is this what you wanted to do?", 
 			owned: false,
@@ -704,8 +706,8 @@ var toReturn = {
 			}
 		},
 		quickTrimps: {
-			name: "Quick Trimps",
-			text: "+100% Breed Speed",
+			name: "快枪手脆皮",
+			text: "繁殖速度 +100%",
 			cost: 20,
 			confirmation: "You are about to purchase Quick Trimps for 20 bones. This will cause your Trimps to breed twice as fast <b>until your next Portal</b>. Is this what you wanted to do?",
 			owned: false,
@@ -720,8 +722,8 @@ var toReturn = {
 			}
 		},
 		sharpTrimps: {
-			name: "Sharp Trimps",
-			text: "+50% Trimp Damage",
+			name: "锋锐脆皮",
+			text: "我方脆皮攻击力 +50%",
 			cost: 25,
 			confirmation: "You are about to purchase Sharp Trimps for 25 bones. This will cause your Trimps to deal 50% more damage <b>until your next Portal</b>. Is this what you wanted to do?",
 			owned: false,
@@ -738,14 +740,14 @@ var toReturn = {
 		},
 		heliumy: {
 			get name(){ 
-				return (game.global.universe == 2) ? "Radonculous" : "Heliumy";
+				return (game.global.universe == 2) ? "氡丰" : "氦奇";
 			},
 			get text(){
-				return "+25% " + heliumOrRadon();
+				return heliumOrRadon() + "获取量 +25%";
 			},
 			cost: 100,
 			get confirmation(){
-				return "You are about to purchase " + this.name + " for 100 bones. This will cause you to earn 25% more " + heliumOrRadon() + " from all sources <b>until your next Portal</b>. Is this what you wanted to do?"
+				return "您将花费100骨头购买" + this.name + "。购买后使" + heliumOrRadon() + "获取量增加25%，<b>until your next Portal</b>. Is this what you wanted to do?"
 			},
 			owned: false,
 			fire: function () {
@@ -886,12 +888,12 @@ var toReturn = {
 			},
 			repeatUntil: {
 				enabled: 0,
-				description: "<p><b>Repeat Forever</b> will cause the map to continually repeat if Repeat Maps is enabled.</p><p><b>Repeat to 10</b> will repeat unless you have 10 Map Bonus stacks.</p><p><b>Repeat for Items</b> will repeat unless there are no more special items left for that level of map.</p><p><b>Repeat for Any</b> will repeat unless there are no special items available AND you can not earn more Map Bonus stacks.</p><p><b>This setting only matters if Repeat is on. Toggling Repeat off will still leave the map when it is finished no matter what.</b></p>",
+				description: "<p><b>Repeat Forever</b> will cause the map to continually repeat if Repeat Maps is enabled.</p><p><b>重复至10层</b> will repeat unless you have 10 Map Bonus stacks.</p><p><b>Repeat for Items</b> will repeat unless there are no more special items left for that level of map.</p><p><b>Repeat for Any</b> will repeat unless there are no special items available AND you can not earn more Map Bonus stacks.</p><p><b>This setting only matters if Repeat is on. Toggling Repeat off will still leave the map when it is finished no matter what.</b></p>",
 				get titles(){
-					var arr = ["Repeat Forever", "Repeat to 10", "Repeat for Items", "Repeat for Any"];
+					var arr = ["Repeat Forever", "重复至10层", "Repeat for Items", "Repeat for Any"];
 					if (this.enabled == 0 && game.global.mapCounterGoal > game.global.mapRunCounter){
 						var count = (game.global.mapCounterGoal - game.global.mapRunCounter);
-						arr[0] = "Repeat " + count + " Time" + needAnS(count);
+						arr[0] = "重复" + count + "次";
 					}
 					return arr;
 				},
@@ -1100,15 +1102,15 @@ var toReturn = {
 							}
 						}
 						if (nextZone == "") 
-							nextZone = (setZone.length) ? setZone[0].world : "one";
+							nextZone = (setZone.length) ? setZone[0].world : "";
 					}
 					if (game.talents.maz.purchased){
-						nextZone += " (";
+						nextZone += "(";
 						if (game.global.universe == 2) nextZone += this.U2Mode.toUpperCase();
 						else nextZone += this.U1Mode.toUpperCase();
 						nextZone += ")";
 					}
-					return ["No Map At Zone", "Map At Z" + nextZone];
+					return ["No Map At Zone", "自动进图" + nextZone];
 				},
 				setZone: [{world: 200}],
 				setZoneB: [{world: 200}],
@@ -1218,11 +1220,11 @@ var toReturn = {
 						if (isNaN(through) || through > 1000) through = 1000;
 						else if (through < 10) through = 10;
 						if (isNaN(world) || world < 10){
-							error += " Preset " + (x + 1) + " needs a value for Start Zone that's greater than 10.";
+							error += "预设" + (x + 1) + "的起点区域需要高于10。";
 							continue;
 						}
 						else if (world > 1000) {
-							error += " Preset " + (x + 1) + " needs a value for Start Zone that's less than 1000.";
+							error += "预设" + (x + 1) + "的起点区域需要低于1000。";
 							continue;
 						}
 						if (times != -1 && times != 1 && times != 2 && times != 3 && times != 5 && times != 10 && times != 30) times = -1;
@@ -1233,7 +1235,7 @@ var toReturn = {
 							if (through < setting[y].start || setting[y].through < world) continue;
 							//Only run conflict detection if both presets match on cell
 							if (setting[y].cell == cell){
-								var errorText = " Preset " + (x + 1) + " and Preset " + (y + 1) + " would conflict with this setup."
+								var errorText = "预设" + (x + 1) + "与预设" + (y + 1) + "的设置相冲突。"
 								//If both presets repeat, check for conflicts
 								if (times != -1 && setting[y].times != -1){
 									//Repeat every zone always conflicts
@@ -1332,7 +1334,7 @@ var toReturn = {
 								else {
 									//Either none repeats or only 1 repeats
 									if (setting[y].world == world) {
-										error += " Preset " + (x + 1) + " and Preset " + (y + 1) + " cannot exit at the same Zone and Cell number.";
+										error += "预设" + (x + 1) + "与预设" + (y + 1) + "无法在相同区域的相同格子退出。";
 										continue loop1;
 									}
 									//If this preset doesn't repeat and y does, and if y starts on a lower zone than this preset, check for conflict
@@ -1922,7 +1924,7 @@ var toReturn = {
 		},
 		liquification: {
 			get description () {
-				if (game.global.universe == 2) return "This Mastery is currently disabled in Universe 2";
+				if (game.global.universe == 2) return "该专精在宇宙2中失效。";
 				var text = (this.purchased) ? "This mastery is increasing " : "This mastery would increase ";
 				var totalSpires = game.global.spiresCompleted;
 				var fluffyCount = Fluffy.isRewardActive("liquid");
@@ -2003,12 +2005,12 @@ var toReturn = {
 		},
 		voidSpecial: {
 			get description() {
-				var text = "<p>Receive 1 free Void Map after using your Portal for each 100 Zones cleared last run. " + heliumOrRadon() + " from Void Maps is also increased by 0.25% for each Zone cleared last run.</p>";
+				var text = "<p>上周目每通过100个区域，本周目就多获得1张虚空地图。上周目每通过1个区域，虚空地图中获得的" + heliumOrRadon() + "就增加0.25%。</p>";
 				var amt = (getLastPortal() * 0.0025);
-				text += "<p>You reached <b>Z" + getLastPortal() + "</b> last Portal, ";
-				if (this.purchased) text += " earning you a bonus of ";
-				else text += " which would earn you a bonus of ";
-				text +=  prettify(amt * 100) + "% extra " + heliumOrRadon() + " and " + Math.floor(getLastPortal() / 100) + " Void Maps.</p>";
+				text += "<p>You reached <b>" + getLastPortal() + "</b>，";
+				if (this.purchased) text += "因此您本周目可以";
+				else text += "因此您本周目将";
+				text += "额外获得" + prettify(amt * 100) + "%" + heliumOrRadon() + "和" + Math.floor(getLastPortal() / 100) + "张虚空地图。</p>";
 				text += "<p>Your value for \"Last Portal Zone\" only changes if you Portal after Z99 or collect an Heirloom, meaning it won't be reset by early restarts.</p>"
 				return text;
 			},
@@ -2034,7 +2036,7 @@ var toReturn = {
 		},
 		liquification2: {
 			get description () {
-				if (game.global.universe == 2) return "This Mastery is currently disabled in Universe 2";
+				if (game.global.universe == 2) return "该专精在宇宙2中失效。";
 				var text = (this.purchased) ? "This mastery is increasing " : "This mastery would increase ";
 				var totalSpires = game.global.spiresCompleted;
 				if (game.talents.liquification.purchased) totalSpires++;
@@ -2075,16 +2077,16 @@ var toReturn = {
 				var resName = heliumOrRadon();
 				if (game.global.universe == 2 && Fluffy.getLevel() < 15){
 					//no spoilers
-					petName = "Fluffy";
+					petName = "绒绒";
 					stackLevel = 6;
-					resName = "Helium";
+					resName = "氦";
 				}
-				 var text = "<p>Gain a second Void Map per 100 Zones cleared last run, but the first one is earned at Z50 (then 150, 250 etc). In addition, if " + petName + "'s level " + stackLevel + " bonus is active, this allows " + petName + " to stack 1 additional Void Map, adding another 50% " + resName + " bonus to the stack.</p>";
-				 text += "<p>You reached <b>Z" + getLastPortal() + "</b> last Portal,";
-				 if (this.purchased) text += " earning you a bonus of ";
-				 else text += " which would earn you a bonus of ";
+				 var text = "<p>上周目从区域50开始，每通过100个区域(即区域150，区域250，以此类推)，本周目就多获得1张虚空地图。另外，如果激活了" + petName + "的" + stackLevel + "级加成，那么" + petName + "的虚空地图融合上限再增加1张，融合后" + resName + "加成上限再增加50%。</p>";
+				 text += "<p>You reached <b>" + getLastPortal() + "</b>，";
+				 if (this.purchased) text += "因此您本周目可以";
+				 else text += "因此您本周目将";
 				 var maps = Math.floor((getLastPortal() + 50) / 100);
-				 text += maps + " more Void Maps (" + (maps + Math.floor((getLastPortal()) / 100)) + " including Void Specialization I).</p>";
+				 text += "额外获得" + maps + "张虚空地图(将虚空特化 I的效果纳入后，一共可以额外获得" + (maps + Math.floor((getLastPortal()) / 100)) + "张虚空地图)。</p>";
 				 text += "<p>Your value for \"Last Portal Zone\" only changes if you Portal after Z99 or collect an Heirloom, meaning it won't be reset by early restarts.</p>"
 				 return text;
 			},
@@ -2110,11 +2112,11 @@ var toReturn = {
 		fluffyExp: {
 			get description(){
 				var prestige = Fluffy.getCurrentPrestige();
-				return "" + Fluffy.getName() + " gains +25% more Exp per Zone for each completed Evolution. " + Fluffy.getName() + " has Evolved " + prestige + " time" + needAnS(prestige) + ", " + ((this.purchased) ? "earning" : "which would earn") + " you a bonus of +" + prettify(prestige * 25) + "% Exp.";
+				return "" + Fluffy.getName() + "每进化一次，每个区域就多获得25%经验值。目前" + Fluffy.getName() + "进化了" + prestige + "次，" + ((this.purchased) ? "可以" : "将") + "多获得" + prettify(prestige * 25) + "%经验值。";
 			},
 			get name(){
 				var name = Fluffy.getName();
-				return name.substring(0, name.length - 1) + "focus";
+				return name + "专注";
 			},
 			tier: 9,
 			purchased: false,
@@ -2122,11 +2124,11 @@ var toReturn = {
 		},
 		fluffyAbility: {
 			get description(){
-				return "Gain one extra " + Fluffy.getName() + " ability. This works as if " + Fluffy.getName() + " Evolved, but doesn't increase " + Fluffy.getName() + "'s damage bonus.";
+				return "" + Fluffy.getName() + "额外获得一个技能。效果类似于" + Fluffy.getName() + "多进化了一次，但并不增加" + Fluffy.getName() + "的伤害加成。";
 			},
 			get name(){
 				var name = Fluffy.getName();
-				return name.substring(0, name.length - 1) + "finity";
+				return name + "限界";
 			},
 			tier: 9,
 			purchased: false,
@@ -2162,12 +2164,12 @@ var toReturn = {
 				var resName = heliumOrRadon();
 				if (game.global.universe == 2 && Fluffy.getLevel() < 15){
 					//no spoilers
-					petName = "Fluffy";
+					petName = "绒绒";
 					stackLevel = 6;
-					resName = "Helium";
+					resName = "氦";
 				}
-				text += "</p><p>1. The " + petName + " bonus for stacked Void Maps calculates with compounding gains, rather than additive. Each Void Map in the stack increases the " + resName + " gain from the stack by x1.5 rather than +50%.</p>";
-				text += "<p>2. If " + petName + "'s level " + stackLevel + " bonus is active, allows Void Maps to infinitely stack. HOWEVER, this requires that the bonus " + resName + " does not increase past the amount that " + petName + " can normally stack, which for you would cap the bonus to a " + voidStackCount + " stack. To clarify, a 100 stack or a " + voidStackCount + " stack map would both grant " + prettify((Math.pow(1.5, voidStackCount - 1) - 1) * 100) + "% bonus " + heliumOrRadon() + " to each map in the stack, but the entire stack will still be completed instantly and each map in the stack will receive the maximum bonus.</p>";
+				text += "</p><p>1、" + petName + "的融合虚空地图加成从叠加变为叠乘。融合每张虚空地图的" + resName + "加成从增加50%变为乘以1.5。</p>";
+				text += "<p>2、只要激活了" + petName + "的" + stackLevel + "级加成，虚空地图就可以无限融合。不过，" + resName + "加成无法超过" + petName + "的融合上限" + voidStackCount + "次。也就是说，融合100次的地图与融合" + voidStackCount + "次的地图加成相同，均为" + prettify((Math.pow(1.5, voidStackCount - 1) - 1) * 100) + "%的" + resName + "，好处在于您可以一次性通过所有融合的地图，并且融合的每张地图都能获得最大加成。</p>";
 				text += "<p>3. Your Trimps gain 5x damage inside Void Maps</p>";
 				return text;
 			},
@@ -2199,7 +2201,7 @@ var toReturn = {
 		},
 		liquification3: {
 			get description () {
-				if (game.global.universe == 2) return "Liquification is disabled in Universe 2, but <b>Hyperspeed II's bonus will now function up to 75% of your Highest Zone Reached (through Z" + Math.floor(game.global.highestRadonLevelCleared * 0.75) + ") rather than a measly 50%</b>";
+				if (game.global.universe == 2) return "Liquification is disabled in Universe 2, but <b>风驰电掣 II专精的效果上限提升为最高通过区域的75%(即区域" + Math.floor(game.global.highestRadonLevelCleared * 0.75) + ")，而不是之前的50%</b>";
 				var text = (this.purchased) ? "This mastery is increasing " : "This mastery would increase ";
 				var totalSpires = game.global.spiresCompleted;
 				if (game.talents.liquification.purchased) totalSpires++;
@@ -2211,7 +2213,7 @@ var toReturn = {
 					else fluffyText += " and your two Fluffy bonuses as another"
 					totalSpires += (fluffyCount * 0.5);
 				}
-				return "Increase your Liquification bonus by <b>10%</b>, as if you had completed <b>2 extra Spires</b>. In addition, <b>Hyperspeed II's bonus will also now function up to 75% of your Highest Zone Reached (through Z" + Math.floor(game.global.highestLevelCleared * 0.75) + ") rather than a measly 50%</b>.<br/><br/>Counting Liquification I and II as two Spires" + fluffyText + ", you have completed the equivalent of " + totalSpires + " unique Spire" + ((totalSpires == 1) ? "" : "s") + ", giving you " + (totalSpires * 5) + "% of your highest Zone reached (through Z" + Math.floor((totalSpires / 20) * (getHighestLevelCleared(false, true) + 1)) + "). " + text + " your bonus to " + ((totalSpires + 2) * 5) + "% of your highest Zone reached (through Z" + Math.floor(((totalSpires + 2) / 20) * (getHighestLevelCleared(false, true) + 1)) + ").";
+				return "Increase your Liquification bonus by <b>10%</b>, as if you had completed <b>2 extra Spires</b>. In addition, <b>风驰电掣 II专精的效果上限同时提升为最高通过区域的75%(即区域" + Math.floor(game.global.highestLevelCleared * 0.75) + ")，而不是之前的50%</b>.<br/><br/>Counting Liquification I and II as two Spires" + fluffyText + ", you have completed the equivalent of " + totalSpires + " unique Spire" + ((totalSpires == 1) ? "" : "s") + ", giving you " + (totalSpires * 5) + "% of your highest Zone reached (through Z" + Math.floor((totalSpires / 20) * (getHighestLevelCleared(false, true) + 1)) + "). " + text + " your bonus to " + ((totalSpires + 2) * 5) + "% of your highest Zone reached (through Z" + Math.floor(((totalSpires + 2) / 20) * (getHighestLevelCleared(false, true) + 1)) + ").";
 			},
 			name: "Liquification III",
 			tier: 10,
@@ -2701,7 +2703,7 @@ var toReturn = {
 			modifier: 0.05,
 			priceBase: 1,
 			heliumSpent: 0,
-			get tooltip(){return "Walk back through the empty Zones, learning how to milk them for every last drop. Each level permanently increases the amount of resources gained from battle (Including " + heliumOrRadon(false, true) + ") by 5%."},
+			get tooltip(){return "回到之前的区域，学习如何榨干敌人身上的每一个铜板。每级使战利品获取量(包括" + heliumOrRadon(false, true) + ")永久增加5%。"},
 			level: 0,
 			radLevel: 0,
 			radSpent: 0,
@@ -2969,7 +2971,7 @@ var toReturn = {
 			},
 			fireAbandon: true,
 			get unlockString(){
-				return (portalUniverse == 2) ? "reach Zone 30" : "reach Zone 100";
+				return (portalUniverse == 2) ? "到达区域30" : "到达区域100";
 			}
 		},
 		Discipline: {
@@ -2986,7 +2988,7 @@ var toReturn = {
 			allowSquared: true,
 			squaredDescription: "Tweak the portal to bring you back to a universe where Trimps are less disciplined, in order to teach you how to be a better Trimp trainer. Your Trimps' minimum damage will be drastically lower, but their high end damage will be considerably higher.",
 			unlocks: "Range",
-			unlockString: "have 30 total Helium"
+			unlockString: "一共获得30氦"
 		},
 		Metal: {
 			description: "Tweak the portal to bring you to an alternate reality, where the concept of Miners does not exist, to force yourself to become frugal with equipment crafting strategies. If you complete The Dimension Of Anger without disabling the challenge, miners will re-unlock.",
@@ -3028,7 +3030,7 @@ var toReturn = {
 			heldMegaBooks: 0,
 			holdMagma: false,
 			unlocks: "Artisanistry",
-			unlockString: "reach Zone 25"
+			unlockString: "到达区域25"
 		},
 		Size: {
 			description: "Tweak the portal to bring you to an alternate reality, where Trimps are bigger and stronger, to force yourself to figure out a way to build larger housing. Your Trimps will gather 50% more resources, but your housing will fit 50% fewer Trimps. If you complete The Dimension of Anger without disabling the challenge, your stats will return to normal.",
@@ -3059,10 +3061,10 @@ var toReturn = {
 			squaredDescription: "Tweak the portal to bring you to an alternate reality, where Trimps are bigger and stronger, to force yourself to figure out a way to build larger housing. Your Trimps will gather 50% more resources, but your housing will fit 50% fewer Trimps.",
 			fireAbandon: true,
 			unlocks: "Carpentry",
-			unlockString: "reach Zone 35"
+			unlockString: "到达区域35"
 		},
 		Balance: {
-			description: "Your scientists have discovered a chaotic dimension filled with helium. All enemies have 100% more health, enemies in world deal 17% more damage, and enemies in maps deal 135% more damage. Starting at Zone 6, every time an enemy in the world is slain you will gain a stack of 'Unbalance'. Every time an enemy in a map is slain, you will lose a stack of Unbalance. Each stack of Unbalance reduces your health by 1%, but increases your Trimps' gathering speed by 1%. Unbalance can only stack to 250. Completing <b>Zone 40</b> with this challenge active will grant an additional 100% of all helium earned up to that point. This challenge is repeatable!",
+			description: "Your scientists have discovered a chaotic dimension filled with helium. All enemies have 100% more health, enemies in world deal 17% more damage, and enemies in maps deal 135% more damage. Starting at Zone 6, every time an enemy in the world is slain you will gain a stack of 'Unbalance'. Every time an enemy in a map is slain, you will lose a stack of Unbalance. Each stack of Unbalance reduces your health by 1%, but increases your Trimps' gathering speed by 1%. Unbalance can only stack to 250. Completing <b>区域40</b> with this challenge active will grant an additional 100% of all helium earned up to that point. This challenge is repeatable!",
 			completed: false,
 			filter: function () {
 				return (getHighestLevelCleared(true) >= 39);
@@ -3111,12 +3113,12 @@ var toReturn = {
 			fireAbandon: true,
 			heldHelium: 0,
 			heliumThrough: 40,
-			unlockString: "reach Zone 40"
+			unlockString: "到达区域40"
 		},
 		Scientist: {
 			get description (){
 				var is5 = (game.global.highestLevelCleared >= 129 && game.global.sLevel >= 4);
-				return "Attempt modifying the portal to " + ((is5) ? "retain positive qualities from previous dimensions" : "harvest resources when travelling") + ". Until you perfect the technique, you will start with <b>_</b> science but will be unable to research or hire scientists" + ((is5) ? " and <b style='color: maroon'>all enemy damage will be 10X higher</b>" : "") + ". Choose your upgrades wisely! Clearing <b>'The Block' (11)</b> with this challenge active will cause you to * each time you use your portal."
+				return "Attempt modifying the portal to " + ((is5) ? "retain positive qualities from previous dimensions" : "harvest resources when travelling") + ". Until you perfect the technique, you will start with <b>_</b> science but will be unable to research or hire scientists" + ((is5) ? " and <b style='color: maroon'>all enemy damage will be 10X higher</b>" : "") + ". Choose your upgrades wisely! Clearing <b>'The Block' (11)</b> with this challenge active will cause you to <i></i>*<i></i> each time you use your portal."
 			},
 			mustRestart: true,
 			completed: false,
@@ -3140,7 +3142,7 @@ var toReturn = {
 				game.global.challengeActive = "";
 				game.global.sLevel = getScientistLevel();
 				game.challenges.Scientist.abandon();
-				message("You have completed the <b>Scientist Challenge!</b> From now on, you'll " + getScientistInfo(game.global.sLevel, true) + " every time you portal. You've unlocked Scientists, and <b>Don't forget that you can click Research on your Science again!</b>", "Notices");
+				message("You have completed the <b>Scientist Challenge!</b>从现在起，您" + getScientistInfo(game.global.sLevel, true) + "。您重新解锁了科学家，<b>Don't forget that you can click Research on your Science again!</b>", "Notices");
 			},
 			abandon: function () {
 				game.worldUnlocks.Scientist.fire();
@@ -3170,11 +3172,11 @@ var toReturn = {
 			},
 			fireAbandon: false,
 			unlockString: function () {
-				if (game.global.sLevel == 0) return "reach Zone 40";
-				else if (game.global.sLevel == 1) return "reach Zone 50";
-				else if (game.global.sLevel == 2) return "reach Zone 90";
-				else if (game.global.sLevel == 3) return "reach Zone 110";
-				else if (game.global.sLevel >= 4) return "reach Zone 130";
+				if (game.global.sLevel == 0) return "到达区域40";
+				else if (game.global.sLevel == 1) return "到达区域50";
+				else if (game.global.sLevel == 2) return "到达区域90";
+				else if (game.global.sLevel == 3) return "到达区域110";
+				else if (game.global.sLevel >= 4) return "到达区域130";
 			}
 		},
 		Meditate: {
@@ -3191,10 +3193,10 @@ var toReturn = {
 			allowSquared: true,
 			squaredDescription: "Visit a dimension where everything is stronger, in an attempt to learn how to better train your Trimps. All enemies will have +100% health and +50% attack, but your Trimps will gather 25% faster.",
 			unlocks: "Meditation",
-			unlockString: "reach Zone 45"
+			unlockString: "到达区域45"
 		},
 		Decay: {
-			description: "Tweak the portal to bring you to an alternate reality, where added chaos will help you learn to create a peaceful place. You will gain 10x loot (excluding helium), 10x gathering, and 5x Trimp attack, but a stack of Decay will accumulate every second. Each stack of Decay reduces loot, gathering, and Trimp attack by 0.5% of the current amount. These stacks reset each time a Blimp is killed and cap at 999. Completing <b>Zone 55</b> with this challenge active will allow you to select the Gardens biome when creating maps, and all future Gardens maps created will gain +25% loot.",
+			description: "Tweak the portal to bring you to an alternate reality, where added chaos will help you learn to create a peaceful place. You will gain 10x loot (excluding helium), 10x gathering, and 5x Trimp attack, but a stack of Decay will accumulate every second. Each stack of Decay reduces loot, gathering, and Trimp attack by 0.5% of the current amount. These stacks reset each time a Blimp is killed and cap at 999. Completing <b>区域55</b> with this challenge active will allow you to select the Gardens biome when creating maps, and all future Gardens maps created will gain +25% loot.",
 			completed: false,
 			decayValue: 0.995,
 			abandon: function () {
@@ -3214,7 +3216,7 @@ var toReturn = {
 				message("You have completed the Decay challenge! All stats have been returned to normal, and you can now create more powerful Gardens maps at will!", "Notices")	
 			},
 			completeAfterZone: 55,
-			unlockString: "reach Zone 55",
+			unlockString: "到达区域55",
 		},
 		Trimp: {
 			description: "Tweak the portal to bring you to a dimension where Trimps explode if more than 1 fights at a time. You will not be able to learn Coordination, but completing <b>'The Block' (11)</b> will teach you how to keep your Trimps alive for much longer.",
@@ -3249,7 +3251,7 @@ var toReturn = {
 				unlockPerk("Resilience");
 				message("You have completed the <b>Trimp Challenge!</b> You have unlocked the 'Resilience' perk, and your Trimps can fight together again.", "Notices");
 			},
-			unlockString: "reach Zone 60"
+			unlockString: "到达区域60"
 		},
 		Trapper: {
 			description: "Travel to a dimension where Trimps refuse to breed in captivity, teaching yourself new ways to take advantage of situations where breed rate is low. Clearing <b>'Trimple Of Doom' (33)</b> with this challenge active will return your breeding rate to normal. Note that any bonuses that cause housing to come prefilled with Trimps will not work in a dimension where Trimps cannot breed.",
@@ -3282,7 +3284,7 @@ var toReturn = {
 				unlockPerk("Anticipation");
 				message("You have completed the 'Trapper' challenge! Your Trimps now remember how to breed, and you have unlocked a new perk!", "Notices");
 			},
-			unlockString: "reach Zone 70"
+			unlockString: "到达区域70"
 		},
 		Electricity: {
 			description: "Use the keys you found in the Prison to bring your portal to an extremely dangerous dimension. In this dimension enemies will electrocute your Trimps, stacking a debuff with each attack that damages Trimps for 10% of total health per turn per stack, and reduces Trimp attack by 10% per stack. Clearing <b>'The Prison' (80)</b> will reward you with an additional 200% of all helium earned up to but not including Zone 80. This is repeatable!",
@@ -3312,7 +3314,7 @@ var toReturn = {
 			attacksInARow: 0,
 			squaredDescription: "Use the keys you found in the Prison to bring your portal to an extremely dangerous dimension. In this dimension enemies will electrocute your Trimps, stacking a debuff with each attack that damages Trimps for 10% of total health per turn per stack, and reduces Trimp attack by 10% per stack.",
 			stacks: 0,
-			unlockString: "clear 'The Prison' at Zone 80"
+			unlockString: "通过区域80的监狱地图"
 		},
 		Frugal: {
 			description: "Bring yourself to a dimension where Equipment is cheap but unable to be prestiged, in order to teach yourself better resource and equipment management. Completing <b>'Dimension of Anger' (20)</b> with this challenge active will return missing books to maps, and your new skills in Frugality will permanently cause MegaBooks to increase gather speed by 60% instead of 50%.",
@@ -3340,10 +3342,10 @@ var toReturn = {
 			abandon: function () {
 				this.start(true);
 			},
-			unlockString: "reach Zone 100"
+			unlockString: "到达区域100"
 		},
 		Life: {
-			description: "Explore a dimension that is normally populated by the Undead, but is currently plagued by a quickly moving virus that can bring things back to life. All enemies in this dimension have 500% extra attack and 1000% extra health. Attacking a normal undead enemy gives your Trimps 1 stack of Unliving, which increases Trimp attack and health by 10% (additive) per stack. Trimps can have a maximum of 150 stacks of Unliving, and attacking a Living enemy will remove 5 stacks of Unliving. Completing <b>Zone 110</b> will reward you with an additional 400% of all helium earned up to that point. This is repeatable!",
+			description: "Explore a dimension that is normally populated by the Undead, but is currently plagued by a quickly moving virus that can bring things back to life. All enemies in this dimension have 500% extra attack and 1000% extra health. Attacking a normal undead enemy gives your Trimps 1 stack of Unliving, which increases Trimp attack and health by 10% (additive) per stack. Trimps can have a maximum of 150 stacks of Unliving, and attacking a Living enemy will remove 5 stacks of Unliving. Completing <b>区域110</b> will reward you with an additional 400% of all helium earned up to that point. This is repeatable!",
 			completed: false,
 			filter: function () {
 				return (getHighestLevelCleared(true) >= 109)
@@ -3351,7 +3353,7 @@ var toReturn = {
 			heliumMultiplier: 4,
 			heldHelium: 0,
 			heliumThrough: 110,
-			unlockString: "reach Zone 110",
+			unlockString: "到达区域110",
 			stacks: 150,
 			maxStacks: 150,
 			fireAbandon: true,
@@ -3394,7 +3396,7 @@ var toReturn = {
 				refreshMaps();
 			},
 			unlocks: "Siphonology",
-			unlockString: "reach Zone 115",
+			unlockString: "到达区域115",
 			difficultyIncrease: 3
 		},
 		Coordinate: {
@@ -3413,10 +3415,10 @@ var toReturn = {
 				message("You have completed the 'Coordinate' challenge! The Bad Guys on this world no longer fight together, and have regained their speed. You have unlocked the 'Coordinated' perk!", "Notices");
 			},
 			unlocks: "Coordinated",
-			unlockString: "reach Zone 120"
+			unlockString: "到达区域120"
 		},
 		Crushed: {
-			description: "Journey to a dimension where the atmosphere is rich in helium, but Bad Guys have a 50% chance to Critical Strike for +400% damage unless your Block is as high as your current Health. Clearing <b>Bionic Wonderland (Z125)</b> will reward you with an additional 400% of all helium earned up to but not including Z125. This challenge is repeatable.",
+			description: "Journey to a dimension where the atmosphere is rich in helium, but Bad Guys have a 50% chance to Critical Strike for +400% damage unless your Block is as high as your current Health. Clearing <b>仿生仙境地图(125)</b> will reward you with an additional 400% of all helium earned up to but not including Z125. This challenge is repeatable.",
 			completed: false,
 			filter: function () {
 				return (getHighestLevelCleared(true) >= 124);
@@ -3438,10 +3440,10 @@ var toReturn = {
 			},
 			heldHelium: 0,
 			heliumThrough: 124,
-			unlockString: "reach Zone 125"
+			unlockString: "到达区域125"
 		},
 		Slow: {
-			description: "Legends tell of a dimension inhabited by incredibly fast Bad Guys, where blueprints exist for a powerful yet long forgotten weapon and piece of armor. All Bad Guys will attack first in this dimension, but clearing <b>Zone 120</b> with this challenge active will forever-after allow you to create these new pieces of equipment.",
+			description: "Legends tell of a dimension inhabited by incredibly fast Bad Guys, where blueprints exist for a powerful yet long forgotten weapon and piece of armor. All Bad Guys will attack first in this dimension, but clearing <b>区域120</b> with this challenge active will forever-after allow you to create these new pieces of equipment.",
 			completed: false,
 			allowSquared: true,
 			squaredDescription: "Legends tell of a dimension inhabited by incredibly fast Bad Guys, and you seem to want to go there to prove something. All Bad Guys will attack first in this dimension, watch your health!",
@@ -3457,10 +3459,10 @@ var toReturn = {
 				}
 				game.global.slowDone = true;
 			},
-			unlockString: "reach Zone 130"
+			unlockString: "到达区域130"
 		},
 		Nom: {
-			description: "Travel to a dimension where Bad Guys enjoy the taste of Trimp. Whenever a group of Trimps dies, the Bad Guy will eat them, gaining 25% (compounding) more attack damage and healing for 5% of their maximum health. The methane-rich atmosphere causes your Trimps to lose 5% of their total health after each attack, but the Bad Guys are too big and slow to attack first. Clearing <b>Zone 145</b> will reward you with an additional 450% of all helium earned up to that point. This is repeatable!",
+			description: "Travel to a dimension where Bad Guys enjoy the taste of Trimp. Whenever a group of Trimps dies, the Bad Guy will eat them, gaining 25% (compounding) more attack damage and healing for 5% of their maximum health. The methane-rich atmosphere causes your Trimps to lose 5% of their total health after each attack, but the Bad Guys are too big and slow to attack first. Clearing <b>区域145</b> will reward you with an additional 450% of all helium earned up to that point. This is repeatable!",
 			completed: false,
 			allowSquared: true,
 			squaredDescription: "Travel to a dimension where Bad Guys enjoy the taste of Trimp. Whenever a group of Trimps dies, the Bad Guy will eat them, gaining 25% (compounding) more attack damage and healing for 5% of their maximum health. The methane-rich atmosphere causes your Trimps to lose 5% of their total health after each attack, but the Bad Guys are too big and slow to attack first.",
@@ -3470,10 +3472,10 @@ var toReturn = {
 			},
 			heldHelium: 0,
 			heliumThrough: 145,
-			unlockString: "reach Zone 145"
+			unlockString: "到达区域145"
 		},
 		Mapology: {
-			description: "Travel to a dimension where maps are scarce, in an attempt to learn to be more resourceful. You will earn one map Credit for each World Zone you clear, and it costs 1 credit to run 1 map. Completing <b>Zone 100</b> with this challenge active will return you to your original dimension. Double prestige from Scientist IV will not work during this challenge.",
+			description: "Travel to a dimension where maps are scarce, in an attempt to learn to be more resourceful. You will earn one map Credit for each World Zone you clear, and it costs 1 credit to run 1 map. Completing <b>区域100</b> with this challenge active will return you to your original dimension. Double prestige from Scientist IV will not work during this challenge.",
 			completed: false,
 			filter: function () {
 				return (getHighestLevelCleared(true) >= 149);
@@ -3495,10 +3497,10 @@ var toReturn = {
 			},
 			unlocks: "Resourceful",
 			credits: 0,
-			unlockString: "reach Zone 150"
+			unlockString: "到达区域150"
 		},
 		Toxicity: {
-			description: "Travel to a dimension rich in helium, but also rich in toxic Bad Guys. All Bad Guys have 5x attack and 2x health. Each time you attack a Bad Guy, your Trimps lose 5% of their health, and toxins are released into the air which reduce the breeding speed of your Trimps by 0.3% (of the current amount), but also increase all resources obtained by 0.15% (including Helium), stacking up to 1500 times. These stacks will reset when you clear a Zone. Completing <b>Zone 165</b> with this challenge active will reward you with an additional 400% of all helium earned up to that point. This is repeatable!",
+			description: "Travel to a dimension rich in helium, but also rich in toxic Bad Guys. All Bad Guys have 5x attack and 2x health. Each time you attack a Bad Guy, your Trimps lose 5% of their health, and toxins are released into the air which reduce the breeding speed of your Trimps by 0.3% (of the current amount), but also increase all resources obtained by 0.15% (including Helium), stacking up to 1500 times. These stacks will reset when you clear a Zone. Completing <b>区域165</b> with this challenge active will reward you with an additional 400% of all helium earned up to that point. This is repeatable!",
 			completed: false,
 			filter: function () {
 				return (getHighestLevelCleared(true) >= 164);
@@ -3513,10 +3515,10 @@ var toReturn = {
 			lootMult: 0.15,
 			allowSquared: true,
 			squaredDescription: "Travel to a dimension filled with the glory that comes from killing toxic Bad Guys. All Bad Guys have 5x attack and 2x health. Each time you attack a Bad Guy, your Trimps lose 5% of their health, and toxins are released into the air which reduce the breeding speed of your Trimps by 0.3% (of the current amount), but also increase all loot found by 0.15%, stacking up to 1500 times. These stacks will reset when you clear a Zone.",
-			unlockString: "reach Zone 165"
+			unlockString: "到达区域165"
 		},
 		Devastation: {
-			description: "Travel to a harsh dimension where Trimps are penalized for the mistakes of previous generations. If your army is killed at any point, any overkill damage will be applied 750% to the next group of Trimps to fight. Completing <b>Imploding Star (Zone 170)</b> will return the world to normal.",
+			description: "Travel to a harsh dimension where Trimps are penalized for the mistakes of previous generations. If your army is killed at any point, any overkill damage will be applied 750% to the next group of Trimps to fight. Completing <b>爆炸之星地图(区域170)</b> will return the world to normal.",
 			completed: false,
 			filter: function () {
 				return (getHighestLevelCleared(true) >= 169);
@@ -3530,10 +3532,10 @@ var toReturn = {
 			},
 			lastOverkill: -1,
 			unlocks: "Overkill",
-			unlockString: "reach Zone 170"
+			unlockString: "到达区域170"
 		},
 		Watch: {
-			description: "Travel to a strange dimension where life is easier but harder at the same time. At the end of each World Zone any available equipment upgrades will drop, and any unassigned Trimps will be split evenly amongst Farmer, Lumberjack, and Miner. However, resource production and drops from all sources will be halved, and all enemies will deal 25% more damage. Completing <b>Zone 180</b> with this challenge active will reward you with an additional 200% of all helium earned up to that point.",
+			description: "Travel to a strange dimension where life is easier but harder at the same time. At the end of each World Zone any available equipment upgrades will drop, and any unassigned Trimps will be split evenly amongst Farmer, Lumberjack, and Miner. However, resource production and drops from all sources will be halved, and all enemies will deal 25% more damage. Completing <b>区域180</b> with this challenge active will reward you with an additional 200% of all helium earned up to that point.",
 			filter: function () {
 				return (getHighestLevelCleared(true) >= 179);
 			},
@@ -3542,11 +3544,11 @@ var toReturn = {
 			heliumMultiplier: 2,
 			heldHelium: 0,
 			heliumThrough: 180,
-			unlockString: "reach Zone 180",
+			unlockString: "到达区域180",
 			enteredMap: false
 		},
 		Lead: {
-			description: "Travel to a dimension where life is easier or harder depending on the time. Odd numbered Zones will cause double resources to be earned from all sources, and will give your Trimps 50% extra attack. Starting an even numbered Zone will cause all enemies to gain 200 stacks of <b>Momentum</b>. Clearing a World cell will cause 1 stack to be lost, and each stack will increase the enemy's damage and health by 4%, and block pierce by 0.1%. If your Trimps attack without killing their target, they will lose 0.03% of their health per enemy stack. Completing <b>Zone 180</b> with this challenge active will reward you with an additional 300% of all helium earned up to that point.",
+			description: "Travel to a dimension where life is easier or harder depending on the time. Odd numbered Zones will cause double resources to be earned from all sources, and will give your Trimps 50% extra attack. Starting an even numbered Zone will cause all enemies to gain 200 stacks of <b>Momentum</b>. Clearing a World cell will cause 1 stack to be lost, and each stack will increase the enemy's damage and health by 4%, and block pierce by 0.1%. If your Trimps attack without killing their target, they will lose 0.03% of their health per enemy stack. Completing <b>区域180</b> with this challenge active will reward you with an additional 300% of all helium earned up to that point.",
 			filter: function () {
 				return (getHighestLevelCleared(true) >= 179);
 			},
@@ -3556,14 +3558,14 @@ var toReturn = {
 			allowSquared: true,
 			squaredDescription: "Travel to a dimension where life is easier or harder depending on the time. Odd numbered Zones will cause double resources to be earned from all sources, and will give your Trimps 50% extra attack. Starting an even numbered Zone will cause all enemies to gain 200 stacks of <b>Momentum</b>. Clearing a World cell will cause 1 stack to be lost, and each stack will increase the enemy's damage and health by 4%, and block pierce by 0.1%. If your Trimps attack without killing their target, they will lose 0.03% of their health per enemy stack.",
 			heliumThrough: 180,
-			unlockString: "reach Zone 180",
+			unlockString: "到达区域180",
 			fireAbandon: true,
 			abandon: function () {
 				if (document.getElementById('determinedBuff')) document.getElementById('determinedBuff').style.display = "none";
 			}
 		},
 		Corrupted: {
-			get description(){ return "Travel to a dimension where enemies have 3X attack and Corruption runs rampant, beginning at Z60. The Corruption in this dimension grants helium, but 50% less than normal. Improbabilities and Void Maps will still not gain strength or double reward until Z" + mutations.Corruption.start(true) + ". Completing <b>Zone 190</b> with this challenge active will reward you with an extra 200% helium earned from any source up to that point, and will instantly transport you back to your normal dimension."},
+			get description(){ return "Travel to a dimension where enemies have 3X attack and Corruption runs rampant, beginning at Z60. The Corruption in this dimension grants helium, but 50% less than normal. Improbabilities and Void Maps will still not gain strength or double reward until Z" + mutations.Corruption.start(true) + ". Completing <b>区域190</b> with this challenge active will reward you with an extra 200% helium earned from any source up to that point, and will instantly transport you back to your normal dimension."},
 			filter: function () {
 				return (getHighestLevelCleared(true) >= 189);
 			},
@@ -3571,17 +3573,17 @@ var toReturn = {
 			heldHelium: 0,
 			heliumThrough: 190,
 			hiredGenes: false,
-			unlockString: "reach Zone 190"
+			unlockString: "到达区域190"
 		},
 		Domination: {
-			description: "Travel to a dimension where the strongest Bad Guys gain strength from those weaker than them. Most Bad Guys have 90% less health and attack, but the final Bad Guy in every World Zone and Map has 2.5x more damage, 7.5x more health, and heals for 5% every time they attack your Trimps. But they also drop three times as much Helium! Clearing <b>Zone 215</b> will also reward you with an extra 100% of helium earned from any source up to that point, and will instantly teleport you back to your normal dimension!",
+			description: "Travel to a dimension where the strongest Bad Guys gain strength from those weaker than them. Most Bad Guys have 90% less health and attack, but the final Bad Guy in every World Zone and Map has 2.5x more damage, 7.5x more health, and heals for 5% every time they attack your Trimps. But they also drop three times as much Helium! Clearing <b>区域215</b> will also reward you with an extra 100% of helium earned from any source up to that point, and will instantly teleport you back to your normal dimension!",
 			filter: function () {
 				return (getHighestLevelCleared(true) >= 214);
 			},
 			heliumMultiplier: 1,
 			heldHelium: 0,
 			heliumThrough: 215,
-			unlockString: "reach Zone 215",
+			unlockString: "到达区域215",
 			fireAbandon: true,
 			abandon: function(){
 				var elem = document.getElementById('dominationDebuffContainer');
@@ -3601,7 +3603,7 @@ var toReturn = {
 			onlySquared: true,
 			allowSquared: true,
 			fireAbandon: true,
-			unlockString: "reach Zone 425",
+			unlockString: "到达区域425",
 			mustRestart: true,
 			zoneScaling: 10,
 			zoneScaleFreq: 10
@@ -3622,7 +3624,7 @@ var toReturn = {
 			onlySquared: true,
 			allowSquared: true,
 			fireAbandon: true,
-			unlockString: "reach 4500% Challenge<sup>2</sup> bonus",
+			unlockString: "挑战<sup>2</sup>的加成到达4500%",
 			mustRestart: true,
 			zoneScaling: 3,
 			zoneScaleFreq: 2,
@@ -3636,7 +3638,7 @@ var toReturn = {
 			nextWonder: 300,
 			completeAfterZone: 700,
 			heldExperience: 0,
-			unlockString: "reach Zone 600",
+			unlockString: "到达区域600",
 			fireAbandon: true,
 			onMapEnemyKilled: function(mapLevel){
 				if (game.global.world < this.nextWonder) return;
@@ -3647,7 +3649,7 @@ var toReturn = {
 				if (roll == 0){
 					this.nextWonder = game.global.world + 5;
 					this.wonders++;
-					message("Fluffy has Experienced the Wonder of " + mapObj.name + "!", "Notices");
+					message("绒绒经历了<i></i>" + mapObj.name + "<i></i>的奇物！", "Notices");
 					Fluffy.rewardExp(3);
 					this.drawStacks();
 				}
@@ -3718,7 +3720,7 @@ var toReturn = {
 		},
 		//U2 Challenges
 		Unlucky: {
-			description: "Your Trimps will never get far in this harsh Universe without learning how to control their luck. Tweak your Portal to bring you to a an alternate reality where your Trimps' minimum damage will be drastically lower, but their high end damage will be considerably higher. Each time your Trimps attack, 5 alternate timelines will open up. If the first digit of your Trimps' minimum attack is even, the timeline where your Trimps did the most damage will become reality. If the first digit is odd, the timeline where your Trimps did the least amount of damage will instead become reality. Clearing the <b>Dimension of Rage (Zone 15)</b> will complete this Challenge!",
+			description: "Your Trimps will never get far in this harsh Universe without learning how to control their luck. Tweak your Portal to bring you to a an alternate reality where your Trimps' minimum damage will be drastically lower, but their high end damage will be considerably higher. Each time your Trimps attack, 5 alternate timelines will open up. If the first digit of your Trimps' minimum attack is even, the timeline where your Trimps did the most damage will become reality. If the first digit is odd, the timeline where your Trimps did the least amount of damage will instead become reality. Clearing the <b>暴怒维度地图(区域15)</b> will complete this Challenge!",
 			squaredDescription: "Tweak your Portal to bring you to a an alternate reality where your Trimps' minimum damage will be drastically lower, but their high end damage will be considerably higher. Each time your Trimps attack, 5 alternate timelines will open up. If the first digit of your Trimps' minimum attack is even, the timeline where your Trimps did the most damage will become reality. If the first digit is odd, the timeline where your Trimps did the least amount of damage will instead become reality.",
 			filter: function () {
 				return (getHighestLevelCleared(true) >= 14);
@@ -3734,11 +3736,11 @@ var toReturn = {
 			blockU1: true,
 			allowSquared: true,
 			unlocks: "Range",
-			unlockString: "reach Zone 15",
+			unlockString: "到达区域15",
 			lastHitLucky: false
 		},
 		Downsize: {
-			description: "Tweak the portal to bring you to an alternate reality, where Trimps are incredibly antisocial and refuse to share a house with any other Trimps. Each housing building will only provide 1 Trimp, but the morale boost and smaller society causes all Trimps to gather 5x as many resources per second. Clearing <b>Prismatic Palace (Zone 20)</b> will complete this Challenge!",
+			description: "Tweak the portal to bring you to an alternate reality, where Trimps are incredibly antisocial and refuse to share a house with any other Trimps. Each housing building will only provide 1 Trimp, but the morale boost and smaller society causes all Trimps to gather 5x as many resources per second. Clearing <b>棱镜宫殿地图(区域20)</b> will complete this Challenge!",
 			squaredDescription: "Tweak the portal to bring you to an alternate reality, where Trimps are incredibly antisocial and refuse to share a house with any other Trimps. Each housing building will only provide 1 Trimp, but the morale boost and smaller society causes all Trimps to gather 5x as many resources per second.",
 			completed: false,
 			filter: function () {
@@ -3759,10 +3761,10 @@ var toReturn = {
 			blockU1: true,
 			allowSquared: true,
 			unlocks: "Carpentry",
-			unlockString: "reach Zone 20"
+			unlockString: "到达区域20"
 		},
 		Transmute: {
-			description: "Tweak the portal to bring you to an alternate reality where Metal cannot drop or be gathered at all. At the end of each Zone, your Food, Wood, and Science are completely consumed and 75% of the net amount of consumed resources become Metal. Clearing <b>Zone 25</b> will complete this Challenge!",
+			description: "Tweak the portal to bring you to an alternate reality where Metal cannot drop or be gathered at all. At the end of each Zone, your Food, Wood, and Science are completely consumed and 75% of the net amount of consumed resources become Metal. Clearing <b>区域25</b> will complete this Challenge!",
 			squaredDescription: "Tweak the portal to bring you to an alternate reality where Metal cannot drop or be gathered at all. At the end of each Zone, your Food, Wood, and Science are completely consumed and 75% of the net amount of consumed resources become Metal.",
 			completed: false,
 			filter: function () {
@@ -3806,10 +3808,10 @@ var toReturn = {
 			heldBooks: 0,
 			holdMagma: false,
 			unlocks: "Artisanistry",
-			unlockString: "reach Zone 25"
+			unlockString: "到达区域25"
 		},
 		Unbalance: {
-			description: "Your scientists have discovered a new chaotic dimension! All enemies have 50% more attack, enemies in world have 100% more health, and enemies in maps have 200% more health. Starting at Zone 6, every time an enemy in the world is slain you will gain a stack of 'Unbalance'. Every time an enemy in a map is slain, you will lose a stack of Unbalance. Each stack of Unbalance reduces your attack by 1%, but increases your Trimps' gathering speed by 1%. Unbalance can stack to 500. Clearing <b>Zone 35</b> will complete this Challenge!",
+			description: "Your scientists have discovered a new chaotic dimension! All enemies have 50% more attack, enemies in world have 100% more health, and enemies in maps have 200% more health. Starting at Zone 6, every time an enemy in the world is slain you will gain a stack of 'Unbalance'. Every time an enemy in a map is slain, you will lose a stack of Unbalance. Each stack of Unbalance reduces your attack by 1%, but increases your Trimps' gathering speed by 1%. Unbalance can stack to 500. Clearing <b>区域35</b> will complete this Challenge!",
 			squaredDescription: "Travel to a fun chaotic dimension! All enemies have 50% more attack, enemies in world have 100% more health, and enemies in maps have 200% more health. Starting at Zone 6, every time an enemy in the world is slain you will gain a stack of 'Unbalance'. Every time an enemy in a map is slain, you will lose a stack of Unbalance. Each stack of Unbalance reduces your attack by 1%, but increases your Trimps' gathering speed by 1%.",
 			completed: false,
 			blockU1: true,
@@ -3851,12 +3853,12 @@ var toReturn = {
 			},
 			highestStacks: 0,
 			fireAbandon: true,
-			unlockString: "reach Zone 35",
+			unlockString: "到达区域35",
 			completeAfterZone: 35,
 			unlocks: "Equality"
 		},
 		Bublé: {
-			description: "Tweak the portal to bring you to an alternate reality where Trimps really really don't like taking damage. Your Trimps start in this reality with an extra 250% Prismatic Shield, but as soon as they take any damage to health at all, they will refuse to fight again and the challenge will end. Clearing <b>Zone 40</b> without failing will complete this Challenge - granting an additional 500% of all Radon earned up to that point. Failing this Challenge will grant an additional 200% of all Radon earned up to the spot where you failed.",
+			description: "Tweak the portal to bring you to an alternate reality where Trimps really really don't like taking damage. Your Trimps start in this reality with an extra 250% Prismatic Shield, but as soon as they take any damage to health at all, they will refuse to fight again and the challenge will end. Clearing <b>区域40</b> without failing will complete this Challenge - granting an additional 500% of all Radon earned up to that point. Failing this Challenge will grant an additional 200% of all Radon earned up to the spot where you failed.",
 			completed: false,
 			allowU2: true,
 			blockU1: true,
@@ -3883,12 +3885,12 @@ var toReturn = {
 				game.global.challengeActive = "";
 				addHelium(reward);			
 			},
-			unlockString: "reach Zone 40",
+			unlockString: "到达区域40",
 			completeAfterZone: 40
 		},
 		Duel: {
-			description: "It's your Trimps vs the Bad Guys! Both teams start with 50 points, and both teams' Crit Chance is locked to the amount of points the OTHER team has. Getting a Critical Strike steals 1 point from the other team, winning a battle steals 2 points, and winning a battle in one hit steals 5 points. Any team below 20 points gains 10x health, any team below 10 points always attacks first, and any team above 50 points gains 3x damage. Clearing <b>Zone 45</b> will complete this Challenge!",
-			squaredDescription: "It's your Trimps vs the Bad Guys! Both teams start with 50 points, and both teams' Crit Chance is locked to the amount of points the OTHER team has. Getting a Critical Strike steals 1 point from the other team, winning a battle steals 2 points, and winning a battle in one hit steals 5 points. Any team below 20 points gains 10x health, Enemies attack first when less than 10 points (<b>Trimps cannot become Fast on this Challenge in Challenge<sup>3</sup> mode!</b>), and any team above 50 points gains 3x damage.",
+			description: "It's your Trimps vs the Bad Guys! Both teams start with 50 points, and both teams' Crit Chance is locked to the amount of points the OTHER team has. Getting a Critical Strike steals 1 point from the other team, winning a battle steals 2 points, and winning a battle in one hit steals 5 points. Any team below 20 points gains 10x health, any team below 10 points always attacks first, and any team above 50 points gains 3x damage. Clearing <b>区域45</b> will complete this Challenge!",
+			squaredDescription: "It's your Trimps vs the Bad Guys! Both teams start with 50 points, and both teams' Crit Chance is locked to the amount of points the OTHER team has. Getting a Critical Strike steals 1 point from the other team, winning a battle steals 2 points, and winning a battle in one hit steals 5 points. Any team below 20 points gains 10x health, Enemies attack first when less than 10 points (<b>在决斗<sup>3</sup>挑战中我方脆皮无法抢先攻击！</b>), and any team above 50 points gains 3x damage.",
 			completed: false,
 			allowU2: true,
 			blockU1: true,
@@ -3928,11 +3930,11 @@ var toReturn = {
 				return (getHighestLevelCleared(true) >= 44);
 			},
 			unlocks: "Criticality",
-			unlockString: "reach Zone 45",
+			unlockString: "到达区域45",
 			completeAfterZone: 45
 		},
 		Melt: {
-			description: "Tweak the portal to bring you to an alternate reality, where there's plenty of risk and Radon. You will gain 10x loot (excluding Radon), 10x gathering, and 5x Trimp attack, but a stack of Melt will accumulate every second. Each stack of Melt reduces loot, gathering, and Trimp attack by 1% of the current amount. These stacks reset each time a Zone is cleared and cap at 500. Clearing <b>Melting Point (Zone 50) <i>or</i> Zone 55</b> will complete this Challenge - granting an additional 400% of all Radon collected through Z50. This Challenge is repeatable!",
+			description: "Tweak the portal to bring you to an alternate reality, where there's plenty of risk and Radon. You will gain 10x loot (excluding Radon), 10x gathering, and 5x Trimp attack, but a stack of Melt will accumulate every second. Each stack of Melt reduces loot, gathering, and Trimp attack by 1% of the current amount. These stacks reset each time a Zone is cleared and cap at 500. Clearing <b>熔点地图(区域50)<i>or</i>区域55</b> will complete this Challenge - granting an additional 400% of all Radon collected through Z50. This Challenge is repeatable!",
 			completed: false,
 			abandon: function () {
 				this.stacks = 0;
@@ -3959,12 +3961,12 @@ var toReturn = {
 				game.challenges.Melt.abandon();
 				addHelium(reward);			
 			},
-			unlockString: "reach Zone 50",
+			unlockString: "到达区域50",
 			completeAfterMap: "Melting Point",
 			completeAfterZone: 55
 		},
 		Trappapalooza: {
-			description: "Travel to a dimension where Trimps refuse to breed in captivity, teaching you to stop breeding such weak Trimps. Trimps also seem to release an unfortunate burst of radiation when Trapped in this reality, instantly destroying 10% of your stored Food, Wood, Metal, and Science. So like, be careful of that. Clearing <b>Melting Point (Zone 50)</b> will complete this Challenge!",
+			description: "Travel to a dimension where Trimps refuse to breed in captivity, teaching you to stop breeding such weak Trimps. Trimps also seem to release an unfortunate burst of radiation when Trapped in this reality, instantly destroying 10% of your stored Food, Wood, Metal, and Science. So like, be careful of that. Clearing <b>熔点地图(区域50)</b> will complete this Challenge!",
 			squaredDescription: "Travel to a dimension where Trimps refuse to breed in captivity, teaching you to stop breeding such weak Trimps. Trimps also release an unfortunate burst of radiation when Trapped in this reality, instantly destroying 10% of your stored Food, Wood, Metal, and Science. But you know to be careful of that.",
 			completed: false,
 			heldBooks: 0,
@@ -4000,7 +4002,7 @@ var toReturn = {
 				unlockPerk("Resilience");
 				message("You have completed the 'Trappapalooza' challenge! Your Trimps now remember how to breed, and you have unlocked a new perk!", "Notices");
 			},
-			unlockString: "reach Zone 60"
+			unlockString: "到达区域60"
 		},
 		Quagmire: {
 			description: "Travel to an extremely muddy dimension. It's hard to walk out here, making Agility difficult. Your Trimps start each run with 100 stacks of Motivated, increasing all Loot gained by 40% per stack (including Radon). After each Zone, your Trimps gain 1 stack of Exhausted, reducing Trimp damage and breed speed by 10% per stack in the World, and 5% per stack in maps (compounding). For every 10 stacks of Exhausted, your Trimps will also attack 100ms slower. You'll also have access to run a special map called 'The Black Bog', which will always scale to Zone level and is such a terrifying map that Exotic Imp-orts are unable to spawn there. Completing 'The Black Bog' will reduce your Trimps' Exhausted by 1 stack, but will also reduce their Motivated by 1 stack. Exhausted stacks can be negative, and will increase damage and breed speed. Completing Z70 or reaching 0 Motivated stacks with this Challenge active will end the Challenge, returning the World to normal. If the Challenge is ended by completing Z70, you will gain an additional 250% of all Radon earned.",
@@ -4013,7 +4015,7 @@ var toReturn = {
 			completeAfterZone: 70,
 			heldHelium: 0,
 			heliumThrough: 70,
-			unlockString: " reach Zone 70",
+			unlockString: "到达区域70",
 			fireAbandon: true,
 			filter: function(){
 				return (getHighestLevelCleared(true) >= 69);
@@ -4092,15 +4094,15 @@ var toReturn = {
 			}
 		},
 		Wither: {
-			description: "Travel to an ultra scary alternate reality with horrific Bad Guys. Enemies heal for 25% of their maximum health before each attack. If an enemy ever heals itself back to 100% health, your army will fall to despair and instantly wither away. Every enemy slain by your Trimps in the World or World-level Maps grants 1 stack of Hardness to your Trimps (stacking up to 10,000 and increasing Health by 0.1% per stack) and 1 stack of Horror to all enemies (increasing Attack by 0.05% per stack). Whenever a group of Trimps is killed by Wither, Trimps lose half of their stacks of Hardness and block the enemy's ability to heal and Wither for an amount of cells equal to 10% of the Hardness stacks lost. Clearing <b>Zone 70</b> will complete this Challenge.",
-			squaredDescription: "Travel to an ultra scary alternate reality with horrific Bad Guys. Enemies heal for 25% of their maximum health before each attack. If an enemy ever heals itself back to 100% health, your army will fall to despair and instantly wither away. Every enemy slain by your Trimps in the World or World-level Maps grants 1 stack of Hardness to your Trimps (stacking up to 10,000 and increasing Health by 0.1% per stack) and 1 stack of Horror to all enemies (increasing Attack by 0.05% per stack). Whenever a group of Trimps is killed by Wither, Trimps lose half of their stacks of Hardness and block the enemy's ability to heal and Wither for an amount of cells equal to 10% of the Hardness stacks lost. Plaguebringer is disabled during Wither<sup>3</sup>",
+			description: "Travel to an ultra scary alternate reality with horrific Bad Guys. Enemies heal for 25% of their maximum health before each attack. If an enemy ever heals itself back to 100% health, your army will fall to despair and instantly wither away. Every enemy slain by your Trimps in the World or World-level Maps grants 1 stack of Hardness to your Trimps (stacking up to 10,000 and increasing Health by 0.1% per stack) and 1 stack of Horror to all enemies (increasing Attack by 0.05% per stack). Whenever a group of Trimps is killed by Wither, Trimps lose half of their stacks of Hardness and block the enemy's ability to heal and Wither for an amount of cells equal to 10% of the Hardness stacks lost. Clearing <b>区域70</b> will complete this Challenge.",
+			squaredDescription: "Travel to an ultra scary alternate reality with horrific Bad Guys. Enemies heal for 25% of their maximum health before each attack. If an enemy ever heals itself back to 100% health, your army will fall to despair and instantly wither away. Every enemy slain by your Trimps in the World or World-level Maps grants 1 stack of Hardness to your Trimps (stacking up to 10,000 and increasing Health by 0.1% per stack) and 1 stack of Horror to all enemies (increasing Attack by 0.05% per stack). Whenever a group of Trimps is killed by Wither, Trimps lose half of their stacks of Hardness and block the enemy's ability to heal and Wither for an amount of cells equal to 10% of the Hardness stacks lost. During Wither<sup>3</sup> Plaguebringer is disabled.",
 			completed: false,
 			blockU1: true,
 			allowU2: true,
 			allowSquared: true,
 			unlocks: "Tenacity",
 			completeAfterZone: 70,
-			unlockString: " reach Zone 70",
+			unlockString: "到达区域70",
 			fireAbandon: true,
 			trimpStacks: 0,
 			enemyStacks: 0,
@@ -4179,7 +4181,7 @@ var toReturn = {
 			}
 		},
 		Revenge: {
-			description: "Travel to an exceptionally harsh dimension filled with vengeful creatures, including the Trimps. Enemies have 10x health on even zone numbers. If your army is killed at any point, any overkill damage will be applied 750% to the next group of Trimps to fight. Any time a group of Trimps is killed by this Overkill damage, your Trimps gain a stack of 'Revenge', increasing their Attack and Health by 20% (additive). However if your Trimps ever reach 20 stacks of Revenge, you will instantly fail the Challenge. Clearing <b>Zone 80</b> with less than 20 stacks of Revenge will complete this Challenge.",
+			description: "Travel to an exceptionally harsh dimension filled with vengeful creatures, including the Trimps. Enemies have 10x health on even zone numbers. If your army is killed at any point, any overkill damage will be applied 750% to the next group of Trimps to fight. Any time a group of Trimps is killed by this Overkill damage, your Trimps gain a stack of 'Revenge', increasing their Attack and Health by 20% (additive). However if your Trimps ever reach 20 stacks of Revenge, you will instantly fail the Challenge. Clearing <b>区域80</b> with less than 20 stacks of Revenge will complete this Challenge.",
 			completed: false,
 			blockU1: true,
 			allowU2: true,
@@ -4225,10 +4227,10 @@ var toReturn = {
 			lastOverkill: -1,
 			completeAfterZone: 80,
 			unlocks: "Hunger",
-			unlockString: "reach Zone 80"
+			unlockString: "到达区域80"
 		},
 		Quest: {
-			description: "Travel to an alternate reality where Trimps really love questing. Enemies in this reality gain 10% extra health each zone starting at Z6 (compounding). However, you'll also get a random Quest each Zone starting at 6. Completing this quest will grant a 2x Radon multiplier for the rest of the Zone (does not stack), and will increase your Trimps' attack by 10% for the rest of the Challenge (compounding). Check messages or the Zone info tooltip for quest progress. Clearing <b>Zone 85</b> will complete this Challenge, returning Trimp Attack and Enemy Health to normal.",
+			description: "Travel to an alternate reality where Trimps really love questing. Enemies in this reality gain 10% extra health each zone starting at Z6 (compounding). However, you'll also get a random Quest each Zone starting at 6. Completing this quest will grant a 2x Radon multiplier for the rest of the Zone (does not stack), and will increase your Trimps' attack by 10% for the rest of the Challenge (compounding). Check messages or the Zone info tooltip for quest progress. Clearing <b>区域85</b> will complete this Challenge, returning Trimp Attack and Enemy Health to normal.",
 			get squaredDescription(){
 				return "Travel to an alternate reality where Trimps really love questing. Enemies in this reality gain 10% extra health each zone starting at Z" + this.getQuestStartZone(true) + " (compounding). However, you'll also get a random Quest each Zone starting at the same Zone. Your Quest start Zone is always equal to your highest Zone on C3 minus 80, but never lower than 6. Completing this quest will grant a 2x Radon multiplier for the rest of the Zone (does not stack), and will increase your Trimps' attack by 10% for the rest of the Challenge (compounding). Check messages or the Zone info tooltip for quest progress.";
 			},
@@ -4243,7 +4245,7 @@ var toReturn = {
 			finishedQuests: 0,
 			questsMade: 0,
 			allowSquared: true,
-			questDescriptions: ["Quintuple (x5) your {resource}", "Double your {resource}", "Complete 5 Maps at Zone level", "One-shot 5 world enemies", "Don't let your shield break before Cell 100", "Don't run a map before Cell 100", "Buy a Smithy"],
+			questDescriptions: ["使{resource}变为5倍", "使{resource}翻倍", "通过5张等级为区域层数的地图", "一击击杀世界上的5名敌人", "在到达格子100之前护盾不破碎", "在到达格子100之前不进入地图", "建造一个铁匠铺"],
 			filter: function(){
 				return (getHighestLevelCleared(true) >= 84);
 			},
@@ -4282,19 +4284,33 @@ var toReturn = {
 			},
 			getQuestProgress: function(){
 				if (this.questId == -1) return "";
-				if (this.questComplete) return "Quest Complete!";
+				if (this.questComplete) return "任务已完成！";
 				if (this.questId <= 1){
-					return prettify(game.resources[this.resource].owned) + " / " + prettify(this.questProgress) + " " + this.resource;
+					if (this.resource == "food"){
+						return prettify(game.resources[this.resource].owned) + "/" + prettify(this.questProgress) + "食物";
+					}
+					else if (this.resource == "wood"){
+						return prettify(game.resources[this.resource].owned) + "/" + prettify(this.questProgress) + "木头";
+					}
+					else if (this.resource == "metal"){
+						return prettify(game.resources[this.resource].owned) + "/" + prettify(this.questProgress) + "金属";
+					}
+					else if (this.resource == "gems"){
+						return prettify(game.resources[this.resource].owned) + "/" + prettify(this.questProgress) + "宝石";
+					}
+					else if (this.resource == "science"){
+						return prettify(game.resources[this.resource].owned) + "/" + prettify(this.questProgress) + "科学点";
+					}
 				}
 				if (this.questId <= 3){
-					return this.questProgress + " / 5";
+					return this.questProgress + "/5";
 				}
 				if (this.questId <= 5){
-					if (this.questProgress > 0) return "Failed!";
-					return "Still Earnable!";
+					if (this.questProgress > 0) return "任务失败！";
+					return "待完成！";
 				}
 				if (this.questId == 6){
-					return "0 / 1";
+					return "0/1";
 				}
 			},
 			completeQuest: function(){			
@@ -4346,8 +4362,24 @@ var toReturn = {
 			getQuestDescription: function(addProgress){
 				if (this.questId == -1) "No active quest";
 				var desc = this.questDescriptions[this.questId];
-				if (this.questId <= 1) desc = desc.replace("{resource}", this.resource);
-				if (addProgress) desc += ". Progress: " + this.getQuestProgress();
+				if (this.questId <= 1){
+					if (this.resource == "food"){
+						desc = desc.replace("{resource}", "食物");
+					}
+					else if (this.resource == "wood"){
+						desc = desc.replace("{resource}", "木头");
+					}
+					else if (this.resource == "metal"){
+						desc = desc.replace("{resource}", "金属");
+					}
+					else if (this.resource == "gems"){
+						desc = desc.replace("{resource}", "宝石");
+					}
+					else if (this.resource == "science"){
+						desc = desc.replace("{resource}", "科学点");
+					}
+				}
+				if (addProgress) desc += "。进度：" + this.getQuestProgress();
 				return desc;
 			},
 			getQuestStartZone: function(desc){
@@ -4366,11 +4398,11 @@ var toReturn = {
 				game.global.challengeActive = "";
 				unlockPerk("Greed");
 			},
-			unlockString: "reach Zone 85",
+			unlockString: "到达区域85",
 			unlocks: "Greed"
 		},
 		Archaeology: {
-			description: "Travel to a dimension with lots of buried Relics. When starting this challenge, you'll be granted access to 5 special new upgrades called Relics that grant a compounding increase to your Attack, Breed Speed, Radon, Resource Gain (Food, Wood, Metal, Science and Gems), and one that decreases Enemy Attack. These upgrades all cost science and increase in cost whenever any of them are purchased. However, your Attack, Breed Speed, Radon, Resource Gain, and Enemy Health Relics all decrease by 1 Relic level every Zone and can go negative. All Radon drops have a base increase of +200% in this dimension. Completing <b>Z90</b> with this Challenge active will grant an additional +500% of all Radon earned. After the first time you complete this Challenge, you'll gain the ability to create maps with Small and Large Research Caches! After the second time you complete this Challenge, you'll unlock powerful customization for AutoGold.",
+			description: "Travel to a dimension with lots of buried Relics. When starting this challenge, you'll be granted access to 5 special new upgrades called Relics that grant a compounding increase to your Attack, Breed Speed, Radon, Resource Gain (Food, Wood, Metal, Science and Gems), and one that decreases Enemy Attack. These upgrades all cost science and increase in cost whenever any of them are purchased. However, your Attack, Breed Speed, Radon, Resource Gain, and Enemy Health Relics all decrease by 1 Relic level every Zone and can go negative. All Radon drops have a base increase of +200% in this dimension. Completing <b>区域90</b> with this Challenge active will grant an additional +500% of all Radon earned. After the first time you complete this Challenge, you'll gain the ability to create maps with Small and Large Research Caches! After the second time you complete this Challenge, you'll unlock powerful customization for AutoGold.",
 			completed: false,
 			blockU1: true,
 			allowU2: true,
@@ -4378,7 +4410,7 @@ var toReturn = {
 			completeAfterZone: 90,
 			heldHelium: 0,
 			heliumThrough: 90,
-			unlockString: " reach Zone 90",
+			unlockString: "到达区域90",
 			fireAbandon: true,
 			pauseAuto: false,
 			overZero: false,
@@ -4429,7 +4461,7 @@ var toReturn = {
 					return;
 				}
 				if (split.length > 25){
-					error += "You can only have a maximum of 25 separate Automator rules for this Challenge. You currently have " + split.length + " in your string.<br/>"
+					error += "该挑战中您至多只能输入25条规则。您在字符串中输入了" + split.length + "条规则。<br/>"
 				}
 				for (var x = 0; x < split.length; x++){
 					var rule = split[x];
@@ -4437,16 +4469,16 @@ var toReturn = {
 					var letter = rule[2];
 					var number = parseInt(rule[1], 10);
 					if (isNumberBad(number)){
-						error += "Unable to parse number in rule " + (x + 1) + " at '" + split[x] + "'. Please make sure this is a valid number.<br/>";
+						error += "无法解析第" + (x + 1) + "条规则'" + split[x] + "'的数字。请再次确认您输入了正确的数字。<br/>";
 						continue;
 					}
 					if (rule[0] == "-") number *= -1;
 					if (!defs[letter]) {
-						error += "Unable to parse rule " + (x + 1) + " at '" + split[x] + "'. Please use a, e, r, s, or b as the only letters in your string.<br/>";
+						error += "无法解析第" + (x + 1) + "条规则'" + split[x] + "'。请只在字符串中使用a、e、r、s、b共5个英文字符。<br/>";
 						continue;
 					}
 					if (number > 50) {
-						error += "Rule " + (x + 1) + " is attempting to set a value of " + number + ", but the maximum Relic level is 50. Please use a number less than or equal to 50.<br/>";
+						error += "第" + (x + 1) + "条规则试图将级别设为" + number + "，但遗物的等级最高为50级。请输入不高于50的数字。<br/>";
 						continue;
 					}
 				}
@@ -4576,7 +4608,7 @@ var toReturn = {
 			get description(){
 				var text = "";
 				if (game.global.mayhemCompletions >= this.maxRuns) text += "<b>NOTICE: You have already completed Mayhem " + this.maxRuns + " times, and will no longer gain a bonus for future runs.</b><br/>";
-				text += "Travel to a very hectic dimension. The final Cell of each Zone is a Poisonous boss enemy, and all Map enemies are also Poisonous. Poisonous Enemies stack 20% of their damage on your Trimps as poison, which is taken as damage after each attack until your Trimps die. Each Zone starts with " + this.getStartStacks() + " stacks of Mayhem, and each stack increases the damage and health of the final Cell Boss Enemy for that Zone by 10%. Completing a map reduces the Mayhem stacks for that Zone by 1 and an additional 1 for each level of the Map above the Zone's level (For example, a level 15 map will remove 3 stacks per completion when at Z13). Completing <b>Z100</b> with this Challenge active will grant your Trimps a permanent, stacking, additive <b>" + prettify((game.global.mayhemCompletions * 10) + 10) + "%</b> bonus to Radon or Helium, and Trimp Attack and Health in Universes 1 and 2. Each time Mayhem is completed, the reward for next time increases by an additional 10% and Enemies gain 3x damage and health for all future runs of Mayhem. The amount of Mayhem stacks that each Zone starts with is always equal to 1000 minus 5 for each highest Zone cleared above Z100 in this Universe (You have cleared Z" + game.global.highestRadonLevelCleared + " and start each Zone with " + this.getStartStacks() + " stacks)";
+				text += "Travel to a very hectic dimension. The final Cell of each Zone is a Poisonous boss enemy, and all Map enemies are also Poisonous. Poisonous Enemies stack 20% of their damage on your Trimps as poison, which is taken as damage after each attack until your Trimps die. Each Zone starts with " + this.getStartStacks() + " stacks of Mayhem, and each stack increases the damage and health of the final Cell Boss Enemy for that Zone by 10%. Completing a map reduces the Mayhem stacks for that Zone by 1 and an additional 1 for each level of the Map above the Zone's level (For example, a level 15 map will remove 3 stacks per completion when at Z13). Completing <b>区域100</b>后，永久使宇宙1中的氦获取量、宇宙2中的氡获取量、宇宙1和宇宙2中我方脆皮的攻击力和生命值增加<b>" + prettify((game.global.mayhemCompletions * 10) + 10) + "%</b>Each time Mayhem is completed, the reward for next time increases by an additional 10% and Enemies gain 3x damage and health for all future runs of Mayhem. The amount of Mayhem stacks that each Zone starts with is always equal to 1000 minus 5 for each highest Zone cleared above Z100 in this Universe (You have cleared Z" + game.global.highestRadonLevelCleared + " and start each Zone with " + this.getStartStacks() + " stacks)";
 				text += " <b>You have completed Mayhem " + game.global.mayhemCompletions + " / " + this.maxRuns + " maximum times. Your Trimps have +" + prettify((this.getTrimpMult() - 1) * 100) + "% Attack, Health, and Helium or Radon, and your next run of Mayhem will spawn Bad Guys with " + prettify(Math.pow(3, game.global.mayhemCompletions)) + "x Attack and Health.</b>";
 				return text;
 			},
@@ -4665,7 +4697,7 @@ var toReturn = {
 			allowU2: true,
 			allowSquared: false,
 			completeAfterZone: 100,
-			unlockString: " reach Zone 100",
+			unlockString: "到达区域100",
 		},
 		Storm: {
 			get description(){
@@ -4673,7 +4705,7 @@ var toReturn = {
 			},
 			getDesc: function(forC3){
 				var text = "Travel to a dimension that storms year-round. Trimps gain Storm stacks after every attack, damaging them for " + prettify(this.alphaLoss * 100) + "% of their max hp per stack. Enemies gain Cloudy stacks after every attack. Every " + this.mutationThresh + " Cloudy particles causes a Stormcloud on that enemy, causing them to gain max hp and damage, and take extra damage from gamma bursts. Cloudy stacks stick around after bad guys die, and each new group of bad guys start with a Cloudy stack for each Stormcloud on the previous enemy. Cloudy stacks cannot accrue and Stormclouds have no effect in maps, but Trimps in maps have -0.05% attack per Cloudy stack on the enemy. Defeating an enemy in a map will remove 1 Cloudy stack.";
-				if (!forC3) text += " Completing <b>Z105</b> with this Challenge active will return the Dimension to normal" + ((game.global.stormDone) ? "." : " and reward you with a brand new building to help with the weather!");
+				if (!forC3) text += " Completing <b>区域105</b> with this Challenge active will return the Dimension to normal" + ((game.global.stormDone) ? "." : " and reward you with a brand new building to help with the weather!");
 				return text;
 			},
 			completed: false,
@@ -4684,7 +4716,7 @@ var toReturn = {
 				return game.challenges.Storm.getDesc(true);
 			},
 			completeAfterZone: 105,
-			unlockString: " reach Zone 105",
+			unlockString: "到达区域105",
 			fireAbandon: true,
 			filter: function(){
 				return (getHighestLevelCleared(true) >= 104);
@@ -4793,7 +4825,7 @@ var toReturn = {
 			heliumThrough: 110,
 			heldHelium: 0,
 			completeAfterZone: 110,
-			unlockString: " reach Zone 110",
+			unlockString: "到达区域110",
 			fireAbandon: true,
 			filter: function(){
 				return (getHighestLevelCleared(true) >= 109);
@@ -4880,7 +4912,7 @@ var toReturn = {
 			allowSquared: true,
 			squaredDescription: "Travel to a dimension filled with lots of mild annoyances, sure to drive your Trimps berserk. All enemies in this dimension have 50% more attack and health. Every time your Trimps attack they have a 5% chance to become Frenzied, causing all kills to heal for 1% of max health, and also stack +50% attack and -2% max health, up to 25 times. If a frenzied group dies or is abandoned, your Trimps gain a permanent Weakened stack, reducing health by 4.99% per stack when outside of frenzy. If weakened stacks reach 20, Trimps can no longer become frenzied. Due to this dimension's annoying nature, the Angelic Mastery and Frenzy Perk do not work.",
 			completeAfterZone: 115,
-			unlockString: " reach Zone 115",
+			unlockString: "到达区域115",
 			fireAbandon: true,
 			filter: function(){
 				return (getHighestLevelCleared(true) >= 114);
@@ -4979,7 +5011,7 @@ var toReturn = {
 			blockU1: true,
 			allowU2: true,
 			completeAfterZone: 120,
-			unlockString: " reach Zone 120",
+			unlockString: "到达区域120",
 			fireAbandon: true,
 			filter: function(){
 				return (getHighestLevelCleared(true) >= 119);
@@ -5033,7 +5065,7 @@ var toReturn = {
 		},
 		Nurture: {
 			get description(){
-				return "Travel to a dimension filled with gigantic monsters. All enemies have 2x attack, World enemies have 2x health and map enemies have 10x health. Luckily, Scruffy has a brother in this dimension who will help you out if you level him up! You'll gain access to the special Laboratory building while on this challenge, which will give bonus Exp to Scruffy's brother, Cruffys. Check the Scruffy and Laboratory tooltips while on this Challenge for more info. Clearing <b>Z135</b> with this Challenge active will grant an additional 400% of all Radon earned up until that point, and will (mostly) return the world to normal." + ((game.portal.Observation.radLocked) ? " <b>Complete this Challenge with Cruffys at Level 10 or higher to earn a new Perk!</b>" : "");
+				return "Travel to a dimension filled with gigantic monsters. All enemies have 2x attack, World enemies have 2x health and map enemies have 10x health. Luckily, Scruffy has a brother in this dimension who will help you out if you level him up! You'll gain access to the special Laboratory building while on this challenge, which will give bonus Exp to Scruffy's brother, Cruffys. Check the Scruffy and Laboratory tooltips while on this Challenge for more info. Clearing <b>区域135</b> with this Challenge active will grant an additional 400% of all Radon earned up until that point, and will (mostly) return the world to normal." + ((game.portal.Observation.radLocked) ? "<b>Complete this Challenge with Cruffys at Level 10 or higher to earn a new Perk!</b>" : "");
 			},
 			completed: false,
 			blockU1: true,
@@ -5041,7 +5073,7 @@ var toReturn = {
 			heliumThrough: 135,
 			heldHelium: 0,
 			completeAfterZone: 135,
-			unlockString: " reach Zone 130.",
+			unlockString: "到达区域130",
 			fireAbandon: true,
 			rewardsList: ["cruf1", "cruf2", "cruf3", "cruf4", "cruf5", "cruf6", "cruf7", "cruf8", "cruf9", "cruf10"],
 			totalXp: 0,
@@ -5163,7 +5195,7 @@ var toReturn = {
 			get description(){
 				var text = "";
 				if (game.global.pandCompletions >= this.maxRuns) text += "<b>NOTICE: You have already completed Pandemonium " + this.maxRuns + " times, and will no longer gain a bonus for future runs.</b><br/>";
-				text += "Travel to a chaotically windy dimension. Map enemies at or below World level will obliterate 75% of your Metal, Wood and Food after each enemy killed. For each map level above world level, 5% (additively) fewer resources will be destroyed, with +10 map enemies destroying only 25%. You start the Challenge with 100 stacks of Order. Each Zone, 10% of your current Order stacks will be converted into Pandemonium stacks on the Enemy. Each Pandemonium stack increases Enemy's attack and health by 100% per stack, and has 10x effect on the final boss of each Zone. The final boss is a Windy enemy who will blow away 1% of your Food, Wood and Metal per stack of Pandemonium per attack. Completing a map grants you 1 Order stack for each level above your World Zone (Max 100), and reduces enemy Pandemonium by the same amount. Completing <b>Z150</b> with this Challenge active will grant your Trimps a permanent, stacking, additive <b>" + prettify((game.global.pandCompletions * 10) + 10) + "%</b> bonus to Helium or Radon, Trimp Attack, Trimp Health, and Resources Gathered in Universe 1 and 2. Each time Pandemonium is completed, the reward for next time increases by an additional 10%, Enemies gain 5x damage and health, and Equipment is 5x more expensive for all future runs of Pandemonium. Starting on your fourth run, the Wind will be too strong for Trimps to hold a Shield. Another piece of equipment will be disabled every 2 completions after Shield is lost.";
+				text += "Travel to a chaotically windy dimension. Map enemies at or below World level will obliterate 75% of your Metal, Wood and Food after each enemy killed. For each map level above world level, 5% (additively) fewer resources will be destroyed, with +10 map enemies destroying only 25%. You start the Challenge with 100 stacks of Order. Each Zone, 10% of your current Order stacks will be converted into Pandemonium stacks on the Enemy. Each Pandemonium stack increases Enemy's attack and health by 100% per stack, and has 10x effect on the final boss of each Zone. The final boss is a Windy enemy who will blow away 1% of your Food, Wood and Metal per stack of Pandemonium per attack. Completing a map grants you 1 Order stack for each level above your World Zone (Max 100), and reduces enemy Pandemonium by the same amount. Completing <b>区域150</b>后，永久使宇宙1中的氦获取量、宇宙2中的氡获取量、宇宙1和宇宙2中我方脆皮的攻击力、生命值和资源获取量增加<b>" + prettify((game.global.pandCompletions * 10) + 10) + "%</b>Each time Pandemonium is completed, the reward for next time increases by an additional 10%, Enemies gain 5x damage and health, and Equipment is 5x more expensive for all future runs of Pandemonium. Starting on your fourth run, the Wind will be too strong for Trimps to hold a Shield. Another piece of equipment will be disabled every 2 completions after Shield is lost.";
 				var scaleMult = this.getEnemyMult();
 				text += " <b>You have completed Pandemonium " + game.global.pandCompletions + " / " + this.maxRuns + " maximum times. Your Trimps have +" + prettify((this.getTrimpMult() - 1) * 100) + "% Attack, Health, Radon or Helium, and gathered resources in U1 and U2, and your next run of Pandemonium will spawn Bad Guys with " + prettify(scaleMult) + "x Attack and Health";
 				var disabledCount = this.disabledEquipCount();
@@ -5276,7 +5308,7 @@ var toReturn = {
 				this.unlockEquips();
 			},
 			drawStacks: function(){
-				manageStacks('Order', this.order, true, 'pandOrderStacks', 'icomoon icon-yingyang', this.orderTooltip(), false);
+				manageStacks('Order', this.order, true, 'pandOrderStacks', 'icomoon icon-yinyang', this.orderTooltip(), false);
 				if (this.pandemonium > 0){
 					manageStacks('Pandemonium', this.pandemonium, false, 'pandPandStacks', 'icomoon icon-network', this.pandTooltip(), false);
 				}
@@ -5321,12 +5353,12 @@ var toReturn = {
 			allowU2: true,
 			allowSquared: false,
 			completeAfterZone: 150,
-			unlockString: " reach Zone 150",
+			unlockString: "到达区域150",
 		},
 		Alchemy: {
 			get description(){
 				// + ((!game.global.alchemyUnlocked) ? " <b>Complete a Z155 Void Map with 15 or more Gaseous Brews and no Potions of the Void while on this Challenge to unlock the permanent skill of Alchemy.</b>" : "")
-				return "Travel to a dimension where maps are filled with useful herbs. Collect different herbs from different types of maps, and use Alchemy to create powerful potions to strengthen your Trimps. Clearing <b>Z155</b> with this Challenge active will grant an additional 400% of all Radon earned up until that point, and will return the world to normal. You can repeat this challenge!" + ((!game.global.farmlandsUnlocked) ? " <b>Complete this Challenge once to unlock the ability to create a brand new type of map that should greatly aid your Alchemy.</b>" : "");
+				return "Travel to a dimension where maps are filled with useful herbs. Collect different herbs from different types of maps, and use Alchemy to create powerful potions to strengthen your Trimps. Clearing <b>区域155</b> with this Challenge active will grant an additional 400% of all Radon earned up until that point, and will return the world to normal. You can repeat this challenge!" + ((!game.global.farmlandsUnlocked) ? "<b>Complete this Challenge once to unlock the ability to create a brand new type of map that should greatly aid your Alchemy.</b>" : "");
 			},
 			completed: false,
 			blockU1: true,
@@ -5334,7 +5366,7 @@ var toReturn = {
 			heliumThrough: 155,
 			heldHelium: 0,
 			completeAfterZone: 155,
-			unlockString: " reach Zone 155.",
+			unlockString: "到达区域155",
 			fireAbandon: true,
 			filter: function(){
 				return (getHighestLevelCleared(true) >= 154);
@@ -5370,7 +5402,7 @@ var toReturn = {
 			failAfterZone: 200,
 			heliumThrough: 200,
 			heldHelium: 0,
-			unlockString: " reach Zone 175.",
+			unlockString: "到达区域175",
 			fireAbandon: true,
 			bonfires: 0,
 			totalBonfires: 0,
@@ -5463,7 +5495,7 @@ var toReturn = {
 		},
 		Glass: {
 			get description() {
-				return "Travel to a dimension with fragile but dangerous Enemies. All Bad Guys are Fast and have x100 Attack. Hitting a Bad Guy without killing it creates a stack of Glass. Each Glass stack increases the base Enemy Attack multiplier by +1x. Every 100 Glass, Enemy Attack doubles. Every 1000 Glass, Enemy Health doubles. Every " + prettify(10000) + " Glass, Enemies gain a Crystallized stack and Glass stacks reset to 0. Each Crystallized stack reduces Enemy Health by 20% (compounding) but also gives them a 10% chance to reflect an attack, and reaching 10 Crystallized stacks fails this Challenge. Killing an Enemy at or above World level removes two stacks of Glass plus one for every Crystallized stack on the Enemy, but Crystallized can never be removed. Completing <b>Z175</b> with this Challenge active will permanently cause all Radon earned to be increased by 10% (compounding) per Zone above Z175.";
+				return "Travel to a dimension with fragile but dangerous Enemies. All Bad Guys are Fast and have x100 Attack. Hitting a Bad Guy without killing it creates a stack of Glass. Each Glass stack increases the base Enemy Attack multiplier by +1x. Every 100 Glass, Enemy Attack doubles. Every 1000 Glass, Enemy Health doubles. Every " + prettify(10000) + " Glass, Enemies gain a Crystallized stack and Glass stacks reset to 0. Each Crystallized stack reduces Enemy Health by 20% (compounding) but also gives them a 10% chance to reflect an attack, and reaching 10 Crystallized stacks fails this Challenge. Killing an Enemy at or above World level removes two stacks of Glass plus one for every Crystallized stack on the Enemy, but Crystallized can never be removed. Completing <b>区域175</b> with this Challenge active will permanently cause all Radon earned to be increased by 10% (compounding) per Zone above Z175.";
 			},
 			get squaredDescription() {
 				return "Travel to a dimension with fragile but dangerous Enemies. All Bad Guys are Fast and have x100 Attack. Hitting a Bad Guy without killing it creates a stack of Glass. Each Glass stack increases the base Enemy Attack multiplier by +1x. Every 100 Glass, Enemy Attack doubles. Every 1000 Glass, Enemy Health doubles. Every " + prettify(10000) + " Glass, Enemies gain a Crystallized stack and Glass stacks reset to 0. Each Crystallized stack reduces Enemy Health by 20% (compounding) but also gives them a 10% chance to reflect an attack, and reaching 10 Crystallized stacks fails this Challenge. Killing an Enemy at or above World level removes two stacks of Glass plus one for every Crystallized stack on the Enemy, but Crystallized can never be removed.";
@@ -5478,7 +5510,7 @@ var toReturn = {
 			allowSquared: true,
 			fireAbandon: true,
 			allowMesmer: true,
-			unlockString: "reach Zone 175",
+			unlockString: "到达区域175",
 			cellStartHealth: 0,
 			completeAfterZone: 175,
 			highestGlass: 0,
@@ -5666,7 +5698,7 @@ var toReturn = {
 			storedValue: 0,
 			atZone: 0,
 			value: function () {
-				return prettify(game.stats.bestHeliumHourThisRun.storedValue) + ", Z:" + game.stats.bestHeliumHourThisRun.atZone;
+				return prettify(game.stats.bestHeliumHourThisRun.storedValue) + "，区域" + game.stats.bestHeliumHourThisRun.atZone;
 			},
 			evaluate: function () { //called from portalTime
 				var heHr = game.stats.heliumHour.value();
@@ -5916,7 +5948,7 @@ var toReturn = {
 		},
 		fluffyExpHour: {
 			get title() { 
-				return Fluffy.getName() + " Exp/Hr this Run"
+				return "本周目" + Fluffy.getName() + "经验/小时"
 			},
 			display: function () {
 				return (Fluffy.getBestExpStat().value > 0);
@@ -5930,7 +5962,7 @@ var toReturn = {
 		},
 		bestFluffyExpHourThisRun: {
 			get title(){
-				return "Best " + Fluffy.getName() + " Exp/Hr this Run"
+				return "本周目最高" + Fluffy.getName() + "经验/小时"
 			},
 			display: function () {
 				return (this.storedValue > 0);
@@ -5938,7 +5970,7 @@ var toReturn = {
 			storedValue: 0,
 			atZone: 0,
 			value: function () {
-				return prettify(game.stats.bestFluffyExpHourThisRun.storedValue) + ", Z:" + game.stats.bestFluffyExpHourThisRun.atZone;
+				return prettify(game.stats.bestFluffyExpHourThisRun.storedValue) + "，区域" + game.stats.bestFluffyExpHourThisRun.atZone;
 			},
 			evaluate: function () { //called from portalTime
 				var xpHr = game.stats.fluffyExpHour.value();
@@ -6019,7 +6051,7 @@ var toReturn = {
 			}
 		},
 		highestRadLevel: {
-			title: "Highest Zone U2",
+			title: "宇宙2最高区域",
 			valueTotal: function () {
 				return game.global.highestRadonLevelCleared + 1;
 			},
@@ -6157,7 +6189,7 @@ var toReturn = {
 			owned: false
 		},
 		Slowburn: {
-			description: "Reduce the rate of fuel consumption per tick by 0.1, from 0.5 to 0.4",
+			description: "使每次产生住房消耗的燃料减少0.1，从0.5减少到0.4",
 			cost: 1875,
 			owned: false
 		},
@@ -6187,11 +6219,11 @@ var toReturn = {
 			finished: 0,
 			title: "Zone Progress",
 			description: function (number) {
-				return "Complete Zone " + this.breakpoints[number];
+				return "通过区域" + this.breakpoints[number];
 			},
 			progress: function () {
 				if (this.breakpoints.length > this.finished) return game.global.highestLevelCleared + " / " + this.breakpoints[this.finished];
-				return "Highest is " + game.global.highestLevelCleared;
+				return "最高为" + game.global.highestLevelCleared;
 			},
 			evaluate: function () { return game.global.highestLevelCleared},
 			breakpoints: [2, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240, 250, 260, 270, 280, 290, 300, 350, 400, 450, 500],
@@ -6204,19 +6236,19 @@ var toReturn = {
 			finished: 0,
 			title: "Zone Progress: U2",
 			description: function (number) {
-				return "Complete Zone " + this.breakpoints[number] + " in Universe 2";
+				return "在宇宙2中通过区域" + this.breakpoints[number];
 			},
 			display: function () {
 				return (this.finished > 0 || game.global.universe == 2);
 			},
 			progress: function () {
 				if (this.breakpoints.length > this.finished) return game.global.highestRadonLevelCleared + " / " + this.breakpoints[this.finished];
-				return "Highest is " + game.global.highestRadonLevelCleared;
+				return "最高为" + game.global.highestRadonLevelCleared;
 			},
 			evaluate: function() {return game.global.highestRadonLevelCleared;},
 			breakpoints: [2, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 225, 250],
 			tiers: [9, 9, 10, 10, 10, 10, 10, 11, 11, 11, 11, 11, 12, 12, 12, 12, 12, 13, 13, 13, 13, 13, 14, 14],
-			names: ["This is Harder", "Second Coming", "Blimp Destroyer", "Improbable Again", "Unstoppable", "Progresser", "Fifty Fifty", "Actually Unbroken", "Lucky 7D", "Apt", "The Unshocked", "Universalist", "Through the Unknown", "Swarming", "Steamroller", "Universal Destroyer", "Eater of Zones", "Bringer of Progress", "Major Zonage", "Master of Alchemy", "Ballistic", "Neverending Journey", "Zone Eater", "Zone Feaster"],
+			names: ["This is Harder", "Second Coming", "Blimp Destroyer", "Improbable Again", "Unstoppable", "Progresser", "Fifty Fifty", "Actually Unbroken", "幸运数字", "Apt", "The Unshocked", "Universalist", "Through the Unknown", "Swarming", "Steamroller", "Universal Destroyer", "Eater of Zones", "Bringer of Progress", "Major Zonage", "Master of Alchemy", "Ballistic", "Neverending Journey", "Zone Eater", "Zone Feaster"],
 			icon: "icomoon icon-navigation",
 			newStuff: [],
 			size: 1.4
@@ -6225,11 +6257,11 @@ var toReturn = {
 			finished: 0,
 			title: "Trimp Damage",
 			description: function (number) {
-				return "Reach " + prettify(this.breakpoints[number]) + " displayed damage";
+				return "面板攻击力达到" + prettify(this.breakpoints[number]);
 			},
 			progress: function () {
 				if (this.breakpoints.length > this.finished) return prettify(this.highest) + " / " + prettify(this.breakpoints[this.finished]);
-				return "Highest is " + prettify(this.highest);
+				return "最高为" + prettify(this.highest);
 			},
 			highest: 0,
 			breakpoints: [100, 100000, 1e+11, 1e+17, 1e+23, 1e+29, 1e+35, 1e+41, 1e+47, 1e+53, 1e+60, 1e+67],
@@ -6243,11 +6275,11 @@ var toReturn = {
 			highest: 0,
 			title: "Trimps Owned",
 			description: function (number) {
-				return "Have  " + prettify(this.breakpoints[number]) + " total Trimps";
+				return "脆皮总数达到" + prettify(this.breakpoints[number]);
 			},
 			progress: function () {
 				if (this.breakpoints.length > this.finished) return prettify(Math.floor(this.highest)) + " / " + prettify(this.breakpoints[this.finished]);
-				return "Highest is " + prettify(Math.floor(this.highest));
+				return "最高为" + prettify(Math.floor(this.highest));
 			},
 			breakpoints: [50, 150, 300, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000, 10000000000, 100000000000],
 			tiers: [1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4],
@@ -6272,15 +6304,15 @@ var toReturn = {
 			finished: 0,
 			title: "Total Portals",
 			description: function (number) {
-				var s = (number > 0) ? "s" : "";
-				return "Use the Portal " + prettify(this.breakpoints[number]) + " time" + s;
+				//var s = (number > 0) ? "s" : "";
+				return "传送" + prettify(this.breakpoints[number]) + "次";
 			},
 			display: function () {
 				return (game.global.totalPortals > 0);
 			},
 			progress: function () {
 				if (this.breakpoints.length > this.finished) return this.evaluate() + " / " + this.breakpoints[this.finished];
-				return this.evaluate() + " total";
+				return "一共传送了" + this.evaluate() + "次";
 			},
 			evaluate: function () { return game.global.totalPortals},
 			breakpoints: [1, 3, 10, 20, 50, 100, 200, 500],
@@ -6293,14 +6325,14 @@ var toReturn = {
 			finished: 0,
 			title: "Total Zone Clears",
 			description: function (number) {
-				return "Clear  " + prettify(this.breakpoints[number]) + " total Zones";
+				return "通过" + prettify(this.breakpoints[number]) + "个区域";
 			},
 			evaluate: function () {
 				return game.stats.zonesCleared.value + game.stats.zonesCleared.valueTotal;
 			},
 			progress: function () {
 				if (this.breakpoints.length > this.finished) return this.evaluate() + " / " + this.breakpoints[this.finished];
-				return prettify(this.evaluate()) + " total";
+				return "一共通过了" + prettify(this.evaluate()) + "个";
 			},
 			breakpoints: [30, 70, 130, 200, 400, 777, 1000, 1500, 10000, 50000],//total Zones according to stats
 			tiers: [2, 2, 3, 3, 3, 4, 4, 5, 7, 7],
@@ -6312,14 +6344,14 @@ var toReturn = {
 			finished: 0,
 			title: "Total Map Clears",
 			description: function (number) {
-				return "Clear  " + prettify(this.breakpoints[number]) + " total Maps";
+				return "通过" + prettify(this.breakpoints[number]) + "张地图";
 			},
 			display: function () {
 				return (this.evaluate() > 0);
 			},
 			progress: function () {
 				if (this.breakpoints.length > this.finished) return prettify(this.evaluate()) + " / " + prettify(this.breakpoints[this.finished]);
-				return prettify(this.evaluate()) + " total";
+				return "一共通过了" + prettify(this.evaluate()) + "张";
 			},
 			evaluate: function () {
 				return game.stats.mapsCleared.value + game.stats.mapsCleared.valueTotal;
@@ -6334,11 +6366,11 @@ var toReturn = {
 			finished: 0,
 			title: "Helium Collection",
 			description: function (number) {
-				return "Gather " + prettify(this.breakpoints[number]) + " total Helium";
+				return "获取" + prettify(this.breakpoints[number]) + "氦";
 			},
 			progress: function (){
 				if (this.breakpoints.length > this.finished) return prettify(Math.floor(this.evaluate() * 10000) / 10000) + " / " + prettify(this.breakpoints[this.finished]);
-				return prettify(this.evaluate()) + " total";
+				return "一共获取了" + prettify(this.evaluate());
 			},
 			evaluate: function () {
 				return game.global.totalHeliumEarned;
@@ -6356,11 +6388,11 @@ var toReturn = {
 			finished: 0,
 			title: "Radon Collection",
 			description: function (number) {
-				return "Gather " + prettify(this.breakpoints[number]) + " total Radon";
+				return "获取" + prettify(this.breakpoints[number]) + "氡";
 			},
 			progress: function (){
 				if (this.breakpoints.length > this.finished) return prettify(Math.floor(this.evaluate() * 10000) / 10000) + " / " + prettify(this.breakpoints[this.finished]);
-				return prettify(this.evaluate()) + " total";
+				return "一共获取了" + prettify(this.evaluate());
 			},
 			evaluate: function () {
 				return game.global.totalRadonEarned;
@@ -6378,11 +6410,11 @@ var toReturn = {
 			finished: 0,
 			title: "Helium Per Hour",
 			description: function (number) {
-				return "Reach " + prettify(this.breakpoints[number]) + " Helium Per Hour";
+				return "氦每小时达到" + prettify(this.breakpoints[number]);
 			},
 			progress: function () {
 				if (this.breakpoints.length > this.finished) return prettify(Math.floor(this.evaluate() * 10000) / 10000) + " / " + prettify(this.breakpoints[this.finished]);
-				return "Currently at " + prettify(this.evaluate());
+				return "目前为" + prettify(this.evaluate());
 			},
 			evaluate: function () {
 				return game.stats.heliumHour.value();
@@ -6401,12 +6433,12 @@ var toReturn = {
 			title: "Heirloom Collection",
 			description: function (number) {
 				var number = this.breakpoints[number];
-				var s = (number > 1) ? "s" : "";
-				return "Collect " + prettify(number) + " Heirloom" + s;
+				//var s = (number > 1) ? "s" : "";
+				return "收集" + prettify(number) + "个传家宝";
 			},
 			progress: function () {
 				if (this.breakpoints.length > this.finished) return this.evaluate() + " / " + this.breakpoints[this.finished];
-				return prettify(this.evaluate()) + " total";
+				return "一共收集了" + prettify(this.evaluate()) + "个";
 			},
 			evaluate: function () {
 				return game.stats.totalHeirlooms.value + game.stats.totalHeirlooms.valueTotal;
@@ -6425,12 +6457,12 @@ var toReturn = {
 			title: "Gem Collection",
 			description: function (number) {
 				var number = this.breakpoints[number];
-				var s = (number > 1) ? "s" : "";
-				return "Collect  " + prettify(number) + " Gem" + s;
+				//var s = (number > 1) ? "s" : "";
+				return "收集" + prettify(number) + "宝石";
 			},
 			progress: function () {
 				if (this.breakpoints.length > this.finished) return prettify(this.evaluate()) + " / " + prettify(this.breakpoints[this.finished]);
-				return prettify(this.evaluate()) + " total";
+				return "一共收集了" + prettify(this.evaluate());
 			},
 			evaluate: function () {
 				return game.stats.gemsCollected.value + game.stats.gemsCollected.valueTotal;
@@ -6446,14 +6478,14 @@ var toReturn = {
 			title: "Daily Bonus",
 			description: function (number) {
 				var number = this.breakpoints[number];
-				return "Earn " + prettify(number) + " Helium from the Daily Challenge";
+				return "从日常挑战中获取" + prettify(number) + "氦";
 			},
 			evaluate: function () {
 				return game.stats.dailyBonusHelium.value + game.stats.dailyBonusHelium.valueTotal;
 			},
 			progress: function () {
 				if (this.breakpoints.length > this.finished) return prettify(this.evaluate()) + " / " + prettify(this.breakpoints[this.finished]);
-				return prettify(this.evaluate()) + " total";
+				return "一共获取了" + prettify(this.evaluate());
 			},
 			breakpoints: [5e5, 1e6, 5e6, 2.5e7, 2e9, 1e12, 1e15, 1e21],
 			display: function () {
@@ -6469,18 +6501,18 @@ var toReturn = {
 			title: "Humane Run",
 			description: function (number){
 				var number = this.breakpoints[number];
-				return "<span style='font-size: .8em'>Reach Z" + number + " after losing no more than one fight per Zone.</span>";
+				return "在到达区域" + number + "之前，每个区域至多只战败一次。";
 			},
 			evaluate: function () {
 				if (!this.earnable || game.stats.battlesLost.value > this.lastZone + 1) return 0;
 				return game.global.world;
 			},
 			progress: function () {
-				if (!this.earnable && this.lastZone == -1) return "You need to portal to become eligible";
-				if (!this.earnable) return "You lost more than once on Z" + this.lastZone;
-				if (game.stats.battlesLost.value > this.lastZone + 1) return "You lost too many fights!";
-				if (game.stats.battlesLost.value == this.lastZone + 1) return "You've lost once this Zone, be careful!";
-				return "Still Earnable!";
+				if (!this.earnable && this.lastZone == -1) return "传送后才可以尝试完成成就";
+				if (!this.earnable) return "您在区域" + this.lastZone + "已经超过一次战败了";
+				if (game.stats.battlesLost.value > this.lastZone + 1) return "您战败太多次了！";
+				if (game.stats.battlesLost.value == this.lastZone + 1) return "您已经在该区域战败过，请小心！ ";
+				return "待完成！";
 			},
 			earnable: true,
 			lastZone: 0,
@@ -6495,17 +6527,17 @@ var toReturn = {
 			title: "Mapless Drifter",
 			description: function (number){
 				var number = this.breakpoints[number];
-				return "<span style='font-size: .8em'>Reach U2 Z" + number + " without ever entering a Map.</span>";
+				return "在不运行地图的前提下通过宇宙2的区域" + number;
 			},
 			evaluate: function () {
 				if (!this.earnable || game.global.universe == 1) return 0;
 				return game.global.world;
 			},
 			progress: function () {
-				if (game.global.universe == 1) return "You must be in Universe 2!"
-				if (!this.earnable && this.lastZone == -1) return "You need to portal to become eligible";
-				if (!this.earnable) return "You ran a Map on Z" + this.lastZone;
-				return "Still Earnable!";
+				if (game.global.universe == 1) return "需要在宇宙2中才可以尝试完成成就！"
+				if (!this.earnable && this.lastZone == -1) return "传送后才可以尝试完成成就";
+				if (!this.earnable) return "您在区域" + this.lastZone + "运行过地图了";
+				return "待完成！";
 			},
 			display: function(){
 				return (game.global.highestRadonLevelCleared > 1 || game.global.universe == 2);
@@ -6524,7 +6556,7 @@ var toReturn = {
 			description: function (number){
 				var number1 = this.breakpoints[number];
 				var number2 = this.breakpoints2[number];
-				return "<span style='font-size: .8em'>Reach U2 Z" + number1 + " without your Shield falling below " + number2 + "%.</span>";
+				return "在棱镜护盾从未低于" + number2 + "%的前提下通过宇宙2的区域" + number1 + "。";
 			},
 			evaluate: function (number) {
 				if (game.global.universe == 1) return 0;
@@ -6533,11 +6565,11 @@ var toReturn = {
 				return game.global.world;
 			},
 			progress: function (index) {
-				if (index < this.finished) return "Already earned!";
-				if (game.global.universe == 1) return "You must be in Universe 2!";
+				if (index < this.finished) return "已获得！";
+				if (game.global.universe == 1) return "需要在宇宙2中才可以尝试完成成就！";
 				var breakpoint2 = this.breakpoints2[index];
-				if (game.global.lowestShield < breakpoint2) return "Your Shield has already hit " + game.global.lowestShield + "% this run.";
-				return "Still Earnable! Lowest is " + game.global.lowestShield + "%";
+				if (game.global.lowestShield < breakpoint2) return "本周目棱镜护盾已经到达过" + game.global.lowestShield + "%。";
+				return "待完成！最低到达过" + game.global.lowestShield + "%";
 			},
 			display: function(){
 				return (game.global.highestRadonLevelCleared >= 1);
@@ -6554,13 +6586,13 @@ var toReturn = {
 			title: "Speed: The Block",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
-				return "Clear The Block in less than " + number + " from start of run";
+				return "本周目在" + number + "内通过障碍区";
 			},
 			evaluate: function () {
 				return getMinutesThisPortal();
 			},
 			progress: function () {
-				return "Best run is " + formatMinutesForDescriptions(this.highest);
+				return "最快为" + formatMinutesForDescriptions(this.highest);
 			},
 			display: function () {
 				return (game.global.totalPortals >= 1 || this.finished >= 1);
@@ -6581,7 +6613,7 @@ var toReturn = {
 			title: "Speed: The Wall",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
-				return "Clear The Wall in less than " + number + " from start of run";
+				return "本周目在" + number + "内通过高墙";
 			},
 			display: function () {
 				return (game.global.highestLevelCleared >= 10 && (game.global.totalPortals >= 1 || this.finished >= 1));
@@ -6590,7 +6622,7 @@ var toReturn = {
 				return getMinutesThisPortal();
 			},
 			progress: function () {
-				return "Best run is " + formatMinutesForDescriptions(this.highest);
+				return "最快为" + formatMinutesForDescriptions(this.highest);
 			},
 			u: 1,
 			highest: 0,
@@ -6608,7 +6640,7 @@ var toReturn = {
 			title: "Speed: Anger",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
-				return "Clear DoA in less than " + number + " from start of run";
+				return "本周目在" + number + "内通过愤怒维度";
 			},
 			display: function () {
 				return (game.global.highestLevelCleared >= 14 && (game.global.totalPortals >= 1 || this.finished >= 1));
@@ -6617,7 +6649,7 @@ var toReturn = {
 				return getMinutesThisPortal();
 			},
 			progress: function () {
-				return "Best run is " + formatMinutesForDescriptions(this.highest);
+				return "最快为" + formatMinutesForDescriptions(this.highest);
 			},
 			u: 1,
 			highest: 0,
@@ -6635,7 +6667,7 @@ var toReturn = {
 			title: "Speed: Doom",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
-				return "Clear ToD in less than " + number + " from start of run";
+				return "本周目在" + number + "内通过末日神殿";
 			},
 			display: function () {
 				return (game.global.highestLevelCleared >= 19 && (game.global.totalPortals >= 1 || this.finished >= 1));
@@ -6644,7 +6676,7 @@ var toReturn = {
 				return getMinutesThisPortal();
 			},
 			progress: function () {
-				return "Best run is " + formatMinutesForDescriptions(this.highest);
+				return "最快为" + formatMinutesForDescriptions(this.highest);
 			},
 			u: 1,
 			highest: 0,
@@ -6662,7 +6694,7 @@ var toReturn = {
 			title: "Speed: The Prison",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
-				return "Clear Prison in less than " + number + " from start of run";
+				return "本周目在" + number + "内通过监狱";
 			},
 			display: function () {
 				return (game.global.highestLevelCleared >= 32 && (game.global.totalPortals >= 1 || this.finished >= 1));
@@ -6671,7 +6703,7 @@ var toReturn = {
 				return getMinutesThisPortal();
 			},
 			progress: function () {
-				return "Best run is " + formatMinutesForDescriptions(this.highest);
+				return "最快为" + formatMinutesForDescriptions(this.highest);
 			},
 			u: 1,
 			highest: 0,
@@ -6689,7 +6721,7 @@ var toReturn = {
 			title: "Speed: Bionic",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
-				return "<span style='font-size: .8em'>Clear Bionic Wonderland in less than " + number + " from start of run</span>";
+				return "本周目在" + number + "内通过仿生仙境";
 			},
 			display: function () {
 				return (game.global.highestLevelCleared >= 79);
@@ -6698,7 +6730,7 @@ var toReturn = {
 				return getMinutesThisPortal();
 			},
 			progress: function () {
-				return "Best run is " + formatMinutesForDescriptions(this.highest);
+				return "最快为" + formatMinutesForDescriptions(this.highest);
 			},
 			u: 1,
 			highest: 0,
@@ -6716,7 +6748,7 @@ var toReturn = {
 			title: "Speed: Star",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
-				return "<span style='font-size: .8em'>Clear Imploding Star in less than " + number + " from start of run</span>";
+				return "本周目在" + number + "内通过爆炸之星";
 			},
 			display: function () {
 				return (game.global.highestLevelCleared >= 124);
@@ -6725,7 +6757,7 @@ var toReturn = {
 				return getMinutesThisPortal();
 			},
 			progress: function () {
-				return "Best run is " + formatMinutesForDescriptions(this.highest);
+				return "最快为" + formatMinutesForDescriptions(this.highest);
 			},
 			u: 1,
 			highest: 0,
@@ -6743,7 +6775,7 @@ var toReturn = {
 			title: "Speed: Spire",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
-				return "<span style='font-size: .8em'>Clear the Spire in less than " + number + " from start of run</span>";
+				return "本周目在" + number + "内通过尖塔";
 			},
 			display: function () {
 				return (game.global.highestLevelCleared >= 169);
@@ -6752,7 +6784,7 @@ var toReturn = {
 				return getMinutesThisPortal();
 			},
 			progress: function () {
-				return "Best run is " + formatMinutesForDescriptions(this.highest);
+				return "最快为" + formatMinutesForDescriptions(this.highest);
 			},
 			u: 1,
 			highest: 0,
@@ -6770,7 +6802,7 @@ var toReturn = {
 			title: "Speed: Spire II",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
-				return "<span style='font-size: .8em'>Clear Spire II in less than " + number + " from start of run</span>";
+				return "本周目在" + number + "内通过尖塔 II";
 			},
 			display: function () {
 				return (game.global.highestLevelCleared >= 269);
@@ -6779,7 +6811,7 @@ var toReturn = {
 				return getMinutesThisPortal();
 			},
 			progress: function () {
-				return "Best run is " + formatMinutesForDescriptions(this.highest);
+				return "最快为" + formatMinutesForDescriptions(this.highest);
 			},
 			u: 1,
 			highest: 0,
@@ -6797,7 +6829,7 @@ var toReturn = {
 			title: "Speed: Spire III",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
-				return "<span style='font-size: .8em'>Clear Spire III in less than " + number + " from start of run</span>";
+				return "本周目在" + number + "内通过尖塔 III";
 			},
 			display: function () {
 				return (game.global.highestLevelCleared >= 369);
@@ -6806,7 +6838,7 @@ var toReturn = {
 				return getMinutesThisPortal();
 			},
 			progress: function () {
-				return "Best run is " + formatMinutesForDescriptions(this.highest);
+				return "最快为" + formatMinutesForDescriptions(this.highest);
 			},
 			u: 1,
 			highest: 0,
@@ -6824,7 +6856,7 @@ var toReturn = {
 			title: "Speed: Spire IV",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
-				return "<span style='font-size: .8em'>Clear Spire IV in less than " + number + " from start of run</span>";
+				return "本周目在" + number + "内通过尖塔 IV";
 			},
 			display: function () {
 				return (game.global.highestLevelCleared >= 469);
@@ -6833,7 +6865,7 @@ var toReturn = {
 				return getMinutesThisPortal();
 			},
 			progress: function () {
-				return "Best run is " + formatMinutesForDescriptions(this.highest);
+				return "最快为" + formatMinutesForDescriptions(this.highest);
 			},
 			u: 1,
 			highest: 0,
@@ -6851,7 +6883,7 @@ var toReturn = {
 			title: "Speed: Spire V",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
-				return "<span style='font-size: .8em'>Clear Spire V in less than " + number + " from start of run</span>";
+				return "本周目在" + number + "内通过尖塔 V";
 			},
 			display: function () {
 				return (game.global.highestLevelCleared >= 569);
@@ -6860,7 +6892,7 @@ var toReturn = {
 				return getMinutesThisPortal();
 			},
 			progress: function () {
-				return "Best run is " + formatMinutesForDescriptions(this.highest);
+				return "最快为" + formatMinutesForDescriptions(this.highest);
 			},
 			u: 1,
 			highest: 0,
@@ -6878,7 +6910,7 @@ var toReturn = {
 			title: "U2 Speed: Big Wall",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
-				return "<span style='font-size: .8em'>Clear Big Wall in less than " + number + " from start of run</span>";
+				return "本周目在" + number + "内通过巨墙";
 			},
 			display: function () {
 				return (game.global.universe == 2 || game.global.highestRadonLevelCleared >= 6);
@@ -6887,7 +6919,7 @@ var toReturn = {
 				return getMinutesThisPortal();
 			},
 			progress: function () {
-				return "Best run is " + formatMinutesForDescriptions(this.highest);
+				return "最快为" + formatMinutesForDescriptions(this.highest);
 			},
 			u: 2,
 			highest: 0,
@@ -6905,7 +6937,7 @@ var toReturn = {
 			title: "U2 Speed: Palace",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
-				return "<span style='font-size: .8em'>Clear Prismatic Palace in less than " + number + " from start of run</span>";
+				return "本周目在" + number + "内通过棱镜宫殿";
 			},
 			display: function () {
 				return (game.global.highestRadonLevelCleared >= 20);
@@ -6914,7 +6946,7 @@ var toReturn = {
 				return getMinutesThisPortal();
 			},
 			progress: function () {
-				return "Best run is " + formatMinutesForDescriptions(this.highest);
+				return "最快为" + formatMinutesForDescriptions(this.highest);
 			},
 			u: 2,
 			highest: 0,
@@ -6932,7 +6964,7 @@ var toReturn = {
 			title: "U2 Speed: Atlantrimp",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
-				return "<span style='font-size: .8em'>Clear Atlantrimp in less than " + number + " from start of run</span>";
+				return "本周目在" + number + "内通过亚特兰蒂皮";
 			},
 			display: function () {
 				return (game.global.highestRadonLevelCleared >= 32);
@@ -6941,7 +6973,7 @@ var toReturn = {
 				return getMinutesThisPortal();
 			},
 			progress: function () {
-				return "Best run is " + formatMinutesForDescriptions(this.highest);
+				return "最快为" + formatMinutesForDescriptions(this.highest);
 			},
 			u: 2,
 			highest: 0,
@@ -6959,7 +6991,7 @@ var toReturn = {
 			title: "U2 Speed: Melting",
 			description: function (number) {
 				number = formatMinutesForDescriptions(this.breakpoints[number]);
-				return "<span style='font-size: .8em'>Clear Melting Point in less than " + number + " from start of run</span>";
+				return "本周目在" + number + "内通过熔点";
 			},
 			display: function () {
 				return (game.global.highestRadonLevelCleared >= 49);
@@ -6968,7 +7000,7 @@ var toReturn = {
 				return getMinutesThisPortal();
 			},
 			progress: function () {
-				return "Best run is " + formatMinutesForDescriptions(this.highest);
+				return "最快为" + formatMinutesForDescriptions(this.highest);
 			},
 			u: 2,
 			highest: 0,
@@ -6986,7 +7018,7 @@ var toReturn = {
 			finished: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
 			title: "Feats",
 			get descriptions () {
-				return ["Complete the Dimension of Anger before buying Bounty", "Reach Z30 with no respec and 60 or less He spent", "Have over " + prettify(1e6) + " traps at once", "Die 50 times to a single Voidsnimp", "Beat Balance, never having more than 100 stacks", "Reach Zone 10 with 5 or fewer dead Trimps", "Reach exactly 1337 He/Hr", "Attack 20 times without dying in Electricity", "Create a perfect Map", "Use up all 7 Daily Challenges", "Equip a magnificent or better Staff and Shield", "Reach Z60 with 1000 or fewer dead Trimps", "Reach Z120 without using manual research", "Reach Z75 without buying any housing", "Find an uncommon heirloom at Z146 or higher", "Spend over " + prettify(250e3) + " total He on Wormholes", "Reach Z60 with rank III or lower equipment", "Kill an Improbability in one hit", "Beat a Lv 60+ Destructive Void Map with no deaths", "Beat Crushed without being crit past Z5", "Kill an enemy with 100 stacks of Nom", "Break the Planet with 5 or fewer lost battles", "Reach Z60 without hiring a single Trimp", "Complete a Zone above 99 without falling below 150 stacks on Life", "Spend at least 10 minutes breeding an army with Geneticists", "Beat Toxicity, never having more than 400 stacks", "Own 100 of all housing buildings", "Overkill every possible world cell before Z60", "Complete Watch without entering maps or buying Nurseries", "Complete Lead with 100 or fewer lost battles", "Build your 10th Spire Floor", "Kill " + prettify(1e6) + " enemies in your Spire", "Equip a Magmatic Staff and Shield", "Bring a world enemy's attack below 1", "Complete Lead with 1 or fewer Gigastations", "Complete Corrupted without Geneticists", "Complete a Void Map at Z215 on Domination", "Complete The Spire with 0 deaths", "Overkill an Omnipotrimp", "Defeat a Healthy enemy with 200 stacks of wind", "Build up a Poison debuff that's 1000x higher than your attack", "Earn a Challenge<sup>2</sup> bonus of 2000%", "Complete a Bionic Wonderland map 45 levels higher than your Zone number", "Beat the Spire with no respec and " + prettify(100e6) + " or less He Spent", "Defeat an enemy on Obliterated", "Find an Amalgamator on Z1", "Get 10 Red Crits in a row", "Beat Z75 on the Scientist V challenge", "Gain at least 01189998819991197253 He from one Bone Portal", "Kill an Enemy on Eradicated", "Complete Spire V with no deaths", "Build your 20th Spire Floor", "Complete a Bionic Wonderland map 200 levels higher than your Zone number", "Complete Spire II on the Coordinate challenge", "Beat Spire II with no respec and " + prettify(1e9) + " or less He spent", "Beat Imploding Star on Obliterated", "Close 750 Nurseries at the same time", "Earn Dark Essence with no respec and 0 He spent", "Reach Magma on Obliterated", "Break the Planet on Eradicated"];
+				return ["Complete the Dimension of Anger before buying Bounty", "Reach Z30 with no respec and 60 or less He spent", "Have over " + prettify(1e6) + " traps at once", "Die 50 times to a single Voidsnimp", "Beat Balance, never having more than 100 stacks", "Reach Zone 10 with 5 or fewer dead Trimps", "Reach exactly 1337 He/Hr", "Attack 20 times without dying in Electricity", "Create a perfect Map", "Use up all 7 Daily Challenges", "Equip a magnificent or better Staff and Shield", "Reach Z60 with 1000 or fewer dead Trimps", "Reach Z120 without using manual research", "Reach Z75 without buying any housing", "Find an uncommon heirloom at Z146 or higher", "Spend over " + prettify(250e3) + " total He on Wormholes", "Reach Z60 with rank III or lower equipment", "Kill an Improbability in one hit", "Beat a Lv 60+ Destructive Void Map with no deaths", "在到达区域5后未受到过敌人暴击的前提下，完成粉碎挑战", "Kill an enemy with 100 stacks of Nom", "Break the Planet with 5 or fewer lost battles", "Reach Z60 without hiring a single Trimp", "Complete a Zone above 99 without falling below 150 stacks on Life", "Spend at least 10 minutes breeding an army with Geneticists", "Beat Toxicity, never having more than 400 stacks", "Own 100 of all housing buildings", "在到达区域60前，超杀世界上的每个格子", "Complete Watch without entering maps or buying Nurseries", "Complete Lead with 100 or fewer lost battles", "Build your 10th Spire Floor", "Kill " + prettify(1e6) + " enemies in your Spire", "Equip a Magmatic Staff and Shield", "让世界上一名敌人的攻击力低于1", "Complete Lead with 1 or fewer Gigastations", "Complete Corrupted without Geneticists", "Complete a Void Map at Z215 on Domination", "Complete The Spire with 0 deaths", "Overkill an Omnipotrimp", "Defeat a Healthy enemy with 200 stacks of wind", "Build up a Poison debuff that's 1000x higher than your attack", "使挑战<sup>2</sup>的加成达到2000%", "Complete a Bionic Wonderland map 45 levels higher than your Zone number", "Beat the Spire with no respec and " + prettify(100e6) + " or less He Spent", "Defeat an enemy on Obliterated", "在区域1获得一个合并者", "Get 10 Red Crits in a row", "Beat Z75 on the Scientist V challenge", "Gain at least 01189998819991197253 He from one Bone Portal", "Kill an Enemy on Eradicated", "Complete Spire V with no deaths", "Build your 20th Spire Floor", "Complete a Bionic Wonderland map 200 levels higher than your Zone number", "Complete Spire II on the Coordinate challenge", "Beat Spire II with no respec and " + prettify(1e9) + " or less He spent", "Beat Imploding Star on Obliterated", "Close 750 Nurseries at the same time", "Earn Dark Essence with no respec and 0 He spent", "Reach Magma on Obliterated", "Break the Planet on Eradicated"];
 			},
 			tiers: [2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 9, 9, 9, 9, 9, 9, 9, 9],
 			description: function (number) {
@@ -7008,7 +7040,7 @@ var toReturn = {
 				return (Fluffy.checkU2Allowed());
 			},
 			get descriptions () {
-				return ["Reach exactly 1337 Rn/Hr", "One-shot a Dimension of Rage enemy on Unlucky while Unlucky", "Complete Downsize with an equal amount of Huts, Houses, Mansions, Hotels and Resorts", "Complete Transmute without hiring a single Trimp", "Complete Unbalance with 500 stacks of Unbalance", "Complete Bublé without using Prismal or respeccing Perks", "Complete Duel without ever falling below 20 points", "Complete Melt without ever having more than 150 stacks", "Complete Trappapalooza without Trapping on or above Z50", "Complete Wither with " + prettify(10000) + " stacks of Hardened", "Reach a session score of 100-0 at L5+ in SA", "Kill a L20+ SA Enemy without Shock, Bleed or Poison", "Complete Revenge with exactly 19 stacks", "Complete 80/80 quests on Quest", "Complete Archaeology without ever having more than 0 of one Relic", "Complete Storm without ever encountering a Stormcloud", "Complete Insanity with 500 stacks without running a map above lvl 50", "Finish Berserk after reaching 20 Weakened Stacks before Z100", "Reach 100 Swarm Stacks by Z120 then complete Exterminate", "Reach L19 Cruffys by Z70 then complete Nurture", "Collect 7500 Runetrinkets", "Complete all 25 Mayhems", "Complete a Z155 Void Map with 10 Gas Brews and 0 Void Pots", "Complete Hypothermia with at least 400 Embers", "Complete Glass without ever having more than 2 stacks"];
+				return ["Reach exactly 1337 Rn/Hr", "One-shot a Dimension of Rage enemy on Unlucky while Unlucky", "Complete Downsize with an equal amount of Huts, Houses, Mansions, Hotels and Resorts", "Complete Transmute without hiring a single Trimp", "Complete Unbalance with 500 stacks of Unbalance", "Complete Bublé without using Prismal or respeccing Perks", "Complete Duel without ever falling below 20 points", "Complete Melt without ever having more than 150 stacks", "在到达区域50后未使用过陷阱的前提下，完成捕手道达人挑战。", "Complete Wither with " + prettify(10000) + " stacks of Hardened", "Reach a session score of 100-0 at L5+ in SA", "Kill a L20+ SA Enemy without Shock, Bleed or Poison", "Complete Revenge with exactly 19 stacks", "Complete 80/80 quests on Quest", "Complete Archaeology without ever having more than 0 of one Relic", "Complete Storm without ever encountering a Stormcloud", "在从未运行过高于等级50的地图，且拥有500层失智的前提下，完成失智挑战。", "在到达区域100前，至少拥有20层虚弱，然后完成狂战挑战。", "Reach 100 Swarm Stacks by Z120 then complete Exterminate", "Reach L19 Cruffys by Z70 then complete Nurture", "Collect 7500 Runetrinkets", "Complete all 25 Mayhems", "Complete a Z155 Void Map with 10 Gas Brews and 0 Void Pots", "Complete Hypothermia with at least 400 Embers", "Complete Glass without ever having more than 2 stacks"];
 			},
 			tiers: [10,10,10,11,11,11,11,11,12,12,12,12,12,12,12,13,13,13,13,13,13,13,13,14,14],
 			description: function (number) {
@@ -7041,17 +7073,17 @@ var toReturn = {
 		canReplaceMods: [true, true, true, true, true, true, true, true, false, false, false, false],
 		Core: {
 			fireTrap: {
-				name: "Fire Trap Damage",
+				name: "火焰陷阱伤害",
 				currentBonus: 0,
 				steps: [[10,25,1],[10,25,1],[10,25,1],[25,50,1],[50,100,2],[100,199,3],[200,400,4]]
 			},
 			poisonTrap: {
-				name: "Poison Trap Damage",
+				name: "剧毒陷阱伤害",
 				currentBonus: 0,
 				steps: [-1,[10,25,1],[10,25,1],[25,50,1],[50,100,2],[100,199,3],[200,400,4]]
 			},
 			lightningTrap: {
-				name: "Lightning Trap Damage",
+				name: "闪电陷阱伤害",
 				currentBonus: 0,
 				steps: [-1,-1,[1,10,1],[10,20,1],[20,50,2],[50,100,2],[100,199,3]],
 				specialDescription: function (modifier) {
@@ -7059,12 +7091,12 @@ var toReturn = {
 				},
 			},
 			runestones: {
-				name: "Runestone Drop Rate",
+				name: "符石掉率",
 				currentBonus: 0,
 				steps: [[10,25,1],[10,25,1],[10,25,1],[25,50,1],[50,100,2],[100,199,3],[200,400,4]]
 			},
 			strengthEffect: {
-				name: "Strength Tower Effect",
+				name: "力量塔效果",
 				currentBonus: 0,
 				steps: [[1,10,1],[1,10,1],[1,10,1],[10,20,1],[20,50,2],[50,100,2],[100,199,3]],
 				specialDescription: function (modifier) {
@@ -7072,7 +7104,7 @@ var toReturn = {
 				},
 			},
 			condenserEffect: {
-				name: "Condenser Effect",
+				name: "冷凝塔效果",
 				currentBonus: 0,
 				steps: [-1,[1,5,0.25],[1,5,0.25],[5,10,0.25],[5,15,0.5],[10,20,0.5],[20,30,0.5]],
 				max: [-1,10,10,15,25,35,50],
@@ -7083,105 +7115,105 @@ var toReturn = {
 		},
 		Staff: {
 			metalDrop: {
-				name: "Metal Drop Rate",
+				name: "金属掉落加成",
 				currentBonus: 0,
 			},
 			foodDrop: {
-				name: "Food Drop Rate",
+				name: "食物掉落加成",
 				currentBonus: 0,
 			},
 			woodDrop: {
-				name: "Wood Drop Rate",
+				name: "木头掉落加成",
 				currentBonus: 0,
 			},
 			gemsDrop: {
-				name: "Gem Drop Rate",
+				name: "宝石掉落加成",
 				currentBonus: 0,
 			},
 			fragmentsDrop: {
-				name: "Fragment Drop Rate",
+				name: "碎片掉落加成",
 				currentBonus: 0,
 			},
 			FarmerSpeed: {
-				name: "Farmer Efficiency",
+				name: "农民效率",
 				currentBonus: 0,
 			},
 			LumberjackSpeed: {
-				name: "Lumberjack Efficiency",
+				name: "伐木工效率",
 				currentBonus: 0,
 			},
 			MinerSpeed: {
-				name: "Miner Efficiency",
+				name: "矿工效率",
 				currentBonus: 0,
 			},
 			DragimpSpeed: {
-				name: "Dragimp Efficiency",
+				name: "脆皮龙宝石效率",
 				currentBonus: 0,
 			},
 			ExplorerSpeed: {
-				name: "Explorer Efficiency",
+				name: "探险家碎片效率",
 				currentBonus: 0,
 			},
 			ScientistSpeed: {
-				name: "Scientist Efficiency",
+				name: "科学家效率",
 				currentBonus: 0,
 			},
 			FluffyExp: {
 				heirloopy: true,
 				get name(){
-					return "Pet (" + Fluffy.getName() + ") Exp";
+					return "" + Fluffy.getName() + "经验值";
 				},
 				currentBonus: 0,
 				steps: [-1, -1, -1, -1, -1, -1, -1, -1, [25, 50, 1],[50,100,1],[75,200,1],[124,400,1.2]]
 			},
 			ParityPower: {
-				name: "Parity Power",
+				name: "对等效果",
 				currentBonus: 0,
 				steps: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,[200,500,10]]
 			},
 			empty: {
-				name: "Empty",
+				name: "空",
 				currentBonus: 0,
 			}
 		},
 		Shield: {
 			playerEfficiency: {
-				name: "Player Efficiency",
+				name: "玩家效率",
 				currentBonus: 0,
 				steps: [[8,16,1],[8,16,1],[8,16,1],[16,32,2],[32,64,4],[64,128,8],[128,256,16],[256,512,32],[512,1024,64],[1024,2048,128],[2048,4096,256],[4096,8192,512]]
 			},
 			trainerEfficiency: {
-				name: "Trainer Efficiency",
+				name: "训练师效率",
 				currentBonus: 0,
 				steps: [[10,20,1],[10,20,1],[10,20,1],[20,40,2],[40,60,2],[60,80,2],[80,100,2],[100,120,2],[120,140,2],-1,-1,-1]
 			},
 			storageSize: {
-				name: "Storage Size",
+				name: "存储上限",
 				currentBonus: 0,
 				steps: [[32,64,4],[32,64,4],[32,64,4],[64,128,4],[128,256,8],[256,512,16],[512,768,16],[768,1024,16],[1024,1280,16],-1,-1,-1]
 			},
 			breedSpeed: {
-				name: "Breed Speed",
+				name: "脆皮繁殖速度",
 				currentBonus: 0,
 				steps: [[5,10,1],[5,10,1],[5,10,1],[10,20,1],[70,100,3],[100,130,3],[130,160,3],[160,190,3],[190,220,3],[220,280,5],[260, 360, 10],[300,400,10]]
 			},
 			trimpHealth: {
-				name: "Trimp Health",
+				name: "脆皮生命值",
 				currentBonus: 0,
 				steps: [[6,20,2],[6,20,2],[6,20,2],[20,40,2],[50,100,5],[100,150,5],[150,200,5],[200,260,6],[260,356,8],[360,460,10],[600,750,10],[800,1100,20]]
 			},
 			trimpAttack: {
-				name: "Trimp Attack",
+				name: "脆皮攻击力",
 				currentBonus: 0,
 				steps: [[6,20,2],[6,20,2],[6,20,2],[20,40,2],[50,100,5],[100,150,5],[150,200,5],[200,260,6],[260,356,8],[360,460,10],[600,750,10],[800,1100,20]]
 			},
 			trimpBlock: {
-				name: "Trimp Block",
+				name: "脆皮格挡",
 				currentBonus: 0,
 				steps: [[4,7,1],[4,7,1],[4,7,1],[7,10,1],[28,40,1],[48,60,1],[68,80,1],[88,100,1],[108,120,1],-1,-1,-1]
 			},
 			critDamage: {
-				name: "Crit Damage, additive",
+				name: "暴击伤害(效果叠加)",
 				currentBonus: 0,
 				steps: [[40,60,5],[40,60,5],[40,60,5],[60,100,5],[100,200,10],[200,300,10],[300,400,10],[400,500,10],[500,650,15],[650,850,20],[850,1100,25],[1100,1700,50]],
 				filter: function () {
@@ -7189,7 +7221,7 @@ var toReturn = {
 				}
 			},
 			critChance: {
-				name: "Crit Chance, additive",
+				name: "暴击率(效果叠加)",
 				currentBonus: 0,
 				heirloopy: true,
 				steps: [[1.4,2.6,0.2],[1.4,2.6,0.2],[1.4,2.6,0.2],[2.6,5,0.2],[5,7.4,0.2],[7.4,9.8,0.2],[9.8,12.2,0.2],[12.3,15.9,0.3],[20,30,0.5],[30,50,0.5],[50,80,0.25],[80,95,0.3]],
@@ -7199,7 +7231,7 @@ var toReturn = {
 				max: [30,30,30,30,30,30,30,30,100,125,200,260]
 			},
 			voidMaps: {
-				name: "Void Map Drop Chance",
+				name: "虚空地图掉落概率",
 				currentBonus: 0,
 				heirloopy: true,
 				specialDescription: function(modifier){
@@ -7209,7 +7241,7 @@ var toReturn = {
 				max: [50,50,50,50,50,50,50,50,80,99,40,50]
 			},
 			plaguebringer: {
-				name: "Plaguebringer",
+				name: "瘟疫使者效果",
 				currentBonus: 0,
 				heirloopy: true,
 				specialDescription: function (modifier) {
@@ -7219,7 +7251,7 @@ var toReturn = {
 				max: [0,0,0,0,0,0,0,0,75,100,125,150]
 			},
 			prismatic: {
-				name: "Prismatic Shield",
+				name: "棱镜护盾",
 				currentBonus: 0,
 				noScaleU2: true,
 				specialDescription: function(){
@@ -7229,7 +7261,7 @@ var toReturn = {
 				max:[0,0,0,0,0,0,0,0,0,250,500,750]
 			},
 			gammaBurst: {
-				name: "Gamma Burst",
+				name: "伽马爆发",
 				currentBonus: 0,
 				stacks: 0,
 				specialDescription: function(modifier){
@@ -7238,7 +7270,7 @@ var toReturn = {
 				steps: [-1,-1,-1,-1,-1,-1, -1,-1,-1,[1000,2000,100],-1,-1],
 			},
 			inequality: {
-				name: "Inequality",
+				name: "不平等",
 				currentBonus: 0,
 				specialDescription: function(){
 					return "Reduces the Equality penalty on your Trimps by this amount without changing Enemy reduction.";
@@ -7247,15 +7279,15 @@ var toReturn = {
 				max:[0,0,0,0,0,0,0,0,0,0,0,400]
 			},
 			empty: {
-				name: "Empty",
+				name: "空",
 				currentBonus: 0,
 				rarity: 1
 			}
 		}
 
 	},
-	trimpDeathTexts: ["ceased to be", "bit the dust", "took a dirt nap", "expired", "kicked the bucket", "evaporated", "needed more armor", "exploded", "melted", "fell over", "swam the river Styx", "turned into jerky", "forgot to put armor on", "croaked", "flatlined", "won't follow you to battle again", "died. Lame", "lagged out", "imp-loded"],
-	badGuyDeathTexts: ["slew", "killed", "destroyed", "extinguished", "liquidated", "vaporized", "demolished", "ruined", "wrecked", "obliterated"],
+	trimpDeathTexts: ["去世了", "食尘了", "长眠于地下了", "逝世了", "翘辫子了", "消失了", "护甲不足，没了", "炸了", "熔化了", "摔死了", "渡过了冥河", "变成了脆皮干", "忘记穿护甲，凉了", "咽下了最后一口气", "心电图成了直线", "无法继续与您并肩作战了", "挂了。真弱", "卡死了", "皮爆了"],
+	badGuyDeathTexts: ["击杀了", "杀死了", "毁灭了", "消灭了", "清算了", "蒸发了", "摧毁了", "破坏了", "击毁了", "抹消了"],
 
 	settings: {
 		speed: 10,
@@ -7345,8 +7377,8 @@ var toReturn = {
 	equipment: {
 		Shield: {
 			locked: 1,
-			tooltip: "A big, wooden shield. Adds $healthCalculated$ health to each soldier per level.",
-			blocktip: "A big, wooden shield. Adds $blockCalculated$ block to each soldier per level.",
+			tooltip: "一面大木盾，每级使每名士兵的生命值增加$healthCalculated$。",
+			blocktip: "一面大木盾，每级使每名士兵的格挡增加$blockCalculated$。",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -7362,7 +7394,7 @@ var toReturn = {
 		},
 		Dagger: {
 			locked: 1,
-			tooltip: "Better than nothing. Adds $attackCalculated$ attack to each soldier per level",
+			tooltip: "聊胜于无。每级使每名士兵的攻击力增加$attackCalculated$。",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -7375,7 +7407,7 @@ var toReturn = {
 		},
 		Boots: {
 			locked: 1,
-			tooltip: "At least their feet will be safe. Adds $healthCalculated$ health to each soldier per level",
+			tooltip: "至少能保护到脚。每级使每名士兵的生命值增加$healthCalculated$。",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -7389,7 +7421,7 @@ var toReturn = {
 		//2
 		Mace: {
 			locked: 1,
-			tooltip: "It's kind of heavy for your Trimps, but they'll manage. Adds $attackCalculated$ attack to each soldier per level",
+			tooltip: "对脆皮来说有点重，但它们还是能挥舞起来的。每级使每名士兵的攻击力增加$attackCalculated$。",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -7402,7 +7434,7 @@ var toReturn = {
 		},
 		Helmet: {
 			locked: 1,
-			tooltip: "Provides a decent amount of protection to the Trimps' heads, adding $healthCalculated$ health to each soldier per level.",
+			tooltip: "为脆皮的头部提供不错的防护，每级使每名士兵的生命值增加$healthCalculated$。",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -7416,7 +7448,7 @@ var toReturn = {
 		//3
 		Polearm: {
 			locked: 1,
-			tooltip: "This thing is big and pointy. It adds $attackCalculated$ attack to each soldier per level",
+			tooltip: "这玩意又大又尖。每级使每名士兵的攻击力增加$attackCalculated$。",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -7429,7 +7461,7 @@ var toReturn = {
 		},
 		Pants: {
 			locked: 1,
-			tooltip: "Pants designed specificially for the little Trimps! Adds $healthCalculated$ health to each soldier per level.",
+			tooltip: "专为脆皮的小身板设计的裤子！每级使每名士兵的生命值增加$healthCalculated$。",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -7443,7 +7475,7 @@ var toReturn = {
 		//4
 		Battleaxe: {
 			locked: 1,
-			tooltip: "This weapon is pretty intimidating, but your Trimps think they can handle it. Adds $attackCalculated$ attack to each soldier per level",
+			tooltip: "这武器单凭外表就可以吓退敌人了，脆皮们觉得它们挥舞得动。每级使每名士兵的攻击力增加$attackCalculated$。",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -7456,7 +7488,7 @@ var toReturn = {
 		},
 		Shoulderguards: {
 			locked: 1,
-			tooltip: "These shoulderguards will help keep your Trimps' necks and shoulders safe, and they look cool too. Adds $healthCalculated$ health to each soldier per level",
+			tooltip: "这些护肩可以保护脆皮的脖子和肩膀，而且看起来挺酷的。每级使每名士兵的生命值增加$healthCalculated$。",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -7470,7 +7502,7 @@ var toReturn = {
 		//5
 		Greatsword: {
 			locked: 1,
-			tooltip: "This sword looks sweet. Seriously, if you could see it you'd think it looked sweet. Trust me. Adds $attackCalculated$ attack to each soldier per level",
+			tooltip: "这把剑看起来真可爱。真的，要是您看得到的话，您也会这么觉得。相信我。每级使每名士兵的攻击力增加$attackCalculated$。",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -7483,7 +7515,7 @@ var toReturn = {
 		},
 		Breastplate: {
 			locked: 1,
-			tooltip: "Some real, heavy duty armor. Everyone looks badass in heavy duty armor. Adds $healthCalculated$ health to each soldier per level",
+			tooltip: "真正的重型护甲。脆皮穿上以后看起来吊爆了。每级使每名士兵的生命值增加$healthCalculated$。",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -7496,7 +7528,7 @@ var toReturn = {
 		},
 		Arbalest: {
 			locked: 1,
-			tooltip: "A powerful ranged weapon. Your Trimps can do some damage with this sucker. Adds $attackCalculated$ attack to each soldier per level",
+			tooltip: "强大的远程武器。用这玩意来搞事情会很称手。每级使每名士兵的攻击力增加$attackCalculated$。",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -7509,7 +7541,7 @@ var toReturn = {
 		},
 		Gambeson: {
 			locked: 1,
-			tooltip: "A cozy and thick padded jacket that goes under the breastplate. Your Trimps think they're great! Adds $healthCalculated$ health to each soldier per level.",
+			tooltip: "一件舒适合身，可以穿戴在胸甲内的厚棉衣。脆皮们爱死它了！每级使每名士兵的生命值增加$healthCalculated$。",
 			modifier: 1,
 			level: 0,
 			cost: {
@@ -7712,7 +7744,7 @@ var toReturn = {
 			fast: true,
 			loot: function (level) {
 				var amt = rewardResource("food", 0.5, level, true);
-				message("That Chickimp dropped " + prettify(amt) + " food!", "Loot", "apple", null, 'primary');
+				message("脆皮小鸡掉落了" + prettify(amt) + "食物！", "Loot", "apple", null, 'primary');
 			}
 		},
 		Hippopotamimp: {
@@ -7737,7 +7769,7 @@ var toReturn = {
 			fast: true,
 			loot: function (level) {
 				var amt = rewardResource("food", 0.5, level, true);
-				message("You hear nearby Kittimps running away in fear and decide to check out their former home. There, you find a prey pile with " + prettify(amt) + " food!", "Loot", "apple", null, 'primary');
+				message("附近的脆皮小猫害怕地跑开了，您决定去它们的窝里看看。您在那发现了" + prettify(amt) + "食物！", "Loot", "apple", null, 'primary');
 			}
 		},
 		Grimp: {
@@ -7748,7 +7780,7 @@ var toReturn = {
 			fast: false,
 			loot: function (level) {
 				var amt = rewardResource("wood", 0.5, level, true);
-				message("That Grimp dropped " + prettify(amt) + " wood!", "Loot", "tree-deciduous", null, 'primary');
+				message("脆皮护林者掉落了" + prettify(amt) + "木头！", "Loot", "tree-deciduous", null, 'primary');
 			}
 		},
 		Golimp: {
@@ -7765,17 +7797,17 @@ var toReturn = {
 				var tag;
 				if (random === 0) {
 					amt = rewardResource("fragments", 1, level, true);
-					res = "fragments";
+					res = "碎片";
 					icon = "th";
 					tag = "secondary";
 				}
 				else {
 					amt = rewardResource("metal", 0.3, level, true);
-					res = "bars of metal";
+					res = "金属";
 					icon = "*cubes";
 					tag = "primary";
 				}
-				message("The Golimp fell to pieces! You manage to grab " + prettify(amt) + " " + res + " before it begins pulling itself together.", "Loot", icon, null, tag);
+				message("脆皮魔像被打碎了！在它重新凝聚成形之前，您拿走了" + prettify(amt) + res + "。", "Loot", icon, null, tag);
 			}
 		},
 		Seirimp: {
@@ -7786,7 +7818,7 @@ var toReturn = {
 			fast: false,
 			loot: function (level) {
 				var amt = rewardResource("metal", 0.5, level, true);
-				message("That Seirimp dropped " + prettify(amt) + " metal! Neat-O.", "Loot", "*cubes", null, 'primary');
+				message("脆皮矿精掉落了" + prettify(amt) + "金属！真棒。", "Loot", "*cubes", null, 'primary');
 			}
 		},
 		Slagimp: {
@@ -7796,7 +7828,7 @@ var toReturn = {
 			fast: true,
 			loot: function (level) {
 				var amt = rewardResource("gems", 0.3, level, true);
-				message("That Slagimp fell over, and " + prettify(amt) + " gems popped out! How about that?!", "Loot", "*diamond", null, 'secondary');
+				message("脆皮炉渣怪倒下了，" + prettify(amt) + "宝石冒了出来！惊喜不惊喜？", "Loot", "*diamond", null, 'secondary');
 			}
 		},
 		Moltimp: {
@@ -7806,7 +7838,7 @@ var toReturn = {
 			fast: false,
 			loot: function (level) {
 				var amt = rewardResource("metal", 0.2, level, true);
-				message("The Moltimp thanked you for the combat, and handed you " + prettify(amt) + " bars of metal! Then he died.", "Loot", "*cubes", null, 'primary');
+				message("脆皮熔金怪表示打得很尽兴，并交给您" + prettify(amt) + "金属。然后它就凉了。", "Loot", "*cubes", null, 'primary');
 			}
 		},
 		Lavimp: {
@@ -7846,7 +7878,7 @@ var toReturn = {
 			fast: true,
 			loot: function (level) {
 				var amt = rewardResource("wood", 0.35, level, true);
-				message("The Entimp is no more. You manage to salvage " + prettify(amt) + " logs of wood from his trunk!", "Loot", "tree-deciduous", null, 'primary');
+				message("脆皮树人再也不会动了。您从它的树干上获取了" + prettify(amt) + "木头！", "Loot", "tree-deciduous", null, 'primary');
 			}
 		},
 		Squirrimp: {
@@ -7856,7 +7888,7 @@ var toReturn = {
 			fast: false,
 			loot: function (level) {
 				var amt = rewardResource("food", 0.35, level, true);
-				message("Time for some stew! You scored " + prettify(amt) + " food from that Squirrimp!", "Loot", "apple", null, 'primary');
+				message("该炖点什么吃了！您从这只脆皮松鼠身上获得了" + prettify(amt) + "食物！", "Loot", "apple", null, 'primary');
 			}
 		},
 		Gravelimp: {
@@ -7866,7 +7898,7 @@ var toReturn = {
 			fast: false,
 			loot: function (level) {
 				var amt = rewardResource("metal", 0.35, level, true);
-				message("You sift through the Gravelimp, and manage to find " + prettify(amt) + " bars of metal! Good on you!", "Loot", "*cubes", null, 'primary');
+				message("您筛了一下碎石怪留下的东西，发现了" + prettify(amt) + "金属！真不错！", "Loot", "*cubes", null, 'primary');
 			}
 		},
 		Blimp: {
@@ -7880,7 +7912,7 @@ var toReturn = {
 				var amt = rewardResource("food", 2, level);
 				rewardResource("wood", 2, level);
 				rewardResource("metal", 2, level);
-				message("That Blimp dropped " + prettify(amt) + " Food, Wood and Metal! That should be useful.", "Loot", "piggy-bank", null, 'primary');
+				message("脆皮飞艇掉落了" + prettify(amt) + "食物，木头和金属！一定能派上用场的。", "Loot", "piggy-bank", null, 'primary');
 				if (game.global.runningChallengeSquared) return;
 				var minLevel = (game.global.universe == 2) ? 16 : 21;
 				if (game.global.world >= minLevel && (getTotalPortals() >= 1 || game.global.portalActive)){
@@ -7888,7 +7920,7 @@ var toReturn = {
 					amt = 1;
 					if (game.global.challengeActive == "Domination") amt *= 3;
 					amt = rewardResource("helium", amt, level);
-					message("You were able to extract " + prettify(amt) + " " + heliumOrRadon(true) + "s from that Blimp!", "Loot", heliumIcon(true), "helium", "helium");
+					message("您还从脆皮飞艇上提取了" + prettify(amt) + heliumOrRadon(true) + "！", "Loot", heliumIcon(true), "helium", "helium");
 					if (game.global.world >= 40 && game.global.challengeActive == "Balance") {
 						game.challenges.Balance.onComplete();
 					}
@@ -7966,27 +7998,27 @@ var toReturn = {
 				
 				game.stats.highestVoidMap.evaluate();
 				game.stats.totalVoidMaps.value += (fromFluffy && fluffyCount) ? fluffyCount : 1;
-				var msg = "Cthulimp and the map it came from crumble into the darkness. You find yourself instantly teleported to ";				
+				var msg = "脆皮克苏鲁与它藏身的地图一起遁入了黑暗。您被传送";				
 				if (fromFluffy && fluffyCount == 1){
-					msg = "Before you even realized you were in a new Void Map, Fluffy snuck to the end and quickly stole all the loot.";
-					if (!game.global.runningChallengeSquared) msg += " You gained another " + prettify(amt) + " " + heliumOrRadon() + "!";
+					msg = "在您刚发现进入了新的虚空地图时，绒绒已经悄悄地把所有东西都顺走了。";
+					if (!game.global.runningChallengeSquared) msg += "您额外获得了" + prettify(amt) + heliumOrRadon() + "！";
 					message(msg, "Loot", heliumIcon(true), "helium", "helium");
 					return;
 				}
 				else if (fromFluffy){
-					msg = "Before you even realize what's happening, " + Fluffy.getName() + " has entered and cleared the remaining " + fluffyCount + " Void Maps and quickly stole all the loot!";
-					if (!game.global.runningChallengeSquared) msg += " After earning a bonus on each of +" + prettify((fluffyBonus - 1) * 100) + "% " + heliumOrRadon() + ", you've earned an additional " + prettify(amt) + " " + heliumOrRadon() + "!";
+					msg = "在您还没搞清楚情况的时候，" + Fluffy.getName() + "已经通过了剩下的" + fluffyCount + "张虚空地图，并迅速把所有东西都顺走了！";
+					if (!game.global.runningChallengeSquared) msg += "由于每张地图可以额外获得" + prettify((fluffyBonus - 1) * 100) + "%" + heliumOrRadon() + "，您最后额外获得了" + prettify(amt) + heliumOrRadon() + "！";
 					message(msg, "Loot", heliumIcon(true), "helium", "helium");
 					return;
 				}
 				if (game.options.menu.repeatVoids.enabled && game.global.totalVoidMaps > 1){
-					msg += "the next Void map";
+					msg += "到了下一张虚空地图";
 				}
 				else {
-					msg += ((game.options.menu.exitTo.enabled) ? "the world " : "your map chamber");
+					msg += ((game.options.menu.exitTo.enabled) ? "回世界" : "回地图界面");
 				}
-				if (game.global.runningChallengeSquared) msg += ".";
-				else msg += " with an extra " + prettify(amt) + " " + heliumOrRadon() + "!";
+				if (game.global.runningChallengeSquared) msg += "。";
+				else msg += "，并额外获取了" + prettify(amt) + heliumOrRadon() + "！";
 				message(msg, "Loot", heliumIcon(true), "helium", "helium");
 				
 			}
@@ -8025,7 +8057,7 @@ var toReturn = {
 			fast: false,
 			loot: function (level) {
 				var amt = rewardResource("gems", 0.35, level, false);
-				message("That Dragimp dropped " + prettify(amt) + " gems!", "Loot", "*diamond", null, 'secondary');
+				message("脆皮龙掉落了" + prettify(amt) + "宝石！", "Loot", "*diamond", null, 'secondary');
 			}
 		},
 		Mitschimp: {
@@ -8038,7 +8070,7 @@ var toReturn = {
 			loot: function (level) {
 				checkAchieve("blockTimed");
 				var amt = rewardResource("wood", 2, level, true);
-				message("Mitschimp dropped " + prettify(amt) + " wood!", "Loot", "tree-deciduous", null, 'primary');
+				message("脆皮巨猩猩掉落了" + prettify(amt) + "木头！", "Loot", "tree-deciduous", null, 'primary');
 			}
 		},
 		Brickimp: {
@@ -8063,7 +8095,7 @@ var toReturn = {
 			fast: true,
 			loot: function(level){
 				var amt = rewardResource("gems", 1, level, true);
-				message("That Prismimp dropped " + prettify(amt) + " gems, how sweet of it!", "Loot", "*diamond", null, 'secondary');
+				message("脆皮棱镜怪掉落了" + prettify(amt) + "宝石，太好啦！", "Loot", "*diamond", null, 'secondary');
 			}
 		},
 		Rainbimp: {
@@ -8074,7 +8106,7 @@ var toReturn = {
 			fast: false,
 			loot: function(level){
 				var amt = rewardResource("gems", 4, level, true);
-				message("You feel bad about slaying an incredibly rare Rainbimp, but at least he dropped " + prettify(amt) + " gems! Totally worth.", "Loot", "*diamond", null, 'secondary');	
+				message("亲手击杀稀有的脆皮彩虹兽让人有点难过，但它掉落了" + prettify(amt) + "宝石！值了。", "Loot", "*diamond", null, 'secondary');	
 			}
 		},
 		Lightimp: {
@@ -8086,7 +8118,7 @@ var toReturn = {
 			last: true,
 			loot: function(level){
 				var amt = rewardResource("gems", 6, level, true);
-				message("The Lightimp's light floats up and away, unbothered by the fact that you just killed its body. Since it doesn't want the body anymore, you break it down in to " + prettify(amt) + " gems!", "Loot", "*diamond", null, 'secondary');
+				message("脆皮光怪的光亮向上飘走了，看起来失去身体对它并没有什么影响。既然如此，您干脆将它的身体打碎，获得了" + prettify(amt) + "宝石！", "Loot", "*diamond", null, 'secondary');
 				checkAchieve("palaceTimed");
 			}
 		},
@@ -8099,7 +8131,7 @@ var toReturn = {
 			last: true,
 			loot: function(level){
 				var amt = rewardResource("metal", 5, level, true);
-				message("What a surprise, the Meltimp is melting! You find a healthy stack of " + prettify(amt) + " metal where it used to be!", "Loot", "*cubes", null, 'primary');
+				message("真令人意外，脆皮熔怪竟然熔化了！您在它熔化的地方发现了" + prettify(amt) + "金属！", "Loot", "*cubes", null, 'primary');
 				checkAchieve("meltingTimed");
 			}
 		},
@@ -8111,7 +8143,7 @@ var toReturn = {
 			fast: true,
 			loot: function(level){
 				var amt = rewardResource("metal", 2, level, true);
-				message("That Sweltimp chucked " + prettify(amt) + " bars of metal right at your head! You'll take it though, thanks guy!", "Loot", "*cubes", null, 'primary');
+				message("脆皮酷热者把" + prettify(amt) + "金属向您的头扔来！之后您会把这些东西带走的，谢了伙计！", "Loot", "*cubes", null, 'primary');
 			}
 		},
 		Indianimp: {
@@ -8124,7 +8156,7 @@ var toReturn = {
 			loot: function (level) {
 				checkAchieve("doomTimed");
 				var amt = rewardResource("metal", 2, level, true);
-				message("Indianimp dropped " + prettify(amt) + " metal!", "Loot", "*cubes", null, 'primary');
+				message("脆皮印第安人掉落了" + prettify(amt) + "金属！", "Loot", "*cubes", null, 'primary');
 				if (game.global.runningChallengeSquared) return;
 				if (game.global.challengeActive == "Trapper"){
 					game.challenges.Trapper.onComplete();
@@ -8144,7 +8176,7 @@ var toReturn = {
 			loot: function (level) {
 				checkAchieve("atlantrimpTimed");
 				var amt = rewardResource("food", 2, level, true);
-				var text = "Poseidimp explodes into a swirling tornado of fish and aquatic life. You catch some of it and bring back " + prettify(amt) + " Food!";
+				var text = "脆皮海王爆炸后，形成了一股海洋生物的旋风。您抓住了其中一些生物，获得了" + prettify(amt) + "食物！";
 				message(text, "Loot", "apple", null, 'primary');
 			}
 		},
@@ -8181,7 +8213,7 @@ var toReturn = {
 				checkAchieve("bionicTimed");
 				var amt1 = rewardResource("wood", 1, level, true);
 				var amt2 = rewardResource("food", 1, level, true);
-				message("Robotrimp discombobulated. Loot inspection reveals: " + prettify(amt1) + " wood and " + prettify(amt2) + " food. Splendiferous.", "Loot", "*cogs", null, 'primary');
+				message("脆皮机器人，思维，混乱。战利品，检查，发现：" + prettify(amt1) + "木头，" + prettify(amt2) + "食物。极好。", "Loot", "*cogs", null, 'primary');
 				if (game.global.challengeActive == "Crushed") {
 					game.challenges.Crushed.onComplete();
 				}
@@ -8195,7 +8227,7 @@ var toReturn = {
 			fast: false,
 			loot: function (level) {
 				var amt = rewardResource("metal", .25, level, true);
-				message("Mechimp disengaged. Reward encountered: " + prettify(amt) + " bars of metal. Huzzah.", "Loot", "*cubes", null, 'primary');
+				message("脆皮机甲，战斗，不能。奖励：" + prettify(amt) + "金属。撒花。", "Loot", "*cubes", null, 'primary');
 			}
 		},
 		Destructimp: {
@@ -8206,7 +8238,7 @@ var toReturn = {
 			fast: false,
 			loot: function (level) {
 				var amt = rewardResource("metal", .25, level, true);
-				message("Destructimp shorted out. Salvage results: " + prettify(amt) + " bars of metal. Acceptable.", "Loot", "*cubes", null, 'primary');
+				message("脆皮破灭者，已短路。搜寻，结果：" + prettify(amt) + "金属。差强，人意。", "Loot", "*cubes", null, 'primary');
 			}
 		},
 		Terminatimp: {
@@ -8217,7 +8249,7 @@ var toReturn = {
 			fast: false,
 			loot: function (level) {
 				var amt = rewardResource("metal", .25, level, true);
-				message("Terminatimp Terminated. Findings: " + prettify(amt) + " bars of metal. Hasta la Vista.", "Loot", "*cubes", null, 'primary');
+				message("脆皮终结者，已终结。发现：" + prettify(amt) + "金属。后会，有期。", "Loot", "*cubes", null, 'primary');
 			}
 		},
 		Autoimp: {
@@ -8228,7 +8260,7 @@ var toReturn = {
 			fast: false,
 			loot: function (level) {
 				var amt = rewardResource("metal", .5, level, true);
-				message("Autoimp force quit. Memory dump provides " + prettify(amt) + " bars of metal and no clues. It's a feature!", "Loot", "*cubes", null, 'primary');
+				message("脆皮汽车，强制，关闭。内存，获得，" + prettify(amt) + "金属。无线索。这是，特性。", "Loot", "*cubes", null, 'primary');
 			}
 		},
 		Artimp: {
@@ -8239,7 +8271,7 @@ var toReturn = {
 			fast: false,
 			loot: function (level) {
 				var amt = rewardResource("metal", 0.3, level, true);
-				message("The Artimp wordlessly sputters, whirrs, beeps, then drops " + prettify(amt) + " perfect cubes of metal on the ground. Cubist art is your favorite!", "Loot", "*cubes", null, 'primary');
+				message("脆皮机器艺术家发出了一堆意味不明的声音，最后在地上留下了一个完美的立方，里面装着" + prettify(amt) + "金属。立方主义是您的最爱！", "Loot", "*cubes", null, 'primary');
 			}
 		},
 		//End Bionic Wonderland stuff
@@ -8255,7 +8287,7 @@ var toReturn = {
 				checkAchieve("starTimed");
 				var amt1 = rewardResource("wood", 1.5, level, true);
 				var amt2 = rewardResource("metal", 1.5, level, true);
-				message("The Neutrimp gasps, shimmers, squeaks, then poofs into a quickly dispersing purple cloud. You spend a few moments trying to make sense of what you've just seen, but look around and find " + prettify(amt1) + " wood and " + prettify(amt2) + " metal instead!", "Loot", "*cogs", null, 'primary');
+				message("脆皮中子怪喘息闪光嘎吱作响，最后噗的一声变成了一团迅速分散的紫色烟雾。您半天没搞明白到底发生了什么，放弃纠结以后在旁边发现了" + prettify(amt1) + "木头和" + prettify(amt2) + "金属！", "Loot", "*cogs", null, 'primary');
 				if (game.global.challengeActive == "Devastation") {
 					game.challenges.Devastation.onComplete();
 				}
@@ -8272,7 +8304,7 @@ var toReturn = {
 			fast: true,
 			loot: function (level) {
 				var amt = rewardResource("metal", .5, level, true);
-				message("The Fusimp explodes, leaving behind " + prettify(amt) + " bars of metal and a nice dose of radiation.", "Loot", "*cubes", null, 'primary');
+				message("脆皮聚变怪爆炸了，留下了" + prettify(amt) + "金属，和大量辐射。", "Loot", "*cubes", null, 'primary');
 			}
 		},
 		Hydrogimp: {
@@ -8283,7 +8315,7 @@ var toReturn = {
 			fast: false,
 			loot: function (level) {
 				var amt = rewardResource("food", 1, level, true);
-				message("Before you can blink, the Hydrogimp vaporizes. That's fine though, it left " + prettify(amt) + " food for you!", "Loot", "apple", null, 'primary');
+				message("脆皮氢怪在您眨眼前就漏光了气。好在它还为您留下了" + prettify(amt) + "食物！", "Loot", "apple", null, 'primary');
 			}
 		},
 		Carbimp: {
@@ -8294,7 +8326,7 @@ var toReturn = {
 			fast: true,
 			loot: function (level) {
 				var amt = rewardResource("wood", 1, level, true);
-				message("The Carbimp begins to crackle and shrink. Within a few seconds, all that's left is " + prettify(amt) + " wood.", "Loot", "tree-deciduous", null, 'primary');
+				message("脆皮碳怪噼啪作响，迅速缩小。不一会儿，只剩下了" + prettify(amt) + "木头。", "Loot", "tree-deciduous", null, 'primary');
 			}
 		},
 		//End Imploding Star stuff
@@ -8315,7 +8347,7 @@ var toReturn = {
 				if (game.global.challengeActive == "Domination") amt *= 3;
 				if (getTotalPortals() > 0 || game.global.portalActive){
 					amt = rewardResource("helium", amt, level);
-					message("You managed to steal " + prettify(amt) + " " + heliumOrRadon(true) + "s from that Improbability. That'll teach it.", "Loot", heliumIcon(true), 'helium', 'helium');
+					message("您从乌有者身上顺走了" + prettify(amt) + heliumOrRadon(true) + "。让它长长记性。", "Loot", heliumIcon(true), 'helium', 'helium');
 				}
 				if (game.global.challengeActive == "Slow" && game.global.world == 120){
 					game.challenges.Slow.onComplete();
@@ -8333,7 +8365,7 @@ var toReturn = {
 					}
 					var reward = (game.challenges[challenge].heliumMultiplier) ? game.challenges[challenge].heliumMultiplier : 2;
 					reward = game.challenges[challenge].heldHelium * reward;
-					message("You have completed the " + challenge + " challenge! You have been rewarded with " + prettify(reward) + " Helium, and you may repeat the challenge.", "Notices");
+					message("You have completed the <i></i>" + challenge + "<i></i> challenge! You have been rewarded with " + prettify(reward) + " Helium, and you may repeat the challenge.", "Notices");
 					game.challenges[challenge].heldHelium = 0;
 					game.global.challengeActive = "";
 					addHelium(reward);
@@ -8360,10 +8392,10 @@ var toReturn = {
 				if (!game.global.runningChallengeSquared){
 					var amt = 30;
 					amt = rewardResource("helium", amt, level);
-					message("You managed to steal " + prettify(amt) + " " + heliumOrRadon(true) + " from that Omnipotrimp. That'll teach it.", "Loot", heliumIcon(true), 'helium', 'helium');
+					message("您从全能者身上顺走了" + prettify(amt) + heliumOrRadon(true) + "。让它长长记性。", "Loot", heliumIcon(true), 'helium', 'helium');
 				}
 				if (game.global.world % 5 == 0){
-					message("The Omnipotrimp explodes, killing all of your soldiers!", "Combat", null, null, 'trimp');
+					message("全能者爆炸了，杀死了所有士兵！", "Combat", null, null, 'trimp');
 					game.stats.trimpsKilled.value += game.resources.trimps.soldiers;
 					game.global.soldierHealth = 0;
 					game.global.fighting = false;
@@ -8380,7 +8412,7 @@ var toReturn = {
 			fast: true,
 			loot: function (level) {
 				amt = rewardResource("metal", 5, level);
-				message("Radioactive waste spills to the ground as the Mutimp falls. You send a few Trimps to grab the shiny stuff in the toxic sludge, which ends up being " + prettify(amt) + " bars of metal!", "Loot", "*cubes", null, 'primary');
+				message("脆皮变异者倒下后，体内的核废料溅得到处都是。您让一些脆皮去收集那堆有毒烂泥里面闪闪发光的东西，最后获得了" + prettify(amt) + "金属！", "Loot", "*cubes", null, 'primary');
 			}
 		},
 		Hulking_Mutimp: {
@@ -8391,7 +8423,7 @@ var toReturn = {
 			fast: true,
 			loot: function (level) {
 				amt = rewardResource("metal", 8, level);
-				message("Radioactive waste spills to the ground as the Hulking Mutimp falls. You send a few Trimps to grab the shiny stuff in the toxic sludge, which ends up being " + prettify(amt) + " bars of metal!", "Loot", "*cubes", null, 'primary');
+				message("脆皮大型变异者倒下后，体内的核废料溅得到处都是。您让一些脆皮去收集那堆有毒烂泥里面闪闪发光的东西，最后获得了" + prettify(amt) + "金属！", "Loot", "*cubes", null, 'primary');
 			}
 		},
 		Darknimp: {
@@ -8404,7 +8436,7 @@ var toReturn = {
 			world: 6,
 			loot: function(){
 				if (game.global.challengeActive == "Quagmire"){
-					message("You have completed The Black Bog! 1 stack of Exhausted and Motivated have been removed from your Trimps.", "Notices");
+					message("您通过了黑色泥沼！我方脆皮的疲惫不堪和积极前进同时减少了1层。", "Notices");
 					game.challenges.Quagmire.motivatedStacks--;
 					game.challenges.Quagmire.exhaustedStacks--;
 					if (game.challenges.Quagmire.motivatedStacks <= 0) game.challenges.Quagmire.abandon();
@@ -8424,7 +8456,7 @@ var toReturn = {
 				createHeirloom(null, false, false, true);
 				var rarity = getHeirloomRarity(game.global.world, game.global.heirloomSeed, false, true);
 				rarity = game.heirlooms.rarityNames[rarity];
-				message("You have completed the Frozen Castle! The map has melted, but you managed to find a " + rarity + " Heirloom!", "Notices");			
+				message("您通过了冻结城堡！那张地图融化了，但您找到了一个<i></i>" + rarity + "<i></i>传家宝！", "Notices");			
 				if (game.global.challengeActive == "Hypothermia") game.challenges.Hypothermia.onComplete();
 			}
 		},
@@ -8441,12 +8473,12 @@ var toReturn = {
 			world: 6,
 			attack: 1,
 			health: 1,
-			dropDesc: "Drops 6x Gems",
+			dropDesc: "掉落6倍的宝石",
 			fast: false,
 			loot: function (level, fromMagimp) {
-				var name = (fromMagimp) ? "Randimp" : "Goblimp";
+				var name = (fromMagimp) ? "脆皮百变怪" : "脆皮地精";
 				var amt = rewardResource("gems", 3, level, true);
-				message("That " + name + " dropped " + prettify(amt) + " gems! What a bro!", "Loot", "*diamond", "exotic", 'exotic');
+				message("" + name + "掉落了" + prettify(amt) + "宝石！干得漂亮！", "Loot", "*diamond", "exotic", 'exotic');
 				game.unlocks.impCount.Goblimp++;
 			}
 		},
@@ -8456,13 +8488,13 @@ var toReturn = {
 			world: 1,
 			attack: 1,
 			health: 1,
-			dropDesc: "Drops 15x Gems",
+			dropDesc: "掉落15倍的宝石",
 			fast: false,
 			loot: function (level, fromMagimp) {
-				var name = (fromMagimp) ? "Randimp" : "Feyimp";
+				var name = (fromMagimp) ? "脆皮百变怪" : "脆皮小妖";
 				if (game.resources.gems.owned == 0) fadeIn("gems", 10);
 				var amt = rewardResource("gems", 7.5, level);
-				message("That " + name + " gave you " + prettify(amt) + " gems! Thanks " + name + "!", "Loot", "*diamond", "exotic", "exotic");
+				message("" + name + "交给您" + prettify(amt) + "宝石！谢了" + name + "！", "Loot", "*diamond", "exotic", "exotic");
 				game.unlocks.impCount.Feyimp++;
 			}
 		},
@@ -8473,11 +8505,11 @@ var toReturn = {
 			attack: 1,
 			health: 1,
 			fast: false,
-			dropDesc: "Drops Fragments",
+			dropDesc: "掉落碎片",
 			loot: function (level, fromMagimp) {
-				var name = (fromMagimp) ? "Randimp" : "Flutimp";
+				var name = (fromMagimp) ? "脆皮百变怪" : "脆皮飘兽";
 				var amt = rewardResource("fragments", 1, level, true);
-				message("You stole " + prettify(amt) + " fragments from that " + name + "! It really didn't look like she needed them though, don't feel bad.", "Loot", "th", "exotic", "exotic");
+				message("您从" + name + "那顺走了" + prettify(amt) + "碎片！反正她看起来也用不上，别难过。", "Loot", "th", "exotic", "exotic");
 				game.unlocks.impCount.Flutimp++;
 			}
 		},
@@ -8488,9 +8520,9 @@ var toReturn = {
 			attack: 1,
 			health: 1,
 			fast: false,
-			dropDesc: "Grants an extra 0.3% of current Trimps",
+			dropDesc: "使脆皮数量及上限额外增加0,3%",
 			loot: function (level, fromMagimp) {
-				var name = (fromMagimp) ? "Randimp" : "Tauntimp";
+				var name = (fromMagimp) ? "脆皮百变怪" : "脆皮咚咚";
 				var amt = Math.ceil(game.resources.trimps.max * 0.003);
 				if (game.global.challengeActive == "Downsize"){
 					amt = game.global.totalGifts + game.unlocks.impCount.TauntimpAdded + 10;
@@ -8500,15 +8532,15 @@ var toReturn = {
 				game.unlocks.impCount.Tauntimp++;
 				game.unlocks.impCount.TauntimpAdded += amt;
 				amt = (game.global.challengeActive == "Trapper" || game.global.challengeActive == "Trappapalooza") ? addMaxHousing(amt, false) : addMaxHousing(amt, true);
-				var msg = "It's nice, warm, and roomy in that dead " + name + ". ";
+				var msg = "死去的" + name + "体内环境舒适，温暖，而且宽敞。";
 				if (game.global.challengeActive != "Trapper" && game.global.challengeActive != "Trappapalooza"){
-					msg += "You found ";
-					if (amt == 1) msg += prettify(amt) + " Trimp inside, and it looks hella bored.";
-					else msg += prettify(amt) + " Trimps inside, and they all seem content to stay living there!";
+					msg += "您在里面发现了";
+					if (amt == 1) msg += prettify(amt) + "个脆皮，看起来很无聊。";
+					else msg += prettify(amt) + "个脆皮，它们看起来很乐意继续在里面生活下去！";
 					message(msg, "Loot", "gift", "exotic", "exotic");
 				}
 				else {
-					message(msg + " There's enough room for " + prettify(amt) + " Trimp" + ((amt == 1) ? "" : "s") + " to live inside" + ((amt == 1) ? ", though it will be quite lonely." : "!"), "Loot", "gift", "exotic", "exotic");
+					message(msg + "里面可以住下" + prettify(amt) + "个脆皮" + ((amt == 1) ? "，不过这样它会很孤单。" : "！"), "Loot", "gift", "exotic", "exotic");
 				}
 			}
 		},
@@ -8519,9 +8551,9 @@ var toReturn = {
 			attack: 1,
 			health: 1,
 			fast: false,
-			dropDesc: "Grants 0.3% Trimp resource production speed",
+			dropDesc: "使资源获取速度增加0.3%",
 			loot: function (level, fromMagimp) {
-				var name = (fromMagimp) ? "Randimp" : "Whipimp";
+				var name = (fromMagimp) ? "脆皮百变怪" : "脆皮鞭者";
 				game.unlocks.impCount.Whipimp++;
 				game.jobs.Farmer.modifier *= 1.003;
 				game.jobs.Lumberjack.modifier *= 1.003;
@@ -8531,8 +8563,8 @@ var toReturn = {
 				game.jobs.Explorer.modifier *= 1.003;
 				var amt = Math.pow(1.003, game.unlocks.impCount.Whipimp);
 				amt = (amt - 1) * 100;
-				var s = (game.unlocks.impCount.Whipimp == 1) ? "" : "s";
-				message("Seeing the " + name + s + " fall is causing all of your Trimps to work " + amt.toFixed(2) + "% harder!", "Loot", "star", "exotic", "exotic");
+				//var s = (game.unlocks.impCount.Whipimp == 1) ? "" : "s";
+				message("看着" + name + "挂掉后，脆皮们工作努力程度增加了" + amt.toFixed(2) + "%！", "Loot", "star", "exotic", "exotic");
 			}
 		},
 		Venimp: {
@@ -8542,13 +8574,13 @@ var toReturn = {
 			attack: 1,
 			health: 1,
 			fast: false,
-			dropDesc: "Grants 0.3% Trimp breed speed",
+			dropDesc: "使脆皮繁殖速度增加0.3%",
 			loot: function (level, fromMagimp) {
-				var name = (fromMagimp) ? "Randimp" : "Venimp";
+				var name = (fromMagimp) ? "脆皮百变怪" : "脆皮爱神";
 				game.unlocks.impCount.Venimp++;
 				var amt = Math.pow(1.003, game.unlocks.impCount.Venimp);
 				amt = (amt - 1) * 100;
-				message("The ground up " + name + " now increases your Trimps' breed speed by " + amt.toFixed(2) + "%!", "Loot", "glass", "exotic", "exotic");
+				message("" + name + "倒下了，但它可以让我方脆皮繁殖速度增加" + amt.toFixed(2) + "%！", "Loot", "glass", "exotic", "exotic");
 			}
 		},
 		Jestimp: {
@@ -8558,9 +8590,9 @@ var toReturn = {
 			attack: 1,
 			health: 1,
 			fast: false,
-			dropDesc: "45 seconds of production for 1 random resource",
+			dropDesc: "随机选择1种资源，获得相当于45秒产量的该资源",
 			loot: function (level, fromMagimp) {
-				var name = (fromMagimp) ? "Randimp" : "Jestimp";
+				var name = (fromMagimp) ? "脆皮百变怪" : "脆皮弄臣";
 				var eligible = ["food", "wood", "metal", "science"];
 				if (game.jobs.Dragimp.owned > 0) eligible.push("gems");
 				var roll = Math.floor(Math.random() * eligible.length);
@@ -8568,7 +8600,22 @@ var toReturn = {
 				var amt = simpleSeconds(item, 45);
 				amt = scaleToCurrentMap(amt);
 				addResCheckMax(item, amt, null, null, true);
-				message("That " + name + " gave you " + prettify(amt) + " " + item + "!", "Loot", "*dice", "exotic", "exotic");
+				if (item == "food"){
+					item = "食物";
+				}
+				else if (item == "wood"){
+					item = "木头";
+				}
+				else if (item == "metal"){
+					item = "金属";
+				}
+				else if (item == "gems"){
+					item = "宝石";
+				}
+				else if (item == "science"){
+					item = "科学点";
+				}
+				message("您从" + name + "那获得了" + prettify(amt) + item + "！", "Loot", "*dice", "exotic", "exotic");
 				game.unlocks.impCount.Jestimp++;
 			}
 		},
@@ -8579,9 +8626,9 @@ var toReturn = {
 			attack: 1,
 			health: 1,
 			fast: false,
-			dropDesc: "+100% damage for 30 seconds in maps",
+			dropDesc: "在地图中攻击力增加100%，持续30秒",
 			loot: function (level, fromMagimp) {
-				var name = (fromMagimp) ? "Randimp" : "Titimp";
+				var name = (fromMagimp) ? "脆皮百变怪" : "脆皮泰坦";
 				var timeRemaining = parseInt(game.global.titimpLeft, 10);
 				if (timeRemaining > 0) {
 					timeRemaining += 30;
@@ -8590,8 +8637,8 @@ var toReturn = {
 				else timeRemaining = 30;
 				game.global.titimpLeft = timeRemaining;
 				var roll = Math.floor(Math.random() * 100);
-				var text = "That " + name + " made your Trimps super strong!";
-				if (roll == 1 && !fromMagimp) text += " (Titimp wishes to remind you that his name is pronounced \"Tie Timp\")";
+				var text = "" + name + "使脆皮们变得更强！";
+				if (roll == 1 && !fromMagimp) text += "(脆皮泰坦提醒您，它的名字不是“太躺”，跟“躺赢”也没有关系)";
 				message(text, "Loot", "*hammer", "exotic", "exotic");
 			}
 		},
@@ -8602,21 +8649,36 @@ var toReturn = {
 			attack: 1,
 			health: 1,
 			fast: false,
-			dropDesc: "5 seconds of production for all basic resources",
+			dropDesc: "获得相当于5秒产量的所有基本资源",
 			loot: function (level, fromMagimp) {
-				var name = (fromMagimp) ? "Randimp" : "Chronoimp";
+				var name = (fromMagimp) ? "脆皮百变怪" : "脆皮时者";
 				var eligible = ["food", "wood", "metal", "science"];
 				if (game.jobs.Dragimp.owned > 0) eligible.push("gems");
-				var cMessage = "That " + name + " dropped ";
+				var cMessage = "" + name + "掉落了";
 				for (var x = 0; x < eligible.length; x++){
 					var item = eligible[x];
 					var amt = simpleSeconds(item, 5);
 					amt = scaleToCurrentMap(amt);
 					addResCheckMax(item, amt, null, null, true);
-					cMessage += prettify(amt) + " " + item;
-					if (x == (eligible.length - 1)) cMessage += "!";
-					else if (x == (eligible.length - 2)) cMessage += ", and ";
-					else cMessage += ", ";
+					if (item == "food"){
+						item = "食物";
+					}
+					else if (item == "wood"){
+						item = "木头";
+					}
+					else if (item == "metal"){
+						item = "金属";
+					}
+					else if (item == "gems"){
+						item = "宝石";
+					}
+					else if (item == "science"){
+						item = "科学点";
+					}
+					cMessage += prettify(amt) + item;
+					if (x == (eligible.length - 1)) cMessage += "！";
+					else if (x == (eligible.length - 2)) cMessage += "，和";
+					else cMessage += "，";
 				}
 				message(cMessage, "Loot", "hourglass", "exotic", "exotic");
 				game.unlocks.impCount.Chronoimp++;
@@ -8629,13 +8691,13 @@ var toReturn = {
 			attack: 1,
 			health: 1,
 			fast: false,
-			dropDesc: "0.3% extra loot from maps and Zones (Not Helium)",
+			dropDesc: "使地图和世界的战利品获取量增加0.3%(不包括氦)",
 			loot: function (level, fromMagimp) {
-				var name = (fromMagimp) ? "Randimp" : "Magnimp";
+				var name = (fromMagimp) ? "脆皮百变怪" : "脆皮磁王";
 				game.unlocks.impCount.Magnimp++;
 				var amt = Math.pow(1.003, game.unlocks.impCount.Magnimp);
 				amt = (amt - 1) * 100;
-				message("You killed a " + name + "! The strong magnetic forces now increase your loot by " + amt.toFixed(2) + "%!", "Loot", "magnet", "exotic", "exotic");
+				message("您击杀了一个" + name + "！它的强大磁力使战利品获取量增加" + amt.toFixed(2) + "%！", "Loot", "magnet", "exotic", "exotic");
 			}
 		},
 		Skeletimp: {
@@ -8646,7 +8708,7 @@ var toReturn = {
 			health: 2,
 			fast: false,
 			loot: function () {
-				message("Your Trimps managed to pull 1 perfectly preserved bone from that Skeletimp!", "Loot", "italic", null, "bone");
+				message("我方脆皮从那只脆皮骷髅身上弄到了1块保存完好的骨头！", "Loot", "italic", null, "bone");
 				game.global.b++;
 				game.global.lastSkeletimp = new Date().getTime();
 				updateSkeleBtn();
@@ -8660,7 +8722,7 @@ var toReturn = {
 			health: 2.5,
 			fast: false,
 			loot: function () {
-				message("That was a pretty big Skeletimp. Your Trimps scavenged the remains and found 2 perfectly preserved bones!", "Loot", "italic", null, "bone");
+				message("这只脆皮骷髅比一般的脆皮骷髅更大。我方脆皮搜寻了残骸，发现了2块保存完好的骨头！", "Loot", "italic", null, "bone");
 				game.global.b += 2;
 				game.global.lastSkeletimp  = new Date().getTime();
 				updateSkeleBtn();
@@ -8770,7 +8832,7 @@ var toReturn = {
 			world: 125,
 			level: "last",
 			icon: "*chain",
-			title: "RoboTrimp",
+			title: "脆皮机器人",
 			canRunWhenever: true,
 			filterUpgrade: true,
 			specialFilter: function (world) {
@@ -8790,7 +8852,7 @@ var toReturn = {
 				else
 					message("You found a map to an even more advanced version of the Bionic Wonderland! Looks scary... Your scientists remind you that you can only carry 3 of these incredibly heavy, metallic maps at a time.", "Story");
 				var roman = romanNumeral(tier + 1);
-				createMap(((tier * 15) + 125), "Bionic Wonderland " + roman, "Bionic", 3, 100, 2.6, true);
+				createMap(((tier * 15) + 125), "仿生仙境 " + roman, "Bionic", 3, 100, 2.6, true);
 				purgeBionics();
 			},
 			fire: function (fromTalent) {
@@ -8849,7 +8911,7 @@ var toReturn = {
 			world: 50,
 			level: "last",
 			icon: "*eye4",
-			title: "Auspicious Presence",
+			title: "瑞兽",
 			canRunOnce: true,
 			filterUpgrade: true,
 			specialFilter: function(world) {
@@ -8868,7 +8930,7 @@ var toReturn = {
 			world: 100,
 			level: "last",
 			icon: "*eye4",
-			title: "Auspicious Presence Part II",
+			title: "瑞兽 II",
 			canRunOnce: true,
 			filterUpgrade: true,
 			specialFilter: function(world) {
@@ -8886,7 +8948,7 @@ var toReturn = {
 			world: 150,
 			level: "last",
 			icon: "*eye4",
-			title: "Auspicious Presence Part III",
+			title: "瑞兽 III",
 			canRunOnce: true,
 			filterUpgrade: true,
 			specialFilter: function(world) {
@@ -8905,7 +8967,7 @@ var toReturn = {
 			world: 350,
 			level: "last",
 			icon: "*eye4",
-			title: "Auspicious Presence Part IV",
+			title: "瑞兽 IV",
 			canRunOnce: true,
 			filterUpgrade: true,
 			specialFilter: function(world){
@@ -8924,7 +8986,7 @@ var toReturn = {
 			world: 33,
 			level: "last",
 			icon: "piggy-bank",
-			title: "Ancient Treasure",
+			title: "远古宝藏",
 			canRunOnce: true,
 			filterUpgrade: true,
 			specialFilter: function(world) {
@@ -8944,7 +9006,7 @@ var toReturn = {
 			world: 50,
 			level: "last",
 			icon: "*home5",
-			title: "SmithFree",
+			title: "免费铁匠铺",
 			filterUpgrade: true,
 			canRunOnce: true,
 			fire: function(){
@@ -8962,7 +9024,7 @@ var toReturn = {
 			world: 6,
 			level: "last",
 			icon: "*archive",
-			title: "Heirloom",
+			title: "传家宝",
 			filterUpgrade: true,
 			canRunWhenever: true,
 			fire: function () {
@@ -8975,7 +9037,7 @@ var toReturn = {
 			world: 80,
 			level: "last",
 			icon: "*key4",
-			title: "The Warden's Keys",
+			title: "典狱长之匙",
 			filterUpgrade: true,
 			canRunOnce: true,
 			specialFilter: function () {
@@ -8991,7 +9053,7 @@ var toReturn = {
 			world: 33,
 			level: "last",
 			icon: "compressed",
-			title: "Unleash the Crit",
+			title: "释放暴击",
 			filterUpgrade: true,
 			canRunOnce: true,
 			specialFilter: function () {
@@ -9007,14 +9069,14 @@ var toReturn = {
 			world: -1,
 			level: "last",
 			icon: "repeat",
-			title: "Portal",
+			title: "传送门",
 			filterUpgrade: true,
 			canRunOnce: true,
 			fire: function (level, fromGenerator) {
 				if (!this.canRunOnce) return;
-				var color = (game.global.universe == 2) ? "blue" : "green";
+				var color = (game.global.universe == 2) ? "蓝色" : "绿色";
 				var resource = heliumOrRadon();
-				var messageText = (fromGenerator) ? "The world feels a little bit less angry as you fire off your handy Portal Generator. You can tell that somewhere in some dimension, a Megablimp is no more. In front of you, " + ((game.global.runningChallengeSquared) ? "a " + color + ", shining box appears" : "45 " + resource + " and a " + color + ", shining box appear") + " on the ground. In tiny writing on the box, you can make out the words 'Time portal. THIS SIDE UP'." : "Don't ever let anyone tell you that you didn't just kill that Megablimp. Because you did. As he melts away into nothingness, you notice a " + color + ", shining box on the ground. In tiny writing on the box, you can make out the words 'Time portal. THIS SIDE UP'.";
+				var messageText = (fromGenerator) ? "您启动了传送门发生器，整个世界的愤怒程度略微减少了一些。冥冥之中，您感知到在某个维度的某处，一个脆皮超级飞艇不复存在了。在您的面前出现了" + ((game.global.runningChallengeSquared) ? "一个闪耀的" + color + "盒子" : "45" + resource + "，以及一个闪耀的" + color + "盒子") + "。您看向盒子上的小字，分辨出这些内容：“时空传送门，此面向上”。" : "以后如果还有谁因为您没有击坠过脆皮超级飞艇而说三道四的话，您就可以让他闭嘴，因为您做到了。随着飞艇一点一点融入虚无，您在地上发现了一个闪耀的" + color + "盒子。您看向盒子上的小字，分辨出这些内容：“时空传送门，此面向上”。";
 				message(messageText, "Story");
 				game.global.portalActive = true;
 				fadeIn("portalBtn", 10);
@@ -9022,7 +9084,7 @@ var toReturn = {
 				fadeIn("helium", 10);
 				addHelium(45);
 				if (!fromGenerator){
-					message("<span class='" + heliumIcon() + "'></span> You were able to extract 45 " + heliumOrRadon(true) + "s from that Blimp! Now that you know how to do it, you'll be able to extract " + resource + " from normal Blimps.", "Story");
+					message("<span class='" + heliumIcon() + "'></span>您从飞艇上提取了45" + heliumOrRadon(true) + "！从现在起您也可以从普通飞艇上提取" + resource + "了。", "Story");
 				}
 				if (game.global.challengeActive == "Metal"){
 					game.challenges.Metal.onComplete();
@@ -9045,7 +9107,7 @@ var toReturn = {
 			world: -1,
 			level: "last",
 			icon: "*shield2",
-			title: "Prismalicious",
+			title: "优质棱镜",
 			filterUpgrade: true,
 			canRunOnce: true,
 			message: "Oh goodness, another Prism to polish!",
@@ -9058,7 +9120,7 @@ var toReturn = {
 			message: "That thing dropped a book. Doesn't look like an ordinary book. Looks... blockier...",
 			level: "last",
 			icon: "book",
-			title: "Shieldblock",
+			title: "盾牌格挡",
 			filterUpgrade: true,
 			canRunOnce: true,
 			fire: function () {
@@ -9077,7 +9139,7 @@ var toReturn = {
 			message: "It's all shiny and stuff. You're pretty sure you've never seen a book this shiny.",
 			level: "last",
 			icon: "book",
-			title: "Bounty",
+			title: "赏金",
 			filterUpgrade: true,
 			canRunOnce: true,
 			fire: function () {
@@ -9090,7 +9152,7 @@ var toReturn = {
 			message: "You found a book that will teach you how to upgrade your Shield!",
 			level: "last",
 			icon: "book",
-			title: "Supershield",
+			title: "超级盾牌",
 			prestige: true,
 			last: 1,
 			fire: function () {
@@ -9102,7 +9164,7 @@ var toReturn = {
 			message: "You found a book that will teach you how to upgrade your Dagger!",
 			level: "last",
 			icon: "book",
-			title: "Dagadder",
+			title: "诗歌匕首",
 			prestige: true,
 			last: 1,
 			fire: function () {
@@ -9114,7 +9176,7 @@ var toReturn = {
 			message: "You found a book that will teach you how to upgrade your Boots!",
 			level: "last",
 			icon: "book",
-			title: "Bootboost",
+			title: "神行靴",
 			prestige: true,
 			last: 1,
 			fire: function () {
@@ -9126,7 +9188,7 @@ var toReturn = {
 			message: "You found a book that will teach you how to upgrade your Mace!",
 			level: "last",
 			icon: "book",
-			title: "Megamace",
+			title: "巨型狼牙棒",
 			prestige: true,
 			last: 2,
 			fire: function () {
@@ -9138,7 +9200,7 @@ var toReturn = {
 			message: "You found a book that will teach you how to upgrade your Helmet!",
 			level: "last",
 			icon: "book",
-			title: "Hellishmet",
+			title: "地狱头盔",
 			prestige: true,
 			last: 2,
 			fire: function () {
@@ -9150,7 +9212,7 @@ var toReturn = {
 			message: "You found a book that will teach you how to upgrade your Polearm!",
 			level: "last",
 			icon: "book",
-			title: "Polierarm",
+			title: "画戟",
 			prestige: true,
 			last: 3,
 			fire: function () {
@@ -9162,7 +9224,7 @@ var toReturn = {
 			message: "You found a book that will teach you how to upgrade your Pants!",
 			level: "last",
 			icon: "book",
-			title: "Pantastic",
+			title: "护腿",
 			prestige: true,
 			last: 3,
 			fire: function () {
@@ -9174,7 +9236,7 @@ var toReturn = {
 			message: "You found a book that will teach you how to upgrade your Battleaxe!",
 			level: "last",
 			icon: "book",
-			title: "Axeidic",
+			title: "强酸战斧",
 			prestige: true,
 			last: 4,
 			fire: function () {
@@ -9186,7 +9248,7 @@ var toReturn = {
 			message: "You found a book that will teach you how to upgrade your Shoulderguards!",
 			level: "last",
 			icon: "book",
-			title: "Smoldershoulder",
+			title: "闷火护肩",
 			prestige: true,
 			last: 4,
 			fire: function () {
@@ -9198,7 +9260,7 @@ var toReturn = {
 			message: "You found a book that will teach you how to upgrade your Greatsword!",
 			level: "last",
 			icon: "book",
-			title: "Greatersword",
+			title: "双手巨剑",
 			prestige: true,
 			last: 5,
 			fire: function () {
@@ -9208,7 +9270,7 @@ var toReturn = {
 		Bestplate: {
 			world: -1,
 			message: "You found a book that will teach you how to upgrade your Breastplate!",
-			title: "Bestplate",
+			title: "精良胸铠",
 			level: "last",
 			icon: "book",
 			prestige: true,
@@ -9220,7 +9282,7 @@ var toReturn = {
 		Harmbalest: {
 			world: -1,
 			message: "You found a book that will teach you how to upgrade your Arbalest!",
-			title: "Harmbalest",
+			title: "高强弩",
 			level: "last",
 			specialFilter: function () {
 				return (game.equipment.Arbalest.locked == 0);
@@ -9235,7 +9297,7 @@ var toReturn = {
 		GambesOP: {
 			world: -1,
 			message: "You found a book that will teach you how to upgrade your Gambeson!",
-			title: "GambesOP",
+			title: "强棉甲",
 			level: "last",
 			specialFilter: function () {
 				return (game.equipment.Gambeson.locked == 0);
@@ -9256,7 +9318,7 @@ var toReturn = {
 			addToCount: true,
 			level: [10, 20],
 			icon: "book",
-			title: "A well-hidden book",
+			title: "藏得很好的书",
 			next: 10,
 			fire: function (unused, fromAuto) {
 				var mapLevel;
@@ -9283,7 +9345,7 @@ var toReturn = {
 			message: "Holy cowimp! A unique map!",
 			level: [10, 20],
 			icon: "th-large",
-			title: "The Block",
+			title: "障碍区",
 			startAt: 11,
 			blockU2: true,
 			canRunOnce: true,
@@ -9297,7 +9359,7 @@ var toReturn = {
 			message: "Oh snap! Another unique map!",
 			level: [10, 20],
 			icon: "th-large",
-			title: "The Wall",
+			title: "高墙",
 			blockU2: true,
 			startAt: 15,
 			canRunOnce: true,
@@ -9311,7 +9373,7 @@ var toReturn = {
 			message: "Oh snap! Another unique map!",
 			level: [10, 20],
 			icon: "th-large",
-			title: "Big Wall",
+			title: "巨墙",
 			blockU1: true,
 			startAt: 7,
 			canRunOnce: true,
@@ -9326,7 +9388,7 @@ var toReturn = {
 			icon: "th-large",
 			canRunOnce: true,
 			blockU2: true,
-			title: "The Prison",
+			title: "监狱",
 			fire: function () {
 				game.global.mapsUnlocked = true;
 				createMap(80, "The Prison", "Prison", 2.6, 100, 2.6, true);
@@ -9339,7 +9401,7 @@ var toReturn = {
 			icon: "th-large",
 			blockU2: true,
 			canRunOnce: true,
-			title: "Bionic Wonderland",
+			title: "仿生仙境",
 			fire: function () {
 				message("You found a map to the Bionic Wonderland. Sounds fun!", "Story");
 				game.global.bionicOwned++;
@@ -9352,7 +9414,7 @@ var toReturn = {
 			icon: 'th-large',
 			blockU2: true,
 			canRunOnce: true,
-			title: 'Imploding Star',
+			title: '爆炸之星',
 			fire: function () {
 				message("You found a map to an Imploding Star inside of a supercooled dimension. The temperature there is perfect!", "Story");
 				createMap(170, "Imploding Star", "Star", 3, 100, 3.2, true);
@@ -9364,7 +9426,7 @@ var toReturn = {
 			message: "You found plans for a Mansion! Your Trimps will be pretty stoked",
 			level: [10, 20],
 			icon: "*home4",
-			title: "Mansion",
+			title: "豪宅",
 			canRunOnce: true,
 			fire: function () {
 				if (!this.canRunOnce) return;
@@ -9377,7 +9439,7 @@ var toReturn = {
 			message: "You found plans for a hotel! (A decent hotel, too)",
 			level: [10, 20],
 			icon: "*office",
-			title: "The Trimps' Guide to Cheap Hotel Construction",
+			title: "脆皮宾馆建造指南",
 			canRunOnce: true,
 			fire: function () {
 				if (!this.canRunOnce) return;
@@ -9390,7 +9452,7 @@ var toReturn = {
 			message: "This extremely technical book will teach anyone who can understand the big words how to make bigger huts.",
 			level: [10, 20],
 			icon: "book",
-			title: "Hut hut hut",
+			title: "屋屋屋",
 			canRunOnce: true,
 			fire: function () {
 				unlockUpgrade("UberHut");
@@ -9402,7 +9464,7 @@ var toReturn = {
 			message: "This book talks about adding a second floor to your homes! Mind... blown...",
 			level: [10, 20],
 			icon: "book",
-			title: "A Tale of Two Stories",
+			title: "双宅记",
 			canRunOnce: true,
 			fire: function () {
 				unlockUpgrade("UberHouse");
@@ -9414,7 +9476,7 @@ var toReturn = {
 			message: "This book will teach you how to make your Trimps share their mansions!",
 			level: [10, 20],
 			icon: "book",
-			title: "Sharing is Caring",
+			title: "分享即是关爱",
 			canRunOnce: true,
 			fire: function () {
 				unlockUpgrade("UberMansion");
@@ -9426,7 +9488,7 @@ var toReturn = {
 			message: "This book will teach you how to build smaller hotel rooms!",
 			level: [5, 10],
 			icon: "book",
-			title: "The Art of Tiny Hotel Rooms",
+			title: "微型宾馆房间的技艺",
 			canRunOnce: true,
 			fire: function () {
 				unlockUpgrade("UberHotel");
@@ -9438,7 +9500,7 @@ var toReturn = {
 			level: [5, 10],
 			message: "Wow! This book! It's so Resortsfull!",
 			icon: "book",
-			title: "Time for a better vacation",
+			title: "该享受更棒的假期了",
 			canRunOnce: true,
 			fire: function () {
 				unlockUpgrade("UberResort");
@@ -9450,7 +9512,7 @@ var toReturn = {
 			message: "You found plans for a huge resort!",
 			level: [10, 20],
 			icon: "*building",
-			title: "Time for a vacation",
+			title: "该享受假期了",
 			canRunOnce: true,
 			fire: function () {
 				if (!this.canRunOnce) return;
@@ -9463,7 +9525,7 @@ var toReturn = {
 			message: "You found a key to Dimension ZZZ!",
 			level: [10, 20],
 			icon: "cog",
-			title: "Transgalactic Gateway",
+			title: "跨星系维度裂隙",
 			canRunOnce: true,
 			fire: function () {
 				if (!this.canRunOnce) return;
@@ -9477,7 +9539,7 @@ var toReturn = {
 			message: "You found a crystal powerful enough to create wormholes!",
 			level: [10, 20],
 			icon: "link",
-			title: "Inter-Dimensional Hole-Maker",
+			title: "跨次元黑洞制造器",
 			canRunOnce: true,
 			fire: function () {
 				if (!this.canRunOnce) return;
@@ -9490,7 +9552,7 @@ var toReturn = {
 			message: "You found plans for some sort of overly complicated solar panel.",
 			level: [3, 19],
 			icon: "dashboard",
-			title: "Collector",
+			title: "汲能设施",
 			canRunOnce: true,
 			fire: function () {
 				if (!this.canRunOnce) return;
@@ -9503,7 +9565,7 @@ var toReturn = {
 			message: "A book that teaches your Foremen a new skill. Riveting.",
 			level: [5, 15],
 			icon: "book",
-			title: "Trapstorm",
+			title: "自动陷阱",
 			canRunOnce: true,
 			fire: function () {
 				unlockUpgrade("Trapstorm");
@@ -9517,7 +9579,7 @@ var toReturn = {
 			message: "You found blueprints for some sort of nursery that can harness more power from gems.",
 			level: [5, 20],
 			icon: "home",
-			title: "Nursery",
+			title: "托儿所",
 			canRunOnce: true,
 			fire: function () {
 				unlockBuilding("Nursery");
@@ -9528,11 +9590,11 @@ var toReturn = {
 			world: -1,
 			level: [0, 7],
 			icon: "*diamond",
-			title: "Gems",
+			title: "宝石",
 			repeat: 5,
 			fire: function (level) {
 				var amt = rewardResource("gems", 0.5, level, true);
-				message("You found " + prettify(amt) + " gems! Terrific!", "Loot", "*diamond", null, "secondary");
+				message("您发现了" + prettify(amt) + "宝石！", "Loot", "*diamond", null, "secondary");
 			}
 		},
 		//This one is for depths maps
@@ -9541,18 +9603,18 @@ var toReturn = {
 			level: [0, 4],
 			repeat: 3,
 			icon: "*diamond",
-			title: "Gems",
+			title: "宝石",
 			filter: true,
 			fire: function (level) {
 				var amt = rewardResource("gems", 0.5, level, true);
-				message("You found " + prettify(amt) + " gems! Terrific!", "Loot", "*diamond", null, "secondary");
+				message("您发现了" + prettify(amt) + "金属！", "Loot", "*diamond", null, "secondary");
 			}
 		},
 		Any: {
 			world: -1,
 			level: [0, 2],
 			icon: "*leaf2",
-			title: "Food/Wood/Metal",
+			title: "食物/木头/金属",
 			repeat: 2,
 			filter: true,
 			fire: function (level) {
@@ -9574,7 +9636,7 @@ var toReturn = {
 			world: -1,
 			level: [0, 2],
 			icon: "*cubes",
-			title: "Metal",
+			title: "金属",
 			repeat: 2,
 			filter: true,
 			fire: function (level) {
@@ -9583,31 +9645,31 @@ var toReturn = {
 					return;
 				}
 				var amt = rewardResource("metal", 0.5, level, true);
-				message("You just found " + prettify(amt) + " bars of metal! Convenient!", "Loot", "*cubes", null, "primary");
+				message("您发现了" + prettify(amt) + "金属！", "Loot", "*cubes", null, "primary");
 			}
 		},
 		Food: {
 			world: -1,
 			level: [0, 2],
 			icon: "apple",
-			title: "Food",
+			title: "食物",
 			repeat: 2,
 			filter: true,
 			fire: function (level) {
 				var amt = rewardResource("food", 0.5, level, true);
-				message("That guy just left " + prettify(amt) + " food on the ground! Sweet!", "Loot", "apple", null, "primary");
+				message("那家伙在地上留下了" + prettify(amt) + "食物！", "Loot", "apple", null, "primary");
 			}
 		},
 		Wood: {
 			world: -1,
 			level: [0, 2],
 			icon: "tree-deciduous",
-			title: "Wood",
+			title: "木头",
 			repeat: 2,
 			filter: true,
 			fire: function (level) {
 				var amt = rewardResource("wood", 0.5, level, true);
-				message("You just found " + prettify(amt) + " wood! That's pretty neat!", "Loot", "tree-deciduous", null, "primary");
+				message("您发现了" + prettify(amt) + "木头！", "Loot", "tree-deciduous", null, "primary");
 			}
 		}
 	},
@@ -9620,7 +9682,7 @@ var toReturn = {
 		Shield: {
 			message: "You found plans for a shield! It even tells you how to upgrade it, if you have enough wood. That was nice of that Bad Guy.",
 			world: 1,
-			title: "New Armor",
+			title: "新护甲",
 			level: 4,
 			icon: "question-sign"
 		},
@@ -9628,70 +9690,70 @@ var toReturn = {
 			message: "You found plans for Boots! Swell!",
 			world: 1,
 			level: 49,
-			title: "New Armor",
+			title: "新护甲",
 			icon: "question-sign"
 		},
 		Dagger: {
 			message: "You found plans for a Dagger! Fancy!",
 			world: 1,
 			level: 19,
-			title: "New Weapon",
+			title: "新武器",
 			icon: "question-sign"
 		},
 		Mace: {
 			message: "You found plans for a mace!",
 			world: 2,
 			level: 19,
-			title: "New Weapon",
+			title: "新武器",
 			icon: "question-sign"
 		},
 		Helmet: {
 			message: "You found plans for a helmet!",
 			world: 2,
 			level: 49,
-			title: "New Armor",
+			title: "新护甲",
 			icon: "question-sign"
 		},
 		Polearm: {
 			message: "You found plans for a Polearm!",
 			world: 3,
 			level: 19,
-			title: "New Weapon",
+			title: "新武器",
 			icon: "question-sign"
 		},
 		Pants: {
 			message: "You found plans for Pants!",
 			world: 3,
 			level: 49,
-			title: "New Armor",
+			title: "新护甲",
 			icon: "question-sign"
 		},
 		Battleaxe: {
 			message: "You found plans for a Battleaxe!",
 			world: 4,
 			level: 19,
-			title: "New Weapon",
+			title: "新武器",
 			icon: "question-sign"
 		},
 		Shoulderguards: {
 			message: "You found plans for Shoulderguards!",
 			world: 4,
 			level: 49,
-			title: "New Armor",
+			title: "新护甲",
 			icon: "question-sign"
 		},
 		Greatsword: {
 			message: "You found plans for a Greatsword!",
 			world: 5,
 			level: 19,
-			title: "New Weapon",
+			title: "新武器",
 			icon: "question-sign"
 		},
 		Breastplate: {
 			message: "You found plans for a Breastplate!",
 			world: 5,
 			level: 49,
-			title: "New Armor",
+			title: "新护甲",
 			icon: "question-sign"
 		},
 		//Non Equipment
@@ -9700,7 +9762,7 @@ var toReturn = {
 			world: 1,
 			level: 9,
 			icon: "book",
-			title: "Bloodlust",
+			title: "嗜血",
 			fire: function() {
 				unlockUpgrade("Bloodlust");
 			}
@@ -9710,7 +9772,7 @@ var toReturn = {
 			world: -2,
 			level: 9,
 			icon: "book",
-			title: "Efficiency",
+			title: "效率",
 			fire: function() {
 				unlockUpgrade("Efficiency");
 			}
@@ -9721,7 +9783,7 @@ var toReturn = {
 			level: 4,
 			blockU2: true,
 			icon: "home",
-			title: "New Building",
+			title: "新建筑",
 			fire: function() {
 				unlockBuilding("Gym");
 				document.getElementById("blockDiv").style.visibility = "visible";
@@ -9733,7 +9795,7 @@ var toReturn = {
 			level: 4,
 			blockU1: true,
 			icon: "*shield2",
-			title: "Better than block",
+			title: "比格挡更强",
 			fire: function() {
 				unlockUpgrade("Prismatic");
 			}
@@ -9744,7 +9806,7 @@ var toReturn = {
 			blockU2: true,
 			level: 9,
 			icon: "book",
-			title: "TrainTacular",
+			title: "格挡提升",
 			fire: function () {
 				unlockUpgrade("TrainTacular");
 			}
@@ -9755,7 +9817,7 @@ var toReturn = {
 			level: 9,
 			blockU1: true,
 			icon: "book",
-			title: "Smithy",
+			title: "铁匠铺",
 			fire: function(){
 				unlockBuilding("Smithy");
 			}
@@ -9766,7 +9828,7 @@ var toReturn = {
 			level: 19,
 			brokenPlanet: 1,
 			addClass: "brokenUpgrade",
-			title: "The Galaxy will be your Ocean",
+			title: "遨游星海，易如反掌",
 			icon: "*rocket4",
 			fire: function () {
 				unlockBuilding("Warpstation");
@@ -9780,7 +9842,7 @@ var toReturn = {
 			level: 44,
 			icon: "book",
 			message: "Trimp cave paintings predicted the existence of a book such as this one, you had no idea it actually existed. It smells dusty.",
-			title: "Some old, dusty book",
+			title: "满是灰尘的旧书",
 			fire: function () {
 				unlockUpgrade("Gymystic");
 			}
@@ -9794,7 +9856,7 @@ var toReturn = {
 			icon: "book",
 			displayAs: "Gymystic",
 			message: "Trimp cave paintings predicted the existence of a book such as this one, you had no idea it actually existed. It smells dusty.",
-			title: "Some old, dusty book",
+			title: "满是灰尘的旧书",
 			fire: function () {
 				unlockUpgrade("Gymystic");
 			}
@@ -9807,7 +9869,7 @@ var toReturn = {
 			canRunOnce: true,
 			displayAs: "Meteorologists",
 			message: "You've found an ancient relic that looks like some sort of mechanical dish. Perhaps you could train your Trimps to use this to your advantage!",
-			title: "Mechanical Dish",
+			title: "机械圆盘",
 			fire: function(){
 				this.canRunOnce = false;
 				if (!game.global.runningChallengeSquared || game.global.stormDone)
@@ -9820,7 +9882,7 @@ var toReturn = {
 			icon: "book",
 			brokenPlanet: 1,
 			addClass: "brokenUpgrade",
-			title: "Formation",
+			title: "阵型",
 			fire: function () {
 				unlockUpgrade("Dominance");
 			}
@@ -9831,7 +9893,7 @@ var toReturn = {
 			icon: "book",
 			brokenPlanet: 1,
 			addClass: "brokenUpgrade",
-			title: "Formation",
+			title: "阵型",
 			fire: function () {
 				unlockUpgrade("Barrier");
 			}
@@ -9841,7 +9903,7 @@ var toReturn = {
 			world: -5,
 			level: 29,
 			icon: "book",
-			title: "Trimpma Sutra",
+			title: "脆皮爱经",
 			fire: function () {
 				if (game.global.challengeActive == "Trapper" || game.global.challengeActive == "Trappapalooza"){
 					message("Your Scientists let you know that your Trimps won't understand the book, but they offer to hold on to it for you for later. How nice of them!", "Notices");
@@ -9867,7 +9929,7 @@ var toReturn = {
 			world: 1,
 			level: 29,
 			icon: "book",
-			title: "Miner",
+			title: "矿工",
 			fire: function () {
 				if (game.global.challengeActive == "Metal" || game.global.challengeActive == "Transmute"){
 					var challenge = game.challenges[game.global.challengeActive];
@@ -9884,7 +9946,7 @@ var toReturn = {
 			world: 3,
 			level: 3,
 			icon: "book",
-			title: "Step Up Your Block Game!",
+			title: "努力锻炼，让您的格挡变得更强！",
 			fire: function () {
 				unlockUpgrade("Trainers");
 			}
@@ -9894,7 +9956,7 @@ var toReturn = {
 			world: 1,
 			level: 39,
 			icon: "book",
-			title: "Scientist",
+			title: "科学家",
 			fire: function () {
 				if (game.global.challengeActive == "Scientist"){
 					message("Your Trimps think they're too good at Science to read your dumb book. They're already working on Portal technology!", "Notices");
@@ -9909,7 +9971,7 @@ var toReturn = {
 			world: 15,
 			level: 39,
 			icon: "book",
-			title: "Explorer",
+			title: "探险家",
 			fire: function () {
 				if (game.upgrades.Explorers.allowed === 0) unlockUpgrade("Explorers");
 			}
@@ -9920,7 +9982,7 @@ var toReturn = {
 			world: -2,
 			level: 39,
 			icon: "book",
-			title: "Speedscience",
+			title: "研究加速",
 			fire: function () {
 			if (game.global.challengeActive == "Scientist"){
 				message("You found a book called Speedscience, but you haven't found anyone to read it. Such a shame.", "Notices");
@@ -9937,7 +9999,7 @@ var toReturn = {
 			world: -2,
 			level: 39,
 			icon: "book",
-			title: "Megascience",
+			title: "超级研究",
 			blockU2: true,
 			fire: function () {
 				unlockUpgrade("Megascience");
@@ -9952,7 +10014,7 @@ var toReturn = {
 			lastAt: 69,
 			level: 19,
 			icon: "*make-group",
-			title: "Gigastation",
+			title: "千兆核心",
 			fire: function () {
 				unlockUpgrade("Gigastation");
 			}
@@ -9967,7 +10029,7 @@ var toReturn = {
 			level: 19,
 			icon: "*make-group",
 			displayAs: "Gigastation",
-			title: "Gigastation",
+			title: "千兆核心",
 			fire: function () {
 				unlockUpgrade("Gigastation");
 			}
@@ -9981,7 +10043,7 @@ var toReturn = {
 			lastAt: 90,
 			level: 19,
 			icon: "*make-group",
-			title: "Gigastation",
+			title: "千兆核心",
 			displayAs: "Gigastation",
 			fire: function () {
 				unlockUpgrade("Gigastation");
@@ -9996,7 +10058,7 @@ var toReturn = {
 			lastAt: 170,
 			level: 19,
 			icon: "*make-group",
-			title: "Gigastation",
+			title: "千兆核心",
 			displayAs: "Gigastation",
 			fire: function () {
 				unlockUpgrade("Gigastation");
@@ -10012,7 +10074,7 @@ var toReturn = {
 			level: 19,
 			icon: "*make-group",
 			displayAs: "Gigastation",
-			title: "Gigastation",
+			title: "千兆核心",
 			fire: function () {
 				unlockUpgrade("Gigastation");
 			}
@@ -10023,7 +10085,7 @@ var toReturn = {
 			level: 90,
 			icon: "book",
 			blockU2: true,
-			title: "Magmamancers",
+			title: "岩浆巫师",
 			fire: function () {
 				if (game.global.challengeActive == "Metal" || game.global.challengeActive == "Transmute"){
 					var challenge = game.challenges[game.global.challengeActive];
@@ -10041,7 +10103,7 @@ var toReturn = {
 			world: -1,
 			level: 79,
 			icon: "book",
-			title: "Speedfarming",
+			title: "耕作加速",
 			fire: function () {
 				unlockUpgrade("Speedfarming");
 			}
@@ -10053,7 +10115,7 @@ var toReturn = {
 			world: -1,
 			level: 79,
 			icon: "book",
-			title: "Megafarming",
+			title: "超级耕作",
 			blockU2: true,
 			fire: function () {
 				unlockUpgrade("Megafarming");
@@ -10066,7 +10128,7 @@ var toReturn = {
 			world: -1,
 			level: 69,
 			icon: "book",
-			title: "Speedlumber",
+			title: "砍伐加速",
 			fire: function () {
 				unlockUpgrade("Speedlumber");
 			}
@@ -10078,7 +10140,7 @@ var toReturn = {
 			world: -1,
 			level: 69,
 			icon: "book",
-			title: "Megalumber",
+			title: "超级砍伐",
 			blockU2: true,
 			fire: function () {
 				unlockUpgrade("Megalumber");
@@ -10090,7 +10152,7 @@ var toReturn = {
 			world: -1,
 			level: 59,
 			icon: "book",
-			title: "Speedminer",
+			title: "采矿加速",
 			fire: function() {
 				if (game.global.challengeActive == "Metal" || game.global.challengeActive == "Transmute"){
 					var challenge = game.challenges[game.global.challengeActive];
@@ -10114,7 +10176,7 @@ var toReturn = {
 			world: -1,
 			level: 59,
 			icon: "book",
-			title: "Megaminer",
+			title: "超级采矿",
 			blockU2: true,
 			fire: function() {
 				if (game.global.challengeActive == "Metal"){
@@ -10131,7 +10193,7 @@ var toReturn = {
 			addClass: "brokenUpgrade",
 			world: 70,
 			level: 49,
-			title: "The Great Bell of Trimp",
+			title: "大皮钟",
 			icon: "bell",
 			fire: function () {
 				unlockJob("Geneticist");
@@ -10142,7 +10204,7 @@ var toReturn = {
 			world: -1,
 			level: 89,
 			icon: "user",
-			title: "Foreman",
+			title: "工头",
 			fire: function () {
 				game.global.autoCraftModifier += 0.25;
 				updateForemenCount();
@@ -10153,7 +10215,7 @@ var toReturn = {
 			level: 99,
 			blockU2: true,
 			icon: "eye-open",
-			title: "The End Of The Road",
+			title: "路之尽头",
 			fire: function () {
 				message(	"You look down and see a green gem that seems to stare back. You pick it up and feel adrenaline surge through your body. Probably best to bring this back to the lab for some research.", "Story");
 				unlockUpgrade("Anger");
@@ -10164,7 +10226,7 @@ var toReturn = {
 			level: 99,
 			blockU1: true,
 			icon: "eye-open",
-			title: "The Start Of A Journey",
+			title: "启程出发",
 			fire: function(){
 				message("You look down and see a blue gem that seems to stare back. You pick it up and are immediately overwhelmed by feelings of intense power. You figure this could be used to focus your Portal Generator in this Universe.", "Story");
 				unlockUpgrade("Rage");
@@ -10175,7 +10237,7 @@ var toReturn = {
 			level: 99,
 			blockU1: true,
 			icon: "certificate",
-			title: "The Prismatic Palace Awaits...",
+			title: "棱镜宫殿等待着……",
 			fire: function () {
 				message("You found a map to a strange place. Better go kill stuff in it!", "Story");
 				createMap(20, "Prismatic Palace", "Prismatic", 4, 100, 4, true, true);
@@ -10186,7 +10248,7 @@ var toReturn = {
 			level: 55,
 			blockU1: true,
 			icon: "*map",
-			title: "Not a place to get fondue",
+			title: "别在这里弄火锅吃",
 			fire: function () {
 				message("This map is hot to the touch. Better go inside!", "Story");
 				createMap(50, "Melting Point", "Melting", 4, 100, 3.5, true, true);
@@ -10199,7 +10261,7 @@ var toReturn = {
 			get icon (){
 				return (game.global.world == mutations.Magma.start() - 1) ?  "*archive2" : "book";
 			},
-			title: "Coordination",
+			title: "协作",
 			fire: function() {
 				if (game.global.challengeActive == "Trimp"){
 					if (!checkIfLiquidZone())
@@ -10216,7 +10278,7 @@ var toReturn = {
 			world: 4,
 			level: 29,
 			icon: "book",
-			title: "Blockmaster",
+			title: "格挡大师",
 			fire: function () {
 				unlockUpgrade("Blockmaster");
 			}
@@ -10226,7 +10288,7 @@ var toReturn = {
 			world: 17,
 			level: 55,
 			icon: "record",
-			title: "Egg",
+			title: "蛋",
 			fire: function () {
 				if (game.upgrades.Egg.allowed === 0) unlockUpgrade("Egg");
 			}
@@ -10235,7 +10297,7 @@ var toReturn = {
 			world: 33,
 			level: [15, 50],
 			icon: "th-large",
-			title: "Too dark to see",
+			title: "漆黑一片",
 			blockU2: true,
 			fire: function () {
 				createMap(33, "Trimple Of Doom", "Doom", 3, 100, 1.8, true);
@@ -10247,7 +10309,7 @@ var toReturn = {
 			level: [15, 50],
 			blockU1: true,
 			icon: "th-large",
-			title: "It's a wet map",
+			title: "湿漉漉的",
 			fire: function () {
 				createMap(33, "Atlantrimp", "Atlantis", 3, 100, 1.8, true);
 				message("You found an incredibly wet map. It seems to actually be generating water out of nothing, making storage very difficult without flooding the surrounding area. You're sure your Scientists can handle it though, they seem pretty smart.", "Story");
@@ -10259,7 +10321,7 @@ var toReturn = {
 			level: [10,70],
 			blockU1: true,
 			icon: "*library",
-			title: "Cult of Scruffy",
+			title: "崇拜朽朽吧",
 			fire: function(){
 				unlockJob("Worshipper");
 			}
@@ -10268,7 +10330,7 @@ var toReturn = {
 			world: 6,
 			level: [1, 5],
 			icon: "th-large",
-			title: "Tricky Paradise",
+			title: "整蛊天堂",
 			fire: function () {
 				game.global.mapsUnlocked = true;
 				unlockMapStuff();
@@ -10282,7 +10344,7 @@ var toReturn = {
 				return ((holidayObj.checkActive("Eggy") ? 0 : 1));
 			},
 			level: [0, 99],
-			title: "Colored Egg",
+			title: "五颜六色的蛋",
 			icon: "*droplet",
 			addClass: function () {
 				return "easterEgg easterEgg" + getRandomIntSeeded(game.global.eggSeed + 1, 0, 4);
@@ -10297,10 +10359,10 @@ var toReturn = {
 			level: [0, 20],
 			repeat: 10,
 			icon: "th",
-			title: "Map Fragments",
+			title: "地图碎片",
 			fire: function() {
 				var amt = rewardResource("fragments");
-				message("You found " + prettify(amt) + " map fragments!", "Loot", "th", null, "secondary");
+				message("您发现了" + prettify(amt) + "地图碎片！", "Loot", "th", null, "secondary");
 			}
 		},
 		//portal Trumps
@@ -10308,41 +10370,41 @@ var toReturn = {
 			world: -1,
 			level: [10, 20],
 			icon: "gift",
-			title: "Battle Territory Bonus!",
+			title: "战斗领土加成！",
 			repeat: 45,
 			fire: function () {
 				var amt = 5 + (game.portal.Trumps.modifier * getPerkLevel("Trumps"));
 				game.global.totalGifts += amt;
 				amt = addMaxHousing(amt, bwRewardUnlocked("AutoStructure"));
-				message("You have cleared enough land to support " + prettify(amt) + " more Trimps!", "Loot", "gift", null, "secondary");
+				message("您清理了足够多的土地，脆皮上限增加了" + prettify(amt) + "！", "Loot", "gift", null, "secondary");
 			}
 		},
 		fruit: {
 			world: -1,
 			level: [0, 4],
 			icon: "apple",
-			title: "Food",
+			title: "食物",
 			repeat: 9,
 			fire: function (level) {
 				var amt = rewardResource("food", 0.5, level);
-				message("That guy just left " + prettify(amt) + " food on the ground! Sweet!", "Loot", "apple", null, 'primary');
+				message("那家伙在地上留下了" + prettify(amt) + "食物！", "Loot", "apple", null, 'primary');
 			}
 		},
 		groundLumber: {
 			world: -1,
 			level: [0, 2],
 			icon: "tree-deciduous",
-			title: "Wood",
+			title: "木头",
 			repeat: 8,
 			fire: function (level) {
 				var amt = rewardResource("wood", 0.5, level);
-				message("You just found " + prettify(amt) + " wood! That's pretty neat!", "Loot", "tree-deciduous", null, 'primary');
+				message("您发现了" + prettify(amt) + "木头！", "Loot", "tree-deciduous", null, 'primary');
 			}
 		},
 		freeMetals: {
 			world: -1,
 			level: [3, 5],
-			title: "Metal",
+			title: "金属",
 			icon: "*cubes",
 			repeat: 6,
 			fire: function (level) {
@@ -10351,7 +10413,7 @@ var toReturn = {
 					return;
 				}
 				var amt = rewardResource("metal", 0.5, level);
-				message("You just found " + prettify(amt) + " bars of metal! Convenient!", "Loot", "*cubes", null, 'primary');
+				message("您发现了" + prettify(amt) + "金属！", "Loot", "*cubes", null, 'primary');
 			}
 		},
 		spireMetals: {
@@ -10366,12 +10428,12 @@ var toReturn = {
 				}
 				if (!game.global.spireActive) return;
 				var amt = rewardResource("metal", 25, level);
-				message("There sure is a lot of metal just tossed around in this Spire! You just found " + prettify(amt) + " more!", "Loot", "*safe", "spireMetalsMsg", "primary");
+				message("尖塔遍地都是金属！您发现了" + prettify(amt) + "金属！", "Loot", "*safe", "spireMetalsMsg", "primary");
 			},
 			specialFilter: function (){
 				return checkIfSpireWorld();
 			},
-			title: "Spire Metal",
+			title: "尖塔金属",
 			icon: "*safe",
 			addClass: "spireMetals"
 		}
@@ -10385,8 +10447,8 @@ var toReturn = {
 			craftTime: 5,
 			tooltip: function () {
 				var catchAmt = (getPerkLevel("Bait") + 1);
-				var s = (catchAmt > 1) ? "s" : "";
-				return "Each Trap allows you to catch " + prettify(catchAmt) + " thing" + s + ".";
+				//var s = (catchAmt > 1) ? "s" : "";
+				return "每个陷阱可以让您抓住" + prettify(catchAmt) + "个东西。";
 			},
 			cost: {
 				food: 10,
@@ -10453,7 +10515,7 @@ var toReturn = {
 			purchased: 0,
 			craftTime: 10,
 			AP: true,
-			tooltip: "Has room for $incby$ more lovely Trimp{s}. All Trimp housing has enough workspaces for only half of the Trimps that can live there.",
+			tooltip: "可以容纳$incby$个可爱的脆皮。所有小屋都预留了一半的空间给工作区。",
 			cost: {
 				food: [125, 1.24],
 				wood: [75, 1.24]
@@ -10469,7 +10531,7 @@ var toReturn = {
 			purchased: 0,
 			craftTime: 20,
 			AP: true,
-			tooltip: "A better house for your Trimps! Each house supports up to $incby$ more Trimp{s}.",
+			tooltip: "脆皮住上更好的宅院了！每个宅院可以容纳$incby$个脆皮。",
 			cost: {
 				food: [1500, 1.22],
 				wood: [750, 1.22],
@@ -10486,7 +10548,7 @@ var toReturn = {
 			purchased: 0,
 			craftTime: 60,
 			AP: true,
-			tooltip: "A pretty sick mansion for your Trimps to live in. Each Mansion supports $incby$ more Trimp{s}.",
+			tooltip: "脆皮住上豪宅了，豪宅真棒！每个豪宅可以容纳$incby$个脆皮。",
 			cost: {
 				gems: [100, 1.2],
 				food: [3000, 1.2],
@@ -10505,7 +10567,7 @@ var toReturn = {
 			purchased: 0,
 			craftTime: 120,
 			AP: true,
-			tooltip: "A fancy hotel for many Trimps to live in. Complete with room service and a mini bar. Supports $incby$ Trimp{s}.",
+			tooltip: "可以容纳大量脆皮的奢华宾馆。它提供客房服务，并有一个小酒吧。每个宾馆可以容纳$incby$个脆皮。",
 			cost: {
 				gems: [2000, 1.18],
 				food: [10000, 1.18],
@@ -10524,7 +10586,7 @@ var toReturn = {
 			purchased: 0,
 			craftTime: 240,
 			AP: true,
-			tooltip: "A huge resort for your Trimps to live in. Sucks for the ones still stuck in huts. Supports $incby$ Trimp{s}.",
+			tooltip: "巨大的度假村，可供脆皮居住。还住在小屋里的脆皮简直弱爆了。每个度假村可以容纳$incby$个脆皮。",
 			cost: {
 				gems: [20000, 1.16],
 				food: [100000, 1.16],
@@ -10543,7 +10605,7 @@ var toReturn = {
 			purchased: 0,
 			craftTime: 480,
 			AP: true,
-			tooltip: "A Gateway to another dimension, where your Trimps can sleep and work. Supports $incby$ Trimp{s}.",
+			tooltip: "通往其他维度的裂隙，脆皮可以在那边正常睡觉和工作。每个维度裂隙可以容纳$incby$个脆皮。",
 			cost: {
 				fragments: [3000, 1.14],
 				gems: [20000, 1.14],
@@ -10561,7 +10623,7 @@ var toReturn = {
 			craftTime: 600,
 			blockU2: true,
 			AP: true,
-			tooltip: "Use your crazy, helium-cooled, easy-to-aim wormhole generator to create easy-to-travel links to other colonizable planets where your Trimps can sleep and work. Each supports $incby$ Trimps. <b>This building costs helium to create.</b>",
+			tooltip: "使用疯狂氦冷易瞄的虫洞发生器，与其他宜居星球建立易于通行的链接，脆皮可以在那边正常睡觉和工作。每个虫洞可以容纳$incby$个脆皮。<b>This building costs helium to create.</b>",
 			cost: {
 				helium: [10, 1.075],
 				metal: [100000, 1.1]
@@ -10577,7 +10639,7 @@ var toReturn = {
 			purchased: 0,
 			craftTime: 1200,
 			AP: true,
-			tooltip: "Each collector allows you to harvest more of the power of your home star, allowing your Trimps to colonize a larger chunk of your solar system. Each supports $incby$ Trimp{s}.",
+			tooltip: "汲能设施可以从母星汲取更多的能量，为脆皮们提供支持，使它们在太阳系中占领更多的地盘。每个汲能设施可以容纳$incby$个脆皮。",
 			cost: {
 				gems: [500000000000, 1.12]
 			},
@@ -10594,7 +10656,7 @@ var toReturn = {
 			origTime: 1200,
 			AP: true,
 			blockU2: true,
-			tooltip: "Create a gigantic Warpstation, capable of housing tons of Trimps and instantly transporting them back to the home planet when needed. Supports $incby$ Trimps.",
+			tooltip: "建造巨大的跃迁核心，它可以容纳超大量的脆皮，在需要的时候还可以将脆皮传送回母星。每个跃迁核心可以容纳$incby$个脆皮。",
 			cost: {
 				gems: [100000000000000, 1.4],
 				metal: [1000000000000000, 1.4]
@@ -10611,7 +10673,7 @@ var toReturn = {
 			craftTime: 1,
 			AP: false,
 			blockU1: true,
-			tooltip: "<p>Cannot be purchased directly. Level is always equal to your total amount of Huts, Houses, Mansions, Hotels, Resorts, Gateways, and Collectors. Supports $incby$ Trimps.</p><p>Automatically unlocks on reaching Zone 60 in Universe 2</p>",
+			tooltip: "<p>无法直接建造。数量等于小屋、宅院、豪宅、宾馆、度假村、维度裂隙与汲能设施的数量之和。每个中心枢纽可以容纳$incby$个脆皮。</p><p>在宇宙2到达区域60后自动解锁</p>",
 			increase: {
 				what: "trimps.max",
 				by: 25000
@@ -10633,7 +10695,7 @@ var toReturn = {
 			craftTime: 20,
 			AP: true,
 			blockU2: true,
-			tooltip: "A building where your Trimps can work out. Each Gym increases the amount of damage each trimp can block by $incby$~",
+			tooltip: "脆皮解决问题的地方。每个健身房使每个脆皮可以格挡的伤害量增加$incby$~",
 			cost: {
 				wood: [400, 1.185]
 			},
@@ -10693,7 +10755,7 @@ var toReturn = {
 			blockU2: true,
 			get tooltip () {
 				if (mutations.Magma.active())
-					return "<p>Magma is generally not conductive to a healthy Nursery environment. Each Nursery will still increase Trimps per second from breeding by 1% (compounding), but 10% of your active Nurseries will shut down each Zone as the Magma moves closer. Safety first!</p><p>You have purchased " + prettify(this.purchased) + " total Nurseries.</p>";
+					return "<p>Magma is generally not conductive to a healthy Nursery environment. Each Nursery will still increase Trimps per second from breeding by 1% (compounding), but 10% of your active Nurseries will shut down each Zone as the Magma moves closer. Safety first!</p><p>您总共建造了" + prettify(this.purchased) + "个托儿所。</p>";
 				return "Construct a gem-powered nursery, where baby Trimps can grow up faster. Increases Trimps per second from breeding by 1% (compounding).";
 
 			},
@@ -10710,7 +10772,7 @@ var toReturn = {
 			craftTime: 1000,
 			blockU1: true,
 			tooltip: function () {
-				var text = "Unlocks a" + ((game.buildings.Microchip.owned == 0) ? "" : "nother") + " Scientist level, upgrading your portal and <b>allowing you to " + getScientistInfo(game.buildings.Microchip.purchased + 1, true) + " every time you Portal to this Universe</b>.<br/><br/>Microchips attach directly to your Portal Device, and only ever have to be purchased once. Your Portal Device has room for 5 total Microchips."
+				var text = "Unlocks a" + ((game.buildings.Microchip.owned == 0) ? "" : "nother") + " Scientist level, upgrading your portal and <b>从现在起，传送到该宇宙后，您" + getScientistInfo(game.buildings.Microchip.purchased + 1, true) + "</b>.<br/><br/>Microchips attach directly to your Portal Device, and only ever have to be purchased once. Your Portal Device has room for 5 total Microchips."
 				return text;
 			},
 			cost: {
@@ -10757,7 +10819,7 @@ var toReturn = {
 			tooltip: function(){
 				var lab = game.buildings.Laboratory;
 				var text = "Build a giant Laboratory that Cruffys can use for research. Each Laboratory constructed increases Cruffys' Exp gain by 10% (compounding), but will pollute the world with toxic waste and research chemicals, increasing all Enemy attack and health by 3.5% (compounding).";
-				if (lab.owned > 0) text += "<br/><br/><b>Currently increasing Cruffys' Exp by " + prettify(100 * (lab.getExpMult() - 1)) + "% and Enemy attack and health by " + prettify(100 * (lab.getEnemyMult() - 1)) + "%.</b>"
+				if (lab.owned > 0) text += "<br/><br/><b>目前使朽朽的经验值获取量增加" + prettify(100 * (lab.getExpMult() - 1)) + "%，敌人的攻击力和生命值增加" + prettify(100 * (lab.getEnemyMult() - 1)) + "%。</b>"
 				return text;
 			},
 			getExpMult: function(){
@@ -10777,7 +10839,7 @@ var toReturn = {
 		Farmer: {
 			locked: 1,
 			owned: 0,
-			tooltip: "Train one of your Trimps in the ancient art of farming. Each Farmer harvests $modifier$ food per second.",
+			tooltip: "使用古老的耕作艺术训练脆皮。每个农民每秒收获$modifier$食物。",
 			cost: {
 				food: 5
 			},
@@ -10787,7 +10849,7 @@ var toReturn = {
 		Lumberjack: {
 			locked: 1,
 			owned: 0,
-			tooltip: "Show a Trimp how to cut one of those weird trees down. Each Lumberjack hauls back $modifier$ logs per second.",
+			tooltip: "向脆皮展示如何砍伐那些怪树。每个伐木工每秒拉回$modifier$木头。",
 			cost: {
 				food: 5
 			},
@@ -10797,7 +10859,7 @@ var toReturn = {
 		Miner: {
 			locked: 1,
 			owned: 0,
-			tooltip: "Send your misbehaving Trimps to the mines for some therapeutic work. Each Miner can find and smelt $modifier$ bars of metal per second.",
+			tooltip: "把品行不端的脆皮丢到矿井里干点“放松”的活。每个矿工每秒收获$modifier$金属。",
 			cost: {
 				food: 20
 			},
@@ -10807,7 +10869,7 @@ var toReturn = {
 		Scientist: {
 			locked: 1,
 			owned: 0,
-			tooltip: "It takes some patience, but you can teach these Trimps to do some research for you. Each Scientist records $modifier$ units of pure science each second.",
+			tooltip: "虽然一开始需要耐心，但您可以教会脆皮替您做些研究。每个科学家每秒收获$modifier$科学点。",
 			cost: {
 				food: 100
 			},
@@ -10820,14 +10882,14 @@ var toReturn = {
 			owned: 0,
 			blockU2: true,
 			tooltip: function () {
-				var text = "Each trainer will increase the base amount your soldiers can block by ";
+				var text = "每个训练师可以使士兵的基础格挡数值增加";
 				var heirloomBonus = getHeirloomBonus("Shield", "trainerEfficiency");
 				var modifier = game.jobs.Trainer.modifier;
 				if (heirloomBonus > 0){
 					modifier = calcHeirloomBonus("Shield", "trainerEfficiency", modifier).toFixed(1);
-					return text + modifier + "%. (" + game.jobs.Trainer.modifier + "% increased by " + heirloomBonus + "% thanks to " + game.global.ShieldEquipped.name + ")";
+					return text + modifier + "%。(基础数值为" + game.jobs.Trainer.modifier + "%，由于您拥有<i></i>" + game.global.ShieldEquipped.name + "<i></i>，效果增加了" + heirloomBonus + "%)";
 				}
-				return text + modifier + "%.";
+				return text + modifier + "%。";
 			},
 			cost: {
 				food: [750, 1.1]
@@ -10839,7 +10901,7 @@ var toReturn = {
 			locked: 1,
 			allowAutoFire: true,
 			owned: 0,
-			tooltip: "Each explorer will find an average of $modifier$ fragments each second.",
+			tooltip: "每个探险家每秒可以发现$modifier$碎片。",
 			cost: {
 				food: [15000, 1.1]
 			},
@@ -10864,7 +10926,7 @@ var toReturn = {
 					var breedDisplay = (breedMult > 0.0001) ? breedMult.toFixed(4) : breedMult.toExponential(3);
 					var healthMult = Math.pow(1.01, this.owned);
 					var healthDisplay = prettify((healthMult * 100) - 100) + "%";
-					text += "<p>Owning " + prettify(this.owned) + " Geneticist" + ((this.owned == 1) ? "" : "s") + " multiplies your breed speed by " + breedDisplay + ", and adds " + healthDisplay + " Health.</p>";
+					text += "<p>您有" + prettify(this.owned) + "个遗传学家，使我方脆皮的繁殖速度减少到" + breedDisplay + "倍，生命值增加" + healthDisplay + "。</p>";
 				}
 				return text;
 			},
@@ -10892,19 +10954,19 @@ var toReturn = {
 				var bonus = (this.getBonusPercent() - 1) * 100;
 
 				if (timeOnZone >= max)
-					timeStr = "over " + max + " minutes (Max)";
+					timeStr = "超过" + max + "分钟(效果已达上限)";
 				else{
 					var remaining = 10 - (timeOnZone % 10);
 					var nextBonus = ((this.getBonusPercent(false, Math.floor(timeOnZone / 10) + 1) - 1) * 100);
-					timeStr = prettify(timeOnZone) + " minute" + ((timeOnZone == 1) ? "" : "s") + ". In " + prettify(remaining) + " minute" + ((remaining == 1) ? "" : "s") + ", this bonus will increase to " + prettify(nextBonus) + "%";
+					timeStr = prettify(timeOnZone) + "分钟。再经过" + prettify(remaining) + "分钟，该加成将增加到" + prettify(nextBonus) + "%";
 					if (timeOnZone < 10) bonus = 0;
 				}
 				var currentMag = (((1 - Math.pow(0.9999, this.owned)) * 3));
 				var nextMag = (((1 - Math.pow(0.9999, this.owned + 1)) * 3));
 				var nextBonus = (1 - (currentMag / nextMag)) * 100;
-				var textString = "<p>Train a Magmamancer to craft pickaxe heads infused with Gems and Magma, custom for the unique rocks in each Zone. The more Magmamancers you have and the longer you spend in one Zone, the more Metal your Trimps will be able to gather!</p><p>For each 10 minutes you spend in a Zone with Magmamancers up to " + max + " minutes, your Magmamancer bonus will increase by 20% (compounding). Your current bonus is <b>" + prettify(bonus) + "%</b>, and " + ((game.talents.magmamancer.purchased) ? "counting your Magmamancermancy " + ((game.talents.stillMagmamancer.purchased) ? " Masteries" : " Mastery") + " " : "") + "you've been on this Zone for " + timeStr + ".</p>";
-				if (this.owned > 0) textString += "<p>Your next Magmamancer will increase the total bonus by " + prettify(nextBonus) + "% (compounding, hold Ctrl to see formula)</p>";
-				else textString += "<p>After training your first Magmamancer, your bonus metal will be " + prettify((nextMag * (Math.pow(1.2, this.getBonusPercent(true)) - 1)) * 100) + "%. (Hold Ctrl to see formula)</p>";
+				var textString = "<p>Train a Magmamancer to craft pickaxe heads infused with Gems and Magma, custom for the unique rocks in each Zone. The more Magmamancers you have and the longer you spend in one Zone, the more Metal your Trimps will be able to gather!</p><p>有岩浆巫师存在时，每在一个区域停留10分钟(最多" + max + "分钟)，岩浆巫师的加成就增加20%(效果叠乘)。您目前的加成为<b>" + prettify(bonus) + "%</b>，" + ((game.talents.magmamancer.purchased) ? "将岩浆巫术" + ((game.talents.stillMagmamancer.purchased) ? "系列专精效果纳入计算后，" : "专精效果纳入计算后，") : "") + "您已经在该区域停留了" + timeStr + "。</p>";
+				if (this.owned > 0) textString += "<p>下个岩浆巫师可以使总加成增加" + prettify(nextBonus) + "%。(效果叠乘，按下Ctrl键可看到详细公式)</p>";
+				else textString += "<p>雇佣一个岩浆巫师后，总加成将变为" + prettify((nextMag * (Math.pow(1.2, this.getBonusPercent(true)) - 1)) * 100) + "%。(按下Ctrl键可看到详细公式)</p>";
 				if (ctrlPressed) textString += "<b><p>M = Magmamancer count. T = Time on Zone in minutes, divided by 10, rounded down.</p><p>Metal/Sec *= 1 + (((1 - (0.9999 ^ M)) * 3) * ((1.2 ^ T) - 1))</p><b>";
 				return textString;
 			},
@@ -10944,7 +11006,7 @@ var toReturn = {
 			get tooltip(){
 				var ratio = this.getTriggerThresh();
 				var currentRatio = (game.resources.trimps.realMax() / game.resources.trimps.getCurrentSend());
-				var text = "<p>Amalgamators cannot be hired or fired manually. They are magical beings that could barely be considered Trimps anymore, and they will automatically show up to your town whenever your total population to army size ratio rises above <b>" + prettify(ratio) + ":1</b>. Completing Spires II through V will each divide this ratio by 10. If your ratio ever falls below " + prettify(1e3) + ":1, an Amalgamator will leave. Your current ratio is <b>" + prettify(currentRatio) + ":1</b>. At your current army size, you need <b>" + prettify(ratio * game.resources.trimps.getCurrentSend()) + "</b> total Trimps to trigger the next Amalgamator.</p></p><p>Amalgamators fuse some of your spare Trimps to other soldiers, greatly strengthening them. Each Amalgamator increases the amount of Trimps that must be sent into each battle by 1000x (compounding), increases health by 40x (compounding), and increases damage by 50% " + ((game.talents.amalg.purchased) ? "(compounding)" : "(additive)") + ".</p><p>In addition, having at least one Amalgamator will cause Anticipation stacks to increase based on when the last soldiers were sent, rather than being based on time spent actually breeding.</p>";
+				var text = "<p>Amalgamators cannot be hired or fired manually. They are magical beings that could barely be considered Trimps anymore, and they will automatically show up to your town whenever your total population to army size ratio rises above <b>" + prettify(ratio) + ":1</b>时，它们将自动出现。本周目从尖塔 II开始到尖塔 V，每通过其中一个尖塔，该比值就除以10。如果比值低于" + prettify(1e3) + ":1，将有一名合并者离开。您目前的比值为<b>" + prettify(currentRatio) + ":1</b>. At your current army size, you need <b>" + prettify(ratio * game.resources.trimps.getCurrentSend()) + "</b> total Trimps to trigger the next Amalgamator.</p></p><p>Amalgamators fuse some of your spare Trimps to other soldiers, greatly strengthening them. Each Amalgamator increases the amount of Trimps that must be sent into each battle by 1000x (compounding), increases health by 40x (compounding), and increases damage by 50% " + ((game.talents.amalg.purchased) ? "(compounding)" : "(additive)") + ".</p><p>In addition, having at least one Amalgamator will cause Anticipation stacks to increase based on when the last soldiers were sent, rather than being based on time spent actually breeding.</p>";
 				if (game.global.challengeActive == "Trimp"){
 					text += "<p><i>" + toZalgo("This particular Universe seems to directly conflict with the Amalgamators, yet they're here and the Trimps they Amalgamate seem immune to the dimensional restrictions. Things are getting weird though.", 1, Math.ceil(game.global.world / 100)) + "</i></p>";
 				}
@@ -10989,19 +11051,19 @@ var toReturn = {
 			allowAutoFire: true,
 			get tooltip(){
 				var pct = (1 + (0.05 * game.buildings.Antenna.owned))
-				var text = "<p>Increase the amount of Radon gained from all sources by " + prettify(pct) + "% per Meteorologist hired. Meteorologists require some time to get situated after being hired, and must be active for an entire Zone before they can start collecting any extra Radon.</p>";
+				var text = "<p>每个气象学家可以使氡获取量增加" + prettify(pct) + "%。雇佣后，气象学家需要一些时间来安顿下来，在一个区域后才可以开始获取氡。</p>";
 				if (this.owned != this.vestedHires){
 					var notVested = this.owned - this.vestedHires;
-					text += "<p>You have " + this.owned + " Meteorologist" + needAnS(this.owned) + ", but " + notVested + " " + ((notVested == 1) ? "was" : "were") + " hired on this Zone and " + ((notVested == 1) ? "is" : "are") + " not yet available.</p>";
+					text += "<p>您有" + this.owned + "个气象学家，其中" + notVested + "个是在当前区域雇佣的，还没法开始工作。</p>";
 				}
-				text += "<p>" + this.vestedHires + " Meteorologist" + needAnS(this.vestedHires) + " " + ((this.vestedHires == 1) ? "is" : "are") + " currently collecting, granting " + prettify(this.vestedHires * pct) + "% extra Radon.</p>";
+				text += "<p>目前有" + this.vestedHires + "个气象学家在工作，氡获取量的加成为" + prettify(this.vestedHires * pct) + "%。</p>";
 				if (game.buildings.Antenna.owned >= 5 && this.vestedHires > 0){
-					text += "<p>Thanks to your super cool Antenna array, you're also gaining +" + prettify((this.getExtraMult() - 1) * 100) + "% extra Food from gathering";
+					text += "<p>由于您拥有超级炫酷的气象天线阵列，您的食物" + ((game.buildings.Antenna.owned >= 15) ? "" : "获取量");
 					if (game.buildings.Antenna.owned >= 10){
-						text += ((game.buildings.Antenna.owned >= 15) ? ", " : " and ") + " Health for your Soldiers";
-						if (game.buildings.Antenna.owned >= 15) text += ", and Metal from mining";
+						if (game.buildings.Antenna.owned >= 15) text += "、金属获取量";
+						text += "和我方脆皮的生命值";
 					}
-					text += "!</p>";
+					text += "额外增加了" + prettify((this.getExtraMult() - 1) * 100) + "%！</p>";
 				}
 				return text;
 			},
@@ -11064,7 +11126,7 @@ var toReturn = {
 	goldenUpgrades: {
 		Helium: {
 			tooltip: function() {
-				return "Increase " + heliumOrRadon() + " gain by " + prettify(game.goldenUpgrades.Helium.nextAmt() * 100) + "%.";
+				return "使" + heliumOrRadon() + "获取量增加" + prettify(game.goldenUpgrades.Helium.nextAmt() * 100) + "%。";
 			},
 			nextAmt: function() {
 				return 0.01 * (game.global.goldenUpgrades + 1);
@@ -11074,7 +11136,7 @@ var toReturn = {
 		},
 		Battle: {
 			tooltip: function() {
-				return "Increase Trimp attack and health by " + prettify(game.goldenUpgrades.Battle.nextAmt() * 100) + "%.";
+				return "使我方脆皮的攻击力和生命值增加" + prettify(game.goldenUpgrades.Battle.nextAmt() * 100) + "%。";
 			},
 			nextAmt: function() {
 				return 0.03 * (game.global.goldenUpgrades + 1);
@@ -11084,7 +11146,7 @@ var toReturn = {
 		},
 		Void: {
 			tooltip: function() {
-				return "Decrease the minimum amount of enemies between Void Map drops by " + prettify(game.goldenUpgrades.Void.nextAmt() * 100) + "%.";
+				return "使每张虚空地图掉落所需的敌人击杀数减少" + prettify(game.goldenUpgrades.Void.nextAmt() * 100) + "%。";
 			},
 			nextAmt: function() {
 				return 0.02 * (game.global.goldenUpgrades + 1);
@@ -11334,7 +11396,7 @@ var toReturn = {
 		Shieldblock: { //11
 			locked: 1,
 			allowed: 0,
-			tooltip: "This book explains methods of using a shield to actually block damage. The current shield will need to be completely destroyed and rebuilt, but it will give block instead of health. <b>This is permanent</b>. $Your Shield Must be Prestige III or higher$",
+			tooltip: "This book explains methods of using a shield to actually block damage. The current shield will need to be completely destroyed and rebuilt, but it will give block instead of health. <b>This is permanent</b>。$Your Shield Must be Prestige III or higher$",
 			done: 0,
 			specialFilter: function () {
 				return (game.equipment.Shield.prestige >= 3) ? true : false;
