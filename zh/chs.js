@@ -5689,7 +5689,7 @@ var cnRegReplace = new Map([
     [/^ damage to (.+)x.$/, '伤害变为$1倍。'], //绒绒污污相关
     [/^Allows an additional 4 Void Maps with the same name to stick together, bringing the max stack size to (.+). Each map in the stack that Fluffy clears grants an additional 50% Helium to all other maps in the stack, giving a bonus of up to \+(.+)% to each of the (.+) Fluffy maps from a (.+) stack.$/, '使虚空地图的融合张数上限增加4，达到$1张。每融合一张地图，绒绒完成该名字地图后的奖励就增加50%。当融合$4张地图时，奖励达到最高，绒绒完成$3张虚空地图后每张虚空地图可以使您额外获得$2%氦。'], //绒绒污污相关
     [/^Increases Radon gain from all sources by 3% for each Zone you reached on your last Portal in this Universe \(compounding\). You reached Z(.+) last Portal, worth \+(.+)% Radon.$/, '每在该宇宙的上周目通过一个区域，氡获取量就增加3%(效果叠乘)。您在该宇宙的上周目到达了区域$1，氡获取量增加$2%。'], //绒绒污污相关
-    [/^Currently multiplying Radon earned by (.+), increasing attack, health and resources by (.+)% and Cruffys will stay for (.+) additional Zones.$/, '目前使氡获取量变为$1倍，我方脆皮的攻击力、生命值和资源获取量增加$2%，且朽朽在培养挑战结束后继续存在的区域数值再增加$3个区域。'], //绒绒污污相关
+    [/^Currently multiplying Radon earned by (.+), increasing attack, health and resources by (.+)% and Cruffys will stay for (.+) additional Zones?.$/, '目前使氡获取量变为$1倍，我方脆皮的攻击力、生命值和资源获取量增加$2%，且朽朽在培养挑战结束后继续存在的区域数值再增加$3个区域。'], //绒绒污污相关
     //#endregion 绒绒污污
     //#region 其他消息
     [/^(.+) groups? of Trimps ha(s|ve) perished in the Spire.$/, '$1队脆皮在尖塔中战斗到了生命的最后一刻。'], //其他消息等
