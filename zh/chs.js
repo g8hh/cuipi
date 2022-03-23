@@ -3429,7 +3429,7 @@ var cnItems = {
     'Fearsome Piercer': '恐惧之锥',
     'Bag of Nails': '锐钉之袋',
     'Blessed Protector': '神圣守护',
-    'The Doomspring': '毁灭之泉',
+    'The Doomspring': '毁灭之簧',
     'Snimp-Fanged Blade': '脆皮毒牙之刃',
     'Doppelganger Signet': '分身纹章',
     'Wrath Crafted Hatchet': '狂怒手斧',
