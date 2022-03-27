@@ -11146,7 +11146,7 @@ var toReturn = {
 		},
 		Void: {
 			tooltip: function() {
-				return "使每张虚空地图掉落所需的敌人击杀数减少" + prettify(game.goldenUpgrades.Void.nextAmt() * 100) + "%。";
+				return "使虚空地图掉落间隔的敌人击杀数减少" + prettify(game.goldenUpgrades.Void.nextAmt() * 100) + "%。";
 			},
 			nextAmt: function() {
 				return 0.02 * (game.global.goldenUpgrades + 1);
