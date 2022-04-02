@@ -3244,7 +3244,7 @@ var cnItems = {
     ' per stack when the Empowerment of Wind is active. Your current bonus is ': '。当前效果为增加',
     ' Helium, and next level will bring your bonus to ': '氦，下一级效果为增加',
     ' extra helium. Non-Helium resource gain is always double that of Helium, and the Helium bonus does not apply in maps.': '氦。非氦资源获取量为氦的2倍，地图中的氦获取量不变。',
-    'extra helium. Non-Helium resource gain is always 10x that of Helium, and the Helium bonus does not apply in maps.': '氦。非氦资源获取量为氦的10倍，地图中的氦获取量不变。',
+    ' extra helium. Non-Helium resource gain is always 10x that of Helium, and the Helium bonus does not apply in maps.': '氦。非氦资源获取量为氦的10倍，地图中的氦获取量不变。',
     'Upgrade Wind Stack Transfer Rate': '升级风层数传递率',
     ' of your stacks transfer after you kill a Bad Guy during the Empowerment of Wind. Each level of this upgrade will increase the transfer rate by ': '的层数可以在风赋能生效时传递给下个敌人。下一级升级可以使传递率增加',
     'Upgrade Empowerment of Wind to Level 50 to unlock.': '将风赋能升级到50级后解锁。',
