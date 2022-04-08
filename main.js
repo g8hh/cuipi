@@ -1773,7 +1773,7 @@ function getScientistInfo(number, reward){
 			return (reward) ? "可以在每张地图中获得2级装备重铸升级" + ((game.global.universe == 1) ? "，解锁自动重铸，而且跃迁核心可以跳过队列直接建造完成" : "") + "" : 70;
 		}
 		case 5: {
-			return (reward) ? "的" + heliumOrRadon() + "获取量每层比上一层多0.5%。且每周目将初始拥有1000%玩家效率，50谷仓、50窝棚、50锻造厂" : 1500;
+			return (reward) ? "的" + heliumOrRadon() + "获取量每个区域比上个区域多0.5%。且每周目将初始拥有1000%玩家效率，50谷仓、50窝棚、50锻造厂" : 1500;
 		}
 	}
 }
