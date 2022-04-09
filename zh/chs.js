@@ -4238,7 +4238,7 @@ var cnItems = {
     'Decides when to buy gear. 4 is default. This means it will take 1 hit to kill an enemy if in D stance. ': '设置购买装备的时机。默认值为4。此时您可以在D阵型下一击击杀敌人。',
     'Dynamic Prestige': '动态重铸',
     ' Skip getting prestiges at first, and Gradually work up to the desired Prestige setting you have set (set the Prestige dropdown to the highest weapon you want to end up on at the target zone you set here). Runs with Dagger to save a significant amount of time until we need better gear, then starts increasing the prestige setting near the end of the run.  Examines which prestiges you have, how many missing ones youd need to achieve the desired target and starts running maps every zone (more maps for higher settings), Until the target prestige is reached. ': '初始状态下不购买重铸升级，之后根据右侧设置的重铸选项，随着区域增加逐渐开始购买相应的重铸升级(请将右侧重铸下拉菜单设置为到达该区域时购买最多等级的武器)。初始状态下只会购买匕首，直到您需要更好的装备，才会在到达该区域前重铸更好的装备。脚本会考虑已有的重铸升级，需要多少次升级才能达到相应数值，然后在相应区域起每个区域运行地图(设置的区域越高，运行的地图就越多)，直到重铸升级达到目标。',
-    'Use Dagger or else': '该选项有问题，目前只能强制脚本重铸匕首，无其他作用。',
+    'Use Dagger or else': '建议设置为重铸匕首。',
     'Prestige': '重铸',
     'Acquire prestiges through the selected item (inclusive) as soon as they are available in maps. Forces equip first mode. Automap must be enabled. THIS IS AN IMPORTANT SETTING related to speed climbing and should probably always be on something. If you find the script getting stuck somewhere, particularly where you should easily be able to kill stuff, setting this to an option lower down in the list will help ensure you are more powerful at all times, but will spend more time acquiring the prestiges in maps.': '当地图中有相应的装备重铸升级时进入地图获取升级。该选项的代码有问题，其他重铸升级选项无效，请只选择诗歌匕首。也不建议切换到关闭。',
     'On and after this zone is reached, always try to prestige for everything immediately, ignoring Dynamic Prestige settings and overriding that of Linear Prestige. Prestige Skip mode will exit this. Disable with -1.': '从该区域开始，忽略其他相关设置，常时立刻获取所有重铸升级。启用重铸跳过后该选项将失效。将数值设为-1则关闭该选项。',
@@ -4408,7 +4408,7 @@ var cnItems = {
     'Get max map bonus before running the Spire.': '在进入尖塔前是否获得最大的地图奖励。',
     'Farm level 200/199(or BW) maps for X minutes before continuing onto attempting Spire.': '在进入尖塔前，刷相应分钟数200/199级地图(或仿生仙境)。',
     ' Set 0 to disable entirely (default). ': '将数值设为0则完全关闭该选项(默认值)。',
-    'Setting to -1/Infinite does not work here, set a very high number instead.': '将数值设为-1/无穷大不起作用，请设为一个极大的数字。',
+    'Setting to -1/Infinite does not work here, set a very high number instead. **PLEASE DO NOT USE THIS IT MAY NOT WORK AND I CANNOT FIX IT**': '将数值设为-1/无穷大不起作用，请设为一个极大的数字。**目前该选项存在问题且无法修复，请勿使用**',
     'Spire specific settings like end-at-cell are ignored until at least this zone is reached (0 to disable).': '尖塔相关设置到相应层数后才生效(将数值设为0则关闭该选项)。',
     'Does not work with Run Bionic Before Spire.': '',
     'Optional/Rare. Exits the Spire early, after completing cell X. example: 40 for Row 4. (use 0 or -1 to disable': '该选项非必须/很少有用。在通过相应格子以后退出尖塔。例如：将数值设为40则在完成第四行以后退出尖塔。(将数值设为0或-1则关闭该选项',
@@ -4649,6 +4649,8 @@ var cnItems = {
     'Turn this on to farm fragments if you cannot afford the map you have selected for HF. ': '启用该选项后，如果碎片不够制造刷失温所需要的地图，则会先刷碎片。',
     'What zone you wish you run frozen castle on to complete the challenge. Will run castle after voids so make sure thats set up right. ': '将在该区域运行冻结城堡完成挑战。必须运行所有虚空地图后才会运行冻结城堡，所以请确保相关设置无误。',
     'Turn this on to disable buying sheds unless you need more wood for your HF: Bonfire target price. Essentially this means you wont get accidently bonfires but you may lose out on smithies and shield prestiges. ': '启用该选项后，只在您的木头存储量足够建造“刷失温：篝火”数值的篝火时建造窝棚。这样可以保证您不会误操作建造篝火，但铁匠铺和盾牌重铸升级可能会因此受影响。',
+    'After Voids': '只在运行虚空地图后运行',
+    'Only run Frozen castle after all voids have been completed. ': '只在运行所有虚空地图后运行冻结城堡。',
         //#endregion 挑战
         //#region 战斗
     'Combat & Stance Settings': '战斗及阵型设置',
