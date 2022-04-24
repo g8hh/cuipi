@@ -42,6 +42,7 @@ var cnItems = {
     'Max Metal': '金属上限',
     'Refresh': '刷新',
     'Base': '基础值',
+    'Multitasking (Bones': '一身二用(骨头',
     'Huge (Size': '巨大(尺寸挑战',
     'Solitary (Downsize': '孤僻(精简挑战',
     'Tweaky (Toxicity': '迷毒(毒性挑战',
@@ -110,6 +111,7 @@ var cnItems = {
     'Finished Quests!': '任务完成奖励！',
     'Relic Strength': '遗物之力',
     'Beta Trimps': '贝塔脆皮',
+    'Scruffy Dailies': '朽朽日常',
     'Weakness (Daily': '弱化(日常挑战',
     'Oddly Weak (Daily': '奇贫奇弱(日常挑战',
     'Even Stronger (Daily': '妙手偶得(日常挑战',
@@ -307,6 +309,8 @@ var cnItems = {
     'Fire Trimps': '解雇脆皮',
     'Activate firing mode, turning the job buttons red, and forcing them to fire trimps rather than hire them. The newly unemployed Trimps will start breeding instead of working, but you will not receive a refund on resources.': '启用解雇模式，该按钮将变为红色，点击任何工作都将解雇脆皮而非雇佣脆皮。被解雇的脆皮将开始繁殖，不返还资源。',
     'Disable firing mode': '关闭解雇模式。',
+    'You are about to fire ': '您将解雇',
+    ', are you sure that\'s what you wanted to do?': '，您确定要这么做吗？',
     'Research first': '先研究吧',
     'AutoGold Off': '关闭自动金色升级',
     'AutoGold Helium': '金色升级氦',
@@ -429,9 +433,9 @@ var cnItems = {
     'Chilled': '冰冻',
     'Breezy': '风卷',
     'Obsidian': '黑曜石',
-    'This enemy is rock solid, and there is no way to get past. This Zone is even more rocky and solid than anything you\'ve seen before. You don\'t think there\'s any way to get past for now.': '该敌人坚如磐石，您毫无胜算。该区域比之前所有区域都坚硬。看起来您的征途到此为止了。',
-    'This enemy is rock solid, and there is no way to get past. Time to go to the Radon Universe and find a way to melt these Zones!': '该敌人坚如磐石，您毫无胜算。前往氡之宇宙吧，那里有熔化这些区域的方法。',
-    'This enemy is rock solid, and there is no way to get past. Fluffy suggests that you find a way to get him to Evolution 8 Level 10 as quickly as possible so he can help you melt these Zones!': '该敌人坚如磐石，您毫无胜算。绒绒建议您尽快将它升级到进化次数8等级10，这样它就能帮您熔化这些区域了！',
+    'This enemy is rock solid, and there\'s no way to get past. This Zone is even more rocky and solid than anything you\'ve seen before. You don\'t think there\'s any way to get past for now.': '该敌人坚如磐石，您毫无胜算。该区域比之前所有区域都坚硬。看起来您的征途到此为止了。',
+    'This enemy is rock solid, and there\'s no way to get past. Time to go to the Radon Universe and find a way to melt these Zones!': '该敌人坚如磐石，您毫无胜算。前往氡之宇宙吧，那里有熔化这些区域的方法。',
+    'This enemy is rock solid, and there\'s no way to get past. Fluffy suggests that you find a way to get him to Evolution 8 Level 10 as quickly as possible so he can help you melt these Zones!': '该敌人坚如磐石，您毫无胜算。绒绒建议您尽快将它升级到进化次数8等级10，这样它就能帮您熔化这些区域了！',
     'Corrupted Stamina': '腐化耐力',
     'Corrupted Precision': '腐化精准',
     'Corrupted Sharpness': '腐化锋锐',
@@ -512,6 +516,7 @@ var cnItems = {
     'Recycle All': '全部回收',
     'Recycle all maps below the selected level.': '回收低于当前地图等级的所有地图。',
     'Mass Recycle': '批量回收',
+    ' Fragment': '碎片',
     ' Fragments': '碎片',
     'This slider allows you to fine tune the map Loot modifier. Moving this slider from left to right will guarantee more loot from the map, but increase the cost.': '该滑块可以用于调整地图战利品获取量。将滑块从左往右移动时，战利品获取量将增加，但碎片花费也将增加。',
     'This slider allows you to fine tune the map Size modifier. Moving this slider from left to right will guarantee a smaller map, but increase the cost.': '该滑块可以用于调整地图尺寸。将滑块从左往右移动时，地图尺寸将减少，但碎片花费也将增加。',
@@ -587,6 +592,7 @@ var cnItems = {
     'You must finish or recycle your current map before moving on.': '您必须先通过运行中的地图或回收该地图，才能运行其他地图。',
     'You are all out of Map Credits! Clear some more Zones to earn some more.': '地图代币花完了！通过区域后就可以获得地图代币。',
     'A chill runs down your spine, and the Bad Guy quickly frosts over. A purple glow radiates from the ground in front of you, and a Void Map appears.': '您突然感到一阵寒意，而敌人很快就被冰霜覆盖了。您面前的地上散发出一道紫色的光，随后，出现了一张虚空地图。',
+    'ADVISOR suggests not recycling this map until you\'ve completed it at least three times. Press V or click ADVISOR\'s gold star for more info.': '舰载智能机器人不建议您回收该地图，您至少应该先完成三次该地图。按V或点击舰载智能机器人的金色星星以获取更详细的信息。',
     'You are about to abandon this Void Map, which will cause you to lose all current progress in this map. Are you sure?': '您将放弃该虚空地图，失去该地图中的所有进度。您确定要这么做吗？',
     'Abandon Void Map': '放弃虚空地图',
     'You are about to abandon The Black Bog, which will cause you to lose all current progress in this map. Are you sure?': '您将放弃黑之泥沼，失去该地图中的所有进度。您确定要这么做吗？',
@@ -664,6 +670,9 @@ var cnItems = {
     'Trustworthy Trimps': '可靠的脆皮',
     'Sweet, thanks.': '太好了，谢谢。',
     //#endregion 离线相关
+    //#region 教程相关
+    'ADVISOR ': '舰载智能机器人',
+    //#endregion 教程相关
     //#region 建筑相关
     'Trap': '陷阱',
     'Barn': '谷仓',
@@ -1014,7 +1023,9 @@ var cnItems = {
     'You don\'t have any Scientists to not know how to handle this book, so everything\'s chill.': '您没有科学家，没有人知道怎么处理这本书，最怕空气突然安静。',
     'Megaminer': '超级采矿',
     'You found a book called Megaminer! The front is really shiny and has a Trimp on it. Creepy, it seems to follow your eyes.': '您发现了一本名叫《超级采矿》的书！它的封面闪闪发光，上面还有一个脆皮。等等，好可怕，这玩意似乎在跟着您的视线动。',
+    'Your scientist appreciates the fact that you\'ve managed to find another useless book, but they make sure to let you know it\'s still useless.': '科学家挺欣赏您的，毕竟您又搞到了一本没用的书，但没用的东西就是没用。',
     'Your scientists appreciate the fact that you\'ve managed to find another useless book, but they make sure to let you know it\'s still useless.': '科学家们挺欣赏您的，毕竟您又搞到了一本没用的书，但没用的东西就是没用。',
+    'You don\'t really know what to do with this book. Not even the Trimps will eat it, so you put it on a shelf for later.': '您完全不知道该怎么处理这本书。连脆皮们都不想吃它，最后您还是把它放在了书架上。',
     'Your Trimps report a strange bronze object on the floor, and you decide to come look at it. It looks freaky, so you ask one of your Trimps to pick it up first. He instantly starts itching his face and babbling off a bunch of science stuff, so you let another Trimp touch it and he does the same. This seems to make your Trimps smarter than Scientists, but may cause side effects.': '脆皮在地上发现了一个奇怪的铜制物件，您决定去看看。它看起来很怪异，您让一个脆皮试着把它拿起来，结果它立刻开始挠自己的脸，并且胡言乱语了一大堆科学的话，您让另一个脆皮也触碰了那个物件，它跟前一位的表现完全一致。看起来它能让普通脆皮变得比科学家还聪明，但可能有副作用。',
     'Foreman': '工头',
     'You found a crafting foreman! He will build buildings automatically for you!': '您发现了一个正在锻造的工头！它会为您自动建造建筑！',
@@ -1210,7 +1221,6 @@ var cnItems = {
     'This book will increase the space gained from each Mansion by 100%.': '这本书将使每个豪宅提供的住房空间增加100%。',
     'This book will increase the space gained from each Hotel by 100%.': '这本书将使每个宾馆提供的住房空间增加100%。',
     'This book will increase the space gained from each Resort by 100%.': '这本书将使每个度假村提供的住房空间增加100%。',
-    'You may not want to do this right away.': '解锁该升级后您不必立刻研究。',
     'Researching this will prestige your shield. This will bring your shield to level 1 and vastly increase the cost of further upgrades, but will vastly increase the amount of stats given. ': '该升级将重铸盾牌。使盾牌回到1级，升级花费极大增加，但同时效果也极大增加。',
     'Researching this will prestige your dagger. This will bring your dagger to level 1 and vastly increase the cost of further upgrades, but will vastly increase the amount of attack given. ': '该升级将重铸匕首。使匕首回到1级，升级花费极大增加，但同时提升的攻击力也极大增加。',
     'Researching this will prestige your boots. This will bring your boots to level 1 and vastly increase the cost of further upgrades, but will vastly increase the amount of health given. ': '该升级将重铸靴子。使靴子回到1级，升级花费极大增加，但同时提升的生命值也极大增加。',
@@ -1277,6 +1287,8 @@ var cnItems = {
     'Thanks, Geneticistassist!': '嗯，你做的好呀，遗传学家助手！',
     'DoubleBuild': '二重建造',
     'Stacked items in the Building Queue will be constructed two at a time.': '您可以同时建造两个建筑。',
+    'DecaBuild': '十重建造',
+    'Stacked items in the Building Queue will be constructed ten at a time.': '您可以同时建造十个建筑。',
     //#endregion 其他升级相关
     //#region 游戏统计相关
     'Statistics!': '统计！',
@@ -1892,6 +1904,7 @@ var cnItems = {
     'Pop-ups and Alerts': '弹出窗口和提醒',
     'Layout': '布局',
     'Other': '其它',
+    'Hotkeys': '快捷键',
     'Back to Search': '返回搜索',
     'Not Saving': '不自动保存',
     'Auto Saving': '自动保存',
@@ -1936,6 +1949,8 @@ var cnItems = {
     'Unable to back up your save to PlayFab! Double check your internet connection, and don\'t forget to back up your save manually.': '无法将存档备份到PlayFab！请再次检查您的互联网连接是否正常，且不要忘了手动备份存档。',
     'Game saved and backed up to PlayFab! Next automatic online save in 2 hours.': '游戏已保存并备份至PlayFab！在2小时后会再次自动备份。',
     'Reconnected to PlayFab!': '重新连接上了PlayFab！',
+    'Save and Exit': '保存并退出',
+    'Save the game, then close it! Your Trimps will be here when you get back.': '保存并退出游戏！脆皮们会等着您回来的。',
     'Scientific Notation': '科学记数法',
     'Standard Formatting': '标准格式',
     'Engineering Notation': '工程记数法',
@@ -1979,6 +1994,11 @@ var cnItems = {
     'Not Confirming': '风险购买不弹出确认框',
     'Confirming': '风险购买弹出确认框',
     'Toggles on or off the confirmation popup on scary purchases like Wormholes.': '切换是否在有风险的购买，如建造虫洞、盾牌格挡升级和千兆核心升级时弹出确认框。',
+    'No Equip Highlight': '不高亮显示装备',
+    'Highlight Equipment': '高亮显示最大阶级',
+    'Highlight all Tiers': '高亮显示所有阶级',
+    'Enables/disables blue highlighting of equipment based on resource efficiency. Default is to only show highest available tier, or you can set this to ': '切换是否根据性价比以蓝色高亮显示装备。默认高亮显示最大阶级的装备，但您也可以将它设为',
+    ' to check old tiers of Equipment too.': '来显示所有阶级的装备。',
     'Not Locking': '解锁后不锁定队列',
     'Locking': '解锁后锁定队列',
     'Enables/disables the locking of buildings, jobs, upgrades, and equipment for 1 second after unlocking something new. Useful to prevent accidental purchases.': '切换解锁新建筑、工作、升级和装备后是否在1秒内锁定队列。可以有效避免误操作。',
@@ -2020,7 +2040,7 @@ var cnItems = {
     'Default Theme': '默认主题',
     'Dark Theme': '黑暗主题',
     'Gradient Theme': '渐变主题',
-    'Toggle between the default Trimps theme, a custom dark theme made by u/Grabarz19, a gradient theme by u/5h3i1ah, and the default theme with a black background.': '在以下主题之间切换：默认脆皮主题，u/Grabarz19创作的黑暗主题，u/5h3i1ah创作的渐变主题，以及黑色背景的默认主题。',
+    'Toggle between the default Trimps theme, a custom dark theme, a gradient theme by u/5h3i1ah, and the default theme with a black background.': '在以下主题之间切换：默认脆皮主题，黑暗主题，u/5h3i1ah创作的渐变主题，以及黑色背景的默认主题。',
     'Not Fading': '关闭渐隐效果',
     'Fading': '启用渐隐效果',
     'Toggle on or off the fade in effect on elements.': '切换是否启用游戏元素的渐隐效果。',
@@ -2071,7 +2091,7 @@ var cnItems = {
     ' will send you to maps at the highest and second highest level Spire reached, and ': '在进入曾到达过的最高两个尖塔时切换到地图，而',
     ' will switch to maps only on the single highest Spire reached.': '只在进入曾到达过的最高尖塔时切换到地图。',
     'No Map At Zone': '不自动进图',
-    'When enabled, you will automatically abandon your Trimps in the World and enter the Map Chamber as soon as you hit your specified Zone number.': '切换是否在到达特定层数以后放弃士兵并立刻进入地图界面。',
+    'A powerful tool to customize when where and how your maps should be automatically started.': '自定义在何时何地，以何种方式进入地图。',
     'Configure with hotkey Z': '您可以使用快捷键：Z来快速设置',
     'Set Map At Zone': '自动进图设置',
     'Active?': '是否要激活？',
@@ -2080,6 +2100,7 @@ var cnItems = {
     'End': '终点',
     'Exit At': '退出',
     'Cell': '格子',
+    'Priority': '优先级',
     'Run Map?': '是否进图',
     'Use': '使用',
     'Preset': '预设',
@@ -2087,9 +2108,10 @@ var cnItems = {
     'Repeat': '重复',
     'Set': '设置',
     'Repeat Until': '重复次数',
-    'Exit To': '退出地图时',
+    'Exit To': '退出地图至',
     'Run Bionic': '运行仿生仙境',
     'Run Void': '运行虚空地图',
+    'No Change': '不作变更',
     'Don\'t Change': '不作变更',
     'Repeat On': '启用重复',
     'Repeat Off': '关闭重复',
@@ -2097,15 +2119,14 @@ var cnItems = {
     'Repeat 50 Times': '重复50次',
     'Repeat 100 Times': '重复100次',
     'Repeat X Times': '重复X次',
-    'X Times': 'X的数值',
-    'Exit After L': '退出等级',
     'Just This Zone': '仅该区域',
-    'Run Every Zone': '每个区域都运行',
-    'Run Every Other Zone': '每2个区域运行',
-    'Run Every 3 Zones': '每3个区域运行',
-    'Run Every 5 Zones': '每5个区域运行',
-    'Run Every 10 Zones': '每10个区域运行',
-    'Run Every 30 Zones': '每30个区域运行',
+    'Every Zone': '每个区域',
+    'Every Other Zone': '每2个区域',
+    'Every 3 Zones': '每3个区域',
+    'Every 5 Zones': '每5个区域',
+    'Every 10 Zones': '每10个区域',
+    'Every 30 Zones': '每30个区域',
+    'Every X Zones': '每X个区域',
     ' Add Row': '增加一行',
     'Swap to Preset A': '切换为预设A',
     'Swap to Preset B': '切换为预设B',
@@ -2232,6 +2253,7 @@ var cnItems = {
     ' Nullifium': '虚空物质',
     ' and ': '和',
     ' Spirestones': '尖塔石',
+    'Chances': '概率',
     'You can click a stat to upgrade or replace it.': '您可以点击某条词缀来对它进行升级或替换。',
     ' The currency to upgrade and replace stats, ': '您只能通过回收传家宝获得',
     'Nullifium, or Nu,': '虚空物质',
@@ -2293,15 +2315,33 @@ var cnItems = {
     'Tip: You can click on this Heirloom\'s name or icon in this window to change them!': '提示：您可以点击该窗口中的传家宝名称和图标来进行修改！',
     //#endregion 传家宝相关
     //#region 骨头相关
+    'You can earn bones as you progress through the world by killing Skeletimps and Megaskeletimps.': '您可以在世界上击杀脆皮骷髅或脆皮超级骷髅来获得骨头。',
     'The Bone Trader takes the bones, casts a spell, then begins to make soup': '骨法商人接过骨头，施了个咒，然后做汤去了',
-    'Boosts': '提升',
     'Confirm Purchase': '确认购买',
     'Make Purchase': '确定购买',
-    'You are about to purchase 12 hours of instant production for 20 bones. Is this what you wanted to do?': '您将花费20骨头获得所有资源12小时的产量。您确定要购买吗？',
-    'You are about to purchase 36 hours of instant production for 40 bones. Is this what you wanted to do?': '您将花费40骨头获得所有资源36小时的产量。您确定要购买吗？',
-    'Instantly earn the next 12 or 36 hours worth of resources! If you don\'t have enough storage, storage will be purchased (and the cost deducted) automatically.': '立刻获得相当于12个小时或36个小时产量的资源！如果资源存储上限不足，则会自动购买相应存储建筑(并扣除费用)。',
+    'Permanent Upgrades': '永久生效的升级',
+    'These upgrades all persist through Portals, each one can be purchased a maximum of 10 times. Prices increase by 10 Bones per purchase.': '以下升级在传送后仍然存在，每种升级最高可以购买10次。每次购买后，骨头花费就增加10骨头。',
+    'The Bone Trader saves these bad boys for his best customers. Unlock all 10 Exotic Imports and you\'ll be judged worthy.': '骨法商人只向他最重要的顾客出售这些东西。解锁所有10种奇异外皮，证明你的价值。',
+    'Locked until your fifth Portal!': '第五次传送后解锁！',
+    'Upgrade your Void Map harvesting devices with the power of Bone! Each upgrade will cause 1 out of 100 Void Maps you find to be duplicated, guaranteed.': '使用骨头的力量强化获取虚空地图的能力！每级升级可以使复制虚空地图充能1%，每次在世界上获得虚空地图时都将进行充能，充能达到100%以后将复制出一张虚空地图。',
+    'You are about to purchase a level of Bone Void Maps, causing +1 out of 100 Void Maps you find to be duplicated. Is this what you wanted to do?': '您将购买一级骨头虚空地图，它将使复制虚空地图充能1%。您确定要购买吗？',
+    'Before you even see the original Void Map, the Bone Trader appears in front of you and hands you the Void Map\'s duplicate. With his mission successful, the Bone Trader then wanders to a nearby bush to check for bones, then vanishes in a disappointed puff of smoke.': '骨法商人在您还没看到那张地图时就出现了，并递给了您地图的复制。之后他在附近找了找骨头，但一无所获，便在一阵烟雾中失望地离开了。',
+    'You hear a THWACK like someone smacking two bones together right next to your frickin ear. Rather miffed, you turn around to see nothing but a Void Map on the ground. About 15 trimplengths away you spot the rear end of the Bone Trader sticking out from behind a rock, but you decide not to say anything.': '您听到了一阵令人不快的声音，像是有人在您的耳朵旁敲击两根骨头一样。您不悦地转过身，发现地上出现了一张虚空地图。大约15脆皮尺以外，您还发现骨法商人的屁股从石头后露了出来，您决定假装没有看见。',
+    'The Bone Trader pops into existence quite a distance in front of you, clearly wearing a chef\'s apron and holding a spoon carved from bone. He tosses a Void Map in your general direction, then quickly disappears. You may have just interrupted the cooking of some soup.': '骨法商人突然从远处出现了，他系着厨师围裙，手里还拿着骨头雕刻的勺子。他向您的方向扔了一张虚空地图，然后就闪人了。您可能是打扰到他做汤了。',
+    'You almost stumble and fall in a hole right in front of you that definitely was not there a minute ago. You look down and see the Bone Trader staring up at you with a warm smile, holding up a Void Map. You take the Void Map, thank the Bone Trader, and the hole fills back in instantly.': '您差点掉进了一个坑里，但不久之前这里应该还是平地。您往下看，骨法商人在坑里，拿着一张虚空地图，对着您微笑。你接过地图，道了声谢谢，然后坑立刻就消失了。',
+    'Bone Shrine': '骨头神龛',
+    'You are about to purchase a level of Bone Shrine, granting +10 minutes of primary resources as loot when worshipping the Shrine. Is this what you wanted to do?': '您将购买一级骨头神龛，它将使消耗骨头充能敬拜神龛时获取的资源时长增加10分钟。您确定要购买吗？',
+    'You are about to purchase a level of Bone Shrine, granting +10 minutes of primary resources as loot when worshipping the Shrine, and -30 minutes on the cooldown time per charge. Is this what you wanted to do?': '您将购买一级骨头神龛，它将使消耗骨头充能敬拜神龛时获取的资源时长增加10分钟，并使骨头充能的时间减少30分钟。您确定要购买吗？',
+    'In total, will grant ': '您一共可以获得',
+    'Currently at maximum charges!': '充能层数已达最大！',
+    'A negative number for a resource means that resources would be wasted if another storage is not purchased, but purchasing that last storage leaves you with fewer of that resource than you have now. This can be resolved by emptying your storage before Worshipping.': '负数意味着不建造存储建筑就会浪费资源，但建造存储建筑将使资源减少。请在消耗骨头充能之前使用掉相应的资源。',
+    'Use more Bones to lure even more Exotic Imports to your World. Each level increases the chance per cell for each Exotic Import to spawn by +0.05%.': '使用更多骨头，引诱奇异外皮更频繁地出现。每级升级可以使奇异外皮的出现率增加0.05%。',
+    'You are about to purchase a level of More Imports, increasing the chance per cell of each Exotic Import to spawn by +0.05%. Is this what you wanted to do?': '您将购买一级奇异外皮增员，它将使奇异外皮的出现率增加0.05%。您确定要购买吗？',
+    'Teach the most gifted of your Trimps to multitask, allowing 5% of your employed Trimps to breed while they work, and allowing 5% of your unemployed Trimps to help gather resources whenever the town is full.': '让脆皮们学会一身二用，使5%工作的脆皮同时进行繁殖，5%未雇佣的脆皮在脆皮达到上限且未进行繁殖时帮忙获取资源。',
+    'You are about to purchase a level of Multitasking, allowing 5% of your employed Trimps to breed while they work and 5% of your unemployed Trimps to help gather whenever the town is full. Is this what you wanted to do?': '您将购买一级一身二用，它将使5%工作的脆皮同时进行繁殖，5%未雇佣的脆皮在脆皮达到上限且未进行繁殖时帮忙获取资源。您确定要购买吗？',
     'Exotic Imp-orts': '奇异外皮',
-    'Exotic Imp-orts will be unlocked permanently once purchased, and will stick around through portals. Each has a 3% chance to spawn per cell and better loot than normal enemies. Collect them all!': '奇异外皮在购买后永久解锁，传送后仍然存在。每个格子都分别有3%的概率生成每种奇异外皮，它们比普通敌人的战利品更好。早买早享受，晚买无折扣！',
+    'Exotic Imp-orts will be unlocked permanently once purchased. Each has a ': '奇异外皮在购买后永久解锁。每个格子都分别有',
+    '% chance to spawn per cell and better loot than normal enemies. Any stacking multipliers from killing Imp-orts reset on Portal but the imps do not have to be unlocked again.': '%的概率生成每种奇异外皮，它们比普通敌人的战利品更好。击杀奇异脆皮获得的加成将在传送时重置，但您无需再解锁它们。',
     'Spawns in World': '在世界中出现',
     'Buy Feyimp (50 bones': '购买脆皮小妖(50骨头',
     'Buy Tauntimp (50 bones': '购买脆皮咚咚(50骨头',
@@ -2315,9 +2355,9 @@ var cnItems = {
     'Buy Titimp (50 bones': '购买脆皮泰坦(50骨头',
     'Buy Chronoimp (50 bones': '购买脆皮时者(50骨头',
     'First, select an Imp (50 bones': '首先，选择一个奇异外皮(50骨头',
-    'You are about to purchase a new Exotic Import for 50 bones. This new Bad Guy will begin spawning in your next Zone or Map at about an average of 3 spawns per 100 squares. Is this what you wanted to do?': '您将花费50骨头购买新的奇异外皮。它将从下个区域或地图开始，平均100个格子中出现3个。您确定要购买吗？',
+    'You are about to purchase a new Exotic Import for 50 bones. This new Bad Guy will begin spawning in your next Zone or Map at an average of 3 spawns per 100 enemies. Is this what you wanted to do?': '您将花费50骨头购买新的奇异外皮。它将从下个区域或地图开始，平均100个敌人中出现3个。您确定要购买吗？',
     'Other Goodies': '其它的好东西',
-    'You are about to purchase one Instant Portal for 100 bones. Your new helium will appear in the View Perks menu at the bottom of the screen. Is this what you wanted to do?': '您将花费100骨头购买骨头传送门。您可以立刻使用获得的氦升级特权。您确定要购买吗？',
+    'You are about to purchase one Instant Portal for 100 bones. Your new Helium will appear in the View Perks menu at the bottom of the screen available for immediate spending, and your Respec will be refreshed. Is this what you wanted to do?': '您将花费100骨头购买骨头传送门。您可以立刻使用获得的氦升级特权，且您的洗点次数将恢复。您确定要购买吗？',
     'Single Run Bonuses': '本周目有效的升级',
     'These all last until your next soft reset. Use them wisely!': '以下升级持续到软重置之前。请善加利用！',
     'These all last until your next Portal. Use them wisely!': '以下升级持续到传送前。请善加利用！',
@@ -2717,7 +2757,7 @@ var cnItems = {
     'You have also unlocked the Observation Perk!': '您同时还解锁了“洞察”特权！',
     'Pandemonium': '群魔乱舞',
     'Travel to a chaotically windy dimension. Map enemies at or below World level will obliterate 75% of your Metal, Wood and Food after each enemy killed. For each map level above world level, 5% (additively) fewer resources will be destroyed, with +10 map enemies destroying only 25%. You start the Challenge with 100 stacks of Order. Each Zone, 10% of your current Order stacks will be converted into Pandemonium stacks on the Enemy. Each Pandemonium stack increases Enemy\'s attack and health by 100% per stack, and has 10x effect on the final boss of each Zone. The final boss is a Windy enemy who will blow away 1% of your Food, Wood and Metal per stack of Pandemonium per attack. Completing a map grants you 1 Order stack for each level above your World Zone (Max 100), and reduces enemy Pandemonium by the same amount. Completing ': '前往一个怪风阵阵的维度。每在不高于当前区域等级的地图中击杀一名敌人，将使食物，木头和金属减少75%。地图等级每比当前区域层数高1级，减少的数值就少5%(相互叠加)，换句话说如果地图等级比当前区域层数高10级，那么击杀敌人后食物，木头和金属只减少25%。我方脆皮初始拥有100层“秩序”。通过每个区域后，当前秩序层数的10%将转换为敌人的“群魔乱舞”层数。每层群魔乱舞可以使敌人的攻击力和生命值增加100%，对于区域最后的首领效果变为10倍。首领在每次攻击后，每有一层群魔乱舞，就使您的食物，木头和金属减少1%。通过一张地图后，地图等级每比当前区域层数高1级，我方脆皮就可以获得1层秩序(层数最高为100层)，并使敌人的群魔乱舞层数减少相应数值。在该挑战激活的前提下通过区域',
-    'Each time Pandemonium is completed, the reward for next time increases by an additional 10%, Enemies gain 5x damage and health, and Equipment is 5x more expensive for all future runs of Pandemonium. Starting on your fourth run, the Wind will be too strong for Trimps to hold a Shield. Another piece of equipment will be disabled every 2 completions after Shield is lost. ': '(相互叠加)。且每完成一次群魔乱舞挑战，下次挑战的奖励就增加10%，但后续群魔乱舞挑战中，敌人也会增加5倍攻击力和生命值，且装备价格变为之前的5倍。另外，从第四次挑战开始，怪风将使我方脆皮无法使用盾牌。每多完成2次挑战，都将多出一种装备无法被我方脆皮使用。',
+    ' bonus to Helium or Radon, Trimp Attack, Trimp Health, and Resources Gathered in Universe 1 and 2. Each time Pandemonium is completed, the reward for next time increases by an additional 10%, Enemies gain 5x damage and health, and Equipment is 5x more expensive for all future runs of Pandemonium. Starting on your fourth run, the Wind will be too strong for Trimps to hold a Shield. Another piece of equipment will be disabled every 2 completions after Shield is lost. Bone Charges can be gained but not spent during this Challenge. ': '(相互叠加)。且每完成一次群魔乱舞挑战，下次挑战的奖励就增加10%，但后续群魔乱舞挑战中，敌人也会增加5倍攻击力和生命值，且装备价格变为之前的5倍。另外，从第四次挑战开始，怪风将使我方脆皮无法使用盾牌。每多完成2次挑战，都将多出一种装备无法被我方脆皮使用。挑战期间，您可以获得骨头充能，但无法消耗它们。',
     'Order': '秩序',
     'There is no Order. Your Trimps are in full blown panic and one of them seems to have stolen your shoe.': '我方脆皮已经毫无秩序可言了。它们乱成了一片，有脆皮趁乱偷走了您的鞋子。',
     'You completed Pandemonium again, just for fun!': '您再度完成了群魔乱舞挑战，但这并没有什么用，只是自娱自乐而已！',
@@ -2915,8 +2955,8 @@ var cnItems = {
     'Reduces the min and max number of cells by 5 when creating maps.': '制造地图时最大格子数和最小格子数均减少5。',
     'Natural Diplomacy I': '自然斡旋 I',
     'Increase your token trading ratio from 10:5 to 10:8.': '将符记的转换比例由10:5增加到10:8。',
-    'Deca Build': '十重建造',
-    'Buildings in the queue are constructed 10 at a time. In addition, buildings added to the queue via AutoStructure are added 10 at a time if needed.': '您可以同时建造十个建筑。另外，自动建造时建筑能以10为单位加入队列。',
+    'Kerfluffle': '绒绒缭乱',
+    'Fluffy grants you 10% more damage when active. Each time Fluffy evolves, gain 10% more damage (compounding': '绒绒出现后使我方脆皮的攻击力增加10%，且绒绒每进化一次，使我方脆皮的攻击力再增加10%(相互叠乘',
     'Still Rowing I': '尖塔排行 I',
     'Increase the looting bonus for completing a full row in a Spire by 50%, from 2% extra loot to 3%.': '通过一行尖塔的战利品加成增加50%，从2%增加到3%。',
     'Patience': '耐心',
@@ -3319,7 +3359,7 @@ var cnItems = {
     'Drop Rates': '掉率',
     'Map Level': '地图等级',
     'Drop Amt': '掉落数量',
-    'Save and Close': '保存并退出',
+    'Save and Close': '保存并关闭',
     //#endregion 炼金术相关
     //#region 尖塔突击相关
     'Spire Assault Unlocked!': '尖塔突击已经解锁！',
@@ -3536,7 +3576,6 @@ var cnItems = {
     'Your Trimps gain +50% health.': '使我方脆皮的生命值增加50%。',
     'Adds 25% of your Trimps\' max health to their Prismatic Shield.': '使棱镜护盾增加我方脆皮生命值上限25%的数值。',
     'Resources gathered by your Trimps are doubled.': '使我方脆皮的资源获取速度翻倍。',
-    'Increases the chance of finding Exotic Imports, bringing the average from 3 per zone to 3.5.': '增加奇异脆皮的出现率，从3%增加到3.5%。',
     'Pet Exp, Plaguebringer, Void Map Drop Chance and Crit Chance mods on Heirlooms no longer suffer a penalty in Universe 2.': '传家宝上的污污经验值，瘟疫使者效果，虚空地图掉落概率和暴击率不再受到宇宙2的数值惩罚。',
     'Gives your Prismatic Shield an additional layer.': '使棱镜护盾额外增加一层。',
     'Start each zone with 15% of last zone\'s Tenacity time already applied.': '进入每个区域时，将上个区域花费时间的15%计入本区域坚持特权的时间。',
@@ -5151,10 +5190,10 @@ var cnItems = {
     'ExportAutoTrimps': '导出脚本设置',
     'This is your AUTOTRIMPS save string. There are many like it but this one is yours. Save this save somewhere safe so you can save time next time. ': '这是您的脚本设置字符串。只属于您，独一无二。保存好它，这样下次就能省不少事了。',
     'Reset everything to the way it was when you first installed the script. ': '将脚本的设置恢复到初始状态。',
-    'Gives you an AT settings String that you can use to import. Use if you are less than z60. ': '将生成可导入的脚本设置。如果您的最高通过区域低于60，可以考虑使用它。',
+    'Gives you an AT settings String that you can use to import. Use if you are less than z60. May not work for you perfectly, should really only be used as an example!': '将生成可导入的脚本设置。如果您的最高通过区域低于60，可以考虑使用它，但效果可能并不是最佳的。',
     'This is your AUTOTRIMPS z60 save string. Use this string to import the settings. ': '以下是区域60以下的脚本设置字符串。可用于导入脚本设置。',
     '550+ AT Settings': '区域550以上的脚本设置',
-    'Gives you an AT settings String that you can use to import. Use if you are z550+ ': '将生成可导入的脚本设置。如果您的最高通过区域高于550，可以考虑使用它。',
+    'Gives you an AT settings String that you can use to import. Use if you are z550+. May not work for you perfectly, should really only be used as an example!': '将生成可导入的脚本设置。如果您的最高通过区域高于550，可以考虑使用它，但效果可能并不是最佳的。',
     'This is your AUTOTRIMPS z550+ save string. Use this string to import the settings. ': '以下是区域550以上的脚本设置字符串。可用于导入脚本设置。',
     'Cleanup Saved Settings ': '清除过时的设置数据',
     'Deletes old values from previous versions of the script from your AutoTrimps Settings file.': '将之前版本过时的设置数据从设置文件中删除。',
@@ -5412,10 +5451,16 @@ var cnRegReplace = new Map([
     [/^Increases the damage dealt by Fire Traps on the same Floor as a Strength Tower by (.+)%. Does not increase the world bonus to Trimps.$/, '使与力量塔同一行的火焰陷阱伤害增加$1%。对力量塔的世界加成无影响。'], //传家宝
     [/^Increases the amount of Poison damage compounded by the Condenser Tower by (.+)%. Does not increase the world bonus to Trimps.$/, '使冷凝塔复合的毒伤害增加$1%。对冷凝塔的世界加成无影响。'], //传家宝
     [/^(.+)% of all non-lethal damage and nature stacks you afflict on your current enemy are copied onto the next enemy. Plaguebringer damage cannot bring an enemy below 5% health, but nature stacks will continue to accumulate.$/, '使对当前敌人造成的所有非致命伤害及累积的三种自然层数的$1%对下一个敌人生效。瘟疫使者的伤害效果无法将敌人的生命值降到5%以下，自然层数无效果限制。'], //传家宝
-    [/^Each attack by your Trimps adds 1 stack of Charging. When Charging reaches 5 stacks, your Trimps will release a burst of energy, dealing (.+)% of their attack damage. Stacks reset after releasing a Burst or when your Trimps die.$/, '我方脆皮每次攻击时获得一层“蓄能”。蓄能层数到达5层后，我方脆皮将释放积蓄的能量，对敌人造成我方攻击力$1%的伤害。当能量释放或者我方脆皮阵亡后，层数重置。'], //传家宝
+    [/^Each attack by your Trimps adds 1 stack of Charging. When Charging reaches (.+) stacks, your Trimps will release a burst of energy, dealing (.+)% of their attack damage. Stacks reset after releasing a Burst or when your Trimps die.$/, '我方脆皮每次攻击时获得一层“蓄能”。蓄能层数到达$1层后，我方脆皮将释放积蓄的能量，对敌人造成我方攻击力$2%的伤害。当能量释放或者我方脆皮阵亡后，层数重置。'], //传家宝
     [/^(.+)% Gamma Burst \(Innate$/, '$1%伽马爆发(先天加成'], //传家宝
     [/^(.+)% Parity \(Innate$/, '$1%对等(先天加成'], //传家宝
     //#endregion 传家宝
+    //#region 骨头
+    [/^Gain 1 Bone Charge every (.+) hours, up to a max of 10 Bone Charges that persist through Portals. Consume 1 Bone Charge to gain (.+) minutes of all primary resources as loot. Gain \+10 mins per level, levels 5 and 10 reduce time to gain a charge by 30 minutes each.$/, '每$1个小时可以获得1层骨头充能，最高10层，骨头充能在传送后仍然存在。消耗1层骨头充能可以以战利品获得相当于$2分钟产量的食物、木头和金属。每级升级可以使获取的资源时长增加10分钟，且5级和10级时还可以使骨头充能的时间减少30分钟。'], //骨头
+    [/^Click this button or press \(O\/o\) to use a Bone Charge by worshipping at the Bone Shrine. Will grant (.+) minutes of gathering for Food, Wood, and Metal as loot, meaning they get bonuses that apply to gathering AND looting. Will automatically build any storage buildings required to hold your spoils, and deduct their prices from the pot.$/, '点击该按钮或按O、o可以消耗骨头充能敬拜神龛。您可以以战利品获得相当于$1分钟产量的食物、木头和金属，换句话说它可以同时享受到资源获取速度和战利品的加成。它同时也会自动建造存储建筑，并扣除相应花费。'], //骨头
+    [/^Will gain another charge in (.+).$/, '$1后可以再获得一层骨头充能。'], //骨头
+    [/^(.+) Bone Charges?$/, '—骨头充能—$1层'], //骨头
+    //#endregion 骨头
     //#region 挑战
     [/^ Bonus is capped at (.+)%.$/, '总加成的上限为$1%。'], //挑战界面
     [/^Zones above Z(.+) are worth 5x more Challenge$/, '超过区域$1时，之后的区域可以提供5倍的挑战'], //挑战界面
@@ -5524,6 +5569,7 @@ var cnRegReplace = new Map([
     [/^The Bad Guys have (\d+) Duel Points.$/, '敌人有$1点决斗点数。'], //决斗挑战等
     [/^Your Trimps have (\d+) Duel Points. Your Trimps have 3x attack for being over 50 points.$/, '我方脆皮有$1点决斗点数。因为我方脆皮决斗点数大于50，它们获得了3倍攻击力。'], //决斗挑战等
     [/^The Bad Guys have (\d+) Duel Points. The Bad Guys have 3x attack for being over 50 points.$/, '敌人有$1点决斗点数。因为敌人决斗点数大于50，它们获得了3倍攻击力。'], //决斗挑战等
+    [/^Your Trimps have (\d+) Duel Points. Your Trimps have 10x health for being below 10 points.$/, '我方脆皮有$1点决斗点数。因为我方脆皮决斗点数小于10，它们获得了10倍生命值。'], //决斗挑战等
     [/^Your Trimps have (\d+) Duel Points. Your Trimps always attack first and have 10x health for being below 10 points.$/, '我方脆皮有$1点决斗点数。因为我方脆皮决斗点数小于10，它们获得了抢先攻击的效果和10倍生命值。'], //决斗挑战等
     [/^The Bad Guys have (\d+) Duel Points. The Bad Guys always attack first and have 10x health for being below 10 points.$/, '敌人有$1点决斗点数。因为敌人决斗点数小于10，它们获得了抢先攻击的效果和10倍生命值。'], //决斗挑战等
     [/^Your Trimps have (\d+) Duel Points. Your Trimps have 10x health for being below 20 points.$/, '我方脆皮有$1点决斗点数。因为我方脆皮决斗点数小于20，它们获得了10倍生命值。'], //决斗挑战等
@@ -5690,7 +5736,9 @@ var cnRegReplace = new Map([
     [/^ damage to (.+)x and $/, '伤害变为$1倍，'], //绒绒污污相关
     [/^ damage to (.+)x.$/, '伤害变为$1倍。'], //绒绒污污相关
     [/^Allows an additional 4 Void Maps with the same name to stick together, bringing the max stack size to (.+). Each map in the stack that Fluffy clears grants an additional 50% Helium to all other maps in the stack, giving a bonus of up to \+(.+)% to each of the (.+) Fluffy maps from a (.+) stack.$/, '使虚空地图的融合张数上限增加4，达到$1张。每融合一张地图，绒绒完成该名字地图后的奖励就增加50%。当融合$4张地图时，奖励达到最高，绒绒完成$3张虚空地图后每张虚空地图可以使您额外获得$2%氦。'], //绒绒污污相关
+    [/^Increases the chance of finding Exotic Imports, bringing the average from (.+) per zone to (.+).$/, '增加奇异脆皮的出现率，从$1%增加到$2%。'], //绒绒污污相关
     [/^Increases Radon gain from all sources by 3% for each Zone you reached on your last Portal in this Universe \(compounding\). You reached Z(.+) last Portal, worth \+(.+)% Radon.$/, '每在该宇宙的上周目通过一个区域，氡获取量就增加3%(效果叠乘)。您在该宇宙的上周目到达了区域$1，氡获取量增加$2%。'], //绒绒污污相关
+    [/^Your Trimps gain \+4% Attack and \+0.25% Crit Chance per Spire Assault level cleared while on a Daily Challenge. You have cleared (.+) SA levels, granting \+(.+)% Attack and \+(.+)% Crit Chance on Daily Challenges.$/, '每通过1级尖塔突击，就使我方脆皮在日常挑战中攻击力增加4%，暴击概率增加0.25%。您通过了$1级尖塔突击，我方脆皮在日常挑战中攻击力增加$2%，暴击概率增加$3%。'], //绒绒污污相关
     [/^Currently multiplying Radon earned by (.+), increasing attack, health and resources by (.+)% and Cruffys will stay for (.+) additional Zones?.$/, '目前使氡获取量变为$1倍，我方脆皮的攻击力、生命值和资源获取量增加$2%，且朽朽在培养挑战结束后继续存在的区域数值再增加$3个区域。'], //绒绒污污相关
     //#endregion 绒绒污污
     //#region 其他消息
