@@ -1445,7 +1445,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 			return;
 		}
 		if (typeof tooltipText.split('@')[1] !== 'undefined'){
-			var prestigeCost = "下一阶<i></i>" + game.upgrades[what].prestiges + "<i></i>使我方脆皮的" + getNextPrestigeValue(what) + "。";
+			var prestigeCost = "<i></i>下一阶<i></i>" + game.upgrades[what].prestiges + "<i></i>使我方脆皮的" + getNextPrestigeValue(what) + "。";
 			tooltipText = tooltipText.replace('@', prestigeCost);
 		}
 		if (typeof tooltipText.split('$')[1] !== 'undefined'){
