@@ -27,7 +27,7 @@ var cnItems = {
     'Content (Universe 2 spoilers!)': '游戏内容(含宇宙2剧透！)',
     'Content/Balance': '游戏内容/平衡性调整',
     'Find Trimps on': '与脆皮相关的平台',
-    'Map at Zone Improvements': '定时进图改善',
+    'Map at Zone Improvements': '自动进图改善',
     'Misc': '杂项',
     'Other': '其他',
     'Other UI/QOL Changes': '其他游戏界面/游戏体验变更',
