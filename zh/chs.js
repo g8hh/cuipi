@@ -5510,7 +5510,6 @@ var cnRegReplace = new Map([
     //#region 骨头
     [/^Gain 1 Bone Charge every (.+) hours, up to a max of 10 Bone Charges that persist through Portals. Consume 1 Bone Charge to gain (.+) minutes of all primary resources as loot. Gain \+10 mins per level, levels 5 and 10 reduce time to gain a charge by 30 minutes each.$/, '每$1个小时可以获得1层骨头充能，最高10层，骨头充能在传送后仍然存在。消耗1层骨头充能可以以战利品获得相当于$2分钟产量的食物、木头和金属。每级升级可以使获取的资源时长增加10分钟，且5级和10级时还可以使骨头充能的时间减少30分钟。'], //骨头
     [/^Click this button or press \(O\/o\) to use a Bone Charge by worshipping at the Bone Shrine. Will grant (.+) minutes of gathering for Food, Wood, and Metal as loot, meaning they get bonuses that apply to gathering AND looting. Will automatically build any storage buildings required to hold your spoils, and deduct their prices from the pot.$/, '点击该按钮或按O、o可以消耗骨头充能敬拜神龛。您可以以战利品获得相当于$1分钟产量的食物、木头和金属，换句话说它可以同时享受到资源获取速度和战利品的加成。它同时也会自动建造存储建筑，并扣除相应花费。'], //骨头
-    [/^Will gain another charge in (.+).$/, '$1后可以再获得一层骨头充能。'], //骨头
     [/^(.+) Bone Charges?$/, '—骨头充能—$1层'], //骨头
     //#endregion 骨头
     //#region 挑战

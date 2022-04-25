@@ -815,7 +815,7 @@ var toReturn = {
 				var text = "";
 				text += "Click this button or press (O/o) to use a Bone Charge by worshipping at the Bone Shrine. Will grant " + this.timeGranted() + " minutes of gathering for Food, Wood, and Metal as loot, meaning they get bonuses that apply to gathering AND looting. Will automatically build any storage buildings required to hold your spoils, and deduct their prices from the pot.<br/><br/>In total, will grant <b>" + this.consume(true) + "</b><br/><br/>";
 				if (this.charges == 10) text += "Currently at maximum charges!";
-				else text += "Will gain another charge in " + formatMinutesForDescriptions(this.checkCharges(true) / 60000) + ".";
+				else text += "" + formatMinutesForDescriptions(this.checkCharges(true) / 60000) + "后可以再获得一层骨头充能。";
 				return text;
 			},
 			checkCharges: function(getTime){
