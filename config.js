@@ -8268,7 +8268,7 @@ var toReturn = {
 					msg += "到了下一张虚空地图";
 				}
 				else {
-					msg += ((game.options.menu.exitTo.enabled) ? "回世界" : "回地图界面");
+					msg += ((game.options.menu.exitTo.enabled) ? "回世界" : "回地图库房");
 				}
 				if (game.global.runningChallengeSquared) msg += "。";
 				else msg += "，并额外获取了" + prettify(amt) + heliumOrRadon() + "！";

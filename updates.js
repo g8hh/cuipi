@@ -899,12 +899,12 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		if (game.stats.totalHeirlooms.valueTotal > 0) tooltipText += "C/c</td><td>Show Heirloom (C)hances on Heirlooms Window"
 		else tooltipText += "</td><td>"
 		tooltipText += "</td></tr>";
-		tooltipText += "<tr><td>Space</td><td>Pause (if enabled in settings)</td><td>";
+		tooltipText += "<tr><td>空格键</td><td>Pause (if enabled in settings)</td><td>";
 		if (game.permaBoneBonuses.boosts.owned > 0) tooltipText += "O/o</td><td>W(O)rship Bone Shrine"
 		else tooltipText += "</td><td>"
 		tooltipText += "</td></tr>";
-		tooltipText += "<tr><td>F/f</td><td>(F)ight</td><td>";
-		if (!game.portal.Equality.radLocked) tooltipText += "E/e</td><td>(E)quality"
+		tooltipText += "<tr><td>F/f</td><td>进行战斗</td><td>";
+		if (!game.portal.Equality.radLocked) tooltipText += "E/e</td><td>设置平等缩放"
 		else tooltipText += "</td><td>"
 		tooltipText += "</td></tr>";
 		tooltipText += "<tr><td>A/a</td><td>Toggle (A)utoFight</td><td>";
@@ -916,24 +916,24 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		if (game.global.highestLevelCleared >= 5){
 			tooltipText += "<tr><td class='keybindsTitle' colspan='4'>Maps</td></tr>";
 			tooltipText += "<tr><td>M/m</td><td>Toggle (M)aps</td><td>R/r</td><td>Toggle Map (R)epeat</td></tr>";
-			tooltipText += "<tr><td>Up</td><td>Increase Map level</td><td>Down</td><td>Decrease Map level</td></tr>";
-			tooltipText += "<tr><td>C/c</td><td>(C)ontinue/Run Map</td><td>";
+			tooltipText += "<tr><td>上键</td><td>Increase Map level</td><td>下键</td><td>Decrease Map level</td></tr>";
+			tooltipText += "<tr><td>C/c</td><td>继续/运行地图</td><td>";
 			if (game.global.canMapAtZone) tooltipText += "Z/z</td><td>Map at (Z)one"
 			else tooltipText += "</td><td>"
 			tooltipText += "</td></tr>";
 		}
 		if (game.global.highestLevelCleared >= 60){
 			tooltipText += "<tr><td class='keybindsTitle' colspan='4'>Formations</td></tr>";
-			tooltipText += "<tr><td>X/x/1/Num1</td><td>No Formation</td><td>H/h/2/Num2</td><td>(H)eap</td></tr>";
+			tooltipText += "<tr><td>X/x/1/Num1</td><td>No Formation</td><td>H/h/2/Num2</td><td>堆叠阵型</td></tr>";
 			if (game.global.highestLevelCleared >= 70 || game.upgrades.Dominance.done > 0){
-				tooltipText += "<tr><td>D/d/3/Num3</td><td>(D)ominance</td><td>";
-				if (game.global.highestLevelCleared >= 80 || game.upgrades.Barrier.done > 0) tooltipText += "B/b/4/Num4</td><td>(B)arrier"
+				tooltipText += "<tr><td>D/d/3/Num3</td><td>支配阵型</td><td>";
+				if (game.global.highestLevelCleared >= 80 || game.upgrades.Barrier.done > 0) tooltipText += "B/b/4/Num4</td><td>屏障阵型"
 				else tooltipText += "</td><td>"
 				tooltipText += "</td></tr>";
 			}
 			if (game.global.highestLevelCleared >= 179){
-				tooltipText += "<tr><td>S/s/5/Num5</td><td>(S)cryer</td><td>";
-				if (game.global.highestLevelCleared >= 239) tooltipText += "W/w/6/Num6</td><td>(W)ind"
+				tooltipText += "<tr><td>S/s/5/Num5</td><td>占卜者阵型</td><td>";
+				if (game.global.highestLevelCleared >= 239) tooltipText += "W/w/6/Num6</td><td>风阵型"
 				else tooltipText += "</td><td>"
 				tooltipText += "</td></tr>";
 			}
