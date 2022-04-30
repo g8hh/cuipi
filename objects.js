@@ -191,7 +191,7 @@ var tutorial = {
     },
     setBookmarks: function(){
         var elem = document.getElementById('tutorialBookmarks');
-        var titles = ["Battle", "Zones", "Tips 1", "Tips 2", "Found a Map", "Map Chamber", "Mapping", "Equipment Prestige", "Custom Maps", "Map Settings", "Trapstorm", "Unique Maps", "Block", "Bounty", "Anger", "Portal"];
+        var titles = ["Battle", "Zones", "提示1", "提示2", "Found a Map", "Map Chamber", "Mapping", "Equipment Prestige", "Custom Maps", "Map Settings", "Trapstorm", "Unique Maps", "Block", "Bounty", "Anger", "Portal"];
         var text = "";
         for (var x = 0; x <= game.global.tutorialStep; x++){
             if (x > titles.length) break;
@@ -214,7 +214,7 @@ var tutorial = {
             case 1: //if bloodlust has been unlocked
                 text = "I am quite pleased. With your newly found Upgrade Book, you can now Train your Trimps to fight on their own! In order to maximize breed speed, you should teach the Trimps to only go out and fight when housing is completely full.<br/><br/>";
                 text += "My sensors have scanned the area, and the map of your current Zone will show you any Bad Guys with special rewards:<br/><span class='glyphicon glyphicon-apple'></span><span class='glyphicon glyphicon-tree-deciduous'></span><span class='icomoon icon-cubes'></span> - Food, Wood, or Metal respectively<br/>";
-                text += "<span class='glyphicon glyphicon-question-sign'></span> - New Equipment<br/><span class='glyphicon glyphicon-book'></span> - An Upgrade Book (mouse over it to see Upgrade name)<br/><span class='glyphicon glyphicon-gift'></span> - Increases your max population by 5";
+                text += "<span class='glyphicon glyphicon-question-sign'></span> - New Equipment<br/><span class='glyphicon glyphicon-book'></span> - An Upgrade Book (mouse over it to see Upgrade name)<br/><span class='glyphicon glyphicon-gift'></span> - 使脆皮上限增加5";
                 text += "<br/><span class='glyphicon glyphicon-user'></span> - A foreman to help automatically build things in the queue<br/><br/>You now have lots of tools at your disposal. Keep your Trimps well equipped, research your upgrades, build more housing and you'll be in Zone 2 before you know it."
                 goal = "Clear this Zone"
                 break;
@@ -223,11 +223,11 @@ var tutorial = {
                 text += "You also notice there's blueprints for a Gym on this Zone, which will grant your Trimps the ability to Block some damage from attacks. This is a flat damage reduction per Trimp, meaning it scales with army size as you research more levels of Coordination.<br/><br/>";
                 text += "By the way, you can click many of the numbers on the screen to see breakdowns of where those numbers are coming from. For example, click your Trimps' Health to see all of their Health bonuses, Food per Second to see all Food gathering bonuses, or your total number of Trimps to see totals from various sources of Max Trimps.<br/><br/>";
                 text += "Continue to improve your town and army. These Bad Guys won't know what hit them.";
-                goal = "Reach Zone 4";
+                goal = "任务：到达区域4"; 
                 break;
             case 3: //if on z4+
                 text = "Here's a couple of tips the Bad Guys don't want you to know:<br/><br/><ul><li>You can click the 'Custom' number button, then type '1/4' to select one quarter of your current available workspaces. This makes it easy to evenly split your workers!</li><li>All Equipment shows how many resources you need to spend for each point of a stat. The lower this number, the more efficient that piece of Equipment is!</li><li>If you ever notice that everything is suddenly really expensive, you probably just need to click '+1' again.</li></ul>"
-                goal = "Find something interesting on Zone 6"
+                goal = "任务：到达区域6，新机制在等着您"
                 break;
             case 4: //unlocked maps
                 text = "You've certainly found something interesting, your first Map! You should try running it.<br/><br/>Click the orange Maps button under AutoFight. Your current group of soldiers can't come with you, so you can either wait for them to... finish fighting, or you can click the button a second time to go on without them.";
@@ -240,7 +240,7 @@ var tutorial = {
             case 6: //entered a map
                 text = "And they're off! Remember that we want 3 items out of this map, and we can see one of these Upgrade Books at the end right now. Press the 'R' key or click the red button that currently says 'Repeat Off' to turn Map Repeating on, so your Trimps will automatically rerun this map after they get the first upgrade.";
                 text += "<br/><br/>You'll need to clear this map 3 times to earn all of its items. Keep an eye on your City and Equipment and this will be a breeze.";
-                goal = "Unlock all 3 Map Items from Zone 6";
+                goal = "任务：解锁区域6的所有3种地图物品";
                 break;
             case 7: //Unlocked supershield, dagadder, bootboost
                 text = "Amazing job! You've earned all of the Map Items from Zone 6. Remember how you unlocked 3 pieces of Equipment on Zone 1, then 2 pieces each on Zones 2 through 5? From now on, you'll earn upgrades for these Equipments from maps with the same pattern, repeating every 5 Zones. 6, 11, 16 and so on will always have Shield, Dagger, and Boot upgrades, while Maps at all other Zone levels will have 2 upgrades.<br/><br/>";
@@ -274,7 +274,7 @@ var tutorial = {
                 break;
             case 13: //Unlocked Bounty
                 text = "Excellent work! You've found and cleared The Wall, and earned the ultra powerful Bounty upgrade.<br/><br/>You've now amassed a powerful army, built a sprawling city, and culled thousands of enemies. There's something frightening at the end of Zone 20, but there's no doubt in my cold artificial mind that you have what it takes to defeat it.";
-                goal = "Research the Upgrade Book at the end of Zone 20";
+                goal = "任务：研究在区域20最后获得的升级书";
                 break;
             case 14: //Unlocked Dimension of Anger
                 text = "My scanners are indicating that there is advanced Portal technology inside this Unique Map you've just created, but that it is filled with dangers. It will be a tough map to clear, but you should try to complete this one before finishing Zone 21 if possible.<br/><br/>Good luck.";

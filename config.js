@@ -8773,7 +8773,7 @@ var toReturn = {
 			attack: 1,
 			health: 1,
 			fast: false,
-			dropDesc: "使脆皮数量上限额外增加当前数量的0.3%",
+			dropDesc: "使脆皮上限额外增加当前数量的0.3%",
 			loot: function (level, fromMagimp) {
 				var name = (fromMagimp) ? "脆皮百变怪" : "脆皮咚咚";
 				var amt = Math.ceil(game.resources.trimps.max * 0.003);
