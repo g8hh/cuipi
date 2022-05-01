@@ -9658,7 +9658,7 @@ var toReturn = {
 			fire: function () {
 				message("You found a map to the Bionic Wonderland. Sounds fun!", "Story");
 				game.global.bionicOwned++;
-				createMap(125, "Bionic Wonderland", "Bionic", 3, 100, 2.6, true);
+				createMap(125, "仿生仙境", "Bionic", 3, 100, 2.6, true);
 			}
 		},
 		ImplodingStar: {

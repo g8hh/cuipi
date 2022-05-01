@@ -1222,7 +1222,6 @@ var cnItems = {
     'You just made a map to Big Wall!': '您制造了巨墙地图！',
     'The Prison': '监狱',
     'You found The Prison! You have a bad feeling about going in...': '您发现了监狱地图！您总感觉进去以后会有不好的事发生……',
-    'Bionic Wonderland': '仿生仙境',
     'Imploding Star': '爆炸之星',
     'You found a map to an Imploding Star inside of a supercooled dimension. The temperature there is perfect!': '您在一个超冷的维度中发现了爆炸之星地图。看来地图里的温度会刚刚好！',
     'You found plans for a Mansion! Your Trimps will be pretty stoked': '您发现了豪宅的蓝图！脆皮们会很兴奋的。',
