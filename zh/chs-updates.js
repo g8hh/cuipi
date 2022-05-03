@@ -97,7 +97,6 @@ var cnItems = {
     'All jobs, buildings, upgrades, and equipment are now redrawn when Time Warp ends. This should fix a few rare bugs such as unpurchaseable golden upgrade spam after Time Warp ends.': '所有工作、建筑、升级和装备在时间跃迁结束后会刷新一次。这可以避免出现一些罕见的错误，例如无法购买的金色升级。',
     'Fixed a bug where using Map at Zone\'s \'Repeat X Times\' wasn\'t showing up on the button until after the first map was completed': '修复了自动进图时，只在通过1次地图后，才在按钮上显示重复X次的错误。',
     'Fixed a bug that could cause the extra map side buttons to be blank on a fresh save that hadn\'t refreshed': '修复了新存档的额外地图按钮为空白的错误。',
-    'Fixed a bug that could cause Improbabilities and other bosses to have infinite Health on Coordinate': '修复了新存档的额外地图按钮为空白的错误。',
     //#endregion
     //#region 5.6.5
     'The Experience Challenge no longer requires that you end the Challenge on a BW in order to get the extra bonus. If you complete Experience by completing Z700, you\'ll now get credit for the highest BW cleared on that run. Adjusted descriptions/tooltips for new behavior. NOTE: You need to clear a BW on this patch for it to count. If you\'re mid-Experience and above Z600 when updating to 5.6.5, you\'ll still need to finish that one last run via BW completion.': '经历挑战不再需要通过仿生仙境地图来获得额外加成。如果您通过区域700完成经历挑战，那么将根据本周目最高通过的仿生仙境地图来获得加成。相应描述文字也进行了调整。注意：如果您在本次更新前正在进行经历挑战，则仍然需要至少通过一张仿生仙境地图才能获得加成。',
