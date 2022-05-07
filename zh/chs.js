@@ -4117,6 +4117,7 @@ var cnItems = {
         //#region 图表
     'Graphs': '图表',
     'Reset zoom': '缩放比例还原',
+    'Universe': '宇宙',
     'Helium - He/Hr': '氦 - 氦/小时',
     'Helium/Hour (Cumulative': '氦/小时(累计',
     'Helium/Hour': '氦/小时',
