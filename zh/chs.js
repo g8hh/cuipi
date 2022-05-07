@@ -733,7 +733,7 @@ var cnItems = {
     'Find a way to clear The Block': '任务：设法通过障碍区地图',
     'You\'ve done it! This special new upgrade will convert your Shield from an accessory that provides Health, to a fully fledged Shield that can actually block damage. What crazy technology!': '您成功了！从那张地图中您获得了将盾牌从增加生命值变为增加格挡的升级。多么狂野的升级啊！',
     'Block should be a major part of your arsenal now. With enough investment you can even get your Trimps\' block higher than enemy Attack, causing your Trimps to take no damage!': '从现在起，格挡将扮演极其重要的角色。进行足够次数升级后，您甚至可以使我方脆皮的格挡超过敌人的攻击力，让它们完全不受到敌人的伤害！',
-    'You\'ve now shown proficiency with most of the basic skills required to lead a Trimp civilization. My sensors are detecting another Unique Map on Zone 15, and I strongly believe you have what it takes to find and complete it.': '您已经熟练掌握带领脆皮们前进的基本技能了。我的传感器显示，在区域15还有一张独特地图，相信以您的能力一定能够发现并通过它。',
+    'You\'ve now shown proficiency with most of the basic skills required to lead a Trimp civilization. My sensors are detecting another Unique Map hiding in a Level 15+ Map, and I strongly believe you have what it takes to find and complete it.': '您已经熟练掌握带领脆皮们前进的基本技能了。我的传感器显示，在等级15以上的地图中还可以找到一张独特地图，相信以您的能力一定能够发现并通过它。',
     'Find and complete the Level 15 Unique Map': '任务：发现并通过等级15的独特地图',
     'Excellent work! You\'ve found and cleared The Wall, and earned the ultra powerful Bounty upgrade.': '棒极了！您发现了高墙地图，并通过了它，因此您获得了极其强大的赏金升级。',
     'You\'ve now amassed a powerful army, built a sprawling city, and culled thousands of enemies. There\'s something frightening at the end of Zone 20, but there\'s no doubt in my cold artificial mind that you have what it takes to defeat it.': '您目前可谓是兵强皮壮，您的城市也已经有相当大的规模，消灭的敌人更是不计其数了。在区域20的最后有着什么可怕的东西，但即使是我这样不带情感的人工智能也能看得出来，您击败它并不是什么难事。',

@@ -43,6 +43,13 @@ var cnItems = {
     'Universe 2': '宇宙2',
     'Universe 2 UI/QOL': '宇宙2游戏界面/游戏体验',
     //#endregion
+    //#region 5.7.1
+    'Made some changes to ADVISOR\'s text to clear up some confusion around where to find the Z15 Unique Map': '调整了舰载智能机器人的部分文本，以避免在发现区域15独特地图的方法上产生歧义。',
+    'Added a line to the Heirloom help text, stating that you can purchase carry slots but the Nu will be permanently consumed.': '在传家宝帮助的文本中加入一行，以体现您可以增加携带栏容量，但将永久消耗虚空物质。',
+    'Added text on T2+ equipment explaining how to find and customize the Highlight setting. When Highlight Equipment is on its default setting, added text to T2+ equipment stating that only the highest tier is being calculated.': '在阶级2及以上的装备上增加了发现和自定义高亮显示装备的说明。当高亮显示装备为默认设置时，在阶级2及以上的装备上增加了相应说明，只高亮显示最大阶级的装备。',
+    'Added an entry to the Keybinds listing for AD(V)ISOR.': '增加了舰载智能机器人的快捷键说明。',
+    'Fixed a text error on the Steam Cloud Save confirmation prompt where Zone number for each save was sometimes not properly displaying.': '修复了Steam云存档确认框中存档区域显示不正确的问题。',
+    //#endregion
     //#region 5.7.0
     'Added a Tutorial that triggers after researching your first point of Science on a fresh save. This tutorial gives some tips to new players who might not be familiar with the genre, hopefully allowing them to complete their first Portal without feeling like they need to Google anything. The tutorial is narrated by ADVISOR, your ship\'s Automated Defensive Voice and Idea Synthesizing On-board Robot.': '在一个存档中第一次进行研究后将出现教程。希望这能帮助新玩家更好地了解游戏机制。教程将由飞船的舰载智能机器人来讲授。',
     'Time Warp now accelerates the Skeletimp timer, so it\'s possible to find multiple Skeletimps per Time Warp. You should now be earning the same amount of Bones from Time Warp when not playing as you would if you left the game running.': '进行时间跃迁时，脆皮骷髅的出现时间也会变化，因此您可以在时间跃迁中遇到多个脆皮骷髅了。这样，不管是在线还是离线，您的骨头收益都不会有太大区别了。',
