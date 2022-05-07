@@ -4133,7 +4133,7 @@ var cnItems = {
     'Radon - Total': '氡 - 总计',
     'Radon (Lifetime Total': '氡(总量',
     'RnHr % / LifetimeRn': '氡小时%/氡总量',
-    'Rn/Hr % of LifetimeHe': '氡小时%/氡总量',
+    'Rn/Hr % of LifetimeRn': '氡小时%/氡总量',
     'Rn % / LifetimeRn': '氡%/氡总量',
     'Rn % of LifetimeRn': '氡%/氡总量',
     'Clear Time': '通过时间',
