@@ -926,6 +926,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		else tooltipText += "</td><td>"
 		tooltipText += "</td></tr>";
 		tooltipText += "<tr><td>Left/Right</td><td>Usable on windows with <span class='icomoon icon-arrow-left'></span> and <span class='icomoon icon-arrow-right'></span> icons</td><td></td><td></td></tr>";
+		tooltipText += "<tr><td>V</td><td>Open AD(V)ISOR</td><td></td><td></td></tr>";
 		tooltipText += "<tr><td>Esc</td><td>Close popups/menus. Open Settings if nothing else is open</td><td></td><td></td></tr>";
 		if (game.global.highestLevelCleared >= 5){
 			tooltipText += "<tr><td class='keybindsTitle' colspan='4'>Maps</td></tr>";
@@ -1449,7 +1450,12 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		}
 		else{
 			tooltipText += "<br/><br/>每提升1点" + ((equip.attack) ? "攻击力" : "生命值") + "需要花费" + prettify(resPerStat) + "金属。";
-			if (game.options.menu.equipHighlight.enabled > 0 && !game.equipment.Mace.locked) tooltipText += "性价比最高的武器和护甲将以蓝色背景高亮显示。";
+			if (game.options.menu.equipHighlight.enabled > 0 && !game.equipment.Mace.locked){
+				if (game.options.menu.equipHighlight.enabled == 1 && equip.prestige >= 2) tooltipText += "最大阶级且"
+				tooltipText += "性价比最高的武器和护甲";
+				tooltipText += "将以蓝色背景高亮显示。";
+				if (equip.prestige >= 2) tooltipText += "(您可以在设置中调整显示的方式)";
+			}
 		}
 		if (game.global.buyAmt != 1) {
 			what += "<i></i> X " + buyAmt;
