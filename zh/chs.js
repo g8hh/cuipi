@@ -2468,7 +2468,7 @@ var cnItems = {
     'You are about to purchase a level of Multitasking, allowing 5% of your employed Trimps to breed while they work and 5% of your unemployed Trimps to help gather whenever the town is full. Is this what you wanted to do?': '您将购买一级一身二用，它将使5%工作的脆皮同时进行繁殖，5%未雇佣的脆皮在脆皮达到上限且未进行繁殖时帮忙获取资源。您确定要购买吗？',
     'Exotic Imp-orts': '奇异外皮',
     'Exotic Imp-orts will be unlocked permanently once purchased. Each has a ': '奇异外皮在购买后永久解锁。每个格子都分别有',
-    '% chance to spawn per cell and better loot than normal enemies. Any stacking multipliers from killing Imp-orts reset on Portal but the imps do not have to be unlocked again.': '%的概率生成每种奇异外皮，它们比普通敌人的战利品更好。击杀奇异脆皮获得的加成将在传送时重置，但您无需再解锁它们。',
+    '% chance to spawn per cell and better loot than normal enemies. Any stacking multipliers from killing Imp-orts reset on Portal but the imps do not have to be unlocked again.': '%的概率生成每种奇异外皮，它们比普通敌人的战利品更好。击杀奇异外皮获得的加成将在传送时重置，但您无需再解锁它们。',
     'Spawns in World': '在世界中出现',
     'Buy Feyimp (50 bones': '购买脆皮小妖(50骨头',
     'Buy Tauntimp (50 bones': '购买脆皮咚咚(50骨头',
@@ -5863,7 +5863,7 @@ var cnRegReplace = new Map([
     [/^ damage to (.+)x and $/, '伤害变为$1倍，'], //绒绒污污相关
     [/^ damage to (.+)x.$/, '伤害变为$1倍。'], //绒绒污污相关
     [/^Allows an additional 4 Void Maps with the same name to stick together, bringing the max stack size to (.+). Each map in the stack that Fluffy clears grants an additional 50% Helium to all other maps in the stack, giving a bonus of up to \+(.+)% to each of the (.+) Fluffy maps from a (.+) stack.$/, '使虚空地图的融合张数上限增加4，达到$1张。每融合一张地图，绒绒完成该名字地图后的奖励就增加50%。当融合$4张地图时，奖励达到最高，绒绒完成$3张虚空地图后每张虚空地图可以使您额外获得$2%氦。'], //绒绒污污相关
-    [/^Increases the chance of finding Exotic Imports, bringing the average from (.+) per zone to (.+).$/, '增加奇异脆皮的出现率，从$1%增加到$2%。'], //绒绒污污相关
+    [/^Increases the chance of finding Exotic Imports, bringing the average from (.+) per zone to (.+).$/, '增加奇异外皮的出现率，从$1%增加到$2%。'], //绒绒污污相关
     [/^Increases Radon gain from all sources by 3% for each Zone you reached on your last Portal in this Universe \(compounding\). You reached Z(.+) last Portal, worth \+(.+)% Radon.$/, '每在该宇宙的上周目通过一个区域，氡获取量就增加3%(效果叠乘)。您在该宇宙的上周目到达了区域$1，氡获取量增加$2%。'], //绒绒污污相关
     [/^Your Trimps gain \+4% Attack and \+0.25% Crit Chance per Spire Assault level cleared while on a Daily Challenge. You have cleared (.+) SA levels, granting \+(.+)% Attack and \+(.+)% Crit Chance on Daily Challenges.$/, '每通过1级尖塔突击，就使我方脆皮在日常挑战中攻击力增加4%，暴击概率增加0.25%。您通过了$1级尖塔突击，我方脆皮在日常挑战中攻击力增加$2%，暴击概率增加$3%。'], //绒绒污污相关
     [/^Currently multiplying Radon earned by (.+), increasing attack, health and resources by (.+)% and Cruffys will stay for (.+) additional Zones?.$/, '目前使氡获取量变为$1倍，我方脆皮的攻击力、生命值和资源获取量增加$2%，且朽朽在培养挑战结束后继续存在的区域数值再增加$3个区域。'], //绒绒污污相关
