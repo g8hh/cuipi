@@ -15505,7 +15505,7 @@ function simpleSeconds(what, seconds) {
 		if (Fluffy.isRewardActive('gatherer')) amt *= 2;
 		if (game.jobs.Magmamancer.owned > 0 && what == "metal") amt *= game.jobs.Magmamancer.getBonusPercent();
 		if (game.global.challengeActive == "Meditate") amt *= 1.25;
-		else if (game.global.challengeActive == "Size") amt *= 1.5;
+		else if (game.global.challengeActive == "Size" && (what == "food" || what == "wood" || what == "metal")) amt *= 1.5;
 		if (game.global.challengeActive == "Toxicity"){
 			var toxMult = (game.challenges.Toxicity.lootMult * game.challenges.Toxicity.stacks) / 100;
 			amt *= (1 + toxMult);
@@ -17988,7 +17988,7 @@ function playFabLoginWithPlayFab(username, pass){
 function playFabLoginWithKongregate(attempt){
 	var error = document.getElementById("playFabLoginError");
 	if (typeof PlayFab === 'undefined' || typeof PlayFab.ClientApi === 'undefined'){
-		error.innerHTML = "Unable to Initialize the PlayFab API. Please check to make sure third-party scripts are enabled for Trimps, and that PlayFab is not blocked.";
+		if (error != null) error.innerHTML = "Unable to Initialize the PlayFab API. Please check to make sure third-party scripts are enabled for Trimps, and that PlayFab is not blocked.";
 		return;
 	}
 	if (typeof kongregate === 'undefined'){
