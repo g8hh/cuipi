@@ -1963,25 +1963,25 @@ var playerSpireTraps = {
         icon: "book2",
         upgrades: [
             {   //level 2
-                get description(){ return "每个冷凝塔使" + Fluffy.getName() + "的经验值获取量再增加7.5%。";}, //500 
+                get description(){ return "每个知识塔使" + Fluffy.getName() + "的经验值获取量再增加7.5%。";}, //500 
                 unlockAt: -1,
                 cost: 3e6
             },
             {
                 //level 3
-                get description(){ return "每个冷凝塔使" + Fluffy.getName() + "的经验值获取量再增加7.5%。";}, //5000
+                get description(){ return "每个知识塔使" + Fluffy.getName() + "的经验值获取量再增加7.5%。";}, //5000
                 unlockAt: -1,
                 cost: 3e10
             },
             {
                 //level 4
-                get description(){ return "每个冷凝塔使" + Fluffy.getName() + "的经验值获取量再增加7.5%。";}, //50000
+                get description(){ return "每个知识塔使" + Fluffy.getName() + "的经验值获取量再增加7.5%。";}, //50000
                 unlockAt: -1,
                 cost: 3e14
             },
             {
                 //level 4
-                get description(){ return "每个冷凝塔使" + Fluffy.getName() + "的经验值获取量再增加7.5%。";}, //50000
+                get description(){ return "每个知识塔使" + Fluffy.getName() + "的经验值获取量再增加7.5%。";}, //50000
                 unlockAt: -1,
                 cost: 3e18
             }
