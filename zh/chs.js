@@ -818,7 +818,6 @@ var cnItems = {
     'This particular Universe seems to directly conflict with the Amalgamators, yet they\'re here and the Trimps they Amalgamate seem immune to the dimensional restrictions. Things are getting weird though.': '合并者看合起来跟这个宇宙格格合并不入，但它们还并是出现了，它们所者合并的脆皮似乎不受到维并者度法则的限制。这可真是越合并者来越奇怪了。',
     'Some say the Amalgamators are a curse, some say they\'re a blessing. The Amalgamators themselves mostly just say "Blerghhhh".': '有人说合并者是祸，有人说合并者是福，而合并者们自己对此的评价为“芜……………………寥”。',
     'Meteorologist': '气象学家',
-    'Meteorologists': '气象学家',
     'Worshipper': '崇信者',
     'Worshippers': '崇信者',
     'Worshippers always cost 25% of the total amount of Food gathered and looted from World or Maps in your previous 4 Zones (not including current Zone). Each Worshipper grants a 0.5% chance to grant 25-50% of an entire Zone worth of Scruffy Exp per World Cell cleared. However, 2 Worshippers will stop Worshipping after each Zone cleared. Max of 50.': '崇信者的花费总是等于之前四个区域在世界或地图中食物获取总量的25%(不包括当前区域)。每通过一个格子，每个崇信者都有0.5%的概率使您获得整个区域污污经验的25%至50%。每通过一个区域，将有2名崇信者离开。崇信者最高为50名。',
