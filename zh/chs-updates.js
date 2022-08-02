@@ -198,7 +198,7 @@ var cnItems = {
     //#endregion
     //#region 5.5.0
     'Holidays are now automated! The Pumpkimp Event now automatically turns on from Oct 1 through Nov 5, the Presimpt Event runs from Dec 15 through Jan 15, and the Eggs Event runs for all of April': '从现在起，活动将自动开始和结束！脆皮南瓜怪活动从10月1日开始，到11月5日结束；脆皮小礼活动从12月15日开始，到1月15日结束；万圣节彩蛋活动持续整个4月。',
-    'The Curious Perk now grants +80 base Fluffy XP per level, up from +60': '好奇特权的绒绒基础经验奖励从+60变为+80。',
+    'The Curious Perk now grants +80 base Fluffy XP per level, up from +60': '好奇特权的绒绒基础经验值奖励从+60变为+80。',
     'Towers in the Personal Spire are now capped to 10 each. Once you have 10 of each Tower, you\'ll gain the option to "Seal" your Spire for an extra bonus.': '从现在起，您的尖塔中每种小塔最多可以建造10个。当每种小塔都到达10个以后，您将可以“关闭尖塔”以获得额外加成。',
     'Added 2 new Frost Trap upgrades and 2 new Poison Trap upgrades to the Player Spire': '冰霜陷阱和剧毒陷阱增加了两次升级。',
     'Bionic Wonderlands can no longer be created more than 100 Zones past your Obsidian level': '仿生仙境地图等级无法超过黑曜石区域加上100层。',

@@ -22,7 +22,7 @@ function newGame () {
 var toReturn = {
 	global: {
 		//New and accurate version
-		stringVersion: '5.7.2',
+		stringVersion: '5.8.0',
 		//Leave 'version' at 4.914 forever, for compatability with old saves
 		version: 4.914,
 		isBeta: false,
@@ -158,9 +158,16 @@ var toReturn = {
 		bestHeirloomSeed: Math.floor(Math.random() * 1000000),
 		eggSeed: Math.floor(Math.random() * 1000000),
 		mutationSeed: Math.floor(Math.random() * 1000000),
+		u2MutationSeed: Math.floor(Math.random() * 1000000),
 		enemySeed: Math.floor(Math.random() * 1000000),
 		u2WorldSeed: Math.floor(Math.random() * 1000000),
 		reincarnateSeed: Math.floor(Math.random() * 1000000),
+		//not to be confused with mutation seed of course
+		mutatedSeeds: 0,
+		mutatedSeedsSpent: 0,
+		u2MutationData: {},
+		showU2MutNames: false,
+		ogU2MutationSeed: -1,
 		heirloomsExtra: [],
 		heirloomsCarried: [],
 		StaffEquipped: {},
@@ -213,6 +220,9 @@ var toReturn = {
 		trackedAchieve: null,
 		mayhemCompletions: 0,
 		pandCompletions: 0,
+		rageMutStacks: 0,
+		novaMutStacks: 0,
+		tabForMastery: true,
 		perkPresetU1: {
 			perkPreset1: {},
 			perkPreset2: {},
@@ -289,6 +299,7 @@ var toReturn = {
 		tutorialActive: false,
 		tutorialLg: false,
 		mazBw: -1,
+		expandingTauntimp: false,
 		lastHeirlooms: {
 			u1: {
 				Shield: -1,
@@ -696,7 +707,7 @@ var toReturn = {
 			tokens: 0,
 			nextUberCost: 0,
 			get enlightenDesc(){
-				return "your Trimps gain +2 maximum Overkill cells " + ((game.global.spiresCompleted >= 2) ? " and +0.25% increased Fluffy Exp per Ice level <b>(currently" + prettify(game.empowerments.Ice.getLevel() * 0.25) + "%)</b>" : "") + " for your entire run. In Ice Zones, Ice stacks accumulate twice as fast, and if an enemy is hit by your Trimps while it has 20 or more stacks of Ice and is below 50% health, it will instantly shatter! The shards of Ice from the shattered enemy destroy everything in their path, triggering your maximum Overkill regardless of your damage";
+				return "your Trimps gain +2 maximum Overkill cells " + ((game.global.spiresCompleted >= 2) ? " once Nature starts and +0.25% increased Fluffy Exp per Ice level <b>(currently " + prettify(game.empowerments.Ice.getLevel() * 0.25) + "%)</b>" : "") + " for your entire run. In Ice Zones, Ice stacks accumulate twice as fast, and if an enemy is hit by your Trimps while it has 20 or more stacks of Ice and is below 50% health, it will instantly shatter! The shards of Ice from the shattered enemy destroy everything in their path, triggering your maximum Overkill regardless of your damage";
 			}
 		}
 	},
@@ -816,7 +827,8 @@ var toReturn = {
 				var text = "";
 				text += "Click this button or press (O/o) to use a Bone Charge by worshipping at the Bone Shrine. Will grant " + this.timeGranted() + " minutes of gathering for Food, Wood, and Metal as loot, meaning they get bonuses that apply to gathering AND looting. Will automatically build any storage buildings required to hold your spoils, and deduct their prices from the pot.<br/><br/>In total, will grant <b>" + this.consume(true) + "</b><br/><br/>";
 				if (this.charges == 10) text += "Currently at maximum charges!";
-				else text += "" + formatMinutesForDescriptions(this.checkCharges(true) / 60000) + "后可以再获得一层骨头充能。";
+				else text += "You currently have <b>" + this.charges + "</b>层充能。" + formatMinutesForDescriptions(this.checkCharges(true) / 60000) + "后可以再获得一层骨头充能。";
+
 				return text;
 			},
 			checkCharges: function(getTime){
@@ -921,8 +933,8 @@ var toReturn = {
 		},
 		multitasking: {
 			name: "一身二用",
-			text: "Teach the most gifted of your Trimps to multitask, allowing 5% of your employed Trimps to breed while they work, and allowing 5% of your unemployed Trimps to help gather resources whenever the town is full.",
-			confirmation: "You are about to purchase a level of Multitasking, allowing 5% of your employed Trimps to breed while they work and 5% of your unemployed Trimps to help gather whenever the town is full. Is this what you wanted to do?",
+			text: "Teach the most gifted of your Trimps to multitask, allowing +5% per level of your employed Trimps to breed while they work, and allowing +5% per level of your unemployed Trimps to help gather resources whenever the town is full.",
+			confirmation: "You are about to purchase a level of Multitasking, allowing +5% per level of your employed Trimps to breed while they work and +5% per level of your unemployed Trimps to help gather whenever the town is full. Is this what you wanted to do?",
 			owned: 0,
 			mult: function(){
 				return this.owned * 0.05;
@@ -1206,9 +1218,19 @@ var toReturn = {
 			},
 			fadeIns: {
 				enabled: 1,
-				extraTags: "layout performance animation",
+				extraTags: "performance animation",
 				description: "Toggle on or off the fade in effect on elements.",
 				titles: ["Not Fading", "Fading"]
+			},
+			romanNumerals: {
+				enabled: 1,
+				extraTags: "layout",
+				description: "Show either Roman Numerals or Arabic Numerals for Equipment Prestiges",
+				titles: ["Arabic Numerals", "Roman Numerals"],
+				onToggle: function(){
+					drawAllUpgrades();
+					drawAllEquipment();
+				}
 			},
 			extraStats: {
 				enabled: 1,
@@ -1367,7 +1389,11 @@ var toReturn = {
 				U2Mode: 'a',
 				getMaxSettings: function(){
 					if (game.global.universe == 1) return 6;
-					if (game.global.universe == 2) return 7;
+					if (game.global.universe == 2) {
+						var defCap = 7;
+						if (u2Mutations.tree.MaZ.purchased) defCap++;
+						return defCap;
+					}
 				},
 				getSetZone: function(){
 					if (game.global.universe == 2){
@@ -1718,13 +1744,16 @@ var toReturn = {
 			masteryTab: {
 				enabled: 1,
 				extraTags: "alerts",
-				description: "Choose what you would like to see on your Mastery Tab! <b>No Mastery Info</b> will keep the tab clean and static. <b>Alert Mastery</b> will show an alert on the tab as soon as a new Mastery becomes affordable. <b>Show Essence</b> will always show your total amount of unspent essence on the tab. <b>Hybrid Essence</b> will show your total amount of unspent essence on the tab, but will switch to the alert icon once you have enough essence for a new Mastery.",
+				get description(){
+					return "Choose what you would like to see on your Mastery Tab! <b>No Mastery Info</b> will keep the tab clean and static. <b>Alert Mastery</b> will show an alert on the tab as soon as a new Mastery becomes affordable. <b>Show Essence</b> will always show your total amount of unspent essence on the tab. <b>Hybrid Alerts</b> will show your total amount of unspent essence on the tab, but will switch to the alert icon once you have enough essence for a new Mastery." + ((game.global.highestRadonLevelCleared >= 200) ? "<br/><br/>This setting also controls the Mutator tab!" : "");
+				},
 				titles: ["No Mastery Info", "Alert Mastery", "Show Essence", "Hybrid Alerts"],
 				lockUnless: function () {
 					return (game.global.highestLevelCleared >= 180)
 				},
 				onToggle: function () {
 					updateTalentNumbers();
+					u2Mutations.setAlert();
 				}
 			},
 			bigPopups: {
@@ -1848,7 +1877,7 @@ var toReturn = {
 				enabled: 1,
 				extraTags: "layout",
 				description: "Show or hide completed achievements.",
-				titles: ["Hiding Achieves", "Showing all Achieves"]
+				titles: ["Hiding Achieves", "Showing All Achieves"]
 			},
 			sealedSpire: {
 				enabled: 0,
@@ -1906,7 +1935,13 @@ var toReturn = {
 				enabled: 1,
 				extraTags: "other",
 				description: "You can pause the game by clicking the run timer in the bottom right of the screen. This setting allows you to remove that ability!",
-				titles: ["Disable Pausing", "Enable Pausing"]
+				titles: ["Disable Pausing", "Enable Pausing"],
+				onToggle: function(){
+					if (game.options.menu.pauseGame.enabled){
+						game.options.menu.pauseGame.enabled = 0;
+						game.options.menu.pauseGame.onToggle();
+					}
+				}
 			},
 			deleteSave: {
 				enabled: 0,
@@ -3192,6 +3227,7 @@ var toReturn = {
 				if (this.trinkets >= cap) return;
 				if (this.trinkets + amt > cap) amt = cap - this.trinkets;
 				this.trinkets += amt;
+				game.stats.runetrinkets.value += amt;
 				message("You found " + amt + " Runetrinket" + needAnS(amt) + "!", "Loot", "*link4", "runetrinket", "runetrinket");
 				if (this.trinkets >= 7500) giveSingleAchieve("Heavy Trinker");
 			},
@@ -3208,6 +3244,22 @@ var toReturn = {
 			onChange: function(){
 				if (typeof game.global.messages.Loot.runetrinket === 'undefined') game.global.messages.Loot.runetrinket = true;
 			}
+		},
+		Smithology: {
+			radLocked: true,
+			priceBase: 100e21,
+			radLevel: 0,
+			radSpent: 0,
+			tooltip: "Smithies grant an additional 1% stats per Perk level.",
+			specialGrowth: 4
+		},
+		Expansion: {
+			radLocked: true,
+			priceBase: 100e21,
+			radLevel: 0,
+			radSpent: 0,
+			tooltip: "Expanding Tauntimps grant an extra 0.01% Housing per Perk level.",
+			specialGrowth: 3
 		}
 	},
 	c2: {
@@ -3239,7 +3291,8 @@ var toReturn = {
 		Quest: 0,
 		Storm: 0,
 		Berserk:0,
-		Glass: 0
+		Glass: 0,
+		Smithless: 0
 	},
 	challenges: {
 		Daily: {
@@ -4016,8 +4069,8 @@ var toReturn = {
 		},
 		//U2 Challenges
 		Unlucky: {
-			description: "Your Trimps will never get far in this harsh Universe without learning how to control their luck. Tweak your Portal to bring you to a an alternate reality where your Trimps' minimum damage will be drastically lower, but their high end damage will be considerably higher. Each time your Trimps attack, 5 alternate timelines will open up. If the first digit of your Trimps' minimum attack is even, the timeline where your Trimps did the most damage will become reality. If the first digit is odd, the timeline where your Trimps did the least amount of damage will instead become reality. Clearing the <b>暴怒维度地图(区域15)</b> will complete this Challenge!",
-			squaredDescription: "Tweak your Portal to bring you to a an alternate reality where your Trimps' minimum damage will be drastically lower, but their high end damage will be considerably higher. Each time your Trimps attack, 5 alternate timelines will open up. If the first digit of your Trimps' minimum attack is even, the timeline where your Trimps did the most damage will become reality. If the first digit is odd, the timeline where your Trimps did the least amount of damage will instead become reality.",
+			description: "Your Trimps will never get far in this harsh Universe without learning how to control their luck. Tweak your Portal to bring you to an alternate reality where your Trimps' minimum damage will be drastically lower, but their high end damage will be considerably higher. Each time your Trimps attack, 5 alternate timelines will open up. If the first digit of your Trimps' minimum attack is even, the timeline where your Trimps did the most damage will become reality. If the first digit is odd, the timeline where your Trimps did the least amount of damage will instead become reality. Clearing the <b>暴怒维度地图(区域15)</b> will complete this Challenge!",
+			squaredDescription: "Tweak your Portal to bring you to an alternate reality where your Trimps' minimum damage will be drastically lower, but their high end damage will be considerably higher. Each time your Trimps attack, 5 alternate timelines will open up. If the first digit of your Trimps' minimum attack is even, the timeline where your Trimps did the most damage will become reality. If the first digit is odd, the timeline where your Trimps did the least amount of damage will instead become reality.",
 			filter: function () {
 				return (getHighestLevelCleared(true) >= 14);
 			},
@@ -4107,8 +4160,8 @@ var toReturn = {
 			unlockString: "到达区域25"
 		},
 		Unbalance: {
-			description: "Your scientists have discovered a new chaotic dimension! All enemies have 50% more attack, enemies in world have 100% more health, and enemies in maps have 200% more health. Starting at Zone 6, every time an enemy in the world is slain you will gain a stack of 'Unbalance'. Every time an enemy in a map is slain, you will lose a stack of Unbalance. Each stack of Unbalance reduces your attack by 1%, but increases your Trimps' gathering speed by 1%. Unbalance can stack to 500. Clearing <b>区域35</b> will complete this Challenge!",
-			squaredDescription: "Travel to a fun chaotic dimension! All enemies have 50% more attack, enemies in world have 100% more health, and enemies in maps have 200% more health. Starting at Zone 6, every time an enemy in the world is slain you will gain a stack of 'Unbalance'. Every time an enemy in a map is slain, you will lose a stack of Unbalance. Each stack of Unbalance reduces your attack by 1%, but increases your Trimps' gathering speed by 1%.",
+			description: "Your scientists have discovered a new chaotic dimension! All enemies have 50% more attack, enemies in maps have 100% more health, and enemies in world have 200% more health. Starting at Zone 6, every time an enemy in the world is slain you will gain a stack of 'Unbalance'. Every time an enemy in a map is slain, you will lose a stack of Unbalance. Each stack of Unbalance reduces your attack by 1%, but increases your Trimps' gathering speed by 1%. Unbalance can stack to 500. Clearing <b>Zone 35</b> will complete this Challenge!",
+			squaredDescription: "Travel to a fun chaotic dimension! All enemies have 50% more attack, enemies in maps have 100% more health, and enemies in world have 200% more health. Starting at Zone 6, every time an enemy in the world is slain you will gain a stack of 'Unbalance'. Every time an enemy in a map is slain, you will lose a stack of Unbalance. Each stack of Unbalance reduces your attack by 1%, but increases your Trimps' gathering speed by 1%.",
 			completed: false,
 			blockU1: true,
 			allowU2: true,
@@ -4489,6 +4542,7 @@ var toReturn = {
 				if (this.stacks == 19) giveSingleAchieve("Close Call");
 				message("You have completed the Revenge challenge! Your world has been returned to normal, and you have unlocked the Hunger perk!", "Notices");
 				game.global.challengeActive = "";
+				this.abandon();
 				unlockPerk("Hunger");
 			},
 			onFail: function(){
@@ -5001,7 +5055,7 @@ var toReturn = {
 				return game.challenges.Storm.getDesc();
 			},
 			getDesc: function(forC3){
-				var text = "Travel to a dimension that storms year-round. Trimps gain Storm stacks after every attack, damaging them for " + prettify(this.alphaLoss * 100) + "% of their max hp per stack. Enemies gain Cloudy stacks after every attack. Every " + this.mutationThresh + " Cloudy particles causes a Stormcloud on that enemy, causing them to gain max hp and damage, and take extra damage from gamma bursts. Cloudy stacks stick around after bad guys die, and each new group of bad guys start with a Cloudy stack for each Stormcloud on the previous enemy. Cloudy stacks cannot accrue and Stormclouds have no effect in maps, but Trimps in maps have -0.05% attack per Cloudy stack on the enemy. Defeating an enemy in a map will remove 1 Cloudy stack.";
+				var text = "Travel to a dimension that storms year-round. Trimps gain Static stacks after every attack, damaging them for " + prettify(this.alphaLoss * 100) + "% of their max health per stack. Enemies gain Cloudy stacks after every attack. Every " + this.mutationThresh + " Cloudy stacks creates a Storm Cloud on that enemy, causing them to gain max health and damage but take extra damage from Gamma Bursts. When a Bad Guy dies, any Storm Clouds it had before dying are transferred to the next Bad Guy in the form of Cloudy stacks. In maps, Cloudy stacks cannot accrue and Storm Clouds have no effect, but Trimps have -0.05% attack per Cloudy stack on the enemy. Defeating an enemy in a map will remove 1 Cloudy stack."
 				if (!forC3) text += " Completing <b>区域105</b> with this Challenge active will return the Dimension to normal" + ((game.global.stormDone) ? "." : " and reward you with a brand new building to help with the weather!");
 				return text;
 			},
@@ -5039,7 +5093,7 @@ var toReturn = {
 					manageStacks(null, null, false, 'stormBetaStacks', null, null, true);
 				}
 				if (this.mutations > 0){
-					manageStacks('Stormcloud', this.mutations, false, 'stormMutationStacks', 'icomoon icon-lightning', this.stackTooltip('mutations'), false);
+					manageStacks('Storm Cloud', this.mutations, false, 'stormMutationStacks', 'icomoon icon-lightning', this.stackTooltip('mutations'), false);
 				}
 				else {
 					manageStacks(null, null, false, 'stormMutationStacks', null, null, true);
@@ -5047,8 +5101,8 @@ var toReturn = {
 			},
 			stackTooltip: function(type){
 				if (type == 'alpha') return "Your Trimps are taking " + prettify(this.alphaLoss * this.alpha * 100) + "% of their max health as damage after each attack.";
-				if (type == 'beta') return "This enemy is amassing clouds! For every " + this.mutationThresh + " Cloudy stacks, this enemy will gain 1 Stormcloud.";
-				if (type == 'mutations') return "This enemy is engulfed by the Storm! It has " + prettify((this.getHealthMult() - 1) * 100) + "% extra health, " + prettify((this.getAttackMult() - 1) * 100) + "% extra attack, and takes " + prettify((this.getGammaMult() - 1) * 100) + "% extra damage from Gamma Bursts.";
+				if (type == 'beta') return "This enemy is amassing clouds! For every " + this.mutationThresh + " Cloudy stacks, this enemy will gain 1 Storm Cloud.";
+				if (type == 'mutations') return "This enemy is engulfed by the Storm! It has " + prettify((this.getHealthMult() - 1) * 100) + "% extra health and " + prettify((this.getAttackMult() - 1) * 100) + "% extra attack, but it takes " + prettify((this.getGammaMult() - 1) * 100) + "% extra damage from Gamma Bursts.";
 			},
 			enemyAttacked: function(cell){
 				this.beta++;
@@ -5898,8 +5952,95 @@ var toReturn = {
 			crystalTooltip: function(){
 				return "Enemies gain a stack of Crystalized on reaching 10,000 Glass. " + prettify(this.reflectChance() * 100) + "% chance of reflecting an attack, and Health reduced by " + prettify((1 - this.healthMult()) * 100) + "%. Challenge will fail on reaching 10 Crystallized stacks. Enemies killed at or above World Level cause " + (2 + this.crystals) + " stacks of Glass to be removed.";
 			}
-			
 		},
+		Smithless: {
+			get description() {
+				return "Travel to a dimension that is severely lacking in skilled Metalworkers. While in this dimension, you'll be unable to construct your own Smithies! On the first cell of every 25th Zone is an Ubersmith with " + prettify(3e15) + "x Health, and Ubersmiths are always fast. After being attacked 10 times, the Ubersmith will transform back into a regular World enemy with normal health. However, your Trimps will gain 1 stack of Enhanced Armor if they removed 0.0001% of the Ubersmith's health, another stack for 1%, and a third stack if they kill the Ubersmith. Each stack of Enhanced Armor grants 25% (compounding) Health and Attack to your Trimps while they remain in the Universe. Completing <b>区域200</b> will return you to your normal dimension where you can once again construct Smithies.";
+			},
+			get squaredDescription() {
+				return "Travel to a dimension that is severely lacking in skilled Metalworkers. While in this dimension, you'll be unable to construct your own Smithies! On the first cell of every 25th Zone is an Ubersmith with " + prettify(3e15) + "x Health, and Ubersmiths are always fast. After being attacked 10 times, the Ubersmith will transform back into a regular World enemy with normal health. However, your Trimps will gain 1 stack of Enhanced Armor if they removed 0.0001% of the Ubersmith's health, another stack for 1%, and a third stack if they kill the Ubersmith. Each stack of Enhanced Armor grants 25% (compounding) Health and Attack to your Trimps while they remain in the Universe.";
+			},
+			filter: function () {
+				return (getHighestLevelCleared(true) >= 200);
+			},
+			blockU1: true,
+			allowU2: true,
+			allowSquared: true,
+			fireAbandon: true,
+			allowMesmer: true,
+			smithHeld: false,
+			ranMelting: false,
+			completeAfterZone: 200,
+			unlockString: "到达区域201",
+			fakeSmithies: 0,
+			uberAttacks: 0,
+			uberMult: 3e15,
+			getTrimpMult: function(){
+				return Math.pow(1.25, this.fakeSmithies);
+			},
+			abandon: function(){
+				if (this.smithHeld){
+					this.smithHeld = false;
+					unlockBuilding("Smithy");
+				}
+				if (this.ranMelting){
+					this.ranMelting = false;
+					game.mapUnlocks.SmithFree.fire();
+				}
+				manageStacks(null, null, true, 'smithlessArmorStacks', null, null, true);
+				manageStacks(null, null, false, 'ubersmithStacks', null, null, true);
+			},
+			onComplete: function(){
+				message("You have completed the Smithless Challenge! Your World has been returned to normal and you have unlocked the Smithology Perk!", "Notices");
+				game.global.challengeActive = "";
+				unlockPerk("Smithology");
+				this.abandon();
+			},
+			attackedUber: function(){
+				this.uberAttacks++;
+				if (this.uberAttacks >= 10){
+					var cell = getCurrentWorldCell();
+					if (!cell.ubersmith) return;
+					if (cell.failedUber) return;
+					var damageDone = 1 - (cell.health / cell.maxHealth);
+					damageDone *= 100;
+					var stacks = 0;
+					if (damageDone >= 0.0001) stacks++;
+					if (damageDone >= 1) stacks++;
+					if (damageDone >= 100) stacks++;
+					if (!game.global.mapsActive) this.addStacks(stacks);				
+					cell.failedUber = true;
+					cell.maxHealth /= this.uberMult;
+					if (cell.health > cell.maxHealth) cell.health = cell.maxHealth;
+				}
+				this.drawStacks();
+			},
+			onLoad: function(){
+				this.drawStacks();
+			},
+			drawStacks: function(hideSmith){
+				if (this.fakeSmithies > 0) manageStacks('Enhanced Armor', this.fakeSmithies, true, 'smithlessArmorStacks', 'icomoon icon-resize3', this.armorTooltip(), false, true);
+				if (!hideSmith && game.global.world % 25 == 0 && !game.global.mapsActive && game.global.lastClearedCell == -1 && this.uberAttacks < 10){
+					var attacksLeft = 10 - this.uberAttacks;
+					manageStacks('Ubersmith', attacksLeft, false, 'ubersmithStacks', 'icomoon icon-hammer', this.ubersmithTooltip(), false, true);
+				}
+				else manageStacks(null, null, false, 'ubersmithStacks', null, null, true);
+			},
+			ubersmithTooltip: function(){
+				return "Deal as much damage as possible to this Ubersmith in only 10 attacks! When these stacks reach 0, the Ubersmith will lose its power and grant Enhanced Armor based on how much damage it took. Ubersmiths are always fast!";
+			},
+			armorTooltip: function(){
+				return "Your Trimps currently have " + this.fakeSmithies + " total stack" + needAnS(this.fakeSmithies) + " of Enhanced Armor, increasing their Attack and Health by " + prettify((this.getTrimpMult() - 1) * 100) + "%.";
+			},
+			addStacks: function(count){
+				this.fakeSmithies += count;
+				var maxPossible = Math.floor(game.global.world / 25) * 3;
+				if (this.fakeSmithies > maxPossible) this.fakeSmithies = maxPossible;
+				message("Your Trimps gained " + count + " stack" + needAnS(count) + " of Enhanced Armor from that Ubersmith. Your Trimps now have " + this.fakeSmithies + " total stack" + needAnS(this.fakeSmithies) + ".", "Notices");
+				this.drawStacks(true);
+			},
+			unlocks: "Smithology"
+		}
 	},
 	stats:{
 		trimpsKilled: {
@@ -6246,7 +6387,7 @@ var toReturn = {
 		},
 		fluffyExpHour: {
 			get title() { 
-				return "本周目" + Fluffy.getName() + "经验/小时"
+				return "本周目" + Fluffy.getName() + "经验值/小时"
 			},
 			display: function () {
 				return (Fluffy.getBestExpStat().value > 0);
@@ -6260,7 +6401,7 @@ var toReturn = {
 		},
 		bestFluffyExpHourThisRun: {
 			get title(){
-				return "本周目最高" + Fluffy.getName() + "经验/小时"
+				return "本周目最高" + Fluffy.getName() + "经验值/小时"
 			},
 			display: function () {
 				return (this.storedValue > 0);
@@ -6395,6 +6536,22 @@ var toReturn = {
 			display: function(){
 				return (game.global.highestRadonLevelCleared >= 74);
 			}
+		},
+		runetrinkets: {
+			title: "Runetrinkets Collected",
+			value: 0,
+			valueTotal: 0,
+			display: function(){
+				return (game.portal.Observation.radLocked == false);
+			}
+		},
+		mutatedSeeds: {
+			title: "Mutated Seeds Collected",
+			value: 0,
+			valueTotal: 0,
+			display: function(){
+				return (game.global.highestRadonLevelCleared >= 200);
+			}
 		}
 	},
 	generatorUpgrades: {
@@ -6524,9 +6681,9 @@ var toReturn = {
 				return "最高为" + game.global.highestLevelCleared;
 			},
 			evaluate: function () { return game.global.highestLevelCleared},
-			breakpoints: [2, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240, 250, 260, 270, 280, 290, 300, 350, 400, 450, 500],
-			tiers: [1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 8, 8, 8, 8],
-			names: ["This is Easy", "Blimp Slayer", "Groundbreaker", "The Beginning", "Determined", "Professor", "Trimp Aficionado", "Slayer of Planets", "Motivated", "Electric", "Stronk", "Endurance", "Unwavering", "Coordinated", "Resolved", "Steadfast", "Grit", "Perseverance", "Persistence", "Tenacity", "The Instigator", "The Destroyer", "The Eradicator", "The Exterminator", "Heat Maker", "Heat Hater", "Heat Breaker", "Heat Slayer", "Heat Expert", "Heat Bender", "Volcanic", "Magma Master", "Acre of Nature", "Aspirer", "Insane", "Spire Master"],
+			breakpoints: [2, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240, 250, 260, 270, 280, 290, 300, 325, 350, 375, 400, 425, 450, 475, 500, 525, 550, 600, 650, 700, 750, 800, 809],
+			tiers: [1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 9, 9, 9, 10, 11, 12],
+			names: ["This is Easy", "Blimp Slayer", "Groundbreaker", "The Beginning", "Determined", "Professor", "Trimp Aficionado", "Slayer of Planets", "Motivated", "Electric", "Stronk", "Endurance", "Unwavering", "Coordinated", "Resolved", "Steadfast", "Grit", "Perseverance", "Persistence", "Tenacity", "The Instigator", "The Destroyer", "The Eradicator", "The Exterminator", "Heat Maker", "Heat Hater", "Heat Breaker", "Heat Slayer", "Heat Expert", "Heat Bender", "Volcanic", "Magma Master", "Zone Shredder", "Acre of Nature", "Natural Clearer", "Aspirer", "Trailblazer", "Insane", "Sightseer", "Spire Master", "Globalist", "World Leader", "Experienced", "Trimptrotter", "Echo Eradicator", "Obsidian Obliterator", "Master of Universes", "The Chosen One"],
 			icon: "icomoon icon-compass2",
 			newStuff: [],
 		},
@@ -6612,7 +6769,7 @@ var toReturn = {
 				if (this.breakpoints.length > this.finished) return this.evaluate() + " / " + this.breakpoints[this.finished];
 				return "一共传送了" + this.evaluate() + "次";
 			},
-			evaluate: function () { return game.global.totalPortals},
+			evaluate: function () { return game.global.totalPortals + game.global.totalRadPortals},
 			breakpoints: [1, 3, 10, 20, 50, 100, 200, 500],
 			tiers: [1, 2, 2, 2, 3, 3, 4, 4],
 			names: ["A Trimp Through Time", "When The Wild Things Are", "A Time Like No Other", "Venti Timeachino", "Time of Your Life", "Centennial Trimper", "Amnesia", "Dedicated Traveller"],
@@ -6765,9 +6922,9 @@ var toReturn = {
 			evaluate: function () {
 				return game.stats.gemsCollected.value + game.stats.gemsCollected.valueTotal;
 			},
-			breakpoints: [1, 1e+9, 1e+21, 1e+30, 1e+39, 1e+48],//total gems according to statistics
-			tiers: [1, 2, 3, 4, 5, 6],
-			names: ["What's This For?", "Collector of Shinies", "Dragimp Lover", "Expert of Shinies", "Jeweller", "Gemaster"],
+			breakpoints: [1, 1e+9, 1e+21, 1e+30, 1e+39, 1e+48, 1e57],//total gems according to statistics
+			tiers: [1, 2, 3, 4, 5, 6, 7],
+			names: ["What's This For?", "Collector of Shinies", "Dragimp Lover", "Expert of Shinies", "Jeweller", "Gemaster", "Gemazing"],
 			icon: "icomoon icon-diamond",
 			newStuff: []
 		},
@@ -6785,12 +6942,12 @@ var toReturn = {
 				if (this.breakpoints.length > this.finished) return prettify(this.evaluate()) + " / " + prettify(this.breakpoints[this.finished]);
 				return "一共获取了" + prettify(this.evaluate());
 			},
-			breakpoints: [5e5, 1e6, 5e6, 2.5e7, 2e9, 1e12, 1e15, 1e21],
+			breakpoints: [5e5, 1e6, 5e6, 2.5e7, 2e9, 1e12, 1e15, 1e21, 1e24],
 			display: function () {
 				return (game.global.highestLevelCleared >= 99);
 			},
-			tiers: [3, 4, 5, 6, 7, 8, 8, 9],
-			names: ["Daytermined", "Daydicated", "Daystiny", "Daylighted", "Daystroyer", "Daylusional", "Dayrailed", "Daypocalyptic"],
+			tiers: [3, 4, 5, 6, 7, 8, 8, 9, 10],
+			names: ["Daytermined", "Daydicated", "Daystiny", "Daylighted", "Daystroyer", "Daylusional", "Dayrailed", "Daypocalyptic", "Dayliverance"],
 			icon: "icomoon icon-sun",
 			newStuff: []
 		},
@@ -6877,6 +7034,29 @@ var toReturn = {
 			tiers: [11, 11, 11, 11, 12, 12, 12, 13, 13, 13, 14, 14],
 			names: ["Crumb of Comfort", "Common Comfort", "Controlled Comfort", "Certain Comfort", "Copious Comfort", "Critical Comfort", "Cosmic Comfort", "Colossal Comfort", "Ceaseless Comfort", "Complete Comfort", "Couple-Cent Comfort", "Crazy Comfort"],
 			icon: "icomoon icon-shield2",
+			newStuff: []
+		},
+		mutatedSeeds: {
+			finished: 0,
+			title: "Mutated Seed Collection",
+			description: function(number){
+				var number = this.breakpoints[number];
+				return "收集" + prettify(number) + "突变之种";
+			},
+			evaluate: function(){
+				return (game.stats.mutatedSeeds.value + game.stats.mutatedSeeds.valueTotal);
+			},
+			progress: function () {
+				if (this.breakpoints.length > this.finished) return prettify(this.evaluate()) + " / " + prettify(this.breakpoints[this.finished]);
+				return "一共收集了" + prettify(this.evaluate());
+			},
+			breakpoints: [5000, 1e5, 1e6, 5e7, 2.5e9],
+			display: function () {
+				return (game.global.highestRadonLevelCleared >= 200);
+			},
+			tiers: [13, 13, 14, 14, 14],
+			names: ["Seed Securer", "Seed Sower", "Seed Studier", "Seed Specialist", "Seed Savior"],
+			icon: "icomoon icon-grid2",
 			newStuff: []
 		},
 		blockTimed: {
@@ -7203,6 +7383,60 @@ var toReturn = {
 			icon: "icomoon icon-alarmclock",
 			newStuff: []
 		},
+		spire6Timed: {
+			finished: 0,
+			title: "Speed: Spire VI",
+			description: function (number) {
+				number = formatMinutesForDescriptions(this.breakpoints[number]);
+				return "本周目在" + number + "内通过尖塔 VI";
+			},
+			display: function () {
+				return (game.global.highestLevelCleared >= 669);
+			}, 
+			evaluate: function () {
+				return getMinutesThisPortal();
+			},
+			progress: function () {
+				return "最快为" + formatMinutesForDescriptions(this.highest);
+			},
+			u: 1,
+			highest: 0,
+			reverse: true,
+			timed: true,
+			showAll: true,
+			breakpoints: [1440, 480, 120, 45, 25],
+			tiers: [10, 11, 12, 12, 12],
+			names: ["naVIgator", "diVIne", "thriVIng", "leVItator", "relatiVIstic"],
+			icon: "icomoon icon-alarmclock",
+			newStuff: []
+		},
+		spire7Timed: {
+			finished: 0,
+			title: "Speed: Spire VII",
+			description: function (number) {
+				number = formatMinutesForDescriptions(this.breakpoints[number]);
+				return "本周目在" + number + "内通过尖塔 VII";
+			},
+			display: function () {
+				return (game.global.highestLevelCleared >= 769);
+			}, 
+			evaluate: function () {
+				return getMinutesThisPortal();
+			},
+			progress: function () {
+				return "最快为" + formatMinutesForDescriptions(this.highest);
+			},
+			u: 1,
+			highest: 0,
+			reverse: true,
+			timed: true,
+			showAll: true,
+			breakpoints: [3840, 480, 120, 42],
+			tiers: [12, 12, 13, 13],
+			names: ["World Wall", "Reality Rider", "Destructive Destiny", "Cosmic Collapser"],
+			icon: "icomoon icon-alarmclock",
+			newStuff: []
+		},
 		bigWallTimed: {
 			finished: 0,
 			title: "U2 Speed: Big Wall",
@@ -7316,7 +7550,7 @@ var toReturn = {
 			finished: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
 			title: "Feats",
 			get descriptions () {
-				return ["Complete the Dimension of Anger before buying Bounty", "Reach Z30 with no respec and 60 or less He spent", "Have over " + prettify(1e6) + " traps at once", "Die 50 times to a single Voidsnimp", "Beat Balance, never having more than 100 stacks", "Reach Zone 10 with 5 or fewer dead Trimps", "Reach exactly 1337 He/Hr", "Attack 20 times without dying in Electricity", "Create a perfect Map", "Use up all 7 Daily Challenges", "Equip a magnificent or better Staff and Shield", "Reach Z60 with 1000 or fewer dead Trimps", "Reach Z120 without using manual research", "Reach Z75 without buying any housing", "Find an uncommon heirloom at Z146 or higher", "Spend over " + prettify(250e3) + " total He on Wormholes", "Reach Z60 with rank III or lower equipment", "Kill an Improbability in one hit", "Beat a Lv 60+ Destructive Void Map with no deaths", "在到达区域5后未受到过敌人暴击的前提下，完成粉碎挑战", "Kill an enemy with 100 stacks of Nom", "Break the Planet with 5 or fewer lost battles", "Reach Z60 without hiring a single Trimp", "Complete a Zone above 99 without falling below 150 stacks on Life", "Spend at least 10 minutes breeding an army with Geneticists", "Beat Toxicity, never having more than 400 stacks", "Own 100 of all housing buildings", "在到达区域60前，超杀世界上的每个格子", "Complete Watch without entering maps or buying Nurseries", "Complete Lead with 100 or fewer lost battles", "Build your 10th Spire Floor", "Kill " + prettify(1e6) + " enemies in your Spire", "Equip a Magmatic Staff and Shield", "让世界上一名敌人的攻击力低于1", "Complete Lead with 1 or fewer Gigastations", "Complete Corrupted without Geneticists", "Complete a Void Map at Z215 on Domination", "Complete The Spire with 0 deaths", "Overkill an Omnipotrimp", "Defeat a Healthy enemy with 200 stacks of wind", "Build up a Poison debuff that's 1000x higher than your attack", "使挑战<sup>2</sup>的加成达到2000%", "Complete a Bionic Wonderland map 45 levels higher than your Zone number", "Beat the Spire with no respec and " + prettify(100e6) + " or less He Spent", "Defeat an enemy on Obliterated", "在区域1获得一个合并者", "Get 10 Red Crits in a row", "Beat Z75 on the Scientist V challenge", "Gain at least 01189998819991197253 He from one Bone Portal", "Kill an Enemy on Eradicated", "Complete Spire V with no deaths", "Build your 20th Spire Floor", "Complete a Bionic Wonderland map 200 levels higher than your Zone number", "Complete Spire II on the Coordinate challenge", "Beat Spire II with no respec and " + prettify(1e9) + " or less He spent", "Beat Imploding Star on Obliterated", "Close 750 Nurseries at the same time", "Earn Dark Essence with no respec and 0 He spent", "Reach Magma on Obliterated", "Break the Planet on Eradicated"];
+				return ["Complete the Dimension of Anger before buying Bounty", "Reach Z30 with no respec and 60 or less He spent", "Have over " + prettify(1e6) + " traps at once", "Die 50 times to a single Voidsnimp", "Beat Balance, never having more than 100 stacks", "Reach Zone 10 with 5 or fewer dead Trimps", "Reach exactly 1337 He/Hr", "Attack 20 times without dying in Electricity", "Create a perfect Map", "Use up all 7 Daily Challenges", "Equip a magnificent or better Staff and Shield", "Reach Z60 with 1000 or fewer dead Trimps", "Reach Z120 without using manual research", "Reach Z75 without buying any housing", "Find a Common heirloom at Z146 or higher", "Spend over " + prettify(250e3) + " total He on Wormholes", "Reach Z60 with rank III or lower equipment", "Kill an Improbability in one hit", "Beat a Lv 60+ Destructive Void Map with no deaths", "在到达区域5后未受到过敌人暴击的前提下，完成粉碎挑战", "Kill an enemy with 100 stacks of Nom", "Break the Planet with 5 or fewer lost battles", "Reach Z60 without hiring a single Trimp", "Complete a Zone above 99 without falling below 150 stacks on Life", "Spend at least 10 minutes breeding an army with Geneticists", "Beat Toxicity, never having more than 400 stacks", "Own 100 of all housing buildings", "在到达区域60前，超杀世界上的每个格子", "Complete Watch without entering maps or buying Nurseries", "Complete Lead with 100 or fewer lost battles", "Build your 10th Spire Floor", "Kill " + prettify(500e3) + " enemies in your Spire", "Equip a Magmatic Staff and Shield", "让世界上一名敌人的攻击力低于1", "Complete Lead with 1 or fewer Gigastations", "Complete Corrupted without Geneticists", "Complete a Void Map at Z215 on Domination", "Complete The Spire with 0 deaths", "Overkill an Omnipotrimp", "Defeat a Healthy enemy with 200 stacks of wind", "Build up a Poison debuff that's 1000x higher than your attack", "使挑战<sup>2</sup>的加成达到2000%", "Complete a Bionic Wonderland map 45 levels higher than your Zone number", "Beat the Spire with no respec and " + prettify(100e6) + " or less He Spent", "Defeat an enemy on Obliterated", "在区域1获得一个合并者", "Get 10 Red Crits in a row", "Beat Z75 on the Scientist V challenge", "Gain at least 01189998819991197253 He from one Bone Portal", "Kill an Enemy on Eradicated", "Complete Spire V with no deaths", "Build your 20th Spire Floor", "Complete a Bionic Wonderland map 200 levels higher than your Zone number", "Complete Spire II on the Coordinate challenge", "Beat Spire II with no respec and " + prettify(1e9) + " or less He spent", "Beat Imploding Star on Obliterated", "Close 750 Nurseries at the same time", "Earn Dark Essence with no respec and 0 He spent", "Reach Magma on Obliterated", "Break the Planet on Eradicated"];
 			},
 			tiers: [2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 9, 9, 9, 9, 9, 9, 9, 9],
 			description: function (number) {
@@ -7332,24 +7566,24 @@ var toReturn = {
 		},
 		oneOffs2: {
 			//Turns out this method of handling the feats does NOT scale well... adding stuff to the middle is a nightmare. Yet I copy/pasted it again for Universe 2 and probably will do the same for U3. Oh well.
-			finished: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+			finished: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
 			title: "U2 Feats",
 			display: function(){
 				return (Fluffy.checkU2Allowed());
 			},
 			get descriptions () {
-				return ["Reach exactly 1337 Rn/Hr", "One-shot a Dimension of Rage enemy on Unlucky while Unlucky", "Complete Downsize with an equal amount of Huts, Houses, Mansions, Hotels and Resorts", "Complete Transmute without hiring a single Trimp", "Complete Unbalance with 500 stacks of Unbalance", "Complete Bublé without using Prismal or respeccing Perks", "Complete Duel without ever falling below 20 points", "Complete Melt without ever having more than 150 stacks", "在到达区域50后未使用过陷阱的前提下，完成捕手道达人挑战。", "Complete Wither with " + prettify(10000) + " stacks of Hardened", "Reach a session score of 100-0 at L5+ in SA", "Kill a L20+ SA Enemy without Shock, Bleed or Poison", "Complete Revenge with exactly 19 stacks", "Complete 80/80 quests on Quest", "Complete Archaeology without ever having more than 0 of one Relic", "Complete Storm without ever encountering a Stormcloud", "在从未运行过高于等级50的地图，且拥有500层失智的前提下，完成失智挑战。", "在到达区域100前，至少拥有20层虚弱，然后完成狂战挑战。", "Reach 100 Swarm Stacks by Z120 then complete Exterminate", "Reach L19 Cruffys by Z70 then complete Nurture", "Collect 7500 Runetrinkets", "Complete all 25 Mayhems", "Complete a Z155 Void Map with 10 Gas Brews and 0 Void Pots", "Complete Hypothermia with at least 400 Embers", "Complete Glass without ever having more than 2 stacks"];
+				return ["Reach exactly 1337 Rn/Hr", "One-shot a Dimension of Rage enemy on Unlucky while Unlucky", "Complete Downsize with an equal amount of Huts, Houses, Mansions, Hotels and Resorts", "Complete Transmute without hiring a single Trimp", "Complete Unbalance with 500 stacks of Unbalance", "Complete Bublé without using Prismal or respeccing Perks", "Complete Duel without ever falling below 20 points", "Complete Melt without ever having more than 150 stacks", "在到达区域50后未使用过陷阱的前提下，完成捕手道达人挑战。", "Complete Wither with " + prettify(10000) + " stacks of Hardened", "Reach a session score of 100-0 at L5+ in SA", "Kill a L20+ SA Enemy without Shock, Bleed or Poison", "Complete Revenge with exactly 19 stacks", "Complete 80/80 quests on Quest", "Complete Archaeology without ever having more than 0 of one Relic", "Complete Storm without ever encountering a Stormcloud", "在从未运行过高于等级50的地图，且拥有500层失智的前提下，完成失智挑战。", "在到达区域100前，至少拥有20层虚弱，然后完成狂战挑战。", "Reach 100 Swarm Stacks before Z120 then complete Exterminate", "Reach L19 Cruffys by Z70 then complete Nurture", "Collect 7500 Runetrinkets", "Complete all 25 Mayhems", "Complete a Z155 Void Map with 10 Gas Brews and 0 Void Pots", "Complete Hypothermia with at least 400 Embers", "Complete Glass without ever having more than 2 stacks", "Beat a level 100 SA Enemy", "Kill a Bad Guy with two different Mutations"];
 			},
-			tiers: [10,10,10,11,11,11,11,11,12,12,12,12,12,12,12,13,13,13,13,13,13,13,13,14,14],
+			tiers: [10,10,10,11,11,11,11,11,12,12,12,12,12,12,12,13,13,13,13,13,13,13,13,14,14,14,14],
 			description: function (number) {
 				return this.descriptions[number];
 			},
-			filters: [-1,14,19,24,34,39,44,49,59,69,75,75,79,84,94,104,109,114,119,135,135,100,150,175,175],
+			filters: [-1,14,19,24,34,39,44,49,59,69,75,75,79,84,89,104,109,114,119,135,135,100,150,175,175,225,245],
 			filterLevel: function(){
 				return game.global.highestRadonLevelCleared;
 			},
 			icon: "glyphicon glyphicon-flag",
-			names: ["Eliter Feat", "Don't Need Luck", "Perfectly Balanced", "Resourceyphobe", "Upsized", "Unpoppable", "Pwnd", "Solid", "Coastapalooza", "Witherproof", "Huffstle", "Just Smack It", "Close Call", "Level Up", "Unassisted", "Clear Skies", "Actually Insane", "You're Doing it Wrong", "The Tortoise and the Bugs", "Nurtured AF", "Heavy Trinker", "Peace", "Mad Scientist", "Burn Baby Burn", "Unbreakable"],
+			names: ["Eliter Feat", "Don't Need Luck", "Perfectly Balanced", "Resourceyphobe", "Upsized", "Unpoppable", "Pwnd", "Solid", "Coastapalooza", "Witherproof", "Huffstle", "Just Smack It", "Close Call", "Level Up", "Unassisted", "Clear Skies", "Actually Insane", "You're Doing it Wrong", "The Tortoise and the Bugs", "Nurtured AF", "Heavy Trinker", "Peace", "Mad Scientist", "Burn Baby Burn", "Unbreakable", "Heroic Huffy", "Double Trouble"],
 			newStuff: []
 		},
 	},
@@ -7363,9 +7597,9 @@ var toReturn = {
 		},
 		slots: [1,2,3,3,3,4,4,5,5,6,6,7],
 		defaultSteps: [[3, 6, 1], [3, 6, 1], [3, 6, 1], [6, 12, 1], [16, 40, 2], [32, 80, 4], [64, 160, 8], [128, 320, 16], [256, 640, 32], [512, 1280, 64], [1024, 2560, 128], [2048, 5120, 256]],
-		rarityNames: ['Common', 'Uncommon', 'Rare', 'Epic', 'Legendary', 'Magnificent', 'Ethereal', 'Magmatic', 'Plagued', 'Radiating', 'Hazardous', 'Enigmatic'],
-		rarities:[[5000,3500,1500],[1000,5000,4000],[-1,3500,5000,1500],[-1,2000,4000,4000],[-1,1500,3000,5000,500],[-1,800,2000,6000,1000,200],[-1,400,1000,7000,1000,500,100],[-1,200,500,6000,2200,800,300],[-1,-1,-1,5000,3000,1700,300],[-1,-1,-1,2500,5000,2000,500],[-1,-1,-1,-1,7000,2400,500,100],[-1,-1,-1,-1,6000,3170,680,150],[-1,-1,-1,-1,3000,5000,1650,350],[-1,-1,-1,-1,-1,4500,3000,2000,500],[-1,-1,-1,-1,-1,1500,2000,5000,1500],[-1,-1,-1,-1,-1,-1,1000,6000,3000],[-1,-1,-1,-1,-1,-1,-1,-1,7500,2500],[-1,-1,-1,-1,-1,-1,-1,-1,5000,5000],[-1,-1,-1,-1,-1,-1,-1,-1,-1,10000],[-1,-1,-1,-1,-1,-1,-1,-1,-1,8500,1500],[-1,-1,-1,-1,-1,-1,-1,-1,-1,7000,3000],[-1,-1,-1,-1,-1,-1,-1,-1,-1,3000,7000],[-1,-1,-1,-1,-1,-1,-1,-1,-1,1000,8500,500],[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,9000,1000],[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,7000,3000]],
-		rarityBreakpoints:[41,60,80,100,125,146,166,181,201,230,300,400,500,600,700,1,40,80,100,135,175,200,225,250],
+		rarityNames: ['Basic', 'Common', 'Rare', 'Epic', 'Legendary', 'Magnificent', 'Ethereal', 'Magmatic', 'Plagued', 'Radiating', 'Hazardous', 'Enigmatic'],
+		rarities:[[-1,6000,4000],[-1,5000,5000],[-1,2500,5500,2000],[-1,2000,4000,4000],[-1,1500,3000,5000,500],[-1,800,2000,6000,1000,200],[-1,400,1000,7000,1000,500,100],[-1,200,500,6000,2200,800,300],[-1,-1,-1,5000,3000,1700,300],[-1,-1,-1,2500,5000,2000,500],[-1,-1,-1,-1,7000,2400,500,100],[-1,-1,-1,-1,6000,3170,680,150],[-1,-1,-1,-1,3000,5000,1650,350],[-1,-1,-1,-1,-1,4500,3000,2000,500],[-1,-1,-1,-1,-1,1500,2000,5000,1500],[-1,-1,-1,-1,-1,-1,1000,6000,3000],[-1,-1,-1,-1,-1,-1,-1,-1,7500,2500],[-1,-1,-1,-1,-1,-1,-1,-1,5000,5000],[-1,-1,-1,-1,-1,-1,-1,-1,-1,10000],[-1,-1,-1,-1,-1,-1,-1,-1,-1,8500,1500],[-1,-1,-1,-1,-1,-1,-1,-1,-1,7000,3000],[-1,-1,-1,-1,-1,-1,-1,-1,-1,3000,7000],[-1,-1,-1,-1,-1,-1,-1,-1,-1,1000,8500,500],[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,9000,1000],[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,7000,3000],[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,5000,5000]],
+		rarityBreakpoints:[41,60,80,100,125,146,166,181,201,230,300,400,500,600,700,1,40,80,100,135,175,200,225,250,275],
 		universeBreakpoints: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2],
 		priceIncrease: [1.5, 1.5, 1.25, 1.19, 1.15, 1.12, 1.1, 1.06, 1.04, 1.03, 1.02, 1.015],
 		canReplaceMods: [true, true, true, true, true, true, true, true, false, false, false, false],
@@ -7381,7 +7615,7 @@ var toReturn = {
 				steps: [-1,[10,25,1],[10,25,1],[25,50,1],[50,100,2],[100,199,3],[200,400,4]]
 			},
 			lightningTrap: {
-				name: "闪电陷阱伤害",
+				name: "闪电陷阱效果",
 				currentBonus: 0,
 				steps: [-1,-1,[1,10,1],[10,20,1],[20,50,2],[50,100,2],[100,199,3]],
 				specialDescription: function (modifier) {
@@ -7623,6 +7857,7 @@ var toReturn = {
 				num *= this.maxMod;
 				if (getPerkLevel("Carpentry") > 0) num = Math.floor(num * (Math.pow(1 + game.portal.Carpentry.modifier, getPerkLevel("Carpentry"))));
 				if (getPerkLevel("Carpentry_II") > 0) num = Math.floor(num * (1 + (game.portal.Carpentry_II.modifier * getPerkLevel("Carpentry_II"))));
+				if (game.global.expandingTauntimp) num = Math.floor(num * game.badGuys.Tauntimp.expandingMult());
 				num = Math.floor(num * alchObj.getPotionEffect("Elixir of Crafting"));
 				if (autoBattle.bonuses.Scaffolding.level > 0) num = Math.floor(num * autoBattle.bonuses.Scaffolding.getMult());
 				return num;
@@ -8819,28 +9054,44 @@ var toReturn = {
 			attack: 1,
 			health: 1,
 			fast: false,
-			dropDesc: "使脆皮上限额外增加当前数量的0.3%",
+			get dropDesc(){
+				if (game.global.expandingTauntimp) return "使脆皮上限增加" + prettify(this.expandingBase() * 100) + "%"
+				return "使脆皮上限额外增加当前数量的0.3%"
+			},
 			loot: function (level, fromMagimp) {
 				var name = (fromMagimp) ? "脆皮百变怪" : "脆皮咚咚";
-				var amt = Math.ceil(game.resources.trimps.max * 0.003);
-				if (game.global.challengeActive == "Downsize"){
-					amt = game.global.totalGifts + game.unlocks.impCount.TauntimpAdded + 10;
-					amt += countTotalHousingBuildings();
-					amt = Math.ceil(amt * 0.003);
-				}
 				game.unlocks.impCount.Tauntimp++;
-				game.unlocks.impCount.TauntimpAdded += amt;
-				amt = (game.global.challengeActive == "Trapper" || game.global.challengeActive == "Trappapalooza") ? addMaxHousing(amt, false) : addMaxHousing(amt, true);
-				var msg = "死去的" + name + "体内环境舒适，温暖，而且宽敞。";
-				if (game.global.challengeActive != "Trapper" && game.global.challengeActive != "Trappapalooza"){
-					msg += "您在里面发现了";
-					if (amt == 1) msg += prettify(amt) + "个脆皮，看起来很无聊。";
-					else msg += prettify(amt) + "个脆皮，它们看起来很乐意继续在里面生活下去！";
-					message(msg, "Loot", "gift", "exotic", "exotic");
+				if (game.global.expandingTauntimp){
+					message("您发现了一只拓展脆皮咚咚！它使脆皮上限增加" + prettify((this.expandingMult() - 1) * 100) + "%。", "Loot", "gift", "exotic", "exotic");
 				}
-				else {
-					message(msg + "里面可以住下" + prettify(amt) + "个脆皮" + ((amt == 1) ? "，不过这样它会很孤单。" : "！"), "Loot", "gift", "exotic", "exotic");
+				else{
+					var amt = Math.ceil(game.resources.trimps.max * 0.003);
+					if (game.global.challengeActive == "Downsize"){
+						amt = game.global.totalGifts + game.unlocks.impCount.TauntimpAdded + 10;
+						amt += countTotalHousingBuildings();
+						amt = Math.ceil(amt * 0.003);
+					}
+					game.unlocks.impCount.TauntimpAdded += amt;
+					amt = (game.global.challengeActive == "Trapper" || game.global.challengeActive == "Trappapalooza") ? addMaxHousing(amt, false) : addMaxHousing(amt, true);
+					var msg = "死去的" + name + "体内环境舒适，温暖，而且宽敞。";
+					if (game.global.challengeActive != "Trapper" && game.global.challengeActive != "Trappapalooza"){
+						msg += "您在里面发现了";
+						if (amt == 1) msg += prettify(amt) + "个脆皮，看起来很无聊。";
+						else msg += prettify(amt) + "个脆皮，它们看起来很乐意继续在里面生活下去！";
+						message(msg, "Loot", "gift", "exotic", "exotic");
+					}
+					else {
+						message(msg + "里面可以住下" + prettify(amt) + "个脆皮" + ((amt == 1) ? "，不过这样它会很孤单。" : "！"), "Loot", "gift", "exotic", "exotic");
+					}
 				}
+			},
+			expandingBase: function(){
+				var mult = 0.003;
+				if (game.portal.Expansion.radLevel > 0) mult += (0.0001 * game.portal.Expansion.radLevel);
+				return mult;
+			},
+			expandingMult: function(){			
+				return Math.pow((this.expandingBase() + 1), game.unlocks.impCount.Tauntimp)
 			}
 		},
 		Whipimp: {
@@ -9207,7 +9458,7 @@ var toReturn = {
 			}
 		},
 		AutoStorage: {
-			world: 50,
+			world: 40,
 			level: "last",
 			icon: "*eye4",
 			title: "瑞兽",
@@ -9310,6 +9561,14 @@ var toReturn = {
 			canRunOnce: true,
 			fire: function(){
 				var toAdd = (autoBattle.oneTimers.Smithriffic.owned) ? 2 : 1; 
+				if (game.global.challengeActive == "Smithless"){
+					game.challenges.Smithless.ranMelting = true;
+					var text = (toAdd == 2) ? "These buildings are" : "This building is";
+					text += " completely useless right now! Maybe you'll be able to hire some Metalworkers eventually...";
+					message(text, "Notices");
+					return;
+				}
+				
 				game.buildings.Smithy.owned += toAdd;
 				game.buildings.Smithy.purchased += toAdd;
 				if (game.global.challengeActive == "Quest" && game.challenges.Quest.questId == 6) game.challenges.Quest.checkQuest();
@@ -10118,6 +10377,11 @@ var toReturn = {
 			icon: "book",
 			title: "铁匠铺",
 			fire: function(){
+				if (game.global.challengeActive == "Smithless"){
+					message("Well these plans certainly don't look useful in this Universe. Better put that away for later.", "Notices")
+					game.challenges.Smithless.smithHeld = true;
+					return;
+				}
 				unlockBuilding("Smithy");
 			}
 		},
@@ -11020,14 +11284,22 @@ var toReturn = {
 			craftTime: 120,
 			AP: true,
 			blockU1: true,
-			tooltip: "Build a Smithy to help produce better Equipment for your Trimps. Each Smithy in your village increases Trimp Attack and Health by 25% (compounding).",
+			get tooltip(){
+				var mult = Math.round((this.getBaseMult() - 1) * 100);
+				return "建造铁匠铺，帮助我方脆皮制造更好的装备。每个铁匠铺可以使脆皮的攻击力和生命值增加" + mult + "%(效果叠乘)。"
+			},
 			cost: {
 				get gems(){var exp = (Fluffy.isRewardActive('smithy')) ? 40 : 50; return [500, exp]},
 				get metal() {var exp = (Fluffy.isRewardActive('smithy')) ? 40 : 50; return [10000, exp]},
 				get wood(){var exp = (Fluffy.isRewardActive('smithy')) ? 40 : 50; return [5000, exp]}
 			},
+			getBaseMult: function(){
+				var mult = 1.25;
+				mult += (0.01 * getPerkLevel("Smithology"));
+				return mult;
+			},
 			getMult: function(){
-				return Math.pow(1.25, this.owned);
+				return Math.pow(this.getBaseMult(), this.owned);
 			},
 			fire: function(){
 				addSoldierHealth(0.25);
@@ -11058,7 +11330,7 @@ var toReturn = {
 			blockU2: true,
 			get tooltip () {
 				if (mutations.Magma.active())
-					return "<p>Magma is generally not conductive to a healthy Nursery environment. Each Nursery will still increase Trimps per second from breeding by 1% (compounding), but 10% of your active Nurseries will shut down each Zone as the Magma moves closer. Safety first!</p><p>您总共建造了" + prettify(this.purchased) + "个托儿所。</p>";
+					return "<p>Magma is generally not conducive to a healthy Nursery environment. Each Nursery will still increase Trimps per second from breeding by 1% (compounding), but 10% of your active Nurseries will shut down each Zone as the Magma moves closer. Safety first!</p><p>您总共建造了" + prettify(this.purchased) + "个托儿所。</p>";
 				return "Construct a gem-powered nursery, where baby Trimps can grow up faster. Increases Trimps per second from breeding by 1% (compounding).";
 
 			},
@@ -11075,6 +11347,7 @@ var toReturn = {
 			craftTime: 1000,
 			blockU1: true,
 			tooltip: function () {
+				if (game.buildings.Microchip.purchased == 5) return "Congratulations, you've purchased all 5 Microchips!";
 				var text = "Unlocks a" + ((game.buildings.Microchip.owned == 0) ? "" : "nother") + " Scientist level, upgrading your portal and <b>从现在起，传送到该宇宙后，您" + getScientistInfo(game.buildings.Microchip.purchased + 1, true) + "</b>.<br/><br/>Microchips attach directly to your Portal Device, and only ever have to be purchased once. Your Portal Device has room for 5 total Microchips."
 				return text;
 			},
@@ -11396,7 +11669,8 @@ var toReturn = {
 			blockU1: true,
 			allowAutoFire: true,
 			get tooltip(){
-				return "Worshippers always cost 25% of the total amount of Food gathered and looted from World or Maps in your previous 4 Zones (not including current Zone). Each Worshipper grants a 0.5% chance to grant 25-50% of an entire Zone worth of Scruffy Exp per World Cell cleared. However, 2 Worshippers will stop Worshipping after each Zone cleared. Max of 50."
+				var reduce = this.reduceCount();
+				return "崇信者的花费总是等于之前四个区域在世界或地图中食物获取总量的25%(不包括当前区域)。每通过一个格子，每个崇信者都有0.5%的概率使您获得整个区域污污经验值的25%至50%。每通过一个区域，将有" + reduce + "名崇信者离开。崇信者最高为50名。"
 			},
 			cost: {
 				get food(){return game.jobs.Worshipper.getCost()},
@@ -11411,9 +11685,15 @@ var toReturn = {
 				num *= 0.25;
 				return Math.max(num,1);
 			},
+			reduceCount: function(){
+				var reduce = 2;
+				if (u2Mutations.tree.Worship.purchased) reduce--;
+				return reduce;
+			},
 			onNextWorld: function(){
-				if (this.owned <= 2) this.owned = 0;
-				else this.owned -= 2;
+				var reduce = this.reduceCount();
+				if (this.owned <= reduce) this.owned = 0;
+				else this.owned -= reduce;
 			},
 			getXpChance: function(){
 				return this.owned * 0.5;
@@ -11792,7 +12072,7 @@ var toReturn = {
 		Rage: {
 			locked: 1,
 			allowed: 0,
-			tooltip: "Unsurprisingly, that Rage Gem you brought back has everyone up the walls. You should probably hurry up and figure out a way to extract the map from inside before your Scientists end up killing eachother.",
+			tooltip: "Unsurprisingly, that Rage Gem you brought back has everyone up the walls. You should probably hurry up and figure out a way to extract the map from inside before your Scientists end up killing each other.",
 			done: 0,
 			cost: {
 				resources: {
