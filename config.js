@@ -2455,7 +2455,7 @@ var toReturn = {
 		},
 		fluffyAbility: {
 			get description(){
-				return "" + Fluffy.getName() + "额外获得一个技能。效果类似于" + Fluffy.getName() + "多进化了一次，但并不增加" + Fluffy.getName() + "的伤害加成。";
+				return "" + Fluffy.getName() + "额外获得一个技能。效果类似于" + Fluffy.getName() + "多进化了一次，但并不增加" + Fluffy.getName() + "的攻击力加成。";
 			},
 			get name(){
 				var name = Fluffy.getName();

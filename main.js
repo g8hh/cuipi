@@ -7257,9 +7257,6 @@ function setHeirRareText(forBones, forMain){
 		if (rarityNames == "Common"){
 			rarityNames = "普通";
 		}
-		else if (rarityNames == "Uncommon"){
-			rarityNames = "罕见";
-		}
 		else if (rarityNames == "Rare"){
 			rarityNames = "稀有";
 		}
