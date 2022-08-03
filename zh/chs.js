@@ -5093,10 +5093,6 @@ var cnItems = {
     'Frenzy Calc': '计算战狂',
     'Adds frenzy to the calc. Be warned, it will not farm as much with this on as it expects 100% frenzy uptime. ': '将战狂效果纳入计算。请注意脚本将假设战狂一直生效，可能导致计算结果有出入。',
     'What zone to start calculating Mutations at. 0 to disable.': '开始计算突变的区域。设为0则关闭该选项。',
-    'Mute Attack': '突变攻击力',
-    'What kind of mutation attack to calculate for your H:D. The higher the multiplier you select here the more it will farm. Recommend half nova, as that will also calculate rage pretty well. Full nova can be used on certain runs if you need to farm a lot more. ': '用于计算命攻比的突变攻击力。加成倍率越高，就需要为命攻比而刷越多。建设设为半新星，它对暴怒敌人的计算拟合得也很好。全新星建议用于长时间刷突变之种。',
-    'x5 Half Nova': '5倍-半新星',
-    'x10 Full Nova': '10倍-全新星',
         //#endregion 战斗
         //#region 风层数叠加
     'Windstacking': '风层数叠加',
