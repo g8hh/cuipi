@@ -3871,7 +3871,7 @@ var cnItems = {
     'Mass Overkill': '超量超杀',
     'You can Overkill in U2 for an additional 10% of your Highest Zone (up to 50%).': '使超杀最高可以对区域数值等于最高区域50%的区域生效。',
     'Decompress': '解压',
-    'Compressed enemies gain 20% less attack and health from each cell they contain.': '压缩敌人的攻击力和生命值减少20%。',
+    'Compressed enemies gain 20% less attack and health from each cell they contain.': '压缩敌人从吃掉的格子中获得的攻击力和生命值减少20%。',
     'Max Overkill': '超杀上限',
     'When Overkilling in U2, you can Overkill +1 Cell.': '宇宙2中超杀格子的上限+1。',
     'Mazzy': '更多进图',
