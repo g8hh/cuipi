@@ -1042,6 +1042,17 @@ var cnItems = {
     'Novad': '新星',
     'Randomized': '乱数',
     'Compressed': '压缩',
+    'Ragvad': '暴怒新星',
+    'Ragized': '暴怒乱数',
+    'Ragpressed': '暴怒压缩',
+    'Novized': '新星乱数',
+    'Novpressed': '新星压缩',
+    'Randpressed': '乱数压缩',
+    'Ragovaized': '怒·星·乱数',
+    'Ragovapressed': '怒·星·压缩',
+    'Ragdompressed': '怒·乱·压缩',
+    'Novdompressed': '星·乱·压缩',
+    'Ragovadompressed': '怒·星·乱·压缩',
     //#endregion 敌人名称相关
     //#region 装备相关
     'Shield': '盾牌',
