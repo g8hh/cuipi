@@ -856,7 +856,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 			icons = ["grain", "apple", "tree-deciduous", "*cubes", "*diamond", "*lab-flask", "*key", "*hour-glass", "*flag", "*feather", "*edit"];
 		}
 		if (heirloom.type == "Core"){
-			icons = ["adjust", "*compass", "*cog", "*battery", "*adjust", "*cloud", "*yinyang"]
+			icons = ["adjust", "*compass", "*cog", "*battery", "*adjust", "*cloud", "*yingyang"]
 		}
 		for (var x = 0; x < icons.length; x++){
 			tooltipText += "<div class='heirloomChangeIcon heirloomRare" + heirloom.rarity + "' onclick='saveHeirloomIcon(\"" + icons[x] + "\")'>" + convertIconNameToSpan(icons[x]) + "</div>";

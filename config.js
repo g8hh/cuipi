@@ -5659,7 +5659,7 @@ var toReturn = {
 				this.unlockEquips();
 			},
 			drawStacks: function(){
-				manageStacks('Order', this.order, true, 'pandOrderStacks', 'icomoon icon-yinyang', this.orderTooltip(), false);
+				manageStacks('Order', this.order, true, 'pandOrderStacks', 'icomoon icon-yingyang', this.orderTooltip(), false);
 				if (this.pandemonium > 0){
 					manageStacks('Pandemonium', this.pandemonium, false, 'pandPandStacks', 'icomoon icon-network', this.pandTooltip(), false);
 				}
