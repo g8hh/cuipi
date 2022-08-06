@@ -3865,7 +3865,7 @@ var cnItems = {
     'Unrage': '怒意减弱',
     'Mutated Crit': '突变暴击',
     'Gain +25% Crit Chance in U2.': '宇宙2中暴击率增加25%。',
-    '0.5% of your damage can Overkill 1 cell in U2, up to 30% of your Highest Zone reached. U1 Masteries that increase Overkill do not apply in U2.': '宇宙2中，可以使用0.5%的溢出伤害用于攻击下个敌人，超杀最高可以对区域数值等于最高区域30%的区域生效。宇宙1的相应精通对宇宙2的超杀无效。',
+    '0.5% of your damage can Overkill 1 cell in U2, up to 30% of your Highest Zone reached. U1 Masteries that increase Overkill do not apply in U2.': '宇宙2中，可以使用0.5%的溢出伤害用于攻击下个敌人，超杀最高可以对区域数值等于最高区域30%的区域生效。宇宙1的相应专精对宇宙2的超杀无效。',
     'More Overkill': '更多超杀',
     'You can Overkill in U2 for an additional 10% of your Highest Zone (up to 40%).': '使超杀最高可以对区域数值等于最高区域40%的区域生效。',
     'Mass Overkill': '超量超杀',
