@@ -4187,7 +4187,7 @@ var autoBattle = {
                 var itemObj = this.items[item];
                 var accepted = (this.activeContract == item) ? " accepted" : "";
                 var description;
-                if (accepted) description = "You have paid the Dust and accepted this Contract.<br/>Huffy will gain access to this item as soon as you<br/><b style='font-size:1.3em'>在宇宙2中通过一张区域" + itemObj.zone + "及以上区域的虚空地图</b>";
+                if (accepted) description = "You have paid the " + ((itemObj.dustType == "shards") ? "Shards" : "Dust") + " and accepted this Contract.<br/>Huffy will gain access to this item as soon as you<br/><b style='font-size:1.3em'>在宇宙2中通过一张区域" + itemObj.zone + "及以上区域的虚空地图</b>";
                 else description = itemObj.description();
                 var extraClass = "";
                 if (itemObj.longText) extraClass = " descriptionSm";
