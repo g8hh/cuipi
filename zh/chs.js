@@ -4725,6 +4725,7 @@ var cnItems = {
     ' What cell to use Bone Shrine charges at, if you use it after cell 80 you will get the benefit of all the books. to use. ': '使用骨头充能的格子。如果设为大于80的数值，则可以获得相应区域升级书的加成。',
     ' How many Bone Shrine charges you wish to use. ': '想要使用多少层骨头充能。',
     ' If you put Zone: 40, Cell: 10, Amount: 3, you will use 3 Bone Shrine Charges at zone 40 at cell 10. ': '如果您将区域设为40，格子设为10，数量设为3，则您将在区域40的格子10开始使用3层骨头充能。',
+    'Shrine': '神龛',
     'Too many maps, recycling now': '地图过多，开始回收',
     'AutoMaps unable to recycle to buy map!': '脚本无法回收并制造地图！',
     'Retrying map buy after recycling lowest level map': '回收最低等级的地图后重新尝试制造地图',
