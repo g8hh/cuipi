@@ -4936,6 +4936,7 @@ var cnItems = {
     'Daily AutoShrine Settings': '日常自动神龛设置',
     'Click to open Daily AutoShrine settings. ': '点击后可以打开日常自动神龛设置。',
     ' If you put Zone: 40, Cell: 10, Amount: 3, you will use 3 Bone Shrine Charges at zone 40 at cell 10 in a Daily. ': '如果您将区域设为40，格子设为10，数量设为3，则日常挑战中，您将在区域40的格子10开始使用3层骨头充能。',
+    'dShrine': '日常神龛',
     'Auto Start Daily': '自动开始日常挑战',
     'Starts Dailies for you. When you portal with this on, it will select the oldest Daily and run it. Use the settings in this tab to decide whats next. ': '自动进行日常挑战。当启用该选项并传送后，将自动选择时间最早的日常挑战并进行挑战。您可以使用后面的选项来进行相关设置。',
     'If this is on, you will do your daily in U2. ': '启用该选项后，将在宇宙2进行日常挑战。',
