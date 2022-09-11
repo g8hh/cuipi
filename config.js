@@ -10165,7 +10165,7 @@ var toReturn = {
 			filter: true,
 			fire: function (level) {
 				var amt = rewardResource("gems", 0.5, level, true);
-				message("您发现了" + prettify(amt) + "金属！", "Loot", "*diamond", null, "secondary");
+				message("您发现了" + prettify(amt) + "宝石！", "Loot", "*diamond", null, "secondary");
 			}
 		},
 		Any: {
