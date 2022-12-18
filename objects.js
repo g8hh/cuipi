@@ -678,6 +678,7 @@ var autoBattle = {
             bleedChance: 0,
             bleedMod: 0,
             bleedTime: 0,
+            hadBleed: false,
             poisonChance: 0,
             poisonTime: 0,
             poisonMod: 0,
@@ -1961,6 +1962,7 @@ var autoBattle = {
                 return 0.25 + (0.25 * this.level);
             },
             afterCheck: function(){
+                if (autoBattle.trimp.health <= 0) return;
                 var healthPct = autoBattle.trimp.health / autoBattle.trimp.maxHealth;
                 if (healthPct < 0.5){
                     autoBattle.trimp.damageTakenMult *= 0.7;
@@ -2157,7 +2159,7 @@ var autoBattle = {
             level: 1,
             zone: 220,
             description: function(){
-            return "如果击杀敌人时它中毒了，且未流血，则多掉落" + this.dustMult() + "倍魔尘。";
+            return "如果击杀敌人时它中毒了，且从未有流血生效过，则多掉落" + this.dustMult() + "倍魔尘。";
             },
             upgrade: "每级使敌人多掉落1倍魔尘",
             dustMult: function(){
@@ -3009,6 +3011,7 @@ var autoBattle = {
                 if (this.items.Bag_of_Nails.equipped) this.enemy.noSlow = true;
                 if (defender.bleed.mod < attacker.bleedMod) defender.bleed.mod = (1 + attacker.bleedMod);
                 if (defender.bleed.time < attacker.bleedTime) defender.bleed.time = attacker.bleedTime;
+                if (defender.bleed.time > 0) defender.hadBleed = true;
             }
         }
         var poisonChance = attacker.poisonChance - defender.poisonResist;
@@ -3296,7 +3299,8 @@ var autoBattle = {
             }
             amt *= mutMult;
         }
-        if (this.items.Box_of_Spores.equipped && this.enemy.bleed.time <= 0 && this.enemy.poison.time >= 0){
+        if (this.items.Box_of_Spores.equipped && !this.enemy.hadBleed && this.enemy.poison.time > 0){
+            
             amt *= this.items.Box_of_Spores.dustMult();
         }
         if (game.global.fluffyExp2 >= 1466015503701000) amt *= 5; //don't even look at this line, just move on

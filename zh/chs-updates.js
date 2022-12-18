@@ -45,6 +45,16 @@ var cnItems = {
     'Universe 2 Content': '宇宙2内容',
     'Universe 2 UI/QOL': '宇宙2游戏界面/游戏体验',
     //#endregion
+    //#region 5.8.1
+    'Fixed some display issues with Holiday Snow.': '修复了与积雪相关的一些显示问题。',
+    'Fixed some gradient colors on Dark Theme': '修复了黑暗主题的部分渐变色。',
+    'Fixed an issue where the final U2 Heirloom breakpoint was calculating incorrectly': '修复了宇宙2最高级传家宝提升稀有度的区域不正确的问题。',
+    'AutoStructure now properly rebuys decayed Nurseries on Eradicated': '自动建造可以正确地在灭绝挑战中重新建造被岩浆烧掉的托儿所了。',
+    'The Scale Equality button on Time Warp now properly displays as inactive when inactive without being clicked': '时间跃迁中的平等缩放按钮在没有点击的情况下会正确显示为未激活了。',
+    'Fixed an issue where perks could be imported on Hypothermia': '修复失温挑战中可以导入特权的问题。',
+    'Added a black background to the Challenge Description on the Portal Screen for better visibility across different Portal background colors': '在传送门界面的挑战描述中增加了黑色背景，以更好地进行显示。',
+    'Setting Farmer AutoJobs ratio to 0 at the start of a new run no longer bugs out the UI until refresh': '在新的周目开始时将自动工作的农民比例设为0不再使游戏界面出现需要刷新才能正常的错误。',
+    //#endregion
     //#region 5.8.0
     'Void Maps now start dropping after your first Portal, down from fifth.': '虚空地图在首次传送后即可掉落，不需要再进行五次传送了。',
     'All Void Maps below Z200 now have less difficulty than before. Void Maps pre Z60 start with very low difficulty, still gain difficulty and loot at Z60, then now gain another +100% difficulty and +100% loot at Z200. This leaves Void Maps at Z200+ with the same difficulty as before, but with +100% more loot than before.': '区域200以下区域的虚空地图难度下调。区域60以下区域的虚空地图难度大幅下调，从区域60开始难度上升，到区域200以后难度和战利品增加100%。换句话说，区域200及以上区域的虚空地图难度不变，但战利品增加100%。',
@@ -53,7 +63,7 @@ var cnItems = {
     'Added 12 new Z300+ Zone Progress Achievements': '增加了12个区域300以上的区域进度成就。',
     'Added 5 new Speed Achievements for Spire VI': '增加了5个最速：尖塔 VI的成就。',
     'Added 4 new Speed Achievements for Spire VII': '增加了4个最速：尖塔 VII的成就。',
-    'Added 1 new Gem Collection achievement': '增加了1个宝石收集数的成就',
+    'Added 1 new Gem Collection achievement': '增加了1个宝石收集数的成就。',
     'The Feat \'Stoned\' now requires 500K kills, down from 1M': '壮举“上头了”所需的敌人击杀数由1000000(1e6)下调为500000(5e5)。',
     'AutoStorage is now unlocked by completing a Z40 Void Map, down from Z50.': '解锁自动存储的条件由完成一张区域50的虚空地图下调为完成一张区域40的虚空地图。',
     'Zone 201+ is looking a little mutated...': '区域200以上的区域似乎发生了一些突变……',
