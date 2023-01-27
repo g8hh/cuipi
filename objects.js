@@ -4252,7 +4252,7 @@ var autoBattle = {
                     if (Array.isArray(preset[y])){
                         if (preset[y][0] == "level" && this.settings.loadLevel.enabled) text += "<i></i>。等级" + preset[y][1];
                         if (preset[y][0] == "ring" && this.settings.loadRing.enabled){
-                            text += "。灵戒：<i></i>";
+                            text += "<i></i>。灵戒：<i></i>";
                             for (var z = 1; z < preset[y].length; z++){
                                 if (z != 1) text += "<i></i>，<i></i>";
                                 text += autoBattle.ringStats[preset[y][z]].name
