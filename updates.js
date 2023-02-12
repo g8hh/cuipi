@@ -2468,14 +2468,6 @@ function getTrimpPs() {
 		currentCalc /= 50;
 		textString += "<tr style='color: red'><td class='bdTitle'>Gene Attack</td><td class='bdPercent'>/ 50</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>"
 	}
-	if (game.global.universe == 2 && u2Mutations.tree.GeneHealth.purchased){
-		currentCalc /= 50;
-		textString += "<tr style='color: red'><td class='bdTitle'>Gene Health</td><td class='bdPercent'>/ 50</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>"
-	}
-	if (game.global.universe == 2 && u2Mutations.tree.GeneAttack.purchased){
-		currentCalc /= 50;
-		textString += "<tr style='color: red'><td class='bdTitle'>Gene Attack</td><td class='bdPercent'>/ 50</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>"
-	}
 	if (game.global.challengeActive == "Archaeology"){
 		var mult = game.challenges.Archaeology.getStatMult("breed");
 		var count = game.challenges.Archaeology.getPoints("breed");
@@ -2766,11 +2758,6 @@ function getBattleStatBd(what) {
 		currentCalc  *= mult;
 		textString += "<tr><td class='bdTitle'>Frigid Completions</td><td>+ 2.5×挑战次数%</td><td>" + game.global.frigidCompletions + "</td><td>+ " + prettify((mult - 1) * 100) + "%</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + ((what == "attack") ? getFluctuation(currentCalc, minFluct, maxFluct) : "") + "</tr>";
 	}
-	if ((what == "attack" || what == "health") && game.global.frigidCompletions && game.global.universe == 1){
-		var mult = game.challenges.Frigid.getTrimpMult();
-		currentCalc  *= mult;
-		textString += "<tr><td class='bdTitle'>Frigid Completions</td><td>+ 2.5N%</td><td>" + game.global.frigidCompletions + "</td><td>+ " + prettify((mult - 1) * 100) + "%</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + ((what == "attack") ? getFluctuation(currentCalc, minFluct, maxFluct) : "") + "</tr>";
-	}
 	if ((what == "attack" || what == "health") && game.global.mayhemCompletions){
 		var mult = game.challenges.Mayhem.getTrimpMult();
 		currentCalc  *= mult;
@@ -2785,11 +2772,6 @@ function getBattleStatBd(what) {
 		var mult = game.challenges.Desolation.getTrimpMult();
 		currentCalc  *= mult;
 		textString += "<tr><td class='bdTitle'>Desolation Completions</td><td>+ 10×挑战次数%</td><td>" + game.global.desoCompletions + "</td><td>+ " + prettify((mult - 1) * 100) + "%</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + ((what == "attack") ? getFluctuation(currentCalc, minFluct, maxFluct) : "") + "</tr>";
-	}
-	if ((what == "attack" || what == "health") && game.global.desoCompletions){
-		var mult = game.challenges.Desolation.getTrimpMult();
-		currentCalc  *= mult;
-		textString += "<tr><td class='bdTitle'>Desolation Completions</td><td>+ 10N%</td><td>" + game.global.desoCompletions + "</td><td>+ " + prettify((mult - 1) * 100) + "%</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + ((what == "attack") ? getFluctuation(currentCalc, minFluct, maxFluct) : "") + "</tr>";
 	}
 	if ((what == "attack" || what == "health") && autoBattle.bonuses.Stats.level > 0 && game.global.universe == 2){
 		var mult = autoBattle.bonuses.Stats.getMult();
@@ -3142,19 +3124,6 @@ function getBattleStatBd(what) {
 		mult = u2Mutations.tree.Brains.getBonus();
 		currentCalc *= mult;
 		textString += "<tr><td class='bdTitle'>Brains to Brawn</td><td>× " + prettify(mult) + "</td><td></td><td>× " + prettify(mult) + "</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>"
-	}
-	if (what == "health" && game.global.universe == 2 && u2Mutations.tree.GeneHealth.purchased)	{
-		currentCalc *= 10;
-		textString += "<tr><td class='bdTitle'>Gene Health Mutator</td><td>x 10</td><td class='bdNumberSm'></td><td class='bdNumberSm'>x 10</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td></tr>";
-	}
-	if (what == "attack" && game.global.universe == 2 && u2Mutations.tree.GeneAttack.purchased){
-		currentCalc *= 10;
-		textString += "<tr><td class='bdTitle'>Gene Attack Mutator</td><td>x 10</td><td></td><td>x 10</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>"
-	}
-	if (what == "attack" && game.global.universe == 2 && u2Mutations.tree.Brains.purchased){
-		mult = u2Mutations.tree.Brains.getBonus();
-		currentCalc *= mult;
-		textString += "<tr><td class='bdTitle'>Brains to Brawn</td><td>x " + prettify(mult) + "</td><td></td><td>x " + prettify(mult) + "</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>"
 	}
 	if (game.global.universe == 2 && game.global.novaMutStacks > 0 && what == "attack"){
 		amt = u2Mutations.types.Nova.trimpAttackMult();
@@ -3763,11 +3732,6 @@ function getLootBd(what) {
 		var amt = game.challenges.Desolation.getTrimpMult();
 		currentCalc *= amt;
 		textString += "<tr><td class='bdTitle'>Desolation Completions</td><td>+ 10×挑战次数%</td><td>" + game.global.desoCompletions + "</td><td>+ " + prettify((amt - 1) * 100) + "%</td><td>" + prettify(currentCalc) + "</td></tr>";
-	}
-	if (game.global.desoCompletions > 0 && what == "Helium"){
-		var amt = game.challenges.Desolation.getTrimpMult();
-		currentCalc *= amt;
-		textString += "<tr><td class='bdTitle'>Desolation Completions</td><td>+ 10N%</td><td>" + game.global.desoCompletions + "</td><td>+ " + prettify((amt - 1) * 100) + "%</td><td>" + prettify(currentCalc) + "</td></tr>";
 	}
 	if (autoBattle.bonuses.Radon.level > 0 && game.global.universe == 2 && what == "Helium"){
 		var amt = autoBattle.bonuses.Radon.getMult();
