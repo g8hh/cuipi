@@ -2468,6 +2468,14 @@ function getTrimpPs() {
 		currentCalc /= 50;
 		textString += "<tr style='color: red'><td class='bdTitle'>Gene Attack</td><td class='bdPercent'>/ 50</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>"
 	}
+	if (game.global.universe == 2 && u2Mutations.tree.GeneHealth.purchased){
+		currentCalc /= 50;
+		textString += "<tr style='color: red'><td class='bdTitle'>Gene Health</td><td class='bdPercent'>/ 50</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>"
+	}
+	if (game.global.universe == 2 && u2Mutations.tree.GeneAttack.purchased){
+		currentCalc /= 50;
+		textString += "<tr style='color: red'><td class='bdTitle'>Gene Attack</td><td class='bdPercent'>/ 50</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>"
+	}
 	if (game.global.challengeActive == "Archaeology"){
 		var mult = game.challenges.Archaeology.getStatMult("breed");
 		var count = game.challenges.Archaeology.getPoints("breed");
@@ -2758,6 +2766,11 @@ function getBattleStatBd(what) {
 		currentCalc  *= mult;
 		textString += "<tr><td class='bdTitle'>Frigid Completions</td><td>+ 2.5×挑战次数%</td><td>" + game.global.frigidCompletions + "</td><td>+ " + prettify((mult - 1) * 100) + "%</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + ((what == "attack") ? getFluctuation(currentCalc, minFluct, maxFluct) : "") + "</tr>";
 	}
+	if ((what == "attack" || what == "health") && game.global.frigidCompletions && game.global.universe == 1){
+		var mult = game.challenges.Frigid.getTrimpMult();
+		currentCalc  *= mult;
+		textString += "<tr><td class='bdTitle'>Frigid Completions</td><td>+ 2.5N%</td><td>" + game.global.frigidCompletions + "</td><td>+ " + prettify((mult - 1) * 100) + "%</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + ((what == "attack") ? getFluctuation(currentCalc, minFluct, maxFluct) : "") + "</tr>";
+	}
 	if ((what == "attack" || what == "health") && game.global.mayhemCompletions){
 		var mult = game.challenges.Mayhem.getTrimpMult();
 		currentCalc  *= mult;
@@ -2772,6 +2785,11 @@ function getBattleStatBd(what) {
 		var mult = game.challenges.Desolation.getTrimpMult();
 		currentCalc  *= mult;
 		textString += "<tr><td class='bdTitle'>Desolation Completions</td><td>+ 10×挑战次数%</td><td>" + game.global.desoCompletions + "</td><td>+ " + prettify((mult - 1) * 100) + "%</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + ((what == "attack") ? getFluctuation(currentCalc, minFluct, maxFluct) : "") + "</tr>";
+	}
+	if ((what == "attack" || what == "health") && game.global.desoCompletions){
+		var mult = game.challenges.Desolation.getTrimpMult();
+		currentCalc  *= mult;
+		textString += "<tr><td class='bdTitle'>Desolation Completions</td><td>+ 10N%</td><td>" + game.global.desoCompletions + "</td><td>+ " + prettify((mult - 1) * 100) + "%</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + ((what == "attack") ? getFluctuation(currentCalc, minFluct, maxFluct) : "") + "</tr>";
 	}
 	if ((what == "attack" || what == "health") && autoBattle.bonuses.Stats.level > 0 && game.global.universe == 2){
 		var mult = autoBattle.bonuses.Stats.getMult();
@@ -3124,6 +3142,19 @@ function getBattleStatBd(what) {
 		mult = u2Mutations.tree.Brains.getBonus();
 		currentCalc *= mult;
 		textString += "<tr><td class='bdTitle'>Brains to Brawn</td><td>× " + prettify(mult) + "</td><td></td><td>× " + prettify(mult) + "</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>"
+	}
+	if (what == "health" && game.global.universe == 2 && u2Mutations.tree.GeneHealth.purchased)	{
+		currentCalc *= 10;
+		textString += "<tr><td class='bdTitle'>Gene Health Mutator</td><td>x 10</td><td class='bdNumberSm'></td><td class='bdNumberSm'>x 10</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td></tr>";
+	}
+	if (what == "attack" && game.global.universe == 2 && u2Mutations.tree.GeneAttack.purchased){
+		currentCalc *= 10;
+		textString += "<tr><td class='bdTitle'>Gene Attack Mutator</td><td>x 10</td><td></td><td>x 10</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>"
+	}
+	if (what == "attack" && game.global.universe == 2 && u2Mutations.tree.Brains.purchased){
+		mult = u2Mutations.tree.Brains.getBonus();
+		currentCalc *= mult;
+		textString += "<tr><td class='bdTitle'>Brains to Brawn</td><td>x " + prettify(mult) + "</td><td></td><td>x " + prettify(mult) + "</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + getFluctuation(currentCalc, minFluct, maxFluct) + "</tr>"
 	}
 	if (game.global.universe == 2 && game.global.novaMutStacks > 0 && what == "attack"){
 		amt = u2Mutations.types.Nova.trimpAttackMult();
@@ -3698,38 +3729,6 @@ function getLootBd(what) {
 		currentCalc *= 10;
 		textString += "<tr><td class='bdTitle'>Enlightened Wind</td><td></td><td></td><td>× 10</td><td>" + prettify(currentCalc) + "</td></tr>";
 	}
-	var heirloomBonus = 0;
-	if (what == "Food/Wood/Metal"){
-		heirloomBonus = calcHeirloomBonus("Staff", "foodDrop", 0, true);
-		if (heirloomBonus > 0){
-			textString += "<tr><td class='bdTitle'>Heirloom - Food (Staff)</td><td></td><td></td><td>+ " + prettify(heirloomBonus) + "%</td><td>" + prettify(currentCalc * ((heirloomBonus / 100) + 1)) + "</td></tr>";
-			heirloomBonus = 0;
-		}
-		heirloomBonus = calcHeirloomBonus("Staff", "woodDrop", 0, true);
-		if (heirloomBonus > 0){
-			textString += "<tr><td class='bdTitle'>Heirloom - Wood (Staff)</td><td></td><td></td><td>+ " + prettify(heirloomBonus) + "%</td><td>" + prettify(currentCalc * ((heirloomBonus / 100) + 1)) + "</td></tr>";
-			heirloomBonus = 0;
-		}
-		heirloomBonus = calcHeirloomBonus("Staff", "metalDrop", 0, true);
-		if (heirloomBonus > 0){
-			textString += "<tr><td class='bdTitle'>Heirloom - Metal (Staff)</td><td></td><td></td><td>+ " + prettify(heirloomBonus) + "%</td><td>" + prettify(currentCalc * ((heirloomBonus / 100) + 1)) + "</td></tr>";
-			heirloomBonus = 0;
-		}
-	}
-	else if (what == "Fragments"){
-		heirloomBonus = calcHeirloomBonus("Staff", "fragmentsDrop", 0, true);
-		if (heirloomBonus > 0){
-			textString += "<tr><td class='bdTitle'>Heirloom (Staff)</td><td></td><td></td><td>+ " + prettify(heirloomBonus) + "%</td><td>" + prettify(currentCalc * ((heirloomBonus / 100) + 1)) + "</td></tr>";
-			heirloomBonus = 0;
-		}
-	}
-	else if (what == "Gems"){
-		heirloomBonus = calcHeirloomBonus("Staff", "gemsDrop", 0, true);
-		if (heirloomBonus > 0){
-			textString += "<tr><td class='bdTitle'>Heirloom (Staff)</td><td></td><td></td><td>+ " + prettify(heirloomBonus) + "%</td><td>" + prettify(currentCalc * ((heirloomBonus / 100) + 1)) + "</td></tr>";
-			heirloomBonus = 0;
-		}
-	}
 	if (game.global.totalSquaredReward > 0 && what == "Helium"){
 		amt = game.global.totalSquaredReward / 1000;
 		currentCalc *= (amt + 1);
@@ -3765,6 +3764,11 @@ function getLootBd(what) {
 		currentCalc *= amt;
 		textString += "<tr><td class='bdTitle'>Desolation Completions</td><td>+ 10×挑战次数%</td><td>" + game.global.desoCompletions + "</td><td>+ " + prettify((amt - 1) * 100) + "%</td><td>" + prettify(currentCalc) + "</td></tr>";
 	}
+	if (game.global.desoCompletions > 0 && what == "Helium"){
+		var amt = game.challenges.Desolation.getTrimpMult();
+		currentCalc *= amt;
+		textString += "<tr><td class='bdTitle'>Desolation Completions</td><td>+ 10N%</td><td>" + game.global.desoCompletions + "</td><td>+ " + prettify((amt - 1) * 100) + "%</td><td>" + prettify(currentCalc) + "</td></tr>";
+	}
 	if (autoBattle.bonuses.Radon.level > 0 && game.global.universe == 2 && what == "Helium"){
 		var amt = autoBattle.bonuses.Radon.getMult();
 		currentCalc *= amt;
@@ -3779,7 +3783,8 @@ function getLootBd(what) {
 	}
 	if (game.global.challengeActive == "Desolation" && what != "Fragments" && what != "Helium"){
 		mult = game.challenges.Desolation.trimpResourceMult();
-		textString += "<tr style='color: red'><td class='bdTitle'>Desolation</td><td>-5%</td><td>" + (game.global.world - 1) + "</td><td class='bdPercent'>× " + prettify(mult) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
+		currentCalc *= mult;
+		textString += "<tr style='color: red'><td class='bdTitle'>Desolation</td><td>-" + (game.challenges.Desolation.getReducePercent() * 100) + "%</td><td>" + (game.global.world - 1) + "</td><td class='bdPercent'>× " + prettify(mult) + "</td><td class='bdNumber'>" + prettify(currentCalc) + "</td></tr>";
 	}
 	if (game.global.universe == 2 && u2Mutations.tree.Loot.purchased && what != "Helium"){
 		currentCalc *= 1.5;
@@ -3860,6 +3865,39 @@ function getLootBd(what) {
 		currentCalc = 0;
 		var cMode = (game.global.universe == 1) ? 2 : 3;
 		textString += "<tr class='colorSquared'><td class='bdTitle'>挑战<sup>" + cMode + "</sup></td><td></td><td></td><td>0%</td><td>" + prettify(currentCalc) + "</td></tr>";
+	}
+	//Heirloom bonuses last, since food/wood/metal mults can be different
+	var heirloomBonus = 0;
+	if (what == "Food/Wood/Metal"){
+		heirloomBonus = calcHeirloomBonus("Staff", "foodDrop", 0, true);
+		if (heirloomBonus > 0){
+			textString += "<tr><td class='bdTitle'>Heirloom - Food (Staff)</td><td></td><td></td><td>+ " + prettify(heirloomBonus) + "%</td><td>" + prettify(currentCalc * ((heirloomBonus / 100) + 1)) + "</td></tr>";
+			heirloomBonus = 0;
+		}
+		heirloomBonus = calcHeirloomBonus("Staff", "woodDrop", 0, true);
+		if (heirloomBonus > 0){
+			textString += "<tr><td class='bdTitle'>Heirloom - Wood (Staff)</td><td></td><td></td><td>+ " + prettify(heirloomBonus) + "%</td><td>" + prettify(currentCalc * ((heirloomBonus / 100) + 1)) + "</td></tr>";
+			heirloomBonus = 0;
+		}
+		heirloomBonus = calcHeirloomBonus("Staff", "metalDrop", 0, true);
+		if (heirloomBonus > 0){
+			textString += "<tr><td class='bdTitle'>Heirloom - Metal (Staff)</td><td></td><td></td><td>+ " + prettify(heirloomBonus) + "%</td><td>" + prettify(currentCalc * ((heirloomBonus / 100) + 1)) + "</td></tr>";
+			heirloomBonus = 0;
+		}
+	}
+	else if (what == "Fragments"){
+		heirloomBonus = calcHeirloomBonus("Staff", "fragmentsDrop", 0, true);
+		if (heirloomBonus > 0){
+			textString += "<tr><td class='bdTitle'>Heirloom (Staff)</td><td></td><td></td><td>+ " + prettify(heirloomBonus) + "%</td><td>" + prettify(currentCalc * ((heirloomBonus / 100) + 1)) + "</td></tr>";
+			heirloomBonus = 0;
+		}
+	}
+	else if (what == "Gems"){
+		heirloomBonus = calcHeirloomBonus("Staff", "gemsDrop", 0, true);
+		if (heirloomBonus > 0){
+			textString += "<tr><td class='bdTitle'>Heirloom (Staff)</td><td></td><td></td><td>+ " + prettify(heirloomBonus) + "%</td><td>" + prettify(currentCalc * ((heirloomBonus / 100) + 1)) + "</td></tr>";
+			heirloomBonus = 0;
+		}
 	}
 	textString += "</tbody></table>";
 	game.global.lockTooltip = false;
