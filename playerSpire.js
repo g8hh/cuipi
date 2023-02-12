@@ -1605,6 +1605,7 @@ var playerSpire = {
                         }
                         if (trap.name == "Fire" && playerSpireTraps.Fire.level >= 7){
                             rsBonus = 20;
+                            if (playerSpireTraps.Fire.level >= 9) rsBonus = 50;
                         }
                     }
                     if (enemy.toxicity && enemy.health > 0){
@@ -1744,27 +1745,39 @@ var playerSpireTraps = {
             },
             {
                 //level 5
-                description: "使所有火焰陷阱造成的伤害<b>翻倍</b>。",
+                description: "使所有火焰陷阱造成的伤害<b>翻倍</b>。", //10k
                 unlockAt: 425,
                 cost: 7.5e7
             },
             {
                 //level 6
-                description: "使所有火焰陷阱造成的伤害<b>变为十倍</b>。", //50k
+                description: "使所有火焰陷阱造成的伤害<b>变为十倍</b>。", //100k
                 unlockAt: 500,
                 cost: 5e9
             },
             {
                 //level 7
-                description: "使所有火焰陷阱造成的伤害再次<b>变为十倍</b>，当火焰陷阱击杀敌人时，使它们额外掉落20%的符石。", //500k
+                description: "使所有火焰陷阱造成的伤害再次<b>变为十倍</b>，当火焰陷阱击杀敌人时，它们额外掉落20%的符石。", //1m
                 unlockAt: 590,
                 cost: 5e11
             },
             {
                 //level 8
-                description: "使所有火焰陷阱造成的伤害变为<b>100倍</b>。", //5m
+                description: "使所有火焰陷阱造成的伤害变为<b>100倍</b>。", //100m
                 unlockAt: 650,
                 cost: 1e14
+            },
+            {
+                //level 9
+                description: "使所有火焰陷阱造成的伤害变为<b>100倍</b>，当火焰陷阱击杀敌人时，它们变为额外掉落50%的符石。", //10b
+                unlockAt: 700,
+                cost: 1e16
+            },
+            {
+                //level 10
+                description: "使所有火焰陷阱造成的伤害变为<b>100倍</b>。", //10b
+                unlockAt: 750,
+                cost: 1e19
             }
 
         ],
@@ -1775,14 +1788,17 @@ var playerSpireTraps = {
         get description(){
             var desc = "当敌人进入时，受到" + prettify(this.totalDamage()) + "伤害。";
             if (this.level >= 4) desc += "<br/><br/>If an enemy with 20% health or less steps on a Fire Trap, it dies instantly.";
-            if (this.level >= 7) desc += "<br/><br/>All Fire Traps grant 20% extra Runestones when they get the killing blow on an enemy.";
+            if (this.level >= 7){
+                var val = (this.level >= 9) ? "50%" : "20%";
+                desc += "<br/><br/>All Fire Traps grant " + val + " extra Runestones when they get the killing blow on an enemy.";
+            } 
             desc += "<br/><br/>(快捷键：1)";
             return desc;
         },
         totalDamage: function (enemy, cell){
             var effect = (enemy && enemy.shockTurns && enemy.shockTurns > 0) ? playerSpireTraps.Lightning.shockedDamage() : 0;
             var level = this.level;
-            var dmgs = [50, 500, 2500, 5e3, 10e3, 10e4, 10e5, 10e7];
+            var dmgs = [50, 500, 2500, 5e3, 10e3, 10e4, 10e5, 10e7, 10e9, 10e11];
             var dmg;
             if (level > dmgs.length)
                 dmg = dmgs[dmgs.length - 1];
@@ -1939,14 +1955,14 @@ var playerSpireTraps = {
             {
                 //Level 8
                 description: "使所有剧毒陷阱增加的毒性<b>变为三倍</b>。",
-                unlockAt: 700,
-                cost: 1e16
+                unlockAt: 650,
+                cost: 5e14
             },
             {
                 //Level 9
                 description: "使所有剧毒陷阱增加的毒性<b>变为四倍</b>。",
-                unlockAt: 750,
-                cost: 5e19
+                unlockAt: 700,
+                cost: 1e16
             }
         ],
         damage: 5,
@@ -2010,7 +2026,11 @@ var playerSpireTraps = {
             if (this.level < 4) return 1;
             var col = playerSpire.getColFromCell(cell);
             var traps = playerSpire.lightColumns[col];
-            return 1 + calcHeirloomBonus("Core", "lightningTrap", (traps * 0.1));
+            return 1 + calcHeirloomBonus("Core", "lightningTrap", (traps * this.getColBonusPercent()));
+        },
+        getColBonusPercent: function(){
+            if (this.level >= 7) return 0.2;
+            if (this.level >= 4) return 0.1;
         },
         upgrades: [
             {
@@ -2027,7 +2047,7 @@ var playerSpireTraps = {
             },
             {
                 //Level 4
-                description: "每个闪电陷阱使同一列的火焰陷阱和剧毒陷阱的伤害和效果增加10%，该效果与同一列中其他的闪电陷阱相互叠加。",
+                description: "每个闪电陷阱使同一列的火焰陷阱和剧毒陷阱的伤害和效果增加<b>10%</b>，该效果与同一列中其他的闪电陷阱相互叠加。",
                 unlockAt: 575,
                 cost: 2.5e11
             },
@@ -2042,6 +2062,12 @@ var playerSpireTraps = {
                 description: "使所有闪电陷阱造成的伤害变为<b>10倍</b>，震荡改为使敌人受到8倍的伤害或增加8倍的毒性。小塔或减速(冰冻或冻结)的效果不受影响。",
                 unlockAt: 675,
                 cost: 1e15
+            },
+            {
+                //Level 7
+                description: "每个闪电陷阱使同一列的火焰陷阱和剧毒陷阱的伤害和效果变为增加<b>20%</b>，该效果与同一列中其他的闪电陷阱相互叠加。",
+                unlockAt: 725,
+                cost: 5e16
             }
         ],
         damage: 50,
@@ -2053,7 +2079,7 @@ var playerSpireTraps = {
         get description(){
             var shockTurns = this.shockTurns();
             var text = "当敌人进入时，受到" + prettify(this.totalDamage()) + "伤害，并使敌人获得" + shockTurns + "层震荡。每当敌人进入一个陷阱或小塔时，消耗1层震荡，使该陷阱或小塔的伤害变为" + prettify(this.shockedDamage()) + "倍，效果变为" + prettify(this.shockedEffect()) + "倍。震荡可以增加其他闪电陷阱的伤害，但不影响其他闪电陷阱的效果。"
-            if (this.level >= 4) text += "<br/><br/>每个闪电陷阱使同一列的火焰陷阱和剧毒陷阱的伤害和效果增加" + prettify(calcHeirloomBonus("Core", "lightningTrap", 10)) + "%，该效果相互叠加。";
+            if (this.level >= 4) text += "<br/><br/>每个闪电陷阱使同一列的火焰陷阱和剧毒陷阱的伤害和效果增加" + prettify(calcHeirloomBonus("Core", "lightningTrap", (this.getColBonusPercent() * 100))) + "%，该效果相互叠加。";
             text += "<br/><br/>(快捷键：4)";
             return text;
         },
@@ -2076,7 +2102,7 @@ var playerSpireTraps = {
         totalDamage: function (enemy){
             var effect = (enemy && enemy.shockTurns && enemy.shockTurns > 0) ? playerSpireTraps.Lightning.shockedDamage() : 0;
             var level = this.level;
-            var dmgs = [50, 500, 5000, 5000, 5e4, 5e5];
+            var dmgs = [50, 500, 5000, 5000, 5e4, 5e5, 5e5];
             var dmg;
             if (level > dmgs.length)
                 dmg = dmgs[dmgs.length - 1];
