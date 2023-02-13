@@ -47,6 +47,10 @@ var cnItems = {
     'Universe 2 UI/QOL': '宇宙2游戏界面/游戏体验',
     'Universes 1 and 2': '宇宙1及宇宙2',
     //#endregion
+    //#region 5.9.1
+    'Fixed an issue where the Nometal combo C2 was not unlocking Miners after being abandoned': '修复了异食²在放弃挑战后仍然不解锁矿工的问题。',
+    'Fixed an issue where the Topology combo C2 was not properly stopping the Blacksmithery Mastery': '修复了图衡学²未能正确地使锻铁术系列专精无效的问题。',
+    //#endregion
     //#region 5.9.0
     'You no longer have to purchase carried Heirloom slots. Instead, you\'ll automatically gain one once you have the amount of Nu that each level previously cost.': '您不再需要购买携带栏容量了。您将在到达之前相应数值的虚空物质时自动获得携带栏容量。',
     'You can now spend the full value of your Nu on both your Staff and Shield, rather than 50% on each.': '您可以使用所有虚空物质升级权杖和盾牌，而不是之前的一半了。',
