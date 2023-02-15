@@ -47,6 +47,9 @@ var cnItems = {
     'Universe 2 UI/QOL': '宇宙2游戏界面/游戏体验',
     'Universes 1 and 2': '宇宙1及宇宙2',
     //#endregion
+    //#region 5.9.2
+    'Temporarily reverted a change made in 5.9.0 for setting Bone Portal when portalling before abandoning a Daily Challenge, as it was causing bonus Daily Challenge Helium/Radon to be lost in some situations': '回滚了5.9.0中有关骨头传送门的一项内容，以避免在放弃日常挑战前就传送时可能造成日常挑战奖励丢失的问题。',
+    //#endregion
     //#region 5.9.1
     'Fixed an issue where the Nometal combo C2 was not unlocking Miners after being abandoned': '修复了异食²在放弃挑战后仍然不解锁矿工的问题。',
     'Fixed an issue where the Topology combo C2 was not properly stopping the Blacksmithery Mastery': '修复了图衡学²未能正确地使锻铁术系列专精无效的问题。',
