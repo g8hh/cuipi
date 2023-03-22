@@ -106,7 +106,7 @@ var cnItems = {
     'Frigid Completions': '寒冷挑战完成次数',
     'Mayhem Completions': '暴乱挑战完成次数',
     'Pandemonium Completions': '群魔乱舞挑战完成次数',
-    'Spire Assault Stats': '尖塔突击状态',
+    'Spire Assault Stats': '尖塔突击属性',
     'Unliving (Life': '亡灵化(生命挑战',
     'Rallying Cry (Duel': '集结号(决斗挑战',
     'Winning (Duel': '胜者(决斗挑战',
