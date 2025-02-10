@@ -2545,7 +2545,7 @@ var autoBattle = {
             level: 1,
             zone: 155,
             description: function(){
-                return "使怒怒的攻击力+" + prettify(this.attack()) + "，使怒怒的吸血-25%。"
+                return "使怒怒的攻击力+" + prettify(this.attack()) + "，使怒怒的吸血减少为原来的75%。"
             },
             upgrade: "每级使怒怒的攻击力+100",
             attack: function(){
