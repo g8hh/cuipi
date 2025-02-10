@@ -157,7 +157,6 @@ var cnItems = {
     'Fixed an issue where tracked achievements with long names could have their descriptions pushed out of the achievement box.': '修复了当成就名称过长时，追踪该成就的描述框文字可能会超出描述框的问题。',
     'The Archaeology automator now properly unlocks at Z90 instead of Z95.': '自动考古的解锁区域变为正确的区域90而不是区域95。',
     'Time Warp now periodically checks if the enemy\'s health is greater than its max health and will reset it if so, to fix a rare Time Warp issue where enemy health can grow above max health.': '时间跃迁将定期确认敌人的生命值是否超过上限，并在这个情况下把敌人的生命值进行重置，以修复时间跃迁时敌人的生命值超过上限的问题。',
-    'Using the Portal before abandoning your Daily Challenge now properly sets your Bone Portal': '在放弃日常挑战之前进行传送时，可以使骨头传送门的数值正确地变化。',
     'Fixed a bug where map at zone would complete two different quests on the Quest Challenge even if the conditions hadn\'t been met': '修复了在任务挑战中，自动进图可能在不满足条件时仍然完成任务的错误。',
     'Enemies on the Glass Challenge now gain Crystallized at 1k stacks, down from 10k. Fixed a text error in the description that stated Health doubled at 1k stacks when it really doubled at 100 stacks (it still doubles at 100 stacks).': '在玻璃挑战中，敌人从每10000层玻璃获得1层晶化变为每1000层玻璃获得1层晶化。修复了生命值翻倍条件的文本错误。',
     'Randimps now display with the proper naming convention on the Coordinate Challenge': '脆皮百变怪可以在协同挑战中正确显示名称了。',
