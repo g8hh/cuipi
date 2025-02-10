@@ -100,6 +100,7 @@ var cnItems = {
     'Soldiers': '士兵',
     'Enhanced Armor (Smithless': '强化护甲(铁匠失传',
     'Antenna Array': '气象天线阵列',
+    'Scruffy Scaling Health': '污生无憾',
     'Geneticists': '遗传学家',
     'Formation': '阵型',
     'Map Bonus': '地图奖励',
@@ -136,9 +137,11 @@ var cnItems = {
     'Gene Health Mutator': '突变因子·基因生命',
     'Gene Attack Mutator': '突变因子·基因攻击',
     'Blinded (Nova': '致盲(新星',
+    'Spore Cloud (Spire': '孢子云(尖塔',
     'Weakness (Unbalance': '弱化(不平衡挑战',
     ' Chance': '概率',
     ' Damage': '伤害值',
+    'Small Trimps Mutator': '突变因子·小小脆皮',
     'Huge': '巨大',
     'Large (Daily': '大型(日常挑战',
     'Food/Wood/Metal': '食物/木头/金属',
@@ -273,13 +276,19 @@ var cnItems = {
     'Ctrl Click this button to customize your Equality settings.': '按下Ctrl键再点击该按钮可以自定义平等缩放设置。',
     'Hotkey: E': '快捷键：E',
     'Scale Equality Scaling': '平等缩放设置',
+    'Scale Equality Scaling (Regular Settings': '平等缩放设置(通常设置',
+    'Scale Equality Scaling (Spire Settings': '平等缩放设置(尖塔设置',
     'Change this Slider to change the maximum amount of attacks Trimps need to make in order to not trigger Equality Scaling. Setting this slider to 0 will increase scaling whenever a group of Trimps is one-shot, 1 will increase if Trimps attack one or fewer times, 5 will only increase if they attack 5 or fewer times, etc.': '修改该滑块的数值将影响脆皮触发平等缩放的攻击次数阈值。将该滑块设置为0时，将在1队脆皮未攻击就被一击击杀时增加平等生效等级。设置为1时，将在1队脆皮攻击了不超过1次就阵亡时增加平等生效等级。设置为5时，将在1队脆皮攻击了不超过5次就阵亡时增加平等生效等级。以此类推。',
     'Your current setting is ': '当前的攻击次数滑块设置为',
     'If Reversing is allowed, Equality stacks will also decrease after the set amount of attacks against the same bad guy.': '如果启用了平等消除，那么将在脆皮攻击超过该滑块次数还未阵亡时减少平等生效等级。',
     ' Allow Reversing': ' 启用平等消除',
     'Your current reversing setting is ': '当前的消除次数滑块设置为',
+    ' If Scale Equality is on, this setting will determine how many stacks to start the Spire with.': '启用平等缩放后，将以该等级的平等进入尖塔。',
     'You can also manually set how many stacks of Equality should be used if Scaling is disabled by changing the slider below. This allows you to customize exactly how many stacks of Equality to use without having to respec your Perks.': '如果关闭平等缩放，您还可以直接在下方设置平等生效等级。不必洗点特权您也可以设置平等生效等级了。',
     'Your Equality stacks when Scaling is disabled will be ': '关闭平等缩放时，平等生效等级为',
+    'Show Spire Settings': '显示尖塔设置',
+    'Show Regular Settings': '显示通常设置',
+    '': '',
     'Nature': '自然',
     'Spire': '尖塔',
     'Alchemy': '炼金术',
@@ -372,8 +381,10 @@ var cnItems = {
     ' will only purchase Weapon prestiges unless the cheapest Armor prestige is less than 5% of the cost of the cheapest Weapon. If there are no Weapon prestiges available, the cheapest Armor prestige will be purchased only if its cost is 5% or less of your total resources.': ' - 只在最便宜的护甲重铸升级花费低于最便宜的武器重铸升级花费的5%时购买护甲重铸升级，其他情况下只购买武器重铸升级。如果武器重铸升级已经全部购买完了，那么只在最便宜的护甲重铸升级花费小于资源存储量5%的时候进行购买。',
     'AutoUpgrade On': '启用自动升级',
     'AutoUpgrade Off': '关闭自动升级',
+    'Auto No Coords': '不自动购买协作',
     'AutoUpgrade': '自动升级',
     'Your scientists can finally handle some upgrades on their own! Toggling this on will cause most upgrades to be purchased automatically. Does not include equipment prestiges or upgrades that would trigger a confirmation popup.': '科学家终于可以自动进行升级了！启用后将自动购买绝大多数升级，但不会购买重铸升级和会跳出提示框确认的升级。',
+    ' will purchase all the same upgrades as normal Auto Upgrade with the exception of Coordinations.': ' - 将自动购买协作以外的所有升级。',
     'AutoEquip On': '启用自动装备',
     'AutoEquip Off': '关闭自动装备',
     'AutoEquip': '自动装备',
@@ -430,6 +441,8 @@ var cnItems = {
     ' DMG ': '攻击力',
     'Weak!': '虚弱!',
     'Crit!': '暴击!',
+    'Crit! Chance': '暴击!概率',
+    'Crit! Damage': '暴击!伤害值',
     'CRIT!': '暴击!',
     'CRIT!!': '暴击!!',
     'CRIT': '暴击',
@@ -498,6 +511,7 @@ var cnItems = {
     'This enemy is enraged! Damage it to weaken it back down. Deals 5x attack damage, reduced by its remaining percentage of health.': '这个敌人陷入了暴怒！对它造成伤害可以使它冷静一些，从而降低攻击力。它的攻击力变为5倍，但会随着生命值下降而下降。',
     'This enemy is enraged! Damage it to weaken it back down. Deals 4x attack damage, reduced by its remaining percentage of health.': '这个敌人陷入了暴怒！对它造成伤害可以使它冷静一些，从而降低攻击力。它的攻击力变为4倍，但会随着生命值下降而下降。',
     'Blinded': '致盲',
+    'Spore Cloud': '孢子云',
     'World Info': '世界信息',
     'Fight': '战斗',
     'Send your poor Trimps to certain doom in the battlefield. You\'ll get cool stuff though, they\'ll understand. (Hotkey: F': '将可怜的脆皮们送入战场，迎接它们注定的结局。它们一定能理解您的，因为这样您才能获得好东西。(快捷键：F',
@@ -995,6 +1009,9 @@ var cnItems = {
     'Chickimp': '脆皮小鸡',
     'Hippopotamimp': '脆皮河马',
     'Onoudidimp': '脆皮蜗牛',
+    'Nooimp': '脆皮喏喏',
+    'Platypimp': '脆皮鸭嘴兽',
+    'Duckimp': '脆皮小鸭',
     'Kittimp': '脆皮小猫',
     'Grimp': '脆皮护林者',
     'Golimp': '脆皮魔像',
@@ -1042,6 +1059,8 @@ var cnItems = {
     'Freezo': '冰雪之王',
     'Frosnimp': '脆皮寒霜者',
     'Druopitee': '德罗披提',
+    'Stuffy': '闷闷',
+    'Echo of Stuffy': '闷闷的幻影',
     'Druopitee and Pals': '德罗披提和随从们',
     'Echo of Druopitee': '德罗披提的幻影',
     'Echoes of Druopitee and Pals': '德罗披提和随从们的幻影',
@@ -1099,6 +1118,7 @@ var cnItems = {
     'You found an ancient book titled Bloodlust. You should look at it or something.': '您发现了一本名叫《嗜血》的古书。您应该看一看它。',
     'Hey, this book might be for you!': '嗨！这本书大概是为了您而写的！',
     'Hey look, plans for a new Gym!': '快看，那是新的健身房蓝图！',
+    'Prism': '棱镜护盾',
     'You find a small handcut gem that seems to coat you in a bubble of light when you hold it! You should have your Scientists research some way to polish it.': '您发现了一块手工切割的小宝石，握着它的时候，您的周围笼罩着一层光！您应该让科学家研究一下怎么抛光它。',
     'TrainTacular': '格挡提升',
     'This book is for your Trainers!': '这本书是为了训练师而写的！',
@@ -1155,8 +1175,10 @@ var cnItems = {
     'You look down and see a green gem that seems to stare back. You pick it up and feel adrenaline surge through your body. Probably best to bring this back to the lab for some research.': '您往下看，看到了一块绿色的宝石，似乎在回瞪着您。您将它拾了起来，立刻感到全身都亢奋了。或许应该将它带回去做进一步的研究。',
     'Rage': '暴怒',
     'You look down and see a blue gem that seems to stare back. You pick it up and are immediately overwhelmed by feelings of intense power. You figure this could be used to focus your Portal Generator in this Universe.': '您往下看，看到一块蓝色的宝石，似乎在回瞪着您。您将它拾了起来，立刻被强大的力量感淹没了。您觉得它可以用来集中这个宇宙传送门发生器的能量。',
+    'PrismaticPalace': '棱镜宫殿',
     'You found a map to a strange place. Better go kill stuff in it!': '您发现了通往一个奇怪地方的地图。是时候大开杀戒了！',
     'Prismatic Palace': '棱镜宫殿',
+    'MeltingPoint': '熔点',
     'This map is hot to the touch. Better go inside!': '这张地图非常烫手。最好进去看看！',
     'Melting Point': '熔点',
     'Coordination': '协作',
@@ -1201,6 +1223,9 @@ var cnItems = {
     'From the void, an auspicious presence reaches out and fills your mind. You feel at peace with the world. It asks you what you desire most. Wait... how many times has this happened now? You\'re fairly positive that there was something you regretted not asking last time, but you can\'t quite remember. You\'ve asked for Trimps to be able to manage storage structures, and you\'ve asked for them to be better at managing those structures. Even though you\'re content with your storage solutions, you suddenly realize the perfect request! You wish the Trimps would stop pushing so far through the Zones while you\'re sleeping, so you ask for a way to tell the Trimps to stop fighting at a Zone of your choosing. The presence lets you know that it is done, then dissipates. You realize as soon as it leaves that you could have asked to go home, but you don\'t really want to anymore. Next time you\'ll make sure to ask for invincible Trimps though, that may have been a better choice.': '一只瑞兽从虚空中出现，占满了您的意识。一时间您感觉与世无争。它询问道，您最想要的是什么，您……等等，这场景发生过几次了？您记得上次后悔过没有许愿什么，但记不起来是啥了。您已经请求过让脆皮变得足够聪明，可以自动建造存储建筑，您也请求过让脆皮自动建造存储建筑时浪费更少。您对存储已经很满意了，所以……等等，您知道该许什么愿望了！您希望在睡觉时，脆皮们不要冲过头，所以您请求让脆皮在特定区域停止战斗。它告诉您，愿望已经实现，然后就重归于虚无了。它一离开，您就想起来应该许愿回家的，但其实回不回家已经无所谓了。下次不如直接许愿让脆皮变成无敌好了，您想，这主意肯定不错。',
     'From now on, you have access to the Map At Zone setting. This setting can be accessed through the Map Sidebar, Settings, or the \'Configure Maps\' popup!': '从现在起，您可以使用自动进图设置了。您可以从地图侧边栏，设置菜单，或者是“设置地图”窗口中进行设置！',
     'Auspicious Presence Part III': '瑞兽 III',
+    'From the void, a suspicious presence reaches out and fills some of your mind. Before it even says anything, you immediately ask for peace on the planet and for you to be sent home. Unfortunately for you, the Suspicious Presence lets you know that you must have it confused with its sibling, and that it doesn\'t actually take requests. It blows a strange bubble thing at one of your Trimps and takes off. Dang! ': '一只睿兽从虚空中出现，占据了您的部分意识。它还没开口，您就立刻许愿星球和平，并送您回家。不幸的是，睿兽表示您把它和它的兄弟搞混了，它可没法实现愿望。它对着您的一只脆皮吹了个奇怪的泡泡，就离开了。真倒霉！',
+    'From now on, your AutoUpgrade button can now cycle to a mode where no Coordinations are bought.': '从现在起，您可以将自动升级设置为不自动购买协作升级的新模式了。',
+    'Supsicious Presence?': '睿兽？',
     'From the void, an auspicious presence reaches out and fills your mind. You feel at peace with the world. It asks you what you desire most. Wait... This has DEFINITELY happened before... hasn\'t it? You\'re pretty sure it has, but you have no actual memory of it. But you do... but also you don\'t. Wait, who even are you? Where are you? What are you?': '一只瑞兽从虚空中出现，占满了您的意识。一时间您感觉与世无争。它询问道，您最想要的是什么，您……等等，这*绝*对*发生过的……有吗？您很肯定这发生过，但您又完全没有任何印象。但是您记得……但您又不记得。等等，您是谁？您在哪？您在干什么？',
     'You sit on the ground and contemplate things for a few hours while the Auspicious Presence waits patiently. You finally stand up and demand that the Trimps become smart enough to level up their own equipment! You can\'t see how this could go badly. The presence lets you know that it is done, then it dissipates. As soon as it is gone, you realize you could have just asked for invincible Trimps, but you\'re pretty sure you\'ll remember next time.': '您坐在地上苦思冥想了许久，瑞兽在一旁，只是静静地等着。最后您站了起来，开口道，希望脆皮变得足够聪明，可以自动升级装备！这绝对是一个万无一失的愿望。它告诉您，愿望已经实现，然后就重归于虚无了。它一离开，您就想起来应该许愿让脆皮变成无敌的，下次绝对会记得这么做，您确信着。',
     'From now on, you have access to AutoEquip!': '从现在起，您可以使用自动装备设置了！',
@@ -1259,6 +1284,7 @@ var cnItems = {
     'GambesOP': '强棉甲',
     'You found a book that will teach you how to upgrade your Gambeson!': '您发现了一本书，它可以教您升级棉甲！',
     'You found two books that will teach you how to upgrade your Gambeson!': '您发现了两本书，它们可以教您升级棉甲！',
+    'Your Scientists have already read that book! Better look elsewhere for some new reading material.': '科学家们读过那本书了！最好另寻新的阅读材料。',
     'Speedexplorer': '探险家加速',
     'The copy of \'Speedexplorer\' under these bushes will certainly be useful!': '您在树丛下发现了“探险家加速”，它肯定会有用的！',
     'The Block': '障碍区',
@@ -1477,6 +1503,7 @@ var cnItems = {
     'SA Highest Level': '尖塔突击最高等级',
     'Runetrinkets Collected': '小符饰总数',
     'Mutated Seeds Collected': '突变之种总数',
+    'Most U2 Void Maps in one Run': '宇宙2一个周目最高虚空地图数',
     'Unhide': '解除隐藏',
     //#endregion 游戏统计相关
     //#region 游戏成就相关
@@ -1556,6 +1583,7 @@ var cnItems = {
     'U2 Speed: Palace': '宇宙2最速：棱镜宫殿',
     'U2 Speed: Atlantrimp': '宇宙2最速：亚特兰蒂皮',
     'U2 Speed: Melting': '宇宙2最速：熔点',
+    'U2 Speed: Stuffy': '宇宙2最速：闷闷尖塔',
     'Feats': '壮举',
     'U2 Feats': '宇宙2壮举',
     'Reward': '奖励',
@@ -1632,6 +1660,8 @@ var cnItems = {
     'Universal Specialist': '博识专家',
     'Zoning Committee': '区委会',
     'Quadcentennial': '四百之庆典',
+    'Terrific Traveler': '优秀旅者',
+    'Progression Professor': '进展教员',
     'Lead Trimps': '弱铅脆皮',
     'Silver Trimps': '脆银脆皮',
     'Golden Trimps': '软金脆皮',
@@ -1804,6 +1834,7 @@ var cnItems = {
     'Seed Sower': '种子播种者',
     'Seed Studier': '种子研究者',
     'Seed Specialist': '种子专家',
+    'Seed Senior': '种子资深者',
     'Seed Savior': '种子拯救者',
     'Block Hobbyist': '障碍业余爱好者',
     'Block Apprentice': '障碍学徒',
@@ -1897,6 +1928,11 @@ var cnItems = {
     'Tempered': '升温',
     'Melty': '熔化',
     'Molten': '熔融',
+    'Boiling': '沸腾',
+    'Swiftly Stuffed': '迅速之闷',
+    'Denature Dash': '转性冲刺',
+    'Lightning Lumberjack': '疾刷如电',
+    'Supersonic Spire': '超音速尖塔',
     'Forgot Something': '忘了件事',
     'Complete the Dimension of Anger before buying Bounty': '在购买赏金升级前通过愤怒维度地图',
     'Underachiever': '后进者',
@@ -2378,7 +2414,9 @@ var cnItems = {
     'This setting applies to big popups that occur after hitting certain milestones each portal. This setting will currently block: the Improbability popup': '切换是否在每次传送门到达特定区域后弹出大窗口。该设置目前禁止弹出以下窗口：乌有者提示',
     'This setting applies to big popups that occur after hitting certain milestones each portal. This setting will currently block: the Improbability popup, the popup at Corruption': '切换是否在每次传送门到达特定区域后弹出大窗口。该设置目前禁止弹出以下窗口：乌有者提示、腐化提示',
     'This setting applies to big popups that occur after hitting certain milestones each portal. This setting will currently block: the Improbability popup, the popup at Corruption, the popup at The Spire': '切换是否在每次传送门到达特定区域后弹出大窗口。该设置目前禁止弹出以下窗口：乌有者提示、腐化提示、尖塔提示',
-    'This setting applies to big popups that occur after hitting certain milestones each portal. This setting will currently block: the Improbability popup, the popup at Corruption, the popup at The Spire, and the popup on reaching Magma.': '切换是否在每次传送门到达特定区域后弹出大窗口。该设置目前禁止弹出以下窗口：乌有者提示、腐化提示、尖塔提示、岩浆提示。',
+    'This setting applies to big popups that occur after hitting certain milestones each portal. This setting will currently block: the Improbability popup, the popup at Corruption, the popup at The Spire, the popup on reaching Magma.': '切换是否在每次传送门到达特定区域后弹出大窗口。该设置目前禁止弹出以下窗口：乌有者提示、腐化提示、尖塔提示、岩浆提示。',
+    'This setting applies to big popups that occur after hitting certain milestones each portal. This setting will currently block: the Improbability popup, the popup at Corruption, the popup at The Spire, the popup on reaching Magma, the popup on reaching Mutation.': '切换是否在每次传送门到达特定区域后弹出大窗口。该设置目前禁止弹出以下窗口：乌有者提示、腐化提示、尖塔提示、岩浆提示、突变提示。',
+    'This setting applies to big popups that occur after hitting certain milestones each portal. This setting will currently block: the Improbability popup, the popup at Corruption, the popup at The Spire, the popup on reaching Magma, the popup on reaching Mutation, and the popup on reaching Stuffy\'s Spire.': '切换是否在每次传送门到达特定区域后弹出大窗口。该设置目前禁止弹出以下窗口：乌有者提示、腐化提示、尖塔提示、岩浆提示、突变提示、闷闷尖塔。',
     'Note that this setting only blocks large popups once your Highest Zone Reached is 20 Zones past the location of the popup.': '注意：该设置只在最高通过区域高于提示所在区域20层以上时禁止弹出大窗口。',
     'Default Generator': '默认发生器',
     'Gain Fuel': '得燃料',
@@ -2435,7 +2473,30 @@ var cnItems = {
     ' will grant up to 24 hours of your offline progress as Time Warp without granting any extra resources from Trustworthy Trimps at the beginning (for time over 24 hours), or at the end (for canceled Time Warp time). This can also be useful for timed runs or tracking stats, as the time added will be capped to however much time you spend in Time Warp.': '最多可以从时间跃迁中获得24小时的收益，并且不触发可靠的脆皮。对于定时游戏或研究数据会很有用，因为游戏时间被时间跃迁限制了。',
     ' will skip Time Warp when you come back and grant resources for all time offline from Trustworthy Trimps. For when you want to get back in the game as soon as possible!': '将不触发时间跃迁，从可靠的脆皮中获取全部离线收益。如果您想要尽快回到游戏中，可以选择这个。',
     'This setting can be changed from the Time Warp screen': '该设置可以在时间跃迁画面中修改',
-    'or in Settings -> Other.': '或者在设置的其它选项卡下修改。',
+    'or in Settings -> Other. Ctrl click from Settings to limit speed, or use the slider during Time Warp.': '或者在设置的其它选项卡下修改。按下Ctrl键再点击该选项可以限制时间跃迁的速度，在时间跃迁中也可以进行调整。',
+    'Time Warp Limiter': '限制时间跃迁速度',
+    'Time Warp too fast? Limit its speed here! Drag the slider all the way to the right for unlimited speed.': '时间跃迁太快了吗？那么您可以在这里限制速度！将滑块移至最右方将变为不限速。',
+    'Unlimited Speed!': '不限速！',
+    'Limited to 50x speed': '限制为50倍速度',
+    'Limited to 100x speed': '限制为100倍速度',
+    'Limited to 150x speed': '限制为150倍速度',
+    'Limited to 200x speed': '限制为200倍速度',
+    'Limited to 250x speed': '限制为250倍速度',
+    'Limited to 300x speed': '限制为300倍速度',
+    'Limited to 350x speed': '限制为350倍速度',
+    'Limited to 400x speed': '限制为400倍速度',
+    'Limited to 450x speed': '限制为450倍速度',
+    'Limited to 500x speed': '限制为500倍速度',
+    'Limited to 550x speed': '限制为550倍速度',
+    'Limited to 600x speed': '限制为600倍速度',
+    'Limited to 650x speed': '限制为650倍速度',
+    'Limited to 700x speed': '限制为700倍速度',
+    'Limited to 750x speed': '限制为750倍速度',
+    'Limited to 800x speed': '限制为800倍速度',
+    'Limited to 850x speed': '限制为850倍速度',
+    'Limited to 900x speed': '限制为900倍速度',
+    'Limited to 950x speed': '限制为950倍速度',
+    'Limited to 1000x speed': '限制为1000倍速度',
     'Archaeology Automator': '自动考古',
     'Customize the Archaeology Automator. Has no effect unless running the Archaeology Challenge.': '设置自动考古。只在考古学挑战中有效。',
     'Unpause Automator': '不暂停考古',
@@ -2445,6 +2506,7 @@ var cnItems = {
     'Show or hide completed achievements.': '切换显示还是隐藏已完成的成就。',
     'View the Spire': '查看尖塔',
     'Your Spire is Sealed, but you can look at it here if you want to.': '尖塔已关闭，但您可以在这里查看它。',
+    'View Spire Assault': '查看尖塔突击',
     'Don\'t Save on Pause': '暂停时不进行保存',
     'Save on Pause': '暂停时进行保存',
     'Save when pausing the game. Note that regardless of this setting, the game will not be saved on pause if AutoSave is disabled.': '切换是否可以在暂停时保存。请注意，如果关闭了自动保存，那么无论该选项设置是什么，都不会在暂停时保存。',
@@ -2545,12 +2607,14 @@ var cnItems = {
     'Radiating': '辐射',
     'Hazardous': '厄劫',
     'Enigmatic': '神秘',
+    'Mutated': '突变',
     'Core': '核心',
     'Staff': '权杖',
     'Empty': '空',
     '*Void Map Drop Chance on Hazardous and higher Heirlooms has a lower percentage than previous Heirloom tiers, but also causes 1 extra Void Map to drop every 10th zone you clear.': '*厄劫及以上稀有度的传家宝上，虚空地图掉落概率比之前的传家宝要低，但每通过10个区域，就可以额外掉落1张虚空地图。',
     'ADDS this amount on to your total Prismatic Shield. This modifier can only function in the Radon Universe.': '将该数值纳入棱镜护盾数值计算中。只在氡之宇宙内有效。',
     'Reduces the Equality penalty on your Trimps by this amount without changing Enemy reduction.': '使我方脆皮的平等惩罚减少该数值，不影响对敌人的效果。',
+    'Gives your Trimps this chance to crit for 1 tier higher than they would have.': '使我方脆皮有相应概率触发高一阶的暴击。',
     'Can\'t replace mods other than \'Empty\' at this tier.': '该稀有度的传家宝无法替换词缀，只能新增词缀。',
     'Select a Mod': '选择一个词缀',
     'At Max!': '已达上限！',
@@ -2568,14 +2632,14 @@ var cnItems = {
     'Make Purchase': '确定购买',
     'Permanent Upgrades': '永久生效的升级',
     'These upgrades all persist through Portals, each one can be purchased a maximum of 10 times. Prices increase by 10 Bones per purchase.': '以下升级在传送后仍然存在，每种升级最高可以购买10次。每次购买后，骨头花费就增加10骨头。',
-    'The Bone Trader saves these bad boys for his best customers. Unlock all 10 Exotic Imports and you\'ll be judged worthy.': '骨法商人只向他最重要的顾客出售这些东西。解锁所有10种奇异外皮，证明你的价值。',
+    'The Bone Trader saves these bad boys for his best customers. Unlock all 10 Exotic Imports and you\'ll be judged worthy.': '骨法商人只向他最重要的顾客出售这些东西。解锁所有10种奇异外皮，证明自己的价值。',
     'Locked until your first Portal!': '传送后解锁！',
     'Upgrade your Void Map harvesting devices with the power of Bone! Each upgrade will cause 1 out of 100 Void Maps you find to be duplicated, guaranteed.': '使用骨头的力量强化获取虚空地图的能力！每次在世界上获得虚空地图时都将进行充能，每级升级可以使虚空地图的充能数值增加1%，充能达到100%以后将复制出一张虚空地图。',
     'You are about to purchase a level of Bone Void Maps, causing +1 out of 100 Void Maps you find to be duplicated. Is this what you wanted to do?': '您将购买一级骨头虚空地图，它将使虚空地图的充能数值增加1%。您确定要购买吗？',
     'Before you even see the original Void Map, the Bone Trader appears in front of you and hands you the Void Map\'s duplicate. With his mission successful, the Bone Trader then wanders to a nearby bush to check for bones, then vanishes in a disappointed puff of smoke.': '骨法商人在您还没看到那张地图时就出现了，并递给了您地图的复制。之后他在附近找了找骨头，但一无所获，便在一阵烟雾中失望地离开了。',
     'You hear a THWACK like someone smacking two bones together right next to your frickin ear. Rather miffed, you turn around to see nothing but a Void Map on the ground. About 15 trimplengths away you spot the rear end of the Bone Trader sticking out from behind a rock, but you decide not to say anything.': '您听到了一阵令人不快的声音，像是有人在您的耳朵旁敲击两根骨头一样。您不悦地转过身，发现地上出现了一张虚空地图。大约15脆皮尺以外，您还发现骨法商人的屁股从石头后露了出来，您决定假装没有看见。',
     'The Bone Trader pops into existence quite a distance in front of you, clearly wearing a chef\'s apron and holding a spoon carved from bone. He tosses a Void Map in your general direction, then quickly disappears. You may have just interrupted the cooking of some soup.': '骨法商人突然从远处出现了，他系着厨师围裙，手里还拿着骨头雕刻的勺子。他向您的方向扔了一张虚空地图，然后就闪人了。您可能是打扰到他做汤了。',
-    'You almost stumble and fall in a hole right in front of you that definitely was not there a minute ago. You look down and see the Bone Trader staring up at you with a warm smile, holding up a Void Map. You take the Void Map, thank the Bone Trader, and the hole fills back in instantly.': '您差点掉进了一个坑里，但不久之前这里应该还是平地。您往下看，骨法商人在坑里，拿着一张虚空地图，对着您微笑。你接过地图，道了声谢谢，然后坑立刻就消失了。',
+    'You almost stumble and fall in a hole right in front of you that definitely was not there a minute ago. You look down and see the Bone Trader staring up at you with a warm smile, holding up a Void Map. You take the Void Map, thank the Bone Trader, and the hole fills back in instantly.': '您差点掉进了一个坑里，但不久之前这里应该还是平地。您往下看，骨法商人在坑里，拿着一张虚空地图，对着您微笑。您接过地图，道了声谢谢，然后坑立刻就消失了。',
     'Bone Shrine': '骨头神龛',
     'You are about to purchase a level of Bone Shrine, granting +10 minutes of primary resources as loot when worshipping the Shrine. Is this what you wanted to do?': '您将购买一级骨头神龛，它将使消耗骨头充能敬拜神龛时获取的资源时长增加10分钟。您确定要购买吗？',
     'You are about to purchase a level of Bone Shrine, granting +10 minutes of primary resources as loot when worshipping the Shrine, and -30 minutes on the cooldown time per charge. Is this what you wanted to do?': '您将购买一级骨头神龛，它将使消耗骨头充能敬拜神龛时获取的资源时长增加10分钟，并使骨头充能的时间减少30分钟。您确定要购买吗？',
@@ -3067,7 +3131,7 @@ var cnItems = {
     'Bonfires': '篝火',
     'Embers': '余烬',
     'Glass': '玻璃',
-    ' with this Challenge active will permanently cause all Radon earned to be increased by 10% (compounding) per Zone above Z175.': '后，超过区域175时，氡获取量每个区域比上个区域多10%(相互叠乘)。',
+    ' with this Challenge active will permanently cause all Radon earned to be increased by 10% (compounding) per Zone between Z175 and the Glass ceiling at Z400.': '后，在区域175至区域400之间，氡获取量每个区域比上个区域多10%(相互叠乘)。',
     'You hit 10 Crystallized stacks and have failed the Glass Challenge! Your World has been returned to normal.': '敌人的晶化层数到达了10层，玻璃挑战以失败告终！世界恢复了正常。',
     'You have completed the Glass Challenge! Your World has been returned to normal, and from now on every Zone above Z175 will grant an extra 10% compounding Radon per Zone!': '您完成了玻璃挑战！世界恢复了正常，从现在起，超过区域175时，氡获取量每个区域比上个区域多10%(相互叠乘)。',
     'Crystallized': '晶化',
@@ -3079,7 +3143,7 @@ var cnItems = {
     'Deal as much damage as possible to this Ubersmith in only 10 attacks! When these stacks reach 0, the Ubersmith will lose its power and grant Enhanced Armor based on how much damage it took. Ubersmiths are always fast!': '在10次攻击内对超级铁匠尽可能造成伤害吧！当层数归零后，超级铁匠将变回普通怪物，并根据受到的伤害，使我方脆皮获得强化护甲层数。超级铁匠永远抢先攻击！',
     'Desolation': '荒凉',
     'Travel to a bitterly cold dimension. Every completed Zone reduces the temperature of the world, lowering your Trimps\' attack, health, and resources (gathered and looted) by ': '前往一个严寒刺骨的维度。每通过一个区域，世界的温度就会下降，使我方脆皮的攻击力、生命值、资源获取速度和战利品获取量减少',
-    '. The enemies in this dimension are even colder and will apply a stack of Chilled with every attack they land. Upon death Bad Guys explode, dealing 5x their attack in damage and applying another 20 stacks of Chilled to your Trimps. Each stack of Chilled reduces your Trimps\' attack by 0.2% and their health by 0.1%. Fortunately maps are still nice and warm in this dimension, and attacking map enemies at world level or above will cause 1 stack of Chilled to be lost, plus another stack for each map level above world level. Additionally, if a map above world level is cleared, 1% of all Chilled stacks will be cleared for each level. All enemies within maps are fast. Completing ': '。该维度中的敌人冷到每次攻击都会使我方脆皮获得一层“冰冻”。敌人阵亡时还会爆炸，对我方脆皮造成敌人5倍攻击力的伤害，并使方脆皮再获得20层冰冻。每层冰冻使我方脆皮的攻击力减少0.2%，生命值减少0.1%。好消息是这个维度中的地图仍然十分温暖，攻击不低于当前区域等级的地图中的敌人时可以减少1层冰冻，且地图等级每比当前区域层数高1级，还可以再减少1层冰冻。另外，如果您通过了超过当前区域等级的地图，地图等级每比当前区域层数高1级，还可以减少1%的冰冻层数。地图中的所有敌人都抢先攻击。在该挑战激活的前提下通过',
+    '. The enemies in this dimension are even colder and will apply a stack of Chilled with every attack they land. Upon death Bad Guys explode, dealing 5x their attack in damage and applying another 20 stacks of Chilled to your Trimps. Each stack of Chilled reduces your Trimps\' attack by 0.2% and their health by 0.1%. Fortunately maps are still nice and warm in this dimension, and attacking map enemies at world level or above will cause 1 stack of Chilled to be lost, plus another stack for each map level above world level. Additionally, if a map above world level is cleared, 1% of all Chilled stacks will be cleared for each level. Completing ': '。该维度中的敌人冷到每次攻击都会使我方脆皮获得一层“冰冻”。敌人阵亡时还会爆炸，对我方脆皮造成敌人5倍攻击力的伤害，并使方脆皮再获得20层冰冻。每层冰冻使我方脆皮的攻击力减少0.2%，生命值减少0.1%。好消息是这个维度中的地图仍然十分温暖，攻击不低于当前区域等级的地图中的敌人时可以减少1层冰冻，且地图等级每比当前区域层数高1级，还可以再减少1层冰冻。另外，如果您通过了超过当前区域等级的地图，地图等级每比当前区域层数高1级，还可以减少1%的冰冻层数。在该挑战激活的前提下通过',
     ' bonus to Helium or Radon, Trimp Attack, Trimp Health, Resources Gathered, ': '。',
     'and Mutated Seeds earned': '',
     ' in Universe 1 and 2. Each time Desolation is completed, the reward for next time increases by an additional 10%, 2 more Zones will need to be completed for all future runs of Desolation, and Desolation enemies will gain 10x Attack and Health, and the Trimp stat reduction for each completed Zone increases by 0.2%. ': '且每完成一次荒凉挑战，下次挑战的奖励就增加10%，但后续荒凉挑战中，通过挑战的区域将增加2个区域，敌人也会增加10倍攻击力和生命值，每通过一个区域我方脆皮属性的减少数值增加0.2%。',
@@ -3135,9 +3199,10 @@ var cnItems = {
     ' 0.015% to the compounding bonus. Every 25th Tribute you purchase will also add an additional 0.35% to the compounding bonus. For example: If you have 750 Tributes, you\'ll earn a 6.8% compounding Loot bonus for each level of Greed. ': '0.015%。另外每25个贡品还会使该数值额外再增加0.35%。举个例子：如果您有750个贡品，那么每级贪婪的叠乘加成为6.8%。',
     'Maximum of 40 levels.': '最高40级。',
     'Tenacity': '坚持',
-    'If things seem tough, just try hitting them harder. Each level increases your Trimps\' Attack by 10% (compounding). For every 4 minutes you spend on one Zone, 1% is ': '如果敌人皮糙肉厚的话，只需要更用力就行了。每级使我方脆皮的攻击力增加10%(相互叠乘)。并且每在一个区域停留4分钟，该加成的数值再',
+    'If things seem tough, just try hitting them harder. Each level increases your Trimps\' Attack by 10% (compounding). For every 2.4 minutes you spend on one Zone, 1% is ': '如果敌人皮糙肉厚的话，只需要更用力就行了。每级使我方脆皮的攻击力增加10%(相互叠乘)。并且每在一个区域停留2.4分钟，该加成的数值在第1个小时内再',
     'added': '增加',
-    ' to the compounding bonus, with a max of 2 hours. When you clear a Zone, you carry 50% of the time you spent last Zone (up to 2 hours) with you to the new Zone. For example: If you have spent an hour on one Zone, you\'ll earn a 25% compounding Attack bonus for each level of Tenacity. ': '1%，该特权的效果时间最高为2小时。进入新区域以后，您可以将上个区域时间的一半纳入下个区域的加成。举个例子：如果您在一个区域停留了1个小时，那么每级坚持的叠乘加成为25%。',
+    ' to the compounding bonus for the first hour. After 1 hour, 1% is ': '1%。过了1小时以后，每停留12分钟，该加成的数值再',
+    ' to the compounding bonus every 12 minutes, up to a max time of 2 total hours. When you clear a Zone, you carry 50% of the time you spent last Zone (up to 2 hours) with you to the new Zone. For example: If you have spent an hour on one Zone, you\'ll earn a 35% compounding Attack bonus for each level of Tenacity. If you\'ve spent 2 hours on one Zone, the compounding bonus per level will be 40%. ': '1%，该特权的效果时间最高为2小时。进入新区域以后，您可以将上个区域时间的一半纳入下个区域的加成。举个例子：如果您在一个区域停留了1个小时，那么每级坚持的叠乘加成为35%。如果您在一个区域停留了2个小时，那么每级坚持的叠乘加成则为40%。',
     'Criticality': '暴击限界',
     'When your Critical Strikes just aren\'t doing enough, try Criticality! Each level increases your Trimps\' Critical Strike Damage by 10% (additive).': '觉得暴击伤害不够看？试试暴击限界吧！每级使我方脆皮的暴击伤害增加10%(相互叠加)。',
     'Equality': '平等',
@@ -3183,6 +3248,7 @@ var cnItems = {
     'Your Trimps have died under this Frenzy buff and will be unable to recharge it.': '最初触发战狂的脆皮已经阵亡了，战狂状态持续时间无法再刷新了。',
     'Your Trimps are able to refresh this Frenzy buff!': '我方脆皮可以刷新战狂状态的持续时间！',
     'Observation': '洞察',
+    'Maximum of 50 levels.': '最高50级。',
     'You will have a ': '您将有',
     ' chance to find a Runetrinket at Z100.': '概率在区域100找到一个小符饰。',
     'You have a ': '您有',
@@ -3689,7 +3755,7 @@ var cnItems = {
     ', but you can purchase \'Extra Limbs\' under the Bonus button if you want some more!': '，但您可以在“加成”选项卡下购买“一臂之力”升级，这样就能装备更多物品了！',
     'Huffy can progress to the next level of the Spire after killing the amount of Enemies listed next to your total Dust at the top of the SA window ("Kill X"). Huffy must be fighting at your highest reached level in order to progress this counter, otherwise it will say "Farming".': '在击杀了相应数量的敌人(在尖塔突击界面顶部靠近魔尘总数的“需击杀X”处显示)以后，怒怒可以到达下一级尖塔。怒怒必须在尖塔的最高到达等级才能使该计数减少，否则只会提示“刷怪中”。',
     'Equipping or Unequipping an item will reset your "Session Score" at the top of the SA window.': '装备或取消装备物品后，击杀敌人的计数将会被重置。',
-    'You can unlock new items for Huffy to use through the \'Contracts\' tab. Once you have enough Dust to start a Contract, you\'ll need to complete a Void Map at or above the specified Zone in U2 to complete it and unlock the item.': '你可以在“合约”选项卡下解锁怒怒的新物品。如果您有足够的资源来接受合约，您只需要在宇宙2中通过一张不低于相应区域的虚空地图，即可解锁该物品。',
+    'You can unlock new items for Huffy to use through the \'Contracts\' tab. Once you have enough Dust to start a Contract, you\'ll need to complete a Void Map at or above the specified Zone in U2 to complete it and unlock the item.': '您可以在“合约”选项卡下解锁怒怒的新物品。如果您有足够的资源来接受合约，您只需要在宇宙2中通过一张不低于相应区域的虚空地图，即可解锁该物品。',
     'Defense is a flat damage reduction. Damage taken is equal to (Enemy Attack * Shock Modifier) - Defense.': '防御力将线性减少伤害值。受到的伤害值等于 ( 对方的攻击力 × 震荡因子 ) - 防御力 。',
     'Lifesteal works on Bleed damage but not Poison damage. Lifesteal is based on final damage after Shock and Defense.': '吸血可以对流血伤害生效，但对中毒伤害无效。吸血基于计算完震荡效果和防御力以后的最终伤害而定。',
     'Shock boosts Poison and Bleed damage as well as normal attack damage.': '震荡除了可以加成普通攻击伤害以外，还可以加成中毒伤害和流血伤害。',
@@ -3700,6 +3766,8 @@ var cnItems = {
     'Huffy\'s minimum Attack Time is 0.5 seconds. Any reductions to Attack Time below 0.5 seconds will be converted to Slow Aura, making the Enemy attack up to 50% slower.': '怒怒的攻击间隔下限为0.5秒。如果攻击间隔低于该数值，将转化为减速气场，使敌人的攻击最多减慢50%。',
     'The Spire Assault window can be opened with hotkey "i"': '您可以使用快捷键i来启用尖塔突击界面。',
     'Back to Spire Assault': '返回尖塔突击',
+    'Huffy can go no further up the Spire but can now Seal it to prevent any more Enemies from escaping. All bonuses have been set to 2 levels above their maximum. Congratulations on completing Spire Assault!!! ': '怒怒无法继续攀登尖塔了，但它可以关闭尖塔，以防止敌人逃跑。关闭尖塔后所有加成将变为比最高等级还多出2级。恭喜您通关尖塔突击！！！',
+    'Seal Spire Assault (Can reopen at any time in settings': '关闭尖塔突击(可以在设置中随时重新开启',
     'Dust': '魔尘',
     'Shards': '晶块',
     'Practicing': '练习中',
@@ -3716,6 +3784,9 @@ var cnItems = {
     'Explosive': '爆裂',
     'Berserking': '狂暴',
     'Slowing': '减速',
+    'Poison Immune': '毒免',
+    'Shock Immune': '震免',
+    'Bleed Immune': '血免',
     'AutoLevel On': '启用自动提升等级',
     'AutoLevel Off': '关闭自动提升等级',
     'Huffy': '怒怒',
@@ -3734,12 +3805,15 @@ var cnItems = {
     'Lifesteal Resist': '吸血抗性',
     'Bleed': '流血',
     'Shock': '震荡',
+    'Enemy is immune to Poison!': '该敌人免疫中毒！',
     '*You need an item that can create a Poison (Like Fists of Goo) to Poison.': '*您需要可以使敌人中毒的物品(如粘液拳头)才能触发中毒。',
     '*You need an item that grants Poison Chance to Poison.': '*您需要增加怒怒触发中毒概率的物品才能触发中毒。',
     '*You need an item that grants Poison Damage to Poison.': '*您需要增加怒怒中毒伤害的物品才能触发中毒。',
+    'Enemy is immune to Bleed!': '该敌人免疫流血！',
     '*You need an item that can create a Bleed (Like Rusty Dagger) to cause Bleeding.': '*您需要可以使敌人流血的物品(如锈色利刃)才能触发流血。',
     '*You need an item that grants Bleed Chance to Bleeding.': '*您需要增加怒怒触发流血概率的物品才能触发流血。',
     '*You need an item that grants Bleed Damage to Bleeding.': '*您需要增加怒怒流血伤害的物品才能触发流血。',
+    'Enemy is immune to Shock!': '该敌人免疫震荡！',
     '*You need an item that can create a Shock (Like Battery Stick) to Shock.': '*您需要可以使敌人震荡的物品(如电池棍)才能触发震荡。',
     '*You need an item that grants Shock Chance to Shock.': '*您需要增加怒怒触发震荡概率的物品才能触发震荡。',
     '*You need an item that grants Shock Damage to Shock.': '*您需要增加怒怒震荡伤害的物品才能触发震荡。',
@@ -3797,6 +3871,9 @@ var cnItems = {
     'Nullifium Armor': '虚物护甲',
     'Myco Mitts': '真菌手套',
     'Haunted Harpoon': '闹鬼鱼叉',
+    'Doppelganger Diadem': '分身王冠',
+    'Gaseous Greataxe': '气态巨斧',
+    'The Fibrillator': '电击震荡器',
     'Unupgradable': '无法升级',
     'Bonuses': '加成',
     'Extra Limbs': '一臂之力',
@@ -3834,6 +3911,7 @@ var cnItems = {
     'More Expansion': '更多拓展',
     'Unlock the Expansion Perk, further increasing the power of your Tauntimps': '解锁“拓展”特权，使脆皮咚咚的效果进一步增加。',
     'Owned!': '已获得！',
+    'Max Level!': '达到上限！',
     'Unlimited Purchases': '升级次数无上限',
     'Contracts': '合约',
     'You have paid the Dust and accepted this Contract.': '您支付了魔尘，接受了合约。',
@@ -3851,6 +3929,7 @@ var cnItems = {
     'Level The Ring to 5 to earn your first customizable slot!': '将灵戒提升到5级以后就可以获得第一个自定义词缀的槽位了！',
     'Customizable Slots': '自定义词缀槽位',
     'Unlock another slot at Level 15!': '将灵戒提升到15级以后可以获得另一个自定义词缀的槽位！',
+    'Unlock another slot at level 30!': '将灵戒提升到30级以后可以获得另一个自定义词缀的槽位！',
     'Every level increases stats of all mods on The Ring.': '升级后将增加灵戒上所有词缀的数值。',
     'Every 10 levels, gains a bigger boost in power!': '每10级还能获得更大的加成！',
     'Gains status chance starting at Level 10.': '到达10级还可以获得使怒怒触发异常状态的概率增加的词缀。',
@@ -3909,7 +3988,9 @@ var cnItems = {
     'Provides no bonus other than damage. Will some day evolve into a more powerful boost!': '暂时只提供攻击力加成。今后可能会变为更强大的加成！',
     'Gain x10 Mutated Seed Drops.': '突变之种掉落数量变为10倍。',
     'Scruffy teaches Huffy how to find 5x Dust from SA enemies': '污污可以教会怒怒如何更好地获取魔尘，尖塔突击敌人掉落的魔尘变为5倍。',
-    'Scruffy\'s 4th bonus that increases Radon gain based on last Portal\'s highest Zone is no longer based on last Portal, and is now based on your highest Zone ever reached in Universe 2.': '污污的第4项技能不再以上周目通过的区域计算，改为以宇宙2最高通过区域计算。',
+    'Scruffy\'s level 3 bonus that increases Radon gain based on last Portal\'s highest Zone is no longer based on last Portal, and is now based on your highest Zone ever reached in Universe 2.': '污污等级3的技能不再以上周目通过的区域计算，改为以宇宙2最高通过区域计算。',
+    'Scruffy\'s level 18 bonus that grants extra Void Maps now starts each U2 run with ': '污污等级18的技能改为宇宙2一个周目最高虚空地图数每有5张，每周目初始就获得',
+    'Your Trimps gain +20% Double Crit.': '使我方脆皮加倍暴击(触发高一阶的暴击)的概率增加20%。',
     'Multiplies Radon earned by 1.5.': '使氡获取量变为1.5倍。',
     'Multiplies Radon earned by 2, and grants 5% increased health and attack to your Trimps.': '使氡获取量变为2倍，我方脆皮的生命值和攻击力增加5%。',
     'Multiplies Radon earned by 2.5, and increases all looted or gathered resources by 15%.': '使氡获取量变为2.5倍，所有资源的获取量增加15%。',
@@ -3923,6 +4004,10 @@ var cnItems = {
     'Show Scruffy Info': '显示污污的信息',
     'Show Cruffys Info': '显示朽朽的信息',
     'Pat': '拍头',
+    'Ask About Stuffy\'s Spire': '询问闷闷尖塔',
+    'You may not remember every Floor in Stuffy\'s Spire, but Scruffy does! He offers you the following recap of everything that has happened so far': '您可能不记得闷闷尖塔每一层发生的事了，但污污全记得！它列出了迄今为止发生过的一切事情',
+    'Floor': '层数',
+    'Stuffy\'s Spire': '闷闷尖塔',
     //#endregion 绒绒污污相关
     //#region 突变因子相关
     'Hide Names': '隐藏名称',
@@ -3945,6 +4030,12 @@ var cnItems = {
     'Dedicated': '虔诚奉献',
     'Worshippers no longer abandon Scruffy.': '崇信者不再离开。',
     'Gain +50% Health in U2.': '宇宙2中生命值增加50%。',
+    'Small Trimps': '小小脆皮',
+    '50% more Trimps can fit in housing in U2.': '宇宙2中，所有住房可以多容纳50%的脆皮。',
+    'Tauntimp Farming': '繁育咚咚',
+    'Every 10 Zones in U2, if you have seen fewer Tauntimps in your run than expected, breed the missing amount instantly. Expect 2 more Tauntimps than usual every 10 Zones.': '宇宙2中，每10个区域，如果脆皮咚咚出现数量少于预期，则会立刻进行繁育补足差值。每10个区域大概会多2只脆皮咚咚。',
+    'Master Farmer': '繁育大师',
+    'Every 10 Zones in U2 starting at Zone 15, if you have seen fewer Whipimps, Venimps, or Magnimps in your run than expected, breed the missing amount instantly. Expect 2 more of each than usual every 10 Zones': '宇宙2中，从区域15开始，每10个区域，如果脆皮鞭者、脆皮爱神或脆皮磁王出现数量少于预期，则会立刻进行繁育补足差值。每10个区域大概会各多2只。',
     'Gain +50% Attack in U2.': '宇宙2中攻击力增加50%。',
     'Mutadon': '氡变因子',
     'Gain 25% more Radon from U2 Mutations.': '宇宙2突变敌人掉落的氡数量增加25%。',
@@ -3986,6 +4077,19 @@ var cnItems = {
     'Brains to Brawn': '智勇双全',
     'Mad Mapper': '制图狂人',
     '100% of your damage can Overkill in maps at any level. Limited to 1 cell of Overkill if above World Overkill Zone.': '只要在地图中，就可以使用100%的溢出伤害攻击下个敌人。如果地图等级超过了世界的超杀区域，则至多超杀1名敌人。',
+    'Randimps now give the loot of two different Exotic Imports when found.': '脆皮百变怪变为死亡时随机给予两个不同奇异外皮的效果。',
+    'Really Randimp': '真·百变怪',
+    'Randimps now give the loot of three different Exotic Imports when found.': '脆皮百变怪变为死亡时随机给予三个不同奇异外皮的效果。',
+    'Mastery Info': '专精信息',
+    'U1 Masteries and Helpful Info': '宇宙1专精和有用的信息',
+    'U2 Masteries and Helpful Info': '宇宙2专精和有用的信息',
+    'Blacksmithery Not Purchased': '未购买锻铁术',
+    'Blacksmithery': '锻铁术',
+    'Hyperspeed Not Purchased': '未购买风驰电掣',
+    'Hyperspeed': '风驰电掣',
+    'Liquification not owned in this Universe': '该宇宙中尚未拥有液化',
+    'Liquification': '液化',
+    'Overkill not owned in this Universe': '该宇宙中尚未拥有超杀',
     'Zoom In': '放大',
     'Click this to Zoom In to the Mutators tree. You can also use mouse wheel to zoom, or click and drag the tree to move it around.': '放大突变因子树。您也可以使用鼠标滚轮来缩放，或者点击并拖动鼠标来移动画面。',
     'Zoom Out': '缩小',
@@ -4053,7 +4157,8 @@ var cnItems = {
     'The Amalgamator is starting to rapidly switch between different colors. It would be slightly entertaining if the fabric of existence wasn\'t falling apart around it.': '那个合并者开始在不同的颜色之间迅速地进行变换。如果不是宇宙的结构在它身边不停崩坏的话，这其实还挺有意思的。', //区域95
     'The Amalgamators are starting to rapidly switch between different colors. It would be slightly entertaining if the fabric of existence wasn\'t falling apart around them.': '合并者们开始在不同的颜色之间迅速地进行变换。如果不是宇宙的结构在它们身边不停崩坏的话，这其实还挺有意思的。', //区域95
     'Need some motivation? You can do it! Maybe.': '需要应援吗？不要输了，加勒个油。', //区域95
-    'You stop dead in your tracks. You remember who you came here with, and you remember that you are not happy with Captain Druopitee for bringing you here. You know he landed with you. You know the ship is still here. He\'s here.': '您停下了前进的步伐。您想起来了，想起来是跟谁一起来的了，舰长德罗披提，对，就是他。您那时很不满，因为他把您带到了这里。您还记得他跟您一起下了飞船。他的飞船一定还在这里，他也一定还在这里。', //区域100
+    'This is an odd looking zone! The ground here is unnaturally flat, and there are large piles of rubble and debris all over the place as if some massive structure had collapsed. Your Trimps seem to enjoy tasting the new flavors of rock, but there\'s an ominous feeling here that pushes you to keep moving.': '这个区域相当怪异！地表平坦到反常，四周遍布像是巨型建筑坍塌后的残骸碎片。脆皮们津津有味地品尝着新口味的岩石，但四周弥漫着不详的气息，您决定赶紧前进。', //区域100
+    'You stop dead in your tracks. You remember who you came here with, and you remember that you are not happy with Captain Druopitee for bringing you here. You know he landed with you. You know the ship is still here. He\'s here.': '您停下了前进的步伐。您想起来了，想起来是跟谁一起来的了，舰长德罗披提，对，就是他。您那时很不满，因为他把您带到了这里。您还记得他跟您一起下了飞船。他的飞船一定还在这里，他也一定还在这里。', //区域101
     'You call a meeting with all of your Trimps to explain the situation. After giving an extremely long, epic, and motivational speech but hearing no reaction from the crowd, you remember that your Trimps cannot understand you. Will you ever learn?': '您把所有的脆皮召集起来开了个会解释目前的情况。在一通振奋人心的史诗级长篇大论后，脆皮们却毫无反应，简直是对皮弹琴。然后您才想起来，脆皮们根本听不懂您的话。您是故意的吧？是吧？是吧？', //区域105
     'How long have you been trapped on this planet? Months? Decades? Travelling through time sure screws up your chronological perception.': '您被困在这行星多久了？几个月了？还是几个世纪了？穿越时空真的让您对时间没啥概念了。', //区域106
     'Though you have no idea which direction your home planet is, you still believe the ship\'s GPS could get you home. Maybe Druopitee has the keys. You really want to find him.': '您并不知道家乡在何方，但飞船上的导航系统一定能带您回家。飞船的钥匙大概是在德罗披提那儿。您一定会找到他的。', //区域109
@@ -4201,7 +4306,7 @@ var cnItems = {
     'This zone is really freaking hot.': '这个区域真的好热啊。', //宇宙2区域50
     'You catch Scruffy helping a group of small Trimps across a river. What a cool dude.': '您发现污污在帮一队小脆皮过河。好家伙，真是好家伙。', //宇宙2区域52
     'A few of your Trimps are getting whiny so you take them for a walk. Seemed to do the trick, they just needed to burn some energy and pee.': '有几个脆皮变得过于烦躁了，所以您带着它们一起去散步。看起来效果不错，它们需要的也就是燃烧多余的能量和及时如厕了。', //宇宙2区域57
-    'Scruffy is finally in a good mood and seems quite a bit stronger than before, so you figure now is a good time to ask him about Fluffy. In exchange for his good mood, he agrees to tell you the rest of the story. According to him, Fluffy was stationed at the seventh Spire while Scruffy was at the sixth. Fluffy and Scruffy each destroyed their own Spires, but Fluffy was caught by Druopitee and took the fall for both of them. Druopitee left the six remaining enhanced Trimps to take care of the remaining five Spires, and took Fluffy with him. You ask what the names of the other five Trimps are and he tells you: Huffy, Stuffy, Buffy, Tuffy, and Puffy.': '污污终于缓过来了，它似乎变得比之前更强大了。您觉得时机已经成熟，于是找到它询问绒绒的情况。它把之前没说完的故事继续说下去了。根据它的说法，绒绒本来是在第七个尖塔，而它是在第六个尖塔。绒绒和它毁掉了它们所在的尖塔，但却是绒绒被德罗披提抓住，承担了摧毁两个尖塔的责任。德罗披提离开之前，要求剩下的六个“强化”脆皮继续照看尖塔，然后就把绒绒带走了。您向污污询问道，那剩下的五个脆皮名字又是什么呢，然后污污回答您，它们的名字是怒怒，闷闷，醉醉，泰泰和彭彭。', //宇宙2区域60
+    'Scruffy is finally in a good mood and seems quite a bit stronger than before, so you figure now is a good time to ask him about Fluffy. In exchange for his good mood, he agrees to tell you the rest of the story. According to him, Fluffy was stationed at the second Spire while Scruffy was at the third. Fluffy and Scruffy each destroyed their own Spires, but Fluffy was caught by Druopitee and took the fall for both of them. Druopitee left the six remaining enhanced Trimps to take care of the remaining five Spires, and took Fluffy with him. You ask what the names of the other five Trimps are and he tells you: Huffy, Stuffy, Buffy, Tuffy, and Puffy.': '污污终于缓过来了，它似乎变得比之前更强大了。您觉得时机已经成熟，于是找到它询问绒绒的情况。它把之前没说完的故事继续说下去了。根据它的说法，绒绒本来是在第二个尖塔，而它是在第三个尖塔。绒绒和它毁掉了它们所在的尖塔，但却是绒绒被德罗披提抓住，承担了摧毁两个尖塔的责任。德罗披提离开之前，要求剩下的六个“强化”脆皮继续照看尖塔，然后就把绒绒带走了。您向污污询问道，那剩下的五个脆皮名字又是什么呢，然后污污回答您，它们的名字是怒怒，闷闷，醉醉，泰泰和彭彭。', //宇宙2区域60
     'Scruffy finally seems more inspired than sad. Looks like he wants to go take down some bad guys.': '污污似乎真的走出来了，它看起来甚至想参战杀敌。', //宇宙2区域61
     'It seems like you\'ve gotta find Scruffy\'s 5 missing brothers. Scruffy reminds you that they were evil the last time he saw them and to be prepared, but that some may have changed sides since.': '看起来您需要找到污污的那五位兄弟。污污提醒您，最后一次看到它们的时候，它们还是在干坏事，您最好有相应的心理准备。但它们也可能已经弃暗投明了。', //宇宙2区域62
     'You wonder if Trimps came from this Universe, your original one, or somewhere else. Scruffy shrugs.': '那脆皮又是从哪来的？是这个宇宙，上一个宇宙，还是其他哪里？污污对此也一无所知。', //宇宙2区域65
@@ -4236,10 +4341,11 @@ var cnItems = {
     'One of the Trimps on feeding duty was a bit confused and seems to have eaten the Turtlimp.': '一位负责当日喂食的脆皮有点迷迷糊糊，把那只脆皮龟吃掉了。', //宇宙2区域134
     'Huffy pops a quick message into your head to let you know he\'s doing fine in the Spire!': '怒怒往您的脑子里直接发了一条快讯，它表示它在尖塔中一切顺利。', //宇宙2区域140
     'Huffy pops a message into your head stating that as much as he likes constantly losing, he would appreciate a little help!': '怒怒往您的脑子里发了一条消息，它表示它一直在输，需要您的帮助。', //宇宙2区域140
-    'As you near a gigantic lake, you notice that this part of the World is becoming filled with wild varieties of plants you\'ve never seen before. You\'ve already taught your Trimps not to eat strange plants, but it looks like it\'s time for a reminder.': '您靠近了一个巨大的湖泊，你发现那附近充满了从未见过的野生植物。您教过脆皮们不要吃什么奇怪的植物，但看来最好再提醒它们一次。', //宇宙2区域150
+    'As you near a gigantic lake, you notice that this part of the World is becoming filled with wild varieties of plants you\'ve never seen before. You\'ve already taught your Trimps not to eat strange plants, but it looks like it\'s time for a reminder.': '您靠近了一个巨大的湖泊，发现那附近充满了从未见过的野生植物。您教过脆皮们不要吃什么奇怪的植物，但看来最好再提醒它们一次。', //宇宙2区域149
+    'Within the center of the gigantic lake is a large island full of rubble as if a large structure had collapsed here. The stones remind you a lot of Huffy\'s spire, though there is an infinitely smaller number of the stones than what you\'d expect make up the other one. This must have been Fluffy\'s Spire! You look proudly at the rubble, knowing everything Fluffy sacrificed to rid the world of the evil that was once here.': '在巨湖中央有个布满瓦砾的大岛，像是有座巨大建筑曾在这里倒塌过。这些石头让您想起了怒怒的尖塔，尽管石头的数量远少于您的预期，您还是明白过来，这就是绒绒曾经待过的尖塔！您自豪地望着瓦砾堆，心知绒绒曾经为了消除存在此地的邪恶付出了什么样的牺牲。', //宇宙2区域150
     'The plant biodiversity around this Zone is incredible, it feels like this Zone is its own isolated ecosystem. The ground around here must be extremely arable.': '这个区域附近的植物着实多种多样。您感觉这个区域已经自成一片小天地了。这是何等肥沃的土地啊。', //宇宙2区域155
     'As you\'re walking through your town, you walk past Scruffy and notice his fur has seemed to change colors slightly. You think to yourself that it\'s strange, but what\'s even stranger is that he seems bewildered by the town he helped create, and he does not look happy. Out of the corner of your eye, you also spot Scruffy, but this Scruffy has the expected fur color. You gulp as you realize that this must be one of the other brothers, and you hope he\'s friendly!': '您在城镇漫步，路过污污，您发现它的皮毛似乎稍微变了颜色。您感到有些奇怪，但更奇怪的是它对自己帮助建造的城镇似乎感到困惑，而且看起来不太高兴。眼角边上，您又看到了一个污污，但这个的皮毛颜色就没啥问题了。您吞了口口水，之前那位一定是污污的兄弟，希望它不是敌人！', //宇宙2区域160
-    'After avoiding you as best as he could, you and Scruffy finally corner the new -uffy for some questioning. Scruffy immediately recognizes Stuffy, but doesn\'t seem happy at all to see him. Stuffy informs you that you\'re polluting the planet with all your smelting and forestry, and that he wants you to shut everything down and return to nature. Scruffy protests, arguing that our cause is worth it and that Druopitee\'s work must be destroyed at any costs. With that, Stuffy swears to stop you, then he flees into the forest. That probably won\'t be the last you see of Stuffy.': '尽管它尽力躲着您，但您和污污终于还是让它无路可走，必须谈谈了。那是闷闷，污污立刻就把它认了出来，但一点也不开心。闷闷表示，您的冶炼和林业正在污染这颗行星，它希望您立刻关闭一切，回归自然。污污表示抗议，它认为这边的事业是正当的，应该不惜任何代价地抹除德罗披提留下的痕迹。闷闷发誓一定会阻止你，然后转身遁入了森林。以后恐怕还会跟它打交道的。', //宇宙2区域161
+    'After avoiding you as best as he could, you and Scruffy finally corner the new -uffy for some questioning. Scruffy immediately recognizes Stuffy, but doesn\'t seem happy at all to see him. Stuffy informs you that you\'re polluting the planet with all your smelting and forestry, and that he wants you to shut everything down and return to nature. Scruffy protests, arguing that our cause is worth it and that Druopitee\'s work must be destroyed at any costs. With that, Stuffy swears to stop you, then he flees into the forest. That probably won\'t be the last you see of Stuffy.': '尽管它尽力躲着您，但您和污污终于还是让它无路可走，必须谈谈了。那是闷闷，污污立刻就把它认了出来，但一点也不开心。闷闷表示，您的冶炼和林业正在污染这颗行星，它希望您立刻关闭一切，回归自然。污污表示抗议，它认为这边的事业是正当的，应该不惜任何代价地抹除德罗披提留下的痕迹。闷闷发誓一定会阻止您，然后转身遁入了森林。以后恐怕还会跟它打交道的。', //宇宙2区域161
     'Scruffy informs you that he was doing some observations of the Zones above 200, and that there seems to be something weird going on that wasn\'t there last time he checked. He fears that Stuffy has gotten up to no good.': '污污提醒您，它在观察区域200以后的区域，有些不对劲的变化，但上次观察时并没有这样。这恐怕是闷闷干的好事。', //宇宙2区域165
     'This Zone appears to be a giant glacier, and the enemies here have evolved small spikes in their feet to avoid slipping around. Fascinating! Your Trimps seem perfectly comfortable on the ice though, and have taken to sliding around like penguimps rather than walking.': '这个区域似乎是一个巨大的冰川，敌人们在脚底进化出了小刺来避免滑倒。真是迷人的变化。脆皮们看来在冰上十分惬意，像脆皮企鹅一样开始了滑行。', //宇宙2区域167
     'Just as you\'re getting back to your town for some R&R, Scruffy returns from his Stuffy studying voyage. He looks grim. He informs you that he\'s taken some samples and will do his best to fill you in when you get there, but that every Zone above Z200 seems to contain horribly mutated enemies. He says there\'s multiple different strains of Mutation up there, and that they can even potentially combine to make super Mutations. You don\'t really think you like the sound of super Mutations.': '您正准备回城镇休整放松一下的时候，污污完成了对闷闷的分析，回归了。它的表情十分严峻。它表示它已经采集了一些样本，到达那边时会尽全力向您解释的，区域200以后的每个区域似乎都有一些可怕的突变敌人。它还表示突变类型有好几种，还可能结合起来变成超级突变。您觉得什么超级突变听起来就不是很妙。', //宇宙2区域172
@@ -4252,7 +4358,39 @@ var cnItems = {
     'What\'s this?! Another type of Mutated enemy? Scruffy tells you that the strange looking enemies on this Zone are affected by what he calls \'Cell Compression\', and that the first green enemy has consumed all of the green cells after it. The first green cell will be extra tough as it has all the stats of the other green cells after it, but if you manage to kill it you can just walk right through the cells behind it and pick up your loot. Scruffy lets you know you\'ll find even more Mutated Seeds here!': '这又是什么？！另一种突变敌人吗？污污告诉您，这个区域的奇怪敌人受到了“格子压缩”的影响，第一个绿色的敌人已经吃掉了后面的所有绿色格子。那个敌人会很难对付，因为它的属性是之后所有格子之和，但如果您能击杀掉它，就可以直接通过这些格子了。污污表示您可以在这个敌人身上获得更多的突变之种！', //宇宙2区域202
     'Good gravelimp, there\'s another type of Mutated enemy here! You turn to Scruffy who was already preparing his notes. He tells you that this is what he calls the \'Nova\' mutation. The enemy in the center of that mutation appears to be radioactive, and it\'s mutating the cells around itself. The center cell is extremely weak but will release a Nova whenever it\'s damaged, debuffing your Trimps to make them deal less damage and take more damage until the end of the Zone. The other nearby mutated cells have extremely high attack but reduced health. And of course, you\'ll find another large batch of Mutated Seeds!': '天啊，这又是新的一种突变敌人！您看向污污，它已经做好了解说的准备。它告诉您，这是“新星”突变。突变中心的敌人具有放射性，它使周围的格子都发生了突变。中间格子的敌人很弱，但受到伤害时会释放新星，削弱我方脆皮，降低它们的攻击力，并使它们受到更多伤害，直到通过区域后才能摆脱影响。周围其他的敌人攻击力极高，但生命值较低。当然还有一点，您可以获得一大批的突变之种！', //宇宙2区域203
     'As you finally pass the Nova Zone and reach the next, you notice yet another new type of Mutation. Scruffy calls this one the \'Row Randomizer\', because he says there are stronger enemies in the front of the Zone and weaker enemies in the back. The first Randomized Row you come across will be harder than normal, but the second one will be easier. And of course, Radon and Mutated Seeds!': '您终于通过新星区域，到达了下一个区域，您注意到又出现了新的突变。污污将它称为“乱数”敌人，因为在它的影响下，区域格子的难度与正常不同。先碰到的一行会变得更难，而后碰到的那一行会变得更容易，就像是互换了位置一样。当然，还有氡，和突变之种！', //宇宙2区域204
-    'Scruffy lets you know that there seems to be no pattern to the repeating of these new Mutations. He warns that they\'ll appear in larger numbers the closer we get to Stuffy\'s Spire, and he reminds you that it\'s possible for one enemy to have more than one of these Mutations available at a time. He urgest you to collect as many Mutated Seeds as possible, and to use them at your new Mutator to improve your Trimps. It\'s the only way to catch up to Stuffy!': '污污表示，突变的出现顺序并无规律。它提醒您，越接近闷闷的尖塔，突变的数量就越多，它还表示一个敌人可能会拥有多种突变。它认为您应该尽可能收集突变之种，然后用它们强化您的脆皮。只有这样才能到达闷闷那里！', //宇宙2区域205
+    'Scruffy lets you know that there seems to be no pattern to the repeating of these new Mutations. He warns that they\'ll appear in larger numbers the closer we get to Stuffy\'s Spire, and he reminds you that it\'s possible for one enemy to have more than one of these Mutations available at a time. He urges you to collect as many Mutated Seeds as possible, and to use them at your new Mutator to improve your Trimps. It\'s the only way to catch up to Stuffy!': '污污表示，突变的出现顺序并无规律。它提醒您，越接近闷闷的尖塔，突变的数量就越多，它还表示一个敌人可能会拥有多种突变。它认为您应该尽可能收集突变之种，然后用它们强化您的脆皮。只有这样才能到达闷闷那里！', //宇宙2区域205
+    'The mutations seem to show no sign of letting up, but the Trimps like the new colors.': '突变丝毫没有减弱的迹象，但脆皮们还挺喜欢新出现的颜色。', //宇宙2区域210
+    'You spot Scruffy sulking around and go see what\'s up. He lets you know that you\'re close to his old Spire and that the scenery is dredging up some bad memories. You want to talk more about his days running a Spire, but the Trimps seem to have started a fire that you should really go attend to.': '您发现污污愁眉不展地四处徘徊，便走过去看看怎么回事。它表示，您正在接近它之前所在的尖塔，这周围的景色勾起了一些不太愉快的回忆。您想跟它谈谈之前尖塔发生的事，但脆皮们似乎点起了火，您真的该去看看。', //宇宙2区域215
+    'As you exit the horribly charred previous zone, you make a mental note to admonish the miners for teaching your soldiers they could make sparks with their swords.': '您离开了那个被严重烧焦的区域，在心里提醒自己，一定要告诫矿工们，不要教士兵们怎么用剑制造火花。', //宇宙2区域216
+    'The mutation seems to show no signs of letting up, and neither do the urges of your Trimps to roll around in the goop.': '突变丝毫没有减弱的迹象，脆皮们也非常高兴地在里面打着滚。', //宇宙2区域220
+    'You\'ve finally stumbled upon the massive pile of rubble that must have been Scruffy\'s Spire. You can tell he\'s ashamed for letting Fluffy take the fall for making the tower fall, but you reassure him that nothing good would have come from him being caged as well. You tell him you\'re glad he\'s here to help you, and give him a couple pats.': '您又发现了一大堆瓦砾，肯定是污污曾经待过的尖塔了。看来它因为让绒绒背了黑锅感到很惭愧，本来弄塌尖塔也跟它有关。但您安慰它，即使它一起被关起来也不会发生什么好事。您表示，有它在帮忙很好，还拍了它几下。', //宇宙2区域225
+    'Scruffy seems to be mostly back to his old self, and has even started playing the Riflunger again. You have to admit he\'s improving, the sound now barely even makes you want to fill your ears with sand!': '污污似乎又恢复过来了，甚至开始摆弄起了利弗朗格。它确实进步了，您总算不会因为那声音而想把耳朵塞满沙子了！', //宇宙2区域231
+    'Three Trimps tried taming two tempermental Titimps. They thought Titimps treasured trash, thus they took turns throwing things toward the Titimps. Thoroughly terrified, the tormented Titimps trapped the Trimps, took their tools, then took to the trail.': '三只脆皮试图驯服两只脾气暴躁的脆皮泰坦。它们认为脆皮泰坦必然很躺，于是开始把东西向着脆皮泰坦砸去，想把它们砸躺下。脆皮泰坦们吓坏了，它们抓住了脆皮们，抢走了它们的工具，然后逃之夭夭了。', //宇宙2区域237
+    'You spot Stuffy sneaking around the camp, and decide to engage sneak mode yourself to see what he\'s up to. However you\'re not very good at sneak mode, and he quickly notices you and scurries off.': '您发现闷闷在营地周围鬼鬼祟祟，于是决定来个黄雀在后。但很可惜您的潜行技巧并不高超，它很快发现了您，迅速溜走了。', //宇宙2区域243
+    'Oh goodness, there are two different Mutations on this Zone! Scruffy warns you that multiple mutations can affect the same enemy, leading to some crazy combinations. You\'re split on how you feel about this. On one hand, the mutated enemies are monstrous and the goop is clearly not natural, but on the other hand the colors look pretty cool. You\'ll have to reflect on this for a bit.': '天哪，这个区域出现了两种不同的突变！污污警告说，多重变异可能会同时影响同一个敌人，导致一些非常狂野的组合。您有点纠结。突变后的敌人看起来非常可怕，身上的粘液显然也不自然，但它的颜色看起来还挺花里胡哨的。您得花点时间整理整理思绪。', //宇宙2区域251
+    'You\'re relaxing at the end of a Zone, minding your own business, when suddenly you hear a loud explosion in the direction of the camp. You run over to assess the damage and assist Scruffy in calming the frantic Trimps. As you look around, you see a message written on a nearby rock that says \"Stuffy was here\".': '您正在区域终点放松，专注自己事情，突然听到营地方向传来巨大的爆炸声。您立刻跑去评估损失并帮助污污安抚惊慌失措的脆皮们。您环顾四周，发现附近的一块石头上写着“闷闷到此一游”。', //宇宙2区域257
+    'Scruffy informs you that he\'s finally been able to detect Stuffy\'s Spire, due to the presence of a new Mutation there that exists nowhere else. He says you\'re only 35 Zones away now, and to be ready.': '污污提醒您，它找到闷闷的尖塔了，那里出现了一种新突变，其他地方都看不到的那种。它表示还剩下35个区域，您要做好准备了。', //宇宙2区域265
+    'Scruffy has been busy studying Stuffy\'s Spire, and comes to you with more news. It sounds like Stuffy\'s Spire is certainly not the only one on the planet pumping out Mutation, but that taking it down is the first step on the path to saving this Universe.': '污污一直忙着研究闷闷尖塔，最后带来了新消息。看来闷闷尖塔并不是唯一一个传播突变的地方，但想拯救这个宇宙，踏平它就是必须迈出的第一步。', //宇宙2区域270
+    'The planet continues to look even more and more mutated as you press further into the Zones with the intact Spires. You shudder at the thought of what the Zones might look like deeper in.': '随着您的深入，这颗行星正变得越来越扭曲突变。一想到深处的区域可能会变成什么样，您就不禁打哆嗦。', //宇宙2区域275
+    'You can\'t really overstate the amount of goo all over the place at these Zones, certainly an effect of the Mutations. The Trimps seem to enjoy throwing it at eachother in some new game they\'ve invented.': '这些区域已经满是粘液了，真的，您一点也没夸大其词。这肯定是突变造成的。脆皮们发明了新游戏，互相投掷粘液，看来它们玩得很开心。', //宇宙2区域280
+    'You still can\'t quite see the Spire yet, but you can feel it in your bones.': '您暂时还看不清尖塔，但已经从骨子里感觉到了它的存在。', //宇宙2区域285
+    'As you cross into the next Zone, you finally get a glimpse of the Spire in the distance. It looks considerably less destroyed than the two previous Spires. You\'ve got your work cut out for you.': '您踏入新的区域，终于可以在远方瞥见尖塔了。它比之前两个尖塔完整多了。看来您有事情做了。', //宇宙2区域290
+    'Scruffy knows you did your best back there in the Spire!': '污污知道您已经在尖塔中尽力了！', //宇宙2区域301
+    'Scruffy is impressed with how much of the Spire you\'ve destroyed, before you know it the Spire will be half gone!': '污污对您在尖塔中的进展相当钦佩，不知不觉中尖塔就快要被摧毁一半了！', //宇宙2区域301
+    'Behind you, you can see the remnants of the Spire. It might not be completely gone yet but it\'s definitely looking a bit small!': '您的身后是尖塔的残余部分。它还没有完全消失，但已经小了很多！', //宇宙2区域301
+    'The Spire has been so destroyed that you can\'t even see it behind you from one Zone away. Any lifetime now, Stuffy will pay!': '尖塔已经损毁到一个区域之外都看不见的地步了。闷闷迟早会付出代价的！', //宇宙2区域301
+    'You look behind you and let out a big sigh of relief. It sure feels good knowing you stopped Stuffy! Now who\'s next...': '您回头望去，松了一大口气。阻止闷闷的感觉真不错！所以接下来又是哪位……', //宇宙2区域301
+    'You\'re pushing deeper between two active Spires. The air feels thicker and thicker every Zone, but you continue on and know you\'ll stop Stuffy soon.': '您继续前往下一座尖塔。空气每过一个区域都变得更加凝重，但您只是继续前行，知道自己很快就能阻止闷闷了。', //宇宙2区域305
+    'You hear a familiar sound behind you and turn around to see none other than Stuffy! He makes a few taunting gestures at you and then runs away. You ask a Trimp to throw something at him but the Trimp misses.': '您听到身后传来熟悉的声音，转过身去，看到的不是其他什么脆皮，正是闷闷！它对着您做了几个挑衅的手势，跑开了。您让一只脆皮向它扔点什么东西，但没扔中。', //宇宙2区域310
+    'You hear a familiar sound behind you and turn around to see none other than Stuffy! He makes a few taunting gestures at you and then runs away. You ask a Trimp to throw something at him and the Trimp nails him right in the back of the head with a Snimp carcass. Hah!': '您听到身后传来熟悉的声音，转过身去，看到的不是其他什么脆皮，正是闷闷！它对着您做了几个挑衅的手势，跑开了。您让一只脆皮向它扔点什么东西，那个脆皮用一只脆皮蛇的尸体正中它的后脑勺。哈哈！', //宇宙2区域310
+    'Scruffy walks up to you and tells you that you\'re awesome. You already knew that but it\'s still nice to hear from time to time.': '污污走向您，告诉您您很棒。虽然您早就知道了，但偶尔亲耳听到这样的话还是挺开心的。', //宇宙2区域310
+    'You return to camp to find a hole that wasn\'t there before and two Trimps inside. Clearly the work of Stuffy, you really gotta do something about that guy! You get to work building a ladder, but the Trimps climb out of the hole on their own before you finish it.': '您回到了营地，发现地上多了一个洞，里面困着两只脆皮。很显然是闷闷干的好事，您真得把那家伙干掉！您开始制造梯子，但还没完工，两只脆皮就自己爬了出来。', //宇宙2区域315
+    'You return to camp to find a hole that wasn\'t there before and two Trimps inside. You ask Scruffy what happened to them and he tells you they tried to dig a pool then fell asleep. Those crazy Trimps!': '您回到了营地，发现地上多了一个洞，里面困着两只脆皮。您询问污污发生了什么，它回答说，它们只是想挖个泳池，然后不小心睡着了。这些脆皮真会玩！', //宇宙2区域315
+    'It\'s not a windy day but the trees are definitely moving around. Spooky!': '今天没有刮风，但树木却一直在摇晃，好诡异！', //宇宙2区域320
+    'It\'s a beautiful day for a swim with your Trimps! You can\'t actually fit in the swimming pool your Trimps made, but it\'d be a nice day for it if you could.': '今天是跟脆皮们一起游泳的好日子！您虽然进不去脆皮们造的泳池，但这仍然是个好日子！', //宇宙2区域320
+    'The air is getting incredibly thick this far out between two active Spires. Your Trimps look like they\'re starting to slow down a bit, so you give them an encouraging speech. It didn\'t seem to help much but they can\'t say you didn\'t try.': '空气已经变得极其凝重了。脆皮们看起来有些慢下来了，所以您发表了一番鼓舞人心的演讲。虽然好像也没太大用处，但至少您努力过了。', //宇宙2区域325
+    'The air is thick out this far between two active Spires, but so are your Trimps from all the Spire cells you\'ve cleared. They barely even seem to notice!': '空气已经变得极其凝重了。不过脆皮们从之前的尖塔格子中获得了足够多的强化，看起来几乎没受到影响。', //宇宙2区域325
+    'Dang your Trimps are looking beefy. Clearing Stuffy\'s Spire has certainly put them in tip-top shape! You point this out to Scruffy who says they\'ll need it if you ever find Buffy.': '脆皮们看起来真的很强大。通过闷闷尖塔后它们一直是这样极佳的状态。您向污污指出这一点，它则表示想要去见醉醉的话，这些只能算基础条件。', //宇宙2区域325
     //#endregion 故事相关
     //#region 杂项
     'Error': '出错啦',
@@ -4359,6 +4497,11 @@ var cnItems = {
     ' However, all Radon gains above Z201 are increased by ': '好消息是，从此氡获取量将变为',
     ', these Mutated enemies themselves drop Radon, and you\'ll find a brand new type of currency that you can use to Mutate your own Trimps (also note that this new currency is multiplied by your Daily Challenge Rn modifier)!': '，且突变的敌人也会掉落氡。您还可以获得新的一种资源，用于使我方脆皮发生突变(该资源获取量也受到日常奖励的加成)！',
     'Easy': '易如反掌',
+    'Stuffy\'s Spire looms menacingly above you, and you take in a deep breath of a new Mutation. You take a look back at your Trimps to help gather some courage, and you push the door open. You slowly walk inside and are greeted by an incredibly loud, deep, augmented Trimp voice.': '闷闷尖塔在您的面前露出了险恶的獠牙，您深深吸了一口气，是新突变的味道。您回头看了看脆皮们，下定决心，推开了门。随着您缓缓步入尖塔，极其响亮的低沉增音脆皮声突然响了起来。', //宇宙2区域300
+    'Oh what a surprise! Scruffy the Betrayer and his little pet and their army of little pets are here on my doorstep. You may have numbers on your side, but I have Nature on mine. You will not take this Spire!': '哦，多么惊喜！叛徒污污，还有它的小宠物，以及小宠物的军队竟然来到了我门前。你们或许人多势众，但我也有自然之力作为后盾。你们休想夺走这座尖塔！',
+    'OK, you know the deal. It\'s a Spire, it\'s hard, and you have 10 lives. But there\'s a twist! Each 100 cells is only one Floor of this massive 1000 cell behemoth of a Spire, and you\'ll need to reach the top of Floor 10 to face Stuffy himself. Also Tenacity is locked to 60 minutes while in the Spire and attacking or killing any \'Natural\' enemies will release toxic spores, producing similar effects as the Nova mutation for the rest of the Floor.': '好吧，规矩您应该懂了，这是尖塔，更难，只能阵亡不超过10次。但是有东西不一样！每100个格子只是这座千格巨塔的一层罢了，您需要到达第10层才能与闷闷对决。此外，在尖塔中坚持特权的时间被锁定在60分钟，并且攻击或者击杀任何“自然”敌人都会释放有毒的孢子，产生与新星突变类似的效果，直到该层结束才会消失。',
+    ' However each cell cleared in this Spire grants a compounding 0.5% bonus to Trimp Attack, Health, and Radon gain until the next Portal. Completing a whole Floor causes all bonuses earned from that Floor to be permanent, and will cause you to skip that Floor on all following Portals. You\'ve also unlocked the ability to use a custom Equality Scaling preset on the Spire!': '然而，每在这座尖塔中通过一个格子，就可以在传送前使我方脆皮的攻击力、生命值和氡获取量增加0.5%(相互叠乘)。通过一整层以后，该层的所有加成将变为永久生效，并且在之后的周目中可以直接跳过该层。您还解锁了专用于尖塔的平等缩放预设！',
+    'Stuffy Awaits': '洗干净脖子等着吧，闷闷',
     'Get a leg up with PANTS! Until your next trou... browser refresh, you can enable the useless but stylish PANTS ONLY AutoPrestige setting! Denim-ite!': '胖次最好了，什么头套胖次之类的更是……咳咳，直到下次刷新页面之前您都可以使用这个没什么卵用但是很绅士的自动重铸设置来重铸裤子了！蓝！白！碗！',
     'Loaded Eggy event!': '复活节活动开始啦！',
     'Loaded Pumpkimp event!': '万圣节活动开始啦！',
@@ -4506,7 +4649,7 @@ var cnItems = {
     'Enter the zone number at which you wish to ': '输入您想要',
     'start': '开始',
     ' using Bone Charges.': '使用骨头充能的区域数值。',
-    'Alternatively, set it to ': '你也可以直接将它设置为',
+    'Alternatively, set it to ': '您也可以直接将它设置为',
     ' to automatically update the zone to 10% of your highest zone cleared. For example, if your highest zone cleared was 400, bone charges would be automatically used from zone 360 onwards.': '，这样将在最高通过区域的90%开始使用。例如，最高通过区域为400，那么将从区域360开始使用骨头充能。',
     'Default: Automated (-1).': '默认为自动(设为-1)。',
     'Manual Gather/Build / Auto Gather/Build / Mining/Building Only': '手动采集和建造 / 自动采集和建造 / 只采矿和建造',
@@ -5797,6 +5940,7 @@ var cnItems = {
     'Bone Trader': 'Bone Trader',
     'Cell ': 'Cell ',
     'Created with Highcharts 9.': 'Created with Highcharts 9.',
+    'Equip on Portal': 'Equip on Portal',
     'Fire': 'Fire',
     'Highcharts.com': 'Highcharts.com',
     'One of your storage structures will be more expensive than the amount you can receive from this boost. Spend some resources first to get the most benefit!': 'One of your storage structures will be more expensive than the amount you can receive from this boost. Spend some resources first to get the most benefit!',
@@ -5804,6 +5948,7 @@ var cnItems = {
     'Replace': 'Replace',
     'Respec (20 bones': 'Respec (20 bones',
     'Unlock at Z': 'Unlock at Z',
+    'Void Maps': 'Void Maps',
     'Wanna run a map?': '想要运行地图吗？',
     'World Level Map': '当前区域等级的地图',
     'You do not currently have an active challenge.': 'You do not currently have an active challenge.',
@@ -5926,11 +6071,13 @@ var cnRegReplace = new Map([
     [/^Attack is increased (.+)X for the next (.+) seconds?$/, '我方脆皮的攻击力在$2秒内变为$1倍'], //主界面
     [/^Attack is increased (.+)X for the next (.+) minutes?$/, '我方脆皮的攻击力在$2分钟内变为$1倍'], //主界面
     [/^Your Trimps are blinded by the Nova! Trimps deal (.+)x damage, and enemies deal (.+)x damage. Stacks increase when attacking Nova enemies and clear when you complete this Zone. Active in World only, can stack up to 50 times.$/, '我方脆皮由于新星的缘故，视力暂时受损！我方脆皮的攻击力变为$1倍，敌人的攻击力变为$2倍。攻击新星敌人时层数增加，通过该区域后层数归零。该效果只在世界上生效，最高50层。'], //主界面
+    [/^The Spore Cloud is choking your Trimps and strengthening the Bad Guys! Trimps deal (.+)x damage, and enemies deal (.+)x damage. Gain 1\/10th of a stack for every attack against Natural enemies in this Spire and 1 stack when killing them. Stacks reset when completing a Floor. Active in World only.$/, '孢子云削弱了我方脆皮，并强化了敌人！我方脆皮造成的伤害变为$1倍，敌人造成的伤害变为$2倍。每次在该尖塔中攻击自然敌人，就会获得0.1层孢子云，每击杀一名自然敌人，就会获得1层孢子云。通过一层尖塔后层数重置。该效果只在世界上生效。'], //主界面
     [/^Spire ([IVXLCDM]+)$/, '尖塔 $1'], //主界面
+    [/^Spire ([IVXLCDM]*) ?Floor$/, '尖塔 $1 层数'], //主界面
     [/^(.+)% Map Bonus$/, '$1%地图奖励'], //主界面
     [/^(\d+) \(Zone$/, '$1 (区域'], //主界面
     [/^You must create a map between level 6 and your highest Zone, (.+).$/, '您只能制造地图等级6到本周目最高区域($1)之间的地图。'], //主界面
-    [/^You can't afford this map! You need (.+) fragments.$/, '碎片不够，无法制造该地图！您需要$1碎片。'], //主界面
+    [/^You can't afford this map! You need (.+) fragments but only have (.+).$/, '碎片不够，无法制造该地图！您需要$1碎片，但您只有$2碎片。'], //主界面
     [/^You are about to recycle all maps below level (.+). Are you sure\?$/, '您将回收$1级以下的所有地图。您确定要这么做吗？'], //主界面
     [/^Recycled (.+) maps for (.+) fragments.$/, '您回收了$1张地图，获得$2碎片。'], //主界面
     [/^(.+) Map Credits?$/, '$1地图代币'], //主界面
@@ -6149,8 +6296,9 @@ var cnRegReplace = new Map([
     [/^10% of these stacks will convert into Pandemonium stacks when this Zone is completed. Increases the orderliness of your Trimps by (.+)%.$/, '通过该区域后，当前秩序层数的10%将转换为群魔乱舞层数。脆皮的秩序度增加$1%(译者注：无实际效果)。'], //群魔乱舞挑战等
     [/^You have completed the Pandemonium Challenge! Your Trimps have gained \+(.+)% Radon or Helium, Damage, Health and Gathered Resources in Universe 1 and 2, and future runs of this Challenge will be 5x more difficult. You have now completed Pandemonium (.+) times?. Your new total Pandemonium bonus is \+$/, '您完成了群魔乱舞挑战！宇宙1中的氦获取量、宇宙2中的氡获取量、宇宙1和宇宙2中我方脆皮的攻击力、生命值和资源获取量增加了$1%，下次挑战的难度将变为现在的5倍。您完成了$2次群魔乱舞挑战。群魔乱舞挑战奖励为'], //群魔乱舞挑战完成消息
     [/^You have completed the Alchemy challenge! You have gained an extra (.+) Radon, and your world has been returned to normal.$/, '您完成了炼金术挑战！您额外获取了$1氡，世界恢复了正常。'], //炼金术挑战完成消息
-    [/^You have no Bonfires. Your Trimps are sad and cold. Next Bonfire will be constructed at (.+) Wood.$/, '您未建造篝火。脆皮们又冷又低落。您需要有$1木头才可以建造篝火。'], //失温挑战等
-    [/^You have (.+) Bonfires?. Your Trimps will automatically construct another Bonfire once you start a Zone with (.+) total Wood. Your next bonfire will expire at the start of Zone (.+).$/, '您建造了$1处篝火。到达下个区域后，如果拥有$2木头，我方脆皮将继续建造篝火。下一处篝火将在区域$3熄灭。'], //失温挑战等
+    [/^You have no active Bonfires. Your Trimps are sad and cold. Next Bonfire will be constructed at (.+) Wood.$/, '篝火寂然。脆皮们又冷又低落。您需要有$1木头才可以建造篝火。'], //失温挑战等
+    [/^You have (.+) active Bonfires?. Your Trimps will automatically construct another Bonfire once you start a Zone with (.+) total Wood. Your next bonfire will expire at the start of Zone (.+).$/, '目前有$1处篝火在燃烧。到达下个区域后，如果拥有$2木头，我方脆皮将继续建造篝火。下一处篝火将在区域$3熄灭。'], //失温挑战等
+    [/^You have constructed (.+) Bonfires? so far this run.$/, '本次挑战中您一共建造了$1处篝火。'], //失温挑战等
     [/^You have (.+) Embers?, increasing your Radon gain by (.+)% and Enemy stats by (.+)%. All wood gathered and looted from the World is reduced by (.+), wood from Maps is reduced by the same amount but only when a Bonfire is burning.$/, '您拥有$1层余烬，使氡获取量增加$2%，敌人所有属性增加$3%。世界上的木头获取量减少到原来的$4倍，当有篝火在燃烧时，也使地图中的木头获取量减少相应数值。'], //失温挑战等
     [/^You have completed your first Hypothermia challenge! You have gained an extra (.+) Radon, unlocked the Masterfulness Perk, and your world has been returned to normal.$/, '您首次完成了失温挑战！您额外获取了$1氡，解锁了“驾轻就熟”特权，世界恢复了正常。'], //失温挑战完成消息
     [/^You have completed the Hypothermia challenge! You have gained an extra (.+) Radon, and your world has been returned to normal.$/, '您完成了失温挑战！您额外获取了$1氡，世界恢复了正常。'], //失温挑战完成消息
@@ -6178,7 +6326,7 @@ var cnRegReplace = new Map([
     [/^You are currently gaining (.+) attack and health. Your next Spire Assault level will increase this bonus to (.+), or your next perk level will increase this bonus to (.+).$/, '目前使攻击力和生命值$1，下一级尖塔突击后该加成将变为$2，下一级特权将使该加成变为$3。'], //特权等
     [/^Your Trimps are frenzied for (.+) seconds?! They are dealing (.+)% more damage.$/, '我方脆皮的战狂状态持续时间还有$1秒！它们可以额外造成$2%伤害。'], //特权等
     [/^The Trimps that earned this Frenzy buff are still alive, and they will be able to refresh its duration starting in (.+) seconds?.$/, '最初触发战狂的脆皮仍然幸存，再过$1秒，它们就可以刷新战狂状态持续时间了。'], //特权等
-    [/^Grants your Trimps the ability to locate small Runetrinkets around the World. Purchasing this Perk will grant your Trimps a chance per Zone cleared above Z100 to find a Runetrinket. Each Runetrinket increases your Trimps' attack, health, and gathered primary resources by 1% \(additive\) per perk level. You can store a maximum of (.+) Runetrinkets per perk level, reducing levels in this perk will deactivate any trinkets above cap but not lose them. Runetrinkets persist through Portal and never reset. The chance to find a Runetrinket increases by about 50% per level of this Perk, and scales as the Zone number increases \(up to Z200\). You'll also find 1 guaranteed Runetrinket every 25 Zones above Z100 for every 2 levels of this perk.$/, '使我方脆皮可以在世界上找到小符饰，概率与本周目到达的区域数值有关，但只计算超过区域100的部分。每有1级特权，每个小符饰就使我方脆皮的攻击力、生命值和食物、木头、金属获取量增加1%(相互叠加)。每级特权使小符饰上限增加$1，该特权洗点后，超出上限的小符饰将暂时无效，但重新加点后就会恢复生效。小符饰传送后仍然存在，数量不会重置。每级特权可以使找到小符饰的概率增加约50%，并且随着区域数值增加而递增(上限为区域200)。另外，每有2级特权，每在区域100以上通过25个区域，就可以稳定获得1个小符饰。'], //特权等
+    [/^Grants your Trimps the ability to locate small Runetrinkets around the World. Purchasing this Perk will grant your Trimps a chance per Zone cleared above Z100 to find a Runetrinket. Each Runetrinket increases your Trimps' attack, health, and gathered primary resources by 1% \(additive\) per perk level. You can store a maximum of (.+) Runetrinkets per perk level, reducing levels in this perk will deactivate any trinkets above cap but not lose them. Runetrinkets persist through Portal and never reset. The chance to find a Runetrinket increases by about 50% per level of this Perk, and scales as the Zone number increases \(up to Z200\). You'll also find 1 guaranteed Runetrinket every 25 Zones above Z100 for every 2 levels of this perk. $/, '使我方脆皮可以在世界上找到小符饰，概率与本周目到达的区域数值有关，但只计算超过区域100的部分。每有1级特权，每个小符饰就使我方脆皮的攻击力、生命值和食物、木头、金属获取量增加1%(相互叠加)。每级特权使小符饰上限增加$1，该特权洗点后，超出上限的小符饰将暂时无效，但重新加点后就会恢复生效。小符饰传送后仍然存在，数量不会重置。每级特权可以使找到小符饰的概率增加约50%，并且随着区域数值增加而递增(上限为区域200)。另外，每有2级特权，每在区域100以上通过25个区域，就可以稳定获得1个小符饰。'], //特权等
     [/^You will find (.+) guaranteed Runetrinkets? at the end of this Zone, and have a (.+)% chance to find 1 extra.$/, '在该区域的最后您可以稳定获得$1个小符饰，另外有$2%概率再获得一个小符饰。'], //特权等
     [/^You have (.+) Runetrinkets?. You are currently gaining (.+) attack, health, and gathered resources and you can store a total of (.+) Runetrinkets.$/, '您拥有$1个小符饰。目前小符饰使我方脆皮的攻击力、生命值和食物、木头、金属获取量$2。您的小符饰上限为$3。'], //特权等
     [/^You found (.+) Runetrinkets?!$/, '您找到了$1个小符饰！'], //特权等
@@ -6274,7 +6422,9 @@ var cnRegReplace = new Map([
     [/^Increases the chance of finding Exotic Imports, bringing the average from (.+) per zone to (.+).$/, '增加奇异外皮的出现率，从$1%增加到$2%。'], //绒绒污污相关
     [/^Increases Radon gain from all sources by 3% for each Zone you reached on your last Portal in this Universe \(compounding\). You reached Z(.+) last Portal, worth \+(.+)% Radon.$/, '每在该宇宙的上周目通过一个区域，氡获取量就增加3%(效果叠乘)。您在该宇宙的上周目到达了区域$1，氡获取量增加$2%。'], //绒绒污污相关
     [/^Increases Radon gain from all sources by 3% for each Zone you reached on your best Portal in this Universe \(compounding\). Your highest Zone reached is Z(.+), worth \+(.+)% Radon.$/, '该宇宙最高通过区域每有一个区域，氡获取量就增加3%(效果叠乘)。您在该宇宙的最高通过区域为区域$1，氡获取量增加$2%。'], //绒绒污污相关
-    [/^Your Trimps gain \+4% Attack and \+0.25% Crit Chance per Spire Assault level cleared while on a Daily Challenge. You have cleared (.+) SA levels, granting \+(.+)% Attack and \+(.+)% Crit Chance on Daily Challenges.$/, '每通过1级尖塔突击，就使我方脆皮在日常挑战中攻击力增加4%，暴击概率增加0.25%。您通过了$1级尖塔突击，我方脆皮在日常挑战中攻击力增加$2%，暴击概率增加$3%。'], //绒绒污污相关
+    [/^Your Trimps gain \+4% Attack and \+0.25% Crit Chance per Spire Assault level cleared while on a Daily Challenge. You have cleared (.+) SA levels, granting \+(.+)% Attack and \+(.+)% Crit Chance on Daily Challenges.$/, '每通过1级尖塔突击，就使我方脆皮在日常挑战中攻击力增加4%，暴击率增加0.25%。您通过了$1级尖塔突击，我方脆皮在日常挑战中攻击力增加$2%，暴击率增加$3%。'], //绒绒污污相关
+    [/^ extra Void Maps for every 5 Void Maps cleared on your BEST U2 run. \((.+) cleared on your best run, granting (.+) extra next run$/, '张虚空地图。(最高通过$1张虚空地图，可以获得$2张虚空地图'], //绒绒污污相关
+    [/^Your Trimps gain \+50% Health per Scruffy level. Scruffy is currently level (.+), granting \+(.+)% Health.$/, '污污每级使我方脆皮生命值增加50%。污污目前为$1级，加成为$2%生命值。'], //绒绒污污相关
     [/^Currently multiplying Radon earned by (.+), increasing attack, health and resources by (.+)% and Cruffys will stay for (.+) additional Zones?.$/, '目前使氡获取量变为$1倍，我方脆皮的攻击力、生命值和资源获取量增加$2%，且朽朽在培养挑战结束后继续存在的区域数值再增加$3个区域。'], //绒绒污污相关
     //#endregion 绒绒污污
     //#region 突变因子
@@ -6287,9 +6437,13 @@ var cnRegReplace = new Map([
     [/^Increases Trimp Attack by a number based on your total stored Science. Grants \+30% Attack at (.+) Science, or \+300% at (.+). At your current total of (.+) Science, $/, '根据科学点存储上限增加我方脆皮的攻击力。在$1科学点时增加30%攻击力，在$2科学点时增加300%攻击力。您当前共有$3科学点，'], //突变因子相关
     [/^You need (.+) more Seeds to afford this!$/, '您还需要$1突变之种才能购买它！'], //突变因子相关
     [/^Purchase (.+) more Mutators? to unlock this ring!$/, '再购买$1个突变因子后就可以解锁该环外的升级了！'], //突变因子相关
+    [/^You can Liquify in this Universe through Z(.+) \((.+)% of your highest Zone reached\).$/, '该宇宙中您可以液化至区域$1(即最高区域$2%的区域)。'], //突变因子相关
+    [/^You can Overkill (.+) cells? in this Universe.$/, '该宇宙中您可以超杀$1个格子。'], //突变因子相关
+    [/^You can Overkill (.+) cells? in this Universe through Z(.+) \((.+)% of your highest Zone reached\).$/, '该宇宙中您可以超杀$1个格子至区域$2(即最高区域$3%的区域)。'], //突变因子相关
     //#endregion 突变因子
     //#region 其他消息
     [/^(.+) groups? of Trimps ha(s|ve) perished in the Spire.$/, '$1队脆皮在尖塔中战斗到了生命的最后一刻。'], //其他消息等
+    [/^You're suddenly standing outside of the Spire with a feeling that it's best to move on for now. Scruffy seems confident that you'll get it next time! \(You made it to Cell (.+) on Floor (.+)\).$/, '您突然出现在尖塔外，隐约觉得此刻暂时离开才是上策。污污似乎坚信您下次一定能成功！(您到达了第$2层的格子$1)。'], //其他消息等
     [/^You're not yet ready. Maybe you'll be of use in the next lifetime \(You made it to cell (.+)\).$/, '您只是在自寻死路。希望下周目您准备好了(您到达了格子$1)。'], //其他消息等
     [/^Scruffy gave you (.+) free Void Maps!$/, '污污给了您$1张免费的虚空地图！'], //其他消息等
     [/^Your save file is from a newer version of Trimps \(v(.+)\) than what your computer is running \(v(.+)\). Refresh or restart your browser!$/, '您的游戏版本为$2，但存档的游戏版本更新一些，为$1。请刷新或重启浏览器！'], //其他消息等
