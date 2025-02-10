@@ -11278,7 +11278,7 @@ function makeIconEffectHTML(title, text, icon, spanClasses, ids=[], iconText="",
 	let display = ``
 	let containerID = (ids[0] ? `id="${ids[0]}" `: "")
 	let textID = (ids[1] ? ` id="${ids[1]}"`: "")
-	let iconID = (ids[2] ? `id="${ids[2]} "`: "")
+	let iconID = (ids[2] ? `id="${ids[2]}"`: "")
 	let tooltipType = ((text) ? "'customText'" :  tooltipOverride ? `'${tooltipOverride}'` : 'null')
 	if (usingScreenReader) {
 		tooltip = `tabindex="0" onkeydown="keyTooltip(event, '${title}', ${tooltipType}, '${text}')"`

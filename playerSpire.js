@@ -952,7 +952,8 @@ var playerSpire = {
 				<div id='spireTrapsWindow'></div>
 				<div id='playerSpireUpgradesArea'></div>
 			</div>`
-
+		if (this.smallMode) this.shrink();
+		else this.enlarge();
         this.drawSpire();
         this.drawInfo();
     },
@@ -1791,6 +1792,8 @@ var playerSpire = {
         this.updateTabColor();
     }
 
+	
+
 }
 
 var playerSpireTraps = {
@@ -2370,7 +2373,7 @@ var playerSpireTraps = {
     }
 }
 
-var TDFloatingText = (function(floatingCombatText) {
+var TDFloatingText = (function() {
     //Floating combat text brought to you by your friendly neighborhood Grabarz
     var frameTime = 30;
     var elements = [];
@@ -2428,7 +2431,7 @@ var TDFloatingText = (function(floatingCombatText) {
         elem.style.left = (x * 100) + "%";
         elem.style.top = (y * 100) + "%";
        
-        floatingCombatText.appendChild(elem);
+        document.getElementById("floatingCombatText").appendChild(elem);
        
         elements.push({
             elem: elem,
@@ -2441,6 +2444,7 @@ var TDFloatingText = (function(floatingCombatText) {
     }
    
     function update() {
+		var floatingCombatText = document.getElementById("floatingCombatText")
         var i;
         for(i = 0; i < elements.length; i++) {
             var element = elements[i];
@@ -2465,4 +2469,4 @@ var TDFloatingText = (function(floatingCombatText) {
         update: update,
         setFrameTime: setFrameTime
     }
-})(document.getElementById("floatingCombatText"));
+})();
