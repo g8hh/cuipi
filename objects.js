@@ -2727,7 +2727,7 @@ var autoBattle = {
             level: 1,
             zone: 270,
             description: function(){
-                return "使怒怒的攻击力和中毒伤害变为" + prettify(this.shockMod()) + "倍。当前敌人单次震荡中每经过10秒，就使该物品的攻击力和中毒伤害加成倍率+" + prettify(this.shockMod() - 1) + "。使怒怒触发的震荡最少持续30秒(效果优先级高于撕裂之镰)。使怒怒的生命值变为" + prettify(this.healthMod()) + "倍";
+                return "使怒怒的攻击力和中毒伤害变为" + prettify(this.shockMod()) + "倍。当前敌人单次震荡中每经过10秒，就使该物品的攻击力和中毒伤害加成倍率+" + prettify(this.shockMod() - 1) + "。使怒怒触发的震荡最少持续30秒(效果优先级高于撕裂之镰)。使怒怒的生命值变为" + prettify(this.healthMod()) + "倍。";
             },
             upgrade: "每级使攻击力和中毒伤害加成倍率增加的数值+0.05，怒怒的生命值倍率+0.25倍",
             shockMod: function(){
