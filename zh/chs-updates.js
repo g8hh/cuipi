@@ -112,7 +112,7 @@ var cnItems = {
     's have been fused together into 6 new Challenge': '被融合成了6个新的挑战',
     's. Each new Challenge': '。每个新挑战',
     ' is a combination of two older ones, and setting your Zone in one of the combo C': '都是两个之前旧挑战的组合，在新挑战',
-    's will set the Zone for both of the Challenges that it\'s based off of at the same time. This should make it both take less time and be more fun to update some of the more trivial C': '中达到更高的区域后，将同时使组合的旧挑战最高通过区域也相应地变化。这样应该可以节省时间，让一些挑战',
+    's will set the Zone for both of the Challenges that it\'s based off of at the same time. This should make it both take less time and be more fun to update some of the more trivial C': '中达到更高的区域后，将同时使组合的旧挑战最高到达区域也相应地变化。这样应该可以节省时间，让一些挑战',
     's. The pairings are: Meditate + Discipline = Enlightened, Slow + Electricity = Paralysis, Nom + Metal = Nometal, Balance + Mapology = Topology, Watch + Size = Waze, and Toxicity + Lead = Toxad': '变得更有意思。组合为：冥想+纪律=启迪，迟缓+电流=麻痹，美味+金属=异食，平衡+地图学=图衡学，守望+尺寸=观宏，毒性+领导=毒引。',
     'Added 2 more Personal Spire Fire Trap upgrades, and 1 Lightning Trap upgrade': '您的尖塔增加了2个火焰陷阱和1个闪电陷阱的升级。',
     'In the Personal Spire, lowered the required zone to unlock Poison 8 from Z700 to Z650, and lowered the zone for Poison 9 from 750 to 700. Lowered prices to more appropriate points for those zones.': '您的尖塔中，解锁剧毒陷阱第8个升级所需的区域从区域700降为区域650，解锁剧毒陷阱第9个升级所需的区域从区域750降为区域700。同时也降低了升级的花费。',
@@ -246,7 +246,7 @@ var cnItems = {
     'Fixed some typos and inconsistencies with text in the Storm Challenge': '修复了风暴挑战中的文本错误和前后矛盾的描述问题。',
     'The Planet Broken gradient effect at Z60 now sticks around for 20 Zones, slowly fading out': '行星破碎的视觉效果可以在接下来的20个区域内都有效，并缓慢地消失。',
     'infinity': '∞',
-    's now turn black when you\'ve brought them to your Obsidian Zone': '将在最高通过区域等于黑曜石区域时变成黑色。',
+    's now turn black when you\'ve brought them to your Obsidian Zone': '将在最高到达区域等于黑曜石区域时变成黑色。',
     'Core and Frozen Castle Heirloom seeds now properly persist through Portal': '尖塔核心和冻结城堡传家宝的随机种子在传送后将正常保持不变。',
     'Fixed a bug where AutoJobs could spend more workers than you have available when first unlocking Miners, which would stop Trimps from breeding until some were fired.': '修复了刚解锁矿工时自动工作可能会分配多于工作区的脆皮数量，从而导致脆皮无法正常繁殖的问题。',
     'Fixed some typos': '修复了一些文本错误。',
@@ -358,7 +358,7 @@ var cnItems = {
     'hidden': '隐藏',
     ' feat) now unhides at Z75. This feat was added back when it was more realistic to actually spend this much on Wormholes and is no longer meeting the goal of hidden feats being things that will usually just happen eventually.': '壮举)在区域75才出现。到达该区域后您差不多可以获得足够数量的氦来消耗到虫洞上，此时再隐藏这个壮举就没有意义了。',
     'Added an Equality UI to Time Warp where applicable': '在时间跃迁界面中添加了平等界面。',
-    'Added a stat for highest BW clear': '增加了仿生仙境地图最高通过区域的统计。',
+    'Added a stat for highest BW clear': '增加了仿生仙境地图最高到达区域的统计。',
     'Fixed a crash that could occur when MaZ tried to run Melting Point while there was another map in progress.': '修复了自动进图在运行一张地图时又尝试运行熔点地图导致的游戏崩溃问题。',
     //#endregion
     //#region 5.6.4

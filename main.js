@@ -1914,7 +1914,7 @@ function selectChallenge(what) {
 			if (obsidianStart < highestZone) highestZone += "(被黑曜石限制为区域" + obsidianStart + ")";
 			if (x == 0) desc += "您";
 			else desc += "且您"
-			desc += "在<i></i>" + challengeName + "<sup>" + number + "</sup>挑战中最高通过区域为区域" + highestZone + "，";
+			desc += "在<i></i>" + challengeName + "<sup>" + number + "</sup>挑战中最高到达区域为区域" + highestZone + "，";
 		}
 
 		desc += "因此您获得了" + prettify(totalReward);
@@ -2174,10 +2174,10 @@ function getSquaredDescriptionInRun(hideDesc){
 		var number = (game.global.universe == 1) ? "2" : "3";
 		if (highest > 0){
 			if (dif >= 1){
-				description += "<span class='greenText'>，您之前在<i></i>" + challengeName + "<sup>" + number + "</sup>挑战中的最高通过区域为区域" + highest + "</span>";
+				description += "<span class='greenText'>，您之前在<i></i>" + challengeName + "<sup>" + number + "</sup>挑战中的最高到达区域为区域" + highest + "</span>";
 			}
 			else {
-				description += "<span class='redText'>，您之前在<i></i>" + challengeName + "<sup>" + number + "</sup>挑战中的最高通过区域为区域" + highest + "</span>";
+				description += "<span class='redText'>，您之前在<i></i>" + challengeName + "<sup>" + number + "</sup>挑战中的最高到达区域为区域" + highest + "</span>";
 			}
 		}
 		if (lastMulti){
@@ -14271,7 +14271,7 @@ function rewardSpire1(level){
 			}
 			if (game.portal.Looting_II.locked) text += "在尖塔中一路夺宝下来，您的技艺逐渐精湛。您<b>解锁了“夺宝 II”特权</b>。";
 			if (game.global.spiresCompleted < 1){
-				text += "<br/><br/>您注意到房间后方有个古旧的小箱子，里面有德罗披提多次轮回获得的脆皮骷髅骨头。您将它打开，发现了<b>20块保存完好的脆皮骷髅骨头！</b>下次它们恐怕就不会出现了。由于尖塔的力量，您的黑暗精华获取量从此永久变为4倍，且携带栏容量增加了，可以多携带1个传家宝通过传送门。另外，传送门还对自己进行了调整，可以对不高于最高通过区域5%的区域进行液化了。您还不太清楚液化是什么，但您很期待揭开谜底的那一瞬间！"
+				text += "<br/><br/>您注意到房间后方有个古旧的小箱子，里面有德罗披提多次轮回获得的脆皮骷髅骨头。您将它打开，发现了<b>20块保存完好的脆皮骷髅骨头！</b>下次它们恐怕就不会出现了。由于尖塔的力量，您的黑暗精华获取量从此永久变为4倍，且携带栏容量增加了，可以多携带1个传家宝通过传送门。另外，传送门还对自己进行了调整，可以对不高于最高到达区域5%的区域进行液化了。您还不太清楚液化是什么，但您很期待揭开谜底的那一瞬间！"
 				game.global.b += 20;
 				updateSkeleBtn();
 				game.global.spiresCompleted = 1;

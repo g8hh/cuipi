@@ -2478,7 +2478,7 @@ var toReturn = {
 		},
 		liquification3: {
 			get description () {
-				if (game.global.universe == 2) return "Liquification is disabled in Universe 2, but <b>风驰电掣 II专精的效果上限提升为最高通过区域的75%(即区域" + Math.floor(game.global.highestRadonLevelCleared * 0.75) + ")，而不是之前的50%</b>";
+				if (game.global.universe == 2) return "Liquification is disabled in Universe 2, but <b>风驰电掣 II专精的效果上限提升为最高到达区域的75%(即区域" + Math.floor(game.global.highestRadonLevelCleared * 0.75) + ")，而不是之前的50%</b>";
 				var text = (this.purchased) ? "This mastery is increasing " : "This mastery would increase ";
 				var totalSpires = game.global.spiresCompleted;
 				if (game.talents.liquification.purchased) totalSpires++;
@@ -2490,7 +2490,7 @@ var toReturn = {
 					else fluffyText += " and your two Fluffy bonuses as another"
 					totalSpires += (fluffyCount * 0.5);
 				}
-				return "Increase your Liquification bonus by <b>10%</b>, as if you had completed <b>2 extra Spires</b>. In addition, <b>风驰电掣 II专精的效果上限同时提升为最高通过区域的75%(即区域" + Math.floor(game.global.highestLevelCleared * 0.75) + ")，而不是之前的50%</b>.<br/><br/>Counting Liquification I and II as two Spires" + fluffyText + ", you have completed the equivalent of " + totalSpires + " unique Spire" + ((totalSpires == 1) ? "" : "s") + ", giving you " + (totalSpires * 5) + "% of your highest Zone reached (through Z" + Math.floor((totalSpires / 20) * (getHighestLevelCleared(false, true) + 1)) + "). " + text + " your bonus to " + ((totalSpires + 2) * 5) + "% of your highest Zone reached (through Z" + Math.floor(((totalSpires + 2) / 20) * (getHighestLevelCleared(false, true) + 1)) + ").";
+				return "Increase your Liquification bonus by <b>10%</b>, as if you had completed <b>2 extra Spires</b>. In addition, <b>风驰电掣 II专精的效果上限同时提升为最高到达区域的75%(即区域" + Math.floor(game.global.highestLevelCleared * 0.75) + ")，而不是之前的50%</b>.<br/><br/>Counting Liquification I and II as two Spires" + fluffyText + ", you have completed the equivalent of " + totalSpires + " unique Spire" + ((totalSpires == 1) ? "" : "s") + ", giving you " + (totalSpires * 5) + "% of your highest Zone reached (through Z" + Math.floor((totalSpires / 20) * (getHighestLevelCleared(false, true) + 1)) + "). " + text + " your bonus to " + ((totalSpires + 2) * 5) + "% of your highest Zone reached (through Z" + Math.floor(((totalSpires + 2) / 20) * (getHighestLevelCleared(false, true) + 1)) + ").";
 			},
 			name: "Liquification III",
 			tier: 10,

@@ -649,7 +649,7 @@ var cnItems = {
     'This is your save string. There are many like it but this one is yours. Save this save somewhere safe so you can save time next time. ': '这是您的存档字符串。只属于您，独一无二。保存好它，这样下次就能省不少事了。',
     'Got it': '知道了',
     'Copy to Clipboard': '复制到剪贴板',
-    'Download as File': '下载存档文件',
+    'Download as File': '下载文件',
     'Import': '导入',
     'Import your save string! It\'ll be fun, I promise.': '导入存档字符串！我敢保证这会很有趣的。',
     'Import From PlayFab': '从PlayFab导入',
@@ -826,7 +826,7 @@ var cnItems = {
     'Congratulations, you\'ve purchased all 5 Microchips!': '恭喜，您购买了所有5颗微型芯片！',
     'Microchips attach directly to your Portal Device, and only ever have to be purchased once. Your Portal Device has room for 5 total Microchips.': '微型芯片与传送门装置绑定，只需购买一次即可永久生效。传送门装置一共可以容纳5颗芯片。',
     'Antenna': '气象天线',
-    'Build an antenna for your Meteorologists to use in their meteorological duties. Each Antenna increases the bonus granted per Meteorologist by a flat 0.05% (20 Antennas would double their bonus), but only 1 Antenna can be built for every 5 Zones completed above Z100 in Universe 2 on your highest run ever. Thanks to the extra-dimensional origin of the Antenna design, these Antennas persist in the world when you use your Time Portal!': '为气象学家们建造一个用于气象观测的气象天线。每个气象天线使气象学家的加成数值增加0.05%(20个气象天线将使加成数值变为2%，即加成翻倍)，但气象天线的数量上限受到宇宙2最高通过区域的限制。宇宙2最高通过区域每超过区域100五个区域，就使气象天线的数量上限增加1。气象天线使用了超维设计，因此可以在传送后仍然存在！',
+    'Build an antenna for your Meteorologists to use in their meteorological duties. Each Antenna increases the bonus granted per Meteorologist by a flat 0.05% (20 Antennas would double their bonus), but only 1 Antenna can be built for every 5 Zones completed above Z100 in Universe 2 on your highest run ever. Thanks to the extra-dimensional origin of the Antenna design, these Antennas persist in the world when you use your Time Portal!': '为气象学家们建造一个用于气象观测的气象天线。每个气象天线使气象学家的加成数值增加0.05%(20个气象天线将使加成数值变为2%，即加成翻倍)，但气象天线的数量上限受到宇宙2最高到达区域的限制。宇宙2最高到达区域每超过区域100五个区域，就使气象天线的数量上限增加1。气象天线使用了超维设计，因此可以在传送后仍然存在！',
     'Once 5 antennas have been built, your Trimps can use the new advanced weather data to increase the yield of crops and trees, granting 50% of the Meteorologist\'s bonus percentage to Food and Wood income as well.': '建造5个气象天线后，我方脆皮可以使用相应的气象数据来增加食物和木头产量，使气象学家加成的一半也对食物和木头产量生效。',
     'Once 10 Antennas have been built, your Soldiers can use the data to always properly dress for the weather, granting 50% of the Meteorologist\'s bonus percentage to Soldier Health.': '建造10个气象天线后，士兵们可以根据气象数据来合理选择护甲，使气象学家加成的一半也对士兵生命值生效。',
     'Once 15 Antennas have been built, the network will be strong enough to locate rich mineral deposits all over the planet, granting 50% of the Meteorologist\'s bonus percentage to Mining income!': '建造15个气象天线后，气象网络强到可以用于定位矿脉，使气象学家加成的一半也对金属产量生效！',
@@ -1473,13 +1473,13 @@ var cnItems = {
     'Best Rn/Hour all Runs': '所有周目中最高的氡/小时',
     'Daily Challenge Radon': '日常挑战的氡获取量',
     'Zones Liquified': '区域液化数',
-    'Highest Void Map Clear': '虚空地图最高通过区域',
-    'Highest U2 Void Map': '宇宙2虚空地图最高通过区域',
+    'Highest Void Map Clear': '虚空地图最高到达区域',
+    'Highest U2 Void Map': '宇宙2虚空地图最高到达区域',
     'Total Void Maps Cleared': '虚空地图通过数',
     'Heirlooms Found': '传家宝收集数',
     'Cores Found': '核心收集数',
     'World Cells Overkilled': '世界格子超杀总数',
-    'Highest BW Clear': '仿生仙境地图最高通过区域',
+    'Highest BW Clear': '仿生仙境地图最高到达区域',
     'Trimps from Generator': '维度发生器生产的脆皮数',
     'Burned Nurseries': '岩浆烧掉的托儿所数',
     'Tokens This Run': '本周目获得的符记',
@@ -2418,7 +2418,7 @@ var cnItems = {
     'This setting applies to big popups that occur after hitting certain milestones each portal. This setting will currently block: the Improbability popup, the popup at Corruption, the popup at The Spire, the popup on reaching Magma.': '切换是否在每次传送门到达特定区域后弹出大窗口。该设置目前禁止弹出以下窗口：乌有者提示、腐化提示、尖塔提示、岩浆提示。',
     'This setting applies to big popups that occur after hitting certain milestones each portal. This setting will currently block: the Improbability popup, the popup at Corruption, the popup at The Spire, the popup on reaching Magma, the popup on reaching Mutation.': '切换是否在每次传送门到达特定区域后弹出大窗口。该设置目前禁止弹出以下窗口：乌有者提示、腐化提示、尖塔提示、岩浆提示、突变提示。',
     'This setting applies to big popups that occur after hitting certain milestones each portal. This setting will currently block: the Improbability popup, the popup at Corruption, the popup at The Spire, the popup on reaching Magma, the popup on reaching Mutation, and the popup on reaching Stuffy\'s Spire.': '切换是否在每次传送门到达特定区域后弹出大窗口。该设置目前禁止弹出以下窗口：乌有者提示、腐化提示、尖塔提示、岩浆提示、突变提示、闷闷尖塔。',
-    'Note that this setting only blocks large popups once your Highest Zone Reached is 20 Zones past the location of the popup.': '注意：该设置只在最高通过区域高于提示所在区域20层以上时禁止弹出大窗口。',
+    'Note that this setting only blocks large popups once your Highest Zone Reached is 20 Zones past the location of the popup.': '注意：该设置只在最高到达区域高于提示所在区域20层以上时禁止弹出大窗口。',
     'Default Generator': '默认发生器',
     'Gain Fuel': '得燃料',
     'Gain Mi': '得岩浆岩',
@@ -2682,7 +2682,7 @@ var cnItems = {
     '. Is this what you wanted to do?': '。您确定要购买吗？',
     'You are about to purchase Quick Trimps for 20 bones. This will cause your Trimps to breed twice as fast ': '您将花费20骨头购买快枪手脆皮。购买后使我方脆皮繁殖速度翻倍，',
     'You are about to purchase Sharp Trimps for 25 bones. This will cause your Trimps to deal 50% more damage ': '您将花费25骨头购买锋锐脆皮。购买后使我方脆皮的攻击力增加50%，',
-    'You are about to purchase one Heirloom for 30 bones. This will be created at a random rarity, and will be just like completing a Void Map at your highest ever Zone reached. Are you sure?': '您将花费30骨头购买一个传家宝。购买后将随机产生一个传家宝，稀有度根据您的最高通过区域而定。您确定要购买吗？',
+    'You are about to purchase one Heirloom for 30 bones. This will be created at a random rarity, and will be just like completing a Void Map at your highest ever Zone reached. Are you sure?': '您将花费30骨头购买一个传家宝。购买后将随机产生一个传家宝，稀有度根据您的最高到达区域而定。您确定要购买吗？',
     //#endregion 骨头相关
     //#region 挑战相关
     'Change Universe': '切换宇宙',
@@ -2789,7 +2789,7 @@ var cnItems = {
     'In Challenge': '在挑战',
     's will grant ': '中，您',
     '. This bonus is additive with all available Challenge': '。所有的挑战',
-    's, and your highest Zone reached for each challenge is saved and used.': '加成相互叠加，且每个挑战的最高通过区域都将被单独记录并生效。',
+    's, and your highest Zone reached for each challenge is saved and used.': '加成相互叠加，且每个挑战的最高到达区域都将被单独记录并生效。',
     'No Challenge': '挑战',
     's end at any specific Zone': '不会自动结束',
     ', they can only be completed by using your portal or abandoning through the \'View Perks\' menu. However, ': '，只能通过传送或者在“查看特权”界面中放弃来完成。另外，',
@@ -2972,34 +2972,34 @@ var cnItems = {
     'Enlightened': '启迪',
     'Conditions are just right between the Meditate and Discipline dimensions, and the Portal can be configured in a way where you can visit both at the same time! Rules from both Challenges are active, and running this Challenge': '它正好位于冥想维度和纪律维度之间，可以通过调节传送门，让您同时前往这两个维度！两个挑战的条件同时生效，且运行该挑战',
     ' will set your highest Zone and C': '将使相应挑战',
-    ' bonuses for both Discipline': '的最高通过区域和加成都发生变化，即纪律',
+    ' bonuses for both Discipline': '的最高到达区域和加成都发生变化，即纪律',
     ' and Meditate': '和冥想',
     '. Kill two Squimps with one stone! ': '。一石二脆皮鸟！',
     'Paralysis': '麻痹',
     'Another set of compatible dimensions has been identified! This time, the Portal can be configured to visit Electricity': '我们又发现了另一组可以共存的维度！这次可以调节传送门，同时前往电流',
     ' and Slow': '和迟缓',
     ' at the same time. Rules from both Challenges are active, and running this Challenge': '的维度。两个挑战的条件同时生效，且运行该挑战',
-    ' bonuses for both Challenges. Shockingly efficient! ': '的最高通过区域和加成都发生变化。震惊人的效率！',
+    ' bonuses for both Challenges. Shockingly efficient! ': '的最高到达区域和加成都发生变化。震惊人的效率！',
     'Nometal': '异食',
     'Yet another combo dimension has been identified! Brave the Nom': '又一组维度！同时前往美味',
     ' dimension while subjecting yourself to the ': '和',
     'pain': '痛苦的',
     ' fun of Metal': '有趣的金属',
     ' at the same time! Rules from both Challenges are active, and running this Challenge': '的维度！两个挑战的条件同时生效，且运行该挑战',
-    ' bonuses for both Challenges. Tastes like efficiency! ': '的最高通过区域和加成都发生变化。高效的味道！',
+    ' bonuses for both Challenges. Tastes like efficiency! ': '的最高到达区域和加成都发生变化。高效的味道！',
     'Topology': '图衡学',
     'Your Scientists have found another set of combinable dimensions! Demonstrate your mastery of maps by going on an adventure to the Balance': '科学家们又发现了另一组相互结合的维度！同时前往平衡',
     ' and Mapology': '和地图学',
     ' dimensions at the same time! Rules from both Challenges are active, and running this Challenge': '的维度，以证明自己对地图的掌握程度！两个挑战的条件同时生效，且运行该挑战',
-    ' bonuses for both Challenges. Mapsimum efficiency! ': '的最高通过区域和加成都发生变化。衡图霸业，尽在掌中！',
+    ' bonuses for both Challenges. Mapsimum efficiency! ': '的最高到达区域和加成都发生变化。衡图霸业，尽在掌中！',
     'Waze': '观宏',
     'Believe it or not, your Scientists have located another suitable pairing of dimensions! Watch in amazement as your giant Trimps navigate their way through the Watch': '信不信随意，反正科学家们又发现了一组维度！看着守望',
     ' and Size': '和尺寸',
-    ' bonuses for both Challenges. It\'s a huge time saver you\'ll want to see for yourself! ': '的最高通过区域和加成都发生变化。看好了，什么叫大块头有大智慧！',
+    ' bonuses for both Challenges. It\'s a huge time saver you\'ll want to see for yourself! ': '的最高到达区域和加成都发生变化。看好了，什么叫大块头有大智慧！',
     'Toxad': '毒引',
     'Your Scientists have discovered a 6th suitable pairing of dimensions! Lead your Trimps through the toxic terrain and show the Universe who\'s boss by subjecting yourself to both the Toxicity': '科学家们发现了第六组维度！在毒性',
     ' and Lead': '和领导',
-    ' bonuses for both Challenges. It\'s a dangerously good time. ': '的最高通过区域和加成都发生变化。有言道，富贵险中求。',
+    ' bonuses for both Challenges. It\'s a dangerously good time. ': '的最高到达区域和加成都发生变化。有言道，富贵险中求。',
     'Unlucky': '不幸', //U2挑战
     'Your Trimps will never get far in this harsh Universe without learning how to control their luck. Tweak your Portal to bring you to an alternate reality where your Trimps\' minimum damage will be drastically lower, but their high end damage will be considerably higher. Each time your Trimps attack, 5 alternate timelines will open up. If the first digit of your Trimps\' minimum attack is even, the timeline where your Trimps did the most damage will become reality. If the first digit is odd, the timeline where your Trimps did the least amount of damage will instead become reality. Clearing the ': '在这个严苛的宇宙中，脆皮如果没有学会控制运气，就走不远。调节传送门，将您带到一个我方脆皮的最低攻击力大大减少，但最高攻击力大大增加的异世界。每次我方脆皮攻击时，产生5条世界线。如果我方脆皮的最低攻击力数值第一位是偶数，那么攻击力最高的那条世界线会成为现实。如果我方脆皮的最低攻击力数值第一位是奇数，那么攻击力最低的那条世界线会成为现实。通过',
     ' will complete this Challenge!': '后可完成该挑战！',
@@ -3264,7 +3264,7 @@ var cnItems = {
     'Portal Generator': '传送门发生器',
     'Unlock Portal immediately after clearing Z20.': '通过区域20以后立刻解锁传送门。',
     'Bionic Magnet I': '仿生磁铁 I',
-    'Automatically pick up each level of Bionic Wonderland (BW) as you pass a BW Zone. Will not work if you have already missed any BWs this run, or if you reach a Zone higher than any BW you have ever cleared before.': '自动在对应区域获得仿生仙境地图，如果本周目已经错过仿生仙境，或者该区域超过了仿生仙境最高通过区域，则无效。',
+    'Automatically pick up each level of Bionic Wonderland (BW) as you pass a BW Zone. Will not work if you have already missed any BWs this run, or if you reach a Zone higher than any BW you have ever cleared before.': '自动在对应区域获得仿生仙境地图，如果本周目已经错过仿生仙境，或者该区域超过了仿生仙境最高到达区域，则无效。',
     'In addition, give all current and future copies of Bionic Wonderland the \'Fast Attacks\' special modifier.': '另外，所有仿生仙境地图视为具有“快速进攻”特殊词缀。',
     'Turkimp Tamer I': '脆皮火鸡饲主 I',
     'Increases the chance of finding a Turkimp by 33%, the bonus time from each Turkimp by 5 minutes, and increases the time cap by 10 minutes.': '脆皮火鸡出现率增加33%，加成持续时间增加5分钟，加成上限时间增加10分钟。',
@@ -3570,9 +3570,9 @@ var cnItems = {
     'Collect 20 Spirestones and raise your Spire\'s Threat to 400 to build your fourth Floor.': '请获取20尖塔石，并将威胁度提升到400，这样您就可以建造您的第四层尖塔了。',
     'It\'s getting huge! However, the Traps are getting more expensive as you place more and more of them. At this rate you\'ll never be able to afford enough Strength Towers to make a huge impact on your Trimps.': '您的尖塔越来越高了！但陷阱的花费也越来越高。这样下去，您是没法建造很多力量塔的。',
     'You consult with your Scientists, who tell you that they can create upgrades for your Traps, but that they need to study corpses of high level enemies in order to exploit their weaknesses.': '于是您找来科学家们帮您出谋划策。它们表示它们可以制造出陷阱的升级，但需要研究更高级敌人的尸体以发现弱点。',
-    'Raise your Highest Zone Reached to Z230, and upgrade your Frost Trap.': '请将最高通过区域提升到区域230，然后升级冰霜陷阱。',
+    'Raise your Highest Zone Reached to Z230, and upgrade your Frost Trap.': '请将最高到达区域提升到区域230，然后升级冰霜陷阱。',
     'Wow, look at that thing slow!': '哇哦，敌人变得那么慢了！',
-    'You seem to have a pretty decent understanding of how to manage your Spire, and I believe you can handle it on your own for a while. Continue to raise your HZE to unlock more upgrades, collect Spirestones to add more Floors and enemies, and tweak your Trap layout every once in a while to make sure you\'re getting as many Runestones as you can, you\'ll definitely need them later.': '您似乎已经很了解尖塔运转的原理了，接下来我就不再说那么详细了。您需要继续提升最高通过区域以解锁新升级，获取尖塔石以增加您的尖塔层数和敌人上限，调整尖塔布局以尽可能多获得符石。',
+    'You seem to have a pretty decent understanding of how to manage your Spire, and I believe you can handle it on your own for a while. Continue to raise your HZE to unlock more upgrades, collect Spirestones to add more Floors and enemies, and tweak your Trap layout every once in a while to make sure you\'re getting as many Runestones as you can, you\'ll definitely need them later.': '您似乎已经很了解尖塔运转的原理了，接下来我就不再说那么详细了。您需要继续提升最高到达区域以解锁新升级，获取尖塔石以增加您的尖塔层数和敌人上限，调整尖塔布局以尽可能多获得符石。',
     'Your Scientists let you know that they can possibly forge a new Trap and Tower, but they need to study a Core from a higher level Spire first.': '科学家们提醒您，它们可以制造出新的陷阱和小塔，但需要先研究一下更高级尖塔的核心。',
     'Complete Spire II to unlock Poison Trap and Condenser Tower! Once you have your new Traps, raise your Spire\'s Threat to 600 and build your sixth Floor.': '请通过尖塔 II以解锁剧毒陷阱和冷凝塔！当获得新的陷阱和小塔以后，请将威胁度提升到600并建造您的第六层尖塔。',
     'Remember that you have to satisfy both the Threat and Spirestone requirements to add a new Floor!': '请注意，您必须同时满足威胁度和尖塔石的要求才可以使您的尖塔增加层数！',
@@ -3580,7 +3580,7 @@ var cnItems = {
     'While you\'re feeling comfortable maintaining your Spire\'s defenses with the tools you have, you still feel like there\'s something missing. Your Scientists say that they could perhaps create one more Trap and Tower, but again they\'ll need to study a Core from an even higher Spire.': '虽然您现有的这些陷阱和塔已经足够您构筑起良好的防御体系，但您总觉得还是缺少了什么。科学家们表示，它们还可以制造出另外的新陷阱和小塔，但同样的，它们需要先研究更高级尖塔的核心。',
     'Clear Spire III to unlock the Lightning Trap and Knowledge Tower, then raise your Spire\'s Threat to 1100 and build your eleventh Floor.': '请通过尖塔 III以解锁闪电陷阱和知识塔，然后将威胁度提升到1100并建造您的第十一层尖塔。',
     'And that\'s about all there is to teach you! The rest of the management of your Spire is left in your more-than-capable hands.': '我已将所有知识倾囊相授了！接下来就交给您了。',
-    'Raise your HZE, clear Spires, buy upgrades, build Floors, and come up with the perfect layout for your Spire.': '请您提升最高通过区域，通过尖塔，升级陷阱和小塔，增加您的尖塔层数，终有一天您会构筑出完美的尖塔布局。',
+    'Raise your HZE, clear Spires, buy upgrades, build Floors, and come up with the perfect layout for your Spire.': '请您提升最高到达区域，通过尖塔，升级陷阱和小塔，增加您的尖塔层数，终有一天您会构筑出完美的尖塔布局。',
     'I\'ll hang out and make sure everything\'s OK until you reach Threat level 1300 and build your thirteenth Floor, and then you\'ll be on your own.': '这是最后的考验了，请将威胁度提升到1300并建造您的第十三层尖塔。之后的修行，就看您自己了。',
     //#endregion 尖塔相关
     //#region 维度发生器相关
@@ -3989,7 +3989,7 @@ var cnItems = {
     'Provides no bonus other than damage. Will some day evolve into a more powerful boost!': '暂时只提供攻击力加成。今后可能会变为更强大的加成！',
     'Gain x10 Mutated Seed Drops.': '突变之种掉落数量变为10倍。',
     'Scruffy teaches Huffy how to find 5x Dust from SA enemies': '污污可以教会怒怒如何更好地获取魔尘，尖塔突击敌人掉落的魔尘变为5倍。',
-    'Scruffy\'s level 3 bonus that increases Radon gain based on last Portal\'s highest Zone is no longer based on last Portal, and is now based on your highest Zone ever reached in Universe 2.': '污污等级3的技能不再以上周目通过的区域计算，改为以宇宙2最高通过区域计算。',
+    'Scruffy\'s level 3 bonus that increases Radon gain based on last Portal\'s highest Zone is no longer based on last Portal, and is now based on your highest Zone ever reached in Universe 2.': '污污等级3的技能不再以上周目通过的区域计算，改为以宇宙2最高到达区域计算。',
     'Scruffy\'s level 18 bonus that grants extra Void Maps now starts each U2 run with ': '污污等级18的技能改为宇宙2一个周目最高虚空地图数每有5张，每周目初始就获得',
     'Your Trimps gain +20% Double Crit.': '使我方脆皮加倍暴击(触发高一阶的暴击)的概率增加20%。',
     'Multiplies Radon earned by 1.5.': '使氡获取量变为1.5倍。',
@@ -4531,44 +4531,26 @@ var cnItems = {
     //#region 脚本
         //#region 启用脚本相应提示等
     'AutoTrimps': '自动脆皮',
-    'AutoTrimps off': '自动脆皮已关闭',
-    'AutoTrimps - Zek Fork Loaded!': '自动脆皮脚本 - Zek分支版已载入！',
-    'Script Update Notice': '脚本更新公告',
-    'Zek v4.': 'Zek v5.',
-    'Trimps v5.': '脆皮 v5.',
-    ' New': ' 最新内容',
-    ' Added Frigid to calc. Added Desolation AutoDeso. Added mutations to calc. ': '增加了寒冷挑战的计算。增加了自动荒凉挑战。增加了突变的计算。',
-    ' Added Smithy farming. Changed Scryer stuff. U1 Calc slightly more accurate. Changed some colours and setting descriptions like AutoHeirlooms. Let me know if something is broken. ': '增加了刷铁匠铺。调整了占卜者相关设置。宇宙1的计算更加准确。调整了一些颜色和设置的描述，如自动筛选传家宝。',
-    ' Changed U2 Automaps so there might be problems, let me know if there is. Autogiga, Better stance swap, U1 Calc fixed. ': '调整了宇宙2的自动地图。增加了自动千兆核心，更好的切换阵型，修复了宇宙1的计算。',
-    'ZӘK Fork': 'ZӘK分支版',
-    'Report any bugs/problems please': '如果发现BUG或问题，请向我反馈',
-    'Talk with the dev': '可以通过以下方式联系开发者',
-    'Zek#': 'Zek#',
-    'Zeks Discord Channel': 'Zeks Discord频道',
-    'Talk with the other Trimpers': '联系其他脆皮玩家',
-    'Trimps Discord Channel': '脆皮Discord频道',
-    'See ': '请查阅',
-    'ReadMe': '自述文件',
-    ' Or check ': '或查看',
-    'the commit history': '提交记录',
-    ' (if you want).': '(如果您想要的话)。',
-    'Thank you for playing AutoTrimps. Accept and Continue.': '感谢您使用自动脆皮脚本。点击此处开始使用。',
+    'AutoTrimps (SadAugust v6.7.17) has finished loading.': '自动脆皮(SadAugust版 版本号6.7.17)已完成载入。',
+    'Disabled Time Warp functionality.': '已禁用时间跃迁。',
+    'Time Warp': '时间跃迁',
+    'Update Available!': '更新可用！',
         //#endregion 启用脚本相应提示等
         //#region 图表
     'Graphs': '图表',
     'Reset zoom': '缩放比例还原',
     'Universe': '宇宙',
-    ' Live Updates': '实时更新',
-    'Displayed Portals': '显示传送次数',
-    'Saved Portals': '保存数据次数',
     'Clear Time': '通过时间',
     'perZone': '每区域',
     'mapTime': '地图时间',
     'mapCount': '地图数量',
     'perHr': '每小时',
     'lifetime': '总计',
+    'world': '世界',
+    'map': '地图',
     'Fluffy Exp': '绒绒经验值',
     'Warpstations': '跃迁核心',
+    'perGiga': '每千兆核心',
     'Warpstations built on previous Giga': '上次千兆核心升级之前建造的跃迁核心数量',
     'Amalgamators': '合并者数量',
     'Wonders': '奇物数量',
@@ -4578,66 +4560,379 @@ var cnItems = {
     'Smithies': '铁匠铺数',
     'Active Bonfires': '激活的篝火数',
     'C2 Bonus': '挑战²加成',
-    'Zone Reached': '到达区域',
     'Void Map History': '虚空地图历史',
     'Void Map History (voids finished during the same level acquired are not counted/tracked': '虚空地图历史(在获取的同一层通过的虚空地图无法被记录在内',
     'Number of Void Maps': '虚空地图数量',
     'Coordinations': '协作等级',
     'Unbought Coordinations': '未购买的协作等级',
     'Overkill Cells': '超杀格子数',
+    'Challenge Stacks': '挑战层数',
     'Portal Stats': '传送门数据',
     'Voids': '虚空地图',
+    'Nu': '虚空物质',
     'Pet Exp': '绒绒污污经验',
+    'Zone Reached': '到达区域',
     'Run Time': '花费时间',
+    'Initial Helium': '初始氦',
+    'Initial Radon': '初始氡',
     'Maps Run': '运行地图数量',
     'Time in Maps': '运行地图时间',
-    'Clear All Previous Data': '清除全部数据',
-    'Delete Specific Portal': '删除特定传送数据',
+    'Warpstations per Gigastation': '每次千兆核心建造的跃迁核心数量',
+    'Gigastations': '千兆核心',
+    ' each Zone': '(每区域)',
+    ' / Hour': '(每小时)',
+    ', World Only': '(只计算世界上的获取量)',
+    ', Map Only': '(只计算地图中的获取量)',
+    ' % of Lifetime Total': '(占总数的百分比)',
+    'Helium % of lifetime': '氦占总数的百分比',
+    'Radon % of lifetime': '氡占总数的百分比',
+    'C2 Bonus % of lifetime': '挑战²加成占总数的百分比',
+    'Clear All U1 Data': '清除宇宙1所有数据',
+    'Clear All U2 Data': '清除宇宙2所有数据',
+    'Delete Specific U1 Portals': '删除宇宙1特定传送门数据',
+    'Delete Specific U2 Portals': '删除宇宙2特定传送门数据',
     'Invert Selection': '选择项反转',
     'All Off/On': '全部关闭/启用',
-    'Tips': '提示',
-    'Tips: Hover for usage tips.': '提示：鼠标停留此处可看到有用的提示。',
-    'You can zoom by dragging a box around an area. You can turn portals off by clicking them on the legend. Quickly view the last portal by clicking it off, then Invert Selection. Or by clicking All Off, then clicking the portal on. To delete a portal, Type its portal number in the box and press Delete Specific. Using negative numbers in the Delete Specific box will KEEP that many portals (starting counting backwards from the current one), ie: if you have Portals 1000-1015, typing -10 will keep 1005-1015.': '您可以用鼠标框选特定区域来进行放大。您可以点击图例以关闭特定传送的数据显示。如果您想要快速浏览最后一次传送的数据，您只需要点击最后一次的传送，然后点击下方的选择项反转即可。当然，您也可以点全部关闭，然后再点击它。如果您想要删除特定传送的数据，请在输入框内输入编号后，点击“删除特定传送数据”。如果在输入框内输入负数，那么删除时会*保*留*最后一次传送之前相应数量的数据。例如：如果您目前图表中有传送1000至传送1015的数据，输入-10再点击删除后，将保留传送1005至传送1015的数据。',
+    'Import/Export': '导入/导出',
+    'Import/Export Graph Data': '导入/导出图表数据',
+    'Error loading graph data, are you sure that was what you wanted to paste?': '加载图表数据时出错，您确定粘贴的内容无误吗？',
+    'This is your graph data. To Import, paste your data here and then click import.  If you did that and then realized you actually wanted to export, re-open this dialog and then don\'t do it in that order again. ': '这是您的图表数据。想要导入数据的话，只需要将数据粘贴至输入框内并点击导入即可。',
+    'Live Updates': '实时更新',
+    'Displayed Portals': '显示传送次数',
+    'Saved Portals': '保存数据次数',
     'Black Graphs': '黑色图表',
-    'Adding dark-graph.css file': '加载dark-graph.css文件',
-    'Removing dark-graph.css file': '移除dark-graph.css文件',
-    'Theme change - AutoTrimps styles updated.': '切换主题 - 更新了自动脆皮的样式。',
+    'Tips': '提示',
+    'To delete a portal, type its portal number in the box and press Delete Specific. Using negative numbers in the Delete Specific box will keep that many portals (starting counting backwards from the current one), ie: if you have Portals 1000-1015, typing -10 will keep 1005-1015. ': '如果您想要删除特定传送数据，请在输入框内输入编号后，点击“删除特定传送门数据”。如果在输入框内输入负数，那么删除时会*保*留*最后一次传送之前相应数量的数据。例如：如果您目前图表中有传送门1000至传送门1015的数据，输入-10再点击删除后，将保留传送门1005至传送门1015的数据。',
+    ' You can also delete portals by challenge name, matches are non case sensitive and allow partial matches, ie coord matches Coordinated.': '您还可以根据挑战的英文名称来删除传送门数据，脚本匹配数据时不分大小写且允许部分匹配，例如输入coord可以匹配到协同挑战(Coordinated)。',
+    'You can zoom by dragging a box around an area. You can toggle portals by clicking them on the legend, or double click to toggle all of the same challenge. ': '您可以用鼠标框选特定区域来进行放大。您可以点击图例以关闭特定传送门的数据显示，或者是双击图例全部关闭或启用相应的挑战。',
+    ' Quickly view the last portal by clicking it off, then Invert Selection. Or by clicking All Off, then clicking the portal on.': '如果您想要快速浏览最后一次传送的数据，您只需要点击最后一次的传送门，然后点击下方的选择项反转即可。当然，您也可以点全部关闭，然后再点击它。',
         //#endregion 图表
         //#region 核心
     'Core - Main Controls for the script': '核心 - 脚本主控',
-    'Manual Gather/Build': '手动采集和建造',
-    'Auto Gather/Build': '自动采集和建造',
-    'Mining/Building Only': '只采矿和建造',
-    'Science Research OFF': '不进行研究',
-    'Manual Gather/Build / Auto Gather/Build / Mining/Building Only / Science Research OFF': '手动采集和建造 / 自动采集和建造 / 只采矿和建造 / 不进行研究',
-    'Controls what you gather/build do. Manual does nothing': '切换您本人进行采集和建造的方式。手动采集和建造什么也不做。',
-    'Auto Gathering of Food,Wood,Metal(w/turkimp) & Science. Auto speed-Builds your build queue. ': '自动采集将采集食物，砍伐木头，采掘金属(有脆皮火鸡效果的时候)及进行研究。自动建造会加速建造队列。',
-    'Mining/Building only does exactly what it says. Only use if you are passed the early stages of the game and have the mastery foremany unlocked (No longer need to trap, food and wood are useless). ': '只采矿和建造的作用与名称完全一致。建议您在解锁大群工头后再启用。',
-    'You can disable science researching for the achievement: Reach Z120 without using manual research.': '您可以关闭科学研究，以获得成就：在不使用手动研究的前提下，到达区域120。',
-    'Metal Only': '只采矿',
-    'For use with Mining/Gather Only. Only gathers Metal if you have foremany unlocked. ': '用于“只采矿和建造”选项。解锁大群工头后只进行采矿。',
-    'Manual Upgrades': '手动购买升级',
-    'Buy All Upgrades': '购买所有升级',
-    'Upgrades no Coords': '不升级协作',
-    'Manual Upgrades / Buy All Upgrades / Upgrades no Coords': '手动购买升级 / 购买所有升级 / 不升级协作',
-    'Autobuys non-equipment upgrades (equipment is controlled in the Gear tab). The second option does NOT buy coordination (use this ': '自动购买装备以外的升级(装备升级在装备选项卡下)。最后一个选项*不*会*购买协作升级(请您',
-    'ONLY': '只',
-    ' if you know what you\'re doing).': '在知道该选项用途的前提下选择)。',
-    'Amal Boost': '合并者提升',
-    'Boost your Amal count for more Mi. Will not buy coords until your H:D ratio is below a certain value. This means that you will get amals quicker. Will not activate higher than your Amal Boost End Zone Setting! ': '提升合并者数量，以获得更多岩浆岩。在命攻比低于您设置的数值后才会购买协作。您可以更快获得合并者。如果当前区域超过合并者提升结束区域，则不会激活！(后续选项名称中简写为“合升”)',
-    'Set the amount of Amals you wish to aim for. Once this target is reached, it will buy coords below your Amal ratio regardless of your H:D, just enough to keep the Amal. -1 to disable and use H:D for entire boost. ': '设置合并者的数量目标。达到数量目标后，将不考虑命攻比，只在刚好能保持合并者数量的前提下购买协作升级。将数值设为-1则全程只考虑命攻比。',
-    'Set your H:D for Amal Boost here. The higher it is the less coords AT will buy. 0.0000025 is the default. ': '设置合并者提升的命攻比。数值越大，脚本购买的协作升级数量就越少。0.0000025为默认值。',
-    'Amal Boost End Zone. Set the zone you want to stop Amal Boosting. -1 to do it infinitely. ': '合并者提升结束区域。设置停止使用合并者提升的区域。将数值设为-1则一直使用。',
-    'Auto Allocate Off': '关闭自动分配特权',
-    'Auto Allocate On': '启用自动分配特权',
-    'Dump into Looting II': '主加夺宝 II',
-    'Auto Allocate Off / Auto Allocate On / Dump into Looting II': '关闭自动分配特权 / 启用自动分配特权 / 主加夺宝 II',
-    'Uses the AutoPerks ratio based preset system to automatically allocate your perks to spend whatever helium you have when you AutoPortal. Does not change Fixed Perks: siphonology, anticipation, meditation, relentlessness, range, agility, bait, trumps, packrat, capable. NEW: Dump into Looting II, dumps all loot gained from previous portal at specified zone': '自动传送时，根据目前的氦数量自动分配特权。不会修改脚本忽略特权的等级：虹吸学、预期、冥想、无情、范围、敏捷、诱饵、王牌、囤积成瘾、能力。新功能：主加夺宝 II，传送前把所有资源用于升级夺宝 II特权。',
-    'Fast Allocate': '快速分配',
-    'Turn on if your helium is above 500Qa. Not recommended for low amounts of helium. ': '当氦超过500Qa(译者注：即5e17)后建议启用。氦总量不足时不建议启用。关闭自动分配特权时，该选项也可以对自动分配特权生效。',
+    'Auto Gather: Off': '关闭自动采集',
+    'Auto Gather: On': '启用自动采集',
+    'Auto Gather: Mining Only': '自动采集：只采矿',
+    'Auto Gather: No Science': '自动采集：不进行研究',
+    'Auto Gather: Off / Auto Gather: On / Auto Gather: Mining Only / Auto Gather: No Science': '关闭自动采集 / 启用自动采集 / 自动采集：只采矿 / 自动采集：不进行研究',
+    'Lets the script control what you gather and build.': '让脚本控制进行采集和建造的方式。',
+    'Disables this setting.': '关闭该项功能。',
+    'Automatically switch your gathering between resources and the building queue depending on what the script deems necessary.': '让脚本判断需求，自动在资源采集和进行建造之间切换。',
+    'Sets gather to ': '只进行',
+    ' unless buildings are in the queue then it will prioritise building them.': '除非队列中有建筑，则会先进行建造。',
+    'Only use this if you are past the early stages of the game and have ': '请只在度过前期，并解锁了',
+    ' unlocked.': '后再考虑使用。',
+    'Works the same as ': '效果与',
+    ' but stops ': '类似，但还会使',
+    ' from being gathered.': '不进行采集。',
+    'Recommended': '推荐值',
+    ' Auto Gather: On': '启用自动采集',
+    'Buy Upgrades: Off': '关闭自动购买升级',
+    'Buy Upgrades: On': '启用自动购买升级',
+    'Buy Upgrades: No Coords': '不自动购买协作升级',
+    'Buy Upgrades: Off / Buy Upgrades: On / Buy Upgrades: No Coords': '关闭自动购买升级 / 启用自动购买升级 / 不自动购买协作升级',
+    'Lets the script control what upgrades are purchased. Equipment upgrades are controlled by settings in the ': '让脚本控制购买什么升级。它无法控制购买装备升级，该设置在',
+    ' tab': '选项卡下',
+    'Purchases upgrades depending on what the script deems necessary. Certain upgrades such as speedbooks can take priority and delay other upgrades from being purchased.': '让脚本判断需求，购买升级，需要购买加快脆皮资源采集速度的升级时可能暂时不购买其他升级。',
+    ' upgrades from being purchased.': '不进行购买。',
+    ' Buy Upgrades: On': '启用自动购买升级',
+    'When running the ': '进行',
+    ' challenge the following upgrades will be purchased: Battle, Miners, Coordination x9, Megamace, Bestplate.': '挑战时将自动购买以下升级(已根据挑战完成次数优化)：战斗、矿工、9次协作、巨型狼牙棒、精良胸铠。',
+    ' challenge the following upgrades will be purchased: Battle, Miners, Coordination x8, Bestplate.': '挑战时将自动购买以下升级(已根据挑战完成次数优化)：战斗、矿工、8次协作、精良胸铠。',
+    ' challenge the following upgrades will be purchased: Battle, Miners, Coordination x3, Speedminer.': '挑战时将自动购买以下升级(已根据挑战完成次数优化)：战斗、矿工、3次协作、采矿加速。',
+    ' challenge the following upgrades will be purchased: Battle, Miners.': '挑战时将自动购买以下升级(已根据挑战完成次数优化)：战斗、矿工。',
+    ' challenge the following upgrades will be purchased: Battle, Miners, Coordination x3, Speedminer, Egg.': '挑战时将自动购买以下升级(已根据挑战完成次数优化)：战斗、矿工、3次协作、采矿加速、蛋。',
     'Trap Trimps': '自动捕捉脆皮',
-    'Automatically trap trimps when needed, including building traps. (when you turn this off, you may aswell turn off the in-game autotraps button, think of the starving trimps that could eat that food!': '在需要时自动捕捉脆皮，也会自动建造陷阱。(关闭该选项时，您最好也关闭游戏自带的“自动建造陷阱”功能',
+    'Automatically builds traps and traps trimps when needed.': '在需要时自动建造陷阱捕捉脆皮。',
+    'The gather setting must not be set to ': '自动采集不可以设置为',
+    'Manual Upgrades': '关闭自动采集',
+    ' for this to work.': '，否则该项功能无法生效。',
+    ' On whilst highest zone is below 30.': '最高到达区域低于区域30时推荐启用。',
+    'Download Saves': '下载存档',
+    'Will automatically download a copy of your save when portaling.': '传送时自动下载存档。',
+    'Golden Upgrade Settings': '金色升级设置',
+    'Here you can select the golden upgrades you would like to purchase during your runs.': '您可以在此选择游戏中想要购买的金色升级。',
+    'Click to adjust settings.': '点击后可以进行详细设置。',
+    'If needed, the ': '如果您有需要，可以点击弹出界面左下角的',
+    ' button at the bottom left of the popup window has information for all of the inputs.': '按钮，获取关于所有输入值的说明。',
+    'Auto Golden': '自动金色升级',
+    'Portal: Refresh Respec Off': '传送：关闭洗点速传送',
+    'Portal: Refresh Respec On': '传送：启用洗点速传送',
+    'Portal: Void Map Liquification': '传送：虚空地图液化',
+    'Portal: Refresh Respec Off / Portal: Refresh Respec On': '传送：关闭洗点速传送 / 传送：启用洗点速传送',
+    'Portal: Refresh Respec Off / Portal: Refresh Respec On / Portal: Void Map Liquification': '传送：关闭洗点速传送 / 传送：启用洗点速传送 / 传送：虚空地图液化',
+    'When enabled this will use liquification to obtain a fast free respec ': '启用后，将利用液化来快速获得一次特权洗点机会。',
+    'When your free respec in a run has been used this will delay portaling into your Auto Portal challenge, instead making use of liquification to get a fast portal unlock and portaling into your normal run from there.': '当您在上周目使用过特权洗点后，将不会直接传送开始新挑战，而是会在传送后利用液化尽快解锁传送门，然后再进行传送，以获得特权洗点机会。',
+    ' but in addition to portaling for a respec it will repeatedly portal until your bone void map counter is 1 drop away from a guaranteed extra void map.': '类似，但它在获得特权洗点机会后还会继续传送，直到骨头升级中虚空地图的充能离获得虚空地图只差一次充能为止。',
+    'If you have not reached the void map counter target by either zone 99 or the end of your liquification zones then it will portal and repeat this process until have.': '如果您在区域99或液化区域结束后充能仍然不足，则会进行传送并重复此过程，直到充能达到目标为止。',
+    ' Portal: Refresh Respec On ': '传送：启用洗点速传送',
+    'This will swap to universe 1 and put you back in the universe you originally portaled from.': '您会先回到宇宙1，然后再传送回之前的宇宙。',
+    'Pause AutoTrimps': '暂停自动脆皮脚本',
+    'Pauses the AutoTrimps script.': '暂停自动脆皮脚本。',
+    'Graphs will continue tracking data while paused.': '暂停时图表仍然会继续记录数据。',
+    'Auto Allocate Heirlooms': '传家宝自动升级',
+    'Uses a modified version of the ': '利用调整过的',
+    ' calculator to identify optimal nullifium distribution for your equipped and carried heirlooms when auto portaling.': '计算器，在自动传送时按照最佳比例将虚空物质分配给装备的传家宝和携带的传家宝。',
+    'There are inputs you can alter in the ': '您可以在',
+    ' window to allow you to adjust how it distributes nullifium.': '界面中调整虚空物质分配的参数。',
+    'If you want more advanced settings import your save into the ': '如果您需要更高级的设置，请将存档导入至外部的',
+    ' calculator website.': '计算器网站。',
+    'Will ': '将',
+    'only': '只',
+    ' allocate nullifium on heirlooms that you have bought an upgrade or swapped modifiers on.': '把虚空物质分配给购买过升级或者词缀变化过的传家宝。',
+    ' On': '启用',
+    'Auto Allocate Perks': '自动分配特权',
+    'Uses a modified version of ': '利用调整过的',
+    'Surky': 'Surky',
+    'Perky': 'Perky',
+    ' to identify optimal perk distribution when auto portaling.': '加点工具，在自动传送时按照最佳比例分配资源给特权。',
+    ' or ': '或',
+    ' windows to allow you to adjust how it distributes perks.': '界面中调整特权分配资源的参数。',
+    ' website.': '加点工具网站。',
+    'Preset Swapping': '自动切换预设',
+    'Will automatically swap ': '在自动传送时将自动切换',
+    ' presets when Auto Portaling into runs.': '加点工具的预设。',
+    'Fillers (non daily/C2 runs) will load ': '普通挑战(非日常及挑战²的周目)将会载入',
+    'Fillers (non daily/C3 runs) will load ': '普通挑战(非日常及挑战³的周目)将会载入',
+    'Easy Radon Challenge.': '简单氡挑战',
+    'the most appropriate zone progression preset.': '最适合当前区域',
+    'Dailies will load ': '日常挑战将会载入',
+    'Difficult Radon Challenge': '困难氡挑战',
+    'the most appropriate zone progression preset': '最适合当前区域',
+    'C2\'s or special challenge (Frigid, Experience) runs will load ': '挑战²及部分特殊挑战(寒冷、经历)将会载入',
+    'C3\'s or special challenge (Mayhem, Pandemonium, Desolation) runs will load ': '挑战³及部分特殊挑战(暴乱、群魔乱舞、荒凉)将会载入',
+    'Other c²': '其余挑战²',
+    'Push/C3/Mayhem': '推进/挑战³/暴乱',
+    'Challenges that have a dedicated preset (': '具有专用预设的挑战(',
+    'Metal, Trimp, Coord, Experience': '金属、脆皮、协同、经历',
+    'Downsize, Duel, Berserk, Alchemy, Smithless': '精简、决斗、狂战、炼金术、铁匠失传',
+    ') will load that preset when starting the challenge.': ')将会在进入挑战时载入对应的预设。',
+    'Trimple Respec: Off': '末日神殿洗点：关闭',
+    'Trimple Respec: Popup': '末日神殿洗点：询问',
+    'Trimple Respec: Force': '末日神殿洗点：强制',
+    'Trimple Respec: Off / Trimple Respec: Popup / Trimple Respec: Force': '末日神殿洗点：关闭 / 末日神殿洗点：询问 / 末日神殿洗点：强制',
+    'Atlantrimp Respec: Off': '亚特兰蒂皮洗点：关闭',
+    'Atlantrimp Respec: Popup': '亚特兰蒂皮洗点：询问',
+    'Atlantrimp Respec: Force': '亚特兰蒂皮洗点：强制',
+    'Atlantrimp Respec: Off / Atlantrimp Respec: Popup / Atlantrimp Respec: Force': '亚特兰蒂皮洗点：关闭 / 亚特兰蒂皮洗点：询问 / 亚特兰蒂皮洗点：强制',
+    'Will only run during the highest Spire you have reached and will respec into the Perky ': '只在进入最高尖塔时运行该地图，然后再洗点为Perky加点工具的',
+    ' preset to maximise your combat stats during it.': '预设。',
+    'Will respec into the ': '将洗点为',
+    'Radon ': '氡',
+    'Radon Combat Respec': '氡及战斗洗点',
+    ' preset when running C3\'s or special challenge (Mayhem, Pandemonium, Desolation) ': '预设，当运行挑战³及部分特殊挑战(暴乱、群魔乱舞、荒凉)',
+    'OR': '或',
+    ' you have more golden battle than golden radon upgrades. Otherwise it will assume it\'s a radon run and respec into the ': '您的金色升级战斗超过金色升级氡时生效。否则它将认为本周目是用于刷氡的，并洗点为',
+    ' preset.': '预设。',
+    'Will display a popup after completing ': '将在通过',
+    ' asking whether you would like to respec into the preset listed above.': '地图后弹出提示框，询问您要不要洗点为上面列出的预设。',
+    '4 seconds after completing ': '通过',
+    ' the script will respec you into the ': '的4秒后脚本将直接洗点成',
+    ' preset listed above to maximise combat stats. This has a popup that allows you to disable the respec.': '加点工具上面列出的预设，以使我方脆皮属性最大化。但也会有提示框让您取消洗点。',
+    'I\'d recommend only using this with both the ': '个人建议您只在启用',
+    'Void Map Liquification': '传送：虚空地图液化',
+    ' settings enabled. Without these you will go into your next run in a suboptimal perk setup.': '时启用该项功能。否则下周目的特权配置可能会受到影响。',
+    'Has an additional setting (': '它有一项额外设置(',
+    ') which has a ': ')，启用或关闭后会延迟',
+    ' second delay after toggling this setting before it will function.': '秒生效。',
+    ' Trimple Respec: Off': '末日神殿洗点：关闭',
+    ' Atlantrimp Respec: Off': '亚特兰蒂皮洗点：关闭',
+    'Spire Respec Cell': '尖塔洗点格子',
+    'An override for the ': '将无视',
+    ' requirement for the ': '在',
+    'Trimple Respec': '末日神殿洗点',
+    ' setting. Will either give you a popup or automatically respec depending on your ': '设置中的相关条件。根据您的',
+    ' setting when you reach this cell and don\'t have any mapping to do on it.': '设置弹出提示框或者直接洗点，前提条件是您到达了对应格子，且没有进图。',
+    'Will only function on your ': '只在进入',
+    'highest Spire reached.': '最高尖塔时生效。',
+    'Set to ': '设为',
+    '0 or below': '0或更低的数值',
+    ' to disable this way to Spire respec.': '将关闭该项功能。',
+    ' cell after your farming has finished.': '刷完资源之后的格子。',
+    'Preset Swap Mutators': '自动切换突变因子预设',
+    'Will automatically load the preset that corresponds to your run type when Auto Portaling.': '在自动传送时，根据本周目需求自动切换预设。',
+    'For info on which preset is loaded and when, mouseover the presets in the games ': '想要查阅预设相关信息的话，请进入游戏中的',
+    ' window.': '界面。',
+    'Universe Settings: 1.': '宇宙1设置',
+    'Universe Settings: 2.': '宇宙2设置',
+    'Universe Settings: 1. / Universe Settings: 2.': '宇宙1设置 / 宇宙2设置',
+    'Switch between settings for universes you have unlocked.': '在已经解锁的宇宙设置之间切换。',
+    'Auto Portal': '自动传送',
+    'Radon Per Hour': '氡每小时',
+    'One Off Challenges': '一次性挑战',
+    'Will automatically portal into different challenges depending on the way you setup the Auto Portal related settings.': '将根据您的自动传送设置，自动在传送后进入不同的挑战。',
+    'Additional settings appear when any of the inputs are selected.': '选择任意一项后还会出现额外设置。',
+    'Portals into new runs when your helium per hour goes below your current runs best helium per hour.': '当氦每小时低于本周目最高值时进行传送。',
+    'Portals into new runs when your radon per hour goes below your current runs best radon per hour.': '当氡每小时低于本周目最高值时进行传送。',
+    'There is a ': '它还有一项',
+    'Buffer': '缓冲值',
+    ' setting, which lowers the check from best helium per hour to (best - buffer setting) helium per hour.': '设置，当氦每小时低于(本周目最高值 - 缓冲值)时才进行传送。',
+    ' setting, which lowers the check from best radon per hour to (best - buffer setting) radon per hour.': '设置，当氡每小时低于(本周目最高值 - 缓冲值)时才进行传送。',
+    'Helium Challenges': '氦挑战',
+    'Radon Challenges': '氡挑战',
+    'When a challenge has been selected it will automatically portal into it when you don\'t have a challenge active.': '选中挑战后将在没有进入任何挑战时进入该挑战。',
+    'Will portal into the challenge selected in the ': '将根据',
+    ' setting at the zone specified in the ': '的设置进行相应的挑战，但需要到达',
+    ' setting. If not inside of a C2 then it will use the zone specified in the ': '的设置进行相应的挑战²。如果不在挑战²中，则将根据',
+    ' setting. If not inside of a C3 then it will use the zone specified in the ': '的设置进行相应的挑战³。如果不在挑战³中，则将根据',
+    ' setting. When inside of C2s it will use ': '中设置的区域进行传送。在挑战²中时将根据',
+    ' setting. When inside of C3s it will use ': '中设置的区域进行传送。在挑战³中时将根据',
+    ' for your portal zone. If ': '设置的区域进行传送，前提是启用了',
+    ' is enabled otherwise will use the zone specified in the ': '。否则将根据',
+    ' setting in the C2 settings tab.': '设置(位于挑战²选项卡下)的区域进行传送。',
+    ' setting in the C3 settings tab.': '设置(位于挑战³选项卡下)的区域进行传送。',
+    'Special challenges (Frigid, Experience) can be run with this but they will ignore the C2 portal settings and use the ': '您也可以通过这里来进行特殊挑战(寒冷、经历)，但它们将无视挑战²的相关设置，转而根据',
+    'Special challenges (Mayhem, Pandemonium, Desolation) can be run with this but they will ignore the C3 portal settings and use the ': '您也可以通过这里来进行特殊挑战(暴乱、群魔乱舞、荒凉)，但它们将无视挑战³的相关设置，转而根据',
+    ' input for when to finish the run and portal.': '中设置的区域进行传送。',
+    ' Helium Challenges until you reach zone 230 then Helium Per Hour': '氦挑战，直到您到达区域230，再设为氦每小时',
+    ' Custom with a specified endzone to make use of Scruffy\'s level 3 ability': '根据自己的能力设置成能最大化利用污污等级3技能的区域',
+    'Automatically portal into this challenge when using the ': '当使用',
+    'Helium challenges will appear here when they\'ve been unlocked in the game.': '氦挑战在游戏中解锁时，也会出现在这里。',
+    'Radon challenges will appear here when they\'ve been unlocked in the game.': '氡挑战在游戏中解锁时，也会出现在这里。',
+    ' Last challenge available': '最后出现的挑战',
+    'Automatically portal into this challenge when no challenge is active and you are using the ': '当没有进入任何挑战或使用',
+    'Helium challenges': '氦挑战',
+    'Radon challenges': '氡挑战',
+    ' will appear here when they\'ve been unlocked in the game.': '在游戏中解锁时，也会出现在这里。',
+    'If this setting is set to ': '如果该项设为',
+    ' the script won\'t Auto Portal at all.': '则不会自动传送。',
+    'Challenges that are only worthwhile running once for perks/special unlocks will appear here when they\'ve been unlocked in the game.': '只值得为了特权或解锁其他奖励而进行一次的挑战在游戏中解锁时，也会出现在这里。',
+    'Automatically portal into this C2 when using the ': '当使用',
+    'Automatically portal into this C3 when using the ': '当使用',
+    'C2 challenges will appear here when they\'ve been unlocked in the game.': '特定挑战²在游戏中解锁时，也会出现在这里。',
+    'C3 challenges will appear here when they\'ve been unlocked in the game.': '特定挑战³在游戏中解锁时，也会出现在这里。',
+    'When running a C2, ': '进行挑战²时，将根据',
+    'When running a C3, ': '进行挑战³时，将根据',
+    ' will be used for your portal zone if ': '设置的区域进行传送，前提是启用了',
+    ' is enabled otherwise it will use the ': '。否则将根据',
+    ' setting. These can be found in the ': '设置的区域进行传送。您可以在',
+    ' settings tab.': '选项卡下查看。',
+    'Special challenges (Frigid, Experience) can be run with this but they will ignore the C2 settings and use the ': '您也可以通过这里来进行特殊挑战(寒冷、经历)，但它们将无视挑战²的相关设置，转而根据',
+    'Special challenges (Mayhem, Pandemonium, Desolation) can be run with this but they will ignore the C3 settings and use the ': '您也可以通过这里来进行特殊挑战(暴乱、群魔乱舞、荒凉)，但它们将无视挑战³的相关设置，转而根据',
+    'Portal Zone': '传送区域',
+    'Will automatically portal once this zone is reached when using the ': '当使用',
+    'Custom OR One Off Challenges': '自定义或一次性挑战',
+    'Setting this to ': '如果将该项设为',
+    ' would portal when you reach ': '，则将在达到',
+    'If this is set above your highest zone reached then it will allow you to pick not yet unlocked challenges up to this zone.': '如果将该项设为超过最高到达区域的数值，那么将可以选择尚未解锁但到达该区域后可以解锁的挑战。',
+    ' The zone you would like your run to end': '想要结束本周目的区域',
+    'Don\'t Portal Before': '传送最低区域',
+    'Will stop the script from automatically portaling before the specified zone when using the ': '当使用',
+    'This is an additional check that prevents drops in helium per hour from triggering Auto Portal.': '它可以保证氦每小时不会因为前期意外降低而触发自动传送。',
+    'This is an additional check that prevents drops in radon per hour from triggering Auto Portal.': '它可以保证氡每小时不会因为前期意外降低而触发自动传送。',
+    'The portal after checkbox in ': '',
+    ' will override this and allow portaling before the zone set here.': '中的相应选项优先级高于该项，可以在低于该项数值的区域触发自动传送。',
+    ' to disable this setting and assume any zone is okay to portal on.': '将关闭该项功能，可以在任意区域自动传送。',
+    ' The minimum zone you would like your run to reach': '您至少想要到达的区域',
+    'He/Hr Buffer ': '氦每小时缓冲',
+    'Rn/Hr Buffer ': '氡每小时缓冲',
+    'When using the ': '当使用',
+    ' Auto Portal setting, it will portal if your helium per hour drops by this settings % input lower than your best for current run.': '自动传送设置时，它会在氦每小时低于本周目最高值相应百分比时进行传送。',
+    ' Auto Portal setting, it will portal if your radon per hour drops by this settings % input lower than your best for current run.': '自动传送设置时，它会在氡每小时低于本周目最高值相应百分比时进行传送。',
+    'Allows portaling midzone if you exceed the set buffer amount by 5x. For example a normal 2% buffer setting would now portal mid-zone if you fall below 10% buffer.': '当相应数值低于本周目最高值的百分比超过缓冲值5倍时，将无视当前区域进行传送。例如，将缓冲值设为2%时，如果相应数值低于本周目最高值10%，将进行传送。',
+    'Set to 0 to disable this setting.': '设为0将关闭该项功能。',
+    'Portal: Immediately': '立刻进行传送',
+    'Portal: After Voids': '完成虚空地图后传送',
+    'Portal: After Poison Voids': '毒区域完成虚空地图后传送',
+    'Portal: Immediately / Portal: After Voids': '立刻进行传送 / 完成虚空地图后传送',
+    'Portal: Immediately / Portal: After Voids / Portal: After Poison Voids': '立刻进行传送 / 完成虚空地图后传送 / 毒区域完成虚空地图后传送',
+    'How you would like to portal when below your helium per hour threshold.': '当氦每小时低于阈值时如何进行传送。',
+    'How you would like to portal when below your radon per hour threshold.': '当氡每小时低于阈值时如何进行传送。',
+    'Will auto portal straight away.': '将立刻进行传送。',
+    'Will run any remaining void maps then proceed to portal.': '将运行剩余的所有虚空地图，然后进行传送。',
+    'Will continue your run until you reach the next poison zone and run void maps there.': '将等待您到达下一个毒区域，然后再运行虚空地图。',
+    'When farming for, or running Void Maps due to this setting it will buy as many nurseries as you can afford based upon your spending percentage in the scripts Auto Structure settings.': '当该选项触发虚空地图相关的效果时，它会根据脚本自动建筑中相应百分比尽可能建造托儿所。',
+    ' Portal: After Voids': '完成虚空地图后传送',
+    'Exit Spires for Voids': '退出尖塔并运行虚空地图',
+    'Will automatically exit Spires to run your voids earlier when the ': '当',
+    ' Auto Portal setting is wanting to portal.': '设置触发自动传送时，将提前退出尖塔运行虚空地图。',
+    'Auto Portal Timeout': '自动传送延时',
+    'When enabled this will add a 5 second delay to ': '启用后，当您改变任何跟',
+    ' being run when you change any ': '有关的设置后，',
+    ' related settings.': '都需要等待5秒才会触发。',
+    'Swap To Next Universe': '切换到下个宇宙',
+    'Will automatically swap to the next available universe when auto portaling.': '自动传送时将自动切换到下个可以进入的宇宙。',
+    'You ': '您',
+    'must': '必须',
+    ' have Auto Portal setup in both the current ': '设置当前宇宙',
+    ' following universe or Auto Portal will contiunue to portal into your current universe.': '目标宇宙的自动传送，否则自动传送不会离开当前宇宙。',
+    'If enabled in all available universes it will portal into universe 1.': '如果在所有宇宙都可以进入时启用，它将进入宇宙1。',
+    ' Off': '关闭',
+    'Force Auto Portal': '强制进行自动传送',
+    'Will force activate Auto Portal when pressed.': '按下按钮后将强制进行自动传送。',
+    'There\'s a confirmation window to ensure accidental presses don\'t ruin your run!': '在自动传送前脚本会再度弹出界面进行确认，以免误操作影响游戏体验！',
     'AutoEggs': '自动获取彩蛋',
+    'Clicks easter eggs when they are active in the world.': '当世界上出现彩蛋时，自动获取它们。',
+        //#endregion 核心
+        //#region 工作
+    'Geneticassist Settings': '遗传学家设置',
+        //#endregion 工作
+        //#region 建筑
+    'Building Settings': '建筑设置',
+        //#endregion 建筑
+        //#region 装备
+    'Equipment Settings': '装备设置',
+        //#endregion 装备
+        //#region 战斗
+    'Combat & Stance Settings': '战斗及阵型设置',
+        //#endregion 战斗
+        //#region 地图
+    'Maps - Auto Maps Settings': '地图 - 自动地图设置',
+        //#endregion 地图
+        //#region 挑战
+    'Challenges - Settings for Specific Challenges': '挑战 - 特定挑战相关设置',
+        //#endregion 挑战
+        //#region 挑战²和挑战³
+    'C2 - Settings for C2\'s or special challenge (Frigid, Experience': '挑战² - 挑战²及部分特殊挑战相关设置(寒冷、经历',
+    'C3 - Settings for C3\'s or special challenge (Mayhem, Pandemonium, Desolation': '挑战³ - 挑战³及部分特殊挑战相关设置(暴乱、群魔乱舞、荒凉',
+        //#endregion 挑战²和挑战³
+        //#region 日常
+    'Dailies - Settings for Dailies': '日常 - 日常相关的设置',
+        //#endregion 日常
+        //#region 传家宝
+    'Heirloom Settings': '传家宝设置',
+        //#endregion 传家宝
+        //#region 尖塔
+    'Spire - Settings for Spires. HD Ratio and Hits Survived calculations for the Spire will be based off your Exit After Cell if set.': '尖塔 - 尖塔相关设置。如果设置了相关选项，则尖塔相关的命攻比和伤害承受次数将以尖塔退出格子进行计算。',
+        //#endregion 尖塔
+        //#region 岩浆
+    'Dimensional Generator & Magmite Settings': '维度发生器及岩浆岩设置',
+        //#endregion 岩浆
+        //#region 自然
+    'Nature Settings': '自然设置',
+        //#endregion 自然
+        //#region 绒绒
+    'Fluffy': '绒绒',
+    'Fluffy Evolution Settings': '绒绒进化设置',
+        //#endregion 绒绒
+        //#region 尖塔突击
+    'Spire Assault - Settings to automate clearing Spire Assault levels and farming equipment levels.': '尖塔突击 - 自动进行尖塔突击和刷魔尘的设置',
+        //#endregion 尖塔突击
+        //#region 时间跃迁
+    'Time Warp Settings': '时间跃迁设置',
+        //#endregion 时间跃迁
+        //#region 显示
+    'Display': '显示',
+    'Display & Spam Settings': '显示及消息设置',
+        //#endregion 显示
+        //#region 导入导出
+    'Import Export': '导入导出',
+    'Import & Export Settings': '导入及导出设置',
+        //#endregion 
+        //#region 帮助
+    'Helpful information (hopefully': '帮助信息(希望能有帮助',
+        //#endregion 帮助
+        //#region 杂项
+        'Set to': '想设为',
+        ' by holding ': '的话，只需按下',
+        'control': 'Ctrl键',
+        ' and clicking.': '再点击该选项即可。',
+        'Exit': '退出',
+        'Maximize all tabs': '最大化所有选项卡',
+        'Minimize all tabs': '最小化所有选项卡',
+        //#endregion 杂项
+    //#endregion 脚本
+    /*//#region 脚本-old
+        //#region 核心
     'Click easter egg if it exists, upon entering a new zone. Warning: Quite overpowered. Please solemnly swear that you are up to no good.': '只要区域内有彩蛋，则在进入新区域之前自动获取。注意：效果过于强大。请庄严宣誓您没干好事。',
     'Manual Bone Charge': '手动骨头充能',
     'Bone Charge When Max': '层数最大后充能',
@@ -4651,31 +4946,7 @@ var cnItems = {
     'start': '开始',
     ' using Bone Charges.': '使用骨头充能的区域数值。',
     'Alternatively, set it to ': '您也可以直接将它设置为',
-    ' to automatically update the zone to 10% of your highest zone cleared. For example, if your highest zone cleared was 400, bone charges would be automatically used from zone 360 onwards.': '，这样将在最高通过区域的90%开始使用。例如，最高通过区域为400，那么将从区域360开始使用骨头充能。',
-    'Default: Automated (-1).': '默认为自动(设为-1)。',
-    'Manual Gather/Build / Auto Gather/Build / Mining/Building Only': '手动采集和建造 / 自动采集和建造 / 只采矿和建造',
-    'Dump into Looting': '主加夺宝',
-    'Auto Allocate Off / Auto Allocate On / Dump into Looting': '关闭自动分配特权 / 启用自动分配特权 / 主加夺宝',
-    'Uses the AutoPerks ratio based preset system to automatically allocate your perks to spend whatever helium you have when you AutoPortal. Does not change Fixed Perks: siphonology, anticipation, meditation, relentlessness, range, agility, bait, trumps, packrat, capable. NEW: Dump into Looting, dumps all loot gained from previous portal at specified zone': '自动传送时，根据目前的氡数量自动分配特权。不会修改脚本忽略特权的等级：范围、敏捷、诱饵、王牌、囤积成瘾、饥饿、洞察。新功能：主加夺宝，传送前把所有资源用于升级夺宝特权。',
-    'Greed Dump': '主加贪婪',
-    'Dump Radon into Greed instead. ': '分配氡时改为主加贪婪。',
-    'AutoPortal': '自动传送',
-    'Automatically portal. Will NOT auto-portal if you have a challenge active, the challenge setting dictates which challenge it will select for the next run. All challenge settings will portal right after the challenge ends, regardless. Helium Per Hour only ': '自动传送。未完成挑战前*不*会*自动传送，下拉菜单中的选项为下周目进行的挑战。选择特定挑战时，将在完成挑战后立刻传送。选择“氦每小时”，则将在氦/小时低于本周目最高数值时，在下个区域的',
-    ' of the first level where your He/Hr went down even slightly compared to the current runs Best He/Hr. Take note, there is a Buffer option, which is like a grace percentage of how low it can dip without triggering. Setting a buffer will portal mid-zone if you exceed 5x of the buffer.  CAUTION: Selecting He/hr may immediately portal you if its lower-(use Pause AutoTrimps button to pause the script first to avoid this': '。请注意，右侧有一个缓冲值选项，意味着氦/小时可以暂时低于本周目最高数值，而不传送。设置缓冲值后，您将在超过5倍缓冲值时无视当前位置自动传送。*注*意*：选择“氦每小时”选项可能会立刻传送(建议先启用“暂停自动脆皮脚本”后再进行设置',
-    'Portal Challenge': '传送后的挑战',
-    'Automatically portal into this challenge when using helium per hour or custom autoportal. Custom portals after cell 100 of the zone specified. Do not choose a challenge if you havent unlocked it. ': '使用“氦每小时”或“自定义”选项时，传送后自动进行相应的挑战。完成该挑战后将自动传送。请不要选择未解锁的挑战。',
-    'Do NOT allow Helium per Hour AutoPortal setting to portal BEFORE this level is reached. It is an additional check that prevents drops in helium/hr from triggering autoportal. Set to 0 or -1 to completely disable this check. (only shows up with Helium per Hour set': '到达相应区域*之*前*，*不*自*动*传送。该选项可以防止氦/小时的微小波动触发自动传送。将数值设为0或者-1可以关闭该选项。(只在“氦每小时”选项下出现',
-    'IMPORTANT SETTING. When using the He/Hr Autoportal, it will portal if your He/Hr drops by this amount of % lower than your best for current run, default is 0% (ie: set to 5 to portal at 95% of your best). Now with stuck protection - Allows portaling midzone if we exceed set buffer amount by 5x. (ie a normal 2% buffer setting would now portal mid-zone you fall below 10% buffer).': '*重*要*选*项*。使用“氦每小时”选项时，在氦/小时低于本周目最高数值相应百分比后，才会自动传送，默认值为0%(例如：将数值设为5时，将在氦/小时低于本周目最高数值的95%后才自动传送)。该选项有防卡死功能——当氦/小时低于本周目最高数值的百分比超过缓冲值5倍时，无视当前位置自动传送。(例如：将缓冲值设为2时，将在氦/小时低于本周目最高数值的90%后，无视当前位置自动传送)。',
-    'Automatically portal. Will NOT auto-portal if you have a challenge active, the challenge setting dictates which challenge it will select for the next run. All challenge settings will portal right after the challenge ends, regardless. Radon Per Hour only ': '自动传送。未完成挑战前*不*会*自动传送，下拉菜单中的选项为下周目进行的挑战。选择特定挑战时，将在完成挑战后立刻传送。选择“氡每小时”，则将在氡/小时低于本周目最高数值时，在下个区域的',
-    ' of the first level where your Rn/Hr went down even slightly compared to the current runs Best Rn/Hr. Take note, there is a Buffer option, which is like a grace percentage of how low it can dip without triggering. Setting a buffer will portal mid-zone if you exceed 5x of the buffer.  CAUTION: Selecting Rn/hr may immediately portal you if its lower-(use Pause AutoTrimps button to pause the script first to avoid this': '请注意，右侧有一个缓冲值选项，意味着氡/小时可以暂时低于本周目最高数值，而不传送。设置缓冲值后，您将在超过5倍缓冲值时无视当前位置自动传送。*注*意*：选择“氡每小时”选项可能会立刻传送(建议先启用“暂停自动脆皮脚本”后再进行设置',
-    'Radon Per Hour': '氡每小时',
-    'Automatically portal into this challenge when using radon per hour or custom autoportal. Custom portals after cell 100 of the zone specified. Do not choose a challenge if you havent unlocked it. ': '使用“氡每小时”或“自定义”选项时，传送后自动进行相应的挑战。完成该挑战后将自动传送。请不要选择未解锁的挑战。',
-    'Do NOT allow Radon per Hour AutoPortal setting to portal BEFORE this level is reached. It is an additional check that prevents drops in radon/hr from triggering autoportal. Set to 0 or -1 to completely disable this check. (only shows up with Radon per Hour set': '到达相应区域*之*前*，*不*自*动*传送。该选项可以防止氡/小时的微小波动触发自动传送。将数值设为0或者-1可以关闭该选项。(只在“氡每小时”选项下出现',
-    'IMPORTANT SETTING. When using the Rn/Hr Autoportal, it will portal if your Rn/Hr drops by this amount of % lower than your best for current run, default is 0% (ie: set to 5 to portal at 95% of your best). Now with stuck protection - Allows portaling midzone if we exceed set buffer amount by 5x. (ie a normal 2% buffer setting would now portal mid-zone you fall below 10% buffer).': '*重*要*选*项*。使用“氡每小时”选项时，在氡/小时低于本周目最高数值相应百分比后，才会自动传送，默认值为0%(例如：将数值设为5时，将在氡/小时低于本周目最高数值的95%后才自动传送)。该选项有防卡死功能——当氡/小时低于本周目最高数值的百分比超过缓冲值5倍时，无视当前位置自动传送。(例如：将缓冲值设为2时，将在氡/小时低于本周目最高数值的90%后，无视当前位置自动传送)。',
-    'Pause AutoTrimps': '暂停自动脆皮脚本',
-    'Pause AutoTrimps Script (not including the graphs module': '暂停自动脆皮脚本(不包括图表部分',
-    'Switch between Helium (U1) and Radon (U2) settings. ': '切换氦相关(宇宙1)和氡相关(宇宙2)的设置。',
-    'WARNING: Your void maps are set to complete after your autoPortal, and therefore will not be done at all! Please Change Your Settings Now. This Box Will Not Go away Until You do. Remember you can choose \'Custom\' autoPortal along with challenges for complete control over when you portal. ': '*注*意*：您将虚空地图区域设置到了自动传送的区域之后，因此完全无效！请您修改设置，否则该窗口将一直弹出。您可以选择自动传送中的“自定义”选项以完全控制传送时机。',
+    ' to automatically update the zone to 10% of your highest zone cleared. For example, if your highest zone cleared was 400, bone charges would be automatically used from zone 360 onwards.': '，这样将在最高到达区域的90%开始使用。例如，最高到达区域为400，那么将从区域360开始使用骨头充能。',
     'Void Maps Conflict': '虚空地图冲突',
     'Zeker0 (z1-': '脚本预设(区域1-',
     'Zeker0 (z60-': '脚本预设(区域60-',
@@ -4738,7 +5009,6 @@ var cnItems = {
     'Second Stage: Bought Max Looting': '第二阶段：最大购买贪婪特权',
         //#endregion 核心
         //#region 建筑
-    'Building Settings': '建筑设置',
     'Hide Buildings': '隐藏建筑',
     'If you have unlocked Autostructure and Decabuild, this setting will appear and enable you to hide the now obsolete building settings, so please use AutoStructure instead. The settings will only disappear if you disable the buy buildings button and turn this on. It will not hide the Gym settings as Autostructure does not allow you to customize how you buy them. ': '如果您解锁了自动建造和十重建造，该选项将出现，此时游戏自带的自动建造比脚本的自动建造效果更好，因此您可以关掉脚本的自动建造了。相关的设置在启用该选项且启用“不建造任何建筑”时才会隐藏。该选项不会隐藏健身房的设置，因为游戏自带的自动建造无法自定义健身房的相关设置。',
     'Buy Neither': '不建造任何建筑',
@@ -4884,7 +5154,6 @@ var cnItems = {
     'How many hits do you want to kill an enemy in a AEF map. ': '在自动装备刷资源的地图中，您想用多少次攻击击杀敌人。',
         //#endregion 装备
         //#region 地图
-    'Maps - AutoMaps & VoidMaps Settings': '地图 - 自动地图及虚空地图设置',
     'Auto Maps Off': '关闭自动地图',
     'Auto Maps On': '启用自动地图',
     'Auto Maps: Unique': '自动独特地图',
@@ -5025,7 +5294,6 @@ var cnItems = {
     'running ship frag map': '运行崇信者刷碎片地图',
         //#endregion 地图
         //#region 尖塔
-    'Spire - Settings for Spires': '尖塔 - 尖塔相关设置',
     'Max Map Bonus for Spire': '进塔前获得最大地图奖励',
     'Get max map bonus before running the Spire.': '在进入尖塔前是否获得最大的地图奖励。',
     'Farm level 200/199(or BW) maps for X minutes before continuing onto attempting Spire.': '在进入尖塔前，刷相应分钟数200/199级地图(或仿生仙境)。',
@@ -5100,7 +5368,6 @@ var cnItems = {
     'Daily Prestige Raiding successful! - recycling Praid map': '日常重铸劫掠已成功完成！回收相应的劫掠地图',
         //#endregion 劫掠
         //#region 日常
-    'Dailies - Settings for Dailies': '日常 - 日常相关的设置',
     'Buy Heliumy %': '氦奇购买百分比',
     'Buys the Heliumy bonus for ': '当日常加成高于该选项的数值时，购买氦奇加成。花费',
     '100 bones': '100骨头',
@@ -5113,7 +5380,7 @@ var cnItems = {
     'Avoid Empower': '避免赋能敌人变强',
     'Tries to avoid Empower stacks in Empower Dailies. No harm in this being on, so default is On. ': '在赋能日常挑战中，尽量避免敌人获得赋能层数。开着没什么坏处，因此该选项默认启用。',
     'Will buy Armor to try and prevent death on Bleed/Plague/Bogged Dailies under the 3 conditions. ': '在嗜血/天灾/泥沼挑战中，在满足以下条件时自动购买护甲以避免我方脆皮阵亡。',
-    ' Will activate at and above 80% of your HZE. ': '当到达最高通过区域的80%时，激活日常护甲。',
+    ' Will activate at and above 80% of your HZE. ': '当到达最高到达区域的80%时，激活日常护甲。',
     'H:D': '命攻比',
     ' Will activate at and above the H:D you have defined in maps. ': '当命攻比超过地图选项卡下相关设置的数值时，激活日常护甲。',
     'Always': '常时',
@@ -5232,12 +5499,12 @@ var cnItems = {
     'Tox/Nom Fight Always': '毒性/美味常时战斗',
     'Sends trimps to fight if they\'re not fighting in the Toxicity and Nom Challenges, regardless of BAF. Essenitally the same as the one in combat, can use either if you wish, except this will only activate in these challenges (duh) ': '在毒性/美味挑战中，让脆皮在未进行战斗时自动开始战斗。无视“改良自动战斗”的设置。实际上跟战斗选项卡下的“常时战斗”效果类似，启用任意一个均可，但该选项只在相应挑战中生效。(不然呢？)',
     'Will buy Armor to try and prevent death on Nom/Tox Challenges under the 3 conditions. ': '在美味/毒性挑战中，在满足以下条件时自动购买护甲以避免我方脆皮阵亡。',
-    ' Will activate at and above 80% of your HZE and when your health is sufficiently low. ': '当到达最高通过区域的80%，且生命值非常低时，激活日常护甲。',
+    ' Will activate at and above 80% of your HZE and when your health is sufficiently low. ': '当到达最高到达区域的80%，且生命值非常低时，激活日常护甲。',
     'Set your H:D ratio for Mapology. Will not go into maps unless your H:D ratio is above this. -1 to use normal behaviour. ': '设置地图学挑战专用的命攻比。除非命攻比高于该数值，才会运行地图。将数值设为-1则使用正常设置。',
     'No VMs': '不运行虚空地图',
     'Turn off VM running for C2s. Handy for the C2 Runner. ': '挑战²中不自动运行虚空地图。对“挑战²自动运行”的帮助很大。',
     'C2 Runner': '挑战²自动运行',
-    'Runs the normal C2s in sequence according to difficulty. See C2Table for list. Once zone you have defined has been reached, will portal into next. I will advise you not to touch the challenges (abandoning, doing a different one, etc) if you are running this, it could break it. Only runs challenges that need updating, will not run ones close-ish to your HZE. ': '按照难度顺序，自动运行挑战²。具体可参考“挑战²和挑战³列表”。到达对应的区域后，会自动传送进入下一个挑战。建议在流程中不要去碰挑战(如放弃挑战、选择其他挑战等)，这可能使“挑战²自动运行”失效。该选项只会进行需要更新层数的挑战，不会进行接近最高通过区域的挑战。',
+    'Runs the normal C2s in sequence according to difficulty. See C2Table for list. Once zone you have defined has been reached, will portal into next. I will advise you not to touch the challenges (abandoning, doing a different one, etc) if you are running this, it could break it. Only runs challenges that need updating, will not run ones close-ish to your HZE. ': '按照难度顺序，自动运行挑战²。具体可参考“挑战²和挑战³列表”。到达对应的区域后，会自动传送进入下一个挑战。建议在流程中不要去碰挑战(如放弃挑战、选择其他挑战等)，这可能使“挑战²自动运行”失效。该选项只会进行需要更新层数的挑战，不会进行接近最高到达区域的挑战。',
     'What percent Threshhold you want C2s to be over. E.g 85, will only run C2s with HZE% below this number. Default is 85%. Must have a value set for C2 Runner to... well, run. ': '挑战²自动运行的阈值。例如将数值设为85，则只会运行区域比低于85%的挑战。默认值为85%。必须设置数值后，挑战²自动运行才能正常工作。',
     'C2 Table': '挑战²和挑战³列表',
     'Display your C2s and C3s in a convenient table which is colour coded. ': '将挑战²和挑战³的情况显示在一个列表中。',
@@ -5253,7 +5520,6 @@ var cnItems = {
     '%HZE': '区域比',
         //#endregion 挑战²和挑战³
         //#region 挑战
-    'Challenges - Settings for Specific Challenges': '挑战 - 特定挑战相关设置',
     'Hide Stuff': '显示/隐藏挑战',
     'Enable seeing the hide challenges buttons. Feel free to turn this off once you are done. ': '设置显示和隐藏的挑战。设置完以后您就可以关闭该选项了。',
     'Quag': '泥淖',
@@ -5352,7 +5618,6 @@ var cnItems = {
     'Starting from the zone above D: Zone, this setting will multiply the H:D you have set in D: H:D. So if D: Zone was 100, D: H:D was 10, D: Multiplier was 1.2, at z101 your H:D target will be 12, then at z102 it will be 14.4 and so on. This way you can account for the zones getting stronger and you will not waste time farming for a really low H:D. ': '从“荒凉：区域”数值的区域开始，每个区域使“荒凉：命攻比”的数值乘以相应的倍率。换句话说，如果将“荒凉：区域”设为100，“荒凉：命攻比”设为10，“荒凉：倍率”设为1.2，则在区域101时命攻比目标将变成12，区域102将变成14.4，依此类推。该选项可以将区域变难的情况纳入考虑范围内，同时也不需要在命攻比很低的时候浪费时间刷资源。',
         //#endregion 挑战
         //#region 战斗
-    'Combat & Stance Settings': '战斗及阵型设置',
     'Better AutoFight OFF': '关闭改良自动战斗',
     'Better Auto Fight': '启用改良自动战斗',
     'Vanilla': '通常自动战斗',
@@ -5427,7 +5692,6 @@ var cnItems = {
         //#endregion 风层数叠加
         //#region 自动遗传学家
     'ATGA': '自动遗传学家',
-    'Geneticassist Settings': '遗传学家设置',
     'ATGA MASTER BUTTON': '自动遗传学家总开关',
     'AT Geneticassist. Do not use vanilla GA, as it will conflict otherwise. May get fucky with super high values. ': '是否启用自动遗传学家。请不要同时启用游戏自带的遗传学家助手，否则可能会造成冲突。数值过大时可能会出问题。(后续选项名称中简写为“遗传”)',
     'ATGA will only hire geneticists if they cost less than this value. E.g if this setting is 1 it will only buy geneticists if they cost less than 1% of your food. Default is 1%. ': '“自动遗传学家”只会在花费低于该数值时雇佣遗传学家。例如：如果将该选项设为1，则只在遗传学家花费低于食物总量1%时雇佣遗传学家。默认值为1。',
@@ -5549,13 +5813,12 @@ var cnItems = {
     'Why scry when theres no essence? Turns off scrying when the remaining enemies with essence drops to 0. ': '没有黑暗精华时何必启用占卜者阵型？在当前区域没有敌人可以掉落黑暗精华后不使用占卜者阵型。',
         //#endregion 占卜者阵型
         //#region 岩浆
-    'Dimensional Generator & Magmite Settings': '维度发生器及岩浆岩设置',
     'Auto Generator': '自动维度发生器',
     'Turn this on to use these settings. ': '启用该选项来使用下面的功能。',
     'Gain Mi / Gain Fuel / Hybrid': '得岩浆岩 / 得燃料 / 混合型',
     'MODE BEFORE FUELING': '持续得燃料前使用的模式',
     'Which mode to use before fueling. This is the mode which the generator will use if you fuel after z230. Using Hybrid mode before unlocking is very naughty and will be punished! ': '开始持续得燃料前使用的模式。如果您把持续得燃料的区域设置到了区域230以后，则在这之前会使用该选项的模式。在解锁混合型之前使用该模式是非常不妥的行为！',
-    'Start fueling at this zone instead of 230. I would suggest you have a value lower than your max, for obvious reasons. Recommend starting at a value close-ish to your max supply. Use 230 to use your ': '从该区域开始持续得燃料，而不是从区域230开始。最好设为低于最高通过区域的数值。建议设为接近供给对应最大区域的数值。将数值设为230则直接使用',
+    'Start fueling at this zone instead of 230. I would suggest you have a value lower than your max, for obvious reasons. Recommend starting at a value close-ish to your max supply. Use 230 to use your ': '从该区域开始持续得燃料，而不是从区域230开始。最好设为低于最高到达区域的数值。建议设为接近供给对应最大区域的数值。将数值设为230则直接使用',
     'BEFORE FUEL': '持续得燃料前',
     ' setting. ': '的设置。',
     'End fueling at this zone. After this zone is reached, will follow your preference. -1 to fuel infinitely. ': '从该区域起结束持续得燃料。到达相应区域后，按照其他选项的设置来决定模式。将数值设为-1则常时得燃料。',
@@ -5585,7 +5848,7 @@ var cnItems = {
     'Use -1 or 0 to not spend on this. Any value above 0 will spend. ': '将数值设为-1或0则不分配岩浆岩。将数值设为0以上的数值则会分配。',
     'Positive number NOT 1 e.g. 2.5: Consider Supply when its cost * 2.5 is < Capacity, instead of immediately when < Cap. Effectively throttles supply for when you don\'t need too many.': '将数值设为*非*1的正数：例如2.5，则当供给花费的2.5倍低于容量花费时才购买供给。当不需要太多供给时，可以有效地控制它的分配。',
     'Negative number (-1 is ok) e.g. -2.5: Consider Supply if it costs < Capacity * 2.5, buy more supplys! Effectively throttling capacity instead.': '将数值设为负数(包括-1)：例如-2.5，则当供给花费低于容量花费的2.5倍时才购买供给。此时该选项将控制容量。',
-    'Set to 1: DISABLE SUPPLY only spend magmite on Efficiency, Capacity and Overclocker. Always try to get supply close to your HZE. ': '将数值设为1：完全*不*购*买*供*给*，只考虑其他三项。使用该选项时请尽可能将供给升级到接近最高通过区域。',
+    'Set to 1: DISABLE SUPPLY only spend magmite on Efficiency, Capacity and Overclocker. Always try to get supply close to your HZE. ': '将数值设为1：完全*不*购*买*供*给*，只考虑其他三项。使用该选项时请尽可能将供给升级到接近最高到达区域。',
     'Set to 0: IGNORE SETTING and use old behaviour (will still try to buy overclocker': '将数值设为0：该选项将*无*效*，按照1：1的比例计算(同时会尝试购买超频',
     'Normal & No OC': '普通且无超频',
     'OneTime Only': '只购买一次性升级',
@@ -5605,7 +5868,6 @@ var cnItems = {
     'Thats all the help you get.': '详见上图。',
         //#endregion 岩浆
         //#region 传家宝
-    'Heirloom Settings': '传家宝设置',
     'Enter the name of your high damage heirloom. This is your heirloom that you will use normally. ': '输入您较高伤害的传家宝名称。将在正常情况下使用。(注意：由于汉化方式的原因，请先自行命名要使用的传家宝，否则该选项可能失效！)',
     'Enter the name of your low damage heirloom. This is the heirloom that you will use for windstacking. ': '输入您较低伤害的传家宝名称。将在风层数叠加时使用。(注意：由于汉化方式的原因，请先自行命名要使用的传家宝，否则该选项可能失效！)',
     'Heirloom Swapping': '传家宝切换',
@@ -5702,35 +5964,7 @@ var cnItems = {
     'UnProtect': '取消保护',
     'Protect': '保护',
         //#endregion 传家宝
-        //#region 金色升级
-    'Golden': '金色',
-    'Golden Upgrade Settings': '金色升级设置',
-    'AutoGoldenUpgrades': '自动金色升级选项',
-    'Buys Golden Upgrades in Fillers. Helium buys all Helium golden upgrades. Battle buys all Battle golden upgrades. Void buys 8 Void golden upgrades (max number you can buy) then buys helium golden upgrades. Void + Battle buys 8 voids then battle. Will run way faster than Vanilla AutoGold so if you have this on expect it to win over vanilla settings. ': '按照相应选项购买金色升级。选择氦则只购买金色氦升级。选择战斗则只购买金色战斗升级。选择虚空则在购买8次金色虚空升级(最大数量)后开始购买金色氦升级。选择虚空+战斗则在购买8次金色虚空升级(最大数量)后开始购买金色战斗升级。购买速度比通常的自动金色升级更快。',
-    'Void + Battle': '虚空+战斗',
-    'Daily AutoGoldenUpgrades': '日常自动金色升级',
-    'Buys Golden Upgrades in Dailies. Helium buys all Helium golden upgrades. Battle buys all Battle golden upgrades. Void buys 8 Void golden upgrades (max number you can buy) then buys helium golden upgrades. Void + Battle buys 8 voids then battle. Will run way faster than Vanilla AutoGold so if you have this on expect it to win over vanilla settings. ': '日常挑战中，按照相应选项购买金色升级。选择氦则只购买金色氦升级。选择战斗则只购买金色战斗升级。选择虚空则在购买8次金色虚空升级(最大数量)后开始购买金色氦升级。选择虚空+战斗则在购买8次金色虚空升级(最大数量)后开始购买金色战斗升级。购买速度比通常的自动金色升级更快。',
-    'C2 AutoGoldenUpgrades': '挑战²自动金色升级',
-    'Buys Golden Upgrades in C2s. Helium buys all Helium golden upgrades. Battle buys all Battle golden upgrades. Void buys 8 Void golden upgrades (max number you can buy) then buys helium golden upgrades. Void + Battle buys 8 voids then battle. Will run way faster than Vanilla AutoGold so if you have this on expect it to win over vanilla settings. ': '在挑战²中，按照相应选项购买金色升级。选择氦则只购买金色氦升级。选择战斗则只购买金色战斗升级。选择虚空则在购买8次金色虚空升级(最大数量)后开始购买金色氦升级。选择虚空+战斗则在购买8次金色虚空升级(最大数量)后开始购买金色战斗升级。购买速度比通常的自动金色升级更快。',
-    ' Buys Battle goldens instead of Helium at this zone and onwards. This option only appears when selecting void. ': '从该区域开始，改为购买战斗升级。只在“自动金色升级选项”选择虚空时出现。',
-    ' Buys Battle goldens instead of Helium at this zone and onwards in Dailies. This option only appears when selecting void. ': '日常挑战中，从该区域开始，改为购买战斗升级。只在“日常自动金色升级”选择虚空时出现。',
-    ' Buys Battle goldens instead of helium after this many helium goldens have been purchased and onwards. This option only appears when selecting helium. ': '在购买相应次数的金色氦升级以后，改为购买战斗升级。只在“自动金色升级选项”选择氦时出现。',
-    ' Buys Battle goldens instead of helium after this many helium goldens have been purchased and onwards in Dailies. This option only appears when selecting helium. ': '日常挑战中，在购买相应次数的金色氦升级以后，改为购买战斗升级。只在“日常自动金色升级”选择氦时出现。',
-    ' Buys helium goldens instead of Battle after this many Battle goldens have been purchased and onwards. This option only appears when selecting battle. ': '在购买相应次数的金色战斗升级以后，改为购买氦升级。只在“自动金色升级选项”选择战斗时出现。',
-    ' Buys helium goldens instead of Battle after this many battle goldens have been purchased and onwards in Dailies. This option only appears when selecting battle. ': '日常挑战中，在购买相应次数的金色战斗升级以后，改为购买氦升级。只在“日常自动金色升级”选择战斗时出现。',
-    'Buys Golden Upgrades in Fillers. Radon buys all Radon golden upgrades. Battle buys all Battle golden upgrades. Void buys 8 Void golden upgrades (max number you can buy) then buys helium golden upgrades. Void + Battle buys 8 voids then battle. ': '按照相应选项购买金色升级。选择氡则只购买金色氡升级。选择战斗则只购买金色战斗升级。选择虚空则在购买8次金色虚空升级(最大数量)后开始购买金色氡升级。选择虚空+战斗则在购买8次金色虚空升级(最大数量)后开始购买金色战斗升级。',
-    'Buys Golden Upgrades in Dailies. Radon buys all Radon golden upgrades. Battle buys all Battle golden upgrades. Void buys 8 Void golden upgrades (max number you can buy) then buys helium golden upgrades. Void + Battle buys 8 voids then battle. ': '日常挑战中，按照相应选项购买金色升级。选择氡则只购买金色氡升级。选择战斗则只购买金色战斗升级。选择虚空则在购买8次金色虚空升级(最大数量)后开始购买金色氡升级。选择虚空+战斗则在购买8次金色虚空升级(最大数量)后开始购买金色战斗升级。',
-    'Buys Golden Upgrades in C2s. Radon buys all Radon golden upgrades. Battle buys all Battle golden upgrades. Void buys 8 Void golden upgrades (max number you can buy) then buys helium golden upgrades. Void + Battle buys 8 voids then battle. ': '在挑战²中，按照相应选项购买金色升级。选择氡则只购买金色氡升级。选择战斗则只购买金色战斗升级。选择虚空则在购买8次金色虚空升级(最大数量)后开始购买金色氡升级。选择虚空+战斗则在购买8次金色虚空升级(最大数量)后开始购买金色战斗升级。',
-    ' Buys Battle goldens instead of Radon at this zone and onwards. This option only appears when selecting void. ': '从该区域开始，改为购买战斗升级。只在“自动金色升级选项”选择虚空时出现。',
-    ' Buys Battle goldens instead of Radon at this zone and onwards in Dailies. This option only appears when selecting void. ': '日常挑战中，从该区域开始，改为购买战斗升级。只在“日常自动金色升级”选择虚空时出现。',
-    ' Buys Battle goldens instead of Radon after this many Radon goldens have been purchased and onwards. This option only appears when selecting radon. ': '在购买相应次数的金色氡升级以后，改为购买战斗升级。只在“自动金色升级选项”选择氡时出现。',
-    ' Buys Battle goldens instead of Radon after this many Radon goldens have been purchased and onwards in Dailies. This option only appears when selecting radon. ': '日常挑战中，在购买相应次数的金色氡升级以后，改为购买战斗升级。只在“日常自动金色升级”选择氡时出现。',
-    ' Buys Radon goldens instead of Battle after this many Battle goldens have been purchased and onwards. This option only appears when selecting battle. ': '在购买相应次数的金色战斗升级以后，改为购买氡升级。只在“自动金色升级选项”选择战斗时出现。',
-    ' Buys Radon goldens instead of Battle after this many battle goldens have been purchased and onwards in Dailies. This option only appears when selecting battle. ': '日常挑战中，在购买相应次数的金色战斗升级以后，改为购买氡升级。只在“日常自动金色升级”选择战斗时出现。',
-        //#endregion 金色升级
         //#region 尖塔突击
-    'SA': '尖塔突击',
-    'SA Settings': '尖塔突击设置',
     'Turn on SA settings and allow them to work. Do not open input settings when SA is on or you will crash. ': '是否显示尖塔突击设置。它也是尖塔突击设置的总开关。开启尖塔突击时不要输入相应设置，否则游戏会崩溃。',
     'Presets': '预设',
     'Automatically switch presets depending on current enemy. You must make sure preset 1 is for Poison, preset 2 Bleed and preset 3 Shock. If enemy has less than 2 resistances it will switch between the non-resisted presets till you kill the enemy. It will not purchase any equips or try different ones though so it may get stuck till you update your presets. ': '根据当前敌人的类型自动切换预设。请将预设1设为使用中毒，预设2设为使用流血，预设3设为使用震荡。如果敌人的抗性少于2种，则会在没有抗性的预设之间切换，直到击杀敌人。它不会购买任何装备，也不会尝试装备其他物品。所以如果您没有更新预设，可能会在某一等级的敌人面前卡住无法继续前进。',
@@ -5748,7 +5982,6 @@ var cnItems = {
     'Solves your current level including farming, item levels, and contracts. Currently does up to 10. ': '按照攻略自动推进尖塔突击的进度，它会自动刷怪，购买物品等级，以及接受合约。目前包括了前10级的内容。',
         //#endregion 尖塔突击
         //#region 自然
-    'Nature Settings': '自然设置',
     'Spend Nature Tokens': '自动分配自然符记',
     ' Automatically spend or convert nature tokens.': '是否自动分配或转换自然符记。',
     'If Tokens would go below this value it will not convert tokens. ': '如果符记转换后将低于该数值，则不转换符记。',
@@ -5776,8 +6009,6 @@ var cnItems = {
     'Activate Ice Enlight when Enlight cost is below this Thresh in C2s. Consumes Tokens. -1 to disable. ': '在挑战²中，当冰之启迪花费低于该数值时启用冰之启迪。自动花费符记。将数值设为-1则关闭该选项。',
         //#endregion 自然
         //#region 显示
-    'Display': '显示',
-    'Display & Spam Settings': '显示及消息设置',
     'Enhance Grids': '强化地图区域显示',
     'Apply slight visual enhancements to world and map grids that highlights with drop shadow all the exotic, powerful, skeletimps and other special imps.': '强化地图区域的显示，使奇异外皮、抢先攻击的脆皮、脆皮骷髅等特殊脆皮有特殊的显示图标。',
     'Enable Breed Timer': '启用繁殖计时',
@@ -5810,8 +6041,6 @@ var cnItems = {
     'Everything in related to Nature': '与自然相关的所有消息',
         //#endregion 显示
         //#region 导入导出
-    'Import Export': '导入导出',
-    'Import & Export Settings': '导入及导出设置',
     'Generic message': '一般消息',
     'Settings Profile': '设置文件',
     'Current': '当前',
@@ -5854,10 +6083,10 @@ var cnItems = {
     'ExportAutoTrimps': '导出脚本设置',
     'This is your AUTOTRIMPS save string. There are many like it but this one is yours. Save this save somewhere safe so you can save time next time. ': '这是您的脚本设置字符串。只属于您，独一无二。保存好它，这样下次就能省不少事了。',
     'Reset everything to the way it was when you first installed the script. ': '将脚本的设置恢复到初始状态。',
-    'Gives you an AT settings String that you can use to import. Use if you are less than z60. May not work for you perfectly, should really only be used as an example!': '将生成可导入的脚本设置。如果您的最高通过区域低于60，可以考虑使用它，但效果可能并不是最佳的。',
+    'Gives you an AT settings String that you can use to import. Use if you are less than z60. May not work for you perfectly, should really only be used as an example!': '将生成可导入的脚本设置。如果您的最高到达区域低于60，可以考虑使用它，但效果可能并不是最佳的。',
     'This is your AUTOTRIMPS z60 save string. Use this string to import the settings. ': '以下是区域60以下的脚本设置字符串。可用于导入脚本设置。',
     '550+ AT Settings': '区域550以上的脚本设置',
-    'Gives you an AT settings String that you can use to import. Use if you are z550+. May not work for you perfectly, should really only be used as an example! ': '将生成可导入的脚本设置。如果您的最高通过区域高于550，可以考虑使用它，但效果可能并不是最佳的。',
+    'Gives you an AT settings String that you can use to import. Use if you are z550+. May not work for you perfectly, should really only be used as an example! ': '将生成可导入的脚本设置。如果您的最高到达区域高于550，可以考虑使用它，但效果可能并不是最佳的。',
     'This is your AUTOTRIMPS z550+ save string. Use this string to import the settings. ': '以下是区域550以上的脚本设置字符串。可用于导入脚本设置。',
     'Cleanup Saved Settings ': '清除过时的设置数据',
     'Deletes old values from previous versions of the script from your AutoTrimps Settings file.': '将之前版本过时的设置数据从设置文件中删除。',
@@ -5868,9 +6097,7 @@ var cnItems = {
     'Import your SPIRE string! ': '导入您的尖塔字符串！',
         //#endregion 导入导出
         //#region 杂项
-    'Minimize all tabs': '最小化所有选项卡',
     'Minimize all AT settings tabs.': '最小化所有脚本设置选项卡。',
-    'Maximize all tabs': '最大化所有选项卡',
     'Maximize all AT settings tabs.': '最大化所有脚本设置选项卡。',
     'Exit (duplicate': '退出(界面',
     'Closes/toggles/hides AutoTrimps (just a UI shortcut': '关闭脚本界面 (只是快捷按钮',
@@ -5904,7 +6131,7 @@ var cnItems = {
     'Type your input below': '在下方输入',
     'Error: LocalStorage is full, or error. Attempt to delete some portals from your graph or restart browser.': '本地缓存已满，或者出错了。请删除图表中部分传送的数据或重启浏览器。',
        //#endregion 杂项
-    //#endregion 脚本
+    //#endregion 脚本-old*/
     //#region 多余文本防止脚本抓取
     ' - ': ' - ',
     ' - 1)) × (1 + (': ' - 1)) × (1 + (',
@@ -6021,8 +6248,9 @@ var cnPostfix = {
     "   ": "",
     "  ": "",
     "\n": "",
-    "C2": "挑战²和挑战³", //脚本主界面
-    ":  Value Input": "：输入值", //脚本各设置界面
+    "C2": "挑战²", //脚本主界面
+    "C3": "挑战³", //脚本主界面
+    ": Value Input": "：输入值", //脚本各设置界面
 }
 
 //需排除的，正则匹配
@@ -6099,7 +6327,7 @@ var cnRegReplace = new Map([
     [/^Complete Wither with (.+) stacks of Hardened$/, '在拥有$1层硬化的前提下，完成凋零挑战'], //成就等
     //#endregion 成就
     //#region 设置
-    [/^Your save on PlayFab has earned (.+) total Helium, defeated Zone (.+), and cleared (.+) total Zones. The save on your computer only has (.+) total Helium, has defeated Zone (.+), and cleared (.+) total Zones.$/, 'PlayFab上的存档一共获得了$1氦，最高通过区域为区域$2，区域通过数为$3个。您的电脑上的存档只获得了$4氦，最高通过区域为区域$5，区域通过数为$6个。'], //设置等
+    [/^Your save on PlayFab has earned (.+) total Helium, defeated Zone (.+), and cleared (.+) total Zones. The save on your computer only has (.+) total Helium, has defeated Zone (.+), and cleared (.+) total Zones.$/, 'PlayFab上的存档一共获得了$1氦，最高到达区域为区域$2，区域通过数为$3个。您的电脑上的存档只获得了$4氦，最高到达区域为区域$5，区域通过数为$6个。'], //设置等
     [/^(.+) cannot be used twice. Please choose unique numbers!$/, '$1无法使用两次。请确保数字各不相同！'], //设置等
     [/^(.+)\s?seconds would be really difficult to target. Could you pick a slightly more... numerical number\?$/, '$1秒有点难以实现。您能选择一个更加……像数字一点的值吗？'], //设置等
     [/^All numbers must be greater than 0.5. (.+) is not.$/, '所有的数字必须大于0.5，而$1并不是。'], //设置等
@@ -6259,7 +6487,7 @@ var cnRegReplace = new Map([
     [/^The Bad Guys have (\d+) stacks? of Horror, increasing their Attack by (.+)%.$/, '敌人有$1层恐惧，使攻击力增加$2%。'], //凋零挑战等
     [/^Your Trimps have been killed by enemy overkill damage (\d+) times?$/, '我方脆皮因敌人溢出伤害而死亡了$1次'], //复仇挑战等
     [/^Your Trimps have (.+)x Attack and Health, but you will fail the challenge if they get (\d+) more stacks?!$/, '我方脆皮的攻击力和生命值变为$1倍，再增加$2层后挑战将以失败告终！'], //复仇挑战等
-    [/^Travel to an alternate reality where Trimps really love questing. Enemies in this reality gain 10% extra health each zone starting at Z(.+) \(compounding\). However, you'll also get a random Quest each Zone starting at the same Zone. Your Quest start Zone is always equal to your highest Zone on C3 minus 80, but never lower than 6. Completing this quest will grant a 2x Radon multiplier for the rest of the Zone \(does not stack\), and will increase your Trimps' attack by 10% for the rest of the Challenge \(compounding\). Check messages or the Zone info tooltip for quest progress. $/, '前往一个脆皮喜欢任务的异世界。该异世界中敌人从区域$1开始，每层增加10%生命值(相互叠乘)。但同样从该区域开始，每个区域您也会获得一个随机任务。任务起始区域总是等于挑战³最高通过区域减去80，且不会低于6。完成一个任务后，在该区域剩下的格子中氡获取量变为2倍(不叠加)，且我方脆皮的攻击力在挑战期间增加10%(相互叠乘)。任务进度可以在消息框或区域信息提示框处查看。'], //任务挑战等
+    [/^Travel to an alternate reality where Trimps really love questing. Enemies in this reality gain 10% extra health each zone starting at Z(.+) \(compounding\). However, you'll also get a random Quest each Zone starting at the same Zone. Your Quest start Zone is always equal to your highest Zone on C3 minus 80, but never lower than 6. Completing this quest will grant a 2x Radon multiplier for the rest of the Zone \(does not stack\), and will increase your Trimps' attack by 10% for the rest of the Challenge \(compounding\). Check messages or the Zone info tooltip for quest progress. $/, '前往一个脆皮喜欢任务的异世界。该异世界中敌人从区域$1开始，每层增加10%生命值(相互叠乘)。但同样从该区域开始，每个区域您也会获得一个随机任务。任务起始区域总是等于挑战³最高到达区域减去80，且不会低于6。完成一个任务后，在该区域剩下的格子中氡获取量变为2倍(不叠加)，且我方脆皮的攻击力在挑战期间增加10%(相互叠乘)。任务进度可以在消息框或区域信息提示框处查看。'], //任务挑战等
     [/^You have completed your quest! You've completed (.+) \/ (.+) quests.$/, '任务已完成！您一共有$2个任务，完成了其中$1个任务。'], //任务挑战等
     [/^Oh no, you failed your quest! You've completed (.+) \/ (.+) quests.$/, '任务失败，真糟糕！您一共有$2个任务，完成了其中$1个任务。'], //任务挑战等
     [/^Decreases all Enemy Attack by (.+)%. You currently have (.+)% to Enemy Attack.$/, '使敌人的攻击力减少$1%。目前使敌人的攻击力$2%。'], //考古学挑战等
@@ -6271,7 +6499,7 @@ var cnRegReplace = new Map([
     [/^You have completed the Archaeology Challenge! You have gained an extra (.+) Radon, and your world has been returned to normal.$/, '您完成了考古学挑战！您额外获取了$1氡，世界恢复了正常。'], //考古学挑战完成消息
     [/^NOTICE: You have already completed Mayhem (.+) times, and will no longer gain a bonus for future runs.$/, '*注*意*：您已经完成了$1次暴乱挑战，无法再获得加成了。'], //暴乱挑战等
     [/^Travel to a very hectic dimension. The final Cell of each Zone is a Poisonous boss enemy, and all Map enemies are also Poisonous. Poisonous Enemies stack 20% of their damage on your Trimps as poison, which is taken as damage after each attack until your Trimps die. Each Zone starts with (.+) stacks of Mayhem, and each stack increases the damage and health of the final Cell Boss Enemy for that Zone by 10%. Completing a map at world level or above reduces the Mayhem stacks for that Zone by 1 and an additional 1 for each level of the Map above the Zone's level \(For example, a level 15 map will remove 3 stacks per completion when at Z13\). Completing $/, '前往一个非常狂热的维度。每个区域最后的首领带毒，地图中的所有敌人也带毒。带毒的敌人每次攻击后将造成伤害的20%累积为毒伤害，我方脆皮每次攻击后，都会受到相应的毒伤害，直到脆皮阵亡为止。您在进入每个区域时获得$1层“暴乱”，每层暴乱使区域首领的攻击力和生命值增加10%。通过不低于当前区域等级的地图可以减少1层暴乱，且地图等级每超过当前区域1级，就可以额外使暴乱减少1层(例如，在区域13通过一张15级的地图后，可以减少3层暴乱)。在该挑战激活的前提下通过'], //暴乱挑战等
-    [/^ bonus to Radon or Helium, and Trimp Attack and Health in Universes 1 and 2. Each time Mayhem is completed, the reward for next time increases by an additional 10% and Enemies gain 3x damage and health for all future runs of Mayhem. The amount of Mayhem stacks that each Zone starts with is always equal to 1000 minus 5 for each highest Zone cleared above Z100 in this Universe \(You have cleared Z(.+) and start each Zone with (.+) stacks\) $/, '(相互叠加)。且每完成一次暴乱挑战，下次挑战的奖励就增加10%，但后续暴乱挑战中，敌人也会增加3倍攻击力和生命值。每个区域获得的暴乱层数基础值为1000层，该宇宙的最高通过区域每比区域100多1个区域，该基础值就减去5层(您最高通过区域$1，暴乱层数基础值为$2)。'], //暴乱挑战等
+    [/^ bonus to Radon or Helium, and Trimp Attack and Health in Universes 1 and 2. Each time Mayhem is completed, the reward for next time increases by an additional 10% and Enemies gain 3x damage and health for all future runs of Mayhem. The amount of Mayhem stacks that each Zone starts with is always equal to 1000 minus 5 for each highest Zone cleared above Z100 in this Universe \(You have cleared Z(.+) and start each Zone with (.+) stacks\) $/, '(相互叠加)。且每完成一次暴乱挑战，下次挑战的奖励就增加10%，但后续暴乱挑战中，敌人也会增加3倍攻击力和生命值。每个区域获得的暴乱层数基础值为1000层，该宇宙的最高到达区域每比区域100多1个区域，该基础值就减去5层(您最高到达区域$1，暴乱层数基础值为$2)。'], //暴乱挑战等
     [/^You have completed Mayhem (\d+) \/ (\d+) maximum times?. Your Trimps have \+(.+)% Attack, Health, and Helium or Radon, and your next run of Mayhem will spawn Bad Guys with (.+)x Attack and Health.$/, '您完成了$1次暴乱挑战，最高可完成$2次。挑战奖励使我方脆皮的攻击力、生命值、氦或氡获取量增加$3%，且下次挑战时敌人的攻击力和生命值将变为$4倍。'], //暴乱挑战等
     [/^The Final Enemy of this Zone has (\d+) stacks of Mayhem, granting \+(.+)% Damage and Health. Complete Maps to lower these stacks.$/, '该区域最后的首领有$1层暴乱，使攻击力和生命值增加$2%。您需要通过地图来减少该层数。'], //暴乱挑战等
     [/^You have completed the Mayhem Challenge! Your Trimps have gained \+(.+)% Helium or Radon and Trimp Attack and Health in Universe 1 and 2, and future runs of this Challenge will be 3x more difficult. You have now completed Mayhem (\d+) times?. Your new total Mayhem bonus is \+$/, '您完成了暴乱挑战！宇宙1中的氦获取量、宇宙2中的氡获取量、宇宙1和宇宙2中我方脆皮的攻击力和生命值增加了$1%，下次挑战的难度将变为现在的3倍。您完成了$2次暴乱挑战。暴乱挑战奖励为'], //暴乱挑战完成消息
@@ -6335,21 +6563,21 @@ var cnRegReplace = new Map([
     [/^Your Trimps learn to harvest special Herbs while collecting Food! Increases Trimp Attack by a number based on your total stored food. Grants \+30% Attack at (.+) Food, or \+300% at (.+). At your current total of (.+) Food, $/, '我方脆皮可以在采集食物时采集百草！根据食物存储上限增加我方脆皮的攻击力。在$1食物时增加30%攻击力，在$2食物时增加300%攻击力。您当前共有$3食物，'], //神农专精
     [/^you are gaining \+([\d+\.]+)% Trimp Attack$/, '我方脆皮的攻击力增加$1%。'], //神农专精
     [/^you would gain \+([\d+\.]+)% Trimp Attack$/, '我方脆皮的攻击力将增加$1%。'], //神农专精
-    [/^Each cleared Zone through Z(\d+) \(half of your highest Zone reached\) will drop all available equipment prestiges from maps.$/, '直到区域$1(最高通过区域的一半)之前，通过区域后可以获得地图中所有装备重铸升级。'], //锻铁术 I专精
-    [/^Reduce the time in between fights and attacks by an additional 100ms through Z(\d+) \((\d+)% of your highest Zone reached\).$/, '直到区域$1(最高通过区域的$2%)之前，使战斗间隔和攻击间隔减少100毫秒。'], //风驰电掣 II专精
-    [/^Each cleared Zone through Z(\d+) \(75% of your highest Zone reached\) will drop all available equipment prestiges from maps.$/, '直到区域$1(最高通过区域的75%)之前，通过区域后可以获得地图中所有装备重铸升级。'], //锻铁术 II专精
-    [/^Each cleared Zone through Z(\d+) \(90% of your highest Zone reached\) will drop all available equipment prestiges from maps.$/, '直到区域$1(最高通过区域的90%)之前，通过区域后可以获得地图中所有装备重铸升级。'], //锻铁术 III专精
-    [/^Increase your Liquification bonus by 5%, as if you had completed 1 extra Spire. You have completed ([\d+\.]+) unique Spires?, giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '使液化效果增加5%，相当于额外通过了1个尖塔。您通过了$1个尖塔，液化效果持续到最高通过区域的$2%(即区域$3)，该专精将液化效果增加到最高通过区域的$5%(即区域$6)。'], //液化 I专精
-    [/^Increase your Liquification bonus by 5%, as if you had completed 1 extra Spire. Counting your Fluffy bonus as half of a Spire, you have completed ([\d+\.]+) unique Spires?, giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '使液化效果增加5%，相当于额外通过了1个尖塔。将绒绒的一项加成纳入后，您相当于通过了$1个尖塔，液化效果持续到最高通过区域的$2%(即区域$3)，该专精将液化效果增加到最高通过区域的$5%(即区域$6)。'], //液化 I专精
-    [/^Increase your Liquification bonus by 5%, as if you had completed 1 extra Spire. Counting your two Fluffy bonuses as one Spire, you have completed ([\d+\.]+) unique Spires?, giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '使液化效果增加5%，相当于额外通过了1个尖塔。将绒绒的两项加成纳入后，您相当于通过了$1个尖塔，液化效果持续到最高通过区域的$2%(即区域$3)，该专精将液化效果增加到最高通过区域的$5%(即区域$6)。'], //液化 I专精
-    [/^Increase your Liquification bonus by another 5%, as if you had completed 1 extra Spire. Counting Liquification I as one Spire, you have completed the equivalent of ([\d+\.]+) unique Spires?, giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '使液化效果再增加5%，相当于额外通过了1个尖塔。将液化 I的加成纳入后，您相当于通过了$1个尖塔，液化效果持续到最高通过区域的$2%(即区域$3)，该专精将液化效果增加到最高通过区域的$5%(即区域$6)。'], //液化 II专精
-    [/^Increase your Liquification bonus by another 5%, as if you had completed 1 extra Spire. Counting Liquification I as one Spire and your Fluffy bonus as half of a Spire, you have completed the equivalent of ([\d+\.]+) unique Spires?, giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '使液化效果再增加5%，相当于额外通过了1个尖塔。将液化 I的加成和绒绒的一项加成纳入后，您相当于通过了$1个尖塔，液化效果持续到最高通过区域的$2%(即区域$3)，该专精将液化效果增加到最高通过区域的$5%(即区域$6)。'], //液化 II专精
-    [/^Increase your Liquification bonus by another 5%, as if you had completed 1 extra Spire. Counting Liquification I as one Spire and your two Fluffy bonuses as another, you have completed the equivalent of ([\d+\.]+) unique Spires?, giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '使液化效果再增加5%，相当于额外通过了1个尖塔。将液化 I的加成和绒绒的两项加成纳入后，您相当于通过了$1个尖塔，液化效果持续到最高通过区域的$2%(即区域$3)，该专精将液化效果增加到最高通过区域的$5%(即区域$6)。'], //液化 II专精
+    [/^Each cleared Zone through Z(\d+) \(half of your highest Zone reached\) will drop all available equipment prestiges from maps.$/, '直到区域$1(最高到达区域的一半)之前，通过区域后可以获得地图中所有装备重铸升级。'], //锻铁术 I专精
+    [/^Reduce the time in between fights and attacks by an additional 100ms through Z(\d+) \((\d+)% of your highest Zone reached\).$/, '直到区域$1(最高到达区域的$2%)之前，使战斗间隔和攻击间隔减少100毫秒。'], //风驰电掣 II专精
+    [/^Each cleared Zone through Z(\d+) \(75% of your highest Zone reached\) will drop all available equipment prestiges from maps.$/, '直到区域$1(最高到达区域的75%)之前，通过区域后可以获得地图中所有装备重铸升级。'], //锻铁术 II专精
+    [/^Each cleared Zone through Z(\d+) \(90% of your highest Zone reached\) will drop all available equipment prestiges from maps.$/, '直到区域$1(最高到达区域的90%)之前，通过区域后可以获得地图中所有装备重铸升级。'], //锻铁术 III专精
+    [/^Increase your Liquification bonus by 5%, as if you had completed 1 extra Spire. You have completed ([\d+\.]+) unique Spires?, giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '使液化效果增加5%，相当于额外通过了1个尖塔。您通过了$1个尖塔，液化效果持续到最高到达区域的$2%(即区域$3)，该专精将液化效果增加到最高到达区域的$5%(即区域$6)。'], //液化 I专精
+    [/^Increase your Liquification bonus by 5%, as if you had completed 1 extra Spire. Counting your Fluffy bonus as half of a Spire, you have completed ([\d+\.]+) unique Spires?, giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '使液化效果增加5%，相当于额外通过了1个尖塔。将绒绒的一项加成纳入后，您相当于通过了$1个尖塔，液化效果持续到最高到达区域的$2%(即区域$3)，该专精将液化效果增加到最高到达区域的$5%(即区域$6)。'], //液化 I专精
+    [/^Increase your Liquification bonus by 5%, as if you had completed 1 extra Spire. Counting your two Fluffy bonuses as one Spire, you have completed ([\d+\.]+) unique Spires?, giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '使液化效果增加5%，相当于额外通过了1个尖塔。将绒绒的两项加成纳入后，您相当于通过了$1个尖塔，液化效果持续到最高到达区域的$2%(即区域$3)，该专精将液化效果增加到最高到达区域的$5%(即区域$6)。'], //液化 I专精
+    [/^Increase your Liquification bonus by another 5%, as if you had completed 1 extra Spire. Counting Liquification I as one Spire, you have completed the equivalent of ([\d+\.]+) unique Spires?, giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '使液化效果再增加5%，相当于额外通过了1个尖塔。将液化 I的加成纳入后，您相当于通过了$1个尖塔，液化效果持续到最高到达区域的$2%(即区域$3)，该专精将液化效果增加到最高到达区域的$5%(即区域$6)。'], //液化 II专精
+    [/^Increase your Liquification bonus by another 5%, as if you had completed 1 extra Spire. Counting Liquification I as one Spire and your Fluffy bonus as half of a Spire, you have completed the equivalent of ([\d+\.]+) unique Spires?, giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '使液化效果再增加5%，相当于额外通过了1个尖塔。将液化 I的加成和绒绒的一项加成纳入后，您相当于通过了$1个尖塔，液化效果持续到最高到达区域的$2%(即区域$3)，该专精将液化效果增加到最高到达区域的$5%(即区域$6)。'], //液化 II专精
+    [/^Increase your Liquification bonus by another 5%, as if you had completed 1 extra Spire. Counting Liquification I as one Spire and your two Fluffy bonuses as another, you have completed the equivalent of ([\d+\.]+) unique Spires?, giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '使液化效果再增加5%，相当于额外通过了1个尖塔。将液化 I的加成和绒绒的两项加成纳入后，您相当于通过了$1个尖塔，液化效果持续到最高到达区域的$2%(即区域$3)，该专精将液化效果增加到最高到达区域的$5%(即区域$6)。'], //液化 II专精
     [/^Your Shield currently has a bonus of ([\d+\.]+)%, so this Mastery (is giving you|would give you) \+([\d+\.]+)% additional Crit Chance.$/, '盾牌暴击率为$1%，因此该专精使暴击率额外增加$3%。'], //蓄力暴击专精
     [/^On your current run, you have cleared through Spire (.+), so this Mastery is granting (\d+) extra Healthy cells?. On your current Zone, you're finding (\d+) Healthy cells.$/, '本周目您通过了尖塔 $1，该专精可额外生成$2个健康格子。当前区域中有$3个健康格子。'], //健康之力 II专精
-    [/^Counting Liquification I and II as two Spires, you have completed the equivalent of ([\d+\.]+) unique Spires?, giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '将液化 I、液化 II的加成纳入后，您相当于通过了$1个尖塔，液化效果持续到最高通过区域的$2%(即区域$3)，该专精将液化效果增加到最高通过区域的$5%(即区域$6)。'], //液化 III专精
-    [/^Counting Liquification I and II as two Spires and your Fluffy bonus as half of a Spire, you have completed the equivalent of ([\d+\.]+) unique Spires?, giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '将液化 I、液化 II的加成和绒绒的一项加成纳入后，您相当于通过了$1个尖塔，液化效果持续到最高通过区域的$2%(即区域$3)，该专精将液化效果增加到最高通过区域的$5%(即区域$6)。'], //液化 III专精
-    [/^Counting Liquification I and II as two Spires and your two Fluffy bonuses as another, you have completed the equivalent of ([\d+\.]+) unique Spires?, giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '将液化 I、液化 II的加成和绒绒的两项加成纳入后，您相当于通过了$1个尖塔，液化效果持续到最高通过区域的$2%(即区域$3)，该专精将液化效果增加到最高通过区域的$5%(即区域$6)。'], //液化 III专精
+    [/^Counting Liquification I and II as two Spires, you have completed the equivalent of ([\d+\.]+) unique Spires?, giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '将液化 I、液化 II的加成纳入后，您相当于通过了$1个尖塔，液化效果持续到最高到达区域的$2%(即区域$3)，该专精将液化效果增加到最高到达区域的$5%(即区域$6)。'], //液化 III专精
+    [/^Counting Liquification I and II as two Spires and your Fluffy bonus as half of a Spire, you have completed the equivalent of ([\d+\.]+) unique Spires?, giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '将液化 I、液化 II的加成和绒绒的一项加成纳入后，您相当于通过了$1个尖塔，液化效果持续到最高到达区域的$2%(即区域$3)，该专精将液化效果增加到最高到达区域的$5%(即区域$6)。'], //液化 III专精
+    [/^Counting Liquification I and II as two Spires and your two Fluffy bonuses as another, you have completed the equivalent of ([\d+\.]+) unique Spires?, giving you ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\). This mastery (is increasing|would increase)  your bonus to ([\d+\.]+)% of your highest Zone reached \(through Z(\d+)\).$/, '将液化 I、液化 II的加成和绒绒的两项加成纳入后，您相当于通过了$1个尖塔，液化效果持续到最高到达区域的$2%(即区域$3)，该专精将液化效果增加到最高到达区域的$5%(即区域$6)。'], //液化 III专精
     [/^ bonus of (.+)%. Removing this Mastery would reduce your bonus by (.+)%, bringing your total Challenge$/, '的加成为$1%。移除这个专精以后加成将减少$2%，挑战'], //梅斯梅尔专精
     [/^ bonus down to (.+)%.$/, '总加成减少到$1%。'], //梅斯梅尔专精
     [/^ bonus of (.+)%. Purchasing this Mastery would increase your bonus by (.+)%, bringing your total Challenge$/, '的加成为$1%。购买这个专精以后加成将增加$2%，挑战'], //梅斯梅尔专精
@@ -6421,7 +6649,7 @@ var cnRegReplace = new Map([
     [/^Allows an additional 4 Void Maps with the same name to stick together, bringing the max stack size to (.+). Each map in the stack that Fluffy clears grants an additional 50% Helium to all other maps in the stack, giving a bonus of up to \+(.+)% to each of the (.+) Fluffy maps from a (.+) stack.$/, '使虚空地图的融合张数上限增加4，达到$1张。每融合一张地图，绒绒完成该名字地图后的奖励就增加50%。当融合$4张地图时，奖励达到最高，绒绒完成$3张虚空地图后每张虚空地图可以使您额外获得$2%氦。'], //绒绒污污相关
     [/^Increases the chance of finding Exotic Imports, bringing the average from (.+) per zone to (.+).$/, '增加奇异外皮的出现率，从$1%增加到$2%。'], //绒绒污污相关
     [/^Increases Radon gain from all sources by 3% for each Zone you reached on your last Portal in this Universe \(compounding\). You reached Z(.+) last Portal, worth \+(.+)% Radon.$/, '每在该宇宙的上周目通过一个区域，氡获取量就增加3%(效果叠乘)。您在该宇宙的上周目到达了区域$1，氡获取量增加$2%。'], //绒绒污污相关
-    [/^Increases Radon gain from all sources by 3% for each Zone you reached on your best Portal in this Universe \(compounding\). Your highest Zone reached is Z(.+), worth \+(.+)% Radon.$/, '该宇宙最高通过区域每有一个区域，氡获取量就增加3%(效果叠乘)。您在该宇宙的最高通过区域为区域$1，氡获取量增加$2%。'], //绒绒污污相关
+    [/^Increases Radon gain from all sources by 3% for each Zone you reached on your best Portal in this Universe \(compounding\). Your highest Zone reached is Z(.+), worth \+(.+)% Radon.$/, '该宇宙最高到达区域每有一个区域，氡获取量就增加3%(效果叠乘)。您在该宇宙的最高到达区域为区域$1，氡获取量增加$2%。'], //绒绒污污相关
     [/^Your Trimps gain \+4% Attack and \+0.25% Crit Chance per Spire Assault level cleared while on a Daily Challenge. You have cleared (.+) SA levels, granting \+(.+)% Attack and \+(.+)% Crit Chance on Daily Challenges.$/, '每通过1级尖塔突击，就使我方脆皮在日常挑战中攻击力增加4%，暴击率增加0.25%。您通过了$1级尖塔突击，我方脆皮在日常挑战中攻击力增加$2%，暴击率增加$3%。'], //绒绒污污相关
     [/^ extra Void Maps for every 5 Void Maps cleared on your BEST U2 run. \((.+) cleared on your best run, granting (.+) extra next run$/, '张虚空地图。(最高通过$1张虚空地图，可以获得$2张虚空地图'], //绒绒污污相关
     [/^Your Trimps gain \+50% Health per Scruffy level. Scruffy is currently level (.+), granting \+(.+)% Health.$/, '污污每级使我方脆皮生命值增加50%。污污目前为$1级，加成为$2%生命值。'], //绒绒污污相关
@@ -6441,6 +6669,9 @@ var cnRegReplace = new Map([
     [/^You can Overkill (.+) cells? in this Universe.$/, '该宇宙中您可以超杀$1个格子。'], //突变因子相关
     [/^You can Overkill (.+) cells? in this Universe through Z(.+) \((.+)% of your highest Zone reached\).$/, '该宇宙中您可以超杀$1个格子至区域$2(即最高区域$3%的区域)。'], //突变因子相关
     //#endregion 突变因子
+    //#region 脚本
+    [/^Radon, Normalized to z(.+) S3.$/, '污污等级3技能归一化至区域$1后的氡'], //脚本-图表
+    //#endregion 脚本
     //#region 其他消息
     [/^(.+) groups? of Trimps ha(s|ve) perished in the Spire.$/, '$1队脆皮在尖塔中战斗到了生命的最后一刻。'], //其他消息等
     [/^You're suddenly standing outside of the Spire with a feeling that it's best to move on for now. Scruffy seems confident that you'll get it next time! \(You made it to Cell (.+) on Floor (.+)\).$/, '您突然出现在尖塔外，隐约觉得此刻暂时离开才是上策。污污似乎坚信您下次一定能成功！(您到达了第$2层的格子$1)。'], //其他消息等
