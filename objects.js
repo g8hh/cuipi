@@ -1674,7 +1674,7 @@ var autoBattle = {
             level: 1,
             zone: 135,
             description: function(){
-                return "如果敌人中毒了，则使怒怒的防御力+" + prettify(this.defense()) + "，生命值+" + prettify(this.health()) + "。如果该敌人从未有中毒失效过，则怒怒触发中毒时，使您恢复该物品一半生命值数值的生命值。如果该敌人的中毒层数达到上限，则使非吸血的生命值恢复手段恢复的怒怒生命值翻倍。使怒怒的中毒伤害+" + prettify(this.poisonMod()) + "。"
+                return "如果敌人中毒了，则使怒怒的防御力+" + prettify(this.defense()) + "，生命值+" + prettify(this.health()) + "。如果该敌人从未有中毒失效过，则怒怒触发中毒时，使它恢复该物品一半生命值数值的生命值。如果该敌人的中毒层数达到上限，则使非吸血的生命值恢复手段恢复的怒怒生命值翻倍。使怒怒的中毒伤害+" + prettify(this.poisonMod()) + "。"
             },
             upgrade: "每级使怒怒的防御力+5，生命值+500，中毒伤害+10",
             defense: function(){
@@ -2701,9 +2701,9 @@ var autoBattle = {
                 return mult; 
             },
             description: function(){
-                return "使怒怒的中毒伤害乘以流血伤害和震荡伤害中较高者的数值。使中毒层数叠加数翻倍。使怒怒触发的中毒可以多叠加" + prettify(this.maxStacks()) + "层。每10秒再使中毒层数的上限增加该数值的10%，并使中毒伤害+10%(相互叠乘)。使魔尘和晶块的获取量-" + Math.round((1 - this.dustMult()) * 100) + "%。";
+                return "使怒怒的中毒伤害乘以流血伤害和震荡伤害中较高者的数值。使中毒层数叠加数翻倍。使怒怒触发的中毒可以多叠加" + prettify(this.maxStacks()) + "层。每10秒再使中毒层数的上限增加该层数的10%，并使中毒伤害+10%(相互叠乘)。使魔尘和晶块的获取量-" + Math.round((1 - this.dustMult()) * 100) + "%。";
             },
-            upgrade: "每级使中毒层数的上限+20%(相互叠乘)，获取量减少的数值-1%",
+            upgrade: "每级使该装备怒怒触发的中毒可以多叠加的层数+20%(相互叠乘)，获取量减少的数值-1%",
             maxStacks: function(){
                 return Math.floor(100 * Math.pow(1.2, this.level - 1));
             },
