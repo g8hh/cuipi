@@ -403,7 +403,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 			checkbox = buildNiceCheckbox('structConfig' + item, 'autoCheckbox', (setting && setting.enabled));
 			options = "<option value='0.1'" + ((selectedPerc == 0.1) ? " selected" : "") + ">0.1%</option><option value='1'" + ((selectedPerc == 1) ? " selected" : "") + ">1%</option><option value='5'" + ((selectedPerc == 5) ? " selected" : "") + ">5%</option><option value='10'" + ((selectedPerc == 10) ? " selected" : "") + ">10%</option><option value='25'" + ((selectedPerc == 25) ? " selected" : "") + ">25%</option><option value='50'" + ((selectedPerc == 50) ? " selected" : "") + ">50%</option><option value='99'" + ((selectedPerc == 99) ? " selected" : "") + ">99%</option>";
 			var id = "structSelect" + item;
-			tooltipText += "<td><div class='row'><div class='col-xs-4' style='padding-right: 5px'><label>" + checkbox + "&nbsp;&nbsp;<span>" + item + "</span></label></div><div style='text-align: center; padding-left: 0px;' class='col-xs-2'><select aria-label='Spend' class='structSelect' id='" + id + "'>" + options + "</select></div><div class='col-xs-6 lowPad' style='text-align: right'><label>Up To: <input class='structConfigQuantity' id='structQuant" + item + "' type='number'  value='" + ((setting && setting.buyMax) ? setting.buyMax : 0 ) + "'/></label></div></div></td>";
+			tooltipText += "<td><div class='row'><div class='col-xs-4' style='padding-right: 5px'><label>" + checkbox + "<span>" + item + "</span></label></div><div style='text-align: center; padding-left: 0px;' class='col-xs-2'><select aria-label='Spend' class='structSelect' id='" + id + "'>" + options + "</select></div><div class='col-xs-6 lowPad' style='text-align: right'><label>Up To: <input class='structConfigQuantity' id='structQuant" + item + "' type='number'  value='" + ((setting && setting.buyMax) ? setting.buyMax : 0 ) + "'/></label></div></div></td>";
 			count++;
 		}
 		tooltipText += "</tr><tr>";
@@ -414,7 +414,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 			selectedPerc = (setting) ? setting.value : 0.1;		
 			checkbox = buildNiceCheckbox('structConfigGigastation', 'autoCheckbox', (setting && setting.enabled));
 			options = "<option value='0.1'" + ((selectedPerc == 0.1) ? " selected" : "") + ">0.1%</option><option value='1'" + ((selectedPerc == 1) ? " selected" : "") + ">1%</option><option value='5'" + ((selectedPerc == 5) ? " selected" : "") + ">5%</option><option value='10'" + ((selectedPerc == 10) ? " selected" : "") + ">10%</option><option value='25'" + ((selectedPerc == 25) ? " selected" : "") + ">25%</option><option value='50'" + ((selectedPerc == 50) ? " selected" : "") + ">50%</option><option value='99'" + ((selectedPerc == 99) ? " selected" : "") + ">99%</option>";
-			tooltipText += "<td><div class='row'><div class='col-xs-4' style='padding-right: 5px'><label>" + checkbox + "&nbsp;&nbsp;<span>Gigastation</span></label></div><div style='text-align: center; padding-left: 0px;' class='col-xs-2'><select aria-label='Spend' class='structSelect' id='structSelectGigastation'>" + options + "</select></div><div class='col-xs-6 lowPad' style='text-align: right'><label>At W: <input class='structConfigQuantity' id='structQuantGigastation' type='number'  value='" + ((setting && setting.buyMax) ? setting.buyMax : 0 ) + "'/></label></div></div></td>";
+			tooltipText += "<td><div class='row'><div class='col-xs-4' style='padding-right: 5px'><label>" + checkbox + "<span>Gigastation</span></label></div><div style='text-align: center; padding-left: 0px;' class='col-xs-2'><select aria-label='Spend' class='structSelect' id='structSelectGigastation'>" + options + "</select></div><div class='col-xs-6 lowPad' style='text-align: right'><label>At W: <input class='structConfigQuantity' id='structQuantGigastation' type='number'  value='" + ((setting && setting.buyMax) ? setting.buyMax : 0 ) + "'/></label></div></div></td>";
 			if (getHighestLevelCleared() >= 229){
 				var nurserySetting = (typeof settingGroup.NurseryZones !== 'undefined') ? settingGroup.NurseryZones : 1;
 				tooltipText += "<td><div class='row'><div class='col-xs-12' style='text-align: right; padding-right: 5px;'><label>Don't buy Nurseries Until Z: <input style='width: 20.8%; margin-right: 4%;' class='structConfigQuantity' id='structZoneNursery' type='number' value='" + nurserySetting + "'></label></div></div></td>";
@@ -451,7 +451,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 			type = ((equipment.health) ? "Armor" : "Wep");
 			checkbox = buildNiceCheckbox('equipConfig' + item, 'autoCheckbox checkbox' + type, (setting && setting.enabled));
 			options = "<option value='0.1'" + ((selectedPerc == 0.1) ? " selected" : "") + ">0.1%</option><option value='1'" + ((selectedPerc == 1) ? " selected" : "") + ">1%</option><option value='5'" + ((selectedPerc == 5) ? " selected" : "") + ">5%</option><option value='10'" + ((selectedPerc == 10) ? " selected" : "") + ">10%</option><option value='25'" + ((selectedPerc == 25) ? " selected" : "") + ">25%</option><option value='50'" + ((selectedPerc == 50) ? " selected" : "") + ">50%</option><option value='99'" + ((selectedPerc == 99) ? " selected" : "") + ">99%</option>";
-			tooltipText += "<td><div class='row'><div class='col-xs-6' style='padding-right: 5px'><label>" + checkbox + "&nbsp;&nbsp;<span>" + item + "</label></span></div><div style='text-align: center; padding-left: 0px;' class='col-xs-2'><select aria-label='Spend' class='equipSelect" + type + "' id='equipSelect" + item + "'>" + options + "</select></div><div class='col-xs-4 lowPad' style='text-align: right'><label>Up To: <input class='equipConfigQuantity' id='equipQuant" + item + "' type='number'  value='" + ((setting && setting.buyMax) ? setting.buyMax : 0 ) + "'/></label></div></div></td>";
+			tooltipText += "<td><div class='row'><div class='col-xs-6' style='padding-right: 5px'><label>" + checkbox + "<span>" + item + "</label></span></div><div style='text-align: center; padding-left: 0px;' class='col-xs-2'><select aria-label='Spend' class='equipSelect" + type + "' id='equipSelect" + item + "'>" + options + "</select></div><div class='col-xs-4 lowPad' style='text-align: right'><label>Up To: <input class='equipConfigQuantity' id='equipQuant" + item + "' type='number'  value='" + ((setting && setting.buyMax) ? setting.buyMax : 0 ) + "'/></label></div></div></td>";
 			count++;
 		}
 		tooltipText += "</tr><tr><td></td></tr></tbody></table>";
@@ -516,7 +516,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 			var selectedPerc = (setting) ? setting.value : 0.1;
 			var max;	
 			var checkbox = buildNiceCheckbox('autoJobCheckbox' + item, 'autoCheckbox', (setting && setting.enabled));
-			tooltipText += "<td style='width: 40%'><div class='row'><div class='col-xs-6' style='padding-right: 5px'><label>" + checkbox + "&nbsp;&nbsp;<span>" + item + "</label></span></div><div class='col-xs-6 lowPad' style='text-align: right'><label>Ratio: <input class='jobConfigQuantity' id='autoJobQuant" + item + "' type='number'  value='" + ((setting && setting.ratio) ? setting.ratio : 1 ) + "'/></label></div></div>"
+			tooltipText += "<td style='width: 40%'><div class='row'><div class='col-xs-6' style='padding-right: 5px'><label>" + checkbox + "<span>" + item + "</label></span></div><div class='col-xs-6 lowPad' style='text-align: right'><label>Ratio: <input class='jobConfigQuantity' id='autoJobQuant" + item + "' type='number'  value='" + ((setting && setting.ratio) ? setting.ratio : 1 ) + "'/></label></div></div>"
 			if (ratioJobs[x] == "Scientist"){
 				max = ((setting && setting.buyMax) ? setting.buyMax : 0 );
 				if (max > 1e4) max = max.toExponential().replace('+', '');
@@ -532,7 +532,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 				if (max > 1e4) max = max.toExponential().replace('+', '');	
 				checkbox = buildNiceCheckbox('autoJobCheckbox' + item, 'autoCheckbox', (setting && setting.enabled));	
 				var options = "<option value='0.1'" + ((selectedPerc == 0.001) ? " selected" : "") + ">0.1%</option><option value='1'" + ((selectedPerc == .01) ? " selected" : "") + ">1%</option><option value='5'" + ((selectedPerc == .05) ? " selected" : "") + ">5%</option><option value='10'" + ((selectedPerc == .10) ? " selected" : "") + ">10%</option><option value='25'" + ((selectedPerc == .25) ? " selected" : "") + ">25%</option><option value='50'" + ((selectedPerc == .50) ? " selected" : "") + ">50%</option><option value='99'" + ((selectedPerc == .99) ? " selected" : "") + ">99%</option>";
-				tooltipText += "<td style='width: 60%'><div class='row'><div class='col-xs-5' style='padding-right: 5px;'><label>" + checkbox + "&nbsp;&nbsp;<span>" + item + "</span></label></div><div style='text-align: center; padding-left: 0px;' class='col-xs-2'><select aria-label='Spend' id='autoJobSelect" + item + "'>" + options + "</select></div><div class='col-xs-5 lowPad' style='text-align: right'><label>Up To: <input class='jobConfigQuantity' id='autoJobQuant" + item + "'  value='" + prettify(max) + "'/></label></div></div></td></tr>";	
+				tooltipText += "<td style='width: 60%'><div class='row'><div class='col-xs-5' style='padding-right: 5px;'><label>" + checkbox + "<span>" + item + "</span></label></div><div style='text-align: center; padding-left: 0px;' class='col-xs-2'><select aria-label='Spend' id='autoJobSelect" + item + "'>" + options + "</select></div><div class='col-xs-5 lowPad' style='text-align: right'><label>Up To: <input class='jobConfigQuantity' id='autoJobQuant" + item + "'  value='" + prettify(max) + "'/></label></div></div></td></tr>";	
 			}
 		}
 		if (percentJobs.length >= 4) tooltipText += "<tr><td style='width: 40%'><div class='row'><div class='col-xs-6' style='padding-right: 5px'>&nbsp;</div><div class='col-xs-6 lowPad' style='text-align: right'>Up To: <input class='jobConfigQuantity' id='autoJobQuantScientist2' value='" + prettify(sciMax) + "'></div></div></td><td style='width: 60%'>&nbsp;</td></tr>";
@@ -650,7 +650,7 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		}
 	}
 	if (what == "Rename Preset"){
-		what == "Rename Preset " + selectedPreset;
+		what = "Rename Preset " + selectedPreset;
 		var presetGroup = (portalUniverse == 2) ? game.global.perkPresetU2 : game.global.perkPresetU1;
 		tooltipText = "Type a name below for your Perk Preset! This name will show up on the Preset bar and make it easy to identify which Preset is which."
 		if (textString) tooltipText += " <b>Max of 1,000 for most perks</b>";
@@ -1693,6 +1693,22 @@ function tooltip(what, isItIn, event, textString, attachFunction, numCheck, rena
 		tooltipText = "This is a map. Click it to see its properties or to run it. Maps can be run as many times as you want.";
 		costText = "";
 	}
+	if (what == 'Configure Number Formats') {
+		elem.style.left = "33.75%";
+		elem.style.top = "25%";
+		let options = `<option value='Eng' ${game.global.hybridExponentType == "Eng" ? "selected" : ""}>Engineering</option> <option value='Sci' ${game.global.hybridExponentType == "Sci" ? "selected" : ""}>Scientific</option>`;
+		tooltipText = `
+		Here you can configure Number Formats to display how you want. Hybrid Switch Point is the last suffix that will be displayed using Standard Notation, so 1 shows K, 2 shows M, etc, and Hybrid Exponent Type is how numbers are displayed after that point.<br><br>
+		So for example Switch Point: 11, Exponent Type: Scientific, will display up to Dc, and then switch to Scientific Notation for higher numbers.<br><br>
+			<table class="numFormatTooltip">
+				<tr><td id="logBaseLabel">Logarithm Base</td><td><input aria-labelledby="logBaseLabel" placeholder="10" id=logBaseInput value=${game.global.logNotBase} type="number"></td></tr>
+				<tr><td id="hybridSwitchLabel">Hybrid Switch Point</td><td><input aria-labelledby="hybridSwitchLabel" placeholder="31" id=hybridSwitchInput value=${game.global.hybridSwitchExp} type="number"></td></tr>
+				<tr><td id="hybridExpLabel">Hybrid Exponent Type</td><td><select aria-labelledby="hybridExpLabel" id="hybridExpSelect">${options}</select></td></tr>
+			</table>`
+		costText = "<div class='maxCenter'><button id='confirmTooltipBtn' class='btn-lg btn btn-info' onclick='saveNumFormatSetting(); cancelTooltip();'>Apply</button><button class='btn btn-lg btn-danger' onclick='cancelTooltip()'>Cancel</button></div>";
+		game.global.lockTooltip = true;
+	}
+
 	if (what == 'confirm'){
 		if (!renameBtn) renameBtn = "Confirm";
 		what = numCheck;
@@ -2832,7 +2848,7 @@ function getBattleStatBd(what) {
 		PerkStrength = prettify(PerkStrength * 100) + "%";
 		textString += "<tr><td class='bdTitle'>" + perk.replace('_', ' ') + "</td><td>" + (game.portal[perk].modifier * 100) + "%</td><td>" + prettify(getPerkLevel(perk)) + "</td><td>+ " + PerkStrength + "</td><td class='bdNumberSm'>" + prettify(currentCalc) + "</td>" + ((what == "attack") ? getFluctuation(currentCalc, minFluct, maxFluct) : "") + "</tr>";
 	}
-	if (what == "attack" && getPerkLevel("Tenacity")){
+	if (what == "attack" && (getPerkLevel("Tenacity") || getPerkLevel("Masterfulness"))){
 		amt = game.portal.Tenacity.getMult();
 		currentCalc *= amt;
 		var mins = Math.floor(game.portal.Tenacity.getTime());
@@ -3678,8 +3694,9 @@ function getLootBd(what) {
 			}
 			if (Fluffy.isRewardActive("radortle")){
 				amt = Fluffy.getRadortleMult();
+				let useLevel = Fluffy.isRewardActive('radortle2') ? (game.global.highestRadonLevelCleared + 1) : game.global.lastRadonPortal;
 				currentCalc *= amt;
-				textString += "<tr><td class='bdTitle'>" + Fluffy.getName() + heliumOrRadon() + "</td><td>× 1.03</td><td>" + game.global.lastRadonPortal + "</td><td>+ " + prettify((amt - 1) * 100) + "%</td><td>" + prettify(currentCalc) + "</td></tr>";
+				textString += "<tr><td class='bdTitle'>" + Fluffy.getName() + heliumOrRadon() + "</td><td>× 1.03</td><td>" + useLevel + "</td><td>+ " + prettify((amt - 1) * 100) + "%</td><td>" + prettify(currentCalc) + "</td></tr>";
 			}
 			if (game.jobs.Meteorologist.vestedHires > 0){
 				amt = game.jobs.Meteorologist.getMult();
@@ -3753,7 +3770,7 @@ function getLootBd(what) {
 		currentCalc *= amt;
 		textString += "<tr><td class='bdTitle'>Looting II (perk)</td><td>+ " + prettify(game.portal.Looting_II.modifier * 100) + "%</td><td>" + prettify(getPerkLevel("Looting_II")) + "</td><td>+ " + prettify((amt - 1) * 100) + "%</td><td>" + prettify(currentCalc) + "</td></tr>";
 	}
-	if (getPerkLevel("Greed")){
+	if (getPerkLevel("Greed") || getPerkLevel("Masterfulness")){
 		amt = game.portal.Greed.getMult();
 		currentCalc *= amt;
 		textString += "<tr><td class='bdTitle'>Greed (perk)</td><td>×" + " " + prettify(game.portal.Greed.getBonusAmt()) + "</td><td>" + (getPerkLevel("Greed") + getPerkLevel("Masterfulness")) + "</td><td>+ " + prettify((amt - 1) * 100) + "%</td><td>" + prettify(currentCalc) + "</td></tr>";
@@ -4069,13 +4086,12 @@ function prettify(number) {
 	var base = Math.floor(Math.log(number)/Math.log(1000));
 	if (base <= 0) return prettifySub(number);
 
-	if(game.options.menu.standardNotation.enabled == 5) {
+	if(game.options.menu.standardNotation.enabled == 5) { // Logarithmic Notation
 		//Thanks ZXV
 		var logBase = game.global.logNotBase;
 		var exponent = Math.log(number) / Math.log(logBase);
 		return prettifySub(exponent) + "L" + logBase;
 	}
-
 
 	number /= Math.pow(1000, base);
 	if (number >= 999.5) {
@@ -4083,7 +4099,7 @@ function prettify(number) {
 		number /= 1000;
 		++base;
 	}
-	if (game.options.menu.standardNotation.enabled == 3){
+	if (game.options.menu.standardNotation.enabled == 3){ // Alphabetic 
 		var suffices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 		if (base <= suffices.length) suffix = suffices[base -1];
 		else {
@@ -4107,15 +4123,20 @@ function prettify(number) {
             'Nn', 'Ct', 'Uc'
 		];
 		var suffix;
-		if (game.options.menu.standardNotation.enabled == 2 || (game.options.menu.standardNotation.enabled == 1 && base > suffices.length) || (game.options.menu.standardNotation.enabled == 4 && base > 31))
-			suffix = "e" + ((base) * 3);
-		else if (game.options.menu.standardNotation.enabled && base <= suffices.length)
+		let hybrid = (game.options.menu.standardNotation.enabled != 4 ? false : game.global.hybridExponentType)
+		if (!game.options.menu.standardNotation.enabled ||  // Scientific
+			(hybrid == "Sci" && base > game.global.hybridSwitchExp)) { // Hybrid Scientific
+				var exponent = parseFloat(numberTmp).toExponential(2);
+				exponent = exponent.replace('+', '');
+				return exponent;
+		}
+		if (game.options.menu.standardNotation.enabled == 2 || // Engineering
+			(game.options.menu.standardNotation.enabled == 1 && base > suffices.length) || // Standard but above suffixes
+			(hybrid == "Eng" && base > game.global.hybridSwitchExp)) { // Hybrid Engineering
+				suffix = "e" + ((base) * 3);
+		}
+		else if (base <= suffices.length) { // not Scientific and has suffix
 			suffix = suffices[base-1];
-		else
-		{
-			var exponent = parseFloat(numberTmp).toExponential(2);
-			exponent = exponent.replace('+', '');
-			return exponent;
 		}
 	}
 	return prettifySub(number) + suffix;
@@ -4397,6 +4418,8 @@ function resetGame(keepPortal, resetting) {
 	var genStateConfig;
 	var maxSplit;
 	var logNotBase;
+	var hybridSwitchExp;
+	var hybridExponentType;
 	var totalPortals;
 	var totalRadPortals;
 	var microchipLevel;
@@ -4579,6 +4602,9 @@ function resetGame(keepPortal, resetting) {
 		genStateConfig = game.global.genStateConfig;
 		maxSplit = game.global.maxSplit;
 		logNotBase = game.global.logNotBase;
+		hybridSwitchExp = game.global.hybridSwitchExp;
+		hybridExponentType = game.global.hybridExponentType;
+
 		if (!game.global.canMagma) {
 			if (highestLevel > 229) highestLevel = 229;
 			if (roboTrimp > 8) roboTrimp = 8;
@@ -4728,6 +4754,8 @@ function resetGame(keepPortal, resetting) {
 		game.global.freeTalentRespecs = freeTalentRespecs;
 		game.global.maxSplit = maxSplit;
 		game.global.logNotBase = logNotBase;
+		game.global.hybridSwitchExp = hybridSwitchExp;
+		game.global.hybridExponentType = hybridExponentType;
 		game.global.uniqueId = uniqueId;
 		game.global.lastHeirlooms = lastHeirlooms;
 		game.global.ArchaeologyDone = ArchaeologyDone;
@@ -6409,23 +6437,60 @@ function getSettingsHTMLTooltipArgs(id) {
 }
 
 function getSettingHtml(optionItem, item, forceClass, appendId){
+	// handle ctr click functions with config buttons
+	let configBtn = "";
+	let configBtnClick;
+	let configClass = "";
+	let name = "";
+	if (!appendId) { // Don't add config buttons to all the secondary locations
+		if (item == "generatorStart" && game.permanentGeneratorUpgrades.Supervision.owned) {
+			configBtnClick = `onclick='tooltip("Configure Generator State", null, "update")'`;
+			name = "Supervision";
+		}
+		if (item == "offlineProgress" && !usingRealTimeOffline) {
+			configBtnClick = `onclick='tooltip("Time Warp Limiter", null, "update")'`;
+			name = "Timewarp Speed Limit";
+		}
+		if (item == "mapAtZone") {
+			configBtnClick = `onclick='tooltip("Set Map At Zone", null, "update")'`;
+			name = "Map At Zone";
+		}
+		if (item == "standardNotation") {
+			configBtnClick = `onclick='tooltip("Configure Number Formats", null, "update")'`;
+			name = "Number Formats";
+		}
+	}
+
 	if (!appendId) appendId = "";
 	if (!forceClass) forceClass = "";
+	if (configBtnClick) {
+		configBtn = `<button aria-label='Configure ${name}' ${configBtnClick}><span class='glyphicon glyphicon-cog'></span></button>`
+		configClass = "settingsBtnConfig"
+	}
 	var text = optionItem.titles[optionItem.enabled];
 	var tooltip = ``
 	if (usingScreenReader) {}
 	else {
 		tooltip = `onmouseover='tooltip("${text}", "customText", event, "${optionItem.description}")' onmouseout='tooltip("hide")'`
 	}
-	return `<div class='optionContainer ${forceClass}'><button id='toggle${item + appendId}' class='noselect settingsBtn settingBtn${optionItem.enabled}' onclick='toggleSetting("${item}"${((appendId) ? "" : ", this")})' ${tooltip}>${text}</button></div>`;
+	return `<div class='optionContainer ${forceClass}'><button id='toggle${item + appendId}' class='noselect settingsBtn settingBtn${optionItem.enabled} ${configClass}' onclick='toggleSetting("${item}"${((appendId) ? "" : ", this")})' ${tooltip}>${text}</button>${configBtn}</div>`;
 }
 
-function saveLogarithmicSetting(){
+function saveNumFormatSetting(){
 	var val = document.getElementById('logBaseInput').value;
+	if (!val) val = 10; //default
 	if (isNumberBad(val)) return;
 	val = Math.floor(val);
 	if (val < 2) val = 2;
 	game.global.logNotBase = val;
+
+	var hybridSwitch = document.getElementById('hybridSwitchInput').value;
+	if (!hybridSwitch) hybridSwitch = 31 // default
+	if (isNumberBad(hybridSwitch)) return;
+	hybridSwitch = Math.floor(hybridSwitch)
+	game.global.hybridSwitchExp = hybridSwitch
+
+	game.global.hybridExponentType = document.getElementById("hybridExpSelect").value
 }
 
 var lastPause = -1;
@@ -6438,9 +6503,8 @@ function toggleSetting(setting, elem, fromPortal, updateOnly, backwards, fromHot
 		tooltip("Configure Generator State", null, "update");
 		return;
 	}
-	if (setting == "standardNotation" && ctrlPressed && game.options.menu[setting].enabled == 5){
-		//configure logarithmic
-		tooltip("confirm", null, 'update', "Enter a number here to use as the base for your logarithmic numbers! (Default is 10)<br/><br/><input id='logBaseInput' value='" + game.global.logNotBase + "' type='number'/>", "saveLogarithmicSetting()", "Configure Log", "Confirm");
+	if (setting == "standardNotation" && ctrlPressed){
+		tooltip("Configure Number Formats", null, "update")
 		return;
 	}
 	if (setting == "offlineProgress" && ctrlPressed && !usingRealTimeOffline){

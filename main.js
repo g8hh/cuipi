@@ -987,8 +987,10 @@ function load(saveString, autoLoad, fromPf) {
 	}
 	if (compareVersion([5,5,0], oldStringVersion)){
 		if (game.global.challengeActive == "Archaeology" && game.global.world >= 91) game.challenges.Archaeology.onComplete();
+		if (savegame.portal.Equality){
 		savegame.portal.Equality.reversingSetting = savegame.portal.Equality.scalingSetting + 1;
 		if (savegame.portal.Equality.reversingSetting > 10) savegame.portal.Equality.reversingSetting = 10;
+		}
 		addNewFeats([10,11,19,20,21,22], true);
 		checkAchieve("zones2");
 		checkAchieve("totalRadon");
@@ -1067,12 +1069,14 @@ function load(saveString, autoLoad, fromPf) {
 	}
 	if (compareVersion([5,10,0], oldStringVersion)){
 		if (playerSpire.rowsAllowed >= 20) giveSingleAchieve("Power Tower");
-		game.portal.Equality.settings.reg = {
-			scalingActive: savegame.portal.Equality.scalingActive,
-			scalingSetting: savegame.portal.Equality.scalingSetting,
-			reversingSetting: savegame.portal.Equality.reversingSetting,
-			scalingReverse: savegame.portal.Equality.scalingActive,
-			disabledStackCount: savegame.portal.Equality.disabledStackCount
+		if (savegame.portal.Equality){
+			game.portal.Equality.settings.reg = {
+				scalingActive: savegame.portal.Equality.scalingActive,
+				scalingSetting: savegame.portal.Equality.scalingSetting,
+				reversingSetting: savegame.portal.Equality.reversingSetting,
+				scalingReverse: savegame.portal.Equality.scalingActive,
+				disabledStackCount: savegame.portal.Equality.disabledStackCount
+			}
 		}
 		var bestU2Voids = 0;
 		if (game.global.universe == 2) {
@@ -1146,6 +1150,7 @@ function load(saveString, autoLoad, fromPf) {
 	toggleAutoJobs(true);
 	toggleAutoEquip(true);
 	toggleAutoGolden(true);
+	document.getElementById("goldConfig").style.display = (game.global.canGuString ? "block" : "none");
     setGather(game.global.playerGathering);
     numTab(1);
 	if (!fromPf && game.options.menu.usePlayFab.enabled == 1) {
@@ -4227,7 +4232,7 @@ function rewardResource(what, baseAmt, level, checkMapLootScale, givePercentage)
 		if (game.global.challengeActive == "Alchemy") amt *= alchObj.getPotionEffect("Potion of Finding");
 		amt *= alchObj.getPotionEffect("Elixir of Finding");
 	}
-	if (getPerkLevel("Greed")) amt *= game.portal.Greed.getMult();
+	if (getPerkLevel("Greed") || getPerkLevel("Masterfulness")) amt *= game.portal.Greed.getMult();
 	if (game.global.challengeActive == "Quagmire") amt *= game.challenges.Quagmire.getLootMult();
 	if (Fluffy.isRewardActive("wealthy") && what != "helium") amt *= 2;
 	var spireRowBonus = (game.talents.stillRowing.purchased) ? 0.03 : 0.02;
@@ -5160,6 +5165,7 @@ function autoBuyJob(what, isRatio, purchaseAmt, max){
 				checkAndFix = true;
 			}	
 		}
+		else return;
 	}
 	for (var costItem in job.cost) {
         if (checkJobItem(what, true, costItem, null, buyAmt) !== true) return false;
@@ -13593,10 +13599,14 @@ function runMapAtZone(index){
 				break;
 			}
 		}
-		if (meltMap){
+		if (meltMap != -1){
 			if (game.global.currentMapId) recycleMap();
 			selectMap(meltMap.id);
 			runMap();
+		}
+		else{
+			mapsClicked(true);
+			return;
 		}
 		if (setting.until == 6) game.global.mapCounterGoal = 25;
 		if (setting.until == 7) game.global.mapCounterGoal = 50;
@@ -13743,6 +13753,7 @@ function startSpire(confirmed){
 			if (spireSetting == 1 || (spireSetting == 2 && spireNum >= highestSpire - 1) || (spireSetting == 3 && spireNum >= highestSpire)){
 				game.global.fighting = false;
 				mapsSwitch();
+				if (challengeActive('Berserk')) game.challenges.Berserk.trimpDied();
 			}
 			else handleExitSpireBtn();
 		}
@@ -13948,17 +13959,17 @@ function getSpireStory(spireNum, row, getAll){
 			r560: "您发现闷闷藏在了一个和周围格格不入的灌木丛后面，于是决定问它为什么要在它深爱的星球上释放突变。它告诉您，它只是在让自然变得更为强大，如果星球会说话，一定会感谢它的。您正准备回应时，它和灌木丛一起消失了。",
 			r590: "等一下，这层的稳定器是用八只腿跳舞吗？还是您被孢子影响了？不管怎么样，您都应该摧毁那个玩意。",
 			r600: "您离开了刚刚摧毁的楼层，深吸一口没有孢子的空气，轻轻拍着自己的背。您通过眼角余光发现了一小片黄色碎片，触碰它以后，您感觉自己充满了古老的知识，回收传家宝获得的虚空物质数量增加了20%！", //Needs reward
-			r607: "突变再度开始形成。您深深叹了口气，想着到这层终点时空气中会有多少孢子。",
+			r607: "好吧，突变就是树了。真是又大又吓人。",
 			r630: "污污一直在记录着这座尖塔中发生的事情，但它现在有点厌倦了。",
 			r660: "闷闷又来了，可它说的话您一个字也没听懂。您不知道是孢子的原因，还是它在糊弄您。",
 			r690: "您又发现稳定器了！您真的想速战速决，孢子实在令人不快。",
 			r700: "您又通过了一层。您回头看看脆皮们，意识到它们真的很棒。经过七层的锤炼，以及疯疯癫癫的闷闷“款待”后，污污的经验值获取量再度增加了50%！", //+50% scruffy xp
-			r707: "好吧，突变就是树了。真是又大又吓人。",
+			r707: "这里的一个突变格子看起来不太一样！您询问污污，它回答说橙色的格子含有更高浓度的孢子，当被攻击或击杀时会释放出10倍的孢子。听起来可不太妙……",
 			r750: "您已经走过尖塔四分之三的路程了！多亏了您，这座邪恶的尖塔只剩下一小部分了。为了表示祝贺，污污给了您一颗小巧奇异的浆果。",
 			r775: "闷闷再次出现，非常礼貌地请您离开。它表示自己不想再打扰您了，但它没法让德罗披提失望。您告诉它，只要它摧毁尖塔剩下的部分，您就会离开，但它只是发出了一声怪声，然后跑走了。",
 			r790: "您懂的，又是一个稳定器，该享受破坏尖塔的乐趣了！",
 			r800: "踏破八层，还差两层！您又发现了一个奇怪的蓝色球体，并把它直接扔给了一只脆皮。它们的暴击率再度增加了15%，而您一点也没感到奇怪。污污指向前方，您点了点头，继续前进。", //+15% crit
-			r807: "这里的一个突变格子看起来不太一样！您询问污污，它回答说橙色的格子含有更高浓度的孢子，当被攻击或击杀时会释放出10倍的孢子。听起来可不太妙……",
+			r807: "突变再度开始形成。您深深叹了口气，想着到这层终点时空气中会有多少孢子。",
 			r830: "闷闷想用一只脆皮当作人质迫使您离开，但它失手让脆皮跑掉了，那只脆皮像什么都没有发生似的回来了。",
 			r860: "闷闷在前面发出了一些奇怪的声音，看来您真的吓到它了。",
 			r890: "那边是另一个稳定器吗？请随意处置吧。",
@@ -17284,7 +17295,7 @@ function scaleLootBonuses(amt, ignoreScry){
 	if (game.global.universe == 2 && u2Mutations.tree.Loot.purchased) amt *= 1.5;
 	if (game.global.challengeActive == "Alchemy") amt *= alchObj.getPotionEffect("Potion of Finding");
 	amt *= alchObj.getPotionEffect("Elixir of Finding");
-	if (getPerkLevel("Greed")) amt *= game.portal.Greed.getMult();
+	if (getPerkLevel("Greed") || getPerkLevel("Masterfulness")) amt *= game.portal.Greed.getMult();
 	if (Fluffy.isRewardActive("wealthy")) amt *= 2;
 	if (getUberEmpowerment() == "Wind") amt *= 10;
 	if (!ignoreScry && isScryerBonusActive()) amt *= 2;
@@ -19589,7 +19600,7 @@ function getPlayFabLoginHTML(){
 	if (game.global.rememberInfo) {
 		info = readPlayFabInfo();
 	}
-		tipHtml[0] += "<div id='playFabLoginContainer' class='col-xs-6'><b id='playFabLoginTitle'>Login to PlayFab</b><br/><span id='playFabEmailHidden' style='display: none'>Your Email<br/><span id='emailNotice' style='font-size: 0.8em'>(For recovery, not required)<br/></span><input type='text' id='registerEmail' /></span><span id='usernameBox'>PlayFab Username<br/><input type='text' id='loginUserName' " + ((info) ? "value='" + info[0] + "'" : "") + "/></span><span id='playFabPasswordBox'><br/>Password <span style='font-size: 0.8em'>(6-30 Chars)</span><br/><input type='password' id='loginPassword'" + ((info) ? " value='" + info[1] + "'" : "") + "/></span><br/><div id='playFabConfirmPasswordHidden' style='display: none'>Confirm Password<br/><input type='password' id='confirmPassword' /><br/></div><span id='rememberInfoBox'>Remember Account Info<input type='checkbox' id='rememberInfo' " + ((info) ? "checked='true'" : "") + "/><br/></span><div id='playFabLoginBtn' class='btn btn-sm btn-info' onclick='playFabLoginWithPlayFab()'>Login</div><div id='playFabRegisterBtn' class='btn btn-sm btn-info' style='display: none' onclick='playFabRegisterPlayFabUser()'>Register</div><span style='display: none' id='playFabRecoverBtns'><div class='btn btn-sm btn-info' onclick='playFabRecoverInfo(false)' style='display: none'>Get Username</div><div class='btn btn-sm btn-primary' onclick='playFabRecoverInfo(true)'>Send Password Reset Email</div></span><div id='playFabSwitchRegisterBtn' onclick='switchForm(true)' class='btn btn-sm btn-primary'>Register Playfab Account</div><div id='playFabSwitchRecoveryBtn' onclick='switchForm(false)' class='btn btn-sm btn-warning'>Recover Account Info</div></div>"
+		tipHtml[0] += "<div id='playFabLoginContainer' class='col-xs-6'><b id='playFabLoginTitle'>Login to PlayFab</b><br/><span id='playFabEmailHidden' style='display: none'>Your Email<br/><span id='emailNotice' style='font-size: 0.8em'>(For recovery, not required)<br/></span><input type='text' id='registerEmail' /></span><span id='usernameBox'>PlayFab Username<br/><input type='text' id='loginUserName' " + ((info) ? "value='" + info[0] + "'" : "") + "/></span><span id='playFabPasswordBox'><br/>Password <span style='font-size: 0.8em'>(6-30 Chars)</span><br/><input type='password' id='loginPassword'" + ((info) ? " value='" + info[1] + "'" : "") + "/></span><br/><div id='playFabConfirmPasswordHidden' style='display: none'>Confirm Password<br/><input type='password' id='confirmPassword' /><br/></div><label id='rememberInfoBox'>Remember Account Info<br/>" + buildNiceCheckbox("rememberInfo", false, (info ? true : false)) +  "<br/></label><div id='playFabLoginBtn' class='btn btn-sm btn-info' onclick='playFabLoginWithPlayFab()'>Login</div><div id='playFabRegisterBtn' class='btn btn-sm btn-info' style='display: none' onclick='playFabRegisterPlayFabUser()'>Register</div><span style='display: none' id='playFabRecoverBtns'><div class='btn btn-sm btn-info' onclick='playFabRecoverInfo(false)' style='display: none'>Get Username</div><div class='btn btn-sm btn-primary' onclick='playFabRecoverInfo(true)'>Send Password Reset Email</div></span><div id='playFabSwitchRegisterBtn' onclick='switchForm(true)' class='btn btn-sm btn-primary'>Register Playfab Account</div><div id='playFabSwitchRecoveryBtn' onclick='switchForm(false)' class='btn btn-sm btn-warning'>Recover Account Info</div></div>"
 	}
 	tipHtml[0] += "<div id='playFabLoginInfo' class='col-xs-6'><ul><li>While connected to PlayFab, every time you manually save and <b>once per 30 minutes when auto-saving</b>, your file will also be sent to PlayFab's servers.</li><li>Data will be cleared from PlayFab's servers after 3 months of inactivity, this is not a permanent save!</li></ul>"
 	tipHtml[1] = "<div class='btn btn-sm btn-danger' onclick='cancelTooltip()'>Cancel</div>";

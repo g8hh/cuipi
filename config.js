@@ -22,7 +22,7 @@ function newGame () {
 var toReturn = {
 	global: {
 		//New and accurate version
-		stringVersion: '5.10.0',
+		stringVersion: '5.10.1',
 		//Leave 'version' at 4.914 forever, for compatability with old saves
 		version: 4.914,
 		isBeta: false,
@@ -282,6 +282,9 @@ var toReturn = {
 		uberNature: "",
 		//For the log notation base 
 		logNotBase: 10,
+		//For configurable Hybrid
+		hybridSwitchExp: 31,
+		hybridExponentType: "Eng",
 		lowestShield: 100,
 		hemmTimer: 300,
 		armyAttackCount: 0,
@@ -1026,7 +1029,7 @@ var toReturn = {
 			standardNotation: {
 				enabled: 1,
 				extraTags: "layout",
-				description: "Swap between Standard Formatting (12.7M, 540B), Engineering Notation (12.7e6, 540e9), Scientific Notation (1.27e7, 5.40e11), Alphabetic Notation (12.7b, 540c), Hybrid Notation (Standard up to e96, then Engineering. Mimics Standard pre 4.6), and Logarithmic Notation (10^7.10, 10^8.73). Hold Ctrl while clicking Logarithmic Notation to change the base.",
+				description: "Swap between Standard Formatting (12.7M, 540B), Engineering Notation (12.7e6, 540e9), Scientific Notation (1.27e7, 5.40e11), Alphabetic Notation (12.7b, 540c), Hybrid Notation (Standard up to e96, then Engineering. Mimics Standard pre 4.6), and Logarithmic Notation (10^7.10, 10^8.73). Hold Ctrl while clicking to configure Logarithmic and Hybrid Notation.",
 				titles: ["Scientific Notation", "Standard Formatting", "Engineering Notation", "Alphabetic Notation", "Hybrid Notation", "Logarithmic Notation"],
 				onToggle: function () {
 					document.getElementById("tab5Text").innerHTML = "+" + prettify(game.global.lastCustomAmt);
@@ -2751,7 +2754,8 @@ var toReturn = {
 			radSpent: 0,
 			timeLastZone: -1,
 			getMult: function(){
-				return Math.pow(this.getBonusAmt(), getPerkLevel("Tenacity") + getPerkLevel("Masterfulness"));
+				const bonusAmount = this.getBonusAmt();
+				return Math.pow(Math.max(1.1, bonusAmount), getPerkLevel("Tenacity") + getPerkLevel("Masterfulness")); 
 			},
 			getCarryoverMult: function(){
 				var mult = 0.5
@@ -2762,7 +2766,7 @@ var toReturn = {
 				if (game.global.spireActive && !game.global.mapsActive) return 60;
 				var minutes = getZoneMinutes();
 				var lastZone = this.timeLastZone;
-				if (lastZone == -1) lastZone = 0;
+				if (lastZone <= 0) lastZone = this.timeLastZone = 0;
 				if (lastZone > 120) lastZone = 120;
 				minutes += (lastZone * this.getCarryoverMult());
 				if (minutes > 120) minutes = 120;
@@ -5052,6 +5056,7 @@ var toReturn = {
 				addHelium(reward);
 				if (game.global.ArchaeologyDone && !game.global.canGuString){
 					game.global.canGuString = true;
+					document.getElementById("goldConfig").style.display = "block";
 					message("Now that you've mastered the skill of Archaeology, you've gained the ability to use a more powerful Custom Golden Upgrade automator! See the AutoGold tooltip or Ctrl Click AutoGold for more info.", "Notices");
 				}
 				if (!game.global.ArchaeologyDone){

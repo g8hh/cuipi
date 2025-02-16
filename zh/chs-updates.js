@@ -47,6 +47,19 @@ var cnItems = {
     'Universe 2 UI/QOL': '宇宙2游戏界面/游戏体验',
     'Universes 1 and 2': '宇宙1及宇宙2',
     //#endregion
+    //#region 5.10.1
+    'Added cogwheels to settings that have ctrl+click interfaces, allowing them to be opened without a ctrl key': '在可以按下Ctrl键再点击的选项上增加了齿轮图表，可以在不按下Ctrl键的情况下打开。',
+    'Added some more customization to the Number Formats setting, allowing you to set a switch point and exponent type for Hybrid Formatting': '在数字显示格式设置中增加了更多自定义选项，可以为混合记数法设置切换点和指数类型了。',
+    'The bonus to Seed drops from the U2 Spire is now working properly': '宇宙2尖塔对突变之种掉落数量的加成可以正确生效了。',
+    'Setting Frozen Castle in Map at Zone on Z300 in U2 will no longer cause MaZ to stick you in the map chamber after leaving the Spire': '在宇宙2中，自动进图设置为在区域300运行冻结城堡时，退出尖塔后不会再被困在地图库房了。',
+    'Readjusted the location of a few U2 Spire story messages to fit better': '调整了几条宇宙2尖塔故事消息的位置，使它们更契合游戏内容。',
+    'Fixed an issue that could cause AutoJobs in rare circumstances to fill more workspaces than it should': '修复了自动工作可能在极少数情况下填充超过预期数量工作区的问题。',
+    'Spire Assault presets no longer mention rings before they\'re unlocked': '尖塔突击的预设不会在解锁灵戒之前提到它了。',
+    'Fixed the \'Remember Me\' checkbox for Playfab on web': '修复了网页版上PlayFab界面的“记住账号信息”选择框的问题。',
+    'Fixed the config showing up for AutoGold before it\'s unlocked': '修复了自动金色升级解锁前相关设置可以显示的问题。',
+    'Scruffy\'s Radon breakdown now properly uses HZE after the level 23 bonus': '污污等级3的技能在获得等级23的技能后，可以正确以最高到达区域计算了。',
+    'Fixed another potential cause of the rare issue where damage numbers can go negative during Time Warp': '修复了可能导致一个罕见错误的问题，它可能导致时间跃迁期间攻击力变成负数。',
+    //#endregion
     //#region 5.10.0
     'There is now a 1000 cell Mega-Spire at Z300 with lots of rewards, unique mechanics, and tons of story messages': '在区域300出现了巨型尖塔，含有1000个格子，拥有大量奖励，独特机制，以及众多故事文本。',
     'Added a new Heirloom tier with a new mod each for Staff and Shield': '传家宝增加了新的稀有度，并且权杖和盾牌分别增加了一个新词缀。',
