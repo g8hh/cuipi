@@ -253,7 +253,7 @@ var cnItems = {
     'Added a statistic for Runetrinket collection so you can easily see how many you\'ve earned this run': '增加了小符饰的统计，以便您查看本周目获取量。',
     'Removed the button that hid advanced maps as it was confusing to accidentally click': '移除了关闭额外地图按钮，以避免误操作。',
     'Fluffy/Scruffy Daily bonus rewards now state that they increase Daily Challenge \'reward\' modifier rather than \'Helium\' or \'Radon\' modifier, as this modifier does more than just Helium/Radon': '绒绒污污的日常奖励加成描述变为奖励倍率增加，取代之前的氦获取量和氡获取量增加。因为日常奖励并不是只增加氦或氡的获取量。',
-    'Clarified in the Enlightened Ice description that the Overkill starts when Nature starts': '调整了冰启迪的描述，超杀格子上限从自然出现后才开始增加。',
+    'Clarified in the Enlightened Ice description that the Overkill starts when Nature starts': '调整了冰之启迪的描述，超杀格子上限从自然出现后才开始增加。',
     'Added a visual option to the Personal Spire for \'Faded Enemies\' that sets the opacity of Enemies in your Spire to 20% to reduce visual clutter': '在您的尖塔中增加了新的视觉选项“敌人变暗”，以便于更好地观察。',
     'Updated the Heirloom help text to be less confusing': '调整了传家宝帮助的文本，使它更清晰易懂。',
     'Fixed some typos and inconsistencies with text in the Storm Challenge': '修复了风暴挑战中的文本错误和前后矛盾的描述问题。',
