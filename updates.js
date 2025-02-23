@@ -5921,7 +5921,7 @@ function drawGeneticistassist(what) {
 	}
 
 	return `<div id="GeneticistassistContainer" class="thing">
-		${makeBuildJobUpgEquipButtonHTML("jobs", what)}<div onmouseover="tooltip('Geneticistassist',null,event)" onmouseout="tooltip('hide')" class="thing thingColorNone noselect stateHappy pointer jobThing" id="Geneticistassist" onclick="toggleGeneticistassist()">Geneticistassist
+		${makeBuildJobUpgEquipButtonHTML("jobs", what)}<div onmouseover="tooltip('Geneticistassist',null,event)" onmouseout="tooltip('hide')" class="thing thingColorNone noselect stateHappy pointer jobThing" id="Geneticistassist" onclick="toggleGeneticistassist()">Geneticistassist<i></i>
 			<span id="GAIndicator"></span><br/>
 			<span id="GeneticistassistSetting">&nbsp;</span>
 	</div></div>`;

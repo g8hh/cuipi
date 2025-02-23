@@ -4878,6 +4878,12 @@ var cnItems = {
     'There\'s a confirmation window to ensure accidental presses don\'t ruin your run!': '在自动传送前脚本会再度弹出界面进行确认，以免误操作影响游戏体验！',
     'Auto Eggs': '自动获取彩蛋',
     'Clicks easter eggs when they are active in the world.': '当世界上出现彩蛋时，自动获取它们。',
+    'Setting gather to food': '设置为采集食物',
+    'Setting gather to wood': '设置为砍伐木头',
+    'Setting gather to metal': '设置为采掘金属',
+    'Setting gather to science': '设置为获得科学点',
+    'Setting gather to trimps': '设置为抓捕脆皮',
+    'Setting gather to buildings': '设置为建造建筑',
         //#endregion 核心
         //#region 工作
     'Geneticassist Settings': '遗传学家设置',
@@ -4942,6 +4948,8 @@ var cnItems = {
     ' Use regular Gene Assist settings instead of this': '直接使用普通的计时',
     'GA: C2 Spire Timer': '挑战²尖塔计时',
     'Gene Assist will use the value set here when inside of active Spires in C2s.': '在挑战²激活的尖塔中遗传助手使用的计时。',
+    'Firing ': '解雇了',
+    'Hiring ': '雇佣了',
         //#endregion 工作
         //#region 建筑
     'Building Settings': '建筑设置',
@@ -5304,6 +5312,8 @@ var cnItems = {
     'If using this you must setup the scaling & reversing settings in the equality menu!': '如果使用该选项，您还需要在平等菜单下进行相关设置！',
     'Will disable equality scaling and use the equality stack slider to set your equality to the ideal amount to kill the current enemy in the least amount of hits necessary.': '将关闭平等缩放，并直接将平等生效等级设为最少攻击次数能够击杀当前敌人的最佳值。',
     ' Auto Equality: Advanced': '自动平等：高级',
+    'Abandoning Trimps to resend army with max Anticipation stacks.': '放弃士兵，把下一队预期层数已满的脆皮送入战场。',
+    'Abandoning Trimps to avoid Empower stacks.': '放弃士兵，以避免敌人获得赋能层数。',
         //#endregion 战斗
         //#region 地图
     'Maps - Auto Maps Settings': '地图 - 自动地图设置',
@@ -5348,7 +5358,7 @@ var cnItems = {
     'Will farm until you can survive this amount of attacks.': '脚本会刷资源，直到我方脆皮可以承受该数值次数的伤害才阵亡为止。',
     'Uses the ': '使用',
     ' inputs that have been set in the top row of the ': '的输入值(在',
-    'HD Farm': '承伤数及命攻比刷资源设置',
+    'HD Farm': '承伤数及命攻比刷资源',
     ' setting. If they haven\'t been setup then it will default to a job ratio of ': '设置的顶端)。如果没有相应的数值，则将把工作比例设为默认值',
     ' and a map cap of ': '，地图上限设为默认值',
     'Your current Hits Survived value can be seen in either the ': '您可以在以下地方看到当前承伤数：',
@@ -5449,7 +5459,24 @@ var cnItems = {
     'Here you can select how and when you would like Tributes & Meteorologists to be farmed.': '您可以选择刷贡品和气象学家的方式。',
     'Smithy Farm Settings': '刷铁匠铺设置',
     'Here you can select how and when you would like Smithies to be farmed.': '您可以选择刷铁匠铺的方式。',
-        //#endregion 地图
+    'Portal After Voids (': '完成虚空地图后传送(',
+    'There was an error with your purchased map(s). Restarting the raiding procedure.': '制造的地图有误，重新开始劫掠。',
+    'Prestige Raiding - Error with finding the purchased map. Skipping this map and moving on to the next one.': '重铸劫掠时无法找到制造的地图。忽略该地图，使用下一张地图。',
+    'Prestige Raiding - Error with finding the purchased map. Restarting the raiding procedure.': '重铸劫掠时无法找到制造的地图。重新开始劫掠。',
+    'Farming Wonders': '刷奇物',
+    'Ending Challenge': '完成挑战',
+    'Berserk: Obtaining Frenzy Stacks': '狂战：获得战狂层数',
+    'Desolation Prestige Scumming': '荒凉取巧获取重铸升级',
+    'Desolation Gear Scum': '荒凉取巧获取重铸升级',
+    'Your breed heirloom is equipped and mapping is disabled due to it. If this is not intentional then swap the heirloom you\'re using for breeding with another.': '您装备了繁殖传家宝，因此不会进入地图。如果这是您误操作，请装备别的传家宝。',
+    'Unique Map Farm': '刷独特地图',
+    'Archaeology Farm': '考古学刷资源',
+    'Pandemonium Farming': '群魔乱舞刷装备',
+    'Glass Farming': '玻璃刷资源',
+    ' Void maps were triggered by ': '虚空地图由以下机制触发：',
+    'Fragment farming successful': '刷碎片成功完成',
+    'Not enough fragments to purchase fragment farming map. Waiting for fragments. If you don\'t have explorers then you will have to manually disable auto maps and continue.': '碎片不足，无法制造刷碎片地图。将等待碎片增加。如果您还没解锁探险家，则需要关闭自动地图，才能继续。',
+    //#endregion 地图
         //#region 挑战
     'Challenges - Settings for Specific Challenges': '挑战 - 特定挑战相关设置',
     'Enable this if you want to automate destacking when running the ': '如果想要在',
@@ -5836,7 +5863,7 @@ var cnItems = {
     'P: Auto Equip: On': '关闭群魔乱舞自动装备',
     'Will automatically purchase equipment during Pandemonium regardless of efficiency.': '将无视效率直接购买装备。',
     'P: Auto Equip: Large Metal Cache': '群魔乱舞自动装备大金属箱',
-    'Provides settings to run maps if the cost of equipment levels is less than a single large metal cache. Overrides worker settings to ensure that you farm as much metal as possible.': '当装备升级消耗低于大金属储藏箱的获取量时，可以自动运行相应词缀的地图。无视工人的相关设置，以确保您可以获得尽可能多的金属。',
+    'Provides settings to run maps if the cost of equipment levels is less than a single large metal cache. Overrides worker settings to ensure that you farm as much metal as possible.': '当装备升级花费低于大金属储藏箱的获取量时，可以自动运行相应词缀的地图。无视工人的相关设置，以确保您可以获得尽可能多的金属。',
     'P: Auto Equip: Huge Cache': '群魔乱舞自动装备巨大箱',
     ' but switches to ': '类似，但会在以下条件时切换为',
     ' maps for extra resources when a ': '词缀的地图：',
@@ -6170,6 +6197,10 @@ var cnItems = {
     'Blacklist Core Modifiers': '不携带的核心词缀',
     'When Auto Heirlooms runs it will ignore Core heirlooms with the mods you select in this setting.': '运行自动筛选传家宝时，将不携带拥有该设置中词缀的核心。',
     'Each heirloom rarity has its own mod selection so you will need to select mods for each tier that you want mods to be blacklisted on.': '每个稀有度都需要选择对应的词缀，所以您需要为每个稀有度设置不携带的词缀。',
+    'The heirloom named ': '并不存在叫做“',
+    ' doesn\'t exist. Rename an heirloom or adjust the input for your ': '”的传家宝。重命名一个传家宝，或者调整脚本“',
+    ' Staff.': '”设置中使用的权杖。',
+    ' Shield.This will be causing at least one of your HD Ratios to be incorrect.': '”设置中使用的盾牌。它会导致命攻比数值不准确。',
         //#endregion 传家宝
         //#region 尖塔
     'Spire - Settings for Spires. HD Ratio and Hits Survived calculations for the Spire will be based off your Exit After Cell if set.': '尖塔 - 尖塔相关设置。如果设置了相关选项，则尖塔相关的命攻比和承伤数将以尖塔退出格子进行计算。',
