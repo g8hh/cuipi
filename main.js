@@ -19695,7 +19695,7 @@ function playFabRegisterPlayFabUser(){
 	var emailElem = document.getElementById("registerEmail");
 	var rememberElem = document.getElementById("rememberInfo");
 	var confirmPasswordElem = document.getElementById("confirmPassword");
-	if (rememberElem && rememberElem.checked == true) saveLogin = true;
+	if (rememberElem && rememberElem.dataset.checked == "true") saveLogin = true;
 	if (nameElem == null || passElem == null || emailElem == null || rememberElem == null || confirmPasswordElem == null){
 		//Elements required to register are missing, rebuild login screen
 		tooltip("PlayFab Login", null, "update");
@@ -19739,7 +19739,7 @@ function playFabLoginWithPlayFab(username, pass){
 		var nameElem = document.getElementById("loginUserName");
 		var passElem = document.getElementById("loginPassword");
 		var rememberElem = document.getElementById("rememberInfo");
-		if (rememberElem && rememberElem.checked == true) saveLogin = true;
+		if (rememberElem && rememberElem.dataset.checked == "true") saveLogin = true;
 		if (nameElem == null || passElem == null){
 			//Elements required to login are missing, rebuild login screen
 			tooltip("PlayFab Login", null, "update");
