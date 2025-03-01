@@ -5115,7 +5115,7 @@ var cnItems = {
     'The value you want armor equipment to stop being purchased at.': '购买护甲的等级上限。',
     'When your Hits Survived is below your ': '当承伤数低于',
     ' farming this cap is ignored and you will purchase as many health equips as it takes to reach your target.': '刷资源时，则将无视该上限购买护甲。',
-    ' setting this cap is ignored and the script will purchase as many health equips as it takes to reach your target.': '设置的数值，则将无视该上限购买武器。',
+    ' setting this cap is ignored and the script will purchase as many health equips as it takes to reach your target.': '设置的数值，则将无视该上限购买护甲。',
     'AE: Zone': '限制解放区域',
     'What zone to stop caring about what percentage of resources you\'re spending and buy as many prestiges and equipment as possible.': '在该区域不考虑资源百分比，尽可能购买重铸升级和装备。',
     'Can input multiple zones such as ': '您可以输入多个数值，格式类似',
