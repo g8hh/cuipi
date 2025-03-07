@@ -6476,7 +6476,7 @@ var cnItems = {
     'The heirloom named ': '并不存在叫做“',
     ' doesn\'t exist. Rename an heirloom or adjust the input for your ': '”的传家宝。重命名一个传家宝，或者调整脚本“',
     ' Staff.': '”设置中使用的权杖。',
-    ' Shield.This will be causing at least one of your HD Ratios to be incorrect.': '”设置中使用的盾牌。它会导致命攻比数值不准确。',
+    ' Shield. This will be causing at least one of your HD Ratios to be incorrect.': '”设置中使用的盾牌。它会导致命攻比数值不准确。',
     'Force Auto Heirlooms': '强制自动筛选传家宝',
     'Auto Heirloom Mods': '自动筛选传家宝词缀',
     'Max mods selected!': '词缀数量已达最大！',
