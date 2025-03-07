@@ -2105,7 +2105,7 @@ function addTooltipPricing(toTip, what, isItIn) {
 							percentOfTotal = "(" + percentOfTotal + "%)";
 						}
 					}
-					costText += '<span class="' + canAfford + '">' + item + '<i></i>：' + prettify(price) + '&nbsp;' + percentOfTotal + '</span>，';
+					costText += '<span class="' + canAfford + '">' + item + '<i></i>：' + prettify(price) + '&nbsp;<i></i>' + percentOfTotal + '</span>，';
 				}
 				else
 				costText += item + "<i></i>：" + prettify(price) + "，";

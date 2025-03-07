@@ -4805,7 +4805,7 @@ function canAffordBuilding(what, take, buildCostString, isEquipment, updatingLab
 				percent = (game.resources[costItem].owned > 0) ? prettify(((price / game.resources[costItem].owned) * 100).toFixed(1)) : 0;
 				percent = "(" + percent + "%)";
 			}
-			costString += '<span class="' + color + '">' + costItem + '<i></i>：' + prettify(price) + '&nbsp;' + percent + '</span>，';
+			costString += '<span class="' + color + '">' + costItem + '<i></i>：' + prettify(price) + '&nbsp;<i></i>' + percent + '</span>，';
 		}
 		if (take) game.resources[costItem].owned -= price;
 	}
@@ -5440,7 +5440,7 @@ function checkJobItem(what, take, costItem, amtOnly, toBuy) {
 			percent = (game.resources[costItem].owned > 0) ? prettify(((price / game.resources[costItem].owned) * 100).toFixed(1)) : 0;
 			percent = "(" + percent + "%)";
 		}
-		return prettify(price) + "&nbsp;" + percent;
+		return prettify(price) + "&nbsp;<i></i>" + percent;
 	}
     if (take) {
         game.resources[costItem].owned -= price;
