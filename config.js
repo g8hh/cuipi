@@ -3473,7 +3473,7 @@ var toReturn = {
 			start: function () {
 				document.getElementById("scienceCollectBtn").style.display = "none";
 				game.resources.science.owned = getScientistInfo(getScientistLevel());
-				game.global.autoUpgrades = false;
+				game.global.autoUpgrades = 0;
 				game.global.autoPrestiges = 0;
 				toggleAutoPrestiges(true);
 				toggleAutoUpgrades(true);

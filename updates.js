@@ -5643,7 +5643,7 @@ function displayEfficientEquipment(){
 				attackTier = equip.prestige;
 			}
 		}
-		else if (equip.health && (!healthCost || costPer < healthCost || (highlightSetting == 1 && attackTier < equip.prestige))){
+		else if (equip.health && (!healthCost || costPer < healthCost || (highlightSetting == 1 && healthTier < equip.prestige))){
 			if (highlightSetting != 1 || equip.prestige >= healthTier || !healthTier){
 				health = item;
 				healthCost = costPer;

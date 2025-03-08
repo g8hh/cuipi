@@ -6642,7 +6642,7 @@ function checkVoidMap() {
 	var min = (max > 80) ? (1000 + ((max - 80) * 13)) : 1000;
 	min *= (1 - (getHeirloomBonus("Shield", "voidMaps") / 100));
 	var extraV = 0;
-	if (game.challenges.Nurture.boostsActive() && game.challenges.Nurture.getLevel >= 4) extraV = 0.2;
+	if (game.challenges.Nurture.boostsActive() && game.challenges.Nurture.getLevel() >= 4) extraV = 0.2;
 	min *= (1 - (game.goldenUpgrades.Void.currentBonus + extraV));
 	var chance = (Math.floor((game.global.lastVoidMap - min) / 10) / 50000);
 	game.global.lastVoidMap++;
@@ -11293,8 +11293,7 @@ function makeIconEffectHTML(title, text, icon, spanClasses, ids=[], iconText="",
 	else {
 		tooltip = `onmouseover="tooltip('${title}', ${tooltipType}, event, '${text}')" onmouseout="tooltip('hide')"`
 	}
-	let html = `<div ${containerID}class="badge ${spanClasses ? spanClasses : ""}" ${tooltip}>
-				<span${textID}>${iconText}</span><span ${iconID}class="${icon}"></span>${display}</div>`
+	let html = `<div ${containerID}class="badge ${spanClasses ? spanClasses : ""}" ${tooltip}><span${textID}>${iconText}</span><span ${iconID}class="${icon}"></span>${display}</div>`
 	return html
 }
 
@@ -16593,7 +16592,7 @@ function manageLeadStacks(remove) {
 	if (game.global.world % 2 === 1) {
 		if (determinedBuff === null) {
 			const goodGuyElem = document.getElementById('goodGuyName');
-			const htmlMessage = '&nbsp' + makeIconEffectHTML("Determined", "Your Trimps are determined to succeed. They gain 50% attack and earn double resources from all sources.", "icon-sun2", "antiBadge", ["determinedBuff"])
+			const htmlMessage = makeIconEffectHTML("Determined", "Your Trimps are determined to succeed. They gain 50% attack and earn double resources from all sources.", "icon-sun2", "antiBadge", ["determinedBuff"])
 			if (!goodGuyElem.innerHTML.includes(htmlMessage)) goodGuyElem.insertAdjacentHTML('beforeend', htmlMessage);
 			determinedBuff = document.getElementById('determinedBuff');
 		}
@@ -16607,7 +16606,7 @@ function manageLeadStacks(remove) {
 
 	if (!elem) {
 		const badGuyElem = document.getElementById('badGuyName');
-		const htmlMessage = `&nbsp;` + makeIconEffectHTML("Momentum", false, "icon-hourglass", "badBadge", ["leadBuff", "leadStacks", "momentumIcon"], challenge.stacks)
+		const htmlMessage = makeIconEffectHTML("Momentum", false, "icon-hourglass", "badBadge", ["leadBuff", "leadStacks", "momentumIcon"], challenge.stacks)
 		if (badGuyElem.innerHTML !== htmlMessage) badGuyElem.insertAdjacentHTML('beforeend', htmlMessage);
 	} else {
 		const stacksElem = document.getElementById('leadStacks');
@@ -16625,7 +16624,7 @@ function updateToxicityStacks() {
 
 	if (!elem) {
 		const badGuyElem = document.getElementById('badGuyName');
-		const htmlMessage = "&nbsp" + makeIconEffectHTML("毒性", false, "icon-radioactive", "badBadge", ["toxicityBuff", "toxicityStacksText"], stackCount)
+		const htmlMessage = makeIconEffectHTML("毒性", false, "icon-radioactive", "badBadge", ["toxicityBuff", "toxicityStacksText"], stackCount)
 		if (badGuyElem.innerHTML != htmlMessage) badGuyElem.insertAdjacentHTML('beforeend', htmlMessage);
 	} else {
 		const stacksElem = document.getElementById('toxicityStacksText');
@@ -16642,7 +16641,7 @@ function updateLivingStacks() {
 
 	if (!elem) {
 		const goodGuyElem = document.getElementById('goodGuyName');
-		const htmlMessage = `&nbsp` + makeIconEffectHTML("Unliving", false, "icon-shareable", "antiBadge", ["livingBuff", "livingStacks"], stackCount + "&nbsp;")
+		const htmlMessage = makeIconEffectHTML("Unliving", false, "icon-shareable", "antiBadge", ["livingBuff", "livingStacks"], stackCount + "&nbsp;")
 		if (!goodGuyElem.innerHTML.includes(htmlMessage)) goodGuyElem.insertAdjacentHTML('beforeend', htmlMessage);
 	} else {
 		const stacksElem = document.getElementById('livingStacks');

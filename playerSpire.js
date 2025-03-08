@@ -1156,7 +1156,7 @@ var playerSpire = {
             if (secondGradient) setting = secondGradient + ", " + setting;
 			cellDesc.push("Strength Buff")
 			if (forSR) return cellDesc
-            if (elem) elem.style.backgroundImage = setting;
+            if (elem) { elem.style.backgroundImage = setting; return; }
             else return "background-image: " + setting;
         }
         else if (playerSpireTraps.Frost.level >= 4 && (!trap.name || trap.name == "Poison") && layout.length > cellNumber + 1 && playerSpire.layout[cellNumber + 1].trap.name && playerSpire.layout[cellNumber + 1].trap.name == "Frost"){
@@ -1166,19 +1166,19 @@ var playerSpire = {
             if (secondGradient) setting = secondGradient + ", " + setting;
 			cellDesc.push("Frost After")
 			if (forSR) return cellDesc
-            if (elem) elem.style.backgroundImage = setting;
+            if (elem) { elem.style.backgroundImage = setting; return; }
             else return "background-image: " + setting;
         }
         else if (dblPoisonColor){
             if (secondGradient) dblPoisonColor = secondGradient + ", " + dblPoisonColor;
 			if (forSR) return cellDesc
-            if (elem) elem.style.backgroundImage = dblPoisonColor;
+            if (elem) { elem.style.backgroundImage = dblPoisonColor; return; }
             else return "background-image: " + dblPoisonColor;
         }
         else if (secondGradient){
             secondGradient = secondGradient.replace("rgba(0,0,0,0)", bgColor);
 			if (forSR) return cellDesc
-            if (elem) elem.style.backgroundImage = secondGradient;
+            if (elem) { elem.style.backgroundImage = secondGradient; return }
             else return "background-image: " + secondGradient;
         }
 		if (forSR) return false
