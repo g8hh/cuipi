@@ -11144,14 +11144,16 @@ function battleCoordinator(makeUp) {
     game.global.battleCounter += (1000 / game.settings.speed);
 	var num = (getPerkLevel("Agility")) ? 1000 * Math.pow(1 - game.portal.Agility.modifier, getPerkLevel("Agility")) : 1000;
 	if (game.talents.hyperspeed.purchased) num -= 100;
-	if (game.talents.hyperspeed2.purchased){
+	
+	if (game.global.mapExtraBonus == "fa") {
+		num -= 100;
+	} else if (game.talents.hyperspeed2.purchased){
 		var hsZoneMod = game.talents.liquification3.purchased ? 0.75 : 0.5;
 		if (game.global.world <= Math.floor((getHighestLevelCleared(false, true) + 1) * hsZoneMod)){
 			num -= 100;
 		}
 	}
-	else if (game.global.mapExtraBonus == "fa")
-		num -= 100;
+	
 	if (!game.global.mapsActive && game.global.gridArray[0].name == "Liquimp" && num < 400)
 		num = 400;
 	if (game.global.challengeActive == "Quagmire") num += game.challenges.Quagmire.getSpeedPenalty();
