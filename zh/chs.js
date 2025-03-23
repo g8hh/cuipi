@@ -3774,7 +3774,7 @@ var cnItems = {
     'Huffy\'s minimum Attack Time is 0.5 seconds. Any reductions to Attack Time below 0.5 seconds will be converted to Slow Aura, making the Enemy attack up to 50% slower.': '怒怒的攻击间隔下限为0.5秒。如果攻击间隔低于该数值，将转化为减速气场，使敌人的攻击最多减慢50%。',
     'The Spire Assault window can be opened with hotkey "i"': '您可以使用快捷键i来启用尖塔突击界面。',
     'Back to Spire Assault': '返回尖塔突击',
-    'Huffy can go no further up the Spire but can now Seal it to prevent any more Enemies from escaping. All bonuses have been set to 2 levels above their maximum. Congratulations on completing Spire Assault!!! ': '怒怒无法继续攀登尖塔了，但它可以关闭尖塔，以防止敌人逃跑。关闭尖塔后所有加成将变为比最高等级还多出2级。恭喜您通关尖塔突击！！！',
+    'Huffy can go no further up the Spire but can now Seal it to prevent any more Enemies from escaping. All bonuses have been set to 2 levels above their maximum. Congratulations on completing Spire Assault!!! ': '怒怒无法继续攀登尖塔了，但它可以关闭尖塔，以防止敌人逃跑。所有加成已变为比最高等级还多出2级。恭喜您通关尖塔突击！！！',
     'Seal Spire Assault (Can reopen at any time in settings': '关闭尖塔突击(可以在设置中随时重新开启',
     'Dust': '魔尘',
     'Shards': '晶块',
