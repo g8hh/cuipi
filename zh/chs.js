@@ -686,6 +686,7 @@ var cnItems = {
     'Wow, such speed': '哇哦，这么快',
     'Your Trimps dinged your ship while out on a joyride': '脆皮们开着飞船兜风时撞到了其他东西',
     'One of your Trimps got a tattoo while you were gone': '您不在的时候一个脆皮纹了身',
+    'Wanna run a map?': '想运行地图吗？',
     'No maps available': '无可用的地图',
     'Gain 1 map for each 8 hours away': '每离线8个小时可以获得一张地图',
     'Oof, you don\'t have enough fragments to run a map.': '哎呀，您的碎片不够，无法制造地图。',
@@ -7792,7 +7793,6 @@ var cnItems = {
     'Replace': 'Replace',
     'Respec (20 bones': 'Respec (20 bones',
     'Unlock at Z': 'Unlock at Z',
-    'Wanna run a map?': 'Wanna run a map?',
     'World Level Map': 'World Level Map',
     'You do not currently have an active challenge.': 'You do not currently have an active challenge.',
     //以下为脚本多余文本
