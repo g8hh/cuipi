@@ -7920,6 +7920,9 @@ function setHeirRareText(forBones, forMain){
 		else if (rarityNames == "Legendary"){
 			rarityNames = "传奇";
 		}
+		else if (rarityNames == "Magnificent"){
+			rarityNames = "华丽";
+		}
 		else if (rarityNames == "Ethereal"){
 			rarityNames = "空灵";
 		}
