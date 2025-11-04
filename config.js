@@ -9420,7 +9420,7 @@ var toReturn = {
 			world: 6,
 			loot: function(){
 				if (game.global.challengeActive == "Quagmire"){
-					message("您通过了黑色泥沼！我方脆皮的疲惫不堪和积极前进同时减少了1层。", "Notices");
+					message("您通过了黑之泥沼！我方脆皮的疲惫不堪和积极前进同时减少了1层。", "Notices");
 					game.challenges.Quagmire.motivatedStacks--;
 					game.challenges.Quagmire.exhaustedStacks--;
 					if (game.challenges.Quagmire.motivatedStacks <= 0) game.challenges.Quagmire.abandon();
