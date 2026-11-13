@@ -5180,7 +5180,7 @@ function postMessages(){
         var log = document.getElementById("log");
         var needsScroll = ((log.scrollTop + 10) > (log.scrollHeight - log.clientHeight));
         var pendingMessages = pendingLogs.all.join('');
-        log.innerHTML += pendingMessages;
+        log.insertAdjacentHTML('beforeend', pendingMessages);
         pendingLogs.all = [];
         for (var item in pendingLogs){
             if (item == "all" || item == "RAF") continue;
@@ -5188,6 +5188,7 @@ function postMessages(){
                 trimMessages(item);
             pendingLogs[item] = [];
         }
+		trimMessages('Story');
         if (needsScroll) log.scrollTop = log.scrollHeight;
     });
 }
