@@ -12736,8 +12736,10 @@ function updateTalentNumbers() {
 	if (talentsCostElem.style.display !== 'block') {
 		talentsCostElem.style.display = 'block';
 	}
-	if (nextCostElem.innerHTML !== prettify(nextCost)) {
-		nextCostElem.innerHTML = prettify(nextCost);
+
+	const nextCostText = String(prettify(nextCost));
+	if (nextCostElem.innerHTML !== nextCostText) {
+    	nextCostElem.innerHTML = nextCostText;
 	}
 
 	if (!alertElem || !countElem) return;

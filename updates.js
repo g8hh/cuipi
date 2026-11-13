@@ -5188,7 +5188,7 @@ function postMessages(){
                 trimMessages(item);
             pendingLogs[item] = [];
         }
-		trimMessages('Story');
+		trimMessages('Story', 100);
         if (needsScroll) log.scrollTop = log.scrollHeight;
     });
 }
@@ -5209,13 +5209,14 @@ function nodeToArray(nodeList){
     return a;
 }
 
-function trimMessages(what){
+function trimMessages(what, limit){
 	var log = document.getElementById("log");
 	var toChange = document.getElementsByClassName(what + "Message");
 	toChange = nodeToArray(toChange);
 	var messageCount = toChange.length;
-	if (messageCount > 20){
-		for (var count = 0; count < (messageCount - 20); count++){
+	var maxMessages = limit || 20;
+	if (messageCount > maxMessages){
+		for (var count = 0; count < (messageCount - maxMessages); count++){
 			log.removeChild(toChange[count]);
 		}
 	}
@@ -5537,7 +5538,7 @@ function checkAndDisplayResources() {
 		if (item === 'helium' && game.global.universe === 2) toUpdate = game.resources.radon;
 
 		let elem = document.getElementById(`${item}Owned`);
-		let elemText = prettify(Math.floor(toUpdate.owned));
+		let elemText = String(prettify(Math.floor(toUpdate.owned)));
 		if (elem.innerHTML !== elemText) elem.innerHTML = elemText;
 
 		if (toUpdate.max === -1 || !document.getElementById(`${item}Max`)) continue;
@@ -5750,10 +5751,11 @@ function updatePs(jobObj, trimps, jobName){ //trimps is true/false, send PS as f
 
 		}
 		if (game.options.menu.useAverages.enabled) psText = parseFloat(psText) + getAvgLootSecond(jobObj.increase);
-		psText = prettify(psText);
-		psText = "+" + psText + "/秒";
-		elem.textContent = psText;
-		swapClass('sizeSec', ((psText.replace('.','').length >= 10) ? 'sizeSecReduced' : 'sizeSecRegular'), elem);
+		psText = "+" + prettify(psText) + "/秒";
+		if (elem.textContent !== psText) {
+			elem.textContent = psText;
+			swapClass('sizeSec', ((psText.replace('.','').length >= 10) ? 'sizeSecReduced' : 'sizeSecRegular'), elem);
+		}
 }
 
 function updateSideTrimps() {
@@ -5761,7 +5763,7 @@ function updateSideTrimps() {
 	const realMax = trimps.realMax();
 
 	let elem = document.getElementById('trimpsEmployed');
-	let elemText = prettify(trimps.employed);
+	let elemText = String(prettify(trimps.employed));
 	if (elem.innerHTML !== elemText && !usingRealTimeOffline) elem.innerHTML = elemText;
 
 	const multitaskingMult = game.permaBoneBonuses.multitasking.owned ? game.permaBoneBonuses.multitasking.mult() : 0;
@@ -5769,11 +5771,11 @@ function updateSideTrimps() {
 	const breedCount = trimps.owned - breedEmployed > 2 ? prettify(Math.floor(trimps.owned - breedEmployed)) : 0;
 
 	elem = document.getElementById('trimpsUnemployed');
-	elemText = breedCount;
+	elemText = String(breedCount);
 	if (elem.innerHTML !== elemText && !usingRealTimeOffline) elem.innerHTML = elemText;
 
 	elem = document.getElementById('maxEmployed');
-	elemText = prettify(Math.ceil(realMax / 2));
+	elemText = String(prettify(Math.ceil(realMax / 2)));
 	if (elem.innerHTML !== elemText && !usingRealTimeOffline) elem.innerHTML = elemText;
 
 	let free = Math.ceil(realMax / 2) - trimps.employed;
